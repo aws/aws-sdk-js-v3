@@ -1,4 +1,5 @@
 export * from "./GetWorkflowExecutionHistoryPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListActivityTypesPaginator";
 export * from "./ListClosedWorkflowExecutionsPaginator";

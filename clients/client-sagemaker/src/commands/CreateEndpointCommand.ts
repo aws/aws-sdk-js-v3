@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,11 +23,11 @@ export interface CreateEndpointCommandInput extends CreateEndpointInput {}
 export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker
+ * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
  *             uses the endpoint to provision resources and deploy models. You create the endpoint
  *             configuration with the <a>CreateEndpointConfig</a> API. </p>
- *         <p> Use this API to deploy models using Amazon SageMaker hosting services. </p>
- *         <p>For an example that calls this method when deploying a model to Amazon SageMaker hosting services,
+ *         <p> Use this API to deploy models using SageMaker hosting services. </p>
+ *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
  *             see the <a href="https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb">Create Endpoint example notebook.</a>
  *          </p>
  *         <note>
@@ -36,7 +37,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *                 create a new <code>EndpointConfig</code>.</p>
  *         </note>
  *         <p>The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account. </p>
- *         <p>When it receives the request, Amazon SageMaker creates the endpoint, launches the resources (ML
+ *         <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
  *             compute instances), and deploys the model(s) on them. </p>
  *
  *         <note>
@@ -51,13 +52,13 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *                 response should return the latest data. So retry logic is recommended to handle
  *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
  *         </note>
- *         <p>When Amazon SageMaker receives the request, it sets the endpoint status to
+ *         <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Creating</code>. After it creates the endpoint, it sets the status to
- *                 <code>InService</code>. Amazon SageMaker can then process incoming requests for inferences. To
+ *                 <code>InService</code>. SageMaker can then process incoming requests for inferences. To
  *             check the status of an endpoint, use the <a>DescribeEndpoint</a>
  *             API.</p>
  *         <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
- *             Amazon SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
+ *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
  *             provided. Amazon Web Services STS is activated in your IAM user account by default. If you previously
  *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For
  *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and

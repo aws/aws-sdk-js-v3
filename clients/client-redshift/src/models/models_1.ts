@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   ActionType,
@@ -77,6 +77,11 @@ export namespace DescribeLoggingStatusMessage {
   });
 }
 
+export enum LogDestinationType {
+  CLOUDWATCH = "cloudwatch",
+  S3 = "s3",
+}
+
 /**
  * <p>Describes the status of logging for a cluster.</p>
  */
@@ -111,6 +116,16 @@ export interface LoggingStatus {
    * <p>The message indicating that logs failed to be delivered.</p>
    */
   LastFailureMessage?: string;
+
+  /**
+   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   */
+  LogDestinationType?: LogDestinationType | string;
+
+  /**
+   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   */
+  LogExports?: string[];
 }
 
 export namespace LoggingStatus {
@@ -1696,7 +1711,7 @@ export interface EnableLoggingMessage {
    *             </li>
    *          </ul>
    */
-  BucketName: string | undefined;
+  BucketName?: string;
 
   /**
    * <p>The prefix applied to the log file names.</p>
@@ -1729,6 +1744,16 @@ export interface EnableLoggingMessage {
    *          </ul>
    */
   S3KeyPrefix?: string;
+
+  /**
+   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   */
+  LogDestinationType?: LogDestinationType | string;
+
+  /**
+   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   */
+  LogExports?: string[];
 }
 
 export namespace EnableLoggingMessage {
@@ -3708,7 +3733,7 @@ export interface RestoreFromClusterSnapshotMessage {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The Key Management Service (KMS) key ID of the encryption key to encrypt data in the cluster
+   * <p>The Key Management Service (KMS) key ID of the encryption key that encrypts data in the cluster
    *             restored from a shared snapshot. You can also provide
    *             the key ID when you restore from an unencrypted snapshot to an encrypted cluster in
    *             the same account. Additionally, you can specify a new KMS key ID when you restore from an encrypted
@@ -3815,7 +3840,7 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>Enables support for restoring an unencrypted snapshot to a cluster encrypted
-   *             with Key Management Service (KMS) and a CMK.</p>
+   *             with Key Management Service (KMS) and a customer managed key.</p>
    */
   Encrypted?: boolean;
 }

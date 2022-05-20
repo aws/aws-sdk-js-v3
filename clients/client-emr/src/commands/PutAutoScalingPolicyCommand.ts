@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,9 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
 
 /**
  * <p>Creates or updates an automatic scaling policy for a core instance group or task
- *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how an
- *          instance group dynamically adds and terminates EC2 instances in response to the value of a
- *          CloudWatch metric.</p>
+ *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how
+ *          an instance group dynamically adds and terminates EC2 instances in response to the value of
+ *          a CloudWatch metric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

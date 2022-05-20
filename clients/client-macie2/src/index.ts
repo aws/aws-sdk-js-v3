@@ -1,4 +1,5 @@
 export * from "./Macie2";
+// smithy-typescript generated code
 export * from "./Macie2Client";
 export * from "./commands";
 export * from "./models";

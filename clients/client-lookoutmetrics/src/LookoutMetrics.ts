@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -52,6 +53,11 @@ import {
   DescribeMetricSetCommandInput,
   DescribeMetricSetCommandOutput,
 } from "./commands/DescribeMetricSetCommand";
+import {
+  DetectMetricSetConfigCommand,
+  DetectMetricSetConfigCommandInput,
+  DetectMetricSetConfigCommandOutput,
+} from "./commands/DetectMetricSetConfigCommand";
 import {
   GetAnomalyGroupCommand,
   GetAnomalyGroupCommandInput,
@@ -488,6 +494,38 @@ export class LookoutMetrics extends LookoutMetricsClient {
     cb?: (err: any, data?: DescribeMetricSetCommandOutput) => void
   ): Promise<DescribeMetricSetCommandOutput> | void {
     const command = new DescribeMetricSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detects an Amazon S3 dataset's file format, interval, and offset.</p>
+   */
+  public detectMetricSetConfig(
+    args: DetectMetricSetConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectMetricSetConfigCommandOutput>;
+  public detectMetricSetConfig(
+    args: DetectMetricSetConfigCommandInput,
+    cb: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
+  ): void;
+  public detectMetricSetConfig(
+    args: DetectMetricSetConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
+  ): void;
+  public detectMetricSetConfig(
+    args: DetectMetricSetConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectMetricSetConfigCommandOutput) => void),
+    cb?: (err: any, data?: DetectMetricSetConfigCommandOutput) => void
+  ): Promise<DetectMetricSetConfigCommandOutput> | void {
+    const command = new DetectMetricSetConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

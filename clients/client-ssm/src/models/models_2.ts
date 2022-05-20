@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   LoggingInfo,
@@ -20,6 +20,7 @@ import {
   Target,
 } from "./models_0";
 import {
+  DocumentReviews,
   InventoryFilter,
   InventoryGroup,
   MaintenanceWindowTaskInvocationParameters,
@@ -28,6 +29,32 @@ import {
   ResultAttribute,
 } from "./models_1";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+export interface UpdateDocumentMetadataRequest {
+  /**
+   * <p>The name of the change template for which a version's metadata is to be updated.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The version of a change template in which to update approval metadata.</p>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>The change template review details to update.</p>
+   */
+  DocumentReviews: DocumentReviews | undefined;
+}
+
+export namespace UpdateDocumentMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateDocumentMetadataResponse {}
 

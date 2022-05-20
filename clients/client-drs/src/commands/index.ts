@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateReplicationConfigurationTemplateCommand";
 export * from "./DeleteJobCommand";
 export * from "./DeleteRecoveryInstanceCommand";

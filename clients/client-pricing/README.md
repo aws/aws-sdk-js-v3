@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-pricing
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pricing/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pricing)
@@ -15,7 +17,7 @@ level. You can use the Amazon Web Services Price List Service to build cost cont
 billing data, forecast future spend for budgeting purposes, and provide cost benefit
 analysis that compare your internal workloads with Amazon Web Services.</p>
 <p>Use <code>GetServices</code> without a service code to retrieve the service codes for all AWS services, then
-<code>GetServices</code> with a service code to retreive the attribute names for
+<code>GetServices</code> with a service code to retrieve the attribute names for
 that service. After you have the service code and attribute names, you can use <code>GetAttributeValues</code>
 to see what values are available for an attribute. With the service code and an attribute name and value,
 you can use <code>GetProducts</code> to find specific products that you're interested in, such as
@@ -138,7 +140,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -172,7 +174,7 @@ client
 
 // callbacks.
 client.describeServices(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

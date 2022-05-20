@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -43,7 +44,7 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *       use the <code>TextDetection</code> object <code>Type</code> field. </p>
  *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p>
  *
- *          <p>For more information, see DetectText in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { AccelerationSettings, HopDestination } from "./models_0";
 import {
   JobTemplate,
   JobTemplateSettings,
+  Policy,
   Preset,
   PresetSettings,
   Queue,
@@ -9,6 +11,115 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface ListQueuesResponse {
+  /**
+   * Use this string to request the next batch of queues.
+   */
+  NextToken?: string;
+
+  /**
+   * List of queues.
+   */
+  Queues?: Queue[];
+}
+
+export namespace ListQueuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
+   */
+  Arn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+ */
+export interface ResourceTags {
+  /**
+   * The Amazon Resource Name (ARN) of the resource.
+   */
+  Arn?: string;
+
+  /**
+   * The tags for the resource.
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ResourceTags {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceTags): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+   */
+  ResourceTags?: ResourceTags;
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPolicyRequest {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy: Policy | undefined;
+}
+
+export namespace PutPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy?: Policy;
+}
+
+export namespace PutPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface TagResourceRequest {
   /**

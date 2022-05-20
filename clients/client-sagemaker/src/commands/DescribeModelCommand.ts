@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeModelInput } from "../models/models_1";
-import { DescribeModelOutput } from "../models/models_2";
+import { DescribeModelInput, DescribeModelOutput } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeModelCommand,
   serializeAws_json1_1DescribeModelCommand,

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,11 @@ export interface GetExperimentResultsCommandInput extends GetExperimentResultsRe
 export interface GetExperimentResultsCommandOutput extends GetExperimentResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the results of a running or completed experiment.</p>
+ * <p>Retrieves the results of a running or completed experiment. No results are available until
+ *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.</p>
+ *          <p>Experiment
+ *        results are available up to 63 days after the start of the experiment. They are not available after that because
+ *        of CloudWatch data retention policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

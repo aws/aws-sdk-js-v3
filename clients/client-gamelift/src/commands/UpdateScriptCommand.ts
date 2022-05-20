@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,13 +31,13 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *             original script was uploaded. Use the <i>Version</i> parameter to track
  *             updates to the script.</p>
  *         <p>If the call is successful, the updated metadata is stored in the script record and a
- *             revised script is uploaded to the Amazon Web Services service. Once the script is updated and
+ *             revised script is uploaded to the Amazon GameLift service. Once the script is updated and
  *             acquired by a fleet instance, the new version is used for all new game sessions. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
  *         <p>
  *             <b>Related actions</b>

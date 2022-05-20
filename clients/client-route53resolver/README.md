@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-route53resolver
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53resolver/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53resolver)
@@ -147,7 +149,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -181,7 +183,7 @@ client
 
 // callbacks.
 client.associateFirewallRuleGroup(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

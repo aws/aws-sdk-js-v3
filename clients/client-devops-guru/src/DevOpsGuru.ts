@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -5,6 +6,11 @@ import {
   AddNotificationChannelCommandInput,
   AddNotificationChannelCommandOutput,
 } from "./commands/AddNotificationChannelCommand";
+import {
+  DeleteInsightCommand,
+  DeleteInsightCommandInput,
+  DeleteInsightCommandOutput,
+} from "./commands/DeleteInsightCommand";
 import {
   DescribeAccountHealthCommand,
   DescribeAccountHealthCommandInput,
@@ -155,9 +161,10 @@ export class DevOpsGuru extends DevOpsGuruClient {
    * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
    * 			about important DevOps Guru events, such as when an insight is generated. </p>
    * 		       <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
-   * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account.
+   * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
    * 				for cross account Amazon SNS topics</a>.</p>
+   * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
    * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
    * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -181,6 +188,38 @@ export class DevOpsGuru extends DevOpsGuruClient {
     cb?: (err: any, data?: AddNotificationChannelCommandOutput) => void
   ): Promise<AddNotificationChannelCommandOutput> | void {
     const command = new AddNotificationChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the insight along with the associated anomalies, events and recommendations.</p>
+   */
+  public deleteInsight(
+    args: DeleteInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInsightCommandOutput>;
+  public deleteInsight(
+    args: DeleteInsightCommandInput,
+    cb: (err: any, data?: DeleteInsightCommandOutput) => void
+  ): void;
+  public deleteInsight(
+    args: DeleteInsightCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInsightCommandOutput) => void
+  ): void;
+  public deleteInsight(
+    args: DeleteInsightCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInsightCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInsightCommandOutput) => void
+  ): Promise<DeleteInsightCommandOutput> | void {
+    const command = new DeleteInsightCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -292,7 +331,10 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>This operation lists details about a DevOps Guru event source that is shared with your  account.</p>
+   * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
+   * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
+   * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
+   * 			DevOps Guru.</p>
    */
   public describeEventSourcesConfig(
     args: DescribeEventSourcesConfigCommandInput,
@@ -994,7 +1036,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>Updates the event source configuration.</p>
+   * <p>Enables or disables integration with a service that can be integrated with DevOps Guru. The
+   * 			one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which
+   * 			can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
    */
   public updateEventSourcesConfig(
     args: UpdateEventSourcesConfigCommandInput,

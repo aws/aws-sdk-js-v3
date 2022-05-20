@@ -1,54 +1,40 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 import {
   AuditContext,
+  Blueprint,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
   Column,
-  ColumnStatistics,
   Compatibility,
-  ConnectionInput,
-  ConnectionsList,
   ConnectionType,
   Crawler,
-  CrawlerTargets,
   CsvHeaderOption,
+  CustomEntityType,
   DatabaseIdentifier,
-  DatabaseInput,
   DataFormat,
   DevEndpoint,
   EncryptionConfiguration,
   ErrorDetail,
-  ExecutionProperty,
   GlueTable,
-  Job,
-  JobCommand,
   JobRun,
-  LakeFormationConfiguration,
   Language,
-  LineageConfiguration,
-  NotificationProperty,
   Partition,
-  PartitionInput,
   PartitionValueList,
   PhysicalConnectionRequirements,
   PrincipalPermissions,
   PrincipalType,
-  RecrawlPolicy,
   RegistryId,
-  RegistryStatus,
   ResourceUri,
-  SchemaChangePolicy,
   SchemaId,
   SchemaStatus,
   SchemaVersionStatus,
   Session,
   StorageDescriptor,
   TableIdentifier,
-  TableInput,
   TaskStatusType,
   TransformEncryption,
   TransformParameters,
@@ -58,6 +44,2059 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export interface DeleteClassifierResponse {}
+
+export namespace DeleteClassifierResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteClassifierResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteColumnStatisticsForPartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of partition values identifying the partition.</p>
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * <p>Name of the column.</p>
+   */
+  ColumnName: string | undefined;
+}
+
+export namespace DeleteColumnStatisticsForPartitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteColumnStatisticsForPartitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteColumnStatisticsForPartitionResponse {}
+
+export namespace DeleteColumnStatisticsForPartitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteColumnStatisticsForPartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteColumnStatisticsForTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the column.</p>
+   */
+  ColumnName: string | undefined;
+}
+
+export namespace DeleteColumnStatisticsForTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteColumnStatisticsForTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteColumnStatisticsForTableResponse {}
+
+export namespace DeleteColumnStatisticsForTableResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteColumnStatisticsForTableResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteConnectionRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the connection to delete.</p>
+   */
+  ConnectionName: string | undefined;
+}
+
+export namespace DeleteConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteConnectionResponse {}
+
+export namespace DeleteConnectionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation cannot be performed because the crawler is already running.</p>
+ */
+export class CrawlerRunningException extends __BaseException {
+  readonly name: "CrawlerRunningException" = "CrawlerRunningException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CrawlerRunningException, __BaseException>) {
+    super({
+      name: "CrawlerRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CrawlerRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteCrawlerRequest {
+  /**
+   * <p>The name of the crawler to remove.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteCrawlerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCrawlerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCrawlerResponse {}
+
+export namespace DeleteCrawlerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCrawlerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified scheduler is transitioning.</p>
+ */
+export class SchedulerTransitioningException extends __BaseException {
+  readonly name: "SchedulerTransitioningException" = "SchedulerTransitioningException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchedulerTransitioningException, __BaseException>) {
+    super({
+      name: "SchedulerTransitioningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchedulerTransitioningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteCustomEntityTypeRequest {
+  /**
+   * <p>The name of the custom pattern that you want to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteCustomEntityTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomEntityTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern you deleted.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteCustomEntityTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomEntityTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDatabaseRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the database to delete. For Hive compatibility, this must be all
+   *       lowercase.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteDatabaseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDatabaseResponse {}
+
+export namespace DeleteDatabaseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDatabaseResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDevEndpointRequest {
+  /**
+   * <p>The name of the <code>DevEndpoint</code>.</p>
+   */
+  EndpointName: string | undefined;
+}
+
+export namespace DeleteDevEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDevEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDevEndpointResponse {}
+
+export namespace DeleteDevEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDevEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteJobRequest {
+  /**
+   * <p>The name of the job definition to delete.</p>
+   */
+  JobName: string | undefined;
+}
+
+export namespace DeleteJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteJobResponse {
+  /**
+   * <p>The name of the job definition that was deleted.</p>
+   */
+  JobName?: string;
+}
+
+export namespace DeleteJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMLTransformRequest {
+  /**
+   * <p>The unique identifier of the transform to delete.</p>
+   */
+  TransformId: string | undefined;
+}
+
+export namespace DeleteMLTransformRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMLTransformRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMLTransformResponse {
+  /**
+   * <p>The unique identifier of the transform that was deleted.</p>
+   */
+  TransformId?: string;
+}
+
+export namespace DeleteMLTransformResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMLTransformResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided,
+   *       the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database in which the table in question
+   *       resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table that contains the partition to be deleted.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The values that define the partition.</p>
+   */
+  PartitionValues: string[] | undefined;
+}
+
+export namespace DeletePartitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePartitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePartitionResponse {}
+
+export namespace DeletePartitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeletePartitionIndexRequest {
+  /**
+   * <p>The catalog ID where the table resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>Specifies the name of a database from which you want to delete a partition index.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Specifies the name of a table from which you want to delete a partition index.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the partition index to be deleted.</p>
+   */
+  IndexName: string | undefined;
+}
+
+export namespace DeletePartitionIndexRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePartitionIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePartitionIndexResponse {}
+
+export namespace DeletePartitionIndexResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePartitionIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   */
+  RegistryId: RegistryId | undefined;
+}
+
+export namespace DeleteRegistryInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRegistryInput): any => ({
+    ...obj,
+  });
+}
+
+export enum RegistryStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETING = "DELETING",
+}
+
+export interface DeleteRegistryResponse {
+  /**
+   * <p>The name of the registry being deleted.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry being deleted.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>
+   */
+  Status?: RegistryStatus | string;
+}
+
+export namespace DeleteRegistryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRegistryResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specified condition was not satisfied.</p>
+ */
+export class ConditionCheckFailureException extends __BaseException {
+  readonly name: "ConditionCheckFailureException" = "ConditionCheckFailureException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionCheckFailureException, __BaseException>) {
+    super({
+      name: "ConditionCheckFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionCheckFailureException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The hash value returned when this policy was set.</p>
+   */
+  PolicyHashCondition?: string;
+
+  /**
+   * <p>The ARN of the Glue resource for the resource policy to be deleted.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace DeleteResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyResponse {}
+
+export namespace DeleteResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchemaInput {
+  /**
+   * <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId: SchemaId | undefined;
+}
+
+export namespace DeleteSchemaInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchemaInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchemaResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema being deleted.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema being deleted.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The status of the schema.</p>
+   */
+  Status?: SchemaStatus | string;
+}
+
+export namespace DeleteSchemaResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchemaResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchemaVersionsInput {
+  /**
+   * <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>A version range may be supplied which may be of the format:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>a single version number, 5</p>
+   *             </li>
+   *             <li>
+   *                <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p>
+   *             </li>
+   *          </ul>
+   */
+  Versions: string | undefined;
+}
+
+export namespace DeleteSchemaVersionsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchemaVersionsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object containing error details.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * <p>The error code for an error.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message for an error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ErrorDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ErrorDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains the error details for an operation on a schema version.</p>
+ */
+export interface SchemaVersionErrorItem {
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The details of the error for the schema version.</p>
+   */
+  ErrorDetails?: ErrorDetails;
+}
+
+export namespace SchemaVersionErrorItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SchemaVersionErrorItem): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchemaVersionsResponse {
+  /**
+   * <p>A list of <code>SchemaVersionErrorItem</code> objects, each containing an error and schema version.</p>
+   */
+  SchemaVersionErrors?: SchemaVersionErrorItem[];
+}
+
+export namespace DeleteSchemaVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchemaVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSecurityConfigurationRequest {
+  /**
+   * <p>The name of the security configuration to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteSecurityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSecurityConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSecurityConfigurationResponse {}
+
+export namespace DeleteSecurityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSecurityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSessionRequest {
+  /**
+   * <p>The ID of the session to be deleted.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the origin of the delete session request.</p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace DeleteSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSessionResponse {
+  /**
+   * <p>Returns the ID of the deleted session.</p>
+   */
+  Id?: string;
+}
+
+export namespace DeleteSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table to be deleted. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The transaction ID at which to delete the table contents.</p>
+   */
+  TransactionId?: string;
+}
+
+export namespace DeleteTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTableResponse {}
+
+export namespace DeleteTableResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTableResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTableVersionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The database in the catalog in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table. For Hive compatibility,
+   *       this name is entirely lowercase.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The ID of the table version to be deleted. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1.</p>
+   */
+  VersionId: string | undefined;
+}
+
+export namespace DeleteTableVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTableVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTableVersionResponse {}
+
+export namespace DeleteTableVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTableVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTriggerRequest {
+  /**
+   * <p>The name of the trigger to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteTriggerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTriggerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTriggerResponse {
+  /**
+   * <p>The name of the trigger that was deleted.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteTriggerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTriggerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteUserDefinedFunctionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the function to be deleted is
+   *       located. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the function is located.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the function definition to be deleted.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace DeleteUserDefinedFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteUserDefinedFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteUserDefinedFunctionResponse {}
+
+export namespace DeleteUserDefinedFunctionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteUserDefinedFunctionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkflowRequest {
+  /**
+   * <p>Name of the workflow to be deleted.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkflowResponse {
+  /**
+   * <p>Name of the workflow specified in input.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether or not to include the blueprint in the response.</p>
+   */
+  IncludeBlueprint?: boolean;
+
+  /**
+   * <p>Specifies whether or not to include the parameter specification.</p>
+   */
+  IncludeParameterSpec?: boolean;
+}
+
+export namespace GetBlueprintRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintResponse {
+  /**
+   * <p>Returns a <code>Blueprint</code> object.</p>
+   */
+  Blueprint?: Blueprint;
+}
+
+export namespace GetBlueprintResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>The run ID for the blueprint run you want to retrieve.</p>
+   */
+  RunId: string | undefined;
+}
+
+export namespace GetBlueprintRunRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BlueprintRunState {
+  FAILED = "FAILED",
+  ROLLING_BACK = "ROLLING_BACK",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>The details of a blueprint run.</p>
+ */
+export interface BlueprintRun {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName?: string;
+
+  /**
+   * <p>The run ID for this blueprint run.</p>
+   */
+  RunId?: string;
+
+  /**
+   * <p>The name of a workflow that is created as a result of a successful blueprint run. If a blueprint run has an error, there will not be a workflow created.</p>
+   */
+  WorkflowName?: string;
+
+  /**
+   * <p>The state of the blueprint run. Possible values are:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>Running — The blueprint run is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>Succeeded — The blueprint run completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed — The blueprint run failed and rollback is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rolling Back — The blueprint run failed and rollback is in progress.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: BlueprintRunState | string;
+
+  /**
+   * <p>The date and time that the blueprint run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The date and time that the blueprint run completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * <p>Indicates any errors that are seen while running the blueprint.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>If there are any errors while creating the entities of a workflow, we try to roll back the created entities until that point and delete them. This attribute indicates the errors seen while trying to delete the entities that are created.</p>
+   */
+  RollbackErrorMessage?: string;
+
+  /**
+   * <p>The blueprint parameters as a string. You will have to provide a value for each key that is required from the parameter spec that is defined in the <code>Blueprint$ParameterSpec</code>.</p>
+   */
+  Parameters?: string;
+
+  /**
+   * <p>The role ARN. This role will be assumed by the Glue service and will be used to create the workflow and other entities of a workflow.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace BlueprintRun {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlueprintRun): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunResponse {
+  /**
+   * <p>Returns a <code>BlueprintRun</code> object.</p>
+   */
+  BlueprintRun?: BlueprintRun;
+}
+
+export namespace GetBlueprintRunResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunsRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetBlueprintRunsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunsResponse {
+  /**
+   * <p>Returns a list of <code>BlueprintRun</code> objects.</p>
+   */
+  BlueprintRuns?: BlueprintRun[];
+
+  /**
+   * <p>A continuation token, if not all blueprint runs have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetBlueprintRunsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCatalogImportStatusRequest {
+  /**
+   * <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
+   */
+  CatalogId?: string;
+}
+
+export namespace GetCatalogImportStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCatalogImportStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing migration status information.</p>
+ */
+export interface CatalogImportStatus {
+  /**
+   * <p>
+   *             <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>
+   */
+  ImportCompleted?: boolean;
+
+  /**
+   * <p>The time that the migration was started.</p>
+   */
+  ImportTime?: Date;
+
+  /**
+   * <p>The name of the person who initiated the migration.</p>
+   */
+  ImportedBy?: string;
+}
+
+export namespace CatalogImportStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CatalogImportStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCatalogImportStatusResponse {
+  /**
+   * <p>The status of the specified catalog migration.</p>
+   */
+  ImportStatus?: CatalogImportStatus;
+}
+
+export namespace GetCatalogImportStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCatalogImportStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetClassifierRequest {
+  /**
+   * <p>Name of the classifier to retrieve.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetClassifierRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetClassifierRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A classifier for custom <code>CSV</code> content.</p>
+ */
+export interface CsvClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p>The version of this classifier.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>A custom symbol to denote what separates each column entry in the row.</p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p>A custom symbol to denote what combines content into a single column value. It must be
+   *       different from the column delimiter.</p>
+   */
+  QuoteSymbol?: string;
+
+  /**
+   * <p>Indicates whether the CSV file contains a header.</p>
+   */
+  ContainsHeader?: CsvHeaderOption | string;
+
+  /**
+   * <p>A list of strings representing column names.</p>
+   */
+  Header?: string[];
+
+  /**
+   * <p>Specifies not to trim values before identifying the type of column values. The default
+   *       value is <code>true</code>.</p>
+   */
+  DisableValueTrimming?: boolean;
+
+  /**
+   * <p>Enables the processing of files that contain only one column.</p>
+   */
+  AllowSingleColumn?: boolean;
+}
+
+export namespace CsvClassifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CsvClassifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A classifier that uses <code>grok</code> patterns.</p>
+ */
+export interface GrokClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and
+   *       so on.</p>
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p>The version of this classifier.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The grok pattern applied to a data store by this classifier.
+   *        For more information, see built-in patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   * <p>Optional custom grok patterns defined by this classifier.
+   *       For more information, see custom patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
+   */
+  CustomPatterns?: string;
+}
+
+export namespace GrokClassifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrokClassifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A classifier for <code>JSON</code> content.</p>
+ */
+export interface JsonClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p>The version of this classifier.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
+   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   */
+  JsonPath: string | undefined;
+}
+
+export namespace JsonClassifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JsonClassifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A classifier for <code>XML</code> content.</p>
+ */
+export interface XMLClassifier {
+  /**
+   * <p>The name of the classifier.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An identifier of the data format that the classifier matches.</p>
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The time that this classifier was registered.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that this classifier was last updated.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p>The version of this classifier.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   */
+  RowTag?: string;
+}
+
+export namespace XMLClassifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: XMLClassifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
+ *       in a format it can handle. If it is, the classifier creates a schema in the form of a
+ *         <code>StructType</code> object that matches that data format.</p>
+ *          <p>You can use the standard classifiers that Glue provides, or you can write your own
+ *       classifiers to best categorize your data sources and specify the appropriate schemas to use
+ *       for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier,
+ *       a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one
+ *       of the fields in the <code>Classifier</code> object.</p>
+ */
+export interface Classifier {
+  /**
+   * <p>A classifier that uses <code>grok</code>.</p>
+   */
+  GrokClassifier?: GrokClassifier;
+
+  /**
+   * <p>A classifier for XML content.</p>
+   */
+  XMLClassifier?: XMLClassifier;
+
+  /**
+   * <p>A classifier for JSON content.</p>
+   */
+  JsonClassifier?: JsonClassifier;
+
+  /**
+   * <p>A classifier for comma-separated values (CSV).</p>
+   */
+  CsvClassifier?: CsvClassifier;
+}
+
+export namespace Classifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Classifier): any => ({
+    ...obj,
+  });
+}
+
+export interface GetClassifierResponse {
+  /**
+   * <p>The requested classifier.</p>
+   */
+  Classifier?: Classifier;
+}
+
+export namespace GetClassifierResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetClassifierResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetClassifiersRequest {
+  /**
+   * <p>The size of the list to return (optional).</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional continuation token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetClassifiersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetClassifiersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetClassifiersResponse {
+  /**
+   * <p>The requested list of classifier
+   *       objects.</p>
+   */
+  Classifiers?: Classifier[];
+
+  /**
+   * <p>A continuation token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetClassifiersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetClassifiersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForPartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of partition values identifying the partition.</p>
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * <p>A list of the column names.</p>
+   */
+  ColumnNames: string[] | undefined;
+}
+
+export namespace GetColumnStatisticsForPartitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for bit sequence data values.</p>
+ */
+export interface BinaryColumnStatisticsData {
+  /**
+   * <p>The size of the longest bit sequence in the column.</p>
+   */
+  MaximumLength: number | undefined;
+
+  /**
+   * <p>The average bit sequence length in the column.</p>
+   */
+  AverageLength: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+}
+
+export namespace BinaryColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BinaryColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for Boolean data columns.</p>
+ */
+export interface BooleanColumnStatisticsData {
+  /**
+   * <p>The number of true values in the column.</p>
+   */
+  NumberOfTrues: number | undefined;
+
+  /**
+   * <p>The number of false values in the column.</p>
+   */
+  NumberOfFalses: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+}
+
+export namespace BooleanColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BooleanColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for timestamp data columns.</p>
+ */
+export interface DateColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   */
+  MinimumValue?: Date;
+
+  /**
+   * <p>The highest value in the column.</p>
+   */
+  MaximumValue?: Date;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+export namespace DateColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DateColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a numeric value in decimal format.</p>
+ */
+export interface DecimalNumber {
+  /**
+   * <p>The unscaled numeric value.</p>
+   */
+  UnscaledValue: Uint8Array | undefined;
+
+  /**
+   * <p>The scale that determines where the decimal point falls in the
+   *       unscaled value.</p>
+   */
+  Scale: number | undefined;
+}
+
+export namespace DecimalNumber {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DecimalNumber): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for fixed-point number data columns.</p>
+ */
+export interface DecimalColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   */
+  MinimumValue?: DecimalNumber;
+
+  /**
+   * <p>The highest value in the column.</p>
+   */
+  MaximumValue?: DecimalNumber;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+export namespace DecimalColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DecimalColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for floating-point number data columns.</p>
+ */
+export interface DoubleColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   */
+  MinimumValue?: number;
+
+  /**
+   * <p>The highest value in the column.</p>
+   */
+  MaximumValue?: number;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+export namespace DoubleColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DoubleColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for integer data columns.</p>
+ */
+export interface LongColumnStatisticsData {
+  /**
+   * <p>The lowest value in the column.</p>
+   */
+  MinimumValue?: number;
+
+  /**
+   * <p>The highest value in the column.</p>
+   */
+  MaximumValue?: number;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+export namespace LongColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LongColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines column statistics supported for character sequence data values.</p>
+ */
+export interface StringColumnStatisticsData {
+  /**
+   * <p>The size of the longest string in the column.</p>
+   */
+  MaximumLength: number | undefined;
+
+  /**
+   * <p>The average string length in the column.</p>
+   */
+  AverageLength: number | undefined;
+
+  /**
+   * <p>The number of null values in the column.</p>
+   */
+  NumberOfNulls: number | undefined;
+
+  /**
+   * <p>The number of distinct values in a column.</p>
+   */
+  NumberOfDistinctValues: number | undefined;
+}
+
+export namespace StringColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StringColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+export enum ColumnStatisticsType {
+  BINARY = "BINARY",
+  BOOLEAN = "BOOLEAN",
+  DATE = "DATE",
+  DECIMAL = "DECIMAL",
+  DOUBLE = "DOUBLE",
+  LONG = "LONG",
+  STRING = "STRING",
+}
+
+/**
+ * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
+ */
+export interface ColumnStatisticsData {
+  /**
+   * <p>The type of column statistics data.</p>
+   */
+  Type: ColumnStatisticsType | string | undefined;
+
+  /**
+   * <p>Boolean column statistics data.</p>
+   */
+  BooleanColumnStatisticsData?: BooleanColumnStatisticsData;
+
+  /**
+   * <p>Date column statistics data.</p>
+   */
+  DateColumnStatisticsData?: DateColumnStatisticsData;
+
+  /**
+   * <p>Decimal column statistics data.</p>
+   */
+  DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
+
+  /**
+   * <p>Double column statistics data.</p>
+   */
+  DoubleColumnStatisticsData?: DoubleColumnStatisticsData;
+
+  /**
+   * <p>Long column statistics data.</p>
+   */
+  LongColumnStatisticsData?: LongColumnStatisticsData;
+
+  /**
+   * <p>String column statistics data.</p>
+   */
+  StringColumnStatisticsData?: StringColumnStatisticsData;
+
+  /**
+   * <p>Binary column statistics data.</p>
+   */
+  BinaryColumnStatisticsData?: BinaryColumnStatisticsData;
+}
+
+export namespace ColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the generated column-level statistics for a table or partition.</p>
+ */
+export interface ColumnStatistics {
+  /**
+   * <p>Name of column which statistics belong to.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   */
+  ColumnType: string | undefined;
+
+  /**
+   * <p>The timestamp of when column statistics were generated.</p>
+   */
+  AnalyzedTime: Date | undefined;
+
+  /**
+   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
+   */
+  StatisticsData: ColumnStatisticsData | undefined;
+}
+
+export namespace ColumnStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Encapsulates a column name that failed and the reason for failure.</p>
+ */
+export interface ColumnError {
+  /**
+   * <p>The name of the column that failed.</p>
+   */
+  ColumnName?: string;
+
+  /**
+   * <p>An error message with the reason for the failure of an operation.</p>
+   */
+  Error?: ErrorDetail;
+}
+
+export namespace ColumnError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnError): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForPartitionResponse {
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  ColumnStatisticsList?: ColumnStatistics[];
+
+  /**
+   * <p>Error occurred during retrieving column statistics data.</p>
+   */
+  Errors?: ColumnError[];
+}
+
+export namespace GetColumnStatisticsForPartitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of the column names.</p>
+   */
+  ColumnNames: string[] | undefined;
+}
+
+export namespace GetColumnStatisticsForTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForTableResponse {
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  ColumnStatisticsList?: ColumnStatistics[];
+
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  Errors?: ColumnError[];
+}
+
+export namespace GetColumnStatisticsForTableResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetConnectionRequest {
   /**
@@ -563,6 +2602,48 @@ export namespace GetCrawlersResponse {
   });
 }
 
+export interface GetCustomEntityTypeRequest {
+  /**
+   * <p>The name of the custom pattern that you want to retrieve.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetCustomEntityTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomEntityTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern that you retrieved.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   */
+  RegexString?: string;
+
+  /**
+   * <p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   */
+  ContextWords?: string[];
+}
+
+export namespace GetCustomEntityTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomEntityTypeResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
@@ -986,22 +3067,6 @@ export namespace GetJobRequest {
   });
 }
 
-export interface GetJobResponse {
-  /**
-   * <p>The requested job definition.</p>
-   */
-  Job?: Job;
-}
-
-export namespace GetJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>
@@ -1194,27 +3259,6 @@ export namespace GetJobsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobsResponse {
-  /**
-   * <p>A list of job definitions.</p>
-   */
-  Jobs?: Job[];
-
-  /**
-   * <p>A continuation token, if not all job definitions have yet been returned.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobsResponse): any => ({
     ...obj,
   });
 }
@@ -4887,6 +6931,48 @@ export namespace ListCrawlersResponse {
   });
 }
 
+export interface ListCustomEntityTypesRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListCustomEntityTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomEntityTypesResponse {
+  /**
+   * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
+   */
+  CustomEntityTypes?: CustomEntityType[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCustomEntityTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListDevEndpointsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -6086,2283 +8172,4 @@ export class ConcurrentRunsExceededException extends __BaseException {
     Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
     this.Message = opts.Message;
   }
-}
-
-/**
- * <p>The workflow is in an invalid state to perform a requested operation.</p>
- */
-export class IllegalWorkflowStateException extends __BaseException {
-  readonly name: "IllegalWorkflowStateException" = "IllegalWorkflowStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalWorkflowStateException, __BaseException>) {
-    super({
-      name: "IllegalWorkflowStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalWorkflowStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface ResumeWorkflowRunRequest {
-  /**
-   * <p>The name of the workflow to resume.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run to resume.</p>
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
-   */
-  NodeIds: string[] | undefined;
-}
-
-export namespace ResumeWorkflowRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeWorkflowRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResumeWorkflowRunResponse {
-  /**
-   * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
-   */
-  RunId?: string;
-
-  /**
-   * <p>A list of the node IDs for the nodes that were actually restarted.</p>
-   */
-  NodeIds?: string[];
-}
-
-export namespace ResumeWorkflowRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeWorkflowRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RunStatementRequest {
-  /**
-   * <p>The Session Id of the statement to be run.</p>
-   */
-  SessionId: string | undefined;
-
-  /**
-   * <p>The statement code to be run.</p>
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The origin of the request.</p>
-   */
-  RequestOrigin?: string;
-}
-
-export namespace RunStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunStatementRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RunStatementResponse {
-  /**
-   * <p>Returns the Id of the statement that was run.</p>
-   */
-  Id?: number;
-}
-
-export namespace RunStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunStatementResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum Comparator {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS",
-}
-
-/**
- * <p>Defines a property predicate.</p>
- */
-export interface PropertyPredicate {
-  /**
-   * <p>The key of the property.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the property.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The comparator used to compare this property to others.</p>
-   */
-  Comparator?: Comparator | string;
-}
-
-export namespace PropertyPredicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyPredicate): any => ({
-    ...obj,
-  });
-}
-
-export enum Sort {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
-
-/**
- * <p>Specifies a field to sort by and a sort order.</p>
- */
-export interface SortCriterion {
-  /**
-   * <p>The name of the field on which to sort.</p>
-   */
-  FieldName?: string;
-
-  /**
-   * <p>An ascending or descending sort.</p>
-   */
-  Sort?: Sort | string;
-}
-
-export namespace SortCriterion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortCriterion): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchTablesRequest {
-  /**
-   * <p>A unique identifier, consisting of <code>
-   *                <i>account_id</i>
-   *             </code>.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>A continuation token, included if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
-   *
-   * 	        <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
-   */
-  Filters?: PropertyPredicate[];
-
-  /**
-   * <p>A string used for a text search.</p>
-   * 	        <p>Specifying a value in quotes filters based on an exact match to the value.</p>
-   */
-  SearchText?: string;
-
-  /**
-   * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
-   */
-  SortCriteria?: SortCriterion[];
-
-  /**
-   * <p>The maximum number of tables to return in a single response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *
-   * 	        <ul>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceShareType?: ResourceShareType | string;
-}
-
-export namespace SearchTablesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTablesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchTablesResponse {
-  /**
-   * <p>A continuation token, present if the current list segment is not the last.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
-   */
-  TableList?: Table[];
-}
-
-export namespace SearchTablesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTablesResponse): any => ({
-    ...obj,
-  });
-}
-
-export class IllegalBlueprintStateException extends __BaseException {
-  readonly name: "IllegalBlueprintStateException" = "IllegalBlueprintStateException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalBlueprintStateException, __BaseException>) {
-    super({
-      name: "IllegalBlueprintStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalBlueprintStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface StartBlueprintRunRequest {
-  /**
-   * <p>The name of the blueprint.</p>
-   */
-  BlueprintName: string | undefined;
-
-  /**
-   * <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
-   */
-  Parameters?: string;
-
-  /**
-   * <p>Specifies the IAM role used to create the workflow.</p>
-   */
-  RoleArn: string | undefined;
-}
-
-export namespace StartBlueprintRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBlueprintRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartBlueprintRunResponse {
-  /**
-   * <p>The run ID for this blueprint run.</p>
-   */
-  RunId?: string;
-}
-
-export namespace StartBlueprintRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBlueprintRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartCrawlerRequest {
-  /**
-   * <p>Name of the crawler to start.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace StartCrawlerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCrawlerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartCrawlerResponse {}
-
-export namespace StartCrawlerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCrawlerResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There is no applicable schedule.</p>
- */
-export class NoScheduleException extends __BaseException {
-  readonly name: "NoScheduleException" = "NoScheduleException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoScheduleException, __BaseException>) {
-    super({
-      name: "NoScheduleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoScheduleException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified scheduler is already running.</p>
- */
-export class SchedulerRunningException extends __BaseException {
-  readonly name: "SchedulerRunningException" = "SchedulerRunningException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SchedulerRunningException, __BaseException>) {
-    super({
-      name: "SchedulerRunningException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SchedulerRunningException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface StartCrawlerScheduleRequest {
-  /**
-   * <p>Name of the crawler to schedule.</p>
-   */
-  CrawlerName: string | undefined;
-}
-
-export namespace StartCrawlerScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCrawlerScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartCrawlerScheduleResponse {}
-
-export namespace StartCrawlerScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCrawlerScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartExportLabelsTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The Amazon S3 path where you export the labels.</p>
-   */
-  OutputS3Path: string | undefined;
-}
-
-export namespace StartExportLabelsTaskRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExportLabelsTaskRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartExportLabelsTaskRunResponse {
-  /**
-   * <p>The unique identifier for the task run.</p>
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartExportLabelsTaskRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExportLabelsTaskRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartImportLabelsTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path from where you import the
-   *       labels.</p>
-   */
-  InputS3Path: string | undefined;
-
-  /**
-   * <p>Indicates whether to overwrite your existing labels.</p>
-   */
-  ReplaceAllLabels?: boolean;
-}
-
-export namespace StartImportLabelsTaskRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportLabelsTaskRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartImportLabelsTaskRunResponse {
-  /**
-   * <p>The unique identifier for the task run.</p>
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartImportLabelsTaskRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportLabelsTaskRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartJobRunRequest {
-  /**
-   * <p>The name of the job definition to use.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The ID of a previous <code>JobRun</code> to retry.</p>
-   */
-  JobRunId?: string;
-
-  /**
-   * <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   * @deprecated
-   *
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of Glue data processing units (DPUs) to allocate to this JobRun.
-   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-   *         pricing page</a>.</p>
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-   *         pricing page</a>.</p>
-   *
-   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job, or an Apache Spark ETL job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
-   *       run.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>Specifies configuration properties of a job run notification.</p>
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   */
-  NumberOfWorkers?: number;
-}
-
-export namespace StartJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartJobRunResponse {
-  /**
-   * <p>The ID assigned to this job run.</p>
-   */
-  JobRunId?: string;
-}
-
-export namespace StartJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The machine learning transform is not ready to run.</p>
- */
-export class MLTransformNotReadyException extends __BaseException {
-  readonly name: "MLTransformNotReadyException" = "MLTransformNotReadyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MLTransformNotReadyException, __BaseException>) {
-    super({
-      name: "MLTransformNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MLTransformNotReadyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface StartMLEvaluationTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   */
-  TransformId: string | undefined;
-}
-
-export namespace StartMLEvaluationTaskRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMLEvaluationTaskRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartMLEvaluationTaskRunResponse {
-  /**
-   * <p>The unique identifier associated with this run.</p>
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartMLEvaluationTaskRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMLEvaluationTaskRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartMLLabelingSetGenerationTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling
-   *       set.</p>
-   */
-  OutputS3Path: string | undefined;
-}
-
-export namespace StartMLLabelingSetGenerationTaskRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMLLabelingSetGenerationTaskRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartMLLabelingSetGenerationTaskRunResponse {
-  /**
-   * <p>The unique run identifier that is associated with this task run.</p>
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartMLLabelingSetGenerationTaskRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMLLabelingSetGenerationTaskRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartTriggerRequest {
-  /**
-   * <p>The name of the trigger to start.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace StartTriggerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTriggerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartTriggerResponse {
-  /**
-   * <p>The name of the trigger that was started.</p>
-   */
-  Name?: string;
-}
-
-export namespace StartTriggerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTriggerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartWorkflowRunRequest {
-  /**
-   * <p>The name of the workflow to start.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The workflow run properties for the new workflow run.</p>
-   */
-  RunProperties?: { [key: string]: string };
-}
-
-export namespace StartWorkflowRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartWorkflowRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartWorkflowRunResponse {
-  /**
-   * <p>An Id for the new run.</p>
-   */
-  RunId?: string;
-}
-
-export namespace StartWorkflowRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartWorkflowRunResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified crawler is not running.</p>
- */
-export class CrawlerNotRunningException extends __BaseException {
-  readonly name: "CrawlerNotRunningException" = "CrawlerNotRunningException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CrawlerNotRunningException, __BaseException>) {
-    super({
-      name: "CrawlerNotRunningException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CrawlerNotRunningException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified crawler is stopping.</p>
- */
-export class CrawlerStoppingException extends __BaseException {
-  readonly name: "CrawlerStoppingException" = "CrawlerStoppingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CrawlerStoppingException, __BaseException>) {
-    super({
-      name: "CrawlerStoppingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CrawlerStoppingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface StopCrawlerRequest {
-  /**
-   * <p>Name of the crawler to stop.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace StopCrawlerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCrawlerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopCrawlerResponse {}
-
-export namespace StopCrawlerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCrawlerResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified scheduler is not running.</p>
- */
-export class SchedulerNotRunningException extends __BaseException {
-  readonly name: "SchedulerNotRunningException" = "SchedulerNotRunningException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SchedulerNotRunningException, __BaseException>) {
-    super({
-      name: "SchedulerNotRunningException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SchedulerNotRunningException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface StopCrawlerScheduleRequest {
-  /**
-   * <p>Name of the crawler whose schedule state to set.</p>
-   */
-  CrawlerName: string | undefined;
-}
-
-export namespace StopCrawlerScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCrawlerScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopCrawlerScheduleResponse {}
-
-export namespace StopCrawlerScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCrawlerScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopSessionRequest {
-  /**
-   * <p>The ID of the session to be stopped.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The origin of the request.</p>
-   */
-  RequestOrigin?: string;
-}
-
-export namespace StopSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSessionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopSessionResponse {
-  /**
-   * <p>Returns the Id of the stopped session.</p>
-   */
-  Id?: string;
-}
-
-export namespace StopSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSessionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopTriggerRequest {
-  /**
-   * <p>The name of the trigger to stop.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace StopTriggerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTriggerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopTriggerResponse {
-  /**
-   * <p>The name of the trigger that was stopped.</p>
-   */
-  Name?: string;
-}
-
-export namespace StopTriggerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTriggerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopWorkflowRunRequest {
-  /**
-   * <p>The name of the workflow to stop.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run to stop.</p>
-   */
-  RunId: string | undefined;
-}
-
-export namespace StopWorkflowRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopWorkflowRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopWorkflowRunResponse {}
-
-export namespace StopWorkflowRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopWorkflowRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the Glue resource to which to add the tags. For more
-   *       information about Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">Glue ARN string pattern</a>.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>Tags to add to this resource.</p>
-   */
-  TagsToAdd: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>Tags to remove from this resource.</p>
-   */
-  TagsToRemove: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBlueprintRequest {
-  /**
-   * <p>The name of the blueprint.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the blueprint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
-   */
-  BlueprintLocation: string | undefined;
-}
-
-export namespace UpdateBlueprintRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBlueprintRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBlueprintResponse {
-  /**
-   * <p>Returns the name of the blueprint that was updated.</p>
-   */
-  Name?: string;
-}
-
-export namespace UpdateBlueprintResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBlueprintResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies a custom CSV classifier to be updated.</p>
- */
-export interface UpdateCsvClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A custom symbol to denote what separates each column entry in the row.</p>
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>A custom symbol to denote what combines content into a single column value. It must be
-   *       different from the column delimiter.</p>
-   */
-  QuoteSymbol?: string;
-
-  /**
-   * <p>Indicates whether the CSV file contains a header.</p>
-   */
-  ContainsHeader?: CsvHeaderOption | string;
-
-  /**
-   * <p>A list of strings representing column names.</p>
-   */
-  Header?: string[];
-
-  /**
-   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   * <p>Enables the processing of files that contain only one column.</p>
-   */
-  AllowSingleColumn?: boolean;
-}
-
-export namespace UpdateCsvClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCsvClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies a grok classifier to update when passed to
- *       <code>UpdateClassifier</code>.</p>
- */
-export interface UpdateGrokClassifierRequest {
-  /**
-   * <p>The name of the <code>GrokClassifier</code>.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs,
-   *       Amazon CloudWatch Logs, and so on.</p>
-   */
-  Classification?: string;
-
-  /**
-   * <p>The grok pattern used by this classifier.</p>
-   */
-  GrokPattern?: string;
-
-  /**
-   * <p>Optional custom grok patterns used by this classifier.</p>
-   */
-  CustomPatterns?: string;
-}
-
-export namespace UpdateGrokClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGrokClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies a JSON classifier to be updated.</p>
- */
-export interface UpdateJsonClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
-   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   */
-  JsonPath?: string;
-}
-
-export namespace UpdateJsonClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJsonClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies an XML classifier to be updated.</p>
- */
-export interface UpdateXMLClassifierRequest {
-  /**
-   * <p>The name of the classifier.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An identifier of the data format that the classifier matches.</p>
-   */
-  Classification?: string;
-
-  /**
-   * <p>The XML tag designating the element that contains each record in an XML document being
-   *       parsed. This cannot identify a self-closing element (closed by <code>/></code>). An empty
-   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
-   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
-   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
-   */
-  RowTag?: string;
-}
-
-export namespace UpdateXMLClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateXMLClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateClassifierRequest {
-  /**
-   * <p>A <code>GrokClassifier</code> object with updated fields.</p>
-   */
-  GrokClassifier?: UpdateGrokClassifierRequest;
-
-  /**
-   * <p>An <code>XMLClassifier</code> object with updated fields.</p>
-   */
-  XMLClassifier?: UpdateXMLClassifierRequest;
-
-  /**
-   * <p>A <code>JsonClassifier</code> object with updated fields.</p>
-   */
-  JsonClassifier?: UpdateJsonClassifierRequest;
-
-  /**
-   * <p>A <code>CsvClassifier</code> object with updated fields.</p>
-   */
-  CsvClassifier?: UpdateCsvClassifierRequest;
-}
-
-export namespace UpdateClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateClassifierResponse {}
-
-export namespace UpdateClassifierResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClassifierResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There was a version conflict.</p>
- */
-export class VersionMismatchException extends __BaseException {
-  readonly name: "VersionMismatchException" = "VersionMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VersionMismatchException, __BaseException>) {
-    super({
-      name: "VersionMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VersionMismatchException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface UpdateColumnStatisticsForPartitionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of partition values identifying the partition.</p>
-   */
-  PartitionValues: string[] | undefined;
-
-  /**
-   * <p>A list of the column statistics.</p>
-   */
-  ColumnStatisticsList: ColumnStatistics[] | undefined;
-}
-
-export namespace UpdateColumnStatisticsForPartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateColumnStatisticsForPartitionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Encapsulates a <code>ColumnStatistics</code> object that failed and the reason for failure.</p>
- */
-export interface ColumnStatisticsError {
-  /**
-   * <p>The <code>ColumnStatistics</code> of the column.</p>
-   */
-  ColumnStatistics?: ColumnStatistics;
-
-  /**
-   * <p>An error message with the reason for the failure of an operation.</p>
-   */
-  Error?: ErrorDetail;
-}
-
-export namespace ColumnStatisticsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnStatisticsError): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateColumnStatisticsForPartitionResponse {
-  /**
-   * <p>Error occurred during updating column statistics data.</p>
-   */
-  Errors?: ColumnStatisticsError[];
-}
-
-export namespace UpdateColumnStatisticsForPartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateColumnStatisticsForPartitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateColumnStatisticsForTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of the column statistics.</p>
-   */
-  ColumnStatisticsList: ColumnStatistics[] | undefined;
-}
-
-export namespace UpdateColumnStatisticsForTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateColumnStatisticsForTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateColumnStatisticsForTableResponse {
-  /**
-   * <p>List of ColumnStatisticsErrors.</p>
-   */
-  Errors?: ColumnStatisticsError[];
-}
-
-export namespace UpdateColumnStatisticsForTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateColumnStatisticsForTableResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateConnectionRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the connection definition to update.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>ConnectionInput</code> object that redefines the connection
-   *       in question.</p>
-   */
-  ConnectionInput: ConnectionInput | undefined;
-}
-
-export namespace UpdateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateConnectionResponse {}
-
-export namespace UpdateConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCrawlerRequest {
-  /**
-   * <p>Name of the new crawler.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler
-   *       to access customer resources.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>The Glue database where results are stored, such as:
-   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>A description of the new crawler.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of targets to crawl.</p>
-   */
-  Targets?: CrawlerTargets;
-
-  /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   */
-  Schedule?: string;
-
-  /**
-   * <p>A list of custom classifiers that the user
-   *       has registered. By default, all built-in classifiers are included in a crawl,
-   *       but these custom classifiers always override the default classifiers
-   *       for a given classification.</p>
-   */
-  Classifiers?: string[];
-
-  /**
-   * <p>The table prefix used for catalog tables that are created.</p>
-   */
-  TablePrefix?: string;
-
-  /**
-   * <p>The policy for the crawler's update and deletion behavior.</p>
-   */
-  SchemaChangePolicy?: SchemaChangePolicy;
-
-  /**
-   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
-   */
-  RecrawlPolicy?: RecrawlPolicy;
-
-  /**
-   * <p>Specifies data lineage configuration settings for the crawler.</p>
-   */
-  LineageConfiguration?: LineageConfiguration;
-
-  LakeFormationConfiguration?: LakeFormationConfiguration;
-  /**
-   * <p>Crawler configuration information. This versioned JSON string allows users
-   *         to specify aspects of a crawler's behavior.
-   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
-   */
-  Configuration?: string;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
-   */
-  CrawlerSecurityConfiguration?: string;
-}
-
-export namespace UpdateCrawlerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCrawlerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCrawlerResponse {}
-
-export namespace UpdateCrawlerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCrawlerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCrawlerScheduleRequest {
-  /**
-   * <p>The name of the crawler whose schedule to update.</p>
-   */
-  CrawlerName: string | undefined;
-
-  /**
-   * <p>The updated <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   */
-  Schedule?: string;
-}
-
-export namespace UpdateCrawlerScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCrawlerScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCrawlerScheduleResponse {}
-
-export namespace UpdateCrawlerScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCrawlerScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the database to update in the catalog. For Hive
-   *       compatibility, this is folded to lowercase.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>DatabaseInput</code> object specifying the new definition
-   *       of the metadata database in the catalog.</p>
-   */
-  DatabaseInput: DatabaseInput | undefined;
-}
-
-export namespace UpdateDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDatabaseResponse {}
-
-export namespace UpdateDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Custom libraries to be loaded into a development endpoint.</p>
- */
-export interface DevEndpointCustomLibraries {
-  /**
-   * <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
-   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
-   *       complete paths separated by a comma.</p>
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not currently supported.</p>
-   *          </note>
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *          <note>
-   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
-   *          </note>
-   */
-  ExtraJarsS3Path?: string;
-}
-
-export namespace DevEndpointCustomLibraries {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DevEndpointCustomLibraries): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDevEndpointRequest {
-  /**
-   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
-   */
-  PublicKey?: string;
-
-  /**
-   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
-   */
-  AddPublicKeys?: string[];
-
-  /**
-   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
-   */
-  DeletePublicKeys?: string[];
-
-  /**
-   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
-   */
-  CustomLibraries?: DevEndpointCustomLibraries;
-
-  /**
-   * <p>
-   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
-   *       needs to be updated, or <code>False</code> if otherwise.</p>
-   */
-  UpdateEtlLibraries?: boolean;
-
-  /**
-   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   */
-  DeleteArguments?: string[];
-
-  /**
-   * <p>The map of arguments to add the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   */
-  AddArguments?: { [key: string]: string };
-}
-
-export namespace UpdateDevEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDevEndpointResponse {}
-
-export namespace UpdateDevEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies information used to update an existing job definition. The previous job
- *       definition is completely overwritten by this information.</p>
- */
-export interface JobUpdate {
-  /**
-   * <p>Description of the job being defined.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>This field is reserved for future use.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
-   *       (required).</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   * <p>The <code>JobCommand</code> that runs this job (required).</p>
-   */
-  Command?: JobCommand;
-
-  /**
-   * <p>The default arguments for this job.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
-   */
-  DefaultArguments?: { [key: string]: string };
-
-  /**
-   * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
-   */
-  NonOverridableArguments?: { [key: string]: string };
-
-  /**
-   * <p>The connections used for this job.</p>
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   * <p>The maximum number of times to retry this job if it fails.</p>
-   */
-  MaxRetries?: number;
-
-  /**
-   * @deprecated
-   *
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of Glue data processing units (DPUs) to allocate to this job. You can
-   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *       page</a>.</p>
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job or an Apache Spark ETL job:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *            Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
-   *            The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   * 	        <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>Specifies the configuration properties of a job notification.</p>
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
-   *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-}
-
-export namespace JobUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobUpdate): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateJobRequest {
-  /**
-   * <p>The name of the job definition to update.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>Specifies the values with which to update the job definition.</p>
-   */
-  JobUpdate: JobUpdate | undefined;
-}
-
-export namespace UpdateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateJobResponse {
-  /**
-   * <p>Returns the name of the updated job definition.</p>
-   */
-  JobName?: string;
-}
-
-export namespace UpdateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMLTransformRequest {
-  /**
-   * <p>A unique identifier that was generated when the transform was created.</p>
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The unique name that you gave the transform when you created it.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of the transform. The default is an empty string.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
-   *       Conditionally dependent on the transform type.</p>
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   */
-  MaxRetries?: number;
-}
-
-export namespace UpdateMLTransformRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLTransformRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMLTransformResponse {
-  /**
-   * <p>The unique identifier for the transform that was updated.</p>
-   */
-  TransformId?: string;
-}
-
-export namespace UpdateMLTransformResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLTransformResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePartitionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which the table in question
-   *       resides.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in which the partition to be updated is located.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>List of partition key values that define the partition to update.</p>
-   */
-  PartitionValueList: string[] | undefined;
-
-  /**
-   * <p>The new partition object to update the partition to.</p>
-   *
-   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
-   */
-  PartitionInput: PartitionInput | undefined;
-}
-
-export namespace UpdatePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePartitionResponse {}
-
-export namespace UpdatePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRegistryInput {
-  /**
-   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-   */
-  RegistryId: RegistryId | undefined;
-
-  /**
-   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
-   */
-  Description: string | undefined;
-}
-
-export namespace UpdateRegistryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRegistryResponse {
-  /**
-   * <p>The name of the updated registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
-   */
-  RegistryArn?: string;
-}
-
-export namespace UpdateRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSchemaInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
-   */
-  SchemaVersionNumber?: SchemaVersionNumber;
-
-  /**
-   * <p>The new compatibility setting for the schema.</p>
-   */
-  Compatibility?: Compatibility | string;
-
-  /**
-   * <p>The new description for the schema.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateSchemaInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSchemaResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The name of the schema.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The name of the registry that contains the schema.</p>
-   */
-  RegistryName?: string;
-}
-
-export namespace UpdateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   */
-  TableInput: TableInput | undefined;
-
-  /**
-   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
-   *       before updating it. However, if <code>skipArchive</code> is set to true,
-   *         <code>UpdateTable</code> does not create the archived version.</p>
-   */
-  SkipArchive?: boolean;
-
-  /**
-   * <p>The transaction ID at which to update the table contents. </p>
-   */
-  TransactionId?: string;
-
-  VersionId?: string;
-}
-
-export namespace UpdateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTableResponse {}
-
-export namespace UpdateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
-    ...obj,
-  });
 }

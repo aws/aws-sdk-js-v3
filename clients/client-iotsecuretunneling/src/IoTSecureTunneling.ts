@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
@@ -13,6 +14,11 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "./commands/ListTunnelsCommand";
 import { OpenTunnelCommand, OpenTunnelCommandInput, OpenTunnelCommandOutput } from "./commands/OpenTunnelCommand";
+import {
+  RotateTunnelAccessTokenCommand,
+  RotateTunnelAccessTokenCommandInput,
+  RotateTunnelAccessTokenCommandOutput,
+} from "./commands/RotateTunnelAccessTokenCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -22,17 +28,18 @@ import {
 import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
 
 /**
- * <fullname>AWS IoT Secure Tunneling</fullname>
- * 		       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices
- * 			deployed in the field.</p>
- *
- * 		       <p>For more information about how AWS IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>.</p>
+ * <fullname>IoT Secure Tunneling</fullname>
+ * 		       <p>IoT Secure Tunneling creates remote connections to devices deployed in the
+ * 			field.</p>
+ * 		       <p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
+ * 				Secure Tunneling</a>.</p>
  */
 export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   /**
    * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
    * 			request is received, we close the WebSocket connections between the client and proxy
    * 			server so no data can be transmitted.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CloseTunnel</a> action.</p>
    */
   public closeTunnel(args: CloseTunnelCommandInput, options?: __HttpHandlerOptions): Promise<CloseTunnelCommandOutput>;
   public closeTunnel(args: CloseTunnelCommandInput, cb: (err: any, data?: CloseTunnelCommandOutput) => void): void;
@@ -59,6 +66,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
 
   /**
    * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a> action.</p>
    */
   public describeTunnel(
     args: DescribeTunnelCommandInput,
@@ -122,8 +130,9 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
+   * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
    * 			descending order, newer tunnels will be listed before older tunnels.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
    */
   public listTunnels(args: ListTunnelsCommandInput, options?: __HttpHandlerOptions): Promise<ListTunnelsCommandOutput>;
   public listTunnels(args: ListTunnelsCommandInput, cb: (err: any, data?: ListTunnelsCommandOutput) => void): void;
@@ -150,7 +159,8 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
 
   /**
    * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
-   * 			connect to the AWS IoT Secure Tunneling proxy server.</p>
+   * 			connect to the IoT Secure Tunneling proxy server.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
    */
   public openTunnel(args: OpenTunnelCommandInput, options?: __HttpHandlerOptions): Promise<OpenTunnelCommandOutput>;
   public openTunnel(args: OpenTunnelCommandInput, cb: (err: any, data?: OpenTunnelCommandOutput) => void): void;
@@ -165,6 +175,46 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
     cb?: (err: any, data?: OpenTunnelCommandOutput) => void
   ): Promise<OpenTunnelCommandOutput> | void {
     const command = new OpenTunnelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Revokes the current client access token (CAT) and returns new CAT for clients to
+   * 			use when reconnecting to secure tunneling to access the same tunnel.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a> action.</p>
+   * 		       <note>
+   * 			         <p>Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel
+   * 				duration is 12 hours and the tunnel has already been open for 4 hours. When you
+   * 				rotate the access tokens, the new tokens that are generated can only be used for the
+   * 				remaining 8 hours.</p>
+   * 		       </note>
+   */
+  public rotateTunnelAccessToken(
+    args: RotateTunnelAccessTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RotateTunnelAccessTokenCommandOutput>;
+  public rotateTunnelAccessToken(
+    args: RotateTunnelAccessTokenCommandInput,
+    cb: (err: any, data?: RotateTunnelAccessTokenCommandOutput) => void
+  ): void;
+  public rotateTunnelAccessToken(
+    args: RotateTunnelAccessTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RotateTunnelAccessTokenCommandOutput) => void
+  ): void;
+  public rotateTunnelAccessToken(
+    args: RotateTunnelAccessTokenCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RotateTunnelAccessTokenCommandOutput) => void),
+    cb?: (err: any, data?: RotateTunnelAccessTokenCommandOutput) => void
+  ): Promise<RotateTunnelAccessTokenCommandOutput> | void {
+    const command = new RotateTunnelAccessTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

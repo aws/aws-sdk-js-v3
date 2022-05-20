@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -627,7 +628,8 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
-   *       custom model </p>
+   *       custom model
+   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -732,7 +734,8 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
-   *       must be deleted in order for the model to be deleted.</p>
+   *       must be deleted in order for the model to be deleted.
+   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -933,7 +936,8 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
-   *       status of an endpoint.</p>
+   *       status of an endpoint.
+   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -1616,7 +1620,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Gets a list of all existing endpoints that you've created.</p>
+   * <p>Gets a list of all existing endpoints that you've created.
+   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   public listEndpoints(
     args: ListEndpointsCommandInput,
@@ -2497,7 +2502,7 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Stops a sentiment detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
+   *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
    *         <code>STOPPED</code> state.</p>
@@ -2538,7 +2543,7 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Stops a targeted sentiment detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
+   *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
    *       <code>STOPPED</code> state.</p>
@@ -2713,7 +2718,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Updates information about the specified endpoint.</p>
+   * <p>Updates information about the specified endpoint.
+   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,

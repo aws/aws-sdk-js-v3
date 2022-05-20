@@ -1,4 +1,5 @@
 export * from "./DLM";
+// smithy-typescript generated code
 export * from "./DLMClient";
 export * from "./commands";
 export * from "./models";

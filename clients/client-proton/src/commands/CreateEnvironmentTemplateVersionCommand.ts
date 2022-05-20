@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,8 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
 
 /**
  * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
- *     <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its
- *    major version.</p>
+ *         <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major
+ *       version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

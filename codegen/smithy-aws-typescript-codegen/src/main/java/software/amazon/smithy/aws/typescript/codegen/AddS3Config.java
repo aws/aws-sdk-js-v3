@@ -26,7 +26,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
@@ -76,8 +75,7 @@ public final class AddS3Config implements TypeScriptIntegration {
             + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         ServiceShape serviceShape = settings.getService(model);
         if (!testServiceId(serviceShape)) {
             return model;
@@ -135,9 +133,10 @@ public final class AddS3Config implements TypeScriptIntegration {
                 }, "useArnRegion", writer -> {
                     writer.write("false");
                 }, "signerConstructor", writer -> {
-                    writer.addDependency(AwsDependency.S3_MIDDLEWARE)
-                            .addImport("S3SignatureV4", "S3SignatureV4", AwsDependency.S3_MIDDLEWARE.packageName)
-                            .write("S3SignatureV4");
+                    writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
+                            .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
+                                    AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                            .write("SignatureV4MultiRegion");
                 });
             case NODE:
                 return MapUtils.of("useArnRegion", writer -> {
@@ -160,6 +159,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
                              HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckContentLengthHeader",
+                                HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> testServiceId(s) && o.getId().getName(s).equals("PutObject"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "UseRegionalEndpoint",

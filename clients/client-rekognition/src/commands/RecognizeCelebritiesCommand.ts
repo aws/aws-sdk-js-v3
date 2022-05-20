@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRe
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
+ * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing celebrities
  *     in the Amazon Rekognition Developer Guide. </p>
  *          <p>
  *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the
@@ -50,7 +51,7 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *
  *
  *
- *          <p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition Developer Guide.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
  * @example

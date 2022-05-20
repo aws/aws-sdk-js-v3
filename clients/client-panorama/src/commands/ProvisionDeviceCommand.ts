@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,9 +23,10 @@ export interface ProvisionDeviceCommandInput extends ProvisionDeviceRequest {}
 export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a device and returns a configuration archive. The configuration
- *         archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes.
- *         Transfer the configuration archive to the device with the included USB storage device within 5 minutes.</p>
+ * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
+ *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
+ *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
+ *       minutes. Use the included USB storage device and connect it to the USB 3.0 port next to the HDMI output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

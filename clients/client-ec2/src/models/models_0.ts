@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 /**
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
@@ -2407,6 +2408,11 @@ export interface AllocateHostsRequest {
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace AllocateHostsRequest {
@@ -6733,6 +6739,17 @@ export type _InstanceType =
   | "c5n.large"
   | "c5n.metal"
   | "c5n.xlarge"
+  | "c6a.12xlarge"
+  | "c6a.16xlarge"
+  | "c6a.24xlarge"
+  | "c6a.2xlarge"
+  | "c6a.32xlarge"
+  | "c6a.48xlarge"
+  | "c6a.4xlarge"
+  | "c6a.8xlarge"
+  | "c6a.large"
+  | "c6a.metal"
+  | "c6a.xlarge"
   | "c6g.12xlarge"
   | "c6g.16xlarge"
   | "c6g.2xlarge"
@@ -6849,6 +6866,13 @@ export type _InstanceType =
   | "i3en.large"
   | "i3en.metal"
   | "i3en.xlarge"
+  | "i4i.16xlarge"
+  | "i4i.2xlarge"
+  | "i4i.32xlarge"
+  | "i4i.4xlarge"
+  | "i4i.8xlarge"
+  | "i4i.large"
+  | "i4i.xlarge"
   | "im4gn.16xlarge"
   | "im4gn.2xlarge"
   | "im4gn.4xlarge"
@@ -6950,6 +6974,7 @@ export type _InstanceType =
   | "m6a.4xlarge"
   | "m6a.8xlarge"
   | "m6a.large"
+  | "m6a.metal"
   | "m6a.xlarge"
   | "m6g.12xlarge"
   | "m6g.16xlarge"
@@ -7146,6 +7171,16 @@ export type _InstanceType =
   | "x2gd.medium"
   | "x2gd.metal"
   | "x2gd.xlarge"
+  | "x2idn.16xlarge"
+  | "x2idn.24xlarge"
+  | "x2idn.32xlarge"
+  | "x2iedn.16xlarge"
+  | "x2iedn.24xlarge"
+  | "x2iedn.2xlarge"
+  | "x2iedn.32xlarge"
+  | "x2iedn.4xlarge"
+  | "x2iedn.8xlarge"
+  | "x2iedn.xlarge"
   | "x2iezn.12xlarge"
   | "x2iezn.2xlarge"
   | "x2iezn.4xlarge"

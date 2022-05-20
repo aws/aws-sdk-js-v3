@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBrokerCommand";
 export * from "./CreateConfigurationCommand";
 export * from "./CreateTagsCommand";

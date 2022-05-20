@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -114,15 +115,13 @@ export class Synthetics extends SyntheticsClient {
 
   /**
    * <p>Permanently deletes the specified canary.</p>
-   *          <p>When you delete a canary, resources used and created by the canary are not automatically deleted. After you delete a canary that you do not intend to
+   *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
+   *          the Lambda functions and layers that are used by the canary.</p>
+   *          <p>Other esources used and created by the canary are not automatically deleted.
+   *          After you delete a canary that you do not intend to
    *          use again, you
    *       should also delete the following:</p>
    *          <ul>
-   *             <li>
-   *                <p>The Lambda functions and layers used by this canary. These have the prefix
-   *                      <code>cwsyn-<i>MyCanaryName</i>
-   *                   </code>.</p>
-   *             </li>
    *             <li>
    *                <p>The CloudWatch alarms created for this canary. These alarms have a name of
    *                      <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i>

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateConnectorCommand";
 export * from "./CreateCustomPluginCommand";
 export * from "./CreateWorkerConfigurationCommand";

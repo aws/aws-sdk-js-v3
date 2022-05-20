@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,9 +25,6 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 /**
  * <p>Ends the specified contact. This call does not work for the following initiation methods:</p>
  *          <ul>
- *             <li>
- *                <p>CALLBACK</p>
- *             </li>
  *             <li>
  *                <p>DISCONNECT</p>
  *             </li>

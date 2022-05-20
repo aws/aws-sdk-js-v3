@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-appconfigdata
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-appconfigdata/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)
@@ -159,7 +161,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -193,7 +195,7 @@ client
 
 // callbacks.
 client.getLatestConfiguration(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

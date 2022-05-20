@@ -1,4 +1,5 @@
 export * from "./MediaLive";
+// smithy-typescript generated code
 export * from "./MediaLiveClient";
 export * from "./commands";
 export * from "./models";

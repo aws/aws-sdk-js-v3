@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { AppRunnerServiceException as __BaseException } from "./AppRunnerServiceException";
 
@@ -320,7 +320,7 @@ export interface AutoScalingConfiguration {
 
   /**
    * <p>It's set to <code>true</code> for the configuration with the highest <code>Revision</code> among all configurations that share the same
-   *         <code>Name</code>. It's set to <code>false</code> otherwise.</p>
+   *         <code>AutoScalingConfigurationName</code>. It's set to <code>false</code> otherwise.</p>
    */
   Latest?: boolean;
 
@@ -500,6 +500,144 @@ export namespace CreateConnectionResponse {
   });
 }
 
+export enum TracingVendor {
+  AWSXRAY = "AWSXRAY",
+}
+
+/**
+ * <p>Describes the configuration of the tracing feature within an App Runner observability configuration.</p>
+ */
+export interface TraceConfiguration {
+  /**
+   * <p>The implementation provider chosen for tracing App Runner services.</p>
+   */
+  Vendor: TracingVendor | string | undefined;
+}
+
+export namespace TraceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TraceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateObservabilityConfigurationRequest {
+  /**
+   * <p>A name for the observability configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number
+   *         <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
+   *          <note>
+   *             <p>The name <code>DefaultConfiguration</code> is reserved. You can't use it to create a new observability configuration, and you can't create a
+   *         revision of it.</p>
+   *             <p>When you want to use your own observability configuration for your App Runner service, <i>create a configuration with a different name</i>,
+   *         and then provide it when you create or update your service.</p>
+   *          </note>
+   */
+  ObservabilityConfigurationName: string | undefined;
+
+  /**
+   * <p>The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.</p>
+   */
+  TraceConfiguration?: TraceConfiguration;
+
+  /**
+   * <p>A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateObservabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateObservabilityConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ObservabilityConfigurationStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>Describes an App Runner observability configuration resource. Multiple revisions of a configuration have the same
+ *         <code>ObservabilityConfigurationName</code> and different <code>ObservabilityConfigurationRevision</code> values.</p>
+ *          <p>The resource is designed to configure multiple features (currently one feature, tracing). This type contains optional members that describe the
+ *       configuration of these features (currently one member, <code>TraceConfiguration</code>). If a feature member isn't specified, the feature isn't
+ *       enabled.</p>
+ */
+export interface ObservabilityConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of this observability configuration.</p>
+   */
+  ObservabilityConfigurationArn?: string;
+
+  /**
+   * <p>The customer-provided observability configuration name. It can be used in multiple revisions of a configuration.</p>
+   */
+  ObservabilityConfigurationName?: string;
+
+  /**
+   * <p>The configuration of the tracing feature within this observability configuration. If not specified, tracing isn't enabled.</p>
+   */
+  TraceConfiguration?: TraceConfiguration;
+
+  /**
+   * <p>The revision of this observability configuration. It's unique among all the active configurations (<code>"Status": "ACTIVE"</code>) that share the
+   *       same <code>ObservabilityConfigurationName</code>.</p>
+   */
+  ObservabilityConfigurationRevision?: number;
+
+  /**
+   * <p>It's set to <code>true</code> for the configuration with the highest <code>Revision</code> among all configurations that share the same
+   *         <code>ObservabilityConfigurationName</code>. It's set to <code>false</code> otherwise.</p>
+   */
+  Latest?: boolean;
+
+  /**
+   * <p>The current state of the observability configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
+   *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
+   */
+  Status?: ObservabilityConfigurationStatus | string;
+
+  /**
+   * <p>The time when the observability configuration was created. It's in Unix time stamp format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The time when the observability configuration was deleted. It's in Unix time stamp format.</p>
+   */
+  DeletedAt?: Date;
+}
+
+export namespace ObservabilityConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ObservabilityConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateObservabilityConfigurationResponse {
+  /**
+   * <p>A description of the App Runner observability configuration that's created by this request.</p>
+   */
+  ObservabilityConfiguration: ObservabilityConfiguration | undefined;
+}
+
+export namespace CreateObservabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateObservabilityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes a custom encryption key that App Runner uses to encrypt copies of the source repository and service logs.</p>
  */
@@ -665,6 +803,39 @@ export namespace NetworkConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the observability configuration of an App Runner service. These are additional observability features, like tracing, that you choose to
+ *       enable. They're configured in a separate resource that you associate with your service.</p>
+ */
+export interface ServiceObservabilityConfiguration {
+  /**
+   * <p>When <code>true</code>, an observability configuration resource is associated with the service, and an <code>ObservabilityConfigurationArn</code> is
+   *       specified.</p>
+   */
+  ObservabilityEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the observability configuration that is associated with the service. Specified only when
+   *         <code>ObservabilityEnabled</code> is <code>true</code>.</p>
+   *          <p>Specify an ARN with a name and a revision number to associate that revision. For example:
+   *           <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code>
+   *          </p>
+   *          <p>Specify just the name to associate the latest revision. For example:
+   *         <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</code>
+   *          </p>
+   */
+  ObservabilityConfigurationArn?: string;
+}
+
+export namespace ServiceObservabilityConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceObservabilityConfiguration): any => ({
     ...obj,
   });
 }
@@ -983,7 +1154,7 @@ export interface CreateServiceRequest {
   SourceConfiguration: SourceConfiguration | undefined;
 
   /**
-   * <p>The runtime configuration of instances (scaling units) of the App Runner service.</p>
+   * <p>The runtime configuration of instances (scaling units) of your service.</p>
    */
   InstanceConfiguration?: InstanceConfiguration;
 
@@ -1004,8 +1175,14 @@ export interface CreateServiceRequest {
   HealthCheckConfiguration?: HealthCheckConfiguration;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with the App Runner service. If not provided,
-   *       App Runner associates the latest revision of a default auto scaling configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner
+   *       associates the latest revision of a default auto scaling configuration.</p>
+   *          <p>Specify an ARN with a name and a revision number to associate that revision. For example:
+   *           <code>arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability/3</code>
+   *          </p>
+   *          <p>Specify just the name to associate the latest revision. For example:
+   *         <code>arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability</code>
+   *          </p>
    */
   AutoScalingConfigurationArn?: string;
 
@@ -1013,6 +1190,11 @@ export interface CreateServiceRequest {
    * <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
    */
   NetworkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The observability configuration of your service.</p>
+   */
+  ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
 export namespace CreateServiceRequest {
@@ -1158,6 +1340,11 @@ export interface Service {
    * <p>Configuration settings related to network traffic of the web application that this service runs.</p>
    */
   NetworkConfiguration: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The observability configuration of this service.</p>
+   */
+  ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
 export namespace Service {
@@ -1402,6 +1589,42 @@ export namespace DeleteConnectionResponse {
   });
 }
 
+export interface DeleteObservabilityConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want to delete.</p>
+   *          <p>The ARN can be a full observability configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *           <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is deleted.</p>
+   */
+  ObservabilityConfigurationArn: string | undefined;
+}
+
+export namespace DeleteObservabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteObservabilityConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteObservabilityConfigurationResponse {
+  /**
+   * <p>A description of the App Runner observability configuration that this request just deleted.</p>
+   */
+  ObservabilityConfiguration: ObservabilityConfiguration | undefined;
+}
+
+export namespace DeleteObservabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteObservabilityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to delete.</p>
@@ -1572,6 +1795,43 @@ export namespace DescribeCustomDomainsResponse {
   });
 }
 
+export interface DescribeObservabilityConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want a description for.</p>
+   *          <p>The ARN can be a full observability configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *           <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is
+   *       described.</p>
+   */
+  ObservabilityConfigurationArn: string | undefined;
+}
+
+export namespace DescribeObservabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeObservabilityConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeObservabilityConfigurationResponse {
+  /**
+   * <p>A full description of the App Runner observability configuration that you specified in this request.</p>
+   */
+  ObservabilityConfiguration: ObservabilityConfiguration | undefined;
+}
+
+export namespace DescribeObservabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeObservabilityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want a description for.</p>
@@ -1688,14 +1948,14 @@ export namespace DisassociateCustomDomainResponse {
 export interface ListAutoScalingConfigurationsRequest {
   /**
    * <p>The name of the App Runner auto scaling configuration that you want to list. If specified, App Runner lists revisions that share this name. If not specified, App Runner
-   *       returns revisions of all configurations.</p>
+   *       returns revisions of all active configurations.</p>
    */
   AutoScalingConfigurationName?: string;
 
   /**
    * <p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p>
-   *          <p>Keep as <code>false</code> to list all revisions for each requested configuration name.</p>
-   *          <p>Default: <code>false</code>
+   *          <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p>
+   *          <p>Default: <code>true</code>
    *          </p>
    */
   LatestOnly?: boolean;
@@ -1831,6 +2091,99 @@ export namespace ListConnectionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListConnectionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListObservabilityConfigurationsRequest {
+  /**
+   * <p>The name of the App Runner observability configuration that you want to list. If specified, App Runner lists revisions that share this name. If not specified,
+   *       App Runner returns revisions of all active configurations.</p>
+   */
+  ObservabilityConfigurationName?: string;
+
+  /**
+   * <p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p>
+   *          <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p>
+   *          <p>Default: <code>true</code>
+   *          </p>
+   */
+  LatestOnly?: boolean;
+
+  /**
+   * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
+   *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be
+   *       identical to the ones that are specified in the initial request.</p>
+   *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListObservabilityConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListObservabilityConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about an App Runner observability configuration resource.</p>
+ *          <p>This type contains limited information about an observability configuration. It includes only identification information, without configuration
+ *       details. It's returned by the <a>ListObservabilityConfigurations</a> action. Complete configuration information is returned by the <a>CreateObservabilityConfiguration</a>, <a>DescribeObservabilityConfiguration</a>, and <a>DeleteObservabilityConfiguration</a>
+ *       actions using the <a>ObservabilityConfiguration</a> type.</p>
+ */
+export interface ObservabilityConfigurationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of this observability configuration.</p>
+   */
+  ObservabilityConfigurationArn?: string;
+
+  /**
+   * <p>The customer-provided observability configuration name. It can be used in multiple revisions of a configuration.</p>
+   */
+  ObservabilityConfigurationName?: string;
+
+  /**
+   * <p>The revision of this observability configuration. It's unique among all the active configurations (<code>"Status": "ACTIVE"</code>) that share the
+   *       same <code>ObservabilityConfigurationName</code>.</p>
+   */
+  ObservabilityConfigurationRevision?: number;
+}
+
+export namespace ObservabilityConfigurationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ObservabilityConfigurationSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListObservabilityConfigurationsResponse {
+  /**
+   * <p>A list of summary information records for observability configurations. In a paginated request, the request returns up to <code>MaxResults</code>
+   *       records for each call.</p>
+   */
+  ObservabilityConfigurationSummaryList: ObservabilityConfigurationSummary[] | undefined;
+
+  /**
+   * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListObservabilityConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListObservabilityConfigurationsResponse): any => ({
     ...obj,
   });
 }
@@ -2334,7 +2687,7 @@ export interface UpdateServiceRequest {
   SourceConfiguration?: SourceConfiguration;
 
   /**
-   * <p>The runtime configuration to apply to instances (scaling units) of the App Runner service.</p>
+   * <p>The runtime configuration to apply to instances (scaling units) of your service.</p>
    */
   InstanceConfiguration?: InstanceConfiguration;
 
@@ -2352,6 +2705,11 @@ export interface UpdateServiceRequest {
    * <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
    */
   NetworkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The observability configuration of your service.</p>
+   */
+  ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
 export namespace UpdateServiceRequest {

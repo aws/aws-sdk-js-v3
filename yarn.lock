@@ -79,7 +79,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.58.0"
+  version "3.95.0"
   dependencies:
     "@aws-crypto/sha256-browser" "2.0.0"
     "@aws-crypto/sha256-js" "2.0.0"
@@ -2120,6 +2120,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.58.tgz#10682f6016fd866725c36d22ce6bbbd029bf4545"
   integrity sha512-Dn5RBxLohjdHFj17dVVw3rtrZAeXeWg+LQfvxDIW/fdPkSiuQk7h3frKMYtsQhtIW42wkErDcy9UMVxhGW4O7w==
 
+"@types/node@^12.0.0":
+  version "12.20.48"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.48.tgz#55f70bd432b6515828c0298689776861b90ca4fa"
+  integrity sha512-4kxzqkrpwYtn6okJUcb2lfUu9ilnb3yhUOH6qX3nug8D2DupZ2drIkff2yJzYcNJVl3begnlcaBJ7tqiTTzjnQ==
+
 "@types/node@^12.0.2":
   version "12.20.20"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.20.tgz#ce3d6c13c15c5e622a85efcd3a1cb2d9c7fa43a6"
@@ -3020,10 +3025,10 @@ available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
-aws-crt@^1.11.3:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.11.3.tgz#2a40b64fa765a34231b05a2659798e242505983f"
-  integrity sha512-tqBFFzoM7bA2KsHuDa7j4Q+SOK208BRmz8C05vrFzH1XjlYconhJtmzNfT1h8MJzxV2AQBABpVblTlRcxue2MA==
+aws-crt@^1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.12.2.tgz#8e29050bd00a026d43255ffcb00bba0e813fc0be"
+  integrity sha512-Z8uJggZOnIZlsoTcJY3WCrG2lIEfy3aCtsGIVEEtgLGiMbeg4YWJEjZywkx+DtWW5+/GDxyTPrKfHEH6fEwiyw==
   dependencies:
     "@httptoolkit/websocket-stream" "^6.0.0"
     axios "^0.24.0"

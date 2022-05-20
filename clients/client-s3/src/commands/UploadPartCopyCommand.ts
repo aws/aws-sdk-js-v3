@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -29,9 +30,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *          data source by adding the request header <code>x-amz-copy-source</code> in your request and
  *          a byte range by adding the request header <code>x-amz-copy-source-range</code> in your
  *          request. </p>
- *          <p>The minimum allowable part size for a multipart upload is 5 MB. For more information
- *          about multipart upload limits, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html">Quick
- *             Facts</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          <p>For information about maximum and minimum part sizes and other multipart upload specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <note>
  *             <p>Instead of using an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *             action and provide data in your request.</p>

@@ -1,10 +1,10 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { EFSServiceException as __BaseException } from "./EFSServiceException";
 
 /**
- * <p>Returned if the access point you are trying to create already exists, with the
+ * <p>Returned if the access point that you are trying to create already exists, with the
  *             creation token you provided in the request.</p>
  */
 export class AccessPointAlreadyExists extends __BaseException {
@@ -250,7 +250,7 @@ export namespace AccessPointDescription {
 
 /**
  * <p>Returned if the Amazon Web Services account has already created the maximum number of access points
- *             allowed per file system.</p>
+ *             allowed per file system. For more informaton, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region</a>.</p>
  */
 export class AccessPointLimitExceeded extends __BaseException {
   readonly name: "AccessPointLimitExceeded" = "AccessPointLimitExceeded";
@@ -321,7 +321,8 @@ export class AccessPointNotFound extends __BaseException {
 }
 
 /**
- * <p>Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage classes.
+ * <p>Returned if the Availability Zone that was specified for a mount target is
+ *             different from the Availability Zone that was specified for One Zone storage.
  *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
  */
 export class AvailabilityZonesMismatch extends __BaseException {
@@ -387,7 +388,8 @@ export interface BackupPolicy {
    *                <p>
    *                   <b>
    *                      <code>DISABLED</code>
-   *                   </b> - automatic back ups are turned off for the file system.</p>
+   *                   </b> - Automatic back ups are turned off for
+   *           the file system.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -411,7 +413,8 @@ export namespace BackupPolicy {
 
 export interface BackupPolicyDescription {
   /**
-   * <p>Describes the file system's backup policy, indicating whether automatic backups are turned on or off..</p>
+   * <p>Describes the file system's backup policy, indicating whether automatic backups are
+   *       turned on or off.</p>
    */
   BackupPolicy?: BackupPolicy;
 }
@@ -487,12 +490,13 @@ export interface CreateAccessPointRequest {
   PosixUser?: PosixUser;
 
   /**
-   * <p>Specifies the directory on the Amazon EFS file system that the access point exposes as
-   *       the root directory of your file system to NFS clients using the access point.
-   *       The clients using the access point can only access the root directory and below.
-   *       If the <code>RootDirectory</code> > <code>Path</code> specified does not exist,
-   *       EFS creates it and applies the <code>CreationInfo</code> settings when a client connects to an access point.
-   *       When specifying a <code>RootDirectory</code>, you need to provide the <code>Path</code>, and the <code>CreationInfo</code>.</p>
+   * <p>Specifies the directory on the Amazon EFS file system that the access point
+   *       exposes as the root directory of your file system to NFS clients using the access point. The
+   *       clients using the access point can only access the root directory and below. If the
+   *         <code>RootDirectory</code> > <code>Path</code> specified does not exist, EFS creates it
+   *       and applies the <code>CreationInfo</code> settings when a client connects to an access point.
+   *       When specifying a <code>RootDirectory</code>, you must provide the <code>Path</code>, and the
+   *         <code>CreationInfo</code>.</p>
    *          <p>Amazon EFS creates a root directory only if you have provided the  CreationInfo: OwnUid, OwnGID, and permissions for the directory.
    *       If  you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount
    *       using the access point will fail.</p>
@@ -615,6 +619,42 @@ export class InternalServerError extends __BaseException {
   }
 }
 
+/**
+ * <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and
+ *             the number of Access Points in the account is nearing the limit of 120.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
 export enum PerformanceMode {
   GENERAL_PURPOSE = "generalPurpose",
   MAX_IO = "maxIO",
@@ -654,10 +694,9 @@ export interface CreateFileSystemRequest {
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of the KMS key that you want to use to protect the encrypted file system. This
-   *       parameter is only required if you want to use a non-default KMS key. If this parameter is not
-   *       specified, the default KMS key for Amazon EFS is used. You can specify a KMS key
-   *       ID using the following formats:</p>
+   * <p>The ID of the KMS key that you want to use to protect the encrypted file
+   *       system. This parameter is required only if you want to use a non-default KMS key. If this parameter is not specified, the default KMS key for Amazon EFS is used. You can specify a KMS key ID using the following
+   *       formats:</p>
    *          <ul>
    *             <li>
    *                <p>Key ID - A unique identifier of the key, for example
@@ -998,8 +1037,8 @@ export class FileSystemLimitExceeded extends __BaseException {
  * <p>Returned if there's not enough capacity to provision additional throughput. This value
  *             might be returned when you try to create a file system in provisioned throughput mode,
  *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from bursting to provisioned
- *             throughput mode. Try again later.</p>
+ *             when you attempt to change an existing file system from Bursting Throughput to
+ *             Provisioned Throughput mode. Try again later.</p>
  */
 export class InsufficientThroughputCapacity extends __BaseException {
   readonly name: "InsufficientThroughputCapacity" = "InsufficientThroughputCapacity";
@@ -1282,10 +1321,11 @@ export namespace MountTargetDescription {
 
 /**
  * <p>The calling account has reached the limit for elastic network interfaces for the
- *             specific Amazon Web Services Region. The client should try to delete some elastic network interfaces or
- *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
- *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
- *             entry in the table). </p>
+ *             specific Amazon Web Services Region. Either delete some network interfaces or request
+ *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
+ *                 interfaces per Region</b> entry in the <b>Network
+ *                 interfaces</b> table). </p>
  */
 export class NetworkInterfaceLimitExceeded extends __BaseException {
   readonly name: "NetworkInterfaceLimitExceeded" = "NetworkInterfaceLimitExceeded";
@@ -1393,7 +1433,7 @@ export class SecurityGroupLimitExceeded extends __BaseException {
 
 /**
  * <p>Returned if one of the specified security groups doesn't exist in the subnet's
- *             VPC.</p>
+ *             virtual private cloud (VPC).</p>
  */
 export class SecurityGroupNotFound extends __BaseException {
   readonly name: "SecurityGroupNotFound" = "SecurityGroupNotFound";
@@ -1468,38 +1508,37 @@ export class SubnetNotFound extends __BaseException {
  */
 export interface DestinationToCreate {
   /**
-   * <p>To create a file system that uses regional storage, specify the Amazon Web Services Region
+   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region
    *       in which to create the destination file system.</p>
    */
   Region?: string;
 
   /**
-   * <p>To create a file system that uses One Zone storage, specify the name of the
+   * <p>To create a file system that uses EFS One Zone storage, specify the name of the
    *       Availability Zone in which to create the destination file system.</p>
    */
   AvailabilityZoneName?: string;
 
   /**
-   * <p>Specifies the KMS key you want to use to encrypt the destination file system. If you do not
-   *       specify a KMS key, EFS uses your default KMS key for Amazon EFS,
-   *       <code>/aws/elasticfilesystem</code>. This ID can be in one of the following
-   *       formats:</p>
+   * <p>Specifies the Key Management Service (KMS) key that you want to use to
+   *       encrypt the destination file system. If you do not specify a KMS key, Amazon EFS uses your default KMS key for Amazon EFS,
+   *         <code>/aws/elasticfilesystem</code>. This ID can be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>Key ID - A unique identifier of the key, for example
-   *           <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *                <p>Key ID - The unique identifier of the key, for example
+   *             <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN - An Amazon Resource Name (ARN) for the key, for example
-   *           <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *                <p>ARN - The Amazon Resource Name (ARN) for the key, for example
+   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
    *                <p>Key alias - A previously created display name for a key, for example
    *           <code>alias/projectKey1</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Key alias ARN - An ARN for a key alias, for example
-   *           <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</p>
+   *                <p>Key alias ARN - The ARN for a key alias, for example
+   *             <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1549,7 +1588,10 @@ export enum ReplicationStatus {
  */
 export interface Destination {
   /**
-   * <p>Describes the status of the destination Amazon EFS file system.</p>
+   * <p>Describes the status of the destination Amazon EFS file system. If the status is
+   *         <code>ERROR</code>, the destination file system in the replication configuration is in a
+   *       failed state and is unrecoverable. To access the file system data, restore a backup of the
+   *       failed file system to a new file system.</p>
    */
   Status: ReplicationStatus | string | undefined;
 
@@ -1564,10 +1606,10 @@ export interface Destination {
   Region: string | undefined;
 
   /**
-   * <p>The time when the most recent sync successfully completed on the destination file system.
-   *       Any changes to data on the source file system that occurred prior to this time were successfully
-   *       replicated to the destination file system. Any changes that occurred after this time might not be
-   *       fully replicated.</p>
+   * <p>The time when the most recent sync was successfully completed on the destination file
+   *       system. Any changes to data on the source file system that occurred before this time have been
+   *       successfully replicated to the destination file system. Any changes that occurred after this
+   *       time might not be fully replicated.</p>
    */
   LastReplicatedTimestamp?: Date;
 }
@@ -1593,7 +1635,8 @@ export interface ReplicationConfigurationDescription {
   SourceFileSystemRegion: string | undefined;
 
   /**
-   * <p>The ARN of the current source file system in the replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the current source file system in the replication
+   *       configuration.</p>
    */
   SourceFileSystemArn: string | undefined;
 
@@ -1608,7 +1651,7 @@ export interface ReplicationConfigurationDescription {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Array of destination objects. Only one destination object is supported.</p>
+   * <p>An array of destination objects. Only one destination object is supported.</p>
    */
   Destinations: Destination[] | undefined;
 }
@@ -1623,7 +1666,8 @@ export namespace ReplicationConfigurationDescription {
 }
 
 /**
- * <p>Returned if the specified file system did not have a replication configuration.</p>
+ * <p>Returned if the specified file system does not have a replication
+ *             configuration.</p>
  */
 export class ReplicationNotFound extends __BaseException {
   readonly name: "ReplicationNotFound" = "ReplicationNotFound";
@@ -2256,15 +2300,18 @@ export enum TransitionToPrimaryStorageClassRules {
 }
 
 /**
- * <p>Describes a policy used by EFS lifecycle management and EFS intelligent tiering that specifies when to transition
- *       files into and out of the file system's Infrequent Access (IA) storage class. For more information, see
- *       <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Intelligent‐Tiering and EFS Lifecycle Management</a>.</p>
+ * <p>Describes a policy used by EFS lifecycle management and EFS Intelligent-Tiering that
+ *       specifies when to transition files into and out of the file system's Infrequent Access (IA)
+ *       storage class. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Intelligent‐Tiering and EFS Lifecycle
+ *         Management</a>.</p>
  *          <note>
- *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the <code>PutLifecycleConfiguration</code> API action,
- *       Amazon EFS requires that each <code>LifecyclePolicy</code>
- *       object have only a single transition. This means that in a request body, <code>LifecyclePolicies</code> needs to be structured as
- *       an array of <code>LifecyclePolicy</code> objects, one object for each transition, <code>TransitionToIA</code>,
- *       <code>TransitionToPrimaryStorageClass</code>. For more information, see the request examples in <a>PutLifecycleConfiguration</a>.</p>
+ *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the
+ *           <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each
+ *           <code>LifecyclePolicy</code> object have only a single transition. This means that in a
+ *         request body, <code>LifecyclePolicies</code> must be structured as an array of
+ *           <code>LifecyclePolicy</code> objects, one object for each transition,
+ *           <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>. For more
+ *         information, see the request examples in <a>PutLifecycleConfiguration</a>.</p>
  *          </note>
  */
 export interface LifecyclePolicy {
@@ -2462,20 +2509,22 @@ export class IncorrectMountTargetState extends __BaseException {
 
 export interface DescribeReplicationConfigurationsRequest {
   /**
-   * <p>You can retrieve replication configurations for a specific file system by providing a file system ID.</p>
+   * <p>You can retrieve the replication configuration for a specific file system by providing its
+   *       file system ID.</p>
    */
   FileSystemId?: string;
 
   /**
    * <p>
    *             <code>NextToken</code> is present if the response is paginated. You can use
-   *       <code>NextMarker</code> in a subsequent request to fetch the next page of output.</p>
+   *         <code>NextToken</code> in a subsequent request to fetch the next page of
+   *       output.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>(Optional) You can optionally specify the <code>MaxItems</code> parameter
-   *       to limit the number of objects returned in a response. The default value is 100. </p>
+   * <p>(Optional) To limit the number of objects returned in a response, you can specify the
+   *         <code>MaxItems</code> parameter. The default value is 100. </p>
    */
   MaxResults?: number;
 }
@@ -2491,7 +2540,7 @@ export namespace DescribeReplicationConfigurationsRequest {
 
 export interface DescribeReplicationConfigurationsResponse {
   /**
-   * <p>The collection of replication configurations returned.</p>
+   * <p>The collection of replication configurations that is returned.</p>
    */
   Replications?: ReplicationConfigurationDescription[];
 
@@ -2578,8 +2627,9 @@ export namespace DescribeTagsResponse {
 }
 
 /**
- * <p>Returned if the <code>FileSystemPolicy</code> is is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
+ * <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such
+ *             as a parameter value that is not valid or a missing required parameter. Returned in the
+ *             case of a policy lockout safety check error.</p>
  */
 export class InvalidPolicyException extends __BaseException {
   readonly name: "InvalidPolicyException" = "InvalidPolicyException";
@@ -2691,9 +2741,9 @@ export interface PutAccountPreferencesRequest {
    *       in the current Amazon Web Services Region, either <code>LONG_ID</code> (17 characters), or
    *       <code>SHORT_ID</code> (8 characters).</p>
    *          <note>
-   *             <p>Starting in October, 2021, you will receive an error when setting the account
-   *       preference to <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an
-   *       error and need to use short IDs for file system and mount target resources.</p>
+   *             <p>Starting in October, 2021, you will receive an error when setting the account preference to
+   *           <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an error and must
+   *         use short IDs for file system and mount target resources.</p>
    *          </note>
    */
   ResourceIdType: ResourceIdType | string | undefined;
@@ -2761,11 +2811,11 @@ export interface PutFileSystemPolicyRequest {
   Policy: string | undefined;
 
   /**
-   * <p>(Optional) A flag to indicate whether to bypass the <code>FileSystemPolicy</code> lockout safety check. The policy lockout safety check
-   *       determines whether the policy in the request will prevent the principal making the request will be locked out from making future <code>PutFileSystemPolicy</code> requests on the file system.
+   * <p>(Optional) A boolean that specifies whether or not to bypass the <code>FileSystemPolicy</code> lockout safety check. The lockout safety check
+   *       determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future <code>PutFileSystemPolicy</code> requests on this file system.
    *       Set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code> only when you intend to prevent
-   *       the principal that is making the request from making a subsequent <code>PutFileSystemPolicy</code> request on the file system.
-   *       The default value is False.
+   *       the IAM principal that is making the request from making subsequent <code>PutFileSystemPolicy</code> requests on this file system.
+   *       The default value is <code>False</code>.
    *     </p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
@@ -2790,7 +2840,7 @@ export interface PutLifecycleConfigurationRequest {
   /**
    * <p>An array of <code>LifecyclePolicy</code> objects that define the file system's
    *         <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object
-   *       informs EFS lifecycle management and intelligent tiering of the following:</p>
+   *       informs EFS lifecycle management and EFS Intelligent-Tiering of the following:</p>
    *          <ul>
    *             <li>
    *                <p>When to move files in the file system from primary storage to the IA storage class.</p>
@@ -2800,11 +2850,13 @@ export interface PutLifecycleConfigurationRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the <code>PutLifecycleConfiguration</code> API action,
-   *       Amazon EFS requires that each <code>LifecyclePolicy</code>
-   *       object have only a single transition. This means that in a request body, <code>LifecyclePolicies</code> needs to be structured as
-   *       an array of <code>LifecyclePolicy</code> objects, one object for each transition, <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>.
-   *       See the example requests in the following section for more information.</p>
+   *             <p>When using the <code>put-lifecycle-configuration</code> CLI command or the
+   *           <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each
+   *           <code>LifecyclePolicy</code> object have only a single transition. This means that in a
+   *         request body, <code>LifecyclePolicies</code> must be structured as an array of
+   *           <code>LifecyclePolicy</code> objects, one object for each transition,
+   *           <code>TransitionToIA</code>, <code>TransitionToPrimaryStorageClass</code>. See the example
+   *         requests in the following section for more information.</p>
    *          </note>
    */
   LifecyclePolicies: LifecyclePolicy[] | undefined;
@@ -2864,7 +2916,7 @@ export namespace UntagResourceRequest {
 }
 
 /**
- * <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
+ * <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
  *             decreasing the Provisioned Throughput value.</p>
  */
 export class TooManyRequests extends __BaseException {

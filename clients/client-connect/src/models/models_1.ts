@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
@@ -12,13 +12,793 @@ import {
   InstanceStorageResourceType,
   MediaConcurrency,
   OutboundCallerConfig,
+  PhoneNumberCountryCode,
+  PhoneNumberType,
   QueueStatus,
   QuickConnectConfig,
   ReferenceType,
   RoutingProfileQueueConfig,
   UserIdentityInfo,
   UserPhoneConfig,
+  VocabularyLanguageCode,
+  VocabularyState,
 } from "./models_0";
+
+export interface SearchAvailablePhoneNumbersRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode: PhoneNumberCountryCode | string | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType: PhoneNumberType | string | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   */
+  PhoneNumberPrefix?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchAvailablePhoneNumbersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAvailablePhoneNumbersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about available phone numbers.</p>
+ */
+export interface AvailableNumberSummary {
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
+}
+
+export namespace AvailableNumberSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AvailableNumberSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchAvailablePhoneNumbersResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of available phone numbers that you can claim for your Amazon Connect instance.</p>
+   */
+  AvailableNumbersList?: AvailableNumberSummary[];
+}
+
+export namespace SearchAvailablePhoneNumbersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAvailablePhoneNumbersResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum HierarchyGroupMatchType {
+  EXACT = "EXACT",
+  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ */
+export interface HierarchyGroupCondition {
+  /**
+   * <p>The value in the hierarchy group condition.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of hierarchy group match.</p>
+   */
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
+}
+
+export namespace HierarchyGroupCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HierarchyGroupCondition): any => ({
+    ...obj,
+  });
+}
+
+export enum StringComparisonType {
+  CONTAINS = "CONTAINS",
+  EXACT = "EXACT",
+  STARTS_WITH = "STARTS_WITH",
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a string condition, for example,
+ *    <code>username = 'abc'</code>. </p>
+ */
+export interface StringCondition {
+  /**
+   * <p>The name of the field in the string condition.</p>
+   */
+  FieldName?: string;
+
+  /**
+   * <p>The value of the string.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the string condition.</p>
+   */
+  ComparisonType?: StringComparisonType | string;
+}
+
+export namespace StringCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StringCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
+ *    BPO = 123</code>. </p>
+ */
+export interface TagCondition {
+  /**
+   * <p>The tag key in the tag condition.</p>
+   */
+  TagKey?: string;
+
+  /**
+   * <p>The tag value in the tag condition.</p>
+   */
+  TagValue?: string;
+}
+
+export namespace TagCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+ *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+ *          <ul>
+ *             <li>
+ *                <p>Top level list specifies conditions that need to be applied
+ *     with <code>OR</code> operator</p>
+ *             </li>
+ *             <li>
+ *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+ *     operator.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ControlPlaneTagFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>
+   */
+  OrConditions?: TagCondition[][];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   */
+  AndConditions?: TagCondition[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition. </p>
+   */
+  TagCondition?: TagCondition;
+}
+
+export namespace ControlPlaneTagFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlPlaneTagFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface UserSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied
+   *     with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *     operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+export namespace UserSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The user's first name and last name.</p>
+ */
+export interface UserIdentityInfoLite {
+  /**
+   * <p>The user's first name.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The user's last name.</p>
+   */
+  LastName?: string;
+}
+
+export namespace UserIdentityInfoLite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserIdentityInfoLite): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the returned users.</p>
+ */
+export interface UserSearchSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The directory identifier of the user.</p>
+   */
+  DirectoryUserId?: string;
+
+  /**
+   * <p>The identifier of the user's hierarchy group.</p>
+   */
+  HierarchyGroupId?: string;
+
+  /**
+   * <p>The identifier of the user's summary.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The user's first name and last name.</p>
+   */
+  IdentityInfo?: UserIdentityInfoLite;
+
+  /**
+   * <p>Contains information about the phone configuration settings for a user.</p>
+   */
+  PhoneConfig?: UserPhoneConfig;
+
+  /**
+   * <p>The identifier of the user's routing profile.</p>
+   */
+  RoutingProfileId?: string;
+
+  /**
+   * <p>The identifiers of the user's security profiles.</p>
+   */
+  SecurityProfileIds?: string[];
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  Username?: string;
+}
+
+export namespace UserSearchSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchUsersResponse {
+  /**
+   * <p>Information about the users.</p>
+   */
+  Users?: UserSearchSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of users who matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+export namespace SearchUsersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchUsersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchVocabulariesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State?: VocabularyState | string;
+
+  /**
+   * <p>The starting pattern of the name of the vocabulary.</p>
+   */
+  NameStartsWith?: string;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode?: VocabularyLanguageCode | string;
+}
+
+export namespace SearchVocabulariesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchVocabulariesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about the custom vocabulary.</p>
+ */
+export interface VocabularySummary {
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State: VocabularyState | string | undefined;
+
+  /**
+   * <p>The timestamp when the custom vocabulary was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The reason why the custom vocabulary was not created.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace VocabularySummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VocabularySummary): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchVocabulariesResponse {
+  /**
+   * <p>The list of the available custom vocabularies.</p>
+   */
+  VocabularySummaryList?: VocabularySummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchVocabulariesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchVocabulariesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A chat message.</p>
+ */
+export interface ChatMessage {
+  /**
+   * <p>The type of the content. Supported types are <code>text/plain</code>.</p>
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>The content of the chat message.</p>
+   */
+  Content: string | undefined;
+}
+
+export namespace ChatMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChatMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The customer's details.</p>
+ */
+export interface ParticipantDetails {
+  /**
+   * <p>Display name of the participant.</p>
+   */
+  DisplayName: string | undefined;
+}
+
+export namespace ParticipantDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ParticipantDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface StartChatContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow for initiating the chat.
+   *    To
+   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the
+   *    contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
+   *    the ARN, shown here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes. They can be accessed in contact flows just like any other contact attributes. </p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Information identifying the participant.</p>
+   */
+  ParticipantDetails: ParticipantDetails | undefined;
+
+  /**
+   * <p>The initial message to be sent to the newly created chat.</p>
+   */
+  InitialMessage?: ChatMessage;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25 hour.
+   *    The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
+   */
+  ChatDurationInMinutes?: number;
+
+  /**
+   * <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+   */
+  SupportedMessagingContentTypes?: string[];
+}
+
+export namespace StartChatContactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartChatContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartChatContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance. </p>
+   */
+  ContactId?: string;
+
+  /**
+   * <p>The identifier for a chat participant. The participantId for a chat participant is the same
+   *    throughout the chat lifecycle.</p>
+   */
+  ParticipantId?: string;
+
+  /**
+   * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat
+   *    participant.</p>
+   */
+  ParticipantToken?: string;
+}
+
+export namespace StartChatContactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartChatContactResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum VoiceRecordingTrack {
+  ALL = "ALL",
+  FROM_AGENT = "FROM_AGENT",
+  TO_AGENT = "TO_AGENT",
+}
+
+/**
+ * <p>Contains information about the recording configuration settings.</p>
+ */
+export interface VoiceRecordingConfiguration {
+  /**
+   * <p>Identifies which track is being recorded.</p>
+   */
+  VoiceRecordingTrack?: VoiceRecordingTrack | string;
+}
+
+export namespace VoiceRecordingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VoiceRecordingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  InitialContactId: string | undefined;
+
+  /**
+   * <p>The person being recorded.</p>
+   */
+  VoiceRecordingConfiguration: VoiceRecordingConfiguration | undefined;
+}
+
+export namespace StartContactRecordingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactRecordingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactRecordingResponse {}
+
+export namespace StartContactRecordingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactRecordingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ */
+export interface ChatStreamingConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used
+   *    to publish real-time message streaming for chat conversations.</p>
+   */
+  StreamingEndpointArn: string | undefined;
+}
+
+export namespace ChatStreamingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChatStreamingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactStreamingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+   */
+  ChatStreamingConfiguration: ChatStreamingConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartContactStreamingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactStreamingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactStreamingResponse {
+  /**
+   * <p>The identifier of the streaming configuration enabled. </p>
+   */
+  StreamingId: string | undefined;
+}
+
+export namespace StartContactStreamingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactStreamingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Outbound calls to the destination number are not allowed.</p>
+ */
+export class DestinationNotAllowedException extends __BaseException {
+  readonly name: "DestinationNotAllowedException" = "DestinationNotAllowedException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The message about the outbound calls.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DestinationNotAllowedException, __BaseException>) {
+    super({
+      name: "DestinationNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DestinationNotAllowedException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * <p>The contact is not permitted.</p>
@@ -947,6 +1727,54 @@ export namespace UpdateInstanceStorageConfigRequest {
   });
 }
 
+export interface UpdatePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace UpdatePhoneNumberRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePhoneNumberRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePhoneNumberResponse {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+}
+
+export namespace UpdatePhoneNumberResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePhoneNumberResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateQueueHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1514,6 +2342,77 @@ export namespace UpdateUserSecurityProfilesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateUserSecurityProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The search criteria to be used to return users.</p>
+ */
+export interface UserSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   */
+  OrConditions?: UserSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>
+   */
+  AndConditions?: UserSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+export namespace UserSearchCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchCriteria): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchUsersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   */
+  SearchFilter?: UserSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return users.</p>
+   */
+  SearchCriteria?: UserSearchCriteria;
+}
+
+export namespace SearchUsersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchUsersRequest): any => ({
     ...obj,
   });
 }

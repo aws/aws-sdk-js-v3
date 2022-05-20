@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,18 +28,27 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
  *       the secret that specifies the end of the recovery window. At the end of the recovery window,
  *       Secrets Manager deletes the secret permanently.</p>
- *          <p>For information about deleting a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html</a>. </p>
+ *          <p>You can't delete a primary secret that is replicated to other Regions. You must first delete the
+ *     replicas using <a>RemoveRegionsFromReplication</a>, and then delete the primary secret.
+ *     When you delete a replica, it is deleted immediately.</p>
+ *          <p>You can't directly delete a version of a secret. Instead, you remove all staging labels
+ *     from the version using <a>UpdateSecretVersionStage</a>. This marks the version as deprecated,
+ *     and then Secrets Manager can automatically delete the version in the background.</p>
+ *          <p>To determine whether an application still uses a secret, you can create an Amazon CloudWatch alarm
+ *     to alert you to any attempts to access a secret during the recovery window. For more information,
+ *     see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring_cloudwatch_deleted-secrets.html">
+ *     Monitor secrets scheduled for deletion</a>.</p>
  *          <p>Secrets Manager performs the permanent secret deletion at the end of the waiting period as a
  *         background task with low priority. There is no guarantee of a specific time after the
  *         recovery window for the permanent delete to occur.</p>
  *          <p>At any time before recovery window ends, you can use <a>RestoreSecret</a> to
  *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
- *          <p>In a secret scheduled for deletion, you cannot access the encrypted secret value.
- *       To access that information, first cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
+ *          <p>When a secret is scheduled for deletion, you cannot retrieve the secret value.
+ *       You must first cancel the deletion with <a>RestoreSecret</a> and then you can retrieve the secret.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:DeleteSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

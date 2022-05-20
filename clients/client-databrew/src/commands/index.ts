@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchDeleteRecipeVersionCommand";
 export * from "./CreateDatasetCommand";
 export * from "./CreateProfileJobCommand";

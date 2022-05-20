@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -411,7 +412,7 @@ export class DocDB extends DocDBClient {
    *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
    *             Resource Name (ARN) of the shared cluster snapshot. You can only
    *             copy a shared DB cluster snapshot, whether encrypted or not, in the
-   *             same Region.</p>
+   *             same Amazon Web Services Region.</p>
    *
    *         <p>To cancel the copy operation after it is in progress, delete the
    *             target cluster snapshot identified by
@@ -595,7 +596,7 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
-   *             least two Availability Zones in the Region.</p>
+   *             least two Availability Zones in the Amazon Web Services Region.</p>
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -661,7 +662,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
+   * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
    *         <p></p>
    *         <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
    *         <note>
@@ -933,7 +934,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this account.</p>
+   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this Amazon Web Services account.</p>
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -1069,8 +1070,8 @@ export class DocDB extends DocDBClient {
   /**
    * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
-   *         <p>When you share snapshots with other accounts,
-   *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all accounts.</p>
+   *         <p>When you share snapshots with other Amazon Web Services accounts,
+   *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p>
    */
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -1615,7 +1616,7 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.</p>
-   *         <p>To share a manual cluster snapshot with other accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
+   *         <p>To share a manual cluster snapshot with other Amazon Web Services accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all Amazon Web Services accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -1679,7 +1680,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Region.</p>
+   * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.</p>
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,

@@ -1,4 +1,5 @@
 export * from "./Keyspaces";
+// smithy-typescript generated code
 export * from "./KeyspacesClient";
 export * from "./commands";
 export * from "./models";

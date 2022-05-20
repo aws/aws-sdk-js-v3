@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AppMeshClient } from "./AppMeshClient";
@@ -157,15 +158,17 @@ import {
 } from "./commands/UpdateVirtualServiceCommand";
 
 /**
- * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to monitor and
- *          control microservices. App Mesh standardizes how your microservices communicate, giving you
- *          end-to-end visibility and helping to ensure high availability for your applications.</p>
- *          <p>App Mesh gives you consistent visibility and network traffic controls for every
- *          microservice in an application. You can use App Mesh with Amazon Web Services Fargate, Amazon ECS, Amazon EKS,
- *          Kubernetes on Amazon Web Services, and Amazon EC2.</p>
+ * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to
+ *          monitor and control microservices. App Mesh standardizes how your microservices
+ *          communicate, giving you end-to-end visibility and helping to ensure high availability for
+ *          your applications.</p>
+ *          <p>App Mesh gives you consistent visibility and network traffic controls for
+ *          every microservice in an application. You can use App Mesh with Amazon Web Services Fargate, Amazon ECS, Amazon EKS, Kubernetes on Amazon Web Services, and
+ *             Amazon EC2.</p>
  *          <note>
- *             <p>App Mesh supports microservice applications that use service discovery naming for their
- *             components. For more information about service discovery on Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service Discovery</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes
+ *             <p>App Mesh supports microservice applications that use service discovery
+ *             naming for their components. For more information about service discovery on Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+ *                Discovery</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes
  *                <code>kube-dns</code> and <code>coredns</code> are supported. For more information,
  *             see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
  *                for Services and Pods</a> in the Kubernetes documentation.</p>
@@ -271,10 +274,9 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Creates a virtual gateway.</p>
    *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
-   *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS
-   *          task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which
-   *          represents an Envoy running with an application, a virtual gateway represents Envoy
-   *          deployed by itself.</p>
+   *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
+   *          virtual node, which represents an Envoy running with an application, a virtual gateway
+   *          represents Envoy deployed by itself.</p>
    *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>. </p>
    */
   public createVirtualGateway(
@@ -308,10 +310,10 @@ export class AppMesh extends AppMeshClient {
 
   /**
    * <p>Creates a virtual node within a service mesh.</p>
-   *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS
-   *          service or a Kubernetes deployment. When you create a virtual node, you can specify the
-   *          service discovery information for your task group, and whether the proxy running in a task
-   *          group will communicate with other proxies using Transport Layer Security (TLS).</p>
+   *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can
+   *          specify the service discovery information for your task group, and whether the proxy
+   *          running in a task group will communicate with other proxies using Transport Layer Security
+   *          (TLS).</p>
    *          <p>You define a <code>listener</code> for any inbound traffic that your virtual node
    *          expects. Any virtual service that your virtual node expects to communicate to is specified
    *          as a <code>backend</code>.</p>
@@ -328,8 +330,9 @@ export class AppMesh extends AppMeshClient {
    *                <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your own name.</p>
    *          </note>
    *          <p>For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
-   *          setting these variables. For more information aboutApp Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a> in
-   *          the AWS App Mesh User Guide.</p>
+   *          setting these variables. For more information aboutApp Mesh Envoy variables, see
+   *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy
+   *             image</a> in the App Mesh User Guide.</p>
    */
   public createVirtualNode(
     args: CreateVirtualNodeCommandInput,

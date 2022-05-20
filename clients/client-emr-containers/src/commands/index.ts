@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelJobRunCommand";
 export * from "./CreateManagedEndpointCommand";
 export * from "./CreateVirtualClusterCommand";

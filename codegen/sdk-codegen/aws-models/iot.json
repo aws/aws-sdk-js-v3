@@ -514,6 +514,9 @@
           "target": "com.amazonaws.iot#ListManagedJobTemplates"
         },
         {
+          "target": "com.amazonaws.iot#ListMetricValues"
+        },
+        {
           "target": "com.amazonaws.iot#ListMitigationActions"
         },
         {
@@ -844,6 +847,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#AcceptCertificateTransferRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1304,7 +1310,7 @@
           }
         },
         "overrideDynamicGroups": {
-          "target": "com.amazonaws.iot#OverrideDynamicGroups",
+          "target": "com.amazonaws.iot#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.</p>"
           }
@@ -1708,6 +1714,9 @@
       "input": {
         "target": "com.amazonaws.iot#AttachPolicyRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -1764,6 +1773,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#AttachPrincipalPolicyRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -3444,6 +3456,12 @@
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.iot#BooleanWrapperObject": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
+      }
+    },
     "com.amazonaws.iot#Bucket": {
       "type": "structure",
       "members": {
@@ -3729,6 +3747,9 @@
       "input": {
         "target": "com.amazonaws.iot#CancelCertificateTransferRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -3838,6 +3859,9 @@
           "target": "com.amazonaws.iot#InvalidRequestException"
         },
         {
+          "target": "com.amazonaws.iot#LimitExceededException"
+        },
+        {
           "target": "com.amazonaws.iot#ResourceNotFoundException"
         },
         {
@@ -3860,6 +3884,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#CancelJobExecutionRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -5805,7 +5832,7 @@
         "targetSelection": {
           "target": "com.amazonaws.iot#TargetSelection",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group.</p>\n        <note>\n            <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets. \n                By using continuous jobs, devices that join the group receive the job execution even after the job has\n                been created.</p>\n        </note>"
           }
         },
         "jobExecutionsRolloutConfig": {
@@ -5853,7 +5880,7 @@
         "documentParameters": {
           "target": "com.amazonaws.iot#ParameterMap",
           "traits": {
-            "smithy.api#documentation": "<p>Parameters of a managed template that you can specify to create the job document.</p>"
+            "smithy.api#documentation": "<p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>        \n        <note>\n            <p>\n               <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services \n                managed templates. This parameter can't be used with custom job templates or to \n                create jobs from them.</p>\n        </note>"
           }
         }
       }
@@ -7490,6 +7517,9 @@
       "input": {
         "target": "com.amazonaws.iot#CreateTopicRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#ConflictingResourceUpdateException"
@@ -8039,6 +8069,9 @@
       "input": {
         "target": "com.amazonaws.iot#DeleteCertificateRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#CertificateStateException"
@@ -8317,6 +8350,9 @@
       "input": {
         "target": "com.amazonaws.iot#DeleteFleetMetricRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -8371,6 +8407,9 @@
       "input": {
         "target": "com.amazonaws.iot#DeleteJobRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InvalidRequestException"
@@ -8404,6 +8443,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#DeleteJobExecutionRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -8505,6 +8547,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#DeleteJobTemplateRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -8663,6 +8708,9 @@
       "input": {
         "target": "com.amazonaws.iot#DeletePolicyRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#DeleteConflictException"
@@ -8715,6 +8763,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#DeletePolicyVersionRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -9355,6 +9406,9 @@
       "input": {
         "target": "com.amazonaws.iot#DeleteTopicRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#ConflictingResourceUpdateException"
@@ -9452,6 +9506,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#DeleteV2LoggingLevelRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -11254,7 +11311,7 @@
         "documentParameters": {
           "target": "com.amazonaws.iot#DocumentParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A map of key-value pairs that you can use as guidance to specify the inputs for creating \n            a job from a managed template.</p>"
+            "smithy.api#documentation": "<p>A map of key-value pairs that you can use as guidance to specify the inputs for creating \n            a job from a managed template.</p>\n        <note>\n            <p>\n               <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services \n                managed templates. This parameter can't be used with custom job templates or to \n                create jobs from them.</p>\n        </note>"
           }
         },
         "document": {
@@ -12332,6 +12389,9 @@
       "input": {
         "target": "com.amazonaws.iot#DetachPolicyRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -12385,6 +12445,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#DetachPrincipalPolicyRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -12956,6 +13019,9 @@
       "input": {
         "target": "com.amazonaws.iot#DisableTopicRuleRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#ConflictingResourceUpdateException"
@@ -13036,7 +13102,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A map of key-value pairs containing the patterns that need to be replaced in a managed\n            template job document schema. You can use the description of each key as a guidance to specify \n            the inputs during runtime when creating a job.</p>"
+        "smithy.api#documentation": "<p>A map of key-value pairs containing the patterns that need to be replaced in a managed\n            template job document schema. You can use the description of each key as a guidance to specify \n            the inputs during runtime when creating a job.</p>\n        <note>\n            <p>\n               <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services \n                managed templates. This parameter can't be used with custom job templates or to \n                create jobs from them.</p>\n        </note>"
       }
     },
     "com.amazonaws.iot#DocumentParameters": {
@@ -13393,6 +13459,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#EnableTopicRuleRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -15801,7 +15870,7 @@
         "targetSelection": {
           "target": "com.amazonaws.iot#TargetSelection",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a device when the thing representing\n            the device is added to a target group, even after the job was completed by all things originally in the \n            group. </p>"
+            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a device when the thing representing\n            the device is added to a target group, even after the job was completed by all things originally in the \n            group. </p>\n        <note>\n            <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets. \n                By using continuous jobs, devices that join the group receive the job execution even after the job has\n                been created.</p>\n        </note>"
           }
         },
         "status": {
@@ -15909,8 +15978,11 @@
         "documentParameters": {
           "target": "com.amazonaws.iot#ParameterMap",
           "traits": {
-            "smithy.api#documentation": "<p>A key-value map that pairs the patterns that need to be replaced in a managed \n            template job document schema. You can use the description of each key as a guidance \n            to specify the inputs during runtime when creating a job.</p>"
+            "smithy.api#documentation": "<p>A key-value map that pairs the patterns that need to be replaced in a managed \n            template job document schema. You can use the description of each key as a guidance \n            to specify the inputs during runtime when creating a job.</p>\n        <note>\n            <p>\n               <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services \n                managed templates. This parameter can't be used with custom job templates or to \n                create jobs from them.</p>\n        </note>"
           }
+        },
+        "isConcurrent": {
+          "target": "com.amazonaws.iot#BooleanWrapperObject"
         }
       },
       "traits": {
@@ -16348,7 +16420,7 @@
         "targetSelection": {
           "target": "com.amazonaws.iot#TargetSelection",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group.</p>\n        <note>\n            <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets. \n                By using continuous jobs, devices that join the group receive the job execution even after the job has\n                been created.</p>\n        </note>"
           }
         },
         "status": {
@@ -16374,6 +16446,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The time, in seconds since the epoch, when the job completed.</p>"
           }
+        },
+        "isConcurrent": {
+          "target": "com.amazonaws.iot#BooleanWrapperObject"
         }
       },
       "traits": {
@@ -18627,7 +18702,7 @@
         "targetSelection": {
           "target": "com.amazonaws.iot#TargetSelection",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group. </p>",
+            "smithy.api#documentation": "<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things\n            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing\n            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a\n            target group, even after the job was completed by all things originally in the group. </p>\n        <note>\n            <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets. \n                By using continuous jobs, devices that join the group receive the job execution even after the job has\n                been created.</p>\n        </note>",
             "smithy.api#httpQuery": "targetSelection"
           }
         },
@@ -18755,6 +18830,125 @@
           "target": "com.amazonaws.iot#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to retrieve the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iot#ListMetricValues": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iot#ListMetricValuesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iot#ListMetricValuesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iot#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iot#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iot#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iot#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric) \n      by the given thing during the specified time period.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/metric-values",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "metricDatumList",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.iot#ListMetricValuesRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iot#DeviceDefenderThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing for which security profile metric values are returned.</p>",
+            "smithy.api#httpQuery": "thingName",
+            "smithy.api#required": {}
+          }
+        },
+        "metricName": {
+          "target": "com.amazonaws.iot#BehaviorMetric",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the security profile metric for which values are returned.</p>",
+            "smithy.api#httpQuery": "metricName",
+            "smithy.api#required": {}
+          }
+        },
+        "dimensionName": {
+          "target": "com.amazonaws.iot#DimensionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension name.</p>",
+            "smithy.api#httpQuery": "dimensionName"
+          }
+        },
+        "dimensionValueOperator": {
+          "target": "com.amazonaws.iot#DimensionValueOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The dimension value operator.</p>",
+            "smithy.api#httpQuery": "dimensionValueOperator"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.iot#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start of the time period for which metric values are returned.</p>",
+            "smithy.api#httpQuery": "startTime",
+            "smithy.api#required": {}
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.iot#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end of the time period for which metric values are returned.</p>",
+            "smithy.api#httpQuery": "endTime",
+            "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.iot#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iot#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iot#ListMetricValuesResponse": {
+      "type": "structure",
+      "members": {
+        "metricDatumList": {
+          "target": "com.amazonaws.iot#MetricDatumList",
+          "traits": {
+            "smithy.api#documentation": "<p>The data the thing reports for the metric during the specified time period.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.iot#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token that can be used to retrieve the next set of results, or <code>null</code> \n        if there are no additional results.</p>"
           }
         }
       }
@@ -21758,6 +21952,32 @@
         }
       }
     },
+    "com.amazonaws.iot#MetricDatum": {
+      "type": "structure",
+      "members": {
+        "timestamp": {
+          "target": "com.amazonaws.iot#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the metric value was reported.</p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.iot#MetricValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value reported for the metric.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A metric.</p>"
+      }
+    },
+    "com.amazonaws.iot#MetricDatumList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iot#MetricDatum"
+      }
+    },
     "com.amazonaws.iot#MetricDimension": {
       "type": "structure",
       "members": {
@@ -23797,6 +24017,9 @@
       "input": {
         "target": "com.amazonaws.iot#RejectCertificateTransferRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -24057,6 +24280,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#ReplaceTopicRuleRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -25151,6 +25377,9 @@
       "input": {
         "target": "com.amazonaws.iot#SetDefaultPolicyVersionRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -25209,6 +25438,9 @@
       "input": {
         "target": "com.amazonaws.iot#SetLoggingOptionsRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalException"
@@ -25249,6 +25481,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#SetV2LoggingLevelRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -25299,6 +25534,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#SetV2LoggingOptionsRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -28462,6 +28700,9 @@
       "input": {
         "target": "com.amazonaws.iot#UpdateCACertificateRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#InternalFailureException"
@@ -28552,6 +28793,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#UpdateCertificateRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -29036,6 +29280,9 @@
       "input": {
         "target": "com.amazonaws.iot#UpdateFleetMetricRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.iot#IndexNotReadyException"
@@ -29204,6 +29451,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.iot#UpdateJobRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -30289,7 +30539,7 @@
           "min": 0,
           "max": 1000
         },
-        "smithy.api#pattern": "^[\\p{Graph}\\x20]*$"
+        "smithy.api#pattern": "^[^\\p{Cntrl}]*$"
       }
     },
     "com.amazonaws.iot#Version": {

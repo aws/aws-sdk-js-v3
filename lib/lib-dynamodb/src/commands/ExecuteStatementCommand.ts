@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ExecuteStatementCommand as __ExecuteStatementCommand,
   ExecuteStatementCommandInput as __ExecuteStatementCommandInput,

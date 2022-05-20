@@ -1,4 +1,5 @@
-import { S3SignatureV4 } from "@aws-sdk/middleware-sdk-s3";
+// smithy-typescript generated code
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
@@ -14,7 +15,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => ({
   logger: config?.logger ?? ({} as __Logger),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "S3",
-  signerConstructor: config?.signerConstructor ?? S3SignatureV4,
+  signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
   signingEscapePath: config?.signingEscapePath ?? false,
   urlParser: config?.urlParser ?? parseUrl,
   useArnRegion: config?.useArnRegion ?? false,

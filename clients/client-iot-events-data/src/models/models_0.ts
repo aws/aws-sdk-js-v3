@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTEventsDataServiceException as __BaseException } from "./IoTEventsDataServiceException";
 
@@ -702,6 +702,96 @@ export class ThrottlingException extends __BaseException {
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
+}
+
+/**
+ * <p>Information used to delete the detector model.</p>
+ */
+export interface DeleteDetectorRequest {
+  /**
+   * <p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>"messageId"</code> must be unique within each batch sent.</p>
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The name of the detector model that was used to create the detector instance.</p>
+   */
+  detectorModelName: string | undefined;
+
+  /**
+   * <p>The value of the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key">key</a> used to identify the detector. </p>
+   */
+  keyValue?: string;
+}
+
+export namespace DeleteDetectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDetectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDeleteDetectorRequest {
+  /**
+   * <p>The list of one or more detectors to be deleted.</p>
+   */
+  detectors: DeleteDetectorRequest[] | undefined;
+}
+
+export namespace BatchDeleteDetectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteDetectorRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains error messages associated with the deletion request.</p>
+ */
+export interface BatchDeleteDetectorErrorEntry {
+  /**
+   * <p>The ID of the message that caused the error. (See the value of the <code>"messageId"</code> in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>
+   */
+  messageId?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode?: ErrorCode | string;
+
+  /**
+   * <p>A message that describes the error.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace BatchDeleteDetectorErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteDetectorErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDeleteDetectorResponse {
+  /**
+   * <p>A list of errors associated with the request, or an empty array (<code>[]</code>) if there are no errors. Each error entry contains a <code>messageId</code> that helps you identify the entry that failed.</p>
+   */
+  batchDeleteDetectorErrorEntries?: BatchDeleteDetectorErrorEntry[];
+}
+
+export namespace BatchDeleteDetectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteDetectorResponse): any => ({
+    ...obj,
+  });
 }
 
 /**

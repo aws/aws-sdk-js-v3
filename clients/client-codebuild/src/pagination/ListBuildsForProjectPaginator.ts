@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { CodeBuild } from "../CodeBuild";
@@ -50,8 +51,9 @@ export async function* paginateListBuildsForProject(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

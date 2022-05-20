@@ -1,8 +1,8 @@
+// smithy-typescript generated code
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
 
@@ -99,7 +99,7 @@ export interface DescribeServicesResponse {
   FormatVersion?: string;
 
   /**
-   * <p>The pagination token for the next set of retreivable results.</p>
+   * <p>The pagination token for the next set of retrievable results.</p>
    */
   NextToken?: string;
 }

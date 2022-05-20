@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AbortMultipartUploadCommand";
 export * from "./AbortVaultLockCommand";
 export * from "./AddTagsToVaultCommand";

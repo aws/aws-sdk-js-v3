@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ActionStatus,
   AdditionalInferenceSpecificationDefinition,
@@ -93,7 +94,6 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
-  TrainingJobSortByOptions,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -102,6 +102,172 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListTagsOutput {
+  /**
+   * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p> If response is truncated, SageMaker includes a token in the response. You can use this
+   *             token in your subsequent request to fetch next set of tokens. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTagsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of training
+   *             jobs, use the token in the next request. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of training jobs to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only training jobs created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs modified after the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs modified before the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the training job name. This filter returns only training jobs whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only training jobs with a specific status.</p>
+   */
+  StatusEquals?: TrainingJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListTrainingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about a training job.</p>
+ */
+export interface TrainingJobSummary {
+  /**
+   * <p>The name of the training job that you want a summary for.</p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job ended. This field is set only if the
+   *             training job has one of the terminal statuses (<code>Completed</code>,
+   *                 <code>Failed</code>, or <code>Stopped</code>). </p>
+   */
+  TrainingEndTime?: Date;
+
+  /**
+   * <p> Timestamp when the training job was last modified. </p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The status of the training job.</p>
+   */
+  TrainingJobStatus: TrainingJobStatus | string | undefined;
+}
+
+export namespace TrainingJobSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsResponse {
+  /**
+   * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
+   *             job.</p>
+   */
+  TrainingJobSummaries: TrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             training jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrainingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum TrainingJobSortByOptions {
+  CreationTime = "CreationTime",
+  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
+  Name = "Name",
+  Status = "Status",
+}
 
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   /**
@@ -122,25 +288,19 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   MaxResults?: number;
 
   /**
-   * <p>A filter that returns only training jobs with the
-   *             specified
-   *             status.</p>
+   * <p>A filter that returns only training jobs with the specified status.</p>
    */
   StatusEquals?: TrainingJobStatus | string;
 
   /**
-   * <p>The field to sort
-   *             results
-   *             by. The default is <code>Name</code>.</p>
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
    *         <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
    *             jobs that did not return an objective metric are not listed.</p>
    */
   SortBy?: TrainingJobSortByOptions | string;
 
   /**
-   * <p>The sort order
-   *             for
-   *             results. The default is <code>Ascending</code>.</p>
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 }
@@ -907,7 +1067,7 @@ export interface ModelPackage {
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
 
   /**
-   * <p>Specifies batch transform jobs that Amazon SageMaker runs to validate your model package.</p>
+   * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
    */
   ValidationSpecification?: ModelPackageValidationSpecification;
 
@@ -1677,7 +1837,7 @@ export namespace PutModelPackageGroupPolicyOutput {
 
 /**
  * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
- *       <code>QueryLineage</code> API action.</p>
+ *          <code>QueryLineage</code> API action.</p>
  */
 export interface QueryFilters {
   /**
@@ -1713,7 +1873,7 @@ export interface QueryFilters {
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs.
-   *          If multiple pairs are provided, an entity will be included in the results if it matches any of the provided pairs.</p>
+   *          If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
    */
   Properties?: { [key: string]: string };
 }
@@ -1734,13 +1894,13 @@ export interface QueryLineageRequest {
   StartArns: string[] | undefined;
 
   /**
-   * <p>Associations between lineage entities are directed.  This parameter determines the direction from the
-   *          StartArn(s) the query will look.</p>
+   * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
+   *          StartArn(s) that the query traverses.</p>
    */
   Direction?: Direction | string;
 
   /**
-   * <p> Setting this value to <code>True</code> will retrieve not only the entities of interest but also the
+   * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
    *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a> and
    *          lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
    */
@@ -1770,7 +1930,7 @@ export interface QueryLineageRequest {
   Filters?: QueryFilters;
 
   /**
-   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that will be traversed. Depth is a measure of the number
+   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number
    *          of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
    */
   MaxDepth?: number;
@@ -2104,7 +2264,7 @@ export interface TrainingJob {
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information about the secondary status of the training job, see
    *                 <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.</p>
-   *         <p>Amazon SageMaker provides primary statuses and secondary statuses that apply to each of
+   *         <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
    *         <dl>
    *             <dt>InProgress</dt>
@@ -2228,7 +2388,7 @@ export interface TrainingJob {
 
   /**
    * <p>The S3 path where model artifacts that you configured when creating the job are
-   *             stored. Amazon SageMaker creates subfolders for model artifacts.</p>
+   *             stored. SageMaker creates subfolders for model artifacts.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
@@ -2247,9 +2407,9 @@ export interface TrainingJob {
 
   /**
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
-   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
    */
@@ -2272,7 +2432,7 @@ export interface TrainingJob {
    * <p>Indicates the time when the training job ends on training instances. You are billed
    *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
    *             For successful jobs and stopped jobs, this is the time after model artifacts are
-   *             uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.</p>
+   *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
    */
   TrainingEndTime?: Date;
 
@@ -3809,7 +3969,7 @@ export namespace UpdateEndpointOutput {
 
 export interface UpdateEndpointWeightsAndCapacitiesInput {
   /**
-   * <p>The name of an existing Amazon SageMaker endpoint.</p>
+   * <p>The name of an existing SageMaker endpoint.</p>
    */
   EndpointName: string | undefined;
 
@@ -4052,10 +4212,10 @@ export interface UpdateNotebookInstanceInput {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the
-   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access the
+   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
    *         <note>
-   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
+   *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
    *         </note>
    */
@@ -4078,7 +4238,7 @@ export interface UpdateNotebookInstanceInput {
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the
+   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker can't determine the
    *             amount of available free space on the volume. Because of this, you can increase the
    *             volume size when you update a notebook instance, but you can't decrease the volume size.
    *             If you want to decrease the size of the ML storage volume in use, create a new notebook
@@ -4091,7 +4251,7 @@ export interface UpdateNotebookInstanceInput {
    *             repository. This can be either the name of a Git repository stored as a resource in your
    *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
+   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
    *                 Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
@@ -4102,7 +4262,7 @@ export interface UpdateNotebookInstanceInput {
    *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. These repositories are cloned at the same level as the default
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
 

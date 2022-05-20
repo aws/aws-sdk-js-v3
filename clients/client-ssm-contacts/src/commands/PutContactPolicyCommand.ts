@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,9 @@ export interface PutContactPolicyCommandInput extends PutContactPolicyRequest {}
 export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Adds a resource to the specified contact or escalation plan.</p>
+ * <p>Adds a resource policy to the specified contact or escalation plan. The resource policy
+ *          is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting up
+ *             cross-account functionality</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

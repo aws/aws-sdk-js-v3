@@ -1,4 +1,5 @@
 export * from "./PinpointEmail";
+// smithy-typescript generated code
 export * from "./PinpointEmailClient";
 export * from "./commands";
 export * from "./models";

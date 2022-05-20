@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelContactCommand";
 export * from "./CreateConfigCommand";
 export * from "./CreateDataflowEndpointGroupCommand";

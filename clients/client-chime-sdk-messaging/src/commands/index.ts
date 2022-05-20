@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateChannelFlowCommand";
 export * from "./BatchCreateChannelMembershipCommand";
 export * from "./ChannelFlowCallbackCommand";

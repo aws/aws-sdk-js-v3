@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -55,6 +56,10 @@ import {
   BatchAcknowledgeAlarmCommandInput,
   BatchAcknowledgeAlarmCommandOutput,
 } from "./commands/BatchAcknowledgeAlarmCommand";
+import {
+  BatchDeleteDetectorCommandInput,
+  BatchDeleteDetectorCommandOutput,
+} from "./commands/BatchDeleteDetectorCommand";
 import { BatchDisableAlarmCommandInput, BatchDisableAlarmCommandOutput } from "./commands/BatchDisableAlarmCommand";
 import { BatchEnableAlarmCommandInput, BatchEnableAlarmCommandOutput } from "./commands/BatchEnableAlarmCommand";
 import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "./commands/BatchPutMessageCommand";
@@ -72,6 +77,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | BatchAcknowledgeAlarmCommandInput
+  | BatchDeleteDetectorCommandInput
   | BatchDisableAlarmCommandInput
   | BatchEnableAlarmCommandInput
   | BatchPutMessageCommandInput
@@ -85,6 +91,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | BatchAcknowledgeAlarmCommandOutput
+  | BatchDeleteDetectorCommandOutput
   | BatchDisableAlarmCommandOutput
   | BatchEnableAlarmCommandOutput
   | BatchPutMessageCommandOutput

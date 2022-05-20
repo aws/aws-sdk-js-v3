@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -143,6 +144,7 @@ import {
   SecurityGroupNotFound,
   SubnetNotFound,
   Tag,
+  ThrottlingException,
   ThroughputLimitExceeded,
   TooManyRequests,
   UnsupportedAvailabilityZone,
@@ -1196,6 +1198,9 @@ const deserializeAws_restJson1CreateAccessPointCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
       throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.efs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3462,6 +3467,25 @@ const deserializeAws_restJson1SubnetNotFoundResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new SubnetNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
+    contents.ErrorCode = __expectString(data.ErrorCode);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

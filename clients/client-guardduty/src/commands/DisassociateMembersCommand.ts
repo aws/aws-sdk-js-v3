@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
 
 /**
  * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
- *       specified by the account IDs.</p>
+ *       specified by the account IDs. Member accounts added through <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html">Invitation</a> get deleted from the
+ *       current GuardDuty administrator account after 30 days of disassociation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

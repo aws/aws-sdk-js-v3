@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImp
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
+ * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>,
  *       including the import job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

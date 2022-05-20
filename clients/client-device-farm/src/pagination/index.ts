@@ -1,4 +1,5 @@
 export * from "./GetOfferingStatusPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListArtifactsPaginator";
 export * from "./ListDevicePoolsPaginator";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { Batch } from "../Batch";
@@ -51,8 +52,9 @@ export async function* paginateListSchedulingPolicies(
       throw new Error("Invalid client, expected Batch | BatchClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

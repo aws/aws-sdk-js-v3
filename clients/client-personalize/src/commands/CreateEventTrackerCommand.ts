@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -44,7 +45,7 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the event tracker, call <a>DescribeEventTracker</a>.</p>
+ *          <p>To get the status of the event tracker, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>.</p>
  *          <note>
  *             <p>The event tracker must be in the ACTIVE state before using the tracking ID.</p>
  *          </note>
@@ -54,17 +55,17 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListEventTrackers</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html">ListEventTrackers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html">DeleteEventTracker</a>
  *                </p>
  *             </li>
  *          </ul>

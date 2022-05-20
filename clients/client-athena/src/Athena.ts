@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AthenaClient } from "./AthenaClient";
@@ -1270,7 +1271,8 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.</p>
+   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
+   *             updated.</p>
    */
   public updateNamedQuery(
     args: UpdateNamedQueryCommandInput,

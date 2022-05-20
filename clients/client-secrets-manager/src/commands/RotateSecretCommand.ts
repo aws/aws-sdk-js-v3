@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,27 +23,35 @@ export interface RotateSecretCommandInput extends RotateSecretRequest {}
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Configures and starts the asynchronous process of rotating the secret.</p>
+ * <p>Configures and starts the asynchronous process of rotating the secret. For more information about rotation,
+ *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a>.</p>
  *          <p>If you include the
  *       configuration parameters, the operation sets the values for the secret and then immediately
  *       starts a rotation. If you don't include the configuration parameters, the operation starts a
- *       rotation with the values already stored in the secret. For more information about rotation,
- *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a>.</p>
- *          <p>To configure rotation, you include the ARN of an Amazon Web Services Lambda function and the schedule
+ *       rotation with the values already stored in the secret. </p>
+ *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the secret, you must
+ *       make sure the secret value is in the
+ *         <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html"> JSON structure
+ *         of a database secret</a>. In particular, if you want to use the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users"> alternating users strategy</a>, your secret must contain the ARN of a superuser
+ *       secret.</p>
+ *
+ *          <p>To configure rotation, you also need the ARN of an Amazon Web Services Lambda function and the schedule
  *       for the rotation. The Lambda rotation function creates a new
  *       version of the secret and creates or updates the credentials on the database or service to
  *       match. After testing the new credentials, the function marks the new secret version with the staging
  *       label <code>AWSCURRENT</code>. Then anyone who retrieves the secret gets the new version. For more
  *       information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation works</a>.</p>
- *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached to the same
- *       version as the <code>AWSCURRENT</code> version, or it might not be attached to any version.</p>
- *          <p>If the <code>AWSPENDING</code> staging label is present but not attached to the same version as
- *       <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code> assumes that a previous
- *       rotation request is still in progress and returns an error.</p>
+ *          <p>You can create the Lambda rotation function based on the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html">rotation function templates</a> that Secrets Manager provides. Choose
+ *       a template that matches your <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html">Rotation strategy</a>.</p>
+ *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
+ *       to the same version as the <code>AWSCURRENT</code> version, or it might not be attached to any
+ *       version. If the <code>AWSPENDING</code> staging label is present but not attached to the same
+ *       version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
+ *       assumes that a previous rotation request is still in progress and returns an error.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:RotateSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. You also need <code>lambda:InvokeFunction</code> permissions on the rotation function.
  *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html">

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface ListQueuedMessagesCommandInput extends ListQueuedMessagesReques
 export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesResponse, __MetadataBearer {}
 
 /**
- * <p>The operation to list queued messages. </p>
+ * <p>List queued messages in the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

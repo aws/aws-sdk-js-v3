@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateAssessmentReportEvidenceFolderCommand";
 export * from "./BatchAssociateAssessmentReportEvidenceCommand";
 export * from "./BatchCreateDelegationByAssessmentCommand";

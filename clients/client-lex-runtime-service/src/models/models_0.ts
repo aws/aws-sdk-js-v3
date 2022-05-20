@@ -1,9 +1,9 @@
+// smithy-typescript generated code
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";

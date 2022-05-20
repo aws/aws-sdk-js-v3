@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -2043,11 +2044,15 @@ export const deserializeAws_restJson1GetExperimentResultsCommand = async (
   }
   const contents: GetExperimentResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
+    details: undefined,
     reports: undefined,
     resultsData: undefined,
     timestamps: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.details !== undefined && data.details !== null) {
+    contents.details = __expectString(data.details);
+  }
   if (data.reports !== undefined && data.reports !== null) {
     contents.reports = deserializeAws_restJson1ExperimentReportList(data.reports, context);
   }

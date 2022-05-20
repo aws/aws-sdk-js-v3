@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
@@ -34,11 +34,13 @@ import {
   CustomMetricType,
   DayOfWeek,
   DimensionType,
+  DimensionValueOperator,
   FleetMetricUnit,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
   MetricToRetain,
+  MetricValue,
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
@@ -2075,6 +2077,11 @@ export interface Job {
    *             when a change is detected in a target. For example, a job will run on a device when the thing representing
    *             the device is added to a target group, even after the job was completed by all things originally in the
    *             group. </p>
+   *         <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
+   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
+   *                 been created.</p>
+   *         </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -2180,8 +2187,16 @@ export interface Job {
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
    *             template job document schema. You can use the description of each key as a guidance
    *             to specify the inputs during runtime when creating a job.</p>
+   *         <note>
+   *             <p>
+   *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
+   *                 managed templates. This parameter can't be used with custom job templates or to
+   *                 create jobs from them.</p>
+   *         </note>
    */
   documentParameters?: { [key: string]: string };
+
+  isConcurrent?: boolean;
 }
 
 export namespace Job {
@@ -2476,6 +2491,12 @@ export namespace DescribeManagedJobTemplateRequest {
  * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
  *             template job document schema. You can use the description of each key as a guidance to specify
  *             the inputs during runtime when creating a job.</p>
+ *         <note>
+ *             <p>
+ *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
+ *                 managed templates. This parameter can't be used with custom job templates or to
+ *                 create jobs from them.</p>
+ *         </note>
  */
 export interface DocumentParameter {
   /**
@@ -2547,6 +2568,12 @@ export interface DescribeManagedJobTemplateResponse {
   /**
    * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
    *             a job from a managed template.</p>
+   *         <note>
+   *             <p>
+   *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
+   *                 managed templates. This parameter can't be used with custom job templates or to
+   *                 create jobs from them.</p>
+   *         </note>
    */
   documentParameters?: DocumentParameter[];
 
@@ -6606,6 +6633,11 @@ export interface ListJobsRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group. </p>
+   *         <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
+   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
+   *                 been created.</p>
+   *         </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -6676,6 +6708,11 @@ export interface JobSummary {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
+   *         <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
+   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
+   *                 been created.</p>
+   *         </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -6698,6 +6735,8 @@ export interface JobSummary {
    * <p>The time, in seconds since the epoch, when the job completed.</p>
    */
   completedAt?: Date;
+
+  isConcurrent?: boolean;
 }
 
 export namespace JobSummary {
@@ -6891,6 +6930,103 @@ export namespace ListManagedJobTemplatesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListManagedJobTemplatesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMetricValuesRequest {
+  /**
+   * <p>The name of the thing for which security profile metric values are returned.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The name of the security profile metric for which values are returned.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The dimension name.</p>
+   */
+  dimensionName?: string;
+
+  /**
+   * <p>The dimension value operator.</p>
+   */
+  dimensionValueOperator?: DimensionValueOperator | string;
+
+  /**
+   * <p>The start of the time period for which metric values are returned.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period for which metric values are returned.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMetricValuesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMetricValuesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A metric.</p>
+ */
+export interface MetricDatum {
+  /**
+   * <p>The time the metric value was reported.</p>
+   */
+  timestamp?: Date;
+
+  /**
+   * <p>The value reported for the metric.</p>
+   */
+  value?: MetricValue;
+}
+
+export namespace MetricDatum {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDatum): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMetricValuesResponse {
+  /**
+   * <p>The data the thing reports for the metric during the specified time period.</p>
+   */
+  metricDatumList?: MetricDatum[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *         if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMetricValuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMetricValuesResponse): any => ({
     ...obj,
   });
 }
@@ -8241,64 +8377,4 @@ export namespace ListThingGroupsForThingResponse {
   export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The input for the ListThingPrincipal operation.</p>
- */
-export interface ListThingPrincipalsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-}
-
-export namespace ListThingPrincipalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListThingPrincipals operation.</p>
- */
-export interface ListThingPrincipalsResponse {
-  /**
-   * <p>The principals associated with the thing.</p>
-   */
-  principals?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingPrincipalsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS",
 }

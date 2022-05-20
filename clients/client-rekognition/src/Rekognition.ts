@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -262,10 +263,326 @@ import {
   UpdateDatasetEntriesCommandInput,
   UpdateDatasetEntriesCommandOutput,
 } from "./commands/UpdateDatasetEntriesCommand";
+import {
+  UpdateStreamProcessorCommand,
+  UpdateStreamProcessorCommandInput,
+  UpdateStreamProcessorCommandOutput,
+} from "./commands/UpdateStreamProcessorCommand";
 import { RekognitionClient } from "./RekognitionClient";
 
 /**
- * <p>This is the Amazon Rekognition API reference.</p>
+ * <p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>,
+ *       <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
+ *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored Video</a>,
+ *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>.
+ *       It provides descriptions of actions, data types, common parameters,
+ *       and common errors.</p>
+ *
+ *          <p>
+ *             <b>Amazon Rekognition Image</b>
+ *          </p>
+ *
+ *
+ *
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html">CompareFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html">CreateCollection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html">DeleteCollection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html">DeleteFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html">DescribeCollection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html">DetectFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html">DetectLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html">DetectModerationLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html">DetectProtectiveEquipment</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html">DetectText</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html">GetCelebrityInfo</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html">IndexFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html">ListCollections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html">ListFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html">RecognizeCelebrities</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html">SearchFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html">SearchFacesByImage</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *
+ *          <p>
+ *             <b>Amazon Rekognition Custom Labels</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">CreateDataset</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html">CreateProject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html">CreateProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html">DeleteDataset</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html">DeleteProject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html">DeleteProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html">DescribeDataset</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html">DescribeProjects</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html">DescribeProjectVersions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html">DetectCustomLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html">DistributeDatasetEntries</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html">ListDatasetEntries</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html">ListDatasetLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html">StartProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html">StopProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html">UpdateDatasetEntries</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *
+ *          <p>
+ *             <b>Amazon Rekognition Video Stored Video</b>
+ *          </p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html">GetCelebrityRecognition</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html">GetContentModeration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html">GetFaceDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html">GetFaceSearch</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html">GetLabelDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html">GetPersonTracking</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html">GetSegmentDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html">GetTextDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html">StartCelebrityRecognition</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html">StartContentModeration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html">StartFaceDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html">StartFaceSearch</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html">StartLabelDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html">StartPersonTracking</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html">StartSegmentDetection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html">StartTextDetection</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>
+ *             <b>Amazon Rekognition Video Streaming Video</b>
+ *          </p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html">CreateStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html">DeleteStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html">DescribeStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html">ListStreamProcessors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html">StartStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html">StopStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class Rekognition extends RekognitionClient {
   /**
@@ -506,7 +823,7 @@ export class Rekognition extends RekognitionClient {
    *
    *
    *          <note>
-   *             <p>You can train a modelin a project that doesn't have associated datasets by specifying manifest files in the
+   *             <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the
    *          <code>TrainingData</code> and <code>TestingData</code> fields.
    *          </p>
    *             <p>If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates
@@ -565,15 +882,26 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.</p>
-   *         <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Amazon Rekognition Video sends analysis results to Amazon Kinesis Data Streams.</p>
-   *         <p>You provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the
-   *             face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize.
+   * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p>
+   *         <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the
+   *                 face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
+   *                 stop processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an
+   *                 Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket.
+   *                 You specify what you want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and people, or pets, people, and packages. You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>.
+   *                 When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
    *             Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code>
    *             to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with
    *             the <code>Name</code> field. </p>
-   *         <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
-   *         stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p>
    *         <p>This operation requires permissions to perform the
    *             <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
    */
@@ -608,7 +936,7 @@ export class Rekognition extends RekognitionClient {
 
   /**
    * <p>Deletes the specified collection. Note that this operation
-   *       removes all faces in the collection. For an example, see <a>delete-collection-procedure</a>.</p>
+   *       removes all faces in the collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</a>.</p>
    *
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:DeleteCollection</code> action.</p>
@@ -1134,7 +1462,7 @@ export class Rekognition extends RekognitionClient {
    *        wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.
    *      </p>
    *
-   *          <p>For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p>
    *          <note>
    *             <p>
    *                <code>DetectLabels</code> does not support the detection of activities. However, activity detection
@@ -1367,7 +1695,7 @@ export class Rekognition extends RekognitionClient {
    *       use the <code>TextDetection</code> object <code>Type</code> field. </p>
    *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p>
    *
-   *          <p>For more information, see DetectText in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>
    */
   public detectText(args: DetectTextCommandInput, options?: __HttpHandlerOptions): Promise<DetectTextCommandOutput>;
   public detectText(args: DetectTextCommandInput, cb: (err: any, data?: DetectTextCommandOutput) => void): void;
@@ -1440,7 +1768,7 @@ export class Rekognition extends RekognitionClient {
    *       The additional information is returned as an array of URLs. If there is no additional
    *       information about the celebrity, this list is empty.</p>
    *
-   *          <p>For more information, see Recognizing Celebrities in an Image in
+   *          <p>For more information, see Getting information about a celebrity in
    *       the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:GetCelebrityInfo</code> action. </p>
@@ -1575,7 +1903,7 @@ export class Rekognition extends RekognitionClient {
    *        and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
    *        returned from the previous call to <code>GetContentModeration</code>.</p>
    *
-   *          <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see moderating content in the Amazon Rekognition Developer Guide.</p>
    */
   public getContentModeration(
     args: GetContentModerationCommandInput,
@@ -1848,7 +2176,7 @@ export class Rekognition extends RekognitionClient {
    *       and populate the <code>NextToken</code> request parameter with the token value returned from the previous
    *       call to <code>GetSegmentDetection</code>.</p>
    *
-   *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
    */
   public getSegmentDetection(
     args: GetSegmentDetectionCommandInput,
@@ -1938,7 +2266,7 @@ export class Rekognition extends RekognitionClient {
    *         <a>SearchFaces</a> and <a>SearchFacesByImage</a>
    *       operations.</p>
    *
-   *          <p>For more information, see Adding Faces to a Collection in the Amazon Rekognition
+   *          <p>For more information, see Adding faces to a collection in the Amazon Rekognition
    *       Developer Guide.</p>
    *          <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p>
    *
@@ -2018,7 +2346,7 @@ export class Rekognition extends RekognitionClient {
    *          <p>If you request all facial attributes (by using the <code>detectionAttributes</code>
    *       parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for
    *       example, location of eye and mouth) and other facial attributes. If you provide
-   *       the same image, specify the same collection, use the same external ID, and use the same model version in the
+   *       the same image, specify the same collection, and use the same external ID in the
    *         <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
    *
    *
@@ -2059,7 +2387,7 @@ export class Rekognition extends RekognitionClient {
    *     If the result is truncated, the response also provides a <code>NextToken</code>
    *     that you can use in the subsequent request to fetch the next set of collection IDs.</p>
    *
-   *          <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For an example, see Listing collections in the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
    */
   public listCollections(
@@ -2276,7 +2604,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
+   * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing celebrities
    *     in the Amazon Rekognition Developer Guide. </p>
    *          <p>
    *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the
@@ -2304,7 +2632,7 @@ export class Rekognition extends RekognitionClient {
    *
    *
    *
-   *          <p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
    */
@@ -2355,7 +2683,7 @@ export class Rekognition extends RekognitionClient {
    *       that the specific face matches the input face.
    *     </p>
    *
-   *          <p>For an example, see Searching for a Face Using Its Face ID in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition Developer Guide.</p>
    *
    *          <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
    *       action.</p>
@@ -2473,7 +2801,7 @@ export class Rekognition extends RekognitionClient {
    *       topic is <code>SUCCEEDED</code>. If so, call  <a>GetCelebrityRecognition</a> and pass the job identifier
    *       (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p>
    *
-   *          <p>For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.</p>
    */
   public startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
@@ -2516,7 +2844,7 @@ export class Rekognition extends RekognitionClient {
    *         topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier
    *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
    *
-   *          <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>
    */
   public startContentModeration(
     args: StartContentModerationCommandInput,
@@ -2559,7 +2887,7 @@ export class Rekognition extends RekognitionClient {
    *        topic is <code>SUCCEEDED</code>. If so, call  <a>GetFaceDetection</a> and pass the job identifier
    *       (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.</p>
    *
-   *          <p>For more information, see Detecting Faces in a Stored Video in the
+   *          <p>For more information, see Detecting faces in a stored video in the
    *      Amazon Rekognition Developer Guide.</p>
    */
   public startFaceDetection(
@@ -2601,7 +2929,8 @@ export class Rekognition extends RekognitionClient {
    *       To get the search results, first check that the status value published to the Amazon SNS
    *       topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier
    *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see
-   *       <a>procedure-person-search-videos</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html">Searching stored videos for faces</a>.
+   *     </p>
    */
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
@@ -2775,7 +3104,7 @@ export class Rekognition extends RekognitionClient {
    *       from the initial call to <code>StartSegmentDetection</code>. </p>
    *
    *
-   *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+   *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
    */
   public startSegmentDetection(
     args: StartSegmentDetectionCommandInput,
@@ -2810,6 +3139,7 @@ export class Rekognition extends RekognitionClient {
    * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
    *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
    *             <code>CreateStreamProcessor</code>.</p>
+   *         <p>If you are using a label detection stream processor to detect labels, you need to provide a <code>Start selector</code> and a <code>Stop selector</code> to determine the length of the stream processing time.</p>
    */
   public startStreamProcessor(
     args: StartStreamProcessorCommandInput,
@@ -3059,6 +3389,40 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: UpdateDatasetEntriesCommandOutput) => void
   ): Promise<UpdateDatasetEntriesCommandOutput> | void {
     const command = new UpdateDatasetEntriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
+   *         </p>
+   */
+  public updateStreamProcessor(
+    args: UpdateStreamProcessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamProcessorCommandOutput>;
+  public updateStreamProcessor(
+    args: UpdateStreamProcessorCommandInput,
+    cb: (err: any, data?: UpdateStreamProcessorCommandOutput) => void
+  ): void;
+  public updateStreamProcessor(
+    args: UpdateStreamProcessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStreamProcessorCommandOutput) => void
+  ): void;
+  public updateStreamProcessor(
+    args: UpdateStreamProcessorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStreamProcessorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStreamProcessorCommandOutput) => void
+  ): Promise<UpdateStreamProcessorCommandOutput> | void {
+    const command = new UpdateStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

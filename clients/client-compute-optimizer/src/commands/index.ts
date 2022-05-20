@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteRecommendationPreferencesCommand";
 export * from "./DescribeRecommendationExportJobsCommand";
 export * from "./ExportAutoScalingGroupRecommendationsCommand";

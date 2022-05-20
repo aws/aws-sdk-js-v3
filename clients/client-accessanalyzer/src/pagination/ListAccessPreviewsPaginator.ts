@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { AccessAnalyzer } from "../AccessAnalyzer";
@@ -51,8 +52,9 @@ export async function* paginateListAccessPreviews(
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

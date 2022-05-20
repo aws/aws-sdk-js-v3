@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
 
 /**
  * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
- *             least two Availability Zones in the Region.</p>
+ *             least two Availability Zones in the Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

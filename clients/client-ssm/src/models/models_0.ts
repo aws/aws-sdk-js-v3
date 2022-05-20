@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
@@ -153,6 +153,9 @@ export interface AddTagsToResourceRequest {
    *          </p>
    *          <p>
    *             <code>PatchBaseline</code>: <code>pb-012345abcde</code>
+   *          </p>
+   *          <p>
+   *             <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code>
    *          </p>
    *          <p>
    *             <code>OpsMetadata</code> object: <code>ResourceID</code> for tagging is created from the
@@ -1228,6 +1231,25 @@ export interface CreateAssociationRequest {
    *    accounts.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association. For example, if you
+   *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
+   *    to run the association each Sunday after the second Thursday of the month. For more information
+   *    about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron
+   *     and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   *          <note>
+   *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
+   *     option tells the system not to run an association immediately after you create it. </p>
+   *          </note>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace CreateAssociationRequest {
@@ -1468,6 +1490,17 @@ export interface AssociationDescription {
    *    association.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace AssociationDescription {
@@ -1603,6 +1636,27 @@ export class InvalidTarget extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidTarget.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>TargetMap parameter isn't valid.</p>
+ */
+export class InvalidTargetMaps extends __BaseException {
+  readonly name: "InvalidTargetMaps" = "InvalidTargetMaps";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTargetMaps, __BaseException>) {
+    super({
+      name: "InvalidTargetMaps",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetMaps.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1772,6 +1826,17 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>Use this action to create an association in multiple Regions and multiple accounts.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace CreateAssociationBatchRequestEntry {
@@ -5359,6 +5424,12 @@ export interface Runbook {
    *    Required if you specify <code>TargetParameterName</code>.</p>
    */
   Targets?: Target[];
+
+  /**
+   * <p>A key-value mapping of runbook parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The <code>MaxConcurrency</code> value specified by the user when the operation started,
@@ -9485,10 +9556,4 @@ export namespace ParameterInlinePolicy {
   export const filterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
     ...obj,
   });
-}
-
-export enum ParameterTier {
-  ADVANCED = "Advanced",
-  INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard",
 }

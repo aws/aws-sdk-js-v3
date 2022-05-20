@@ -1,6 +1,8 @@
+// smithy-typescript generated code
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  AccessDirection,
   AccessRules,
   AddOn,
   AlarmState,
@@ -20,14 +22,12 @@ import {
   DomainEntry,
   InputOrigin,
   InstanceHardware,
-  InstancePortInfo,
   IpAddressType,
   KeyPair,
   MetricDatapoint,
   MetricName,
   MetricStatistic,
   MetricUnit,
-  MonthlyTransfer,
   NetworkProtocol,
   Operation,
   PortInfo,
@@ -37,6 +37,187 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+/**
+ * <p>Describes the monthly data transfer in and out of your virtual private server (or
+ *         <i>instance</i>).</p>
+ */
+export interface MonthlyTransfer {
+  /**
+   * <p>The amount allocated per month (in GB).</p>
+   */
+  gbPerMonthAllocated?: number;
+}
+
+export namespace MonthlyTransfer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonthlyTransfer): any => ({
+    ...obj,
+  });
+}
+
+export enum PortAccessType {
+  Private = "Private",
+  Public = "Public",
+}
+
+/**
+ * <p>Describes information about ports for an Amazon Lightsail instance.</p>
+ */
+export interface InstancePortInfo {
+  /**
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  fromPort?: number;
+
+  /**
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  toPort?: number;
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
+   *           communicating by an IP network. If you have an application that doesn't require reliable
+   *           data stream service, use UDP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *           communications are not required to set up transmission channels or data paths.
+   *           Applications that don't require reliable data stream service can use UDP, which provides a
+   *           connectionless datagram service that emphasizes reduced latency over reliability. If you
+   *           do require reliable data stream service, use TCP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   */
+  protocol?: NetworkProtocol | string;
+
+  /**
+   * <p>The location from which access is allowed. For example, <code>Anywhere (0.0.0.0/0)</code>,
+   *       or <code>Custom</code> if a specific IP address or range of IP addresses is allowed.</p>
+   */
+  accessFrom?: string;
+
+  /**
+   * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
+   */
+  accessType?: PortAccessType | string;
+
+  /**
+   * <p>The common name of the port information.</p>
+   */
+  commonName?: string;
+
+  /**
+   * <p>The access direction (<code>inbound</code> or <code>outbound</code>).</p>
+   *          <note>
+   *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
+   *          </note>
+   */
+  accessDirection?: AccessDirection | string;
+
+  /**
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  cidrs?: string[];
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  ipv6Cidrs?: string[];
+
+  /**
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
+   */
+  cidrListAliases?: string[];
+}
+
+export namespace InstancePortInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstancePortInfo): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes monthly data transfer rates and port information for an instance.</p>
@@ -1253,8 +1434,10 @@ export namespace GetLoadBalancerRequest {
 
 export enum LoadBalancerAttributeName {
   HealthCheckPath = "HealthCheckPath",
+  HttpsRedirectionEnabled = "HttpsRedirectionEnabled",
   SessionStickinessEnabled = "SessionStickinessEnabled",
   SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
+  TlsPolicyName = "TlsPolicyName",
 }
 
 export enum InstanceHealthState {
@@ -1572,6 +1755,17 @@ export interface LoadBalancer {
    *       IPv4 and IPv6.</p>
    */
   ipAddressType?: IpAddressType | string;
+
+  /**
+   * <p>A Boolean value that indicates whether HTTPS redirection is enabled for the load
+   *       balancer.</p>
+   */
+  httpsRedirectionEnabled?: boolean;
+
+  /**
+   * <p>The name of the TLS security policy for the load balancer.</p>
+   */
+  tlsPolicyName?: string;
 }
 
 export namespace LoadBalancer {
@@ -2454,6 +2648,97 @@ export namespace GetLoadBalancerTlsCertificatesResult {
   });
 }
 
+export interface GetLoadBalancerTlsPoliciesRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export namespace GetLoadBalancerTlsPoliciesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the TLS security policies that are available for Lightsail load
+ *       balancers.</p>
+ *
+ *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+ *         balancers</a> in the <i>Amazon Lightsail Developer
+ *       Guide</i>.</p>
+ */
+export interface LoadBalancerTlsPolicy {
+  /**
+   * <p>The name of the TLS security policy.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether the TLS security policy is the default.</p>
+   */
+  isDefault?: boolean;
+
+  /**
+   * <p>The description of the TLS security policy.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The protocols used in a given TLS security policy.</p>
+   */
+  protocols?: string[];
+
+  /**
+   * <p>The ciphers used by the TLS security policy.</p>
+   *          <p>The ciphers are listed in order of preference.</p>
+   */
+  ciphers?: string[];
+}
+
+export namespace LoadBalancerTlsPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoadBalancerTlsPolicy): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLoadBalancerTlsPoliciesResult {
+  /**
+   * <p>An array of objects that describe the TLS security policies that are available.</p>
+   */
+  tlsPolicies?: LoadBalancerTlsPolicy[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *
+   *          <p>To get the next page of results, perform another <code>GetLoadBalancerTlsPolicies</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export namespace GetLoadBalancerTlsPoliciesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetOperationRequest {
   /**
    * <p>A GUID used to identify the operation.</p>
@@ -3083,6 +3368,12 @@ export interface GetRelationalDatabaseBundlesRequest {
    *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
+   *       response of your request.</p>
+   */
+  includeInactive?: boolean;
 }
 
 export namespace GetRelationalDatabaseBundlesRequest {
@@ -4402,10 +4693,10 @@ export interface PutAlarmRequest {
    *          <p>A notification is sent via the specified contact protocol if notifications are enabled for
    *       the alarm, and when the alarm is triggered.</p>
    *          <p>A notification is not sent if a contact protocol is not specified, if the specified
-   *       contact protocol is not configured in the AWS Region, or if notifications are not enabled
-   *       for the alarm using the <code>notificationEnabled</code> paramater.</p>
+   *       contact protocol is not configured in the Amazon Web Services Region, or if notifications are
+   *       not enabled for the alarm using the <code>notificationEnabled</code> paramater.</p>
    *          <p>Use the <code>CreateContactMethod</code> action to configure a contact protocol in an
-   *       AWS Region.</p>
+   *         Amazon Web Services Region.</p>
    */
   contactProtocols?: (ContactProtocol | string)[];
 
@@ -4638,8 +4929,8 @@ export namespace RegisterContainerImageRequest {
 
 export interface RegisterContainerImageResult {
   /**
-   * <p>Describes a container image that is registered to an Amazon Lightsail container
-   *       service.</p>
+   * <p>An object that describes a container image that is registered to a Lightsail container
+   *       service</p>
    */
   containerImage?: ContainerImage;
 }
@@ -4773,8 +5064,8 @@ export interface SetIpAddressTypeRequest {
    *         <code>LoadBalancer</code>.</p>
    *          <note>
    *             <p>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
-   *         AWS Region. Set your AWS Region configuration to <code>us-east-1</code> to create, view,
-   *         or edit distributions.</p>
+   *           Amazon Web Services Region. Set your Amazon Web Services Region configuration to
+   *           <code>us-east-1</code> to create, view, or edit distributions.</p>
    *          </note>
    */
   resourceType: ResourceType | string | undefined;
@@ -5229,9 +5520,10 @@ export interface UpdateBucketRequest {
   versioning?: string;
 
   /**
-   * <p>An array of strings to specify the AWS account IDs that can access the bucket.</p>
+   * <p>An array of strings to specify the Amazon Web Services account IDs that can access the
+   *       bucket.</p>
    *
-   *          <p>You can give a maximum of 10 AWS accounts access to a bucket.</p>
+   *          <p>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</p>
    */
   readonlyAccessAccounts?: string[];
 
@@ -5491,7 +5783,8 @@ export namespace UpdateDistributionBundleRequest {
 
 export interface UpdateDistributionBundleResult {
   /**
-   * <p>Describes the API operation.</p>
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -5551,12 +5844,46 @@ export interface UpdateLoadBalancerAttributeRequest {
   loadBalancerName: string | undefined;
 
   /**
-   * <p>The name of the attribute you want to update. Valid values are below.</p>
+   * <p>The name of the attribute you want to update.</p>
    */
   attributeName: LoadBalancerAttributeName | string | undefined;
 
   /**
    * <p>The value that you want to specify for the attribute name.</p>
+   *          <p>The following values are supported depending on what you specify for the
+   *         <code>attributeName</code> request parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>HealthCheckPath</code> for the <code>attributeName</code> request
+   *           parameter, then the <code>attributeValue</code> request parameter must be the path to ping
+   *           on the target (for example, <code>/weather/us/wa/seattle</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>SessionStickinessEnabled</code> for the
+   *             <code>attributeName</code> request parameter, then the <code>attributeValue</code>
+   *           request parameter must be <code>true</code> to activate session stickiness or
+   *             <code>false</code> to deactivate session stickiness.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the
+   *             <code>attributeName</code> request parameter, then the <code>attributeValue</code>
+   *           request parameter must be an interger that represents the cookie duration in
+   *           seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>HttpsRedirectionEnabled</code> for the <code>attributeName</code>
+   *           request parameter, then the <code>attributeValue</code> request parameter must be
+   *             <code>true</code> to activate HTTP to HTTPS redirection or <code>false</code> to
+   *           deactivate HTTP to HTTPS redirection.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request
+   *           parameter, then the <code>attributeValue</code> request parameter must be the name of the
+   *           TLS policy.</p>
+   *                <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you
+   *           can specify.</p>
+   *             </li>
+   *          </ul>
    */
   attributeValue: string | undefined;
 }

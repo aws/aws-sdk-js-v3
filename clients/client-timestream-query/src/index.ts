@@ -1,4 +1,5 @@
 export * from "./TimestreamQuery";
+// smithy-typescript generated code
 export * from "./TimestreamQueryClient";
 export * from "./commands";
 export * from "./models";

@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { AutoScalingServiceException as __BaseException } from "./AutoScalingServiceException";
 
@@ -1590,11 +1590,13 @@ export interface CreateAutoScalingGroupType {
   DesiredCapacity?: number;
 
   /**
-   * <p>The amount of time, in seconds, after a scaling activity completes before another
-   *             scaling activity can start. The default value is <code>300</code>. This setting applies
-   *             when using simple scaling policies, but not when using other scaling policies or
-   *             scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns for Amazon EC2 Auto Scaling</a>
-   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>
+   *             <i>Only needed if you use simple scaling policies.</i>
+   *          </p>
+   *         <p>The amount of time, in seconds, between one scaling activity ending and another one
+   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns
+   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>Default: <code>300</code> seconds</p>
    */
   DefaultCooldown?: number;
 
@@ -1632,20 +1634,28 @@ export interface CreateAutoScalingGroupType {
   HealthCheckType?: string;
 
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
+   * <p>
+   *             <i></i>
+   *          </p>
+   *         <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
    *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
-   *             health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *             Elastic Load Balancing or custom health check. This is useful if your instances do not immediately pass
+   *             these health checks after they enter the <code>InService</code> state. For more
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
    *                 check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
+   *         <p>Default: <code>0</code> seconds</p>
    */
   HealthCheckGracePeriod?: number;
 
   /**
-   * <p>The name of an existing placement group into which to launch your instances, if any. A
-   *             placement group is a logical grouping of instances within a single Availability Zone.
-   *             You cannot specify multiple Availability Zones and a placement group. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
+   * <p>The name of an existing placement group into which to launch your instances. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <note>
+   *             <p>A <i>cluster</i> placement group is a logical grouping of instances
+   *                 within a single Availability Zone. You cannot specify multiple Availability Zones
+   *                 and a cluster placement group. </p>
+   *         </note>
    */
   PlacementGroup?: string;
 
@@ -1739,6 +1749,28 @@ export interface CreateAutoScalingGroupType {
    *          </p>
    */
   DesiredCapacityType?: string;
+
+  /**
+   * <p>The amount of time, in seconds, until a newly launched instance can contribute to the
+   *             Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling
+   *             aggregates instance metrics, resulting in more reliable usage data. Set this value equal
+   *             to the amount of time that it takes for resource consumption to become stable after an
+   *             instance reaches the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html">Set
+   *                 the default instance warmup for an Auto Scaling group</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <important>
+   *             <p>To manage your warm-up settings at the group level, we recommend that you set the
+   *                 default instance warmup, <i>even if its value is set to 0 seconds</i>.
+   *                 This also optimizes the performance of scaling policies that scale continuously,
+   *                 such as target tracking and step scaling policies. </p>
+   *             <p>If you need to remove a value that you previously set, include the property but
+   *                 specify <code>-1</code> for the value. However, we strongly recommend keeping the
+   *                 default instance warmup enabled by specifying a minimum value of
+   *                 <code>0</code>.</p>
+   *         </important>
+   *         <p>Default: None </p>
+   */
+  DefaultInstanceWarmup?: number;
 }
 
 export namespace CreateAutoScalingGroupType {
@@ -2020,19 +2052,24 @@ export interface CreateLaunchConfigurationType {
   SecurityGroups?: string[];
 
   /**
-   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
+   * <p>
+   *             <i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+   *                 that date.</i>
+   *         </p>
+   *         <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>This parameter can only be used if you are launching EC2-Classic instances.</p>
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   ClassicLinkVPCId?: string;
 
   /**
-   * <p>The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For
+   * <p>
+   *             <i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+   *                 that date.</i>
+   *         </p>
+   *         <p>The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         <p>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
    *             parameter.</p>
    */
@@ -2489,7 +2526,7 @@ export interface Filter {
    *             the filter (<a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>).</p>
    *         <p>
    *             <b>DescribeAutoScalingGroups</b>
-   *          </p>
+   *         </p>
    *         <p>Valid values for <code>Name</code> include the following: </p>
    *         <ul>
    *             <li>
@@ -3031,9 +3068,7 @@ export interface AutoScalingGroup {
   HealthCheckType: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
-   *             health check.</p>
+   * <p>The duration of the health check grace period, in seconds.</p>
    */
   HealthCheckGracePeriod?: number;
 
@@ -3124,15 +3159,14 @@ export interface AutoScalingGroup {
   /**
    * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
    *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
-   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
-   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
-   *             instances.</p>
-   *         <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
-   *          </p>
+   *             only.</p>
    */
   DesiredCapacityType?: string;
+
+  /**
+   * <p>The duration of the default instance warmup, in seconds.</p>
+   */
+  DefaultInstanceWarmup?: number;
 }
 
 export namespace AutoScalingGroup {
@@ -3377,10 +3411,10 @@ export namespace DesiredConfiguration {
  */
 export interface RefreshPreferences {
   /**
-   * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
-   *             refresh to allow the operation to continue. The value is expressed as a percentage of
-   *             the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default
-   *             is <code>90</code>.</p>
+   * <p>The amount of capacity in the Auto Scaling group that must pass your group's health checks to
+   *             allow the operation to continue. The value is expressed as a percentage of the desired
+   *             capacity of the Auto Scaling group (rounded up to the nearest integer). The default is
+   *                 <code>90</code>.</p>
    *         <p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
    *             to one instance at a time. In contrast, setting it to 0 percent has the effect of
    *             replacing all instances at the same time. </p>
@@ -3388,10 +3422,16 @@ export interface RefreshPreferences {
   MinHealthyPercentage?: number;
 
   /**
-   * <p>The number of seconds until a newly launched instance is configured and ready to use.
-   *             During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The
-   *             default is to use the value for the health check grace period defined for the
-   *             group.</p>
+   * <p>
+   *             <i>Not needed if the default instance warmup is defined for the
+   *                 group.</i>
+   *          </p>
+   *         <p>The duration of the instance warmup, in seconds.</p>
+   *         <note>
+   *             <p>The default is to use the value for the default instance warmup defined for the
+   *                 group. If default instance warmup is null, then <code>InstanceWarmup</code> falls
+   *                 back to the value of the health check grace period.</p>
+   *         </note>
    */
   InstanceWarmup?: number;
 
@@ -3755,19 +3795,21 @@ export interface LaunchConfiguration {
   SecurityGroups?: string[];
 
   /**
-   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>
+   *             <i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+   *                 that date.</i>
+   *         </p>
+   *         <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
    */
   ClassicLinkVPCId?: string;
 
   /**
-   * <p>The IDs of one or more security groups for the VPC specified in
+   * <p>
+   *             <i>EC2-Classic retires on August 15, 2022. This parameter is not supported after
+   *                 that date.</i>
+   *         </p>
+   *         <p>The IDs of one or more security groups for the VPC specified in
    *                 <code>ClassicLinkVPCId</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   ClassicLinkVPCSecurityGroups?: string[];
 
@@ -3956,9 +3998,8 @@ export interface LifecycleHook {
   HeartbeatTimeout?: number;
 
   /**
-   * <p>The maximum time, in seconds, that an instance can remain in a
-   *                 <code>Pending:Wait</code> or <code>Terminating:Wait</code> state. The maximum is
-   *             172800 seconds (48 hours) or 100 times <code>HeartbeatTimeout</code>, whichever is
+   * <p>The maximum time, in seconds, that an instance can remain in a wait state. The maximum
+   *             is 172800 seconds (48 hours) or 100 times <code>HeartbeatTimeout</code>, whichever is
    *             smaller.</p>
    */
   GlobalTimeout?: number;
@@ -5303,18 +5344,18 @@ export interface PredefinedMetricSpecification {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ASGAverageNetworkIn</code> - Average number of bytes received (per
-   *                     instance per minute) for the Auto Scaling group.</p>
+   *                   <code>ASGAverageNetworkIn</code> - Average number of bytes received on all
+   *                     network interfaces by the Auto Scaling group.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ASGAverageNetworkOut</code> - Average number of bytes sent out (per
-   *                     instance per minute) for the Auto Scaling group.</p>
+   *                   <code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all
+   *                     network interfaces by the Auto Scaling group.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request count (per
-   *                     target per minute) for your Auto Scaling group.</p>
+   *                   <code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request count per target
+   *                     for your Auto Scaling group.</p>
    *             </li>
    *          </ul>
    */
@@ -6799,12 +6840,12 @@ export interface PutScalingPolicyType {
   ScalingAdjustment?: number;
 
   /**
-   * <p>The duration of the policy's cooldown period, in seconds. When a cooldown period is
-   *             specified here, it overrides the default cooldown period defined for the Auto Scaling
-   *             group.</p>
+   * <p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When
+   *             a cooldown period is specified here, it overrides the default cooldown.</p>
    *         <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
    *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
    *                 cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>Default: None</p>
    */
   Cooldown?: number;
 
@@ -6825,11 +6866,21 @@ export interface PutScalingPolicyType {
   StepAdjustments?: StepAdjustment[];
 
   /**
-   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
-   *             CloudWatch metrics. If not provided, the default is to use the value from the default cooldown
-   *             period for the Auto Scaling group.</p>
+   * <p>
+   *             <i>Not needed if the default instance warmup is defined for the
+   *                 group.</i>
+   *          </p>
+   *         <p>The estimated time, in seconds, until a newly launched instance can contribute to the
+   *             CloudWatch metrics. This warm-up period applies to instances launched due to a specific target
+   *             tracking or step scaling policy. When a warm-up period is specified here, it overrides
+   *             the default instance warmup.</p>
    *         <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or
    *                 <code>StepScaling</code>.</p>
+   *         <note>
+   *             <p>The default is to use the value for the default instance warmup defined for the
+   *                 group. If default instance warmup is null, then <code>EstimatedInstanceWarmup</code>
+   *                 falls back to the value of default cooldown.</p>
+   *         </note>
    */
   EstimatedInstanceWarmup?: number;
 
@@ -7425,11 +7476,12 @@ export interface UpdateAutoScalingGroupType {
   DesiredCapacity?: number;
 
   /**
-   * <p>The amount of time, in seconds, after a scaling activity completes before another
-   *             scaling activity can start. The default value is <code>300</code>. This setting applies
-   *             when using simple scaling policies, but not when using other scaling policies or
-   *             scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns for Amazon EC2 Auto Scaling</a>
-   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>
+   *             <i>Only needed if you use simple scaling policies.</i>
+   *          </p>
+   *         <p>The amount of time, in seconds, between one scaling activity ending and another one
+   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns
+   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   DefaultCooldown?: number;
 
@@ -7449,18 +7501,22 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
    *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
-   *             health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *             Elastic Load Balancing or custom health check. This is useful if your instances do not immediately pass
+   *             these health checks after they enter the <code>InService</code> state. For more
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
    *                 check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
    */
   HealthCheckGracePeriod?: number;
 
   /**
-   * <p>The name of an existing placement group into which to launch your instances, if any. A
-   *             placement group is a logical grouping of instances within a single Availability Zone.
-   *             You cannot specify multiple Availability Zones and a placement group. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
+   * <p>The name of an existing placement group into which to launch your instances. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <note>
+   *             <p>A <i>cluster</i> placement group is a logical grouping of instances
+   *                 within a single Availability Zone. You cannot specify multiple Availability Zones
+   *                 and a cluster placement group. </p>
+   *         </note>
    */
   PlacementGroup?: string;
 
@@ -7527,6 +7583,27 @@ export interface UpdateAutoScalingGroupType {
    *          </p>
    */
   DesiredCapacityType?: string;
+
+  /**
+   * <p>The amount of time, in seconds, until a newly launched instance can contribute to the
+   *             Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling
+   *             aggregates instance metrics, resulting in more reliable usage data. Set this value equal
+   *             to the amount of time that it takes for resource consumption to become stable after an
+   *             instance reaches the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html">Set
+   *                 the default instance warmup for an Auto Scaling group</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <important>
+   *             <p>To manage your warm-up settings at the group level, we recommend that you set the
+   *                 default instance warmup, <i>even if its value is set to 0 seconds</i>.
+   *                 This also optimizes the performance of scaling policies that scale continuously,
+   *                 such as target tracking and step scaling policies. </p>
+   *             <p>If you need to remove a value that you previously set, include the property but
+   *                 specify <code>-1</code> for the value. However, we strongly recommend keeping the
+   *                 default instance warmup enabled by specifying a minimum value of
+   *                 <code>0</code>.</p>
+   *         </important>
+   */
+  DefaultInstanceWarmup?: number;
 }
 
 export namespace UpdateAutoScalingGroupType {

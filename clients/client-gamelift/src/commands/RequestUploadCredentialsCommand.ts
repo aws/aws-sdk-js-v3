@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,7 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
 
 /**
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
- *             files to Amazon Web Services's Amazon S3. This is done as part of the build creation process; see
+ *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
  *                 <a>CreateBuild</a>.</p>
  *         <p>To request new credentials, specify the build ID as returned with an initial
  *                 <code>CreateBuild</code> request. If successful, a new set of credentials are

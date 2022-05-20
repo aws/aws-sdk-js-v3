@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,8 +23,8 @@ export interface ListStudioSessionMappingsCommandInput extends ListStudioSession
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio specified by
- *             <code>StudioId</code>.</p>
+ * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
+ *          specified by <code>StudioId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

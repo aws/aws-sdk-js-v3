@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,6 +28,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -26,6 +27,10 @@ import {
   CreateLocationFsxLustreCommandOutput,
 } from "../commands/CreateLocationFsxLustreCommand";
 import {
+  CreateLocationFsxOpenZfsCommandInput,
+  CreateLocationFsxOpenZfsCommandOutput,
+} from "../commands/CreateLocationFsxOpenZfsCommand";
+import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "../commands/CreateLocationFsxWindowsCommand";
@@ -50,6 +55,10 @@ import {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "../commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOpenZfsCommandInput,
+  DescribeLocationFsxOpenZfsCommandOutput,
+} from "../commands/DescribeLocationFsxOpenZfsCommand";
 import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
@@ -111,6 +120,8 @@ import {
   CreateLocationEfsResponse,
   CreateLocationFsxLustreRequest,
   CreateLocationFsxLustreResponse,
+  CreateLocationFsxOpenZfsRequest,
+  CreateLocationFsxOpenZfsResponse,
   CreateLocationFsxWindowsRequest,
   CreateLocationFsxWindowsResponse,
   CreateLocationHdfsRequest,
@@ -137,6 +148,8 @@ import {
   DescribeLocationEfsResponse,
   DescribeLocationFsxLustreRequest,
   DescribeLocationFsxLustreResponse,
+  DescribeLocationFsxOpenZfsRequest,
+  DescribeLocationFsxOpenZfsResponse,
   DescribeLocationFsxWindowsRequest,
   DescribeLocationFsxWindowsResponse,
   DescribeLocationHdfsRequest,
@@ -155,6 +168,8 @@ import {
   DescribeTaskResponse,
   Ec2Config,
   FilterRule,
+  FsxProtocol,
+  FsxProtocolNfs,
   HdfsNameNode,
   InternalException,
   InvalidRequestException,
@@ -254,6 +269,19 @@ export const serializeAws_json1_1CreateLocationFsxLustreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLocationFsxLustreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationFsxOpenZfsCommand = async (
+  input: CreateLocationFsxOpenZfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.CreateLocationFsxOpenZfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationFsxOpenZfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,6 +451,19 @@ export const serializeAws_json1_1DescribeLocationFsxLustreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxLustreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLocationFsxOpenZfsCommand = async (
+  input: DescribeLocationFsxOpenZfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.DescribeLocationFsxOpenZfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxOpenZfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -884,6 +925,52 @@ const deserializeAws_json1_1CreateLocationFsxLustreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocationFsxLustreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateLocationFsxOpenZfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxOpenZfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLocationFsxOpenZfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationFsxOpenZfsResponse(data, context);
+  const response: CreateLocationFsxOpenZfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationFsxOpenZfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxOpenZfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1482,6 +1569,52 @@ const deserializeAws_json1_1DescribeLocationFsxLustreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationFsxLustreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeLocationFsxOpenZfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxOpenZfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLocationFsxOpenZfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationFsxOpenZfsResponse(data, context);
+  const response: DescribeLocationFsxOpenZfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationFsxOpenZfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxOpenZfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2660,6 +2793,25 @@ const serializeAws_json1_1CreateLocationFsxLustreRequest = (
   };
 };
 
+const serializeAws_json1_1CreateLocationFsxOpenZfsRequest = (
+  input: CreateLocationFsxOpenZfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FsxFilesystemArn !== undefined &&
+      input.FsxFilesystemArn !== null && { FsxFilesystemArn: input.FsxFilesystemArn }),
+    ...(input.Protocol !== undefined &&
+      input.Protocol !== null && { Protocol: serializeAws_json1_1FsxProtocol(input.Protocol, context) }),
+    ...(input.SecurityGroupArns !== undefined &&
+      input.SecurityGroupArns !== null && {
+        SecurityGroupArns: serializeAws_json1_1Ec2SecurityGroupArnList(input.SecurityGroupArns, context),
+      }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLocationFsxWindowsRequest = (
   input: CreateLocationFsxWindowsRequest,
   context: __SerdeContext
@@ -2854,6 +3006,15 @@ const serializeAws_json1_1DescribeLocationFsxLustreRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeLocationFsxOpenZfsRequest = (
+  input: DescribeLocationFsxOpenZfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeLocationFsxWindowsRequest = (
   input: DescribeLocationFsxWindowsRequest,
   context: __SerdeContext
@@ -2974,6 +3135,22 @@ const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_json1_1FsxProtocol = (input: FsxProtocol, context: __SerdeContext): any => {
+  return {
+    ...(input.NFS !== undefined &&
+      input.NFS !== null && { NFS: serializeAws_json1_1FsxProtocolNfs(input.NFS, context) }),
+  };
+};
+
+const serializeAws_json1_1FsxProtocolNfs = (input: FsxProtocolNfs, context: __SerdeContext): any => {
+  return {
+    ...(input.MountOptions !== undefined &&
+      input.MountOptions !== null && {
+        MountOptions: serializeAws_json1_1NfsMountOptions(input.MountOptions, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1HdfsNameNode = (input: HdfsNameNode, context: __SerdeContext): any => {
   return {
     ...(input.Hostname !== undefined && input.Hostname !== null && { Hostname: input.Hostname }),
@@ -3091,6 +3268,7 @@ const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): a
     ...(input.Gid !== undefined && input.Gid !== null && { Gid: input.Gid }),
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
     ...(input.Mtime !== undefined && input.Mtime !== null && { Mtime: input.Mtime }),
+    ...(input.ObjectTags !== undefined && input.ObjectTags !== null && { ObjectTags: input.ObjectTags }),
     ...(input.OverwriteMode !== undefined && input.OverwriteMode !== null && { OverwriteMode: input.OverwriteMode }),
     ...(input.PosixPermissions !== undefined &&
       input.PosixPermissions !== null && { PosixPermissions: input.PosixPermissions }),
@@ -3411,6 +3589,15 @@ const deserializeAws_json1_1CreateLocationFsxLustreResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLocationFsxOpenZfsResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationFsxOpenZfsResponse => {
+  return {
+    LocationArn: __expectString(output.LocationArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
   output: any,
   context: __SerdeContext
@@ -3533,6 +3720,28 @@ const deserializeAws_json1_1DescribeLocationFsxLustreResponse = (
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
+    SecurityGroupArns:
+      output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
+        ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLocationFsxOpenZfsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationFsxOpenZfsResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
+    Protocol:
+      output.Protocol !== undefined && output.Protocol !== null
+        ? deserializeAws_json1_1FsxProtocol(output.Protocol, context)
+        : undefined,
     SecurityGroupArns:
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
@@ -3812,6 +4021,24 @@ const deserializeAws_json1_1FilterRule = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1FsxProtocol = (output: any, context: __SerdeContext): FsxProtocol => {
+  return {
+    NFS:
+      output.NFS !== undefined && output.NFS !== null
+        ? deserializeAws_json1_1FsxProtocolNfs(output.NFS, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FsxProtocolNfs = (output: any, context: __SerdeContext): FsxProtocolNfs => {
+  return {
+    MountOptions:
+      output.MountOptions !== undefined && output.MountOptions !== null
+        ? deserializeAws_json1_1NfsMountOptions(output.MountOptions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1HdfsNameNode = (output: any, context: __SerdeContext): HdfsNameNode => {
   return {
     Hostname: __expectString(output.Hostname),
@@ -3843,6 +4070,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
+    datasyncErrorCode: __expectString(output.datasyncErrorCode),
     errorCode: __expectString(output.errorCode),
     message: __expectString(output.message),
   } as any;
@@ -3945,6 +4173,7 @@ const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Op
     Gid: __expectString(output.Gid),
     LogLevel: __expectString(output.LogLevel),
     Mtime: __expectString(output.Mtime),
+    ObjectTags: __expectString(output.ObjectTags),
     OverwriteMode: __expectString(output.OverwriteMode),
     PosixPermissions: __expectString(output.PosixPermissions),
     PreserveDeletedFiles: __expectString(output.PreserveDeletedFiles),

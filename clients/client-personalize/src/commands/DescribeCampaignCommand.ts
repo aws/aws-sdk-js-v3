@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -34,7 +35,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  *          </ul>
  *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
  *       <code>failureReason</code> key, which describes why.</p>
- *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

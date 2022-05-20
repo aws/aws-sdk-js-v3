@@ -1,4 +1,5 @@
 export * from "./GameSparks";
+// smithy-typescript generated code
 export * from "./GameSparksClient";
 export * from "./commands";
 export * from "./models";

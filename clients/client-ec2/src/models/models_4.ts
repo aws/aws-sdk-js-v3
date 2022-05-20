@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   _InstanceType,
   ActiveInstance,
@@ -66,8 +67,10 @@ import {
   DnsEntry,
   DnsNameState,
   Filter,
+  IpAddressType,
   PayerResponsibility,
   ServiceConfiguration,
+  ServiceConnectivityType,
   ServiceTypeDetail,
   State,
   TransitGatewayConnect,
@@ -91,6 +94,249 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+export interface DescribePublicIpv4PoolsRequest {
+  /**
+   * <p>The IDs of the address pools.</p>
+   */
+  PoolIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+export namespace DescribePublicIpv4PoolsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an address range of an IPv4 address pool.</p>
+ */
+export interface PublicIpv4PoolRange {
+  /**
+   * <p>The first IP address in the range.</p>
+   */
+  FirstAddress?: string;
+
+  /**
+   * <p>The last IP address in the range.</p>
+   */
+  LastAddress?: string;
+
+  /**
+   * <p>The number of addresses in the range.</p>
+   */
+  AddressCount?: number;
+
+  /**
+   * <p>The number of available addresses in the range.</p>
+   */
+  AvailableAddressCount?: number;
+}
+
+export namespace PublicIpv4PoolRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublicIpv4PoolRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv4 address pool.</p>
+ */
+export interface PublicIpv4Pool {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>A description of the address pool.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The address ranges.</p>
+   */
+  PoolAddressRanges?: PublicIpv4PoolRange[];
+
+  /**
+   * <p>The total number of addresses.</p>
+   */
+  TotalAddressCount?: number;
+
+  /**
+   * <p>The total number of available addresses.</p>
+   */
+  TotalAvailableAddressCount?: number;
+
+  /**
+   * <p>The name of the location from which the address pool is advertised.
+   *             A network border group is a unique set of Availability Zones or Local Zones
+   *             from where Amazon Web Services advertises public IP addresses.</p>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * <p>Any tags for the address pool.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace PublicIpv4Pool {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublicIpv4Pool): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePublicIpv4PoolsResult {
+  /**
+   * <p>Information about the address pools.</p>
+   */
+  PublicIpv4Pools?: PublicIpv4Pool[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePublicIpv4PoolsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRegionsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
+   *                  <code>not-opted-in</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
+   */
+  RegionNames?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
+   */
+  AllRegions?: boolean;
+}
+
+export namespace DescribeRegionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Region.</p>
+ */
+export interface Region {
+  /**
+   * <p>The Region service endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The name of the Region.</p>
+   */
+  RegionName?: string;
+
+  /**
+   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
+   *         <code>not-opted-in</code>.</p>
+   */
+  OptInStatus?: string;
+}
+
+export namespace Region {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Region): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRegionsResult {
+  /**
+   * <p>Information about the Regions.</p>
+   */
+  Regions?: Region[];
+}
+
+export namespace DescribeRegionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeReplaceRootVolumeTasksRequest {
   /**
@@ -3930,7 +4176,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *                   <code>state</code> - The state of the Spot Instance request (<code>open</code>
    *                     | <code>active</code> | <code>closed</code> | <code>cancelled</code> |
    *                         <code>failed</code>). Spot request status information can help you track
-   *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
+   *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot
    *                         request status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *             </li>
    *             <li>
@@ -4067,7 +4313,7 @@ export interface LaunchSpecification {
   ImageId?: string;
 
   /**
-   * <p>The instance type.</p>
+   * <p>The instance type. Only one instance type can be specified.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -4124,7 +4370,7 @@ export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "
  */
 export interface SpotInstanceStatus {
   /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand">Spot request status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   Code?: string;
 
@@ -4214,8 +4460,8 @@ export interface SpotInstanceRequest {
   SpotPrice?: string;
 
   /**
-   * <p>The state of the Spot Instance request. Spot status information helps track your Spot
-   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot status</a> in the
+   * <p>The state of the Spot Instance request. Spot request status information helps track your Spot
+   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   State?: SpotInstanceState | string;
@@ -7185,6 +7431,10 @@ export interface DescribeVpcEndpointConnectionsRequest {
    * <p>One or more filters.</p>
    * 		       <ul>
    *             <li>
+   * 		             <p>
+   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   * 		          </li>
+   *             <li>
    *                 <p>
    *                   <code>service-id</code> - The ID of the service.</p>
    *             </li>
@@ -7275,6 +7525,11 @@ export interface VpcEndpointConnection {
    * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
    */
   GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The IP address type for the endpoint.</p>
+   */
+  IpAddressType?: IpAddressType | string;
 }
 
 export namespace VpcEndpointConnection {
@@ -7326,6 +7581,10 @@ export interface DescribeVpcEndpointsRequest {
   /**
    * <p>One or more filters.</p>
    *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
    *             <li>
    *                 <p>
    *                     <code>service-name</code> - The name of the service.</p>
@@ -7436,6 +7695,10 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
    *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
    *                         <code>Failed</code>). </p>
    * 			         </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   * 		          </li>
    *             <li>
    * 				           <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
@@ -7597,6 +7860,10 @@ export interface DescribeVpcEndpointServicesRequest {
    *                         <code>Gateway</code>).</p>
    *             </li>
    *             <li>
+   *                 <p>
+   *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
+   *             </li>
+   *             <li>
    *         		     <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *         	   </li>
@@ -7723,6 +7990,11 @@ export interface ServiceDetail {
    *         <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
    */
   PrivateDnsNameVerificationState?: DnsNameState | string;
+
+  /**
+   * <p>The supported IP address types.</p>
+   */
+  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
 }
 
 export namespace ServiceDetail {
@@ -11147,149 +11419,6 @@ export namespace GetEbsDefaultKmsKeyIdResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetEbsEncryptionByDefaultRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEbsEncryptionByDefaultResult {
-  /**
-   * <p>Indicates whether encryption by default is enabled.</p>
-   */
-  EbsEncryptionByDefault?: boolean;
-}
-
-export namespace GetEbsEncryptionByDefaultResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
-    ...obj,
-  });
-}
-
-export enum PartitionLoadFrequency {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  NONE = "none",
-  WEEKLY = "weekly",
-}
-
-/**
- * <p>Describes integration options for Amazon Athena.</p>
- */
-export interface AthenaIntegration {
-  /**
-   * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
-   */
-  IntegrationResultS3DestinationArn: string | undefined;
-
-  /**
-   * <p>The schedule for adding new partitions to the table.</p>
-   */
-  PartitionLoadFrequency: PartitionLoadFrequency | string | undefined;
-
-  /**
-   * <p>The start date for the partition.</p>
-   */
-  PartitionStartDate?: Date;
-
-  /**
-   * <p>The end date for the partition.</p>
-   */
-  PartitionEndDate?: Date;
-}
-
-export namespace AthenaIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaIntegration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes service integrations with VPC Flow logs.</p>
- */
-export interface IntegrateServices {
-  /**
-   * <p>Information about the integration with Amazon Athena.</p>
-   */
-  AthenaIntegrations?: AthenaIntegration[];
-}
-
-export namespace IntegrateServices {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegrateServices): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFlowLogsIntegrationTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the flow log.</p>
-   */
-  FlowLogId: string | undefined;
-
-  /**
-   * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
-   */
-  ConfigDeliveryS3DestinationArn: string | undefined;
-
-  /**
-   * <p>Information about the service integration.</p>
-   */
-  IntegrateServices: IntegrateServices | undefined;
-}
-
-export namespace GetFlowLogsIntegrationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFlowLogsIntegrationTemplateResult {
-  /**
-   * <p>The generated CloudFormation template.</p>
-   */
-  Result?: string;
-}
-
-export namespace GetFlowLogsIntegrationTemplateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateResult): any => ({
     ...obj,
   });
 }

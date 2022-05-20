@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { IoT1ClickProjects } from "../IoT1ClickProjects";

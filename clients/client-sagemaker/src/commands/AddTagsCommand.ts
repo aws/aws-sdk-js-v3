@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -19,7 +20,7 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
+ * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
  *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
  *             jobs, models, labeling jobs, work teams, endpoint configurations, and
  *             endpoints.</p>

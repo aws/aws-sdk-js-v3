@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface DeleteTagsCommandInput extends DeleteTagsInput {}
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified tags from an Amazon SageMaker resource.</p>
+ * <p>Deletes the specified tags from an SageMaker resource.</p>
  *         <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
  *         <note>
  *             <p>When you call this API to delete tags from a hyperparameter tuning job, the

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { APIGateway } from "../APIGateway";
@@ -51,8 +52,9 @@ export async function* paginateGetDeployments(
       throw new Error("Invalid client, expected APIGateway | APIGatewayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.position;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

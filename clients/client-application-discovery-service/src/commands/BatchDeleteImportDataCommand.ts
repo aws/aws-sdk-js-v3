@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,7 +30,7 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
  *
- *          <p>AWS Application Discovery Service has built-in matching logic that will identify when
+ *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
  *       discovered servers match existing entries that you've previously discovered, the information
  *       for the already-existing discovered server is updated. When you delete an import task that
  *       contains records that were used to match, the information in those matched records that comes

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -264,6 +265,10 @@ import {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
 } from "../commands/UpdateIpRestrictionCommand";
+import {
+  UpdatePublicSharingSettingsCommandInput,
+  UpdatePublicSharingSettingsCommandOutput,
+} from "../commands/UpdatePublicSharingSettingsCommand";
 import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -5474,6 +5479,42 @@ export const serializeAws_restJson1UpdateIpRestrictionCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePublicSharingSettingsCommand = async (
+  input: UpdatePublicSharingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/public-sharing-settings";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PublicSharingEnabled !== undefined &&
+      input.PublicSharingEnabled !== null && { PublicSharingEnabled: input.PublicSharingEnabled }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -13906,6 +13947,69 @@ const deserializeAws_restJson1UpdateIpRestrictionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdatePublicSharingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePublicSharingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePublicSharingSettingsCommandError(output, context);
+  }
+  const contents: UpdatePublicSharingSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePublicSharingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePublicSharingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      throw await deserializeAws_restJson1UnsupportedPricingPlanExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16260,6 +16364,7 @@ const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeCo
     DefaultNamespace: __expectString(output.DefaultNamespace),
     Edition: __expectString(output.Edition),
     NotificationEmail: __expectString(output.NotificationEmail),
+    PublicSharingEnabled: __expectBoolean(output.PublicSharingEnabled),
   } as any;
 };
 

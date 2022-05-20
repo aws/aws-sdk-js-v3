@@ -1,4 +1,5 @@
 export * from "./StorageGateway";
+// smithy-typescript generated code
 export * from "./StorageGatewayClient";
 export * from "./commands";
 export * from "./models";

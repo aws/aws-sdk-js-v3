@@ -1,4 +1,5 @@
 export * from "./MediaConvert";
+// smithy-typescript generated code
 export * from "./MediaConvertClient";
 export * from "./commands";
 export * from "./models";

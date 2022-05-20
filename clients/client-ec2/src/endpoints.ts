@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
@@ -5,7 +6,7 @@ const regionHash: RegionHash = {
   "ap-south-1": {
     variants: [
       {
-        hostname: "api.ec2.ap-south-1.aws",
+        hostname: "ec2.ap-south-1.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -21,7 +22,7 @@ const regionHash: RegionHash = {
   "eu-west-1": {
     variants: [
       {
-        hostname: "api.ec2.eu-west-1.aws",
+        hostname: "ec2.eu-west-1.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -29,7 +30,7 @@ const regionHash: RegionHash = {
   "sa-east-1": {
     variants: [
       {
-        hostname: "api.ec2.sa-east-1.aws",
+        hostname: "ec2.sa-east-1.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -37,24 +38,24 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "api.ec2.us-east-1.aws",
-        tags: ["dualstack"],
-      },
-      {
         hostname: "ec2-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ec2.us-east-1.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },
   "us-east-2": {
     variants: [
       {
-        hostname: "api.ec2.us-east-2.aws",
-        tags: ["dualstack"],
-      },
-      {
         hostname: "ec2-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ec2.us-east-2.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },
@@ -87,12 +88,12 @@ const regionHash: RegionHash = {
   "us-west-2": {
     variants: [
       {
-        hostname: "api.ec2.us-west-2.aws",
-        tags: ["dualstack"],
-      },
-      {
         hostname: "ec2-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ec2.us-west-2.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBatchInferenceJobCommand";
 export * from "./CreateBatchSegmentJobCommand";
 export * from "./CreateCampaignCommand";
@@ -50,6 +51,11 @@ export * from "./ListRecommendersCommand";
 export * from "./ListSchemasCommand";
 export * from "./ListSolutionVersionsCommand";
 export * from "./ListSolutionsCommand";
+export * from "./ListTagsForResourceCommand";
+export * from "./StartRecommenderCommand";
+export * from "./StopRecommenderCommand";
 export * from "./StopSolutionVersionCreationCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";
 export * from "./UpdateCampaignCommand";
 export * from "./UpdateRecommenderCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -90,6 +91,7 @@ import {
   AccessDeniedException,
   ConflictException,
   Connection,
+  DeploymentResult,
   ExtensionDetails,
   ExtensionVersionDetails,
   GameConfigurationDetails,
@@ -3416,6 +3418,13 @@ const deserializeAws_restJson1ConnectionList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1DeploymentResult = (output: any, context: __SerdeContext): DeploymentResult => {
+  return {
+    Message: __expectString(output.Message),
+    ResultCode: __expectString(output.ResultCode),
+  } as any;
+};
+
 const deserializeAws_restJson1Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
@@ -3644,6 +3653,10 @@ const deserializeAws_restJson1StageDeploymentDetails = (
         : undefined,
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
+    DeploymentResult:
+      output.DeploymentResult !== undefined && output.DeploymentResult !== null
+        ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
+        : undefined,
     DeploymentState: __expectString(output.DeploymentState),
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
@@ -3675,6 +3688,10 @@ const deserializeAws_restJson1StageDeploymentSummary = (
   return {
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
+    DeploymentResult:
+      output.DeploymentResult !== undefined && output.DeploymentResult !== null
+        ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
+        : undefined,
     DeploymentState: __expectString(output.DeploymentState),
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null

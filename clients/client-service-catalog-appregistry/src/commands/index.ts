@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateAttributeGroupCommand";
 export * from "./AssociateResourceCommand";
 export * from "./CreateApplicationCommand";

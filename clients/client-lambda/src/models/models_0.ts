@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
@@ -323,6 +323,11 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+export enum FunctionUrlAuthType {
+  AWS_IAM = "AWS_IAM",
+  NONE = "NONE",
+}
+
 export interface AddPermissionRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -400,6 +405,13 @@ export interface AddPermissionRequest {
    *       accounts under this organization.</p>
    */
   PrincipalOrgID?: string;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  FunctionUrlAuthType?: FunctionUrlAuthType | string;
 }
 
 export namespace AddPermissionRequest {
@@ -975,7 +987,7 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1213,7 +1225,7 @@ export interface EventSourceMappingConfiguration {
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -1479,6 +1491,7 @@ export enum Runtime {
   nodejs10x = "nodejs10.x",
   nodejs12x = "nodejs12.x",
   nodejs14x = "nodejs14.x",
+  nodejs16x = "nodejs16.x",
   nodejs43 = "nodejs4.3",
   nodejs43edge = "nodejs4.3-edge",
   nodejs610 = "nodejs6.10",
@@ -2141,6 +2154,152 @@ export class InvalidCodeSignatureException extends __BaseException {
   }
 }
 
+/**
+ * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing
+ *         (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL
+ *       from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your
+ *       function URL.</p>
+ */
+export interface Cors {
+  /**
+   * <p>Whether to allow cookies or other credentials in requests to your function URL. The default is
+   *         <code>false</code>.</p>
+   */
+  AllowCredentials?: boolean;
+
+  /**
+   * <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>,
+   *       <code>X-Custom-Header</code>.</p>
+   */
+  AllowHeaders?: string[];
+
+  /**
+   * <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>,
+   *       or the wildcard character (<code>*</code>).</p>
+   */
+  AllowMethods?: string[];
+
+  /**
+   * <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example:
+   *       <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
+   *          <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
+   */
+  AllowOrigins?: string[];
+
+  /**
+   * <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example:
+   *       <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+   */
+  ExposeHeaders?: string[];
+
+  /**
+   * <p>The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By
+   *       default, this is set to <code>0</code>, which means that the browser doesn't cache results.</p>
+   */
+  MaxAge?: number;
+}
+
+export namespace Cors {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Cors): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFunctionUrlConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+}
+
+export namespace CreateFunctionUrlConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFunctionUrlConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFunctionUrlConfigResponse {
+  /**
+   * <p>The HTTP URL endpoint for your function.</p>
+   */
+  FunctionUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+
+  /**
+   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  CreationTime: string | undefined;
+}
+
+export namespace CreateFunctionUrlConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFunctionUrlConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2394,6 +2553,46 @@ export namespace DeleteFunctionEventInvokeConfigRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFunctionUrlConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+}
+
+export namespace DeleteFunctionUrlConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFunctionUrlConfigRequest): any => ({
     ...obj,
   });
 }
@@ -2961,6 +3160,90 @@ export namespace GetFunctionEventInvokeConfigRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFunctionUrlConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+}
+
+export namespace GetFunctionUrlConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFunctionUrlConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFunctionUrlConfigResponse {
+  /**
+   * <p>The HTTP URL endpoint for your function.</p>
+   */
+  FunctionUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+
+  /**
+   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  CreationTime: string | undefined;
+
+  /**
+   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  LastModifiedTime: string | undefined;
+}
+
+export namespace GetFunctionUrlConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFunctionUrlConfigResponse): any => ({
     ...obj,
   });
 }
@@ -4384,6 +4667,120 @@ export namespace ListFunctionsByCodeSigningConfigResponse {
   });
 }
 
+export interface ListFunctionUrlConfigsRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code>
+   *       returns a maximum of 50 items in each response, even if you set the number higher.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListFunctionUrlConfigsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFunctionUrlConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a Lambda function URL.</p>
+ */
+export interface FunctionUrlConfig {
+  /**
+   * <p>The HTTP URL endpoint for your function.</p>
+   */
+  FunctionUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  CreationTime: string | undefined;
+
+  /**
+   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  LastModifiedTime: string | undefined;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType: FunctionUrlAuthType | string | undefined;
+}
+
+export namespace FunctionUrlConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionUrlConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFunctionUrlConfigsResponse {
+  /**
+   * <p>A list of function URL configurations.</p>
+   */
+  FunctionUrlConfigs: FunctionUrlConfig[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
+}
+
+export namespace ListFunctionUrlConfigsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFunctionUrlConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListLayersRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -5563,7 +5960,7 @@ export interface UpdateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5939,6 +6336,103 @@ export namespace UpdateFunctionEventInvokeConfigRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFunctionUrlConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType?: FunctionUrlAuthType | string;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+}
+
+export namespace UpdateFunctionUrlConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFunctionUrlConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFunctionUrlConfigResponse {
+  /**
+   * <p>The HTTP URL endpoint for your function.</p>
+   */
+  FunctionUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+   *   <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+   */
+  AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+   *   for your function URL.</p>
+   */
+  Cors?: Cors;
+
+  /**
+   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  CreationTime: string | undefined;
+
+  /**
+   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  LastModifiedTime: string | undefined;
+}
+
+export namespace UpdateFunctionUrlConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFunctionUrlConfigResponse): any => ({
     ...obj,
   });
 }

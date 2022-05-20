@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,8 +23,8 @@ export interface CreateBuildCommandInput extends CreateBuildInput {}
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Web Services build resource for your game server binary files. Game server
- *             binaries must be combined into a zip file for use with Amazon Web Services. </p>
+ * <p>Creates a new Amazon GameLift build resource for your game server binary files. Game server
+ *             binaries must be combined into a zip file for use with Amazon GameLift. </p>
  *         <important>
  *             <p>When setting up a new game build for GameLift, we recommend using the Amazon Web Services CLI
  *                 command <b>
@@ -36,7 +37,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  *         <ul>
  *             <li>
  *                 <p>To create a new game build with build files that are in an Amazon S3 location under
- *                     an Amazon Web Services account that you control. To use this option, you must first give Amazon Web Services
+ *                     an Amazon Web Services account that you control. To use this option, you must first give Amazon GameLift
  *                     access to the Amazon S3 bucket. With permissions in place, call
  *                         <code>CreateBuild</code> and specify a build name, operating system, and the
  *                     Amazon S3 storage location of your game build.</p>

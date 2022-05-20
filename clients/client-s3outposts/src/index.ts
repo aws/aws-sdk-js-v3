@@ -1,4 +1,5 @@
 export * from "./S3Outposts";
+// smithy-typescript generated code
 export * from "./S3OutpostsClient";
 export * from "./commands";
 export * from "./models";

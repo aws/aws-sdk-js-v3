@@ -1,6 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
 import { ClientHttp2Session, connect, constants } from "http2";
 
 import { getTransformedHeaders } from "./get-transformed-headers";
@@ -33,17 +33,24 @@ export interface NodeHttp2HandlerOptions {
 }
 
 export class NodeHttp2Handler implements HttpHandler {
-  private readonly requestTimeout?: number;
-  private readonly sessionTimeout?: number;
-  private readonly disableConcurrentStreams?: boolean;
+  private config?: NodeHttp2HandlerOptions;
+  private readonly configProvider: Promise<NodeHttp2HandlerOptions>;
 
   public readonly metadata = { handlerProtocol: "h2" };
   private sessionCache: Map<string, ClientHttp2Session[]>;
 
-  constructor({ requestTimeout, sessionTimeout, disableConcurrentStreams }: NodeHttp2HandlerOptions = {}) {
-    this.requestTimeout = requestTimeout;
-    this.sessionTimeout = sessionTimeout;
-    this.disableConcurrentStreams = disableConcurrentStreams;
+  constructor(options?: NodeHttp2HandlerOptions | Provider<NodeHttp2HandlerOptions | void>) {
+    this.configProvider = new Promise((resolve, reject) => {
+      if (typeof options === "function") {
+        options()
+          .then((opts) => {
+            resolve(opts || {});
+          })
+          .catch(reject);
+      } else {
+        resolve(options || {});
+      }
+    });
     this.sessionCache = new Map<string, ClientHttp2Session[]>();
   }
 
@@ -54,7 +61,11 @@ export class NodeHttp2Handler implements HttpHandler {
     this.sessionCache.clear();
   }
 
-  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+  async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+    if (!this.config) {
+      this.config = await this.configProvider;
+    }
+    const { requestTimeout, disableConcurrentStreams } = this.config;
     return new Promise((resolve, rejectOriginal) => {
       // It's redundant to track fulfilled because promises use the first resolution/rejection
       // but avoids generating unnecessary stack traces in the "close" event handler.
@@ -71,10 +82,10 @@ export class NodeHttp2Handler implements HttpHandler {
 
       const { hostname, method, port, protocol, path, query } = request;
       const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
-      const session = this.getSession(authority, this.disableConcurrentStreams || false);
+      const session = this.getSession(authority, disableConcurrentStreams || false);
 
       const reject = (err: Error) => {
-        if (this.disableConcurrentStreams) {
+        if (disableConcurrentStreams) {
           this.destroySession(session);
         }
         fulfilled = true;
@@ -89,6 +100,9 @@ export class NodeHttp2Handler implements HttpHandler {
         [constants.HTTP2_HEADER_METHOD]: method,
       });
 
+      // Keep node alive while request is in progress. Matched with unref() in close event.
+      session.ref();
+
       req.on("response", (headers) => {
         const httpResponse = new HttpResponse({
           statusCode: headers[":status"] || -1,
@@ -97,7 +111,7 @@ export class NodeHttp2Handler implements HttpHandler {
         });
         fulfilled = true;
         resolve({ response: httpResponse });
-        if (this.disableConcurrentStreams) {
+        if (disableConcurrentStreams) {
           // Gracefully closes the Http2Session, allowing any existing streams to complete
           // on their own and preventing new Http2Stream instances from being created.
           session.close();
@@ -105,7 +119,6 @@ export class NodeHttp2Handler implements HttpHandler {
         }
       });
 
-      const requestTimeout = this.requestTimeout;
       if (requestTimeout) {
         req.setTimeout(requestTimeout, () => {
           req.close();
@@ -137,7 +150,8 @@ export class NodeHttp2Handler implements HttpHandler {
       // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
       // an 'error' event will have also been emitted.
       req.on("close", () => {
-        if (this.disableConcurrentStreams) {
+        session.unref();
+        if (disableConcurrentStreams) {
           session.destroy();
         }
         if (!fulfilled) {
@@ -158,12 +172,16 @@ export class NodeHttp2Handler implements HttpHandler {
    */
   private getSession(authority: string, disableConcurrentStreams: boolean): ClientHttp2Session {
     const sessionCache = this.sessionCache;
+
     const existingSessions = sessionCache.get(authority) || [];
 
     // If concurrent streams are not disabled, we can use the existing session.
     if (existingSessions.length > 0 && !disableConcurrentStreams) return existingSessions[0];
 
     const newSession = connect(authority);
+    // AWS SDK does not expect server push streams, don't keep node alive without a request.
+    newSession.unref();
+
     const destroySessionCb = () => {
       this.destroySession(newSession);
       this.deleteSessionFromCache(authority, newSession);
@@ -172,9 +190,10 @@ export class NodeHttp2Handler implements HttpHandler {
     newSession.on("error", destroySessionCb);
     newSession.on("frameError", destroySessionCb);
 
-    const sessionTimeout = this.sessionTimeout;
-    if (sessionTimeout) {
-      newSession.setTimeout(sessionTimeout, destroySessionCb);
+    newSession.on("close", () => this.deleteSessionFromCache(authority, newSession));
+
+    if (this.config?.sessionTimeout) {
+      newSession.setTimeout(this.config.sessionTimeout, destroySessionCb);
     }
 
     existingSessions.push(newSession);

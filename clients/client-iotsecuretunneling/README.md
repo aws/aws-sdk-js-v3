@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-iotsecuretunneling
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotsecuretunneling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotsecuretunneling)
@@ -7,12 +9,12 @@
 
 AWS SDK for JavaScript IoTSecureTunneling Client for Node.js, Browser and React Native.
 
-<fullname>AWS IoT Secure Tunneling</fullname>
+<fullname>IoT Secure Tunneling</fullname>
 
-<p>AWS IoT Secure Tunnling enables you to create remote connections to devices
-deployed in the field.</p>
-
-<p>For more information about how AWS IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>.</p>
+<p>IoT Secure Tunneling creates remote connections to devices deployed in the
+field.</p>
+<p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
+Secure Tunneling</a>.</p>
 
 ## Installing
 
@@ -120,7 +122,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -154,7 +156,7 @@ client
 
 // callbacks.
 client.closeTunnel(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

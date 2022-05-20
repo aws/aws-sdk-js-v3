@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAppCommand";
 export * from "./CreateCampaignCommand";
 export * from "./CreateEmailTemplateCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   GetItemCommand as __GetItemCommand,
   GetItemCommandInput as __GetItemCommandInput,

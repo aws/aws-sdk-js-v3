@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -19,7 +20,10 @@ export interface CreateIpamCommandInput extends CreateIpamRequest {}
 export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBearer {}
 
 /**
- * <p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p>
+ * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
+ *          to automate your IP address management workflows including assigning, tracking,
+ *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
+ *          throughout your Amazon Web Services Organization.</p>
  *          <p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example

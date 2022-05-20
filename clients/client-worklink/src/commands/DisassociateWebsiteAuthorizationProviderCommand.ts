@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Disassociates a website authorization provider from a specified fleet. After the
  *             disassociation, users can't load any associated websites that require this authorization
  *             provider.</p>

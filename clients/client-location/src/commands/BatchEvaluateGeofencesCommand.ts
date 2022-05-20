@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -46,6 +47,10 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *         <note>
  *             <p>Geofence evaluation uses the given device position. It does not account for the
  *                 optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>
+ *         </note>
+ *         <note>
+ *             <p>The <code>DeviceID</code> is used as a string to represent the device. You do not
+ *                 need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

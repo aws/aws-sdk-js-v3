@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -60,6 +61,7 @@ import {
 } from "../commands/UpdateConfigurationCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
+  ActionRequired,
   AvailabilityZone,
   BadRequestException,
   BrokerEngineType,
@@ -1257,6 +1259,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
   }
   const contents: DescribeBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ActionsRequired: undefined,
     AuthenticationStrategy: undefined,
     AutoMinorVersionUpgrade: undefined,
     BrokerArn: undefined,
@@ -1287,6 +1290,9 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     Users: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.actionsRequired !== undefined && data.actionsRequired !== null) {
+    contents.ActionsRequired = deserializeAws_restJson1__listOfActionRequired(data.actionsRequired, context);
+  }
   if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
@@ -2550,6 +2556,18 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1__listOfActionRequired = (output: any, context: __SerdeContext): ActionRequired[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ActionRequired(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1__listOfAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -2716,6 +2734,13 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ActionRequired = (output: any, context: __SerdeContext): ActionRequired => {
+  return {
+    ActionRequiredCode: __expectString(output.actionRequiredCode),
+    ActionRequiredInfo: __expectString(output.actionRequiredInfo),
+  } as any;
 };
 
 const deserializeAws_restJson1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {

@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-panorama
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-panorama/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-panorama)
@@ -12,9 +14,8 @@ AWS SDK for JavaScript Panorama Client for Node.js, Browser and React Native.
 <p>
 <b>Overview</b>
 </p>
-<p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see
-<a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a>
-in the <i>AWS Panorama Developer Guide</i>.</p>
+<p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the
+<i>AWS Panorama Developer Guide</i>.</p>
 
 ## Installing
 
@@ -122,7 +123,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -156,7 +157,7 @@ client
 
 // callbacks.
 client.createApplicationInstance(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
@@ -2252,6 +2253,9 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The ARN of the Outpost on which the snapshot is stored.</p>
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called
+   *             by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
+   *                 CreateImage</a>.</p>
    */
   OutpostArn?: string;
 
@@ -2355,11 +2359,17 @@ export interface CreateImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.
-   *        If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating
-   *        the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted
-   *        at the same time), but not application consistent (all the operating system buffers are not flushed
-   *        to disk before the snapshots are created).</p>
+   * <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+   * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
+   * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
+   * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
+   * 					rebooting the instance.</p>
+   *    	     <important>
+   * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+   * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
+   * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
+   * 				     </important>
+   *          <p>Default: <code>false</code> (follow standard reboot process)</p>
    */
   NoReboot?: boolean;
 
@@ -2876,9 +2886,12 @@ export enum IpamState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**
@@ -3135,9 +3148,12 @@ export enum IpamPoolState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**
@@ -3336,9 +3352,12 @@ export enum IpamScopeState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**
@@ -3428,6 +3447,11 @@ export namespace CreateIpamScopeResult {
   });
 }
 
+export enum KeyFormat {
+  pem = "pem",
+  ppk = "ppk",
+}
+
 export enum KeyType {
   ed25519 = "ed25519",
   rsa = "rsa",
@@ -3448,7 +3472,7 @@ export interface CreateKeyPairRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p>
+   * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p>
    *         <p>Default: <code>rsa</code>
    *          </p>
    */
@@ -3458,6 +3482,13 @@ export interface CreateKeyPairRequest {
    * <p>The tags to apply to the new key pair.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The format of the key pair.</p>
+   *         <p>Default: <code>pem</code>
+   *          </p>
+   */
+  KeyFormat?: KeyFormat | string;
 }
 
 export namespace CreateKeyPairRequest {
@@ -3474,7 +3505,14 @@ export namespace CreateKeyPairRequest {
  */
 export interface KeyPair {
   /**
-   * <p>The SHA-1 digest of the DER encoded private key.</p>
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with OpenSSH 6.8.</p>
+   *            </li>
+   *          </ul>
    */
   KeyFingerprint?: string;
 
@@ -4440,6 +4478,9 @@ export namespace LaunchTemplateTagSpecificationRequest {
 
 /**
  * <p>The information to include in the launch template.</p>
+ *         <note>
+ *             <p>You must specify at least one parameter for the launch template data.</p>
+ *         </note>
  */
 export interface RequestLaunchTemplateData {
   /**
@@ -9295,11 +9336,6 @@ export enum SubnetCidrReservationType {
 
 export interface CreateSubnetCidrReservationRequest {
   /**
-   * <p>The tags to assign to the subnet CIDR reservation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
    * <p>The ID of the subnet.</p>
    */
   SubnetId: string | undefined;
@@ -9346,6 +9382,11 @@ export interface CreateSubnetCidrReservationRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateSubnetCidrReservationRequest {
@@ -9962,6 +10003,11 @@ export interface CreateTrafficMirrorTargetRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
 }
 
 export namespace CreateTrafficMirrorTargetRequest {
@@ -9973,7 +10019,7 @@ export namespace CreateTrafficMirrorTargetRequest {
   });
 }
 
-export type TrafficMirrorTargetType = "network-interface" | "network-load-balancer";
+export type TrafficMirrorTargetType = "gateway-load-balancer-endpoint" | "network-interface" | "network-load-balancer";
 
 /**
  * <p>Describes a Traffic Mirror target.</p>
@@ -10013,6 +10059,11 @@ export interface TrafficMirrorTarget {
    * <p>The tags assigned to the Traffic Mirror target.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
 }
 
 export namespace TrafficMirrorTarget {
@@ -10297,39 +10348,6 @@ export namespace CreateTransitGatewayConnectRequestOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransitGatewayConnectRequest {
-  /**
-   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
-   */
-  TransportTransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The Connect attachment options.</p>
-   */
-  Options: CreateTransitGatewayConnectRequestOptions | undefined;
-
-  /**
-   * <p>The tags to apply to the Connect attachment.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace CreateTransitGatewayConnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequest): any => ({
     ...obj,
   });
 }

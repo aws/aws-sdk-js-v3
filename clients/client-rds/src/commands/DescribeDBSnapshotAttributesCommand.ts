@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,7 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDBSnapshotAttributesMessage, DescribeDBSnapshotAttributesResult } from "../models/models_1";
+import { DescribeDBSnapshotAttributesMessage } from "../models/models_0";
+import { DescribeDBSnapshotAttributesResult } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBSnapshotAttributesCommand,
   serializeAws_queryDescribeDBSnapshotAttributesCommand,

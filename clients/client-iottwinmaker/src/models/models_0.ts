@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
@@ -204,7 +204,7 @@ export interface DataConnector {
   lambda?: LambdaFunction;
 
   /**
-   * <p>A Boolean value that specifies whether the data connector is native to TwinMaker.</p>
+   * <p>A Boolean value that specifies whether the data connector is native to IoT TwinMaker.</p>
    */
   isNative?: boolean;
 }
@@ -341,6 +341,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 export enum PropertyUpdateType {
+  CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
@@ -1005,6 +1006,9 @@ export namespace GetWorkspaceResponse {
 
 /**
  * <p>An object that filters items in a list of component types.</p>
+ *          <note>
+ *             <p>Only one object is accepted as a valid input.</p>
+ *          </note>
  */
 export type ListComponentTypesFilter =
   | ListComponentTypesFilter.ExtendsFromMember
@@ -1187,6 +1191,7 @@ export namespace ListComponentTypesResponse {
  */
 export type ListEntitiesFilter =
   | ListEntitiesFilter.ComponentTypeIdMember
+  | ListEntitiesFilter.ExternalIdMember
   | ListEntitiesFilter.ParentEntityIdMember
   | ListEntitiesFilter.$UnknownMember;
 
@@ -1197,6 +1202,7 @@ export namespace ListEntitiesFilter {
   export interface ParentEntityIdMember {
     parentEntityId: string;
     componentTypeId?: never;
+    externalId?: never;
     $unknown?: never;
   }
 
@@ -1206,24 +1212,38 @@ export namespace ListEntitiesFilter {
   export interface ComponentTypeIdMember {
     parentEntityId?: never;
     componentTypeId: string;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The external-Id property of a component. The external-Id property is the primary key of an external storage system.</p>
+   */
+  export interface ExternalIdMember {
+    parentEntityId?: never;
+    componentTypeId?: never;
+    externalId: string;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     parentEntityId?: never;
     componentTypeId?: never;
+    externalId?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     parentEntityId: (value: string) => T;
     componentTypeId: (value: string) => T;
+    externalId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ListEntitiesFilter, visitor: Visitor<T>): T => {
     if (value.parentEntityId !== undefined) return visitor.parentEntityId(value.parentEntityId);
     if (value.componentTypeId !== undefined) return visitor.componentTypeId(value.componentTypeId);
+    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -1233,6 +1253,7 @@ export namespace ListEntitiesFilter {
   export const filterSensitiveLog = (obj: ListEntitiesFilter): any => {
     if (obj.parentEntityId !== undefined) return { parentEntityId: obj.parentEntityId };
     if (obj.componentTypeId !== undefined) return { componentTypeId: obj.componentTypeId };
+    if (obj.externalId !== undefined) return { externalId: obj.externalId };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -1245,6 +1266,9 @@ export interface ListEntitiesRequest {
 
   /**
    * <p>A list of objects that filter the request.</p>
+   *          <note>
+   *             <p>Only one object is accepted as a valid input.</p>
+   *          </note>
    */
   filters?: ListEntitiesFilter[];
 
@@ -1949,14 +1973,63 @@ export namespace PropertyLatestValue {
  */
 export interface PropertyValue {
   /**
+   * @deprecated
+   *
    * <p>The timestamp of a value for a time series property.</p>
    */
-  timestamp: Date | undefined;
+  timestamp?: Date;
 
   /**
    * <p>An object that specifies a value for a time series property.</p>
    */
   value: DataValue | undefined;
+
+  /**
+   * <p>ISO8601 DateTime of a value for a time series property.</p>
+   *          <p>The time for when the property value was recorded in ISO 8601 format: <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>[YYYY]</i>: year</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[MM]</i>: month</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[DD]</i>: day</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[hh]</i>: hour</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[mm]</i>: minute</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[ss]</i>: seconds</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[.SSSSSSSSS]</i>: additional precision, where precedence is maintained. For
+   *                example: [.573123] is equal to 573123000 nanoseconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Z</i>: default timezone UTC</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>± HH:mm</i>: time zone offset in Hours and Minutes.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <i>Required sub-fields</i>: YYYY-MM-DDThh:mm:ss and [Z/±HH:mm]</p>
+   */
+  time?: string;
 }
 
 export namespace PropertyValue {
@@ -2039,14 +2112,18 @@ export interface GetPropertyValueHistoryRequest {
   propertyFilters?: PropertyFilter[];
 
   /**
+   * @deprecated
+   *
    * <p>The date and time of the earliest property value to return.</p>
    */
-  startDateTime: Date | undefined;
+  startDateTime?: Date;
 
   /**
+   * @deprecated
+   *
    * <p>The date and time of the latest property value to return.</p>
    */
-  endDateTime: Date | undefined;
+  endDateTime?: Date;
 
   /**
    * <p>An object that specifies the interpolation type and the interval over which to interpolate data.</p>
@@ -2067,6 +2144,18 @@ export interface GetPropertyValueHistoryRequest {
    * <p>The time direction to use in the result order.</p>
    */
   orderByTime?: OrderByTime | string;
+
+  /**
+   * <p>The ISO8601 DateTime of the earliest property value to return.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The ISO8601 DateTime of the latest property value to return.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   */
+  endTime?: string;
 }
 
 export namespace GetPropertyValueHistoryRequest {
@@ -2096,7 +2185,7 @@ export namespace GetPropertyValueResponse {
 }
 
 /**
- * <p>An object that specifies information about time series property values.</p>
+ * <p>An object that specifies information about time series property values. This object is used  and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
  */
 export interface PropertyValueEntry {
   /**

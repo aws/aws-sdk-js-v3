@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptResourceShareInvitationCommand";
 export * from "./AssociateResourceShareCommand";
 export * from "./AssociateResourceSharePermissionCommand";

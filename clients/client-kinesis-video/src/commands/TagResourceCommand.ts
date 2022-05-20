@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,10 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 
 /**
  * <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a
- *             key-value pair (the value is optional) that you can define and assign to AWS resources.
+ *             key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources.
  *             If you specify a tag that already exists, the tag value is replaced with the value that
  *             you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
- *                 Tags</a> in the <i>AWS Billing and Cost Management User
+ *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

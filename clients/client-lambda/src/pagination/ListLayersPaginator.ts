@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "../commands/ListLayersCommand";
@@ -47,8 +48,9 @@ export async function* paginateListLayers(
       throw new Error("Invalid client, expected Lambda | LambdaClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -56,6 +57,7 @@ import {
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateLiveSourceCommandInput, CreateLiveSourceCommandOutput } from "./commands/CreateLiveSourceCommand";
 import {
   CreatePrefetchScheduleCommandInput,
   CreatePrefetchScheduleCommandOutput,
@@ -71,6 +73,7 @@ import {
   DeleteChannelPolicyCommandInput,
   DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
+import { DeleteLiveSourceCommandInput, DeleteLiveSourceCommandOutput } from "./commands/DeleteLiveSourceCommand";
 import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
@@ -86,6 +89,7 @@ import {
 } from "./commands/DeleteSourceLocationCommand";
 import { DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput } from "./commands/DeleteVodSourceCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import { DescribeLiveSourceCommandInput, DescribeLiveSourceCommandOutput } from "./commands/DescribeLiveSourceCommand";
 import { DescribeProgramCommandInput, DescribeProgramCommandOutput } from "./commands/DescribeProgramCommand";
 import {
   DescribeSourceLocationCommandInput,
@@ -104,6 +108,7 @@ import {
 } from "./commands/GetPrefetchScheduleCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput } from "./commands/ListLiveSourcesCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
@@ -131,6 +136,7 @@ import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/St
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "./commands/UpdateLiveSourceCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
@@ -141,18 +147,21 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | ConfigureLogsForPlaybackConfigurationCommandInput
   | CreateChannelCommandInput
+  | CreateLiveSourceCommandInput
   | CreatePrefetchScheduleCommandInput
   | CreateProgramCommandInput
   | CreateSourceLocationCommandInput
   | CreateVodSourceCommandInput
   | DeleteChannelCommandInput
   | DeleteChannelPolicyCommandInput
+  | DeleteLiveSourceCommandInput
   | DeletePlaybackConfigurationCommandInput
   | DeletePrefetchScheduleCommandInput
   | DeleteProgramCommandInput
   | DeleteSourceLocationCommandInput
   | DeleteVodSourceCommandInput
   | DescribeChannelCommandInput
+  | DescribeLiveSourceCommandInput
   | DescribeProgramCommandInput
   | DescribeSourceLocationCommandInput
   | DescribeVodSourceCommandInput
@@ -162,6 +171,7 @@ export type ServiceInputTypes =
   | GetPrefetchScheduleCommandInput
   | ListAlertsCommandInput
   | ListChannelsCommandInput
+  | ListLiveSourcesCommandInput
   | ListPlaybackConfigurationsCommandInput
   | ListPrefetchSchedulesCommandInput
   | ListSourceLocationsCommandInput
@@ -174,24 +184,28 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateChannelCommandInput
+  | UpdateLiveSourceCommandInput
   | UpdateSourceLocationCommandInput
   | UpdateVodSourceCommandInput;
 
 export type ServiceOutputTypes =
   | ConfigureLogsForPlaybackConfigurationCommandOutput
   | CreateChannelCommandOutput
+  | CreateLiveSourceCommandOutput
   | CreatePrefetchScheduleCommandOutput
   | CreateProgramCommandOutput
   | CreateSourceLocationCommandOutput
   | CreateVodSourceCommandOutput
   | DeleteChannelCommandOutput
   | DeleteChannelPolicyCommandOutput
+  | DeleteLiveSourceCommandOutput
   | DeletePlaybackConfigurationCommandOutput
   | DeletePrefetchScheduleCommandOutput
   | DeleteProgramCommandOutput
   | DeleteSourceLocationCommandOutput
   | DeleteVodSourceCommandOutput
   | DescribeChannelCommandOutput
+  | DescribeLiveSourceCommandOutput
   | DescribeProgramCommandOutput
   | DescribeSourceLocationCommandOutput
   | DescribeVodSourceCommandOutput
@@ -201,6 +215,7 @@ export type ServiceOutputTypes =
   | GetPrefetchScheduleCommandOutput
   | ListAlertsCommandOutput
   | ListChannelsCommandOutput
+  | ListLiveSourcesCommandOutput
   | ListPlaybackConfigurationsCommandOutput
   | ListPrefetchSchedulesCommandOutput
   | ListSourceLocationsCommandOutput
@@ -213,6 +228,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateLiveSourceCommandOutput
   | UpdateSourceLocationCommandOutput
   | UpdateVodSourceCommandOutput;
 

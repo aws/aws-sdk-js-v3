@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,24 +26,24 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
 
 /**
  * <p>Requests authorization to create or delete a peer connection between the VPC for
- *             your Amazon Web Services fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game
+ *             your Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game
  *             servers on your fleet to communicate directly with other Amazon Web Services resources. Once you've
  *             received authorization, call <a>CreateVpcPeeringConnection</a> to establish
- *             the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon Web Services
+ *             the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift
  *                 Fleets</a>.</p>
  *         <p>You can peer with VPCs that are owned by any Amazon Web Services account you have access to,
- *             including the account that you use to manage your Amazon Web Services fleets. You cannot peer with
+ *             including the account that you use to manage your Amazon GameLift fleets. You cannot peer with
  *             VPCs that are in different Regions.</p>
  *         <p>To request authorization to create a connection, call this operation from the Amazon Web Services
- *             account with the VPC that you want to peer to your Amazon Web Services fleet. For example, to
+ *             account with the VPC that you want to peer to your Amazon GameLift fleet. For example, to
  *             enable your game servers to retrieve data from a DynamoDB table, use the account that
  *             manages that DynamoDB resource. Identify the following values: (1) The ID of the VPC
  *             that you want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage
- *             Amazon Web Services. If successful, VPC peering is authorized for the specified VPC. </p>
+ *             Amazon GameLift. If successful, VPC peering is authorized for the specified VPC. </p>
  *         <p>To request authorization to delete a connection, call this operation from the Amazon Web Services
- *             account with the VPC that is peered with your Amazon Web Services fleet. Identify the following
+ *             account with the VPC that is peered with your Amazon GameLift fleet. Identify the following
  *             values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the
- *             Amazon Web Services account that you use to manage Amazon Web Services. </p>
+ *             Amazon Web Services account that you use to manage Amazon GameLift. </p>
  *         <p>The authorization remains valid for 24 hours unless it is canceled by a call to
  *                 <a>DeleteVpcPeeringAuthorization</a>. You must create or delete the
  *             peering connection while the authorization is valid. </p>

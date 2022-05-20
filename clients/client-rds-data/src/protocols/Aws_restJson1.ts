@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -32,6 +33,7 @@ import {
 } from "../commands/RollbackTransactionCommand";
 import {
   _Record,
+  AccessDeniedException,
   ArrayValue,
   BadRequestException,
   ColumnMetadata,
@@ -182,6 +184,8 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
     ...(input.continueAfterTimeout !== undefined &&
       input.continueAfterTimeout !== null && { continueAfterTimeout: input.continueAfterTimeout }),
     ...(input.database !== undefined && input.database !== null && { database: input.database }),
+    ...(input.formatRecordsAs !== undefined &&
+      input.formatRecordsAs !== null && { formatRecordsAs: input.formatRecordsAs }),
     ...(input.includeResultMetadata !== undefined &&
       input.includeResultMetadata !== null && { includeResultMetadata: input.includeResultMetadata }),
     ...(input.parameters !== undefined &&
@@ -263,6 +267,9 @@ const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -319,6 +326,9 @@ const deserializeAws_restJson1BeginTransactionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -375,6 +385,9 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -434,6 +447,9 @@ const deserializeAws_restJson1ExecuteSqlCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -467,6 +483,7 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
   const contents: ExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     columnMetadata: undefined,
+    formattedRecords: undefined,
     generatedFields: undefined,
     numberOfRecordsUpdated: undefined,
     records: undefined,
@@ -474,6 +491,9 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.columnMetadata !== undefined && data.columnMetadata !== null) {
     contents.columnMetadata = deserializeAws_restJson1Metadata(data.columnMetadata, context);
+  }
+  if (data.formattedRecords !== undefined && data.formattedRecords !== null) {
+    contents.formattedRecords = __expectString(data.formattedRecords);
   }
   if (data.generatedFields !== undefined && data.generatedFields !== null) {
     contents.generatedFields = deserializeAws_restJson1FieldList(data.generatedFields, context);
@@ -499,6 +519,9 @@ const deserializeAws_restJson1ExecuteStatementCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -555,6 +578,9 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rdsdata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -582,6 +608,22 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
       });
       throw __decorateServiceException(response, parsedBody);
   }
+};
+
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
@@ -749,6 +791,8 @@ const serializeAws_restJson1ResultSetOptions = (input: ResultSetOptions, context
   return {
     ...(input.decimalReturnType !== undefined &&
       input.decimalReturnType !== null && { decimalReturnType: input.decimalReturnType }),
+    ...(input.longReturnType !== undefined &&
+      input.longReturnType !== null && { longReturnType: input.longReturnType }),
   };
 };
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
 
 /**
  * <p>Creates the firewall policy for the firewall according to the specifications. </p>
- *          <p>An AWS Network Firewall firewall policy defines the behavior of a firewall, in a collection of
+ *          <p>An Network Firewall firewall policy defines the behavior of a firewall, in a collection of
  *          stateless and stateful rule groups and other settings. You can use one firewall policy for
  *          multiple firewalls. </p>
  * @example

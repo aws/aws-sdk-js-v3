@@ -1,4 +1,5 @@
 export * from "./Rekognition";
+// smithy-typescript generated code
 export * from "./RekognitionClient";
 export * from "./commands";
 export * from "./models";

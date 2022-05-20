@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivateKeySigningKeyCommand";
 export * from "./AssociateVPCWithHostedZoneCommand";
 export * from "./ChangeResourceRecordSetsCommand";

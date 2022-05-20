@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -425,6 +426,7 @@ import {
   ListManagedJobTemplatesCommandInput,
   ListManagedJobTemplatesCommandOutput,
 } from "../commands/ListManagedJobTemplatesCommand";
+import { ListMetricValuesCommandInput, ListMetricValuesCommandOutput } from "../commands/ListMetricValuesCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput,
@@ -846,6 +848,7 @@ import {
   JobSummary,
   JobTemplateSummary,
   ManagedJobTemplateSummary,
+  MetricDatum,
   MitigationAction,
   MitigationActionIdentifier,
   NotConfiguredException,
@@ -5878,6 +5881,36 @@ export const serializeAws_restJson1ListManagedJobTemplatesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListMetricValuesCommand = async (
+  input: ListMetricValuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metric-values";
+  const query: any = {
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
+    ...(input.dimensionValueOperator !== undefined && { dimensionValueOperator: input.dimensionValueOperator }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListMitigationActionsCommand = async (
   input: ListMitigationActionsCommandInput,
   context: __SerdeContext
@@ -9258,6 +9291,9 @@ const deserializeAws_restJson1CancelJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -18095,6 +18131,63 @@ const deserializeAws_restJson1ListManagedJobTemplatesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.iot#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListMetricValuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricValuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMetricValuesCommandError(output, context);
+  }
+  const contents: ListMetricValuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    metricDatumList: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.metricDatumList !== undefined && data.metricDatumList !== null) {
+    contents.metricDatumList = deserializeAws_restJson1MetricDatumList(data.metricDatumList, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMetricValuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricValuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iot#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -26992,6 +27085,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? deserializeAws_restJson1ParameterMap(output.documentParameters, context)
         : undefined,
     forceCanceled: __expectBoolean(output.forceCanceled),
+    isConcurrent: __expectBoolean(output.isConcurrent),
     jobArn: __expectString(output.jobArn),
     jobExecutionsRetryConfig:
       output.jobExecutionsRetryConfig !== undefined && output.jobExecutionsRetryConfig !== null
@@ -27198,6 +27292,7 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
+    isConcurrent: __expectBoolean(output.isConcurrent),
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
     lastUpdatedAt:
@@ -27365,6 +27460,31 @@ const deserializeAws_restJson1ManagedJobTemplateSummary = (
     templateName: __expectString(output.templateName),
     templateVersion: __expectString(output.templateVersion),
   } as any;
+};
+
+const deserializeAws_restJson1MetricDatum = (output: any, context: __SerdeContext): MetricDatum => {
+  return {
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? deserializeAws_restJson1MetricValue(output.value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDatumList = (output: any, context: __SerdeContext): MetricDatum[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDatum(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {

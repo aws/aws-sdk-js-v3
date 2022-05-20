@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -62,6 +63,14 @@ import {
 } from "./commands/DeleteSignalingChannelCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
+  DescribeImageGenerationConfigurationCommandInput,
+  DescribeImageGenerationConfigurationCommandOutput,
+} from "./commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeNotificationConfigurationCommandInput,
+  DescribeNotificationConfigurationCommandOutput,
+} from "./commands/DescribeNotificationConfigurationCommand";
+import {
   DescribeSignalingChannelCommandInput,
   DescribeSignalingChannelCommandOutput,
 } from "./commands/DescribeSignalingChannelCommand";
@@ -90,6 +99,14 @@ import {
   UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
 import {
+  UpdateImageGenerationConfigurationCommandInput,
+  UpdateImageGenerationConfigurationCommandOutput,
+} from "./commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateNotificationConfigurationCommandInput,
+  UpdateNotificationConfigurationCommandOutput,
+} from "./commands/UpdateNotificationConfigurationCommand";
+import {
   UpdateSignalingChannelCommandInput,
   UpdateSignalingChannelCommandOutput,
 } from "./commands/UpdateSignalingChannelCommand";
@@ -101,6 +118,8 @@ export type ServiceInputTypes =
   | CreateStreamCommandInput
   | DeleteSignalingChannelCommandInput
   | DeleteStreamCommandInput
+  | DescribeImageGenerationConfigurationCommandInput
+  | DescribeNotificationConfigurationCommandInput
   | DescribeSignalingChannelCommandInput
   | DescribeStreamCommandInput
   | GetDataEndpointCommandInput
@@ -114,6 +133,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UntagStreamCommandInput
   | UpdateDataRetentionCommandInput
+  | UpdateImageGenerationConfigurationCommandInput
+  | UpdateNotificationConfigurationCommandInput
   | UpdateSignalingChannelCommandInput
   | UpdateStreamCommandInput;
 
@@ -122,6 +143,8 @@ export type ServiceOutputTypes =
   | CreateStreamCommandOutput
   | DeleteSignalingChannelCommandOutput
   | DeleteStreamCommandOutput
+  | DescribeImageGenerationConfigurationCommandOutput
+  | DescribeNotificationConfigurationCommandOutput
   | DescribeSignalingChannelCommandOutput
   | DescribeStreamCommandOutput
   | GetDataEndpointCommandOutput
@@ -135,6 +158,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UntagStreamCommandOutput
   | UpdateDataRetentionCommandOutput
+  | UpdateImageGenerationConfigurationCommandOutput
+  | UpdateNotificationConfigurationCommandOutput
   | UpdateSignalingChannelCommandOutput
   | UpdateStreamCommandOutput;
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,8 +25,8 @@ export interface CancelServiceInstanceDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is
- *     <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">Proton User guide</a>.</p>
+ * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
+ *       For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">Proton User guide</a>.</p>
  *          <p>The following list includes potential cancellation scenarios.</p>
  *          <ul>
  *             <li>
@@ -35,8 +36,8 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
  *             </li>
  *             <li>
- *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment
- *      state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+ *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
+ *             <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
  *             </li>
  *          </ul>
  * @example

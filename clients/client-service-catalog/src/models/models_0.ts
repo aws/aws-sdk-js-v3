@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
@@ -4253,9 +4253,16 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences;
 
   /**
+   * @deprecated
+   *
    * <p>The output of the provisioning artifact.</p>
    */
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[];
+
+  /**
+   * <p>A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.</p>
+   */
+  ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
 export namespace DescribeProvisioningParametersOutput {
@@ -5323,16 +5330,16 @@ export interface ListAcceptedPortfolioSharesInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AWS_ORGANIZATIONS</code> - List portfolios shared by the management
-   *                account of your organization</p>
+   *                   <code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational sharing by the management account or delegated administrator of your organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AWS_SERVICECATALOG</code> - List default portfolios</p>
+   *                   <code>AWS_SERVICECATALOG</code> - Deprecated type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IMPORTED</code> - List imported portfolios</p>
+   *                   <code>IMPORTED</code> - List imported portfolios that have been accepted and
+   *                shared through account-to-account sharing.</p>
    *             </li>
    *          </ul>
    */
@@ -5571,7 +5578,7 @@ export interface LaunchPathSummary {
   Tags?: Tag[];
 
   /**
-   * <p>The name of the portfolio to which the user was assigned.</p>
+   * <p>The name of the portfolio that contains the product. </p>
    */
   Name?: string;
 }

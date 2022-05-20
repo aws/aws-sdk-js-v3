@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,11 +25,11 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
 /**
  * <p>Creates the configuration for training a model. A trained model is known as
  *       a solution. After the configuration is created, you train the model (create a solution)
- *       by calling the <a>CreateSolutionVersion</a> operation. Every time you call
+ *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
  *       <code>CreateSolutionVersion</code>, a new version of the solution is created.</p>
  *          <p>After creating a solution version, you check its accuracy by calling
- *       <a>GetSolutionMetrics</a>. When you are satisfied with the version, you
- *       deploy it using <a>CreateCampaign</a>. The campaign provides recommendations
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html">GetSolutionMetrics</a>. When you are satisfied with the version, you
+ *       deploy it using <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>. The campaign provides recommendations
  *       to a client through the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> API.</p>
  *          <p>To train a model, Amazon Personalize requires training data and a recipe. The training data
@@ -53,7 +54,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the solution, call <a>DescribeSolution</a>. Wait
+ *          <p>To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>. Wait
  *       until the status shows as ACTIVE before calling <code>CreateSolutionVersion</code>.</p>
  *
  *
@@ -64,34 +65,34 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListSolutions</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateSolutionVersion</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a>
  *                </p>
  *             </li>
  *          </ul>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListSolutionVersions</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeSolutionVersion</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>
  *                </p>
  *             </li>
  *          </ul>

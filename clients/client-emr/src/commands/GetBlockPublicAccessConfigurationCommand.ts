@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,10 +25,9 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the
- *          current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
- *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
- *             Guide</i>.</p>
+ * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
+ *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
+ *             Management Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

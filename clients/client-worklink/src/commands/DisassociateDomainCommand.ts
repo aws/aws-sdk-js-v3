@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,6 +23,8 @@ export interface DisassociateDomainCommandInput extends DisassociateDomainReques
 export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

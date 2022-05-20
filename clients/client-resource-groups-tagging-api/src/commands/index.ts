@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DescribeReportCreationCommand";
 export * from "./GetComplianceSummaryCommand";
 export * from "./GetResourcesCommand";

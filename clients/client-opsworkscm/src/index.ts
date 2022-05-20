@@ -1,4 +1,5 @@
 export * from "./OpsWorksCM";
+// smithy-typescript generated code
 export * from "./OpsWorksCMClient";
 export * from "./commands";
 export * from "./models";

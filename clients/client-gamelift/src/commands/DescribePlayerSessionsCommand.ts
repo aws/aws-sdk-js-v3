@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -44,7 +45,7 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
  *          <p>
- *             <i>Available in Amazon Web Services Local.</i>
+ *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *          <p>
  *             <b>Related actions</b>

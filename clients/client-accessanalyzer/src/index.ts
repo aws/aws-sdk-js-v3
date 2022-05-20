@@ -1,4 +1,5 @@
 export * from "./AccessAnalyzer";
+// smithy-typescript generated code
 export * from "./AccessAnalyzerClient";
 export * from "./commands";
 export * from "./models";

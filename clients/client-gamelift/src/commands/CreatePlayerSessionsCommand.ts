@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,7 +36,7 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  *          <p>The maximum number of players per game session is 200. It is not adjustable.
  *     </p>
  *          <p>
- *             <i>Available in Amazon Web Services Local.</i>
+ *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *          <p>
  *             <b>Related actions</b>

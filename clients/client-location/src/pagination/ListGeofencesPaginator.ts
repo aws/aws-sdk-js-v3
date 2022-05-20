@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import {
@@ -42,6 +43,7 @@ export async function* paginateListGeofences(
   let page: ListGeofencesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
     if (config.client instanceof Location) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof LocationClient) {
@@ -50,8 +52,9 @@ export async function* paginateListGeofences(
       throw new Error("Invalid client, expected Location | LocationClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

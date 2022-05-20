@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptInvitationCommand";
 export * from "./CreateGraphCommand";
 export * from "./CreateMembersCommand";

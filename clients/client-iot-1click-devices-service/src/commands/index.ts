@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ClaimDevicesByClaimCodeCommand";
 export * from "./DescribeDeviceCommand";
 export * from "./FinalizeDeviceClaimCommand";

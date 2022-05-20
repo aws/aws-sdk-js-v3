@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
 
@@ -485,8 +485,8 @@ export namespace AssociatePersonasToEntitiesResponse {
 }
 
 /**
- * <p>The value of a custom document attribute. You can only provide one
- *             value for a custom attribute.</p>
+ * <p>The value of a document attribute. You can only provide one
+ *             value for a document attribute.</p>
  */
 export interface DocumentAttributeValue {
   /**
@@ -525,10 +525,8 @@ export namespace DocumentAttributeValue {
 }
 
 /**
- * <p>A custom attribute value assigned to a document.</p>
- *         <p>For more information on how to create custom document attributes, see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom
- *                 Attributes</a>.</p>
+ * <p>A document attribute or metadata field. To create custom document
+ *             attributes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom attributes</a>.</p>
  */
 export interface DocumentAttribute {
   /**
@@ -1499,6 +1497,206 @@ export namespace ClearQuerySuggestionsRequest {
   });
 }
 
+/**
+ * <p>Maps a column or attribute in the data source to an index field.
+ *             You must first create the fields in the index using the
+ *                 <code>UpdateIndex</code> API.</p>
+ */
+export interface DataSourceToIndexFieldMapping {
+  /**
+   * <p>The name of the column or attribute in the data source.</p>
+   */
+  DataSourceFieldName: string | undefined;
+
+  /**
+   * <p>The type of data stored in the column or attribute.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the field in the index.</p>
+   */
+  IndexFieldName: string | undefined;
+}
+
+export namespace DataSourceToIndexFieldMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to an Amazon VPC.</p>
+ */
+export interface DataSourceVpcConfiguration {
+  /**
+   * <p>A list of identifiers for subnets within your Amazon VPC. The
+   *             subnets should be able to connect to each other in the VPC, and they
+   *             should have outgoing access to the Internet through a NAT
+   *             device.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of identifiers of security groups within your Amazon VPC.
+   *             The security groups should enable Amazon Kendra to connect to the data
+   *             source.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+}
+
+export namespace DataSourceVpcConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to Box as
+ *             your data source.</p>
+ */
+export interface BoxConfiguration {
+  /**
+   * <p>The identifier of the Box Enterprise platform. You can find the enterprise
+   *             ID in the Box Developer Console settings or when you create an app in Box and
+   *             download your authentication credentials. For example, <i>801234567</i>.</p>
+   */
+  EnterpriseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains
+   *             the key-value pairs required to connect to your Box platform. The secret must
+   *             contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>clientID—The identifier of the client OAuth 2.0 authentication
+   *                     application created in Box.</p>
+   *             </li>
+   *             <li>
+   *                 <p>clientSecret—A set of characters known only to the OAuth 2.0
+   *                     authentication application created in Box.</p>
+   *             </li>
+   *             <li>
+   *                 <p>publicKeyId—The identifier of the public key contained within an
+   *                     identity certificate.</p>
+   *             </li>
+   *             <li>
+   *                 <p>privateKey—A set of characters that make up an encryption key.</p>
+   *             </li>
+   *             <li>
+   *                 <p>passphrase—A set of characters that act like a password.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You create an application in Box to generate the keys or credentials required
+   *             for the secret. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html#box-authentication">Authentication
+   *                 for a Box data source</a>.</p>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to use the Slack change log to determine which documents require
+   *             updating in the index. Depending on the data source change log's size, it may take
+   *             longer for Amazon Kendra to use the change log than to scan all of your
+   *             documents.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index comments.</p>
+   */
+  CrawlComments?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index the contents of tasks.</p>
+   */
+  CrawlTasks?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index web links.</p>
+   */
+  CrawlWebLinks?: boolean;
+
+  /**
+   * <p>A
+   *             list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or
+   *             field names of Box files to Amazon Kendra index field names. To create custom
+   *             fields, use the <code>UpdateIndex</code> API before you map to Box fields. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  FileFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box tasks to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  TaskFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box comments to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  CommentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box web links to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  WebLinkFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain files and folders in your
+   *             Box platform. Files and folders that match the patterns are included in the index.
+   *             Files and folders that don't match the patterns are excluded from the index. If a
+   *             file or folder matches both an inclusion and exclusion pattern, the exclusion pattern
+   *             takes precedence and the file or folder isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files and folders from
+   *             your Box platform. Files and folders that match the patterns are excluded from the
+   *             index.Files and folders that don't match the patterns are included in the index.
+   *             If a file or folder matches both an inclusion and exclusion pattern, the exclusion
+   *             pattern takes precedence and the file or folder isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an Amazon VPC to connect to your Box. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace BoxConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BoxConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum ConfluenceAttachmentFieldName {
   AUTHOR = "AUTHOR",
   CONTENT_TYPE = "CONTENT_TYPE",
@@ -1852,35 +2050,6 @@ export enum ConfluenceVersion {
 }
 
 /**
- * <p>Provides the configuration information to connect to an Amazon VPC.</p>
- */
-export interface DataSourceVpcConfiguration {
-  /**
-   * <p>A list of identifiers for subnets within your Amazon VPC. The
-   *             subnets should be able to connect to each other in the VPC, and they
-   *             should have outgoing access to the Internet through a NAT
-   *             device.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of identifiers of security groups within your Amazon VPC.
-   *             The security groups should enable Amazon Kendra to connect to the data
-   *             source.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-}
-
-export namespace DataSourceVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Provides the configuration information to connect to Confluence
  *             as your data source.</p>
  */
@@ -1968,37 +2137,6 @@ export namespace ConfluenceConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConfluenceConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Maps a column or attribute in the data source to an index field.
- *             You must first create the fields in the index using the
- *                 <code>UpdateIndex</code> API.</p>
- */
-export interface DataSourceToIndexFieldMapping {
-  /**
-   * <p>The name of the column or attribute in the data source.</p>
-   */
-  DataSourceFieldName: string | undefined;
-
-  /**
-   * <p>The type of data stored in the column or attribute.</p>
-   */
-  DateFieldFormat?: string;
-
-  /**
-   * <p>The name of the field in the index.</p>
-   */
-  IndexFieldName: string | undefined;
-}
-
-export namespace DataSourceToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
     ...obj,
   });
 }
@@ -2352,6 +2490,162 @@ export namespace GoogleDriveConfiguration {
   });
 }
 
+export enum IssueSubEntity {
+  ATTACHMENTS = "ATTACHMENTS",
+  COMMENTS = "COMMENTS",
+  WORKLOGS = "WORKLOGS",
+}
+
+export interface JiraConfiguration {
+  /**
+   * <p>The URL of the Jira account. For example, company.attlassian.net or
+   *             https://jira.company.com. You can find your Jira account URL in the URL of
+   *             your profile page for Jira desktop.</p>
+   */
+  JiraAccountUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that
+   *             contains the key-value pairs required to connect to your Jira
+   *             data source. The secret must
+   *             contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>jira-id—The Active Directory user name, along with the
+   *                     Domain Name System (DNS) domain name. For example,
+   *                     <i>user@corp.example.com</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>jiraCredentials—The password of the Jira account user.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>Specify to use the change log option to update your index.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>Specify which projects to crawl in your Jira data source. You can specify
+   *             one or more Jira project IDs.</p>
+   */
+  Project?: string[];
+
+  /**
+   * <p>Specify which issue types to crawl in your Jira data source.
+   *             You can specify one or more of these options to crawl.</p>
+   */
+  IssueType?: string[];
+
+  /**
+   * <p>Specify which statuses to crawl in your Jira data source.
+   *             You can specify one or more of these options to crawl.</p>
+   */
+  Status?: string[];
+
+  /**
+   * <p>Specify whether to crawl comments,
+   *             attachments,
+   *             and work logs. You can specify one or more of these options.</p>
+   */
+  IssueSubEntityFilter?: (IssueSubEntity | string)[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira attachments to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  AttachmentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira comments to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  CommentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira issues to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  IssueFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira projects to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  ProjectFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira work logs to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  WorkLogFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain file paths,
+   *             file
+   *             names, and
+   *             file types in your Jira data source. Files that match the patterns are included in the
+   *             index. Files that don't match the patterns are excluded from the index. If a file
+   *             matches both an inclusion pattern and an exclusion pattern, the exclusion pattern takes
+   *             precedence and the file isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain file paths,
+   *             file names, and file types
+   *             in your Jira data source. Files that match the patterns
+   *             are excluded from the index. Files that don’t match the patterns are
+   *             included in the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence
+   *             and the file isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an
+   *             Amazon Virtual Private Cloud to connect to your Jira. Your Jira
+   *             account must reside inside your VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace JiraConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JiraConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>User accounts whose documents should be indexed.</p>
  */
@@ -2450,6 +2744,121 @@ export namespace OneDriveConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: OneDriveConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to Quip as your data source.</p>
+ */
+export interface QuipConfiguration {
+  /**
+   * <p>The Quip site domain.</p>
+   */
+  Domain: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret
+   *             that contains the key-value pairs that are required to connect to your
+   *             Quip. The secret must contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>accessToken—The token created in Quip. For more information,
+   *                     see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html#quip-authentication">Authentication
+   *                         for a Quip data source</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>Specify whether to crawl file comments in Quip.
+   *             You can specify one or more of these options.</p>
+   */
+  CrawlFileComments?: boolean;
+
+  /**
+   * <p>Specify whether to crawl chat rooms in Quip.
+   *             You can specify one or more of these options.</p>
+   */
+  CrawlChatRooms?: boolean;
+
+  /**
+   * <p>Specify whether to crawl attachments in Quip.
+   *             You can specify one or more of these options.</p>
+   */
+  CrawlAttachments?: boolean;
+
+  /**
+   * <p>The identifier of the Quip folder IDs to index.</p>
+   */
+  FolderIds?: string[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip threads to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
+   */
+  ThreadFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip messages to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
+   */
+  MessageFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip attachments to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
+   */
+  AttachmentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain files in your Quip file
+   *             system. Files that match the patterns are included in the index. Files that don't match
+   *             the patterns are excluded from the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes
+   *             precedence, and the file isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files in your Quip file
+   *             system. Files that match the patterns are excluded from the index. Files that don’t
+   *             match the patterns are included in the index. If a file matches both an inclusion
+   *             pattern and an exclusion pattern, the exclusion pattern takes
+   *             precedence, and the file isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud
+   *             (VPC) to connect to your Quip. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring
+   *                 a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace QuipConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QuipConfiguration): any => ({
     ...obj,
   });
 }
@@ -3834,6 +4243,23 @@ export interface DataSourceConfiguration {
    *             data source.</p>
    */
   SlackConfiguration?: SlackConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Box as your data source.</p>
+   */
+  BoxConfiguration?: BoxConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Quip as your
+   *             data source.</p>
+   */
+  QuipConfiguration?: QuipConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Jira as your
+   *             data source.</p>
+   */
+  JiraConfiguration?: JiraConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -3874,12 +4300,15 @@ export namespace Tag {
 }
 
 export enum DataSourceType {
+  BOX = "BOX",
   CONFLUENCE = "CONFLUENCE",
   CUSTOM = "CUSTOM",
   DATABASE = "DATABASE",
   FSX = "FSX",
   GOOGLEDRIVE = "GOOGLEDRIVE",
+  JIRA = "JIRA",
   ONEDRIVE = "ONEDRIVE",
+  QUIP = "QUIP",
   S3 = "S3",
   SALESFORCE = "SALESFORCE",
   SERVICENOW = "SERVICENOW",
@@ -4448,17 +4877,17 @@ export interface CreateIndexRequest {
   Edition?: IndexEdition | string;
 
   /**
-   * <p>An Identity and Access Management(IAM) role that gives
+   * <p>An Identity and Access Management (IAM) role that gives
    *       Amazon Kendra permissions to access your Amazon CloudWatch logs and
-   *       metrics. This is also the role used when you use the
+   *       metrics. This is also the role you use when you call the
    *         <code>BatchPutDocument</code> API to index documents from an
    *       Amazon S3 bucket.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The identifier of the KMScustomer managed key (CMK) to use to
-   *       encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
+   * <p>The identifier of the KMS customer managed key (CMK) that's
+   *       used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
    *       asymmetric CMKs.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
@@ -5258,7 +5687,7 @@ export namespace DescribeFaqResponse {
 
 export interface DescribeIndexRequest {
   /**
-   * <p>The name of the index to describe.</p>
+   * <p>The identifier of the index to describe.</p>
    */
   Id: string | undefined;
 }
@@ -5273,9 +5702,9 @@ export namespace DescribeIndexRequest {
 }
 
 /**
- * <p>Specifies capacity units configured for your enterprise edition index.
- *             You can add and remove capacity units to tune an index to your
- *             requirements.</p>
+ * <p>Specifies additional capacity units configured for your
+ *             Enterprise Edition index. You can add and remove capacity units
+ *             to fit your usage requirements.</p>
  */
 export interface CapacityUnitsConfiguration {
   /**
@@ -5567,7 +5996,7 @@ export interface DescribeIndexResponse {
   Name?: string;
 
   /**
-   * <p>The name of the index.</p>
+   * <p>The identifier of the index.</p>
    */
   Id?: string;
 
@@ -5584,8 +6013,9 @@ export interface DescribeIndexResponse {
   RoleArn?: string;
 
   /**
-   * <p>The identifier of the KMScustomer master key (CMK) used to
-   *       encrypt your data. Amazon Kendra doesn't support asymmetric CMKs.</p>
+   * <p>The identifier of the KMScustomer master key (CMK)
+   *       that is used to encrypt your data. Amazon Kendra doesn't support
+   *       asymmetric CMKs.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -5599,7 +6029,7 @@ export interface DescribeIndexResponse {
   Status?: IndexStatus | string;
 
   /**
-   * <p>The description of the index.</p>
+   * <p>The description for the index.</p>
    */
   Description?: string;
 
@@ -5626,18 +6056,20 @@ export interface DescribeIndexResponse {
   IndexStatistics?: IndexStatistics;
 
   /**
-   * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains a message that explains
    *       why.</p>
    */
   ErrorMessage?: string;
 
   /**
-   * <p>For Enterprise edition indexes, you can choose to use additional
+   * <p>For Enterprise Edition indexes, you can choose to use additional
    *       capacity to meet the needs of your application. This contains the capacity
-   *       units used for the index. A 0 for the query capacity or the storage
-   *       capacity indicates that the index is using the default capacity for the
-   *       index.</p>
+   *       units used for the index. A query or document storage capacity of zero
+   *       indicates that the index is using the default capacity. For more information
+   *       on the default capacity for an index and adjusting this, see
+   *       <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
+   *         capacity</a>.</p>
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 
@@ -7433,7 +7865,7 @@ export namespace ListIndicesRequest {
  */
 export interface IndexConfigurationSummary {
   /**
-   * <p>The name of the index.</p>
+   * <p>The identifier of the index.</p>
    */
   Name?: string;
 
@@ -7943,25 +8375,6 @@ export namespace DocumentRelevanceConfiguration {
   });
 }
 
-/**
- * <p>Information about a document attribute</p>
- */
-export interface Facet {
-  /**
-   * <p>The unique key for the document attribute.</p>
-   */
-  DocumentAttributeKey?: string;
-}
-
-export namespace Facet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Facet): any => ({
-    ...obj,
-  });
-}
-
 export enum QueryResultType {
   ANSWER = "ANSWER",
   DOCUMENT = "DOCUMENT",
@@ -8148,65 +8561,6 @@ export namespace UserContext {
   });
 }
 
-/**
- * <p>Provides the count of documents that match a particular attribute
- *             when doing a faceted search.</p>
- */
-export interface DocumentAttributeValueCountPair {
-  /**
-   * <p>The value of the attribute. For example, "HR."</p>
-   */
-  DocumentAttributeValue?: DocumentAttributeValue;
-
-  /**
-   * <p>The number of documents in the response that have the attribute
-   *             value for the key.</p>
-   */
-  Count?: number;
-}
-
-export namespace DocumentAttributeValueCountPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The facet values for the documents in the response.</p>
- */
-export interface FacetResult {
-  /**
-   * <p>The key for the facet values. This is the same as the
-   *             <code>DocumentAttributeKey</code> provided in the query.</p>
-   */
-  DocumentAttributeKey?: string;
-
-  /**
-   * <p>The data type of the facet value. This is the same as the type
-   *          defined for the index field when it was created.</p>
-   */
-  DocumentAttributeValueType?: DocumentAttributeValueType | string;
-
-  /**
-   * <p>An array of key/value pairs, where the key is the value of the
-   *          attribute and the count is the number of documents that share the key
-   *          value.</p>
-   */
-  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
-}
-
-export namespace FacetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetResult): any => ({
-    ...obj,
-  });
-}
-
 export enum ScoreConfidence {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -8283,9 +8637,9 @@ export interface QueryResultItem {
   DocumentURI?: string;
 
   /**
-   * <p>An array of document attributes for the document that the query
-   *          result maps to. For example, the document author (Author) or the source
-   *          URI (SourceUri) of the document.</p>
+   * <p>An array of document attributes assigned to a document in
+   *          the search results. For example, the document author (<code>_author</code>)
+   *          or the source URI (<code>_source_uri</code>) of the document.</p>
    */
   DocumentAttributes?: DocumentAttribute[];
 
@@ -8404,56 +8758,6 @@ export namespace Warning {
    * @internal
    */
   export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj,
-  });
-}
-
-export interface QueryResult {
-  /**
-   * <p>The unique identifier for the search. You use <code>QueryId</code>
-   *          to identify the search when using the feedback API.</p>
-   */
-  QueryId?: string;
-
-  /**
-   * <p>The results of the search.</p>
-   */
-  ResultItems?: QueryResultItem[];
-
-  /**
-   * <p>Contains the facet results. A <code>FacetResult</code> contains the
-   *          counts for each attribute key that was specified in the
-   *             <code>Facets</code> input parameter.</p>
-   */
-  FacetResults?: FacetResult[];
-
-  /**
-   * <p>The total number of items found by the search; however, you can only
-   *          retrieve up to 100 items. For example, if the search found 192 items,
-   *          you can only retrieve the first 100 of the items.</p>
-   */
-  TotalNumberOfResults?: number;
-
-  /**
-   * <p>A list of warning codes and their messages on problems with your query.</p>
-   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
-   *          on invalid syntax used in the query. For examples of invalid query syntax,
-   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
-   *             with advanced query syntax</a>.</p>
-   */
-  Warnings?: Warning[];
-
-  /**
-   * <p>A list of information related to suggested spell corrections for a query.</p>
-   */
-  SpellCorrectedQueries?: SpellCorrectedQuery[];
-}
-
-export namespace QueryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResult): any => ({
     ...obj,
   });
 }
@@ -8843,11 +9147,11 @@ export interface UpdateIndexRequest {
   DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
   /**
-   * <p>Sets the number of additional storage and query capacity units that
-   *       should be used by the index. You can change the capacity of the index up
-   *       to 5 times per day.</p>
+   * <p>Sets the number of additional document storage and query capacity
+   *       units that should be used by the index. You can change the capacity of
+   *       the index up to 5 times per day, or make 5 API calls.</p>
    *          <p>If you are using extra storage units, you can't reduce the storage
-   *       capacity below that required to meet the storage needs for your
+   *       capacity below what is required to meet the storage needs for your
    *       index.</p>
    */
   CapacityUnits?: CapacityUnitsConfiguration;
@@ -9041,6 +9345,126 @@ export namespace UpdateThesaurusRequest {
 }
 
 /**
+ * <p>Information about a document attribute. You can use document
+ *          attributes as facets.</p>
+ *          <p>For example, the document attribute or facet "Department" includes
+ *          the values "HR", "Engineering", and "Accounting". You can display these
+ *          values in the search results so that documents can be searched by department.</p>
+ *          <p>You can display up to 10 facet values per facet for a query. If you want to
+ *          increase this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ */
+export interface Facet {
+  /**
+   * <p>The unique key for the document attribute.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
+   * <p>An array of document attributes that are nested facets within a facet.</p>
+   *          <p>For example, the document attribute or facet "Department" includes a
+   *          value called "Engineering". In addition, the document attribute or
+   *          facet "SubDepartment" includes the values "Frontend" and "Backend" for documents
+   *          assigned to "Engineering". You can display nested facets in the search results
+   *          so that documents can be searched not only by department but also by a sub
+   *          department within a department. This helps your users further narrow their
+   *          search.</p>
+   *          <p>You can only have one nested facet within a facet. If you want to increase
+   *          this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   */
+  Facets?: Facet[];
+
+  /**
+   * <p>Maximum number of facet values per facet. The default is 10. You can use
+   *          this to limit the number of facet values to less than 10. If you want to
+   *          increase the default, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace Facet {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Facet): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the count of documents that match a particular attribute
+ *             when doing a faceted search.</p>
+ */
+export interface DocumentAttributeValueCountPair {
+  /**
+   * <p>The value of the attribute. For example, "HR".</p>
+   */
+  DocumentAttributeValue?: DocumentAttributeValue;
+
+  /**
+   * <p>The number of documents in the response that have the attribute
+   *             value for the key.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Contains the results of a document attribute that is a nested facet.
+   *             A <code>FacetResult</code> contains the counts for each facet nested
+   *             within a facet.</p>
+   *         <p>For example, the document attribute or facet "Department" includes a
+   *             value called "Engineering". In addition, the document attribute
+   *             or facet "SubDepartment" includes the values "Frontend" and "Backend"
+   *             for documents assigned to "Engineering". You can display nested facets
+   *             in the search results so that documents can be searched not only by
+   *             department but also by a sub department within a department. The counts
+   *             for documents that belong to "Frontend" and "Backend" within "Engineering"
+   *             are returned for a query.</p>
+   */
+  FacetResults?: FacetResult[];
+}
+
+export namespace DocumentAttributeValueCountPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The facet values for the documents in the response.</p>
+ */
+export interface FacetResult {
+  /**
+   * <p>The key for the facet values. This is the same as the
+   *             <code>DocumentAttributeKey</code> provided in the query.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
+   * <p>The data type of the facet value. This is the same as the type
+   *          defined for the index field when it was created.</p>
+   */
+  DocumentAttributeValueType?: DocumentAttributeValueType | string;
+
+  /**
+   * <p>An array of key/value pairs, where the key is the value of the
+   *          attribute and the count is the number of documents that share the key
+   *          value.</p>
+   */
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
+}
+
+export namespace FacetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FacetResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides filtering the query results based on document
  *          attributes.</p>
  *          <p>When you use the <code>AndAllFilters</code> or
@@ -9146,6 +9570,56 @@ export namespace AttributeFilter {
   });
 }
 
+export interface QueryResult {
+  /**
+   * <p>The unique identifier for the search. You use <code>QueryId</code>
+   *          to identify the search when using the feedback API.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The results of the search.</p>
+   */
+  ResultItems?: QueryResultItem[];
+
+  /**
+   * <p>Contains the facet results. A <code>FacetResult</code> contains the
+   *          counts for each attribute key that was specified in the
+   *             <code>Facets</code> input parameter.</p>
+   */
+  FacetResults?: FacetResult[];
+
+  /**
+   * <p>The total number of items found by the search; however, you can only
+   *          retrieve up to 100 items. For example, if the search found 192 items,
+   *          you can only retrieve the first 100 of the items.</p>
+   */
+  TotalNumberOfResults?: number;
+
+  /**
+   * <p>A list of warning codes and their messages on problems with your query.</p>
+   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
+   *          on invalid syntax used in the query. For examples of invalid query syntax,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+   *             with advanced query syntax</a>.</p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>A list of information related to suggested spell corrections for a query.</p>
+   */
+  SpellCorrectedQueries?: SpellCorrectedQuery[];
+}
+
+export namespace QueryResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryResult): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryRequest {
   /**
    * <p>The unique identifier of the index to search. The identifier is
@@ -9172,15 +9646,14 @@ export interface QueryRequest {
 
   /**
    * <p>An array of documents attributes. Amazon Kendra returns a count for
-   *          each attribute key specified. You can use this information to help
-   *          narrow the search for your user.</p>
+   *          each attribute key specified. This helps your users narrow their search.</p>
    */
   Facets?: Facet[];
 
   /**
-   * <p>An array of document attributes to include in the response. No other
-   *          document attributes are included in the response. By default all
-   *          document attributes are included in the response. </p>
+   * <p>An array of document attributes to include in the response.
+   *          You can limit the response to include certain document attributes.
+   *          By default all document attributes are included in the response.</p>
    */
   RequestedDocumentAttributes?: string[];
 

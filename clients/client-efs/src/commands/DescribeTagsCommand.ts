@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,9 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @deprecated
  *
  * <note>
- *             <p>DEPRECATED - The DeleteTags action is deprecated and not maintained. Please use the
- *          API action to remove tags from EFS resources.</p>
+ *             <p>DEPRECATED - The <code>DescribeTags</code> action is deprecated and not maintained. To view
+ *         tags associated with EFS resources, use the <code>ListTagsForResource</code> API
+ *         action.</p>
  *          </note>
  *          <p>Returns the tags associated with a file system. The order of tags returned in the
  *       response of one <code>DescribeTags</code> call and the order of tags returned across the

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface ListOrdersCommandInput extends ListOrdersInput {}
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
- * <p>Create a list of the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
+ * <p>Lists the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
  *       return a more specific list of results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

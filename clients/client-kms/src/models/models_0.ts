@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
@@ -179,8 +179,7 @@ export class KMSInternalException extends __BaseException {
 /**
  * <p>The request was rejected because the state of the specified resource is not valid for this
  *       request.</p>
- *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS
- *         key</a> in the <i>
+ *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
  */
@@ -659,9 +658,9 @@ export class IncorrectTrustAnchorException extends __BaseException {
  * <p>Use this structure to allow <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request
  *       includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>. </p>
  *          <p>KMS applies the grant constraints only to cryptographic operations that support an
- *       encryption context, that is, all cryptographic operations with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">symmetric KMS key</a>. Grant
+ *       encryption context, that is, all cryptographic operations with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks">symmetric encryption KMS key</a>. Grant
  *       constraints are not applied to operations that do not support an encryption context, such as
- *       cryptographic operations with asymmetric KMS keys and management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
+ *       cryptographic operations with HMAC KMS keys or asymmetric KMS keys, and management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
  *          <important>
  *             <p>In a cryptographic operation, the encryption context in the decryption operation must be
  *         an exact, case-sensitive match for the keys and values in the encryption context of the
@@ -711,12 +710,14 @@ export enum GrantOperation {
   GenerateDataKeyPair = "GenerateDataKeyPair",
   GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
   GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
+  GenerateMac = "GenerateMac",
   GetPublicKey = "GetPublicKey",
   ReEncryptFrom = "ReEncryptFrom",
   ReEncryptTo = "ReEncryptTo",
   RetireGrant = "RetireGrant",
   Sign = "Sign",
   Verify = "Verify",
+  VerifyMac = "VerifyMac",
 }
 
 export interface CreateGrantRequest {
@@ -769,8 +770,8 @@ export interface CreateGrantRequest {
 
   /**
    * <p>A list of operations that the grant permits. </p>
-   *          <p>The operation must be supported on the KMS key. For example, you cannot create a grant for
-   *       a symmetric KMS key that allows the <a>Sign</a> operation, or a grant for an
+   *          <p>This list must include only operations that are permitted in a grant. Also, the operation
+   *       must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
    *       asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
    *       KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
    *         operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -782,19 +783,25 @@ export interface CreateGrantRequest {
    *          <p>KMS supports the <code>EncryptionContextEquals</code> and
    *         <code>EncryptionContextSubset</code> grant constraints. Each constraint value can include up
    *       to 8 encryption context pairs. The encryption context value in each constraint cannot exceed
-   *       384 characters.</p>
-   *          <p>These grant constraints allow the permissions in the grant only when the encryption
-   *       context in the request matches (<code>EncryptionContextEquals</code>) or includes
-   *         (<code>EncryptionContextSubset</code>) the encryption context specified in this structure.
-   *       For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
+   *       384 characters. For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
    *         constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
    *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>
+   *         context</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>. </p>
-   *          <p>The encryption context grant constraints are supported only on operations that include an
-   *       encryption context. You cannot use an encryption context grant constraint for cryptographic
-   *       operations with asymmetric KMS keys or for management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
+   *          <p>The encryption context grant constraints allow the permissions in the grant only when the
+   *       encryption context in the request matches (<code>EncryptionContextEquals</code>) or includes
+   *         (<code>EncryptionContextSubset</code>) the encryption context specified in this structure. </p>
+   *          <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that
+   *       include an <code>EncryptionContext</code> parameter, such as cryptographic operations on
+   *       symmetric encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint
+   *       doesn't apply to these operations. If a grant with a grant constraint includes the
+   *         <code>CreateGrant</code> operation, the constraint requires that any grants created with the
+   *         <code>CreateGrant</code> permission have an equally strict or stricter encryption context
+   *       constraint.</p>
+   *          <p>You cannot use an encryption context grant constraint for cryptographic operations with
+   *       asymmetric KMS keys or HMAC KMS keys. These keys don't support an encryption context. </p>
+   *          <p></p>
    */
   Constraints?: GrantConstraints;
 
@@ -896,6 +903,10 @@ export enum CustomerMasterKeySpec {
   ECC_NIST_P384 = "ECC_NIST_P384",
   ECC_NIST_P521 = "ECC_NIST_P521",
   ECC_SECG_P256K1 = "ECC_SECG_P256K1",
+  HMAC_224 = "HMAC_224",
+  HMAC_256 = "HMAC_256",
+  HMAC_384 = "HMAC_384",
+  HMAC_512 = "HMAC_512",
   RSA_2048 = "RSA_2048",
   RSA_3072 = "RSA_3072",
   RSA_4096 = "RSA_4096",
@@ -907,6 +918,10 @@ export enum KeySpec {
   ECC_NIST_P384 = "ECC_NIST_P384",
   ECC_NIST_P521 = "ECC_NIST_P521",
   ECC_SECG_P256K1 = "ECC_SECG_P256K1",
+  HMAC_224 = "HMAC_224",
+  HMAC_256 = "HMAC_256",
+  HMAC_384 = "HMAC_384",
+  HMAC_512 = "HMAC_512",
   RSA_2048 = "RSA_2048",
   RSA_3072 = "RSA_3072",
   RSA_4096 = "RSA_4096",
@@ -915,6 +930,7 @@ export enum KeySpec {
 
 export enum KeyUsageType {
   ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
+  GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC",
   SIGN_VERIFY = "SIGN_VERIFY",
 }
 
@@ -953,11 +969,13 @@ export namespace Tag {
 
 export interface CreateKeyRequest {
   /**
-   * <p>The key policy to attach to the KMS key.</p>
+   * <p>The key policy to attach to the KMS key. If you do not specify a key policy, KMS attaches a default key policy to the KMS key.
+   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a> in the
+   *       <i>Key Management Service Developer Guide</i>.</p>
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
+   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code>, the key policy
    *           must allow the principal that is making the <code>CreateKey</code> request to make a
    *           subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk
    *           that the KMS key becomes unmanageable. For more information, refer to the scenario in the
@@ -974,10 +992,23 @@ export interface CreateKeyRequest {
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *          <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
-   *       <i>Key Management Service Developer Guide</i>. </p>
-   *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
+   *             </li>
+   *          </ul>
    *          <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
    *                <i>Identity and Access Management User Guide</i>
    *             </i>.</p>
@@ -994,13 +1025,17 @@ export interface CreateKeyRequest {
 
   /**
    * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
-   *         <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric KMS keys. You
+   *         <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
+   *       encryption KMS key; otherwise, it is required. You
    *       can't change the <code>KeyUsage</code> value after the KMS key is created.</p>
    *          <p>Select only one valid value.</p>
    *          <ul>
    *             <li>
-   *                <p>For symmetric KMS keys, omit the parameter or specify
+   *                <p>For symmetric encryption KMS keys, omit the parameter or specify
    *           <code>ENCRYPT_DECRYPT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p>
    *             </li>
    *             <li>
    *                <p>For asymmetric KMS keys with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
@@ -1027,33 +1062,55 @@ export interface CreateKeyRequest {
   /**
    * <p>Specifies the type of KMS key to create. The default value,
    *       <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit symmetric key for encryption
-   *       and decryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html">How to Choose Your KMS key
-   *         Configuration</a> in the <i>
+   *       and decryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
    *          <p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an
-   *       asymmetric key pair. It also determines the encryption algorithms or signing algorithms that
-   *       the KMS key supports. You can't change the <code>KeySpec</code> after the KMS key is created.
+   *       asymmetric key pair. It also determines the cryptographic algorithms that the KMS key supports. You can't
+   *       change the <code>KeySpec</code> after the KMS key is created.
    *       To further restrict the algorithms that can be used with the KMS key, use a condition key in
-   *       its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i>
+   *       its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
    *          <important>
    *             <p>
    *                <a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that
-   *           are integrated with KMS</a> use symmetric KMS keys to protect your data. These
-   *         services do not support asymmetric KMS keys. For help determining whether a KMS key is
-   *         symmetric or asymmetric, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html">Identifying Symmetric and Asymmetric
-   *           KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *           are integrated with KMS</a> use symmetric encryption KMS keys to protect your data.
+   *         These services do not support asymmetric KMS keys or HMAC KMS keys.</p>
    *          </important>
    *          <p>KMS supports the following key specs for KMS keys:</p>
    *          <ul>
    *             <li>
-   *                <p>Symmetric key (default)</p>
+   *                <p>Symmetric encryption key (default)</p>
    *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>SYMMETRIC_DEFAULT</code> (AES-256-GCM)</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>HMAC keys (symmetric)</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>HMAC_224</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HMAC_256</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HMAC_384</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HMAC_512</code>
+   *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -1115,12 +1172,11 @@ export interface CreateKeyRequest {
    *          <p>To create a KMS key with no key material (for imported key material), set the value to
    *         <code>EXTERNAL</code>. For more information about importing key material into KMS, see
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
-   *         Material</a> in the <i>Key Management Service Developer Guide</i>. This value is valid only for symmetric KMS
-   *       keys.</p>
+   *         Material</a> in the <i>Key Management Service Developer Guide</i>. This value is valid only for symmetric encryption KMS keys.</p>
    *          <p>To create a KMS key in an KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and create its key material in the
    *       associated CloudHSM cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the
    *         <code>CustomKeyStoreId</code> parameter to identify the custom key store. This value is
-   *       valid only for symmetric KMS keys.</p>
+   *       valid only for symmetric encryption KMS keys.</p>
    */
   Origin?: OriginType | string;
 
@@ -1130,8 +1186,8 @@ export interface CreateKeyRequest {
    *         <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM cluster
    *       that is associated with the custom key store must have at least two active HSMs, each in a
    *       different Availability Zone in the Region.</p>
-   *          <p>This parameter is valid only for symmetric KMS keys and regional KMS keys. You cannot
-   *       create an asymmetric KMS key or a multi-Region key in a custom key store.</p>
+   *          <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You
+   *       cannot create any other type of KMS key in a custom key store.</p>
    *          <p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    *          <p>The response includes the custom key store ID and the ID of the CloudHSM cluster.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in KMS, which
@@ -1159,7 +1215,7 @@ export interface CreateKeyRequest {
    * <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
    *       created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p>
    *          <note>
-   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
    *          <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
    *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
@@ -1181,11 +1237,11 @@ export interface CreateKeyRequest {
    *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
    *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
    *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
-   *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>This value creates a <i>primary key</i>, not a replica. To create a
    *         <i>replica key</i>, use the <a>ReplicateKey</a> operation. </p>
-   *          <p>You can create a symmetric or asymmetric multi-Region key, and you can create a
-   *       multi-Region key with imported key material. However, you cannot create a multi-Region key in
+   *          <p>You can create a multi-Region version of a symmetric encryption KMS key, an HMAC KMS key, an asymmetric KMS key, or a
+   *       KMS key with imported key material. However, you cannot create a multi-Region key in
    *       a custom key store.</p>
    */
   MultiRegion?: boolean;
@@ -1225,6 +1281,13 @@ export enum KeyState {
   PendingReplicaDeletion = "PendingReplicaDeletion",
   Unavailable = "Unavailable",
   Updating = "Updating",
+}
+
+export enum MacAlgorithmSpec {
+  HMAC_SHA_224 = "HMAC_SHA_224",
+  HMAC_SHA_256 = "HMAC_SHA_256",
+  HMAC_SHA_384 = "HMAC_SHA_384",
+  HMAC_SHA_512 = "HMAC_SHA_512",
 }
 
 export enum MultiRegionKeyType {
@@ -1347,8 +1410,7 @@ export interface KeyMetadata {
 
   /**
    * <p>The current status of the KMS key.</p>
-   *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS
-   *         key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   KeyState?: KeyState | string;
 
@@ -1440,7 +1502,7 @@ export interface KeyMetadata {
    * <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional
    *         (<code>False</code>) key. This value is <code>True</code> for multi-Region primary and
    *       replica keys and <code>False</code> for regional KMS keys.</p>
-   *          <p>For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   MultiRegion?: boolean;
 
@@ -1484,6 +1546,13 @@ export interface KeyMetadata {
    *       and the deletion date appears in the <code>DeletionDate</code> field.</p>
    */
   PendingDeletionWindowInDays?: number;
+
+  /**
+   * <p>The message authentication code (MAC) algorithm that the HMAC KMS key supports.</p>
+   *          <p>This value is present only when the <code>KeyUsage</code> of the KMS key is
+   *       <code>GENERATE_VERIFY_MAC</code>.</p>
+   */
+  MacAlgorithms?: (MacAlgorithmSpec | string)[];
 }
 
 export namespace KeyMetadata {
@@ -1747,11 +1816,12 @@ export interface DecryptRequest {
 
   /**
    * <p>Specifies the encryption context to use when decrypting the data.
-   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric KMS key. The standard asymmetric encryption algorithms that KMS uses do not support an encryption context.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
@@ -1763,11 +1833,11 @@ export interface DecryptRequest {
   GrantTokens?: string[];
 
   /**
-   * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a key ID of the KMS
-   *       key that was used to encrypt the ciphertext. </p>
-   *
+   * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
+   *          <p>Enter a key ID of the KMS
+   *       key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-   *       key. If you used a symmetric KMS key, KMS can get the KMS key from metadata that it adds to
+   *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to
    *       the symmetric ciphertext blob. However, it is always recommended as a best practice. This
    *       practice ensures that you use the KMS key that you intend.</p>
    *
@@ -1801,7 +1871,7 @@ export interface DecryptRequest {
    *       the <code>Decrypt</code> operation fails.</p>
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported
-   *       algorithm that is valid for symmetric KMS keys.</p>
+   *       algorithm that is valid for symmetric encryption KMS keys.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
@@ -1844,7 +1914,7 @@ export namespace DecryptResponse {
 
 /**
  * <p>The request was rejected because the specified KMS key cannot decrypt the data. The
- *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
+ *       <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
  *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
  *       encrypt the ciphertext.</p>
  */
@@ -1901,8 +1971,10 @@ export class InvalidCiphertextException extends __BaseException {
  *             </li>
  *          </ul>
  *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying, the
- *         <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of
  *       a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
@@ -2207,8 +2279,8 @@ export namespace DisableKeyRequest {
 
 export interface DisableKeyRotationRequest {
   /**
-   * <p>Identifies a symmetric KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric
-   *         KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
+   * <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric
+   *         KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
@@ -2294,7 +2366,9 @@ export namespace EnableKeyRequest {
 
 export interface EnableKeyRotationRequest {
   /**
-   * <p>Identifies a symmetric KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key">multi-Region keys</a>, set the property on the primary key.</p>
+   * <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The key rotation status of these KMS keys is always <code>false</code>.
+   * To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
+   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2323,7 +2397,9 @@ export namespace EnableKeyRotationRequest {
 
 export interface EncryptRequest {
   /**
-   * <p>Identifies the KMS key to use in the encryption operation.</p>
+   * <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a
+   *         <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of
+   *       a KMS key, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -2356,11 +2432,12 @@ export interface EncryptRequest {
 
   /**
    * <p>Specifies the encryption context that will be used to encrypt the data.
-   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric KMS key. The standard asymmetric encryption algorithms that KMS uses do not support an encryption context. </p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context. </p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
@@ -2375,7 +2452,7 @@ export interface EncryptRequest {
    * <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
    *       The algorithm must be compatible with the KMS key that you specify.</p>
    *          <p>This parameter is required only for asymmetric KMS keys. The default value,
-   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric KMS keys. If you are
+   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are
    *       using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
@@ -2439,7 +2516,9 @@ export class ExpiredImportTokenException extends __BaseException {
 
 export interface GenerateDataKeyRequest {
   /**
-   * <p>Identifies the symmetric KMS key that encrypts the data key.</p>
+   * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
+   *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
+   *       KMS key, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -2467,10 +2546,11 @@ export interface GenerateDataKeyRequest {
 
   /**
    * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
@@ -2540,17 +2620,18 @@ export interface GenerateDataKeyPairRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
   /**
-   * <p>Specifies the symmetric KMS key that encrypts the private key in the data key pair. You
-   *       cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and
-   *       origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+   * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
+   *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
+   *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -2611,7 +2692,7 @@ export interface GenerateDataKeyPairResponse {
   PrivateKeyPlaintext?: Uint8Array;
 
   /**
-   * <p>The public key (in plaintext).</p>
+   * <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
   PublicKey?: Uint8Array;
 
@@ -2640,17 +2721,18 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
   /**
-   * <p>Specifies the KMS key that encrypts the private key in the data key pair. You must specify
-   *       a symmetric KMS key. You cannot use an asymmetric KMS key or a KMS key in a custom key store.
-   *       To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.
+   * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
+   *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
+   *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.
    *     </p>
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -2706,7 +2788,7 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
   PrivateKeyCiphertextBlob?: Uint8Array;
 
   /**
-   * <p>The public key (in plaintext).</p>
+   * <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
   PublicKey?: Uint8Array;
 
@@ -2732,7 +2814,9 @@ export namespace GenerateDataKeyPairWithoutPlaintextResponse {
 
 export interface GenerateDataKeyWithoutPlaintextRequest {
   /**
-   * <p>The identifier of the symmetric KMS key that encrypts the data key.</p>
+   * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
+   *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
+   *       KMS key, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -2760,10 +2844,11 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 
   /**
    * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
 
@@ -2814,6 +2899,76 @@ export namespace GenerateDataKeyWithoutPlaintextResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GenerateMacRequest {
+  /**
+   * <p>The message to be hashed. Specify a message of up to 4,096 bytes. </p>
+   *          <p>
+   *             <code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling
+   *       for message digests. If you generate an HMAC for a hash digest of a message, you must verify
+   *       the HMAC of the same hash digest.</p>
+   */
+  Message: Uint8Array | undefined;
+
+  /**
+   * <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
+   *          <p>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the
+   *       <code>KeySpec</code> field in the response.</p>
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>The MAC algorithm used in the operation.</p>
+   *          <p> The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC
+   *       algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
+   *       and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
+   */
+  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
+   *     <i>Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+}
+
+export namespace GenerateMacRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateMacRequest): any => ({
+    ...obj,
+    ...(obj.Message && { Message: SENSITIVE_STRING }),
+  });
+}
+
+export interface GenerateMacResponse {
+  /**
+   * <p>The hash-based message authentication code (HMAC) for the given message, key, and MAC
+   *       algorithm.</p>
+   */
+  Mac?: Uint8Array;
+
+  /**
+   * <p>The MAC algorithm that was used to generate the HMAC.</p>
+   */
+  MacAlgorithm?: MacAlgorithmSpec | string;
+
+  /**
+   * <p>The HMAC KMS key used in the operation.</p>
+   */
+  KeyId?: string;
+}
+
+export namespace GenerateMacResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateMacResponse): any => ({
     ...obj,
   });
 }
@@ -2961,7 +3116,7 @@ export enum WrappingKeySpec {
 
 export interface GetParametersForImportRequest {
   /**
-   * <p>The identifier of the symmetric KMS key into which you will import key material. The
+   * <p>The identifier of the symmetric encryption KMS key into which you will import key material. The
    *         <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
    *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -3215,9 +3370,11 @@ export namespace GrantListEntry {
 
 export interface ImportKeyMaterialRequest {
   /**
-   * <p>The identifier of the symmetric KMS key that receives the imported key material. The KMS
-   *       key's <code>Origin</code> must be <code>EXTERNAL</code>. This must be the same KMS key
-   *       specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request.</p>
+   * <p>The identifier of the symmetric encryption KMS key that receives the imported key
+   *       material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the
+   *       KMS key must be <code>EXTERNAL</code>. You cannot perform this operation on an asymmetric KMS
+   *       key, an HMAC KMS key, a KMS key in a custom key store, or on a KMS key in a different
+   *       Amazon Web Services account</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3365,6 +3522,26 @@ export namespace KeyListEntry {
   export const filterSensitiveLog = (obj: KeyListEntry): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>The request was rejected because the HMAC verification failed. HMAC verification
+ *       fails when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does not match the HMAC specified in the request.</p>
+ */
+export class KMSInvalidMacException extends __BaseException {
+  readonly name: "KMSInvalidMacException" = "KMSInvalidMacException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidMacException, __BaseException>) {
+    super({
+      name: "KMSInvalidMacException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidMacException.prototype);
+  }
 }
 
 /**
@@ -3739,7 +3916,7 @@ export interface ListResourceTagsResponse {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
    *          <note>
-   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
    */
   Tags?: Tag[];
@@ -3856,8 +4033,23 @@ export interface PutKeyPolicyRequest {
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *          <p>The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource Quotas</a> in the
-   *       <i>Key Management Service Developer Guide</i>.</p>
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
+   *             </li>
+   *          </ul>
    */
   Policy: string | undefined;
 
@@ -3893,18 +4085,20 @@ export interface ReEncryptRequest {
   /**
    * <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same
    *       encryption context that was used to encrypt the ciphertext.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   SourceEncryptionContext?: { [key: string]: string };
 
   /**
    * <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is
-   *       re-encrypted. Enter a key ID of the KMS key that was used to encrypt the ciphertext.</p>
+   *       re-encrypted.</p>
+   *          <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-   *       key. If you used a symmetric KMS key, KMS can get the KMS key from metadata that it adds to
+   *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to
    *       the symmetric ciphertext blob. However, it is always recommended as a best practice. This
    *       practice ensures that you use the KMS key that you intend.</p>
    *
@@ -3934,7 +4128,7 @@ export interface ReEncryptRequest {
 
   /**
    * <p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a
-   *       symmetric or asymmetric KMS key with a <code>KeyUsage</code> value of
+   *       symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of
    *         <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the
    *         <a>DescribeKey</a> operation.</p>
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -3963,20 +4157,20 @@ export interface ReEncryptRequest {
 
   /**
    * <p>Specifies that encryption context to use when the reencrypting the data.</p>
-   *          <p>A destination encryption context is valid only when the destination KMS key is a symmetric
-   *       KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields for
+   *          <p>A destination encryption context is valid only when the destination KMS key is a symmetric encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields for
    *       metadata.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric KMS key, but it is highly recommended.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
+   * When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
+   * only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
    *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   DestinationEncryptionContext?: { [key: string]: string };
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it
    *       is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm
-   *       used for symmetric KMS keys.</p>
+   *       used for symmetric encryption KMS keys.</p>
    *          <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a
    *       different algorithm, the decrypt attempt fails.</p>
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
@@ -3987,7 +4181,7 @@ export interface ReEncryptRequest {
   /**
    * <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has
    *       decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption
-   *       algorithm used for symmetric KMS keys.</p>
+   *       algorithm used for symmetric encryption KMS keys.</p>
    *          <p>This parameter is required only when the destination KMS key is an asymmetric KMS
    *       key.</p>
    */
@@ -4074,12 +4268,17 @@ export interface ReplicateKeyRequest {
    *          <p>Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. For a
    *       list of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS service endpoints</a> in the
    *       <i>Amazon Web Services General Reference</i>.</p>
+   *          <note>
+   *             <p>HMAC KMS keys are not supported in all Amazon Web Services Regions. If you try to replicate an HMAC
+   *         KMS key in an Amazon Web Services Region in which HMAC keys are not supported, the
+   *         <code>ReplicateKey</code> operation returns an <code>UnsupportedOperationException</code>.
+   *         For a list of Regions in which HMAC KMS keys are supported, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          </note>
    *          <p>The replica must be in a different Amazon Web Services Region than its primary key and other replicas of
    *       that primary key, but in the same Amazon Web Services partition. KMS must be available in the replica
    *       Region. If the Region is not enabled by default, the Amazon Web Services account must be enabled in the
-   *       Region. </p>
-   *          <p>For information about Amazon Web Services partitions, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) in the
-   *         <i>Amazon Web Services General Reference</i>.</a> For information about enabling and disabling Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Enabling a
+   *       Region. For information about Amazon Web Services partitions, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the
+   *         <i>Amazon Web Services General Reference</i>. For information about enabling and disabling Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Enabling a
    *         Region</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-disable">Disabling a Region</a> in the
    *       <i>Amazon Web Services General Reference</i>.</p>
    */
@@ -4112,8 +4311,23 @@ export interface ReplicateKeyRequest {
    *                      <i>Identity and Access Management User Guide</i>
    *                   </i>.</p>
    *             </li>
+   *          </ul>
+   *
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
    *             <li>
-   *                <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
    *             </li>
    *          </ul>
    */
@@ -4146,7 +4360,7 @@ export interface ReplicateKeyRequest {
    *       is created. To tag an existing KMS key, use the <a>TagResource</a>
    *       operation.</p>
    *          <note>
-   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </note>
    *          <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
    *          <p>Tags are not a shared property of multi-Region keys. You can specify the same tags or
@@ -4175,7 +4389,7 @@ export namespace ReplicateKeyRequest {
 export interface ReplicateKeyResponse {
   /**
    * <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">key state</a>. It also
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also
    *       includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
    */
   ReplicaKeyMetadata?: KeyMetadata;
@@ -4301,7 +4515,7 @@ export interface ScheduleKeyDeletionRequest {
   /**
    * <p>The waiting period, specified in number of days. After the waiting period ends, KMS
    *       deletes the KMS key.</p>
-   *          <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when
+   *          <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when
    *       the last of its replica keys is deleted. Otherwise, the waiting period begins
    *       immediately.</p>
    *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
@@ -4335,8 +4549,7 @@ export interface ScheduleKeyDeletionResponse {
 
   /**
    * <p>The current status of the KMS key.</p>
-   *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS
-   *         key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   KeyState?: KeyState | string;
 
@@ -4819,6 +5032,85 @@ export namespace VerifyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: VerifyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface VerifyMacRequest {
+  /**
+   * <p>The message that will be used in the verification. Enter the same message that was used to
+   *       generate the HMAC.</p>
+   *          <p>
+   *             <a>GenerateMac</a> and <code>VerifyMac</code> do not provide special handling
+   *       for message digests. If you generated an HMAC for a hash digest of a message, you must verify
+   *       the HMAC for the same hash digest.</p>
+   */
+  Message: Uint8Array | undefined;
+
+  /**
+   * <p>The KMS key that will be used in the verification.</p>
+   *
+   *          <p>Enter a key ID of the KMS
+   *       key that was used to generate the HMAC. If you identify a different KMS key, the <code>VerifyMac</code> operation fails.</p>
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>The MAC algorithm that will be used in the verification. Enter the same MAC algorithm that was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified by the <code>KeyId</code> parameter.</p>
+   */
+  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+
+  /**
+   * <p>The HMAC to verify. Enter the HMAC that was generated by the <a>GenerateMac</a> operation when you specified the same message, HMAC KMS key, and MAC algorithm as the values specified in this request.</p>
+   */
+  Mac: Uint8Array | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
+   *     <i>Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+}
+
+export namespace VerifyMacRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifyMacRequest): any => ({
+    ...obj,
+    ...(obj.Message && { Message: SENSITIVE_STRING }),
+  });
+}
+
+export interface VerifyMacResponse {
+  /**
+   * <p>The HMAC KMS key used in the verification.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether the HMAC was verified. A value of
+   *       <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified
+   *       <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and
+   *       <code>MacAlgorithm.</code>.</p>
+   *          <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a
+   *         <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of
+   *       the inputs changed since the HMAC was computed.</p>
+   */
+  MacValid?: boolean;
+
+  /**
+   * <p>The MAC algorithm used in the verification.</p>
+   */
+  MacAlgorithm?: MacAlgorithmSpec | string;
+}
+
+export namespace VerifyMacResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifyMacResponse): any => ({
     ...obj,
   });
 }

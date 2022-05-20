@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
 
@@ -8,7 +8,7 @@ import { NetworkFirewallServiceException as __BaseException } from "./NetworkFir
  *             <code>PublishMetrics</code>
  *             <a>CustomAction</a>. A CloudWatch custom metric dimension is a name/value pair that's
  *          part of the identity of a metric. </p>
- *          <p>AWS Network Firewall sets the dimension name to <code>CustomAction</code> and you provide the
+ *          <p>Network Firewall sets the dimension name to <code>CustomAction</code> and you provide the
  *          dimension value. </p>
  *          <p>For more information about CloudWatch custom metric dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions">Publishing Custom Metrics</a> in the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch User
  *             Guide</a>.</p>
@@ -315,7 +315,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * <p>The ID for a subnet that you want to associate with the firewall. This is used with
- *             <a>CreateFirewall</a> and <a>AssociateSubnets</a>. AWS Network Firewall
+ *             <a>CreateFirewall</a> and <a>AssociateSubnets</a>. Network Firewall
  *          creates an instance of the associated firewall in each subnet that you specify, to filter
  *          traffic in the subnet's Availability Zone.</p>
  */
@@ -404,7 +404,7 @@ export namespace AssociateSubnetsResponse {
 }
 
 /**
- * <p>AWS doesn't currently have enough available capacity to fulfill your request. Try your
+ * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
  *          request later. </p>
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -434,7 +434,7 @@ export enum AttachmentStatus {
 
 /**
  * <p>The configuration and status for a single subnet that you've specified for use by the
- *          AWS Network Firewall firewall. This is part of the <a>FirewallStatus</a>.</p>
+ *          Network Firewall firewall. This is part of the <a>FirewallStatus</a>.</p>
  */
 export interface Attachment {
   /**
@@ -475,11 +475,40 @@ export enum ConfigurationSyncState {
   PENDING = "PENDING",
 }
 
+export enum EncryptionType {
+  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
+  CUSTOMER_KMS = "CUSTOMER_KMS",
+}
+
 /**
- * <p>A key:value pair associated with an AWS resource. The key:value pair can be anything you
+ * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key. You can use any of the key identifiers that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>
+   */
+  Type: EncryptionType | string | undefined;
+}
+
+export namespace EncryptionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
  *          define. Typically, the tag key represents a category (such as "environment") and the tag
  *          value represents a specific value within that category (such as "test," "development," or
- *          "production"). You can add up to 50 tags to each AWS resource. </p>
+ *          "production"). You can add up to 50 tags to each Amazon Web Services resource. </p>
  */
 export interface Tag {
   /**
@@ -560,6 +589,11 @@ export interface CreateFirewallRequest {
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A complex type that contains settings for encryption of your firewall resources.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
 }
 
 export namespace CreateFirewallRequest {
@@ -572,7 +606,7 @@ export namespace CreateFirewallRequest {
 }
 
 /**
- * <p>The firewall defines the configuration settings for an AWS Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource. </p>
+ * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
  *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
  *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
  *          objects by calling <a>DescribeFirewall</a>.</p>
@@ -642,6 +676,11 @@ export interface Firewall {
    * <p></p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
 }
 
 export namespace Firewall {
@@ -694,7 +733,7 @@ export namespace PerObjectStatus {
 /**
  * <p>The status of the firewall endpoint and firewall policy configuration for a single VPC
  *          subnet. </p>
- *          <p>For each VPC subnet that you associate with a firewall, AWS Network Firewall does the
+ *          <p>For each VPC subnet that you associate with a firewall, Network Firewall does the
  *          following: </p>
  *          <ul>
  *             <li>
@@ -837,7 +876,7 @@ export interface StatefulEngineOptions {
    * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code> is
    *          the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
    *          based on certain settings. For more information, see
-   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
   RuleOrder?: RuleOrder | string;
@@ -1059,7 +1098,7 @@ export interface FirewallPolicy {
    *             </li>
    *          </ul>
    *          <p>For more information, see
-   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-strict-rule-evaluation-order.html">Strict evaluation order</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html">Strict evaluation order</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
   StatefulDefaultActions?: string[];
@@ -1110,6 +1149,11 @@ export interface CreateFirewallPolicyRequest {
    *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
 }
 
 export namespace CreateFirewallPolicyRequest {
@@ -1181,6 +1225,16 @@ export interface FirewallPolicyResponse {
    * <p>The number of firewalls that are associated with this firewall policy.</p>
    */
   NumberOfAssociations?: number;
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall policy.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>The last time that the firewall policy was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace FirewallPolicyResponse {
@@ -1227,7 +1281,7 @@ export enum TargetType {
 /**
  * <p>Stateful inspection criteria for a domain list rule group. </p>
  *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
- *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in AWS Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
  */
 export interface RulesSourceList {
   /**
@@ -1297,13 +1351,13 @@ export enum StatefulRuleProtocol {
 }
 
 /**
- * <p>The basic rule criteria for AWS Network Firewall to use to inspect packet headers in stateful
+ * <p>The basic rule criteria for Network Firewall to use to inspect packet headers in stateful
  *          traffic flow inspection. Traffic flows that match the criteria are a match for the
  *          corresponding <a>StatefulRule</a>. </p>
  */
 export interface Header {
   /**
-   * <p>The protocol to inspect for. To specify all, you can use <code>IP</code>, because all traffic on AWS and on the internet is IP.</p>
+   * <p>The protocol to inspect for. To specify all, you can use <code>IP</code>, because all traffic on Amazon Web Services and on the internet is IP.</p>
    */
   Protocol: StatefulRuleProtocol | string | undefined;
 
@@ -1586,7 +1640,7 @@ export namespace MatchAttributes {
 }
 
 /**
- * <p>The inspection criteria and action for a single stateless rule. AWS Network Firewall inspects each packet for the specified matching
+ * <p>The inspection criteria and action for a single stateless rule. Network Firewall inspects each packet for the specified matching
  *          criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on
  *          the packet.</p>
  */
@@ -1830,7 +1884,7 @@ export interface StatefulRuleOptions {
    * <p>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code> is
    *              the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
    *              based on certain settings. For more information, see
-   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
   RuleOrder?: RuleOrder | string;
@@ -1847,7 +1901,7 @@ export namespace StatefulRuleOptions {
 
 /**
  * <p>The object that defines the rules in a rule group. This, along with <a>RuleGroupResponse</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
- *          <p>AWS Network Firewall uses a rule group to inspect and control network traffic.
+ *          <p>Network Firewall uses a rule group to inspect and control network traffic.
  *     You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their
  *     traffic flow. </p>
  *          <p>To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from
@@ -1877,6 +1931,30 @@ export namespace RuleGroup {
    * @internal
    */
   export const filterSensitiveLog = (obj: RuleGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>High-level information about the managed rule group that your own rule group is copied from. You can use the the metadata to track version updates made to the originating rule group. You can retrieve all objects for a rule group by calling <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html">DescribeRuleGroup</a>.</p>
+ */
+export interface SourceMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule group that your own rule group is copied from.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken">DescribeRuleGroup</a>.</p>
+   */
+  SourceUpdateToken?: string;
+}
+
+export namespace SourceMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceMetadata): any => ({
     ...obj,
   });
 }
@@ -1981,6 +2059,16 @@ export interface CreateRuleGroupRequest {
    *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your rule group resources.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
 }
 
 export namespace CreateRuleGroupRequest {
@@ -2055,6 +2143,29 @@ export interface RuleGroupResponse {
    * <p>The number of firewall policies that use this rule group.</p>
    */
   NumberOfAssociations?: number;
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your rule group.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to track the version updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's
+   * used to record changes to the managed rule group. You can subscribe to the SNS topic to receive
+   * notifications when the managed rule group is modified, such as for new versions and for version
+   * expiration. For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide.</a>.</p>
+   */
+  SnsTopic?: string;
+
+  /**
+   * <p>The last time that the rule group was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace RuleGroupResponse {
@@ -2113,7 +2224,7 @@ export namespace DeleteFirewallRequest {
 
 export interface DeleteFirewallResponse {
   /**
-   * <p>The firewall defines the configuration settings for an AWS Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource. </p>
+   * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
    *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
    *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
    *          objects by calling <a>DescribeFirewall</a>.</p>
@@ -2428,7 +2539,7 @@ export enum LogType {
 }
 
 /**
- * <p>Defines where AWS Network Firewall sends logs for the firewall for one log type. This is used
+ * <p>Defines where Network Firewall sends logs for the firewall for one log type. This is used
  *          in <a>LoggingConfiguration</a>. You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
  *          <p>Network Firewall generates logs for stateful rule groups. You can save alert and flow log
  *           types. The stateful rules engine records flow logs for all network traffic that it receives.
@@ -2494,7 +2605,7 @@ export namespace LogDestinationConfig {
 }
 
 /**
- * <p>Defines how AWS Network Firewall performs logging for a <a>Firewall</a>. </p>
+ * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
  */
 export interface LoggingConfiguration {
   /**
@@ -2520,7 +2631,7 @@ export interface DescribeLoggingConfigurationResponse {
   FirewallArn?: string;
 
   /**
-   * <p>Defines how AWS Network Firewall performs logging for a <a>Firewall</a>. </p>
+   * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
    */
   LoggingConfiguration?: LoggingConfiguration;
 }
@@ -2552,7 +2663,7 @@ export namespace DescribeResourcePolicyRequest {
 
 export interface DescribeResourcePolicyResponse {
   /**
-   * <p>The AWS Identity and Access Management policy for the resource. </p>
+   * <p>The IAM policy for the resource. </p>
    */
   Policy?: string;
 }
@@ -2607,7 +2718,7 @@ export interface DescribeRuleGroupResponse {
 
   /**
    * <p>The object that defines the rules in a rule group. This, along with <a>RuleGroupResponse</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
-   *          <p>AWS Network Firewall uses a rule group to inspect and control network traffic.
+   *          <p>Network Firewall uses a rule group to inspect and control network traffic.
    *     You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their
    *     traffic flow. </p>
    *          <p>To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from
@@ -2703,6 +2814,11 @@ export interface DescribeRuleGroupMetadataResponse {
    * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
    */
   StatefulRuleOptions?: StatefulRuleOptions;
+
+  /**
+   * <p>The last time that the rule group was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace DescribeRuleGroupMetadataResponse {
@@ -2939,6 +3055,11 @@ export namespace ListFirewallsResponse {
   });
 }
 
+export enum ResourceManagedType {
+  AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS",
+  AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES",
+}
+
 export enum ResourceManagedStatus {
   ACCOUNT = "ACCOUNT",
   MANAGED = "MANAGED",
@@ -2965,6 +3086,16 @@ export interface ListRuleGroupsRequest {
    *          <code>MANAGED</code> returns all available managed rule groups.</p>
    */
   Scope?: ResourceManagedStatus | string;
+
+  /**
+   * <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
+   */
+  ManagedType?: ResourceManagedType | string;
+
+  /**
+   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
+   */
+  Type?: RuleGroupType | string;
 }
 
 export namespace ListRuleGroupsRequest {
@@ -3107,7 +3238,7 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management policy statement that lists the accounts that you want to share your rule group or firewall policy with
+   * <p>The IAM policy statement that lists the accounts that you want to share your rule group or firewall policy with
    *            and the operations that you want the accounts to be able to perform. </p>
    *          <p>For a rule group resource, you can specify the following operations in the Actions section of the statement:</p>
    *          <ul>
@@ -3387,6 +3518,72 @@ export namespace UpdateFirewallDescriptionResponse {
   });
 }
 
+export interface UpdateFirewallEncryptionConfigurationRequest {
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   */
+  FirewallArn?: string;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   */
+  FirewallName?: string;
+
+  /**
+   * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+}
+
+export namespace UpdateFirewallEncryptionConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFirewallEncryptionConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallEncryptionConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   */
+  FirewallArn?: string;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   */
+  FirewallName?: string;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken?: string;
+
+  /**
+   * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+}
+
+export namespace UpdateFirewallEncryptionConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFirewallEncryptionConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateFirewallPolicyRequest {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -3425,6 +3622,11 @@ export interface UpdateFirewallPolicyRequest {
    *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
 }
 
 export namespace UpdateFirewallPolicyRequest {
@@ -3571,7 +3773,7 @@ export interface UpdateLoggingConfigurationResponse {
   FirewallName?: string;
 
   /**
-   * <p>Defines how AWS Network Firewall performs logging for a <a>Firewall</a>. </p>
+   * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
    */
   LoggingConfiguration?: LoggingConfiguration;
 }
@@ -3646,6 +3848,16 @@ export interface UpdateRuleGroupRequest {
    *          <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>A complex type that contains settings for encryption of your rule group resources.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
 }
 
 export namespace UpdateRuleGroupRequest {

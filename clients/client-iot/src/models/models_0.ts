@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
@@ -4745,6 +4745,11 @@ export interface CreateJobRequest {
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
    *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
    *             target group, even after the job was completed by all things originally in the group.</p>
+   *         <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
+   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
+   *                 been created.</p>
+   *         </note>
    */
   targetSelection?: TargetSelection | string;
 
@@ -4795,7 +4800,13 @@ export interface CreateJobRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 
   /**
-   * <p>Parameters of a managed template that you can specify to create the job document.</p>
+   * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>
+   *         <note>
+   *             <p>
+   *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
+   *                 managed templates. This parameter can't be used with custom job templates or to
+   *                 create jobs from them.</p>
+   *         </note>
    */
   documentParameters?: { [key: string]: string };
 }

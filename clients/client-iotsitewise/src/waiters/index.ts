@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./waitForAssetActive";
 export * from "./waitForAssetModelActive";
 export * from "./waitForAssetModelNotExists";

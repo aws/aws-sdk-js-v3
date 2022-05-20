@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AbortEnvironmentUpdateCommand";
 export * from "./ApplyEnvironmentManagedActionCommand";
 export * from "./AssociateEnvironmentOperationsRoleCommand";

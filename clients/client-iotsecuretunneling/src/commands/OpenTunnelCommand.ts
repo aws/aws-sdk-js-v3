@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,8 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
 
 /**
  * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
- * 			connect to the AWS IoT Secure Tunneling proxy server.</p>
+ * 			connect to the IoT Secure Tunneling proxy server.</p>
+ * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

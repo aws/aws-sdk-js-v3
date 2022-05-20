@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchCreateAttendeeCommand";
 export * from "./CreateAttendeeCommand";
 export * from "./CreateMeetingCommand";

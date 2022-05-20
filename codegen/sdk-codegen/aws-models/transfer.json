@@ -179,7 +179,7 @@
         "HomeDirectoryMappings": {
           "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n      user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the\n        <code>HomeDirectory</code> parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry:\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n      user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the\n        <code>HomeDirectory</code> parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
           }
         },
         "Policy": {
@@ -340,7 +340,7 @@
         "ProtocolDetails": {
           "target": "com.amazonaws.transfer#ProtocolDetails",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol settings that are configured for your server.</p>\n         <p>\n      Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).\n      Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.\n    </p>\n         <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server\n      resumes recent, negotiated sessions through a unique session ID.</p>"
+            "smithy.api#documentation": "<p>The protocol settings that are configured for your server.</p>\n         <ul>\n            <li>\n               <p>\n          Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).\n          Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.\n        </p>\n            </li>\n            <li>\n               <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.\n        Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.\n        Note that with <code>SetStatOption</code> set to <code>ENABLE_NO_OP</code>, Transfer generates a log entry to CloudWatch Logs, so you can determine when the client\n        is making a SETSTAT call.</p>\n            </li>\n            <li>\n               <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server\n          resumes recent, negotiated sessions through a unique session ID.</p>\n            </li>\n         </ul>"
           }
         },
         "SecurityPolicyName": {
@@ -422,7 +422,7 @@
         "HomeDirectoryMappings": {
           "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\":\n        \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the session policy to lock your user\n      down to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory\n      parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry:\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\":\n        \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the session policy to lock your user\n      down to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory\n      parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
           }
         },
         "Policy": {
@@ -535,7 +535,7 @@
         "Steps": {
           "target": "com.amazonaws.transfer#WorkflowSteps",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the details for the steps that are in the specified workflow.</p>\n         <p>\n      The <code>TYPE</code> specifies which of the following actions is being taken for this step.\n    </p>\n         <ul>\n            <li>\n               <p>\n                  <i>Copy</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>Custom</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>Delete</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>Tag</i>: add a tag to the file</p>\n            </li>\n         </ul>\n         <note>\n            <p>\n        Currently, copying and tagging are supported only on S3.\n      </p>\n         </note>\n         <p>\n      For file location, you specify either the S3 bucket and key, or the EFS filesystem ID and path.\n    </p>",
+            "smithy.api#documentation": "<p>Specifies the details for the steps that are in the specified workflow.</p>\n         <p>\n      The <code>TYPE</code> specifies which of the following actions is being taken for this step.\n    </p>\n         <ul>\n            <li>\n               <p>\n                  <i>COPY</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>CUSTOM</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>DELETE</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>TAG</i>: add a tag to the file</p>\n            </li>\n         </ul>\n         <note>\n            <p>\n        Currently, copying and tagging are supported only on S3.\n      </p>\n         </note>\n         <p>\n      For file location, you specify either the S3 bucket and key, or the EFS filesystem ID and path.\n    </p>",
             "smithy.api#required": {}
           }
         },
@@ -640,6 +640,9 @@
       "input": {
         "target": "com.amazonaws.transfer#DeleteAccessRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.transfer#InternalServiceError"
@@ -682,6 +685,9 @@
       "input": {
         "target": "com.amazonaws.transfer#DeleteServerRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.transfer#AccessDeniedException"
@@ -719,6 +725,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.transfer#DeleteSshPublicKeyRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -792,6 +801,9 @@
       "input": {
         "target": "com.amazonaws.transfer#DeleteUserRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.transfer#InternalServiceError"
@@ -833,6 +845,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.transfer#DeleteWorkflowRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1888,7 +1903,7 @@
         "StepType": {
           "target": "com.amazonaws.transfer#WorkflowStepType",
           "traits": {
-            "smithy.api#documentation": "<p>One of the available step types.</p>\n         <ul>\n            <li>\n               <p>\n                  <i>Copy</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>Custom</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>Delete</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>Tag</i>: add a tag to the file</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>One of the available step types.</p>\n         <ul>\n            <li>\n               <p>\n                  <i>COPY</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>CUSTOM</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>DELETE</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>TAG</i>: add a tag to the file</p>\n            </li>\n         </ul>"
           }
         },
         "Outputs": {
@@ -1995,7 +2010,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents an object that contains entries and targets for\n        <code>HomeDirectoryMappings</code>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry:\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
+        "smithy.api#documentation": "<p>Represents an object that contains entries and targets for\n        <code>HomeDirectoryMappings</code>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
       }
     },
     "com.amazonaws.transfer#HomeDirectoryMappings": {
@@ -3221,6 +3236,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A property used with Transfer servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret\n      key between the control and data connection for an FTPS session. <code>TlsSessionResumptionMode</code> determines whether or not the server resumes recent,\n      negotiated sessions through a unique session ID. This property is available during <code>CreateServer</code> and <code>UpdateServer</code> calls.\n      If a <code>TlsSessionResumptionMode</code> value is not specified during CreateServer, it is set to <code>ENFORCED</code> by default.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>DISABLED</code>: the server does not process TLS session resumption client requests and creates a new TLS session for each request. </p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED</code>: the server processes and accepts clients that are performing TLS session resumption.\n            The server doesn't reject client data connections that do not perform the TLS session resumption client processing.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENFORCED</code>: the server processes and accepts clients that are performing TLS session resumption.\n            The server rejects client data connections that do not perform the TLS session resumption client processing.\n            Before you set the value to <code>ENFORCED</code>, test your clients.</p>\n               <note>\n                  <p>Not all FTPS clients perform TLS session resumption. So, if you choose to enforce\n              TLS session resumption, you prevent any connections from FTPS clients that don't perform\n              the protocol negotiation. To determine whether or not you can use the\n              <code>ENFORCED</code> value, you need to test your clients.</p>\n               </note>\n            </li>\n         </ul>"
           }
+        },
+        "SetStatOption": {
+          "target": "com.amazonaws.transfer#SetStatOption",
+          "traits": {
+            "smithy.api#documentation": "<p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.</p>\n         <p>Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as SETSTAT when uploading the file.\n        However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when \n        the file is otherwise successfully uploaded.</p>\n         <p>Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.\n        While the <code>SetStatOption</code> \n            <code>ENABLE_NO_OP</code> setting ignores the error, it does generate a log entry in CloudWatch Logs, so you can determine when the client is making a SETSTAT call.</p>\n         <note>\n            <p>If you want to preserve the original timestamp for your file, and modify other file attributes using SETSTAT, you can use Amazon EFS as backend storage with Transfer Family.</p>\n         </note>"
+          }
         }
       },
       "traits": {
@@ -3646,6 +3667,21 @@
         "smithy.api#pattern": "^[\\w-]*$"
       }
     },
+    "com.amazonaws.transfer#SetStatOption": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT",
+            "name": "DEFAULT"
+          },
+          {
+            "value": "ENABLE_NO_OP",
+            "name": "ENABLE_NO_OP"
+          }
+        ]
+      }
+    },
     "com.amazonaws.transfer#SourceFileLocation": {
       "type": "string",
       "traits": {
@@ -3738,6 +3774,9 @@
       "input": {
         "target": "com.amazonaws.transfer#StartServerRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.transfer#InternalServiceError"
@@ -3819,6 +3858,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.transfer#StopServerRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -3909,6 +3951,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.transfer#TagResourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -4245,6 +4290,9 @@
       "input": {
         "target": "com.amazonaws.transfer#UntagResourceRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.transfer#InternalServiceError"
@@ -4329,7 +4377,7 @@
         "HomeDirectoryMappings": {
           "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n        user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the\n        <code>HomeDirectory</code> parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry:\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n        user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to <code>/</code> and set <code>Target</code> to the\n        <code>HomeDirectory</code> parameter value.</p>\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
           }
         },
         "Policy": {
@@ -4432,7 +4480,7 @@
         "ProtocolDetails": {
           "target": "com.amazonaws.transfer#ProtocolDetails",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The protocol settings that are configured for your server.\n    </p>\n         <p>\n      Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).\n      Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.\n    </p>\n         <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server\n      resumes recent, negotiated sessions through a unique session ID.</p>"
+            "smithy.api#documentation": "<p>The protocol settings that are configured for your server.</p>\n         <ul>\n            <li>\n               <p>\n          Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).\n          Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.\n        </p>\n            </li>\n            <li>\n               <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.\n        Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.\n        Note that with <code>SetStatOption</code> set to <code>ENABLE_NO_OP</code>, Transfer generates a log entry to CloudWatch Logs, so you can determine when the client\n        is making a SETSTAT call.</p>\n            </li>\n            <li>\n               <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server\n          resumes recent, negotiated sessions through a unique session ID.</p>\n            </li>\n         </ul>"
           }
         },
         "EndpointDetails": {
@@ -4563,7 +4611,7 @@
         "HomeDirectoryMappings": {
           "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
-            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\":\n        \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n      user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory\n      parameter value.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry:\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
+            "smithy.api#documentation": "<p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should\n      be visible to your user and how you want to make them visible. You must specify the\n        <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path\n      is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you\n      only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity\n      and Access Management (IAM) role provides access to paths in <code>Target</code>. This value\n      can only be set when <code>HomeDirectoryType</code> is set to\n      <i>LOGICAL</i>.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>\n         <p>\n            <code>[ { \"Entry\": \"/directory1\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>\n\n         <p>In most cases, you can use this value instead of the session policy to lock down your\n      user to the designated home directory (\"<code>chroot</code>\"). To do this, you can set\n        <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory\n      parameter value.</p>\n\n         <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>\n         <p>\n            <code>[ { \"Entry\": \"/\", \"Target\": \"/bucket_name/home/mydirectory\" } ]</code>\n         </p>"
           }
         },
         "Policy": {
@@ -4761,7 +4809,7 @@
         "Type": {
           "target": "com.amazonaws.transfer#WorkflowStepType",
           "traits": {
-            "smithy.api#documentation": "<p>\n        Currently, the following step types are supported.\n      </p>\n         <ul>\n            <li>\n               <p>\n                  <i>Copy</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>Custom</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>Delete</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>Tag</i>: add a tag to the file</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>\n        Currently, the following step types are supported.\n      </p>\n         <ul>\n            <li>\n               <p>\n                  <i>COPY</i>: copy the file to another location</p>\n            </li>\n            <li>\n               <p>\n                  <i>CUSTOM</i>: custom step with a lambda target</p>\n            </li>\n            <li>\n               <p>\n                  <i>DELETE</i>: delete the file</p>\n            </li>\n            <li>\n               <p>\n                  <i>TAG</i>: add a tag to the file</p>\n            </li>\n         </ul>"
           }
         },
         "CopyStepDetails": {

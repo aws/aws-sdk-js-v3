@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -4690,6 +4691,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   if (input.DesiredCapacityType !== undefined && input.DesiredCapacityType !== null) {
     entries["DesiredCapacityType"] = input.DesiredCapacityType;
   }
+  if (input.DefaultInstanceWarmup !== undefined && input.DefaultInstanceWarmup !== null) {
+    entries["DefaultInstanceWarmup"] = input.DefaultInstanceWarmup;
+  }
   return entries;
 };
 
@@ -6873,6 +6877,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   if (input.DesiredCapacityType !== undefined && input.DesiredCapacityType !== null) {
     entries["DesiredCapacityType"] = input.DesiredCapacityType;
   }
+  if (input.DefaultInstanceWarmup !== undefined && input.DefaultInstanceWarmup !== null) {
+    entries["DefaultInstanceWarmup"] = input.DefaultInstanceWarmup;
+  }
   return entries;
 };
 
@@ -7181,6 +7188,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     WarmPoolSize: undefined,
     Context: undefined,
     DesiredCapacityType: undefined,
+    DefaultInstanceWarmup: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
@@ -7322,6 +7330,9 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   }
   if (output["DesiredCapacityType"] !== undefined) {
     contents.DesiredCapacityType = __expectString(output["DesiredCapacityType"]);
+  }
+  if (output["DefaultInstanceWarmup"] !== undefined) {
+    contents.DefaultInstanceWarmup = __strictParseInt32(output["DefaultInstanceWarmup"]) as number;
   }
   return contents;
 };

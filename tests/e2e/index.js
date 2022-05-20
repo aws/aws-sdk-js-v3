@@ -1,10 +1,16 @@
 const { getIntegTestResources } = require("./get-integ-test-resources");
-const { runE2ETests } = require("./run-e2e-tests");
+const execa = require("execa");
 
 const run = async () => {
   try {
     const integTestResourcesEnv = await getIntegTestResources();
-    await runE2ETests(integTestResourcesEnv);
+    await execa("yarn", ["lerna", "run", "test:e2e", "--since", "--concurrency", "1"], {
+      env: {
+        ...integTestResourcesEnv,
+        ...process.env,
+      },
+      stdio: "inherit",
+    });
     process.exit(0);
   } catch (e) {
     console.error(e);

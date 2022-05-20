@@ -1,4 +1,5 @@
 export * from "./CreateAssistantAssociationCommand";
+// smithy-typescript generated code
 export * from "./CreateAssistantCommand";
 export * from "./CreateContentCommand";
 export * from "./CreateKnowledgeBaseCommand";

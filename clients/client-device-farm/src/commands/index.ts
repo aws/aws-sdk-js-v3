@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDevicePoolCommand";
 export * from "./CreateInstanceProfileCommand";
 export * from "./CreateNetworkProfileCommand";

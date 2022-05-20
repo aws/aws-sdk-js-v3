@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -94,6 +95,10 @@ import {
   CreateMulticastGroupCommandOutput,
 } from "./commands/CreateMulticastGroupCommand";
 import {
+  CreateNetworkAnalyzerConfigurationCommandInput,
+  CreateNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/CreateNetworkAnalyzerConfigurationCommand";
+import {
   CreateServiceProfileCommandInput,
   CreateServiceProfileCommandOutput,
 } from "./commands/CreateServiceProfileCommand";
@@ -123,6 +128,10 @@ import {
   DeleteMulticastGroupCommandInput,
   DeleteMulticastGroupCommandOutput,
 } from "./commands/DeleteMulticastGroupCommand";
+import {
+  DeleteNetworkAnalyzerConfigurationCommandInput,
+  DeleteNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/DeleteNetworkAnalyzerConfigurationCommand";
 import {
   DeleteQueuedMessagesCommandInput,
   DeleteQueuedMessagesCommandOutput,
@@ -177,6 +186,10 @@ import {
 } from "./commands/DisassociateWirelessGatewayFromThingCommand";
 import { GetDestinationCommandInput, GetDestinationCommandOutput } from "./commands/GetDestinationCommand";
 import { GetDeviceProfileCommandInput, GetDeviceProfileCommandOutput } from "./commands/GetDeviceProfileCommand";
+import {
+  GetEventConfigurationByResourceTypesCommandInput,
+  GetEventConfigurationByResourceTypesCommandOutput,
+} from "./commands/GetEventConfigurationByResourceTypesCommand";
 import { GetFuotaTaskCommandInput, GetFuotaTaskCommandOutput } from "./commands/GetFuotaTaskCommand";
 import {
   GetLogLevelsByResourceTypesCommandInput,
@@ -230,6 +243,10 @@ import {
 } from "./commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "./commands/ListDeviceProfilesCommand";
+import {
+  ListEventConfigurationsCommandInput,
+  ListEventConfigurationsCommandOutput,
+} from "./commands/ListEventConfigurationsCommand";
 import { ListFuotaTasksCommandInput, ListFuotaTasksCommandOutput } from "./commands/ListFuotaTasksCommand";
 import {
   ListMulticastGroupsByFuotaTaskCommandInput,
@@ -239,6 +256,10 @@ import {
   ListMulticastGroupsCommandInput,
   ListMulticastGroupsCommandOutput,
 } from "./commands/ListMulticastGroupsCommand";
+import {
+  ListNetworkAnalyzerConfigurationsCommandInput,
+  ListNetworkAnalyzerConfigurationsCommandOutput,
+} from "./commands/ListNetworkAnalyzerConfigurationsCommand";
 import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
@@ -301,6 +322,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "./commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
+import {
+  UpdateEventConfigurationByResourceTypesCommandInput,
+  UpdateEventConfigurationByResourceTypesCommandOutput,
+} from "./commands/UpdateEventConfigurationByResourceTypesCommand";
 import { UpdateFuotaTaskCommandInput, UpdateFuotaTaskCommandOutput } from "./commands/UpdateFuotaTaskCommand";
 import {
   UpdateLogLevelsByResourceTypesCommandInput,
@@ -345,6 +370,7 @@ export type ServiceInputTypes =
   | CreateDeviceProfileCommandInput
   | CreateFuotaTaskCommandInput
   | CreateMulticastGroupCommandInput
+  | CreateNetworkAnalyzerConfigurationCommandInput
   | CreateServiceProfileCommandInput
   | CreateWirelessDeviceCommandInput
   | CreateWirelessGatewayCommandInput
@@ -354,6 +380,7 @@ export type ServiceInputTypes =
   | DeleteDeviceProfileCommandInput
   | DeleteFuotaTaskCommandInput
   | DeleteMulticastGroupCommandInput
+  | DeleteNetworkAnalyzerConfigurationCommandInput
   | DeleteQueuedMessagesCommandInput
   | DeleteServiceProfileCommandInput
   | DeleteWirelessDeviceCommandInput
@@ -369,6 +396,7 @@ export type ServiceInputTypes =
   | DisassociateWirelessGatewayFromThingCommandInput
   | GetDestinationCommandInput
   | GetDeviceProfileCommandInput
+  | GetEventConfigurationByResourceTypesCommandInput
   | GetFuotaTaskCommandInput
   | GetLogLevelsByResourceTypesCommandInput
   | GetMulticastGroupCommandInput
@@ -389,9 +417,11 @@ export type ServiceInputTypes =
   | GetWirelessGatewayTaskDefinitionCommandInput
   | ListDestinationsCommandInput
   | ListDeviceProfilesCommandInput
+  | ListEventConfigurationsCommandInput
   | ListFuotaTasksCommandInput
   | ListMulticastGroupsByFuotaTaskCommandInput
   | ListMulticastGroupsCommandInput
+  | ListNetworkAnalyzerConfigurationsCommandInput
   | ListPartnerAccountsCommandInput
   | ListQueuedMessagesCommandInput
   | ListServiceProfilesCommandInput
@@ -412,6 +442,7 @@ export type ServiceInputTypes =
   | TestWirelessDeviceCommandInput
   | UntagResourceCommandInput
   | UpdateDestinationCommandInput
+  | UpdateEventConfigurationByResourceTypesCommandInput
   | UpdateFuotaTaskCommandInput
   | UpdateLogLevelsByResourceTypesCommandInput
   | UpdateMulticastGroupCommandInput
@@ -434,6 +465,7 @@ export type ServiceOutputTypes =
   | CreateDeviceProfileCommandOutput
   | CreateFuotaTaskCommandOutput
   | CreateMulticastGroupCommandOutput
+  | CreateNetworkAnalyzerConfigurationCommandOutput
   | CreateServiceProfileCommandOutput
   | CreateWirelessDeviceCommandOutput
   | CreateWirelessGatewayCommandOutput
@@ -443,6 +475,7 @@ export type ServiceOutputTypes =
   | DeleteDeviceProfileCommandOutput
   | DeleteFuotaTaskCommandOutput
   | DeleteMulticastGroupCommandOutput
+  | DeleteNetworkAnalyzerConfigurationCommandOutput
   | DeleteQueuedMessagesCommandOutput
   | DeleteServiceProfileCommandOutput
   | DeleteWirelessDeviceCommandOutput
@@ -458,6 +491,7 @@ export type ServiceOutputTypes =
   | DisassociateWirelessGatewayFromThingCommandOutput
   | GetDestinationCommandOutput
   | GetDeviceProfileCommandOutput
+  | GetEventConfigurationByResourceTypesCommandOutput
   | GetFuotaTaskCommandOutput
   | GetLogLevelsByResourceTypesCommandOutput
   | GetMulticastGroupCommandOutput
@@ -478,9 +512,11 @@ export type ServiceOutputTypes =
   | GetWirelessGatewayTaskDefinitionCommandOutput
   | ListDestinationsCommandOutput
   | ListDeviceProfilesCommandOutput
+  | ListEventConfigurationsCommandOutput
   | ListFuotaTasksCommandOutput
   | ListMulticastGroupsByFuotaTaskCommandOutput
   | ListMulticastGroupsCommandOutput
+  | ListNetworkAnalyzerConfigurationsCommandOutput
   | ListPartnerAccountsCommandOutput
   | ListQueuedMessagesCommandOutput
   | ListServiceProfilesCommandOutput
@@ -501,6 +537,7 @@ export type ServiceOutputTypes =
   | TestWirelessDeviceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDestinationCommandOutput
+  | UpdateEventConfigurationByResourceTypesCommandOutput
   | UpdateFuotaTaskCommandOutput
   | UpdateLogLevelsByResourceTypesCommandOutput
   | UpdateMulticastGroupCommandOutput

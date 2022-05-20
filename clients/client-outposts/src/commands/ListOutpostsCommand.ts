@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface ListOutpostsCommandInput extends ListOutpostsInput {}
 export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __MetadataBearer {}
 
 /**
- * <p>Create a list of the Outposts for your Amazon Web Services account. Add filters to your request to return
+ * <p>Lists the Outposts for your Amazon Web Services account. Add filters to your request to return
  *       a more specific list of results. Use filters to match an Outpost lifecycle status,
  *       Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>). </p>
  *

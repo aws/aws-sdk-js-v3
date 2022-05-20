@@ -1,4 +1,5 @@
 export * from "./CostAndUsageReportService";
+// smithy-typescript generated code
 export * from "./CostAndUsageReportServiceClient";
 export * from "./commands";
 export * from "./models";

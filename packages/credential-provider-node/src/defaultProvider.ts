@@ -10,6 +10,8 @@ import { Credentials, MemoizedProvider } from "@aws-sdk/types";
 
 import { remoteProvider } from "./remoteProvider";
 
+export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
+
 /**
  * Creates a credential provider that will attempt to find credentials from the
  * following sources (listed in order of precedence):
@@ -29,24 +31,22 @@ import { remoteProvider } from "./remoteProvider";
  * @param init                  Configuration that is passed to each individual
  *                              provider
  *
- * @see fromEnv                 The function used to source credentials from
+ * @see {@link fromEnv}                 The function used to source credentials from
  *                              environment variables
- * @see fromSSO                 The function used to source credentials from
+ * @see {@link fromSSO}                 The function used to source credentials from
  *                              resolved SSO token cache
- * @see fromTokenFile           The function used to source credentials from
+ * @see {@link fromTokenFile}           The function used to source credentials from
  *                              token file
- * @see fromIni                 The function used to source credentials from INI
+ * @see {@link fromIni}                The function used to source credentials from INI
  *                              files
- * @see fromProcess             The function used to sources credentials from
+ * @see {@link fromProcess}             The function used to sources credentials from
  *                              credential_process in INI files
- * @see fromInstanceMetadata    The function used to source credentials from the
+ * @see {@link fromInstanceMetadata}    The function used to source credentials from the
  *                              EC2 Instance Metadata Service
- * @see fromContainerMetadata   The function used to source credentials from the
+ * @see {@link fromContainerMetadata}   The function used to source credentials from the
  *                              ECS Container Metadata Service
  */
-export const defaultProvider = (
-  init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit = {}
-): MemoizedProvider<Credentials> =>
+export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<Credentials> =>
   memoize(
     chain(
       ...(init.profile || process.env[ENV_PROFILE] ? [] : [fromEnv()]),

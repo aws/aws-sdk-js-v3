@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,10 +26,10 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
  *       Before deleting a solution, you must delete all campaigns based on
  *       the solution. To determine what campaigns are using the solution, call
- *       <a>ListCampaigns</a> and supply the Amazon Resource Name (ARN) of the solution.
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a> and supply the Amazon Resource Name (ARN) of the solution.
  *       You can't delete a solution if an associated <code>SolutionVersion</code> is in the
  *       CREATE PENDING or IN PROGRESS state.
- *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

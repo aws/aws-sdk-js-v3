@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -1454,7 +1455,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
-   * <p>Updates the identity provider.</p>
+   * <p>Updates the identity provider. </p>
    */
   public updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,

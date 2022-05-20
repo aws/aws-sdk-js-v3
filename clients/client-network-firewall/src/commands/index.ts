@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateFirewallPolicyCommand";
 export * from "./AssociateSubnetsCommand";
 export * from "./CreateFirewallCommand";
@@ -23,6 +24,7 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateFirewallDeleteProtectionCommand";
 export * from "./UpdateFirewallDescriptionCommand";
+export * from "./UpdateFirewallEncryptionConfigurationCommand";
 export * from "./UpdateFirewallPolicyChangeProtectionCommand";
 export * from "./UpdateFirewallPolicyCommand";
 export * from "./UpdateLoggingConfigurationCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
  *             redirecting player traffic from one fleet to another, such as when updating your game
  *             build.  </p>
- *         <p>Amazon Web Services supports two types of routing strategies for aliases: simple and terminal. A
+ *         <p>Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. A
  *             simple alias points to an active fleet. A terminal alias is used to display messaging or
  *             link to a URL instead of routing players to an active fleet. For example, you might use
  *             a terminal alias when a game version is no longer supported and you want to direct

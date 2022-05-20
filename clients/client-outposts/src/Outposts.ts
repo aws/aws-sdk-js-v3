@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CancelOrderCommand, CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
@@ -32,6 +33,7 @@ import {
   GetSiteAddressCommandOutput,
 } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommand, GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
   ListCatalogItemsCommand,
   ListCatalogItemsCommandInput,
@@ -339,7 +341,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Lists the instance types for the specified Outpost.</p>
+   * <p>Gets the instance types for the specified Outpost.</p>
    */
   public getOutpostInstanceTypes(
     args: GetOutpostInstanceTypesCommandInput,
@@ -433,7 +435,37 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Use to create a list of every item in the catalog. Add filters to your request to return a
+   * <p>
+   *       Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on
+   *       Amazon Web Services Outposts, you can filter your request by host ID to return a list of hardware
+   *       assets that allocate resources for Dedicated Hosts.
+   *     </p>
+   */
+  public listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
+  public listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
+  public listAssets(
+    args: ListAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+  public listAssets(
+    args: ListAssetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssetsCommandOutput) => void
+  ): Promise<ListAssetsCommandOutput> | void {
+    const command = new ListAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the items in the catalog. Add filters to your request to return a
    *       more specific list of results. Use filters to match an item class, storage
    *       option, or EC2 family. </p>
    *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and
@@ -469,7 +501,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Create a list of the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
+   * <p>Lists the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
    *       return a more specific list of results. </p>
    */
   public listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
@@ -496,7 +528,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Create a list of the Outposts for your Amazon Web Services account. Add filters to your request to return
+   * <p>Lists the Outposts for your Amazon Web Services account. Add filters to your request to return
    *       a more specific list of results. Use filters to match an Outpost lifecycle status,
    *       Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>). </p>
    *
@@ -530,7 +562,7 @@ export class Outposts extends OutpostsClient {
   }
 
   /**
-   * <p>Create a list of the Outpost sites for your Amazon Web Services account. Add operating address filters to your request to
+   * <p>Lists the Outpost sites for your Amazon Web Services account. Add operating address filters to your request to
    *       return a more specific list of results. Use filters to match site city, country code, or state/region of the
    *       operating address. </p>
    *

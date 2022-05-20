@@ -1856,31 +1856,31 @@
     "hostname": "cur-fips.us-east-1.api.aws"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "ap-east-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": false,
-    "hostname": "data.iot.ap-east-1.amazonaws.com"
+    "hostname": "data-ats.iot.ap-east-1.amazonaws.com"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "ap-east-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": true,
-    "hostname": "data.iot.ap-east-1.api.aws"
+    "hostname": "data-ats.iot.ap-east-1.api.aws"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "ap-east-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": false,
-    "hostname": "data.iot-fips.ap-east-1.amazonaws.com"
+    "hostname": "data-ats.iot-fips.ap-east-1.amazonaws.com"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "ca-central-1",
     "useFipsEndpoint": true,
@@ -1888,12 +1888,12 @@
     "hostname": "data.iot-fips.ca-central-1.amazonaws.com"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "ap-east-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": true,
-    "hostname": "data.iot-fips.ap-east-1.api.aws"
+    "hostname": "data-ats.iot-fips.ap-east-1.api.aws"
   },
   {
     "endpointPrefix": "data.jobs.iot",
@@ -2421,7 +2421,7 @@
     "region": "ap-south-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": true,
-    "hostname": "api.ec2.ap-south-1.aws"
+    "hostname": "ec2.ap-south-1.api.aws"
   },
   {
     "endpointPrefix": "ec2",
@@ -7640,36 +7640,36 @@
     "hostname": "cur-fips.cn-northwest-1.api.amazonwebservices.com.cn"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "cn-north-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": false,
-    "hostname": "data.iot.cn-north-1.amazonaws.com.cn"
+    "hostname": "data-ats.iot.cn-north-1.amazonaws.com.cn"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "cn-north-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": true,
-    "hostname": "data.iot.cn-north-1.api.amazonwebservices.com.cn"
+    "hostname": "data-ats.iot.cn-north-1.api.amazonwebservices.com.cn"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "cn-north-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": false,
-    "hostname": "data.iot-fips.cn-north-1.amazonaws.com.cn"
+    "hostname": "data-ats.iot-fips.cn-north-1.amazonaws.com.cn"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "cn-north-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": true,
-    "hostname": "data.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
+    "hostname": "data-ats.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
   },
   {
     "endpointPrefix": "data.jobs.iot",
@@ -10360,7 +10360,7 @@
     "hostname": "connect-fips.us-gov-west-1.api.aws"
   },
   {
-    "endpointPrefix": "data.iot",
+    "endpointPrefix": "data-ats.iot",
     "sdkId": "IoT Data Plane",
     "region": "us-gov-east-1",
     "useFipsEndpoint": true,

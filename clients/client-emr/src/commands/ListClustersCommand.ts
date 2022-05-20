@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,11 +23,11 @@ export interface ListClustersCommandInput extends ListClustersInput {}
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
- * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows you to filter
- *          the list of clusters based on certain criteria; for example, filtering by cluster creation
- *          date and time or by status. This call returns a maximum of 50 clusters in unsorted order per call, but
- *          returns a marker to track the paging of the cluster list across multiple ListClusters
- *          calls.</p>
+ * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
+ *          you to filter the list of clusters based on certain criteria; for example, filtering by
+ *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
+ *          unsorted order per call, but returns a marker to track the paging of the cluster list
+ *          across multiple ListClusters calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

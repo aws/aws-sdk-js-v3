@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
@@ -1943,6 +1943,781 @@ export namespace BatchDisassociateProjectAssetsResponse {
   });
 }
 
+export enum TimeOrdering {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>Contains information for an asset property aggregate entry that is associated with the
+ *   <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ *          <p>To identify an asset property, you must specify one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
+ *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface BatchGetAssetPropertyAggregatesEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
+   */
+  propertyAlias?: string;
+
+  /**
+   * <p>The data aggregating function.</p>
+   */
+  aggregateTypes: (AggregateType | string)[] | undefined;
+
+  /**
+   * <p>The time interval over which to aggregate data.</p>
+   */
+  resolution: string | undefined;
+
+  /**
+   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   */
+  endDate: Date | undefined;
+
+  /**
+   * <p>The quality by which to filter asset data.</p>
+   */
+  qualities?: (Quality | string)[];
+
+  /**
+   * <p>The chronological sorting order of the requested information.</p>
+   *          <p>Default: <code>ASCENDING</code>
+   *          </p>
+   */
+  timeOrdering?: TimeOrdering | string;
+}
+
+export namespace BatchGetAssetPropertyAggregatesEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyAggregatesRequest {
+  /**
+   * <p>The list of asset property aggregate entries for the batch get request.
+   *   You can specify up to 16 entries per request.</p>
+   */
+  entries: BatchGetAssetPropertyAggregatesEntry[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The size of the result set is less than 1 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>The number of data points in the result set is less than the value of <code>maxResults</code>.
+   *         The maximum value of <code>maxResults</code> is 4000.</p>
+   *             </li>
+   *          </ul>
+   */
+  maxResults?: number;
+}
+
+export namespace BatchGetAssetPropertyAggregatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BatchGetAssetPropertyAggregatesErrorCode {
+  AccessDeniedException = "AccessDeniedException",
+  InvalidRequestException = "InvalidRequestException",
+  ResourceNotFoundException = "ResourceNotFoundException",
+}
+
+/**
+ * <p>Contains error information for an asset property aggregate entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ */
+export interface BatchGetAssetPropertyAggregatesErrorEntry {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+
+  /**
+   * <p>The associated error message.</p>
+   */
+  errorMessage: string | undefined;
+
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+}
+
+export namespace BatchGetAssetPropertyAggregatesErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+export enum BatchEntryCompletionStatus {
+  ERROR = "ERROR",
+  SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>Contains the error code and the timestamp for an asset property aggregate entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ */
+export interface BatchGetAssetPropertyAggregatesErrorInfo {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+
+  /**
+   * <p>The date the error occurred, in Unix epoch time.</p>
+   */
+  errorTimestamp: Date | undefined;
+}
+
+export namespace BatchGetAssetPropertyAggregatesErrorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesErrorInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information for an entry that has been processed by the previous
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> request.</p>
+ */
+export interface BatchGetAssetPropertyAggregatesSkippedEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The completion status of each entry that is associated with the
+   *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+   */
+  completionStatus: BatchEntryCompletionStatus | string | undefined;
+
+  /**
+   * <p>The error information, such as the error code and the timestamp.</p>
+   */
+  errorInfo?: BatchGetAssetPropertyAggregatesErrorInfo;
+}
+
+export namespace BatchGetAssetPropertyAggregatesSkippedEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesSkippedEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains success information for an entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ */
+export interface BatchGetAssetPropertyAggregatesSuccessEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The requested aggregated asset property values (for example, average, minimum, and maximum).</p>
+   */
+  aggregatedValues: AggregatedValue[] | undefined;
+}
+
+export namespace BatchGetAssetPropertyAggregatesSuccessEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesSuccessEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyAggregatesResponse {
+  /**
+   * <p>A list of the errors (if any) associated with the batch request. Each error entry
+   *       contains the <code>entryId</code> of the entry that failed.</p>
+   */
+  errorEntries: BatchGetAssetPropertyAggregatesErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were processed successfully by this batch request. Each success entry
+   *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   */
+  successEntries: BatchGetAssetPropertyAggregatesSuccessEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were not processed by this batch request.
+   *       because these entries had been completely processed by previous paginated requests.
+   *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   */
+  skippedEntries: BatchGetAssetPropertyAggregatesSkippedEntry[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace BatchGetAssetPropertyAggregatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyAggregatesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested service is unavailable.</p>
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * <p>Contains information for an asset property value entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ *          <p>To identify an asset property, you must specify one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
+ *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface BatchGetAssetPropertyValueEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
+   */
+  propertyAlias?: string;
+}
+
+export namespace BatchGetAssetPropertyValueEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyValueRequest {
+  /**
+   * <p>The list of asset property value entries for the batch get request.
+   *     You can specify up to 16 entries per request.</p>
+   */
+  entries: BatchGetAssetPropertyValueEntry[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace BatchGetAssetPropertyValueRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BatchGetAssetPropertyValueErrorCode {
+  AccessDeniedException = "AccessDeniedException",
+  InvalidRequestException = "InvalidRequestException",
+  ResourceNotFoundException = "ResourceNotFoundException",
+}
+
+/**
+ * <p>Contains error information for an asset property value entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ */
+export interface BatchGetAssetPropertyValueErrorEntry {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+
+  /**
+   * <p>The associated error message.</p>
+   */
+  errorMessage: string | undefined;
+
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+}
+
+export namespace BatchGetAssetPropertyValueErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The error information, such as the error code and the timestamp.</p>
+ */
+export interface BatchGetAssetPropertyValueErrorInfo {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+
+  /**
+   * <p>The date the error occurred, in Unix epoch time.</p>
+   */
+  errorTimestamp: Date | undefined;
+}
+
+export namespace BatchGetAssetPropertyValueErrorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueErrorInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information for an entry that has been processed by the previous
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+ */
+export interface BatchGetAssetPropertyValueSkippedEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The completion status of each entry that is associated with the
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+   */
+  completionStatus: BatchEntryCompletionStatus | string | undefined;
+
+  /**
+   * <p>The error information, such as the error code and the timestamp.</p>
+   */
+  errorInfo?: BatchGetAssetPropertyValueErrorInfo;
+}
+
+export namespace BatchGetAssetPropertyValueSkippedEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueSkippedEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains success information for an entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ */
+export interface BatchGetAssetPropertyValueSuccessEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>Contains asset property value information.</p>
+   */
+  assetPropertyValue?: AssetPropertyValue;
+}
+
+export namespace BatchGetAssetPropertyValueSuccessEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueSuccessEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyValueResponse {
+  /**
+   * <p>A list of the errors (if any) associated with the batch request. Each error entry
+   *       contains the <code>entryId</code> of the entry that failed.</p>
+   */
+  errorEntries: BatchGetAssetPropertyValueErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were processed successfully by this batch request. Each success entry
+   *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   */
+  successEntries: BatchGetAssetPropertyValueSuccessEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were not processed by this batch request.
+   *       because these entries had been completely processed by previous paginated requests.
+   *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   */
+  skippedEntries: BatchGetAssetPropertyValueSkippedEntry[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace BatchGetAssetPropertyValueResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information for an asset property historical value entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+ *          <p>To identify an asset property, you must specify one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
+ *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface BatchGetAssetPropertyValueHistoryEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
+   */
+  propertyAlias?: string;
+
+  /**
+   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   */
+  startDate?: Date;
+
+  /**
+   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   */
+  endDate?: Date;
+
+  /**
+   * <p>The quality by which to filter asset data.</p>
+   */
+  qualities?: (Quality | string)[];
+
+  /**
+   * <p>The chronological sorting order of the requested information.</p>
+   *          <p>Default: <code>ASCENDING</code>
+   *          </p>
+   */
+  timeOrdering?: TimeOrdering | string;
+}
+
+export namespace BatchGetAssetPropertyValueHistoryEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistoryEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyValueHistoryRequest {
+  /**
+   * <p>The list of asset property historical value entries for the batch get request.
+   *     You can specify up to 16 entries per request.</p>
+   */
+  entries: BatchGetAssetPropertyValueHistoryEntry[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The size of the result set is less than 1 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>The number of data points in the result set is less than the value of <code>maxResults</code>.
+   *         The maximum value of <code>maxResults</code> is 4000.</p>
+   *             </li>
+   *          </ul>
+   */
+  maxResults?: number;
+}
+
+export namespace BatchGetAssetPropertyValueHistoryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistoryRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BatchGetAssetPropertyValueHistoryErrorCode {
+  AccessDeniedException = "AccessDeniedException",
+  InvalidRequestException = "InvalidRequestException",
+  ResourceNotFoundException = "ResourceNotFoundException",
+}
+
+/**
+ * <p>A list of the errors (if any) associated with the batch request. Each error entry
+ *       contains the <code>entryId</code> of the entry that failed.</p>
+ */
+export interface BatchGetAssetPropertyValueHistoryErrorEntry {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+
+  /**
+   * <p>The associated error message.</p>
+   */
+  errorMessage: string | undefined;
+
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+}
+
+export namespace BatchGetAssetPropertyValueHistoryErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistoryErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The error information, such as the error code and the timestamp.</p>
+ */
+export interface BatchGetAssetPropertyValueHistoryErrorInfo {
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+
+  /**
+   * <p>The date the error occurred, in Unix epoch time.</p>
+   */
+  errorTimestamp: Date | undefined;
+}
+
+export namespace BatchGetAssetPropertyValueHistoryErrorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistoryErrorInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information for an entry that has been processed by the previous
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> request.</p>
+ */
+export interface BatchGetAssetPropertyValueHistorySkippedEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The completion status of each entry that is associated with the
+   *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+   */
+  completionStatus: BatchEntryCompletionStatus | string | undefined;
+
+  /**
+   * <p>The error information, such as the error code and the timestamp.</p>
+   */
+  errorInfo?: BatchGetAssetPropertyValueHistoryErrorInfo;
+}
+
+export namespace BatchGetAssetPropertyValueHistorySkippedEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistorySkippedEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains success information for an entry that is associated with the
+ *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+ */
+export interface BatchGetAssetPropertyValueHistorySuccessEntry {
+  /**
+   * <p>The ID of the entry.</p>
+   */
+  entryId: string | undefined;
+
+  /**
+   * <p>The requested historical values for the specified asset property.</p>
+   */
+  assetPropertyValueHistory: AssetPropertyValue[] | undefined;
+}
+
+export namespace BatchGetAssetPropertyValueHistorySuccessEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistorySuccessEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetAssetPropertyValueHistoryResponse {
+  /**
+   * <p>A list of the errors (if any) associated with the batch request. Each error entry
+   *       contains the <code>entryId</code> of the entry that failed.</p>
+   */
+  errorEntries: BatchGetAssetPropertyValueHistoryErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were processed successfully by this batch request. Each success entry
+   *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   */
+  successEntries: BatchGetAssetPropertyValueHistorySuccessEntry[] | undefined;
+
+  /**
+   * <p>A list of entries that were not processed by this batch request.
+   *       because these entries had been completely processed by previous paginated requests.
+   *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   */
+  skippedEntries: BatchGetAssetPropertyValueHistorySkippedEntry[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace BatchGetAssetPropertyValueHistoryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetAssetPropertyValueHistoryResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains a list of value updates for an asset property in the list of asset entries
  *       consumed by the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html">BatchPutAssetPropertyValue</a> API
@@ -2087,25 +2862,6 @@ export namespace BatchPutAssetPropertyValueResponse {
   export const filterSensitiveLog = (obj: BatchPutAssetPropertyValueResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The requested service is unavailable.</p>
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
 }
 
 export interface CreateAccessPolicyRequest {
@@ -4387,11 +5143,6 @@ export namespace DisassociateTimeSeriesFromAssetPropertyRequest {
   export const filterSensitiveLog = (obj: DisassociateTimeSeriesFromAssetPropertyRequest): any => ({
     ...obj,
   });
-}
-
-export enum TimeOrdering {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
 }
 
 export interface GetAssetPropertyAggregatesRequest {

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -61,6 +62,11 @@ import {
   CreateMulticastGroupCommandOutput,
 } from "./commands/CreateMulticastGroupCommand";
 import {
+  CreateNetworkAnalyzerConfigurationCommand,
+  CreateNetworkAnalyzerConfigurationCommandInput,
+  CreateNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/CreateNetworkAnalyzerConfigurationCommand";
+import {
   CreateServiceProfileCommand,
   CreateServiceProfileCommandInput,
   CreateServiceProfileCommandOutput,
@@ -105,6 +111,11 @@ import {
   DeleteMulticastGroupCommandInput,
   DeleteMulticastGroupCommandOutput,
 } from "./commands/DeleteMulticastGroupCommand";
+import {
+  DeleteNetworkAnalyzerConfigurationCommand,
+  DeleteNetworkAnalyzerConfigurationCommandInput,
+  DeleteNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/DeleteNetworkAnalyzerConfigurationCommand";
 import {
   DeleteQueuedMessagesCommand,
   DeleteQueuedMessagesCommandInput,
@@ -180,6 +191,11 @@ import {
   GetDeviceProfileCommandInput,
   GetDeviceProfileCommandOutput,
 } from "./commands/GetDeviceProfileCommand";
+import {
+  GetEventConfigurationByResourceTypesCommand,
+  GetEventConfigurationByResourceTypesCommandInput,
+  GetEventConfigurationByResourceTypesCommandOutput,
+} from "./commands/GetEventConfigurationByResourceTypesCommand";
 import {
   GetFuotaTaskCommand,
   GetFuotaTaskCommandInput,
@@ -281,6 +297,11 @@ import {
   ListDeviceProfilesCommandOutput,
 } from "./commands/ListDeviceProfilesCommand";
 import {
+  ListEventConfigurationsCommand,
+  ListEventConfigurationsCommandInput,
+  ListEventConfigurationsCommandOutput,
+} from "./commands/ListEventConfigurationsCommand";
+import {
   ListFuotaTasksCommand,
   ListFuotaTasksCommandInput,
   ListFuotaTasksCommandOutput,
@@ -295,6 +316,11 @@ import {
   ListMulticastGroupsCommandInput,
   ListMulticastGroupsCommandOutput,
 } from "./commands/ListMulticastGroupsCommand";
+import {
+  ListNetworkAnalyzerConfigurationsCommand,
+  ListNetworkAnalyzerConfigurationsCommandInput,
+  ListNetworkAnalyzerConfigurationsCommandOutput,
+} from "./commands/ListNetworkAnalyzerConfigurationsCommand";
 import {
   ListPartnerAccountsCommand,
   ListPartnerAccountsCommandInput,
@@ -391,6 +417,11 @@ import {
   UpdateDestinationCommandInput,
   UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
+import {
+  UpdateEventConfigurationByResourceTypesCommand,
+  UpdateEventConfigurationByResourceTypesCommandInput,
+  UpdateEventConfigurationByResourceTypesCommandOutput,
+} from "./commands/UpdateEventConfigurationByResourceTypesCommand";
 import {
   UpdateFuotaTaskCommand,
   UpdateFuotaTaskCommandInput,
@@ -838,6 +869,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Creates a new network analyzer configuration.</p>
+   */
+  public createNetworkAnalyzerConfiguration(
+    args: CreateNetworkAnalyzerConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkAnalyzerConfigurationCommandOutput>;
+  public createNetworkAnalyzerConfiguration(
+    args: CreateNetworkAnalyzerConfigurationCommandInput,
+    cb: (err: any, data?: CreateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public createNetworkAnalyzerConfiguration(
+    args: CreateNetworkAnalyzerConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public createNetworkAnalyzerConfiguration(
+    args: CreateNetworkAnalyzerConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkAnalyzerConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> | void {
+    const command = new CreateNetworkAnalyzerConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new service profile.</p>
    */
   public createServiceProfile(
@@ -1126,7 +1189,39 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p> The operation to delete queued messages. </p>
+   * <p>Deletes a network analyzer configuration.</p>
+   */
+  public deleteNetworkAnalyzerConfiguration(
+    args: DeleteNetworkAnalyzerConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput>;
+  public deleteNetworkAnalyzerConfiguration(
+    args: DeleteNetworkAnalyzerConfigurationCommandInput,
+    cb: (err: any, data?: DeleteNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public deleteNetworkAnalyzerConfiguration(
+    args: DeleteNetworkAnalyzerConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public deleteNetworkAnalyzerConfiguration(
+    args: DeleteNetworkAnalyzerConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkAnalyzerConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkAnalyzerConfigurationCommandOutput) => void
+  ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> | void {
+    const command = new DeleteNetworkAnalyzerConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove queued messages from the downlink queue.</p>
    */
   public deleteQueuedMessages(
     args: DeleteQueuedMessagesCommandInput,
@@ -1616,6 +1711,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Get the event configuration by resource types.</p>
+   */
+  public getEventConfigurationByResourceTypes(
+    args: GetEventConfigurationByResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventConfigurationByResourceTypesCommandOutput>;
+  public getEventConfigurationByResourceTypes(
+    args: GetEventConfigurationByResourceTypesCommandInput,
+    cb: (err: any, data?: GetEventConfigurationByResourceTypesCommandOutput) => void
+  ): void;
+  public getEventConfigurationByResourceTypes(
+    args: GetEventConfigurationByResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventConfigurationByResourceTypesCommandOutput) => void
+  ): void;
+  public getEventConfigurationByResourceTypes(
+    args: GetEventConfigurationByResourceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventConfigurationByResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: GetEventConfigurationByResourceTypesCommandOutput) => void
+  ): Promise<GetEventConfigurationByResourceTypesCommandOutput> | void {
+    const command = new GetEventConfigurationByResourceTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a FUOTA task.</p>
    */
   public getFuotaTask(
@@ -1742,7 +1869,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Get NetworkAnalyzer configuration.</p>
+   * <p>Get network analyzer configuration.</p>
    */
   public getNetworkAnalyzerConfiguration(
     args: GetNetworkAnalyzerConfigurationCommandInput,
@@ -2257,6 +2384,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>List event configurations where at least one event topic has been enabled.</p>
+   */
+  public listEventConfigurations(
+    args: ListEventConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventConfigurationsCommandOutput>;
+  public listEventConfigurations(
+    args: ListEventConfigurationsCommandInput,
+    cb: (err: any, data?: ListEventConfigurationsCommandOutput) => void
+  ): void;
+  public listEventConfigurations(
+    args: ListEventConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventConfigurationsCommandOutput) => void
+  ): void;
+  public listEventConfigurations(
+    args: ListEventConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListEventConfigurationsCommandOutput) => void
+  ): Promise<ListEventConfigurationsCommandOutput> | void {
+    const command = new ListEventConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the FUOTA tasks registered to your AWS account.</p>
    */
   public listFuotaTasks(
@@ -2353,6 +2512,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Lists the network analyzer configurations.</p>
+   */
+  public listNetworkAnalyzerConfigurations(
+    args: ListNetworkAnalyzerConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput>;
+  public listNetworkAnalyzerConfigurations(
+    args: ListNetworkAnalyzerConfigurationsCommandInput,
+    cb: (err: any, data?: ListNetworkAnalyzerConfigurationsCommandOutput) => void
+  ): void;
+  public listNetworkAnalyzerConfigurations(
+    args: ListNetworkAnalyzerConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkAnalyzerConfigurationsCommandOutput) => void
+  ): void;
+  public listNetworkAnalyzerConfigurations(
+    args: ListNetworkAnalyzerConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNetworkAnalyzerConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListNetworkAnalyzerConfigurationsCommandOutput) => void
+  ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> | void {
+    const command = new ListNetworkAnalyzerConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the partner accounts associated with your AWS account.</p>
    */
   public listPartnerAccounts(
@@ -2385,7 +2576,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>The operation to list queued messages. </p>
+   * <p>List queued messages in the downlink queue.</p>
    */
   public listQueuedMessages(
     args: ListQueuedMessagesCommandInput,
@@ -2993,6 +3184,40 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Update the event configuration by resource types.</p>
+   */
+  public updateEventConfigurationByResourceTypes(
+    args: UpdateEventConfigurationByResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput>;
+  public updateEventConfigurationByResourceTypes(
+    args: UpdateEventConfigurationByResourceTypesCommandInput,
+    cb: (err: any, data?: UpdateEventConfigurationByResourceTypesCommandOutput) => void
+  ): void;
+  public updateEventConfigurationByResourceTypes(
+    args: UpdateEventConfigurationByResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventConfigurationByResourceTypesCommandOutput) => void
+  ): void;
+  public updateEventConfigurationByResourceTypes(
+    args: UpdateEventConfigurationByResourceTypesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateEventConfigurationByResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEventConfigurationByResourceTypesCommandOutput) => void
+  ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> | void {
+    const command = new UpdateEventConfigurationByResourceTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates properties of a FUOTA task.</p>
    */
   public updateFuotaTask(
@@ -3090,7 +3315,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Update NetworkAnalyzer configuration.</p>
+   * <p>Update network analyzer configuration.</p>
    */
   public updateNetworkAnalyzerConfiguration(
     args: UpdateNetworkAnalyzerConfigurationCommandInput,

@@ -1,4 +1,5 @@
 export * from "./SQS";
+// smithy-typescript generated code
 export * from "./SQSClient";
 export * from "./commands";
 export * from "./models";

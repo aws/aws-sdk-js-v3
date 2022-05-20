@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-lookoutvision
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lookoutvision/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutvision)
@@ -121,7 +123,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -155,7 +157,7 @@ client
 
 // callbacks.
 client.createDataset(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

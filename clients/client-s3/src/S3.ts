@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -5979,8 +5980,9 @@ export class S3 extends S3Client {
    *             <b>Rules</b>
    *          </p>
    *          <p>You specify the lifecycle configuration in your request body. The lifecycle
-   *          configuration is specified as XML consisting of one or more rules. Each rule consists of
-   *          the following:</p>
+   *          configuration is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle
+   *          configuration can have up to 1,000 rules. This limit is not adjustable. Each rule consists
+   *          of the following:</p>
    *
    *          <ul>
    *             <li>
@@ -8147,8 +8149,8 @@ export class S3 extends S3Client {
    *          <p>Part numbers can be any number from 1 to 10,000, inclusive. A part number uniquely
    *          identifies a part and also defines its position within the object being created. If you
    *          upload a new part using the same part number that was used with a previous part, the
-   *          previously uploaded part is overwritten. Each part must be at least 5 MB in size, except
-   *          the last part. There is no size limit on the last part of your multipart upload.</p>
+   *          previously uploaded part is overwritten.</p>
+   *          <p>For information about maximum and minimum part sizes and other multipart upload specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>To ensure that data is not corrupted when traversing the network, specify the
    *             <code>Content-MD5</code> header in the upload part request. Amazon S3 checks the part data
    *          against the provided MD5 value. If they do not match, Amazon S3 returns an error. </p>
@@ -8300,9 +8302,7 @@ export class S3 extends S3Client {
    *          data source by adding the request header <code>x-amz-copy-source</code> in your request and
    *          a byte range by adding the request header <code>x-amz-copy-source-range</code> in your
    *          request. </p>
-   *          <p>The minimum allowable part size for a multipart upload is 5 MB. For more information
-   *          about multipart upload limits, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html">Quick
-   *             Facts</a> in the <i>Amazon S3 User Guide</i>. </p>
+   *          <p>For information about maximum and minimum part sizes and other multipart upload specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>. </p>
    *          <note>
    *             <p>Instead of using an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
    *             action and provide data in your request.</p>

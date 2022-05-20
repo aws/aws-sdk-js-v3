@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-s3",
   "description": "AWS SDK for JavaScript S3 Client for Node.js, Browser and React Native",
-  "version": "3.58.0",
+  "version": "3.95.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -51,6 +51,7 @@
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/node-http-handler": "*",
     "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",

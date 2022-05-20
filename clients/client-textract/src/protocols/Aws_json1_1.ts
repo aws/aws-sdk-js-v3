@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -90,6 +91,8 @@ import {
   OutputConfig,
   Point,
   ProvisionedThroughputExceededException,
+  QueriesConfig,
+  Query,
   Relationship,
   S3Object,
   StartDocumentAnalysisRequest,
@@ -1117,6 +1120,10 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (input: AnalyzeDocumentReques
       input.HumanLoopConfig !== null && {
         HumanLoopConfig: serializeAws_json1_1HumanLoopConfig(input.HumanLoopConfig, context),
       }),
+    ...(input.QueriesConfig !== undefined &&
+      input.QueriesConfig !== null && {
+        QueriesConfig: serializeAws_json1_1QueriesConfig(input.QueriesConfig, context),
+      }),
   };
 };
 
@@ -1265,6 +1272,44 @@ const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1Queries = (input: Query[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Query(entry, context);
+    });
+};
+
+const serializeAws_json1_1QueriesConfig = (input: QueriesConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Queries !== undefined &&
+      input.Queries !== null && { Queries: serializeAws_json1_1Queries(input.Queries, context) }),
+  };
+};
+
+const serializeAws_json1_1Query = (input: Query, context: __SerdeContext): any => {
+  return {
+    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
+    ...(input.Pages !== undefined &&
+      input.Pages !== null && { Pages: serializeAws_json1_1QueryPages(input.Pages, context) }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+  };
+};
+
+const serializeAws_json1_1QueryPages = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
@@ -1294,6 +1339,10 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
       }),
     ...(input.OutputConfig !== undefined &&
       input.OutputConfig !== null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.QueriesConfig !== undefined &&
+      input.QueriesConfig !== null && {
+        QueriesConfig: serializeAws_json1_1QueriesConfig(input.QueriesConfig, context),
+      }),
   };
 };
 
@@ -1430,6 +1479,10 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
         : undefined,
     Id: __expectString(output.Id),
     Page: __expectInt32(output.Page),
+    Query:
+      output.Query !== undefined && output.Query !== null
+        ? deserializeAws_json1_1Query(output.Query, context)
+        : undefined,
     Relationships:
       output.Relationships !== undefined && output.Relationships !== null
         ? deserializeAws_json1_1RelationshipList(output.Relationships, context)
@@ -1919,6 +1972,29 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1Query = (output: any, context: __SerdeContext): Query => {
+  return {
+    Alias: __expectString(output.Alias),
+    Pages:
+      output.Pages !== undefined && output.Pages !== null
+        ? deserializeAws_json1_1QueryPages(output.Pages, context)
+        : undefined,
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_json1_1QueryPages = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext): Relationship => {

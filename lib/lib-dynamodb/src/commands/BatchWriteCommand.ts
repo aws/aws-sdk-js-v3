@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   BatchWriteItemCommand as __BatchWriteItemCommand,
   BatchWriteItemCommandInput as __BatchWriteItemCommandInput,

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateGroupCommand";
 export * from "./DeleteGroupCommand";
 export * from "./GetGroupCommand";

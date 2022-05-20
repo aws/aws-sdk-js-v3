@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateEntitiesToExperienceCommand";
 export * from "./AssociatePersonasToEntitiesCommand";
 export * from "./BatchDeleteDocumentCommand";

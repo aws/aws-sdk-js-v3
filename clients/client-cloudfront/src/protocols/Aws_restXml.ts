@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -9,6 +10,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
@@ -433,7 +435,6 @@ import {
   RealtimeLogConfigAlreadyExists,
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
-  ResourceInUse,
   ResponseHeadersPolicy,
   ResponseHeadersPolicyAccessControlAllowHeaders,
   ResponseHeadersPolicyAccessControlAllowMethods,
@@ -450,6 +451,7 @@ import {
   ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyReferrerPolicy,
   ResponseHeadersPolicySecurityHeadersConfig,
+  ResponseHeadersPolicyServerTimingHeadersConfig,
   ResponseHeadersPolicyStrictTransportSecurity,
   ResponseHeadersPolicyXSSProtection,
   Restrictions,
@@ -465,6 +467,7 @@ import {
   StreamingLoggingConfig,
   Tag,
   Tags,
+  TooLongCSPInResponseHeadersPolicy,
   TooManyCacheBehaviors,
   TooManyCachePolicies,
   TooManyCertificates,
@@ -546,6 +549,7 @@ import {
   PublicKeySummary,
   RealtimeLogConfigInUse,
   RealtimeLogConfigs,
+  ResourceInUse,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicySummary,
@@ -4881,6 +4885,9 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
     case "ResponseHeadersPolicyAlreadyExists":
     case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
       throw await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context);
+    case "TooLongCSPInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooLongCSPInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse(parsedOutput, context);
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
@@ -9020,6 +9027,9 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
     case "ResponseHeadersPolicyAlreadyExists":
     case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
       throw await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context);
+    case "TooLongCSPInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooLongCSPInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse(parsedOutput, context);
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
@@ -10342,6 +10352,22 @@ const deserializeAws_restXmlTestFunctionFailedResponse = async (
     contents.Message = __expectString(data["Message"]);
   }
   const exception = new TestFunctionFailed({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooLongCSPInResponseHeadersPolicy> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new TooLongCSPInResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -13041,6 +13067,13 @@ const serializeAws_restXmlResponseHeadersPolicyConfig = (
     ).withName("CustomHeadersConfig");
     bodyNode.addChildNode(node);
   }
+  if (input.ServerTimingHeadersConfig !== undefined && input.ServerTimingHeadersConfig !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyServerTimingHeadersConfig(
+      input.ServerTimingHeadersConfig,
+      context
+    ).withName("ServerTimingHeadersConfig");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -13261,6 +13294,24 @@ const serializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig = (
       input.StrictTransportSecurity,
       context
     ).withName("StrictTransportSecurity");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyServerTimingHeadersConfig = (
+  input: ResponseHeadersPolicyServerTimingHeadersConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyServerTimingHeadersConfig");
+  if (input.Enabled !== undefined && input.Enabled !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SamplingRate !== undefined && input.SamplingRate !== null) {
+    const node = new __XmlNode("SamplingRate")
+      .addChildNode(new __XmlText(String(input.SamplingRate)))
+      .withName("SamplingRate");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -16753,6 +16804,7 @@ const deserializeAws_restXmlResponseHeadersPolicyConfig = (
     CorsConfig: undefined,
     SecurityHeadersConfig: undefined,
     CustomHeadersConfig: undefined,
+    ServerTimingHeadersConfig: undefined,
   };
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
@@ -16772,6 +16824,12 @@ const deserializeAws_restXmlResponseHeadersPolicyConfig = (
   if (output["CustomHeadersConfig"] !== undefined) {
     contents.CustomHeadersConfig = deserializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig(
       output["CustomHeadersConfig"],
+      context
+    );
+  }
+  if (output["ServerTimingHeadersConfig"] !== undefined) {
+    contents.ServerTimingHeadersConfig = deserializeAws_restXmlResponseHeadersPolicyServerTimingHeadersConfig(
+      output["ServerTimingHeadersConfig"],
       context
     );
   }
@@ -17021,6 +17079,23 @@ const deserializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig = (
       output["StrictTransportSecurity"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyServerTimingHeadersConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyServerTimingHeadersConfig => {
+  const contents: any = {
+    Enabled: undefined,
+    SamplingRate: undefined,
+  };
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["Enabled"]);
+  }
+  if (output["SamplingRate"] !== undefined) {
+    contents.SamplingRate = __strictParseFloat(output["SamplingRate"]) as number;
   }
   return contents;
 };

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *                     <code>transactionID</code> parameter, changes that result from the call are
  *                 committed automatically.</p>
  *         </important>
- *         <p>The response size limit is 1 MB. If the call returns more than 1 MB of response data, the call is terminated.</p>
+ *         <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

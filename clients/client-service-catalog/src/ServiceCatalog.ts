@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -2239,7 +2240,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Lists all portfolios for which sharing was accepted by this account.</p>
+   * <p>Lists all imported portfolios for which account-to-account shares were accepted by
+   *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
+   *          organizational shares were accepted by this account.</p>
    */
   public listAcceptedPortfolioShares(
     args: ListAcceptedPortfolioSharesCommandInput,

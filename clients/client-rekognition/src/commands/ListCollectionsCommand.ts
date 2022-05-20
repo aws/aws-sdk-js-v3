@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *     If the result is truncated, the response also provides a <code>NextToken</code>
  *     that you can use in the subsequent request to fetch the next set of collection IDs.</p>
  *
- *          <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For an example, see Listing collections in the Amazon Rekognition Developer Guide.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

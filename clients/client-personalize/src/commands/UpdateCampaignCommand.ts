@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,12 +26,15 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * <p>Updates a campaign by either deploying a new solution or changing the value of the
  *       campaign's <code>minProvisionedTPS</code> parameter.</p>
  *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
- *       Check the campaign status using the <a>DescribeCampaign</a> API.</p>
+ *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
+ *
  *          <note>
- *             <p>You must wait until the <code>status</code> of the
- *         updated campaign is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
+ *             <p>You can still get recommendations from a campaign while an update is in progress.
+ *       The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is <code>Active</code>.
+ *     </p>
  *          </note>
- *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ *
+ *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

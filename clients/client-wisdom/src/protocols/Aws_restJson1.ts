@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -101,7 +102,10 @@ import {
   KnowledgeBaseSummary,
   NotifyRecommendationsReceivedError,
   PreconditionFailedException,
+  QueryRecommendationTriggerData,
   RecommendationData,
+  RecommendationTrigger,
+  RecommendationTriggerData,
   RenderingConfiguration,
   ResourceNotFoundException,
   ResultData,
@@ -1682,6 +1686,9 @@ const deserializeAws_restJson1DeleteKnowledgeBaseCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1956,10 +1963,14 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   const contents: GetRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     recommendations: undefined,
+    triggers: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.recommendations !== undefined && data.recommendations !== null) {
     contents.recommendations = deserializeAws_restJson1RecommendationList(data.recommendations, context);
+  }
+  if (data.triggers !== undefined && data.triggers !== null) {
+    contents.triggers = deserializeAws_restJson1RecommendationTriggerList(data.triggers, context);
   }
   return Promise.resolve(contents);
 };
@@ -3444,6 +3455,15 @@ const deserializeAws_restJson1ObjectFieldsList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1QueryRecommendationTriggerData = (
+  output: any,
+  context: __SerdeContext
+): QueryRecommendationTriggerData => {
+  return {
+    text: __expectString(output.text),
+  } as any;
+};
+
 const deserializeAws_restJson1QueryResultsList = (output: any, context: __SerdeContext): ResultData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3465,6 +3485,7 @@ const deserializeAws_restJson1RecommendationData = (output: any, context: __Serd
     recommendationId: __expectString(output.recommendationId),
     relevanceLevel: __expectString(output.relevanceLevel),
     relevanceScore: __limitedParseDouble(output.relevanceScore),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -3488,6 +3509,49 @@ const deserializeAws_restJson1RecommendationList = (output: any, context: __Serd
         return null as any;
       }
       return deserializeAws_restJson1RecommendationData(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RecommendationTrigger = (output: any, context: __SerdeContext): RecommendationTrigger => {
+  return {
+    data:
+      output.data !== undefined && output.data !== null
+        ? deserializeAws_restJson1RecommendationTriggerData(__expectUnion(output.data), context)
+        : undefined,
+    id: __expectString(output.id),
+    recommendationIds:
+      output.recommendationIds !== undefined && output.recommendationIds !== null
+        ? deserializeAws_restJson1RecommendationIdList(output.recommendationIds, context)
+        : undefined,
+    source: __expectString(output.source),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationTriggerData = (
+  output: any,
+  context: __SerdeContext
+): RecommendationTriggerData => {
+  if (output.query !== undefined && output.query !== null) {
+    return {
+      query: deserializeAws_restJson1QueryRecommendationTriggerData(output.query, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1RecommendationTriggerList = (
+  output: any,
+  context: __SerdeContext
+): RecommendationTrigger[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecommendationTrigger(entry, context);
     });
   return retVal;
 };

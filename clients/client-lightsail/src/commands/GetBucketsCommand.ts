@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,10 +23,12 @@ export interface GetBucketsCommandInput extends GetBucketsRequest {}
 export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about one or more Amazon Lightsail buckets.</p>
+ * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
+ *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
+ *       account-level block public access feature for your Lightsail buckets.</p>
  *
  *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
- *         Guide</i>..</p>
+ *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

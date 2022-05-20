@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DescribeAffectedAccountsForOrganizationCommand";
 export * from "./DescribeAffectedEntitiesCommand";
 export * from "./DescribeAffectedEntitiesForOrganizationCommand";

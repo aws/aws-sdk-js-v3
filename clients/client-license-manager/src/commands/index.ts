@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptGrantCommand";
 export * from "./CheckInLicenseCommand";
 export * from "./CheckoutBorrowLicenseCommand";

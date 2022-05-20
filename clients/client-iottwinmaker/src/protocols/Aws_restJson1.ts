@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -707,6 +708,7 @@ export const serializeAws_restJson1GetPropertyValueHistoryCommand = async (
       input.componentTypeId !== null && { componentTypeId: input.componentTypeId }),
     ...(input.endDateTime !== undefined &&
       input.endDateTime !== null && { endDateTime: Math.round(input.endDateTime.getTime() / 1000) }),
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
     ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
     ...(input.interpolation !== undefined &&
       input.interpolation !== null && {
@@ -725,6 +727,7 @@ export const serializeAws_restJson1GetPropertyValueHistoryCommand = async (
       }),
     ...(input.startDateTime !== undefined &&
       input.startDateTime !== null && { startDateTime: Math.round(input.startDateTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -3376,6 +3379,7 @@ const serializeAws_restJson1ListComponentTypesFilters = (
 const serializeAws_restJson1ListEntitiesFilter = (input: ListEntitiesFilter, context: __SerdeContext): any => {
   return ListEntitiesFilter.visit(input, {
     componentTypeId: (value) => ({ componentTypeId: value }),
+    externalId: (value) => ({ externalId: value }),
     parentEntityId: (value) => ({ parentEntityId: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -3489,6 +3493,7 @@ const serializeAws_restJson1PropertyRequests = (
 
 const serializeAws_restJson1PropertyValue = (input: PropertyValue, context: __SerdeContext): any => {
   return {
+    ...(input.time !== undefined && input.time !== null && { time: input.time }),
     ...(input.timestamp !== undefined &&
       input.timestamp !== null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
     ...(input.value !== undefined &&
@@ -4008,6 +4013,7 @@ const deserializeAws_restJson1PropertyResponses = (
 
 const deserializeAws_restJson1PropertyValue = (output: any, context: __SerdeContext): PropertyValue => {
   return {
+    time: __expectString(output.time),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))

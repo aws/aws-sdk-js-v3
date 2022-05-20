@@ -1,7 +1,26 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { RDSDataServiceException as __BaseException } from "./RDSDataServiceException";
+
+/**
+ * <p>You do not have sufficient access to perform this action.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
 
 /**
  * <p>There is an error in the call or in a SQL statement.</p>
@@ -392,6 +411,16 @@ export namespace ResultSetMetadata {
   });
 }
 
+export enum RecordsFormatType {
+  JSON = "JSON",
+  NONE = "NONE",
+}
+
+export enum LongReturnType {
+  LONG = "LONG",
+  STRING = "STRING",
+}
+
 /**
  * <p>Options that control how the result set is returned.</p>
  */
@@ -408,6 +437,15 @@ export interface ResultSetOptions {
    *         </important>
    */
   decimalReturnType?: DecimalReturnType | string;
+
+  /**
+   * <p>A value that indicates how a field of <code>LONG</code> type is represented.
+   *         Allowed values are <code>LONG</code> and <code>STRING</code>. The default
+   *         is <code>LONG</code>. Specify <code>STRING</code> if the length or
+   *         precision of numeric values might cause truncation or rounding errors.
+   *         </p>
+   */
+  longReturnType?: LongReturnType | string;
 }
 
 export namespace ResultSetOptions {
@@ -494,7 +532,7 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of floating point numbers.</p>
+   * <p>An array of integers.</p>
    */
   export interface LongValuesMember {
     booleanValues?: never;
@@ -506,7 +544,7 @@ export namespace ArrayValue {
   }
 
   /**
-   * <p>An array of integers.</p>
+   * <p>An array of floating-point numbers.</p>
    */
   export interface DoubleValuesMember {
     booleanValues?: never;
@@ -830,7 +868,8 @@ export namespace UpdateResult {
  * <p>Contains the value of a column.</p>
  *
  *         <important>
- *             <p>This data type is deprecated.</p>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
  *         </important>
  */
 export type Value =
@@ -1148,6 +1187,17 @@ export interface ExecuteStatementRequest {
    * <p>Options that control how the result set is returned.</p>
    */
   resultSetOptions?: ResultSetOptions;
+
+  /**
+   * <p>A value that indicates whether to format the result set as a single JSON string.
+   *         This parameter only applies to <code>SELECT</code> statements and is ignored for
+   *         other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>.
+   *         The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p>
+   *         <p>For usage information about the JSON format for result sets, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
+   *           in the <i>Amazon Aurora User Guide</i>.</p>
+   */
+  formatRecordsAs?: RecordsFormatType | string;
 }
 
 export namespace ExecuteStatementRequest {
@@ -1162,6 +1212,10 @@ export namespace ExecuteStatementRequest {
 
 /**
  * <p>A structure value returned by a call.</p>
+ *         <important>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </important>
  */
 export interface StructValue {
   /**
@@ -1273,6 +1327,10 @@ export namespace BatchExecuteStatementResponse {
 
 /**
  * <p>A record returned by a call.</p>
+ *         <important>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </important>
  */
 export interface _Record {
   /**
@@ -1297,12 +1355,14 @@ export namespace _Record {
  */
 export interface ExecuteStatementResponse {
   /**
-   * <p>The records returned by the SQL statement.</p>
+   * <p>The records returned by the SQL statement. This field is blank if the
+   *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   records?: Field[][];
 
   /**
-   * <p>Metadata for the columns included in the results.</p>
+   * <p>Metadata for the columns included in the results. This field is blank if the
+   *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   columnMetadata?: ColumnMetadata[];
 
@@ -1312,7 +1372,7 @@ export interface ExecuteStatementResponse {
   numberOfRecordsUpdated?: number;
 
   /**
-   * <p>Values for fields generated during the request.</p>
+   * <p>Values for fields generated during a DML request.</p>
    *
    *         <note>
    *             <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL.
@@ -1322,6 +1382,15 @@ export interface ExecuteStatementResponse {
    *         </note>
    */
   generatedFields?: Field[];
+
+  /**
+   * <p>A string value that represents the result set of a <code>SELECT</code> statement
+   *         in JSON format. This value is only present when the <code>formatRecordsAs</code>
+   *         parameter is set to <code>JSON</code>.</p>
+   *         <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the
+   *           result set requires more than 10 MB, the call returns an error.</p>
+   */
+  formattedRecords?: string;
 }
 
 export namespace ExecuteStatementResponse {
@@ -1337,6 +1406,10 @@ export namespace ExecuteStatementResponse {
 
 /**
  * <p>The result set returned by a SQL statement.</p>
+ *         <important>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
+ *         </important>
  */
 export interface ResultFrame {
   /**
@@ -1364,7 +1437,8 @@ export namespace ResultFrame {
  * <p>The result of a SQL statement.</p>
  *
  *         <important>
- *             <p>This data type is deprecated.</p>
+ *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
+ *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
  *         </important>
  */
 export interface SqlStatementResult {

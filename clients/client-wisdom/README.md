@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-wisdom
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-wisdom/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-wisdom)
@@ -7,11 +9,9 @@
 
 AWS SDK for JavaScript Wisdom Client for Node.js, Browser and React Native.
 
-<p>All Amazon Connect Wisdom functionality is accessible using the API. For example, you can create an
-assistant and a knowledge base.</p>
-
-<p>Some more advanced features are only accessible using the Wisdom API. For example, you
-can manually manage content by uploading custom files and control their lifecycle. </p>
+<p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're actively
+speaking with customers. Agents can search across connected repositories from within their agent desktop
+to find answers quickly. Use the Amazon Connect Wisdom APIs to create an assistant and a knowledge base, for example, or manage content by uploading custom files.</p>
 
 ## Installing
 
@@ -119,7 +119,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -153,7 +153,7 @@ client
 
 // callbacks.
 client.createAssistant(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

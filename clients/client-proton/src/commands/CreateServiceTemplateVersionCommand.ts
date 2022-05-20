@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,8 +25,8 @@ export interface CreateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i>
- *    backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
+ * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward
+ *       compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

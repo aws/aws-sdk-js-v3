@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,6 +28,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of certificate authorities added for the current account and
  *             Region.</p>
  * @example

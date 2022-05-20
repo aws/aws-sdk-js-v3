@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-braket
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-braket/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-braket)
@@ -7,7 +9,16 @@
 
 AWS SDK for JavaScript Braket Client for Node.js, Browser and React Native.
 
-<p>The Amazon Braket API Reference provides information about the operations and structures supported in Amazon Braket.</p>
+<p>The Amazon Braket API Reference provides information about the operations and structures
+supported in Amazon Braket.</p>
+<p>Additional Resources:</p>
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.html">Amazon Braket Developer Guide</a>
+</p>
+</li>
+</ul>
 
 ## Installing
 
@@ -115,7 +126,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +160,7 @@ client
 
 // callbacks.
 client.cancelJob(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

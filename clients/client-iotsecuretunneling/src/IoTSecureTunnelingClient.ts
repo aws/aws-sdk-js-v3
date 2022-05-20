@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -59,6 +60,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListTunnelsCommandInput, ListTunnelsCommandOutput } from "./commands/ListTunnelsCommand";
 import { OpenTunnelCommandInput, OpenTunnelCommandOutput } from "./commands/OpenTunnelCommand";
+import {
+  RotateTunnelAccessTokenCommandInput,
+  RotateTunnelAccessTokenCommandOutput,
+} from "./commands/RotateTunnelAccessTokenCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -69,6 +74,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTunnelsCommandInput
   | OpenTunnelCommandInput
+  | RotateTunnelAccessTokenCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -78,6 +84,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTunnelsCommandOutput
   | OpenTunnelCommandOutput
+  | RotateTunnelAccessTokenCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
@@ -235,11 +242,11 @@ type IoTSecureTunnelingClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface IoTSecureTunnelingClientResolvedConfig extends IoTSecureTunnelingClientResolvedConfigType {}
 
 /**
- * <fullname>AWS IoT Secure Tunneling</fullname>
- * 		       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices
- * 			deployed in the field.</p>
- *
- * 		       <p>For more information about how AWS IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>.</p>
+ * <fullname>IoT Secure Tunneling</fullname>
+ * 		       <p>IoT Secure Tunneling creates remote connections to devices deployed in the
+ * 			field.</p>
+ * 		       <p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
+ * 				Secure Tunneling</a>.</p>
  */
 export class IoTSecureTunnelingClient extends __Client<
   __HttpHandlerOptions,

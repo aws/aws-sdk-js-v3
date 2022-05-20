@@ -1,7 +1,33 @@
+// smithy-typescript generated code
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "iotsitewise-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "iotsitewise-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "iotsitewise-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -22,6 +48,8 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-us-east-1",
+      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -100,7 +128,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     variants: [
       {

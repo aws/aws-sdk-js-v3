@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateScalingPlanCommand";
 export * from "./DeleteScalingPlanCommand";
 export * from "./DescribeScalingPlanResourcesCommand";

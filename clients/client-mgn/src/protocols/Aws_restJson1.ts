@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -3192,6 +3194,9 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   }
   if (data.quotaCode !== undefined && data.quotaCode !== null) {
     contents.quotaCode = __expectString(data.quotaCode);
+  }
+  if (data.quotaValue !== undefined && data.quotaValue !== null) {
+    contents.quotaValue = __expectInt32(data.quotaValue);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
     contents.resourceId = __expectString(data.resourceId);

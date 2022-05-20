@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -297,6 +298,10 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  UpdatePublicSharingSettingsCommandInput,
+  UpdatePublicSharingSettingsCommandOutput,
+} from "./commands/UpdatePublicSharingSettingsCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -425,6 +430,7 @@ export type ServiceInputTypes =
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateIpRestrictionCommandInput
+  | UpdatePublicSharingSettingsCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -544,6 +550,7 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateIpRestrictionCommandOutput
+  | UpdatePublicSharingSettingsCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

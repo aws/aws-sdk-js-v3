@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
@@ -47,8 +48,9 @@ export async function* paginateScan(
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.LastEvaluatedKey;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

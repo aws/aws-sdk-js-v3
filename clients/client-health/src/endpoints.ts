@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
@@ -49,6 +50,7 @@ const partitionHash: PartitionHash = {
         tags: ["dualstack"],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddAssociationCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociateTrialComponentCommand";

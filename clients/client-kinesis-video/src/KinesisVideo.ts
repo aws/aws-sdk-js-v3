@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -20,6 +21,16 @@ import {
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
+import {
+  DescribeImageGenerationConfigurationCommand,
+  DescribeImageGenerationConfigurationCommandInput,
+  DescribeImageGenerationConfigurationCommandOutput,
+} from "./commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeNotificationConfigurationCommand,
+  DescribeNotificationConfigurationCommandInput,
+  DescribeNotificationConfigurationCommandOutput,
+} from "./commands/DescribeNotificationConfigurationCommand";
 import {
   DescribeSignalingChannelCommand,
   DescribeSignalingChannelCommandInput,
@@ -69,6 +80,16 @@ import {
   UpdateDataRetentionCommandInput,
   UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
+import {
+  UpdateImageGenerationConfigurationCommand,
+  UpdateImageGenerationConfigurationCommandInput,
+  UpdateImageGenerationConfigurationCommandOutput,
+} from "./commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateNotificationConfigurationCommand,
+  UpdateNotificationConfigurationCommandInput,
+  UpdateNotificationConfigurationCommandOutput,
+} from "./commands/UpdateNotificationConfigurationCommand";
 import {
   UpdateSignalingChannelCommand,
   UpdateSignalingChannelCommandInput,
@@ -229,6 +250,70 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
+   */
+  public describeImageGenerationConfiguration(
+    args: DescribeImageGenerationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageGenerationConfigurationCommandOutput>;
+  public describeImageGenerationConfiguration(
+    args: DescribeImageGenerationConfigurationCommandInput,
+    cb: (err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void
+  ): void;
+  public describeImageGenerationConfiguration(
+    args: DescribeImageGenerationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void
+  ): void;
+  public describeImageGenerationConfiguration(
+    args: DescribeImageGenerationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void
+  ): Promise<DescribeImageGenerationConfigurationCommandOutput> | void {
+    const command = new DescribeImageGenerationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
+   */
+  public describeNotificationConfiguration(
+    args: DescribeNotificationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNotificationConfigurationCommandOutput>;
+  public describeNotificationConfiguration(
+    args: DescribeNotificationConfigurationCommandInput,
+    cb: (err: any, data?: DescribeNotificationConfigurationCommandOutput) => void
+  ): void;
+  public describeNotificationConfiguration(
+    args: DescribeNotificationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNotificationConfigurationCommandOutput) => void
+  ): void;
+  public describeNotificationConfiguration(
+    args: DescribeNotificationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotificationConfigurationCommandOutput) => void
+  ): Promise<DescribeNotificationConfigurationCommandOutput> | void {
+    const command = new DescribeNotificationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the most current information about the signaling channel. You must specify
    *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
    *             describe.</p>
@@ -351,8 +436,8 @@ export class KinesisVideo extends KinesisVideoClient {
    *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
    *             results in this API generating an endpoint that a client can use to communicate with any
    *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
-   *             an endpoint that a client can use to communicate only with a
-   *                 <code>MASTER</code>. </p>
+   *             an endpoint that a client can use to communicate only with a <code>MASTER</code>.
+   *         </p>
    */
   public getSignalingChannelEndpoint(
     args: GetSignalingChannelEndpointCommandInput,
@@ -385,8 +470,8 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
-   *             signaling channel. To retrieve only those channels that satisfy a specific condition, you can
-   *             specify a <code>ChannelNameCondition</code>.</p>
+   *             signaling channel. To retrieve only those channels that satisfy a specific condition,
+   *             you can specify a <code>ChannelNameCondition</code>.</p>
    */
   public listSignalingChannels(
     args: ListSignalingChannelsCommandInput,
@@ -513,10 +598,10 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a
-   *             key-value pair (the value is optional) that you can define and assign to AWS resources.
+   *             key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources.
    *             If you specify a tag that already exists, the tag value is replaced with the value that
    *             you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
-   *                 Tags</a> in the <i>AWS Billing and Cost Management User
+   *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User
    *             Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -544,15 +629,15 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    * <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair
-   *             (the value is optional) that you can define and assign to AWS resources. If you specify
+   *             (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify
    *             a tag that already exists, the tag value is replaced with the value that you specify in
    *             the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
-   *                 Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+   *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p>
    *         <p>You must provide either the <code>StreamName</code> or the
    *             <code>StreamARN</code>.</p>
    *         <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
    *             action.</p>
-   *         <p>Kinesis video streams support up to 50 tags.</p>
+   *         <p>A Kinesis video stream can support up to 50 tags.</p>
    */
   public tagStream(args: TagStreamCommandInput, options?: __HttpHandlerOptions): Promise<TagStreamCommandOutput>;
   public tagStream(args: TagStreamCommandInput, cb: (err: any, data?: TagStreamCommandOutput) => void): void;
@@ -689,6 +774,70 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: UpdateDataRetentionCommandOutput) => void
   ): Promise<UpdateDataRetentionCommandOutput> | void {
     const command = new UpdateDataRetentionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
+   */
+  public updateImageGenerationConfiguration(
+    args: UpdateImageGenerationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImageGenerationConfigurationCommandOutput>;
+  public updateImageGenerationConfiguration(
+    args: UpdateImageGenerationConfigurationCommandInput,
+    cb: (err: any, data?: UpdateImageGenerationConfigurationCommandOutput) => void
+  ): void;
+  public updateImageGenerationConfiguration(
+    args: UpdateImageGenerationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImageGenerationConfigurationCommandOutput) => void
+  ): void;
+  public updateImageGenerationConfiguration(
+    args: UpdateImageGenerationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImageGenerationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImageGenerationConfigurationCommandOutput) => void
+  ): Promise<UpdateImageGenerationConfigurationCommandOutput> | void {
+    const command = new UpdateImageGenerationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the notification information for a stream.</p>
+   */
+  public updateNotificationConfiguration(
+    args: UpdateNotificationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotificationConfigurationCommandOutput>;
+  public updateNotificationConfiguration(
+    args: UpdateNotificationConfigurationCommandInput,
+    cb: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
+  ): void;
+  public updateNotificationConfiguration(
+    args: UpdateNotificationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
+  ): void;
+  public updateNotificationConfiguration(
+    args: UpdateNotificationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
+  ): Promise<UpdateNotificationConfigurationCommandOutput> | void {
+    const command = new UpdateNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -46,6 +47,12 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * 				<code>IncludeFilters</code>.</p>
  *             </li>
  *          </ul>
+ *
+ * 		       <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+ * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use the
+ * 			<code>StatisticsConfigurations</code> parameter to have
+ * 			the metric stream also send additional statistics in the stream. Streaming additional statistics incurs
+ * 			additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
  *
  * 		       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
  * 		is created in the <code>running</code> state. If you use it to update an existing stream,

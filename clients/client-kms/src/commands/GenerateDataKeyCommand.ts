@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,18 +23,15 @@ export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
 export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a unique symmetric data key for client-side encryption. This operation returns a
- *       plaintext copy of the data key and a copy that is encrypted under a KMS key that you specify.
- *       You can use the plaintext key to encrypt your data outside of KMS and store the encrypted
+ * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
+ *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
+ *       key that you specify. The bytes in the plaintext key are random; they are not related to the caller or the KMS
+ *       key. You can use the plaintext key to encrypt your data outside of KMS and store the encrypted
  *       data key with the encrypted data.</p>
  *
- *          <p>
- *             <code>GenerateDataKey</code> returns a unique data key for each request. The bytes in the
- *       plaintext key are not related to the caller or the KMS key.</p>
- *
- *          <p>To generate a data key, specify the symmetric KMS key that will be used to encrypt the
- *       data key. You cannot use an asymmetric KMS key to generate data keys. To get the type of your
- *       KMS key, use the <a>DescribeKey</a> operation. You must also specify the length of
+ *          <p>To generate a data key, specify the symmetric encryption KMS key that will be used to
+ *       encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the
+ *       type of your KMS key, use the <a>DescribeKey</a> operation. You must also specify the length of
  *       the data key. Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters
  *       (but not both). For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
  *
@@ -41,14 +39,14 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
  *       random byte string, use <a>GenerateRandom</a>.</p>
  *
- *          <p>You can use the optional encryption context to add additional security to the encryption
+ *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>How to use your data
  *         key</b>

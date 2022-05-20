@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -150,6 +151,10 @@ import {
   UpdateDatasetEntriesCommandOutput,
 } from "../commands/UpdateDatasetEntriesCommand";
 import {
+  UpdateStreamProcessorCommandInput,
+  UpdateStreamProcessorCommandOutput,
+} from "../commands/UpdateStreamProcessorCommand";
+import {
   AccessDeniedException,
   AgeRange,
   Asset,
@@ -166,6 +171,8 @@ import {
   CompareFacesMatch,
   CompareFacesRequest,
   CompareFacesResponse,
+  ConnectedHomeSettings,
+  ConnectedHomeSettingsForUpdate,
   ContentClassifier,
   ContentModerationDetection,
   CoversBodyPart,
@@ -276,6 +283,7 @@ import {
   InvalidS3ObjectException,
   KinesisDataStream,
   KinesisVideoStream,
+  KinesisVideoStreamStartSelector,
   KnownGender,
   Label,
   LabelDetection,
@@ -320,6 +328,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
+  S3Destination,
   S3Object,
   SearchFacesByImageRequest,
   SearchFacesByImageResponse,
@@ -359,10 +368,16 @@ import {
   StopProjectVersionResponse,
   StopStreamProcessorRequest,
   StopStreamProcessorResponse,
+  StreamProcessingStartSelector,
+  StreamProcessingStopSelector,
   StreamProcessor,
+  StreamProcessorDataSharingPreference,
   StreamProcessorInput,
+  StreamProcessorNotificationChannel,
   StreamProcessorOutput,
+  StreamProcessorParameterToDelete,
   StreamProcessorSettings,
+  StreamProcessorSettingsForUpdate,
   Summary,
   Sunglasses,
   TagResourceRequest,
@@ -380,6 +395,8 @@ import {
   UntagResourceResponse,
   UpdateDatasetEntriesRequest,
   UpdateDatasetEntriesResponse,
+  UpdateStreamProcessorRequest,
+  UpdateStreamProcessorResponse,
   ValidationData,
   Video,
   VideoMetadata,
@@ -1138,6 +1155,19 @@ export const serializeAws_json1_1UpdateDatasetEntriesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDatasetEntriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateStreamProcessorCommand = async (
+  input: UpdateStreamProcessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.UpdateStreamProcessor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateStreamProcessorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4784,6 +4814,64 @@ const deserializeAws_json1_1UpdateDatasetEntriesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateStreamProcessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamProcessorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateStreamProcessorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateStreamProcessorResponse(data, context);
+  const response: UpdateStreamProcessorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateStreamProcessorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamProcessorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5079,6 +5167,38 @@ const serializeAws_json1_1CompareFacesRequest = (input: CompareFacesRequest, con
   };
 };
 
+const serializeAws_json1_1ConnectedHomeLabels = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ConnectedHomeSettings = (input: ConnectedHomeSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.Labels !== undefined &&
+      input.Labels !== null && { Labels: serializeAws_json1_1ConnectedHomeLabels(input.Labels, context) }),
+    ...(input.MinConfidence !== undefined &&
+      input.MinConfidence !== null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
+  };
+};
+
+const serializeAws_json1_1ConnectedHomeSettingsForUpdate = (
+  input: ConnectedHomeSettingsForUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Labels !== undefined &&
+      input.Labels !== null && { Labels: serializeAws_json1_1ConnectedHomeLabels(input.Labels, context) }),
+    ...(input.MinConfidence !== undefined &&
+      input.MinConfidence !== null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
+  };
+};
+
 const serializeAws_json1_1ContentClassifiers = (
   input: (ContentClassifier | string)[],
   context: __SerdeContext
@@ -5140,11 +5260,27 @@ const serializeAws_json1_1CreateStreamProcessorRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataSharingPreference !== undefined &&
+      input.DataSharingPreference !== null && {
+        DataSharingPreference: serializeAws_json1_1StreamProcessorDataSharingPreference(
+          input.DataSharingPreference,
+          context
+        ),
+      }),
     ...(input.Input !== undefined &&
       input.Input !== null && { Input: serializeAws_json1_1StreamProcessorInput(input.Input, context) }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NotificationChannel !== undefined &&
+      input.NotificationChannel !== null && {
+        NotificationChannel: serializeAws_json1_1StreamProcessorNotificationChannel(input.NotificationChannel, context),
+      }),
     ...(input.Output !== undefined &&
       input.Output !== null && { Output: serializeAws_json1_1StreamProcessorOutput(input.Output, context) }),
+    ...(input.RegionsOfInterest !== undefined &&
+      input.RegionsOfInterest !== null && {
+        RegionsOfInterest: serializeAws_json1_1RegionsOfInterest(input.RegionsOfInterest, context),
+      }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.Settings !== undefined &&
       input.Settings !== null && { Settings: serializeAws_json1_1StreamProcessorSettings(input.Settings, context) }),
@@ -5574,6 +5710,18 @@ const serializeAws_json1_1KinesisVideoStream = (input: KinesisVideoStream, conte
   };
 };
 
+const serializeAws_json1_1KinesisVideoStreamStartSelector = (
+  input: KinesisVideoStreamStartSelector,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FragmentNumber !== undefined &&
+      input.FragmentNumber !== null && { FragmentNumber: input.FragmentNumber }),
+    ...(input.ProducerTimestamp !== undefined &&
+      input.ProducerTimestamp !== null && { ProducerTimestamp: input.ProducerTimestamp }),
+  };
+};
+
 const serializeAws_json1_1ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -5652,6 +5800,24 @@ const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1Point = (input: Point, context: __SerdeContext): any => {
+  return {
+    ...(input.X !== undefined && input.X !== null && { X: __serializeFloat(input.X) }),
+    ...(input.Y !== undefined && input.Y !== null && { Y: __serializeFloat(input.Y) }),
+  };
+};
+
+const serializeAws_json1_1Polygon = (input: Point[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Point(entry, context);
+    });
+};
+
 const serializeAws_json1_1ProjectNames = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5705,6 +5871,8 @@ const serializeAws_json1_1RegionOfInterest = (input: RegionOfInterest, context: 
   return {
     ...(input.BoundingBox !== undefined &&
       input.BoundingBox !== null && { BoundingBox: serializeAws_json1_1BoundingBox(input.BoundingBox, context) }),
+    ...(input.Polygon !== undefined &&
+      input.Polygon !== null && { Polygon: serializeAws_json1_1Polygon(input.Polygon, context) }),
   };
 };
 
@@ -5717,6 +5885,13 @@ const serializeAws_json1_1RegionsOfInterest = (input: RegionOfInterest[], contex
       }
       return serializeAws_json1_1RegionOfInterest(entry, context);
     });
+};
+
+const serializeAws_json1_1S3Destination = (input: S3Destination, context: __SerdeContext): any => {
+  return {
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.KeyPrefix !== undefined && input.KeyPrefix !== null && { KeyPrefix: input.KeyPrefix }),
+  };
 };
 
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
@@ -5936,6 +6111,14 @@ const serializeAws_json1_1StartStreamProcessorRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StartSelector !== undefined &&
+      input.StartSelector !== null && {
+        StartSelector: serializeAws_json1_1StreamProcessingStartSelector(input.StartSelector, context),
+      }),
+    ...(input.StopSelector !== undefined &&
+      input.StopSelector !== null && {
+        StopSelector: serializeAws_json1_1StreamProcessingStopSelector(input.StopSelector, context),
+      }),
   };
 };
 
@@ -6003,6 +6186,40 @@ const serializeAws_json1_1StopStreamProcessorRequest = (
   };
 };
 
+const serializeAws_json1_1StreamProcessingStartSelector = (
+  input: StreamProcessingStartSelector,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KVSStreamStartSelector !== undefined &&
+      input.KVSStreamStartSelector !== null && {
+        KVSStreamStartSelector: serializeAws_json1_1KinesisVideoStreamStartSelector(
+          input.KVSStreamStartSelector,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1StreamProcessingStopSelector = (
+  input: StreamProcessingStopSelector,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxDurationInSeconds !== undefined &&
+      input.MaxDurationInSeconds !== null && { MaxDurationInSeconds: input.MaxDurationInSeconds }),
+  };
+};
+
+const serializeAws_json1_1StreamProcessorDataSharingPreference = (
+  input: StreamProcessorDataSharingPreference,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OptIn !== undefined && input.OptIn !== null && { OptIn: input.OptIn }),
+  };
+};
+
 const serializeAws_json1_1StreamProcessorInput = (input: StreamProcessorInput, context: __SerdeContext): any => {
   return {
     ...(input.KinesisVideoStream !== undefined &&
@@ -6012,19 +6229,65 @@ const serializeAws_json1_1StreamProcessorInput = (input: StreamProcessorInput, c
   };
 };
 
+const serializeAws_json1_1StreamProcessorNotificationChannel = (
+  input: StreamProcessorNotificationChannel,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SNSTopicArn !== undefined && input.SNSTopicArn !== null && { SNSTopicArn: input.SNSTopicArn }),
+  };
+};
+
 const serializeAws_json1_1StreamProcessorOutput = (input: StreamProcessorOutput, context: __SerdeContext): any => {
   return {
     ...(input.KinesisDataStream !== undefined &&
       input.KinesisDataStream !== null && {
         KinesisDataStream: serializeAws_json1_1KinesisDataStream(input.KinesisDataStream, context),
       }),
+    ...(input.S3Destination !== undefined &&
+      input.S3Destination !== null && {
+        S3Destination: serializeAws_json1_1S3Destination(input.S3Destination, context),
+      }),
   };
+};
+
+const serializeAws_json1_1StreamProcessorParametersToDelete = (
+  input: (StreamProcessorParameterToDelete | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StreamProcessorSettings = (input: StreamProcessorSettings, context: __SerdeContext): any => {
   return {
+    ...(input.ConnectedHome !== undefined &&
+      input.ConnectedHome !== null && {
+        ConnectedHome: serializeAws_json1_1ConnectedHomeSettings(input.ConnectedHome, context),
+      }),
     ...(input.FaceSearch !== undefined &&
       input.FaceSearch !== null && { FaceSearch: serializeAws_json1_1FaceSearchSettings(input.FaceSearch, context) }),
+  };
+};
+
+const serializeAws_json1_1StreamProcessorSettingsForUpdate = (
+  input: StreamProcessorSettingsForUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConnectedHomeForUpdate !== undefined &&
+      input.ConnectedHomeForUpdate !== null && {
+        ConnectedHomeForUpdate: serializeAws_json1_1ConnectedHomeSettingsForUpdate(
+          input.ConnectedHomeForUpdate,
+          context
+        ),
+      }),
   };
 };
 
@@ -6089,6 +6352,34 @@ const serializeAws_json1_1UpdateDatasetEntriesRequest = (
     ...(input.Changes !== undefined &&
       input.Changes !== null && { Changes: serializeAws_json1_1DatasetChanges(input.Changes, context) }),
     ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateStreamProcessorRequest = (
+  input: UpdateStreamProcessorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSharingPreferenceForUpdate !== undefined &&
+      input.DataSharingPreferenceForUpdate !== null && {
+        DataSharingPreferenceForUpdate: serializeAws_json1_1StreamProcessorDataSharingPreference(
+          input.DataSharingPreferenceForUpdate,
+          context
+        ),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParametersToDelete !== undefined &&
+      input.ParametersToDelete !== null && {
+        ParametersToDelete: serializeAws_json1_1StreamProcessorParametersToDelete(input.ParametersToDelete, context),
+      }),
+    ...(input.RegionsOfInterestForUpdate !== undefined &&
+      input.RegionsOfInterestForUpdate !== null && {
+        RegionsOfInterestForUpdate: serializeAws_json1_1RegionsOfInterest(input.RegionsOfInterestForUpdate, context),
+      }),
+    ...(input.SettingsForUpdate !== undefined &&
+      input.SettingsForUpdate !== null && {
+        SettingsForUpdate: serializeAws_json1_1StreamProcessorSettingsForUpdate(input.SettingsForUpdate, context),
+      }),
   };
 };
 
@@ -6385,6 +6676,28 @@ const deserializeAws_json1_1CompareFacesUnmatchList = (output: any, context: __S
       return deserializeAws_json1_1ComparedFace(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ConnectedHomeLabels = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ConnectedHomeSettings = (output: any, context: __SerdeContext): ConnectedHomeSettings => {
+  return {
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_json1_1ConnectedHomeLabels(output.Labels, context)
+        : undefined,
+    MinConfidence: __limitedParseFloat32(output.MinConfidence),
+  } as any;
 };
 
 const deserializeAws_json1_1ContentModerationDetection = (
@@ -6694,18 +7007,31 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
+    DataSharingPreference:
+      output.DataSharingPreference !== undefined && output.DataSharingPreference !== null
+        ? deserializeAws_json1_1StreamProcessorDataSharingPreference(output.DataSharingPreference, context)
+        : undefined,
     Input:
       output.Input !== undefined && output.Input !== null
         ? deserializeAws_json1_1StreamProcessorInput(output.Input, context)
         : undefined,
+    KmsKeyId: __expectString(output.KmsKeyId),
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
+    NotificationChannel:
+      output.NotificationChannel !== undefined && output.NotificationChannel !== null
+        ? deserializeAws_json1_1StreamProcessorNotificationChannel(output.NotificationChannel, context)
+        : undefined,
     Output:
       output.Output !== undefined && output.Output !== null
         ? deserializeAws_json1_1StreamProcessorOutput(output.Output, context)
+        : undefined,
+    RegionsOfInterest:
+      output.RegionsOfInterest !== undefined && output.RegionsOfInterest !== null
+        ? deserializeAws_json1_1RegionsOfInterest(output.RegionsOfInterest, context)
         : undefined,
     RoleArn: __expectString(output.RoleArn),
     Settings:
@@ -7954,6 +8280,31 @@ const deserializeAws_json1_1RecognizeCelebritiesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RegionOfInterest = (output: any, context: __SerdeContext): RegionOfInterest => {
+  return {
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Polygon:
+      output.Polygon !== undefined && output.Polygon !== null
+        ? deserializeAws_json1_1Polygon(output.Polygon, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegionsOfInterest = (output: any, context: __SerdeContext): RegionOfInterest[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RegionOfInterest(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
@@ -7992,6 +8343,13 @@ const deserializeAws_json1_1ResourceNotReadyException = (
     Code: __expectString(output.Code),
     Logref: __expectString(output.Logref),
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
+  return {
+    Bucket: __expectString(output.Bucket),
+    KeyPrefix: __expectString(output.KeyPrefix),
   } as any;
 };
 
@@ -8187,7 +8545,9 @@ const deserializeAws_json1_1StartStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StartStreamProcessorResponse => {
-  return {} as any;
+  return {
+    SessionId: __expectString(output.SessionId),
+  } as any;
 };
 
 const deserializeAws_json1_1StartTextDetectionResponse = (
@@ -8222,6 +8582,15 @@ const deserializeAws_json1_1StreamProcessor = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1StreamProcessorDataSharingPreference = (
+  output: any,
+  context: __SerdeContext
+): StreamProcessorDataSharingPreference => {
+  return {
+    OptIn: __expectBoolean(output.OptIn),
+  } as any;
+};
+
 const deserializeAws_json1_1StreamProcessorInput = (output: any, context: __SerdeContext): StreamProcessorInput => {
   return {
     KinesisVideoStream:
@@ -8243,11 +8612,24 @@ const deserializeAws_json1_1StreamProcessorList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_json1_1StreamProcessorNotificationChannel = (
+  output: any,
+  context: __SerdeContext
+): StreamProcessorNotificationChannel => {
+  return {
+    SNSTopicArn: __expectString(output.SNSTopicArn),
+  } as any;
+};
+
 const deserializeAws_json1_1StreamProcessorOutput = (output: any, context: __SerdeContext): StreamProcessorOutput => {
   return {
     KinesisDataStream:
       output.KinesisDataStream !== undefined && output.KinesisDataStream !== null
         ? deserializeAws_json1_1KinesisDataStream(output.KinesisDataStream, context)
+        : undefined,
+    S3Destination:
+      output.S3Destination !== undefined && output.S3Destination !== null
+        ? deserializeAws_json1_1S3Destination(output.S3Destination, context)
         : undefined,
   } as any;
 };
@@ -8257,6 +8639,10 @@ const deserializeAws_json1_1StreamProcessorSettings = (
   context: __SerdeContext
 ): StreamProcessorSettings => {
   return {
+    ConnectedHome:
+      output.ConnectedHome !== undefined && output.ConnectedHome !== null
+        ? deserializeAws_json1_1ConnectedHomeSettings(output.ConnectedHome, context)
+        : undefined,
     FaceSearch:
       output.FaceSearch !== undefined && output.FaceSearch !== null
         ? deserializeAws_json1_1FaceSearchSettings(output.FaceSearch, context)
@@ -8445,6 +8831,13 @@ const deserializeAws_json1_1UpdateDatasetEntriesResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDatasetEntriesResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateStreamProcessorResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateStreamProcessorResponse => {
   return {} as any;
 };
 

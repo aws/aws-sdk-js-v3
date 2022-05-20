@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** improve error message on stream upload ([#3571](https://github.com/aws/aws-sdk-js-v3/issues/3571)) ([c0ed833](https://github.com/aws/aws-sdk-js-v3/commit/c0ed83347f571b3f5d1e41dc91c172abafb44b7b))
+
+
+
+
+
+# [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.66.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.65.0...v3.66.0) (2022-04-07)
+
+
+### Features
+
+* **signature-v4-multi-region:** support multi-region sigv4a signer ([#3518](https://github.com/aws/aws-sdk-js-v3/issues/3518)) ([16aa220](https://github.com/aws/aws-sdk-js-v3/commit/16aa22042c92b33c702f775b87e830fb767e479c))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3

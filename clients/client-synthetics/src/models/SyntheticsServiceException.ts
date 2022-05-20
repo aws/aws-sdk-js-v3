@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ServiceException as __ServiceException,
   ServiceExceptionOptions as __ServiceExceptionOptions,

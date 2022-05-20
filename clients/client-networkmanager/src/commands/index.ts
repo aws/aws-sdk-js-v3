@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptAttachmentCommand";
 export * from "./AssociateConnectPeerCommand";
 export * from "./AssociateCustomerGatewayCommand";

@@ -1,4 +1,5 @@
 export * from "./CognitoIdentity";
+// smithy-typescript generated code
 export * from "./CognitoIdentityClient";
 export * from "./commands";
 export * from "./models";

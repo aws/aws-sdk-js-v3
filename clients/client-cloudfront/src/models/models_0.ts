@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
@@ -7856,6 +7856,47 @@ export namespace ResponseHeadersPolicySecurityHeadersConfig {
 }
 
 /**
+ * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses sent
+ * 			from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to requests
+ * 			that match a cache behavior that's associated with this response headers policy.</p>
+ * 		       <p>You can use the <code>Server-Timing</code> header to view metrics that can help you gain
+ * 			insights about the behavior and performance of CloudFront. For example, you can see which
+ * 			cache layer served a cache hit, or the first byte latency from the origin when there was
+ * 			a cache miss. You can use the metrics in the <code>Server-Timing</code> header to
+ * 			troubleshoot issues or test the efficiency of your CloudFront configuration. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#server-timing-header">Server-Timing header</a> in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface ResponseHeadersPolicyServerTimingHeadersConfig {
+  /**
+   * <p>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header to HTTP
+   * 			responses that it sends in response to requests that match a cache behavior that's
+   * 			associated with this response headers policy.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to
+   * 			add the <code>Server-Timing</code> header to. When you set the sampling rate to 100,
+   * 			CloudFront adds the <code>Server-Timing</code> header to the HTTP response for every request
+   * 			that matches the cache behavior that this response headers policy is attached to. When
+   * 			you set it to 50, CloudFront adds the header to 50% of the responses for requests that match
+   * 			the cache behavior. You can set the sampling rate to any number 0–100 with up to four
+   * 			decimal places.</p>
+   */
+  SamplingRate?: number;
+}
+
+export namespace ResponseHeadersPolicyServerTimingHeadersConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyServerTimingHeadersConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A response headers policy configuration.</p>
  * 		       <p>A response headers policy configuration contains metadata about the response headers policy,
  * 			and configurations for sets of HTTP response headers and their values. CloudFront adds the
@@ -7890,6 +7931,12 @@ export interface ResponseHeadersPolicyConfig {
    * <p>A configuration for a set of custom HTTP response headers.</p>
    */
   CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
+
+  /**
+   * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
+   * 			sent from CloudFront.</p>
+   */
+  ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig;
 }
 
 export namespace ResponseHeadersPolicyConfig {
@@ -8003,6 +8050,30 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResponseHeadersPolicyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The length of the <code>Content-Security-Policy</code> header value in the response headers
+ * 			policy exceeds the maximum.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
+  readonly name: "TooLongCSPInResponseHeadersPolicy" = "TooLongCSPInResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooLongCSPInResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "TooLongCSPInResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooLongCSPInResponseHeadersPolicy.prototype);
     this.Message = opts.Message;
   }
 }
@@ -8887,41 +8958,4 @@ export class NoSuchResource extends __BaseException {
     Object.setPrototypeOf(this, NoSuchResource.prototype);
     this.Message = opts.Message;
   }
-}
-
-/**
- * <p>Cannot delete this resource because it is in use.</p>
- */
-export class ResourceInUse extends __BaseException {
-  readonly name: "ResourceInUse" = "ResourceInUse";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
-    super({
-      name: "ResourceInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUse.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-export interface DeleteMonitoringSubscriptionRequest {
-  /**
-   * <p>The ID of the distribution that you are disabling metrics for.</p>
-   */
-  DistributionId: string | undefined;
-}
-
-export namespace DeleteMonitoringSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionRequest): any => ({
-    ...obj,
-  });
 }

@@ -1,3 +1,7 @@
+import { AssumeRoleCommand, STSClient } from "@aws-sdk/client-sts";
+
+import { fromTemporaryCredentials } from "./fromTemporaryCredentials";
+
 const sendMock = jest.fn();
 jest.mock("@aws-sdk/client-sts", () => ({
   STSClient: jest.fn().mockImplementation((config) => ({
@@ -16,10 +20,6 @@ jest.mock("@aws-sdk/client-sts", () => ({
     };
   }),
 }));
-
-import { AssumeRoleCommand, STSClient } from "@aws-sdk/client-sts";
-
-import { fromTemporaryCredentials } from "./fromTemporaryCredentials";
 
 describe("fromTemporaryCredentials", () => {
   const RoleArn = "ROLE_ARN";

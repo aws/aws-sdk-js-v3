@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
@@ -384,6 +385,12 @@ it("RestJsonSupportsNaNFloatQueryValues:Request", async () => {
     queryFloat: NaN,
 
     queryDouble: NaN,
+
+    queryParamsMapOfStringList: {
+      Float: ["NaN"],
+
+      Double: ["NaN"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -419,6 +426,12 @@ it("RestJsonSupportsInfinityFloatQueryValues:Request", async () => {
     queryFloat: Infinity,
 
     queryDouble: Infinity,
+
+    queryParamsMapOfStringList: {
+      Float: ["Infinity"],
+
+      Double: ["Infinity"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -454,6 +467,12 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:Request", async () => {
     queryFloat: -Infinity,
 
     queryDouble: -Infinity,
+
+    queryParamsMapOfStringList: {
+      Float: ["-Infinity"],
+
+      Double: ["-Infinity"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -6478,7 +6497,7 @@ it("RestJsonInputUnionWithUnitMember:Request", async () => {
 /**
  * Unit types in unions are serialized like normal structures in responses.
  */
-it.skip("RestJsonOutputUnionWithUnitMember:Response", async () => {
+it("RestJsonOutputUnionWithUnitMember:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -7472,95 +7491,6 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Request", async () => {
 
     expect(r.body).toBeFalsy();
   }
-});
-
-/**
- * Serializes a blob in the HTTP payload with a required length
- */
-it("RestJsonStreamingTraitsRequireLengthWithBlob:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-foo": "Foo",
-        "content-type": "application/octet-stream",
-      },
-      `blobby blob blob`
-    ),
-  });
-
-  const params: any = {};
-  const command = new StreamingTraitsRequireLengthCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      foo: "Foo",
-
-      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
-    },
-  ][0];
-  const comparableBlob = await client.config.streamCollector(r["blob"]);
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
-    } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-    }
-  });
-});
-
-/**
- * Serializes an empty blob in the HTTP payload
- */
-it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-foo": "Foo",
-      },
-      ``
-    ),
-  });
-
-  const params: any = {};
-  const command = new StreamingTraitsRequireLengthCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      foo: "Foo",
-    },
-  ][0];
-  const comparableBlob = await client.config.streamCollector(r["blob"]);
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
-    } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-    }
-  });
 });
 
 /**

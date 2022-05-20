@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -146,6 +147,7 @@ import {
   MarketoMetadata,
   MarketoSourceProperties,
   OAuth2Credentials,
+  OAuth2CustomParameter,
   OAuth2Defaults,
   OAuth2GrantType,
   OAuth2Properties,
@@ -3060,6 +3062,13 @@ const serializeAws_restJson1OAuth2Properties = (input: OAuth2Properties, context
     ...(input.oAuth2GrantType !== undefined &&
       input.oAuth2GrantType !== null && { oAuth2GrantType: input.oAuth2GrantType }),
     ...(input.tokenUrl !== undefined && input.tokenUrl !== null && { tokenUrl: input.tokenUrl }),
+    ...(input.tokenUrlCustomProperties !== undefined &&
+      input.tokenUrlCustomProperties !== null && {
+        tokenUrlCustomProperties: serializeAws_restJson1TokenUrlCustomProperties(
+          input.tokenUrlCustomProperties,
+          context
+        ),
+      }),
   };
 };
 
@@ -3626,6 +3635,21 @@ const serializeAws_restJson1Tasks = (input: Task[], context: __SerdeContext): an
       }
       return serializeAws_restJson1Task(entry, context);
     });
+};
+
+const serializeAws_restJson1TokenUrlCustomProperties = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1TrendmicroConnectorProfileCredentials = (
@@ -4966,11 +4990,45 @@ const deserializeAws_restJson1MarketoSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1OAuth2CustomParameter = (output: any, context: __SerdeContext): OAuth2CustomParameter => {
+  return {
+    connectorSuppliedValues:
+      output.connectorSuppliedValues !== undefined && output.connectorSuppliedValues !== null
+        ? deserializeAws_restJson1ConnectorSuppliedValueList(output.connectorSuppliedValues, context)
+        : undefined,
+    description: __expectString(output.description),
+    isRequired: __expectBoolean(output.isRequired),
+    isSensitiveField: __expectBoolean(output.isSensitiveField),
+    key: __expectString(output.key),
+    label: __expectString(output.label),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1OAuth2CustomPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): OAuth2CustomParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OAuth2CustomParameter(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OAuth2Defaults = (output: any, context: __SerdeContext): OAuth2Defaults => {
   return {
     authCodeUrls:
       output.authCodeUrls !== undefined && output.authCodeUrls !== null
         ? deserializeAws_restJson1AuthCodeUrlList(output.authCodeUrls, context)
+        : undefined,
+    oauth2CustomProperties:
+      output.oauth2CustomProperties !== undefined && output.oauth2CustomProperties !== null
+        ? deserializeAws_restJson1OAuth2CustomPropertiesList(output.oauth2CustomProperties, context)
         : undefined,
     oauth2GrantTypesSupported:
       output.oauth2GrantTypesSupported !== undefined && output.oauth2GrantTypesSupported !== null
@@ -5006,6 +5064,10 @@ const deserializeAws_restJson1OAuth2Properties = (output: any, context: __SerdeC
   return {
     oAuth2GrantType: __expectString(output.oAuth2GrantType),
     tokenUrl: __expectString(output.tokenUrl),
+    tokenUrlCustomProperties:
+      output.tokenUrlCustomProperties !== undefined && output.tokenUrlCustomProperties !== null
+        ? deserializeAws_restJson1TokenUrlCustomProperties(output.tokenUrlCustomProperties, context)
+        : undefined,
   } as any;
 };
 
@@ -5649,6 +5711,21 @@ const deserializeAws_restJson1Tasks = (output: any, context: __SerdeContext): Ta
       return deserializeAws_restJson1Task(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1TokenUrlCustomProperties = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1TokenUrlList = (output: any, context: __SerdeContext): string[] => {

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,6 +29,8 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

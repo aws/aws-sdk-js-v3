@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateCanaryCommand";
 export * from "./DeleteCanaryCommand";
 export * from "./DescribeCanariesCommand";

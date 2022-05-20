@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-data-pipeline
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-data-pipeline/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-data-pipeline)
@@ -131,7 +133,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -165,7 +167,7 @@ client
 
 // callbacks.
 client.activatePipeline(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

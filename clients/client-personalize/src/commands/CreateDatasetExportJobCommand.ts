@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,7 +40,7 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *             </li>
  *          </ul>
  *          <p>
- *       To get the status of the export job, call <a>DescribeDatasetExportJob</a>,
+ *       To get the status of the export job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a>,
  *       and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is
  *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
  *       includes a <code>failureReason</code> key, which describes why the job failed.

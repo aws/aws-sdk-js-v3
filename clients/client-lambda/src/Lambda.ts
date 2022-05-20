@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -26,6 +27,11 @@ import {
   CreateFunctionCommandInput,
   CreateFunctionCommandOutput,
 } from "./commands/CreateFunctionCommand";
+import {
+  CreateFunctionUrlConfigCommand,
+  CreateFunctionUrlConfigCommandInput,
+  CreateFunctionUrlConfigCommandOutput,
+} from "./commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
   DeleteCodeSigningConfigCommand,
@@ -57,6 +63,11 @@ import {
   DeleteFunctionEventInvokeConfigCommandInput,
   DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand";
+import {
+  DeleteFunctionUrlConfigCommand,
+  DeleteFunctionUrlConfigCommandInput,
+  DeleteFunctionUrlConfigCommandOutput,
+} from "./commands/DeleteFunctionUrlConfigCommand";
 import {
   DeleteLayerVersionCommand,
   DeleteLayerVersionCommandInput,
@@ -104,6 +115,11 @@ import {
   GetFunctionEventInvokeConfigCommandInput,
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
+import {
+  GetFunctionUrlConfigCommand,
+  GetFunctionUrlConfigCommandInput,
+  GetFunctionUrlConfigCommandOutput,
+} from "./commands/GetFunctionUrlConfigCommand";
 import {
   GetLayerVersionByArnCommand,
   GetLayerVersionByArnCommandInput,
@@ -153,6 +169,11 @@ import {
   ListFunctionsCommandInput,
   ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand";
+import {
+  ListFunctionUrlConfigsCommand,
+  ListFunctionUrlConfigsCommandInput,
+  ListFunctionUrlConfigsCommandOutput,
+} from "./commands/ListFunctionUrlConfigsCommand";
 import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
   ListLayerVersionsCommand,
@@ -242,6 +263,11 @@ import {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
+import {
+  UpdateFunctionUrlConfigCommand,
+  UpdateFunctionUrlConfigCommandInput,
+  UpdateFunctionUrlConfigCommandOutput,
+} from "./commands/UpdateFunctionUrlConfigCommand";
 import { LambdaClient } from "./LambdaClient";
 
 /**
@@ -675,6 +701,39 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
+   *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
+   */
+  public createFunctionUrlConfig(
+    args: CreateFunctionUrlConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFunctionUrlConfigCommandOutput>;
+  public createFunctionUrlConfig(
+    args: CreateFunctionUrlConfigCommandInput,
+    cb: (err: any, data?: CreateFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public createFunctionUrlConfig(
+    args: CreateFunctionUrlConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public createFunctionUrlConfig(
+    args: CreateFunctionUrlConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionUrlConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateFunctionUrlConfigCommandOutput) => void
+  ): Promise<CreateFunctionUrlConfigCommandOutput> | void {
+    const command = new CreateFunctionUrlConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
    */
   public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
@@ -892,6 +951,39 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> | void {
     const command = new DeleteFunctionEventInvokeConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Lambda function URL. When you delete a function URL, you
+   *       can't recover it. Creating a new function URL results in a different URL address.</p>
+   */
+  public deleteFunctionUrlConfig(
+    args: DeleteFunctionUrlConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFunctionUrlConfigCommandOutput>;
+  public deleteFunctionUrlConfig(
+    args: DeleteFunctionUrlConfigCommandInput,
+    cb: (err: any, data?: DeleteFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public deleteFunctionUrlConfig(
+    args: DeleteFunctionUrlConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public deleteFunctionUrlConfig(
+    args: DeleteFunctionUrlConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionUrlConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFunctionUrlConfigCommandOutput) => void
+  ): Promise<DeleteFunctionUrlConfigCommandOutput> | void {
+    const command = new DeleteFunctionUrlConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1241,6 +1333,38 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: GetFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<GetFunctionEventInvokeConfigCommandOutput> | void {
     const command = new GetFunctionEventInvokeConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns details about a Lambda function URL.</p>
+   */
+  public getFunctionUrlConfig(
+    args: GetFunctionUrlConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionUrlConfigCommandOutput>;
+  public getFunctionUrlConfig(
+    args: GetFunctionUrlConfigCommandInput,
+    cb: (err: any, data?: GetFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public getFunctionUrlConfig(
+    args: GetFunctionUrlConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public getFunctionUrlConfig(
+    args: GetFunctionUrlConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionUrlConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetFunctionUrlConfigCommandOutput) => void
+  ): Promise<GetFunctionUrlConfigCommandOutput> | void {
+    const command = new GetFunctionUrlConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1683,6 +1807,38 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void
   ): Promise<ListFunctionsByCodeSigningConfigCommandOutput> | void {
     const command = new ListFunctionsByCodeSigningConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of Lambda function URLs for the specified function.</p>
+   */
+  public listFunctionUrlConfigs(
+    args: ListFunctionUrlConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionUrlConfigsCommandOutput>;
+  public listFunctionUrlConfigs(
+    args: ListFunctionUrlConfigsCommandInput,
+    cb: (err: any, data?: ListFunctionUrlConfigsCommandOutput) => void
+  ): void;
+  public listFunctionUrlConfigs(
+    args: ListFunctionUrlConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFunctionUrlConfigsCommandOutput) => void
+  ): void;
+  public listFunctionUrlConfigs(
+    args: ListFunctionUrlConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionUrlConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListFunctionUrlConfigsCommandOutput) => void
+  ): Promise<ListFunctionUrlConfigsCommandOutput> | void {
+    const command = new ListFunctionUrlConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2514,6 +2670,38 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> | void {
     const command = new UpdateFunctionEventInvokeConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration for a Lambda function URL.</p>
+   */
+  public updateFunctionUrlConfig(
+    args: UpdateFunctionUrlConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFunctionUrlConfigCommandOutput>;
+  public updateFunctionUrlConfig(
+    args: UpdateFunctionUrlConfigCommandInput,
+    cb: (err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public updateFunctionUrlConfig(
+    args: UpdateFunctionUrlConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void
+  ): void;
+  public updateFunctionUrlConfig(
+    args: UpdateFunctionUrlConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void
+  ): Promise<UpdateFunctionUrlConfigCommandOutput> | void {
+    const command = new UpdateFunctionUrlConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

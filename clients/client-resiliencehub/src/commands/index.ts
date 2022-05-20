@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddDraftAppVersionResourceMappingsCommand";
 export * from "./CreateAppCommand";
 export * from "./CreateRecommendationTemplateCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { CloudFront } from "../CloudFront";
@@ -51,8 +52,9 @@ export async function* paginateListStreamingDistributions(
       throw new Error("Invalid client, expected CloudFront | CloudFrontClient");
     }
     yield page;
+    const prevToken = token;
     token = page.StreamingDistributionList!.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

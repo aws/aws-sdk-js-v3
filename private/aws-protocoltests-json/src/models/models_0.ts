@@ -1,8 +1,9 @@
+// smithy-typescript generated code
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@aws-sdk/smithy-client";
-import { DocumentType as __DocumentType, MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
 

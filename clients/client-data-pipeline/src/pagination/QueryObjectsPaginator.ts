@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import {
@@ -51,8 +52,9 @@ export async function* paginateQueryObjects(
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");
     }
     yield page;
+    const prevToken = token;
     token = page.marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

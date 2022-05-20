@@ -1,4 +1,5 @@
 export * from "./CodeCommit";
+// smithy-typescript generated code
 export * from "./CodeCommitClient";
 export * from "./commands";
 export * from "./models";

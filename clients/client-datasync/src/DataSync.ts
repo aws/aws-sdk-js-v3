@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -16,6 +17,11 @@ import {
   CreateLocationFsxLustreCommandInput,
   CreateLocationFsxLustreCommandOutput,
 } from "./commands/CreateLocationFsxLustreCommand";
+import {
+  CreateLocationFsxOpenZfsCommand,
+  CreateLocationFsxOpenZfsCommandInput,
+  CreateLocationFsxOpenZfsCommandOutput,
+} from "./commands/CreateLocationFsxOpenZfsCommand";
 import {
   CreateLocationFsxWindowsCommand,
   CreateLocationFsxWindowsCommandInput,
@@ -69,6 +75,11 @@ import {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "./commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOpenZfsCommand,
+  DescribeLocationFsxOpenZfsCommandInput,
+  DescribeLocationFsxOpenZfsCommandOutput,
+} from "./commands/DescribeLocationFsxOpenZfsCommand";
 import {
   DescribeLocationFsxWindowsCommand,
   DescribeLocationFsxWindowsCommandInput,
@@ -309,6 +320,38 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
   ): Promise<CreateLocationFsxLustreCommandOutput> | void {
     const command = new CreateLocationFsxLustreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system.</p>
+   */
+  public createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxOpenZfsCommandOutput>;
+  public createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  public createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  public createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
+  ): Promise<CreateLocationFsxOpenZfsCommandOutput> | void {
+    const command = new CreateLocationFsxOpenZfsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -718,8 +761,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path information about an Amazon FSx for Lustre
-   *       location.</p>
+   * <p>Returns metadata about an Amazon FSx for Lustre
+   *       location, such as information about its path.</p>
    */
   public describeLocationFsxLustre(
     args: DescribeLocationFsxLustreCommandInput,
@@ -751,8 +794,41 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path information about an Amazon FSx for Windows File Server
-   *       location.</p>
+   * <p>Returns metadata about an Amazon FSx for OpenZFS
+   *       location, such as information about its path.</p>
+   */
+  public describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxOpenZfsCommandOutput>;
+  public describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  public describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  public describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
+  ): Promise<DescribeLocationFsxOpenZfsCommandOutput> | void {
+    const command = new DescribeLocationFsxOpenZfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata about an Amazon FSx for Windows File Server
+   *       location, such as information about its path.</p>
    */
   public describeLocationFsxWindows(
     args: DescribeLocationFsxWindowsCommandInput,

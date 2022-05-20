@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssignInstanceCommand";
 export * from "./AssignVolumeCommand";
 export * from "./AssociateElasticIpCommand";

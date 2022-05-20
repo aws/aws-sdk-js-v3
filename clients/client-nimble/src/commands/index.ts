@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptEulasCommand";
 export * from "./CreateLaunchProfileCommand";
 export * from "./CreateStreamingImageCommand";

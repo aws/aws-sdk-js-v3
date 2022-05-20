@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
 import { LengthInput, LengthOutput } from "../models/models_0";
 import { deserializeAws_restJson1LengthCommand, serializeAws_restJson1LengthCommand } from "../protocols/Aws_restJson1";

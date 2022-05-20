@@ -1,4 +1,5 @@
 export * from "./CodeGuruProfiler";
+// smithy-typescript generated code
 export * from "./CodeGuruProfilerClient";
 export * from "./commands";
 export * from "./models";

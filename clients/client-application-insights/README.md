@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-application-insights
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-application-insights/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-application-insights)
@@ -128,7 +130,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -162,7 +164,7 @@ client
 
 // callbacks.
 client.createApplication(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddFlowMediaStreamsCommand";
 export * from "./AddFlowOutputsCommand";
 export * from "./AddFlowSourcesCommand";

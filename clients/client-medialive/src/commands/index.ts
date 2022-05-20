@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptInputDeviceTransferCommand";
 export * from "./BatchDeleteCommand";
 export * from "./BatchStartCommand";

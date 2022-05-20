@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  *
  *          <note>
  *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
- *         bucket in your account or another AWS account.</p>
+ *         bucket in your account or another Amazon Web Services account.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

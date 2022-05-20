@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -60,6 +61,7 @@ import {
   GetHLSStreamingSessionURLCommandInput,
   GetHLSStreamingSessionURLCommandOutput,
 } from "./commands/GetHLSStreamingSessionURLCommand";
+import { GetImagesCommandInput, GetImagesCommandOutput } from "./commands/GetImagesCommand";
 import {
   GetMediaForFragmentListCommandInput,
   GetMediaForFragmentListCommandOutput,
@@ -71,6 +73,7 @@ export type ServiceInputTypes =
   | GetClipCommandInput
   | GetDASHStreamingSessionURLCommandInput
   | GetHLSStreamingSessionURLCommandInput
+  | GetImagesCommandInput
   | GetMediaForFragmentListCommandInput
   | ListFragmentsCommandInput;
 
@@ -78,6 +81,7 @@ export type ServiceOutputTypes =
   | GetClipCommandOutput
   | GetDASHStreamingSessionURLCommandOutput
   | GetHLSStreamingSessionURLCommandOutput
+  | GetImagesCommandOutput
   | GetMediaForFragmentListCommandOutput
   | ListFragmentsCommandOutput;
 

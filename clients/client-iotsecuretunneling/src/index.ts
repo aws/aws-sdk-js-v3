@@ -1,4 +1,5 @@
 export * from "./IoTSecureTunneling";
+// smithy-typescript generated code
 export * from "./IoTSecureTunnelingClient";
 export * from "./commands";
 export * from "./models";

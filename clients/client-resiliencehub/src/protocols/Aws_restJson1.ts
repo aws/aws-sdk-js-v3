@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -168,11 +169,14 @@ import {
   RenderRecommendationType,
   ResiliencyPolicy,
   ResiliencyScore,
+  ResourceError,
+  ResourceErrorsDetails,
   ResourceMapping,
   ResourceNotFoundException,
   S3Location,
   ServiceQuotaExceededException,
   SopRecommendation,
+  TerraformSource,
   TestRecommendation,
   ThrottlingException,
   UnsupportedResource,
@@ -220,6 +224,8 @@ export const serializeAws_restJson1CreateAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app";
   let body: any;
   body = JSON.stringify({
+    ...(input.assessmentSchedule !== undefined &&
+      input.assessmentSchedule !== null && { assessmentSchedule: input.assessmentSchedule }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -582,6 +588,10 @@ export const serializeAws_restJson1ImportResourcesToDraftAppVersionCommand = asy
     ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
     ...(input.sourceArns !== undefined &&
       input.sourceArns !== null && { sourceArns: serializeAws_restJson1ArnList(input.sourceArns, context) }),
+    ...(input.terraformSources !== undefined &&
+      input.terraformSources !== null && {
+        terraformSources: serializeAws_restJson1TerraformSourceList(input.terraformSources, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -1091,6 +1101,10 @@ export const serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand 
       input.resourceNames !== null && {
         resourceNames: serializeAws_restJson1EntityNameList(input.resourceNames, context),
       }),
+    ...(input.terraformSourceNames !== undefined &&
+      input.terraformSourceNames !== null && {
+        terraformSourceNames: serializeAws_restJson1String255List(input.terraformSourceNames, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -1235,6 +1249,8 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.assessmentSchedule !== undefined &&
+      input.assessmentSchedule !== null && { assessmentSchedule: input.assessmentSchedule }),
     ...(input.clearResiliencyPolicyArn !== undefined &&
       input.clearResiliencyPolicyArn !== null && { clearResiliencyPolicyArn: input.clearResiliencyPolicyArn }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
@@ -2161,6 +2177,7 @@ export const deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand = a
     appVersion: undefined,
     sourceArns: undefined,
     status: undefined,
+    terraformSources: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appArn !== undefined && data.appArn !== null) {
@@ -2174,6 +2191,9 @@ export const deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand = a
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
+  }
+  if (data.terraformSources !== undefined && data.terraformSources !== null) {
+    contents.terraformSources = deserializeAws_restJson1TerraformSourceList(data.terraformSources, context);
   }
   return Promise.resolve(contents);
 };
@@ -3898,6 +3918,8 @@ const serializeAws_restJson1ResourceMapping = (input: ResourceMapping, context: 
     ...(input.resourceGroupName !== undefined &&
       input.resourceGroupName !== null && { resourceGroupName: input.resourceGroupName }),
     ...(input.resourceName !== undefined && input.resourceName !== null && { resourceName: input.resourceName }),
+    ...(input.terraformSourceName !== undefined &&
+      input.terraformSourceName !== null && { terraformSourceName: input.terraformSourceName }),
   };
 };
 
@@ -3935,6 +3957,24 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   }, {});
 };
 
+const serializeAws_restJson1TerraformSource = (input: TerraformSource, context: __SerdeContext): any => {
+  return {
+    ...(input.s3StateFileUrl !== undefined &&
+      input.s3StateFileUrl !== null && { s3StateFileUrl: input.s3StateFileUrl }),
+  };
+};
+
+const serializeAws_restJson1TerraformSourceList = (input: TerraformSource[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TerraformSource(entry, context);
+    });
+};
+
 const deserializeAws_restJson1AlarmRecommendation = (output: any, context: __SerdeContext): AlarmRecommendation => {
   return {
     appComponentName: __expectString(output.appComponentName),
@@ -3966,9 +4006,22 @@ const deserializeAws_restJson1AlarmRecommendationList = (
   return retVal;
 };
 
+const deserializeAws_restJson1AlarmReferenceIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App => {
   return {
     appArn: __expectString(output.appArn),
+    assessmentSchedule: __expectString(output.assessmentSchedule),
     complianceStatus: __expectString(output.complianceStatus),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -4023,6 +4076,10 @@ const deserializeAws_restJson1AppAssessment = (output: any, context: __SerdeCont
     resiliencyScore:
       output.resiliencyScore !== undefined && output.resiliencyScore !== null
         ? deserializeAws_restJson1ResiliencyScore(output.resiliencyScore, context)
+        : undefined,
+    resourceErrorsDetails:
+      output.resourceErrorsDetails !== undefined && output.resourceErrorsDetails !== null
+        ? deserializeAws_restJson1ResourceErrorsDetails(output.resourceErrorsDetails, context)
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
@@ -4121,6 +4178,7 @@ const deserializeAws_restJson1AppComponentList = (output: any, context: __SerdeC
 const deserializeAws_restJson1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
   return {
     appArn: __expectString(output.appArn),
+    assessmentSchedule: __expectString(output.assessmentSchedule),
     complianceStatus: __expectString(output.complianceStatus),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -4349,6 +4407,7 @@ const deserializeAws_restJson1LogicalResourceId = (output: any, context: __Serde
     identifier: __expectString(output.identifier),
     logicalStackName: __expectString(output.logicalStackName),
     resourceGroupName: __expectString(output.resourceGroupName),
+    terraformSourceName: __expectString(output.terraformSourceName),
   } as any;
 };
 
@@ -4571,6 +4630,36 @@ const deserializeAws_restJson1ResiliencyScore = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1ResourceError = (output: any, context: __SerdeContext): ResourceError => {
+  return {
+    logicalResourceId: __expectString(output.logicalResourceId),
+    physicalResourceId: __expectString(output.physicalResourceId),
+    reason: __expectString(output.reason),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceErrorList = (output: any, context: __SerdeContext): ResourceError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourceError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ResourceErrorsDetails = (output: any, context: __SerdeContext): ResourceErrorsDetails => {
+  return {
+    hasMoreErrors: __expectBoolean(output.hasMoreErrors),
+    resourceErrors:
+      output.resourceErrors !== undefined && output.resourceErrors !== null
+        ? deserializeAws_restJson1ResourceErrorList(output.resourceErrors, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ResourceMapping = (output: any, context: __SerdeContext): ResourceMapping => {
   return {
     appRegistryAppName: __expectString(output.appRegistryAppName),
@@ -4582,6 +4671,7 @@ const deserializeAws_restJson1ResourceMapping = (output: any, context: __SerdeCo
         : undefined,
     resourceGroupName: __expectString(output.resourceGroupName),
     resourceName: __expectString(output.resourceName),
+    terraformSourceName: __expectString(output.terraformSourceName),
   } as any;
 };
 
@@ -4656,9 +4746,31 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
   }, {});
 };
 
+const deserializeAws_restJson1TerraformSource = (output: any, context: __SerdeContext): TerraformSource => {
+  return {
+    s3StateFileUrl: __expectString(output.s3StateFileUrl),
+  } as any;
+};
+
+const deserializeAws_restJson1TerraformSourceList = (output: any, context: __SerdeContext): TerraformSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TerraformSource(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1TestRecommendation = (output: any, context: __SerdeContext): TestRecommendation => {
   return {
     appComponentName: __expectString(output.appComponentName),
+    dependsOnAlarms:
+      output.dependsOnAlarms !== undefined && output.dependsOnAlarms !== null
+        ? deserializeAws_restJson1AlarmReferenceIdList(output.dependsOnAlarms, context)
+        : undefined,
     description: __expectString(output.description),
     intent: __expectString(output.intent),
     items:

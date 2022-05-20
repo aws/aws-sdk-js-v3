@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateReplicationSetCommand";
 export * from "./CreateResponsePlanCommand";
 export * from "./CreateTimelineEventCommand";

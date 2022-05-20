@@ -1,4 +1,5 @@
 export * from "./SWF";
+// smithy-typescript generated code
 export * from "./SWFClient";
 export * from "./commands";
 export * from "./models";

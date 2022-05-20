@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -44,8 +45,9 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *             <b>Rules</b>
  *          </p>
  *          <p>You specify the lifecycle configuration in your request body. The lifecycle
- *          configuration is specified as XML consisting of one or more rules. Each rule consists of
- *          the following:</p>
+ *          configuration is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle
+ *          configuration can have up to 1,000 rules. This limit is not adjustable. Each rule consists
+ *          of the following:</p>
  *
  *          <ul>
  *             <li>

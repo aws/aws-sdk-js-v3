@@ -28,10 +28,10 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.10.0"
+    version = "0.11.0"
 }
 
-extra["smithyVersion"] = "[1.17.0,1.18.0["
+extra["smithyVersion"] = "[1.21.0,1.22.0["
 
 // The root project doesn't produce a JAR.
 tasks["jar"].enabled = false

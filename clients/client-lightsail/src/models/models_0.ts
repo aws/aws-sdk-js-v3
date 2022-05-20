@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
@@ -225,6 +225,133 @@ export namespace AccessRules {
    * @internal
    */
   export const filterSensitiveLog = (obj: AccessRules): any => ({
+    ...obj,
+  });
+}
+
+export enum BPAStatusMessage {
+  DEFAULTED_FOR_SLR_MISSING = "DEFAULTED_FOR_SLR_MISSING",
+  DEFAULTED_FOR_SLR_MISSING_ON_HOLD = "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
+  SYNC_ON_HOLD = "SYNC_ON_HOLD",
+  Unknown = "Unknown",
+}
+
+export enum AccountLevelBpaSyncStatus {
+  Defaulted = "Defaulted",
+  Failed = "Failed",
+  InSync = "InSync",
+  NeverSynced = "NeverSynced",
+}
+
+/**
+ * <p>Describes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
+ *       account-level block public access (BPA) feature for your Lightsail buckets.</p>
+ *
+ *          <p>The account-level BPA feature of Amazon S3 provides centralized controls to limit
+ *       public access to all Amazon S3 buckets in an account. BPA can make all Amazon S3 buckets in an Amazon Web Services account private regardless of the individual bucket and
+ *       object permissions that are configured. Lightsail buckets take into account the
+ *         Amazon S3 account-level BPA configuration when allowing or denying public access. To
+ *       do this, Lightsail periodically fetches the account-level BPA configuration
+ *       from Amazon S3. When the account-level BPA status is <code>InSync</code>, the Amazon S3 account-level BPA configuration is synchronized and it applies to your Lightsail
+ *       buckets. For more information about Amazon Simple Storage Service account-level BPA and how it affects
+ *         Lightsail buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a> in the
+ *           <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface AccountLevelBpaSync {
+  /**
+   * <p>The status of the account-level BPA synchronization.</p>
+   *
+   *          <p>The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InSync</code> - Account-level BPA is synchronized. The Amazon S3
+   *           account-level BPA configuration applies to your Lightsail buckets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NeverSynced</code> - Synchronization has not yet happened. The Amazon S3
+   *           account-level BPA configuration does not apply to your Lightsail buckets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - Synchronization failed. The Amazon S3 account-level BPA
+   *           configuration does not apply to your Lightsail buckets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Defaulted</code> - Synchronization failed and account-level BPA for your
+   *           Lightsail buckets is defaulted to <i>active</i>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You might need to complete further actions if the status is <code>Failed</code> or
+   *           <code>Defaulted</code>. The <code>message</code> parameter provides more information for
+   *         those statuses.</p>
+   *          </note>
+   */
+  status?: AccountLevelBpaSyncStatus | string;
+
+  /**
+   * <p>The timestamp of when the account-level BPA configuration was last synchronized. This
+   *       value is null when the account-level BPA configuration has not been synchronized.</p>
+   */
+  lastSyncedAt?: Date;
+
+  /**
+   * <p>A message that provides a reason for a <code>Failed</code> or <code>Defaulted</code>
+   *       synchronization status.</p>
+   *
+   *          <p>The following messages are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SYNC_ON_HOLD</code> - The synchronization has not yet happened. This status
+   *           message occurs immediately after you create your first Lightsail bucket. This status
+   *           message should change after the first synchronization happens, approximately 1 hour after
+   *           the first bucket is created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULTED_FOR_SLR_MISSING</code> - The synchronization failed because the
+   *           required service-linked role is missing from your Amazon Web Services account. The
+   *           account-level BPA configuration for your Lightsail buckets is defaulted to
+   *             <i>active</i> until the synchronization can occur. This means that all
+   *           your buckets are private and not publicly accessible. For more information about how to
+   *           create the required service-linked role to allow synchronization, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
+   *               <i>Amazon Lightsail Developer Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULTED_FOR_SLR_MISSING_ON_HOLD</code> - The synchronization failed because
+   *           the required service-linked role is missing from your Amazon Web Services account.
+   *           Account-level BPA is not yet configured for your Lightsail buckets. Therefore, only the
+   *           bucket access permissions and individual object access permissions apply to your
+   *           Lightsail buckets. For more information about how to create the required service-linked
+   *           role to allow synchronization, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
+   *               <i>Amazon Lightsail Developer Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unknown</code> - The reason that synchronization failed is unknown. Contact
+   *             Amazon Web Services Support for more information.</p>
+   *             </li>
+   *          </ul>
+   */
+  message?: BPAStatusMessage | string;
+
+  /**
+   * <p>A Boolean value that indicates whether account-level block public access is affecting your
+   *         Lightsail buckets.</p>
+   */
+  bpaImpactsLightsail?: boolean;
+}
+
+export namespace AccountLevelBpaSync {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccountLevelBpaSync): any => ({
     ...obj,
   });
 }
@@ -908,7 +1035,7 @@ export interface Operation {
   createdAt?: Date;
 
   /**
-   * <p>The AWS Region and Availability Zone.</p>
+   * <p>The Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -979,8 +1106,9 @@ export namespace AllocateStaticIpResult {
  *       of an input field.</p>
  *          <note>
  *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) AWS Region. Please set your AWS Region configuration to
- *           <code>us-east-1</code> to create, view, or edit these resources.</p>
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
  *          </note>
  */
 export class InvalidInputException extends __BaseException {
@@ -1551,8 +1679,9 @@ export interface BucketAccessLogConfig {
   enabled: boolean | undefined;
 
   /**
-   * <p>The name of the bucket where the access is saved. The destination can be a Lightsail
-   *       bucket in the same account, and in the same AWS Region as the source bucket.</p>
+   * <p>The name of the bucket where the access logs are saved. The destination can be a
+   *       Lightsail bucket in the same account, and in the same Amazon Web Services Region as the
+   *       source bucket.</p>
    *          <note>
    *             <p>This parameter is required when enabling the access log for a bucket, and should be
    *         omitted when disabling the access log.</p>
@@ -1691,7 +1820,8 @@ export interface Bucket {
   url?: string;
 
   /**
-   * <p>Describes the resource location.</p>
+   * <p>An object that describes the location of the bucket, such as the Amazon Web Services Region
+   *       and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -1739,7 +1869,7 @@ export interface Bucket {
    * <p>Indicates whether the bundle that is currently applied to a bucket can be changed to
    *       another bundle.</p>
    *
-   *          <p>You can update a bucket's bundle only one time within a monthly AWS billing
+   *          <p>You can update a bucket's bundle only one time within a monthly Amazon Web Services billing
    *       cycle.</p>
    *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change a
@@ -1748,8 +1878,8 @@ export interface Bucket {
   ableToUpdateBundle?: boolean;
 
   /**
-   * <p>An array of strings that specify the AWS account IDs that have read-only access to the
-   *       bucket.</p>
+   * <p>An array of strings that specify the Amazon Web Services account IDs that have read-only
+   *       access to the bucket.</p>
    */
   readonlyAccessAccounts?: string[];
 
@@ -2959,8 +3089,8 @@ export interface CloudFormationStackRecord {
   createdAt?: Date;
 
   /**
-   * <p>A list of objects describing the Availability Zone and AWS Region of the CloudFormation
-   *       stack record.</p>
+   * <p>A list of objects describing the Availability Zone and Amazon Web Services Region of the
+   *       CloudFormation stack record.</p>
    */
   location?: ResourceLocation;
 
@@ -3055,7 +3185,7 @@ export interface ContactMethod {
   createdAt?: Date;
 
   /**
-   * <p>Describes the resource location.</p>
+   * <p>An object that describes the location of the contact method, such as the Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -3467,8 +3597,7 @@ export interface ContainerService {
   createdAt?: Date;
 
   /**
-   * <p>An object that describes the location of the container service, such as the AWS Region
-   *       and Availability Zone.</p>
+   * <p>An object that describes the location of the container service, such as the Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -3575,9 +3704,8 @@ export interface ContainerService {
   /**
    * <p>The principal ARN of the container service.</p>
    *
-   *          <p>The principal ARN can be used to create a trust relationship between your standard AWS
-   *       account and your Lightsail container service. This allows you to give your service
-   *       permission to access resources in your standard AWS account.</p>
+   *          <p>The principal ARN can be used to create a trust relationship between your standard Amazon Web Services account and your Lightsail container service. This allows you to give your
+   *       service permission to access resources in your standard Amazon Web Services account.</p>
    */
   principalArn?: string;
 
@@ -3895,7 +4023,8 @@ export interface CopySnapshotRequest {
   targetSnapshotName: string | undefined;
 
   /**
-   * <p>The AWS Region where the source manual or automatic snapshot is located.</p>
+   * <p>The Amazon Web Services Region where the source manual or automatic snapshot is
+   *       located.</p>
    */
   sourceRegion: RegionName | string | undefined;
 }
@@ -4226,7 +4355,8 @@ export interface CreateContactMethodRequest {
   /**
    * <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
-   *          <p>The <code>SMS</code> protocol is supported only in the following AWS Regions.</p>
+   *          <p>The <code>SMS</code> protocol is supported only in the following Amazon Web Services
+   *       Regions.</p>
    *          <ul>
    *             <li>
    *                <p>US East (N. Virginia) (<code>us-east-1</code>)</p>
@@ -4247,8 +4377,8 @@ export interface CreateContactMethodRequest {
    *                <p>Asia Pacific (Sydney) (<code>ap-southeast-2</code>)</p>
    *             </li>
    *          </ul>
-   *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest AWS
-   *       Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
+   *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest
+   *         Amazon Web Services Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
    *         Guide</i>.</p>
    *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
@@ -4309,7 +4439,8 @@ export interface CreateContainerServiceRequest {
    *
    *          <ul>
    *             <li>
-   *                <p>Must be unique within each AWS Region in your Lightsail account.</p>
+   *                <p>Must be unique within each Amazon Web Services Region in your Lightsail
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>Must contain 1 to 63 characters.</p>
@@ -4907,12 +5038,12 @@ export interface LightsailDistribution {
   createdAt?: Date;
 
   /**
-   * <p>An object that describes the location of the distribution, such as the AWS Region and
-   *       Availability Zone.</p>
+   * <p>An object that describes the location of the distribution, such as the Amazon Web Services
+   *       Region and Availability Zone.</p>
    *          <note>
-   *             <p>Lightsail distributions are global resources that can reference an origin in any AWS
-   *         Region, and distribute its content globally. However, all distributions are located in the
-   *           <code>us-east-1</code> Region.</p>
+   *             <p>Lightsail distributions are global resources that can reference an origin in any
+   *           Amazon Web Services Region, and distribute its content globally. However, all distributions
+   *         are located in the <code>us-east-1</code> Region.</p>
    *          </note>
    */
   location?: ResourceLocation;
@@ -5713,6 +5844,17 @@ export interface CreateLoadBalancerRequest {
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The name of the TLS policy to apply to the load balancer.</p>
+   *
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can
+   *       specify.</p>
+   *
+   *          <p>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+   *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  tlsPolicyName?: string;
 }
 
 export namespace CreateLoadBalancerRequest {
@@ -8002,7 +8144,8 @@ export namespace GetAutoSnapshotsResult {
 
 export interface GetBlueprintsRequest {
   /**
-   * <p>A Boolean value indicating whether to include inactive results in your request.</p>
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) blueprints in the
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 
@@ -8085,7 +8228,7 @@ export namespace GetBucketAccessKeysResult {
 export interface GetBucketBundlesRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
-   *       response.</p>
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 }
@@ -8306,8 +8449,8 @@ export interface GetBucketsRequest {
   /**
    * <p>The name of the bucket for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your buckets in the AWS Region where the
-   *       request is made.</p>
+   *          <p>When omitted, the response includes all of your buckets in the Amazon Web Services Region
+   *       where the request is made.</p>
    */
   bucketName?: string;
 
@@ -8352,6 +8495,14 @@ export interface GetBucketsResult {
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An object that describes the synchronization status of the Amazon S3 account-level
+   *       block public access feature for your Lightsail buckets.</p>
+   *
+   *          <p>For more information about this feature and how it affects Lightsail buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a>.</p>
+   */
+  accountLevelBpaSync?: AccountLevelBpaSync;
 }
 
 export namespace GetBucketsResult {
@@ -8365,8 +8516,8 @@ export namespace GetBucketsResult {
 
 export interface GetBundlesRequest {
   /**
-   * <p>A Boolean value that indicates whether to include inactive bundle results in your
-   *       request.</p>
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 
@@ -8417,8 +8568,8 @@ export interface GetCertificatesRequest {
    * <p>The status of the certificates for which to return information.</p>
    *          <p>For example, specify <code>ISSUED</code> to return only certificates with an
    *         <code>ISSUED</code> status.</p>
-   *          <p>When omitted, the response includes all of your certificates in the AWS Region where the
-   *       request is made, regardless of their current status.</p>
+   *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
+   *       Region where the request is made, regardless of their current status.</p>
    */
   certificateStatuses?: (CertificateStatus | string)[];
 
@@ -8432,8 +8583,8 @@ export interface GetCertificatesRequest {
 
   /**
    * <p>The name for the certificate for which to return information.</p>
-   *          <p>When omitted, the response includes all of your certificates in the AWS Region where the
-   *       request is made.</p>
+   *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
+   *       Region where the request is made.</p>
    */
   certificateName?: string;
 }
@@ -8918,8 +9069,7 @@ export interface GetContainerServicesRequest {
   /**
    * <p>The name of the container service for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your container services in the AWS Region
-   *       where the request is made.</p>
+   *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
    */
   serviceName?: string;
 }
@@ -9359,8 +9509,8 @@ export interface GetDistributionsRequest {
   /**
    * <p>The name of the distribution for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your distributions in the AWS Region where
-   *       the request is made.</p>
+   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
+   *       Region where the request is made.</p>
    */
   distributionName?: string;
 
@@ -9566,187 +9716,6 @@ export namespace InstanceHardware {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceHardware): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the monthly data transfer in and out of your virtual private server (or
- *         <i>instance</i>).</p>
- */
-export interface MonthlyTransfer {
-  /**
-   * <p>The amount allocated per month (in GB).</p>
-   */
-  gbPerMonthAllocated?: number;
-}
-
-export namespace MonthlyTransfer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonthlyTransfer): any => ({
-    ...obj,
-  });
-}
-
-export enum PortAccessType {
-  Private = "Private",
-  Public = "Public",
-}
-
-/**
- * <p>Describes information about ports for an Amazon Lightsail instance.</p>
- */
-export interface InstancePortInfo {
-  /**
-   * <p>The first port in a range of open ports on an instance.</p>
-   *          <p>Allowed ports:</p>
-   *          <ul>
-   *             <li>
-   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
-   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
-   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
-   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
-   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
-   *             Control Message Protocol for IPv6</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  fromPort?: number;
-
-  /**
-   * <p>The last port in a range of open ports on an instance.</p>
-   *          <p>Allowed ports:</p>
-   *          <ul>
-   *             <li>
-   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
-   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
-   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
-   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
-   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
-   *             Control Message Protocol for IPv6</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  toPort?: number;
-
-  /**
-   * <p>The IP protocol name.</p>
-   *          <p>The name can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
-   *           error-checked delivery of streamed data between applications running on hosts
-   *           communicating by an IP network. If you have an application that doesn't require reliable
-   *           data stream service, use UDP instead.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>all</code> - All transport layer protocol types. For more general information,
-   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
-   *             <i>Wikipedia</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
-   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
-   *           communications are not required to set up transmission channels or data paths.
-   *           Applications that don't require reliable data stream service can use UDP, which provides a
-   *           connectionless datagram service that emphasizes reduced latency over reliability. If you
-   *           do require reliable data stream service, use TCP instead.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
-   *           messages and operational information indicating success or failure when communicating with
-   *           an instance. For example, an error is indicated when an instance could not be reached.
-   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
-   *           type using the <code>fromPort</code> parameter, and ICMP code using the
-   *             <code>toPort</code> parameter.</p>
-   *             </li>
-   *          </ul>
-   */
-  protocol?: NetworkProtocol | string;
-
-  /**
-   * <p>The location from which access is allowed. For example, <code>Anywhere (0.0.0.0/0)</code>,
-   *       or <code>Custom</code> if a specific IP address or range of IP addresses is allowed.</p>
-   */
-  accessFrom?: string;
-
-  /**
-   * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
-   */
-  accessType?: PortAccessType | string;
-
-  /**
-   * <p>The common name of the port information.</p>
-   */
-  commonName?: string;
-
-  /**
-   * <p>The access direction (<code>inbound</code> or <code>outbound</code>).</p>
-   *          <note>
-   *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
-   *          </note>
-   */
-  accessDirection?: AccessDirection | string;
-
-  /**
-   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
-   *       connect to an instance through the ports, and the protocol.</p>
-   *          <note>
-   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
-   *         connect to an instance.</p>
-   *          </note>
-   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
-   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
-   */
-  cidrs?: string[];
-
-  /**
-   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
-   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
-   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
-   *          <note>
-   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
-   *         an instance.</p>
-   *          </note>
-   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
-   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
-   */
-  ipv6Cidrs?: string[];
-
-  /**
-   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
-   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
-   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
-   *       instance.</p>
-   */
-  cidrListAliases?: string[];
-}
-
-export namespace InstancePortInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancePortInfo): any => ({
     ...obj,
   });
 }

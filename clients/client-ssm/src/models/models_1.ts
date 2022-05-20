@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   AssociationComplianceSeverity,
@@ -32,7 +32,6 @@ import {
   OpsItemStatus,
   ParameterInlinePolicy,
   ParameterStringFilter,
-  ParameterTier,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -53,6 +52,12 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+export enum ParameterTier {
+  ADVANCED = "Advanced",
+  INTELLIGENT_TIERING = "Intelligent-Tiering",
+  STANDARD = "Standard",
+}
 
 export enum ParameterType {
   SECURE_STRING = "SecureString",
@@ -1254,13 +1259,13 @@ export interface GetCommandInvocationRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The name of the plugin for which you want detailed results. If the document contains only
-   *    one plugin, you can omit the name and details for that plugin. If the document contains more than
-   *    one plugin, you must specify the name of the plugin for which you want to view details.</p>
-   *          <p>Plugin names are also referred to as <i>step names</i> in Systems Manager documents (SSM
-   *    documents). For example, <code>aws:RunShellScript</code> is a plugin.</p>
+   * <p>The name of the step for which you want detailed results. If the document contains only one
+   *    step, you can omit the name and details for that step. If the document contains more than one
+   *    step, you must specify the name of the step for which you want to view details. Be sure to
+   *    specify the name of the step, not the name of a plugin like
+   *    <code>aws:RunShellScript</code>.</p>
    *          <p>To find the <code>PluginName</code>, check the document content and find the name of the
-   *    plugin. Alternatively, use <a>ListCommandInvocations</a> with the
+   *    step you want details for. Alternatively, use <a>ListCommandInvocations</a> with the
    *     <code>CommandId</code> and <code>Details</code> parameters. The <code>PluginName</code> is the
    *     <code>Name</code> attribute of the <code>CommandPlugin</code> object in the
    *     <code>CommandPlugins</code> list.</p>
@@ -4518,6 +4523,17 @@ export interface Association {
    * <p>The association name.</p>
    */
   AssociationName?: string;
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace Association {
@@ -4702,6 +4718,17 @@ export interface AssociationVersionInfo {
    *    when this association version was created.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace AssociationVersionInfo {
@@ -8971,6 +8998,9 @@ export interface RemoveTagsFromResourceRequest {
    * <p>The ID of the resource from which you want to remove tags. For example:</p>
    *          <p>ManagedInstance: mi-012345abcde</p>
    *          <p>MaintenanceWindow: mw-012345abcde</p>
+   *          <p>
+   *             <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code>
+   *          </p>
    *          <p>PatchBaseline: pb-012345abcde</p>
    *          <p>OpsMetadata object: <code>ResourceID</code> for tagging is created from the Amazon Resource
    *    Name (ARN) for the object. Specifically, <code>ResourceID</code> is created from the strings that
@@ -9700,7 +9730,7 @@ export interface StartAutomationExecutionRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a>
+   *             <p>To add tags to an existing automation, use the <a>AddTagsToResource</a>
    *     operation.</p>
    *          </note>
    */
@@ -10314,6 +10344,25 @@ export interface UpdateAssociationRequest {
    *    accounts.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association. For example, if you
+   *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
+   *    to run the association each Sunday after the second Thursday of the month. For more information
+   *    about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron
+   *     and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   *          <note>
+   *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
+   *     option tells the system not to run an association immediately after you create it. </p>
+   *          </note>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace UpdateAssociationRequest {
@@ -10647,32 +10696,6 @@ export namespace DocumentReviews {
    * @internal
    */
   export const filterSensitiveLog = (obj: DocumentReviews): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDocumentMetadataRequest {
-  /**
-   * <p>The name of the change template for which a version's metadata is to be updated.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The version of a change template in which to update approval metadata.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The change template review details to update.</p>
-   */
-  DocumentReviews: DocumentReviews | undefined;
-}
-
-export namespace UpdateDocumentMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
     ...obj,
   });
 }

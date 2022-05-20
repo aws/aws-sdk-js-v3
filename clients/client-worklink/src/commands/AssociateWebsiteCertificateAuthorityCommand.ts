@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,6 +28,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>
  * @example

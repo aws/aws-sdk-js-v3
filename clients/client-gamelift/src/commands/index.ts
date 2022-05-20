@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptMatchCommand";
 export * from "./ClaimGameServerCommand";
 export * from "./CreateAliasCommand";

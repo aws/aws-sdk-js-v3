@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
@@ -202,6 +203,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-isob-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-isob-east-1.sc2s.sgov.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1": {
     variants: [
       {
@@ -325,7 +334,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["fips-us-isob-east-1", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     variants: [
       {

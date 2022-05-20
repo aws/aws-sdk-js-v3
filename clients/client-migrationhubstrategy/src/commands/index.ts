@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./GetApplicationComponentDetailsCommand";
 export * from "./GetApplicationComponentStrategiesCommand";
 export * from "./GetAssessmentCommand";

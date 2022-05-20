@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-app-mesh
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-app-mesh/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-app-mesh)
@@ -7,15 +9,17 @@
 
 AWS SDK for JavaScript AppMesh Client for Node.js, Browser and React Native.
 
-<p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to monitor and
-control microservices. App Mesh standardizes how your microservices communicate, giving you
-end-to-end visibility and helping to ensure high availability for your applications.</p>
-<p>App Mesh gives you consistent visibility and network traffic controls for every
-microservice in an application. You can use App Mesh with Amazon Web Services Fargate, Amazon ECS, Amazon EKS,
-Kubernetes on Amazon Web Services, and Amazon EC2.</p>
+<p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to
+monitor and control microservices. App Mesh standardizes how your microservices
+communicate, giving you end-to-end visibility and helping to ensure high availability for
+your applications.</p>
+<p>App Mesh gives you consistent visibility and network traffic controls for
+every microservice in an application. You can use App Mesh with Amazon Web Services Fargate, Amazon ECS, Amazon EKS, Kubernetes on Amazon Web Services, and
+Amazon EC2.</p>
 <note>
-<p>App Mesh supports microservice applications that use service discovery naming for their
-components. For more information about service discovery on Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service Discovery</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes
+<p>App Mesh supports microservice applications that use service discovery
+naming for their components. For more information about service discovery on Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+Discovery</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes
 <code>kube-dns</code> and <code>coredns</code> are supported. For more information,
 see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
 for Services and Pods</a> in the Kubernetes documentation.</p>
@@ -127,7 +131,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -161,7 +165,7 @@ client
 
 // callbacks.
 client.createGatewayRoute(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

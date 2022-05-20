@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { Codeartifact } from "../Codeartifact";
@@ -51,8 +52,9 @@ export async function* paginateListPackageVersions(
       throw new Error("Invalid client, expected Codeartifact | CodeartifactClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

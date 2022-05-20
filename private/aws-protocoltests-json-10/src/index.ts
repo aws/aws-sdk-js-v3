@@ -1,4 +1,5 @@
 export * from "./JSONRPC10";
+// smithy-typescript generated code
 export * from "./JSONRPC10Client";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchCreateVariableCommand";
 export * from "./BatchGetVariableCommand";
 export * from "./CancelBatchImportJobCommand";

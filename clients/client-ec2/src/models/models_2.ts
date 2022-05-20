@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   AccountAttribute,
   AccountAttributeName,
@@ -5,7 +6,6 @@ import {
   AddressAttribute,
   AddressAttributeName,
   ApplianceModeSupportValue,
-  AssociationStatus,
   BundleTask,
   ByoipCidr,
   CapacityReservation,
@@ -37,6 +37,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  CreateTransitGatewayConnectRequestOptions,
   GroupIdentifier,
   Ipam,
   IpamPool,
@@ -50,6 +51,39 @@ import {
   TransitGateway,
   VolumeType,
 } from "./models_1";
+
+export interface CreateTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
+   */
+  TransportTransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The Connect attachment options.</p>
+   */
+  Options: CreateTransitGatewayConnectRequestOptions | undefined;
+
+  /**
+   * <p>The tags to apply to the Connect attachment.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayConnectRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the Connect attachment options.</p>
@@ -1404,6 +1438,38 @@ export namespace CreateVpcResult {
   });
 }
 
+export enum DnsRecordIpType {
+  dualstack = "dualstack",
+  ipv4 = "ipv4",
+  ipv6 = "ipv6",
+  service_defined = "service-defined",
+}
+
+/**
+ * <p>Describes the DNS options for an endpoint.</p>
+ */
+export interface DnsOptionsSpecification {
+  /**
+   * <p>The DNS records created for the endpoint.</p>
+   */
+  DnsRecordIpType?: DnsRecordIpType | string;
+}
+
+export namespace DnsOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DnsOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+export enum IpAddressType {
+  dualstack = "dualstack",
+  ipv4 = "ipv4",
+  ipv6 = "ipv6",
+}
+
 export enum VpcEndpointType {
   Gateway = "Gateway",
   GatewayLoadBalancer = "GatewayLoadBalancer",
@@ -1461,6 +1527,16 @@ export interface CreateVpcEndpointRequest {
    *             endpoint network interface.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>The IP address type for the endpoint.</p>
+   */
+  IpAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The DNS options for the endpoint.</p>
+   */
+  DnsOptions?: DnsOptionsSpecification;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1521,6 +1597,25 @@ export namespace DnsEntry {
    * @internal
    */
   export const filterSensitiveLog = (obj: DnsEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the DNS options for an endpoint.</p>
+ */
+export interface DnsOptions {
+  /**
+   * <p>The DNS records created for the endpoint.</p>
+   */
+  DnsRecordIpType?: DnsRecordIpType | string;
+}
+
+export namespace DnsOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DnsOptions): any => ({
     ...obj,
   });
 }
@@ -1589,7 +1684,7 @@ export enum State {
  */
 export interface VpcEndpoint {
   /**
-   * <p>The ID of the VPC endpoint.</p>
+   * <p>The ID of the endpoint.</p>
    */
   VpcEndpointId?: string;
 
@@ -1609,7 +1704,7 @@ export interface VpcEndpoint {
   ServiceName?: string;
 
   /**
-   * <p>The state of the VPC endpoint.</p>
+   * <p>The state of the endpoint.</p>
    */
   State?: State | string;
 
@@ -1624,7 +1719,7 @@ export interface VpcEndpoint {
   RouteTableIds?: string[];
 
   /**
-   * <p>(Interface endpoint) One or more subnets in which the endpoint is located.</p>
+   * <p>(Interface endpoint) The subnets for the endpoint.</p>
    */
   SubnetIds?: string[];
 
@@ -1635,12 +1730,22 @@ export interface VpcEndpoint {
   Groups?: SecurityGroupIdentifier[];
 
   /**
+   * <p>The IP address type for the endpoint.</p>
+   */
+  IpAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The DNS options for the endpoint.</p>
+   */
+  DnsOptions?: DnsOptions;
+
+  /**
    * <p>(Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.</p>
    */
   PrivateDnsEnabled?: boolean;
 
   /**
-   * <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+   * <p>Indicates whether the endpoint is being managed by its service.</p>
    */
   RequesterManaged?: boolean;
 
@@ -1655,22 +1760,22 @@ export interface VpcEndpoint {
   DnsEntries?: DnsEntry[];
 
   /**
-   * <p>The date and time that the VPC endpoint was created.</p>
+   * <p>The date and time that the endpoint was created.</p>
    */
   CreationTimestamp?: Date;
 
   /**
-   * <p>Any tags assigned to the VPC endpoint.</p>
+   * <p>Any tags assigned to the endpoint.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
+   * <p>The ID of the Amazon Web Services account that owns the endpoint.</p>
    */
   OwnerId?: string;
 
   /**
-   * <p>The last error that occurred for VPC endpoint.</p>
+   * <p>The last error that occurred for endpoint.</p>
    */
   LastError?: LastError;
 }
@@ -1848,7 +1953,7 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 
   /**
    * <p>Indicates whether requests from service consumers to create an endpoint to your service must
-   *             be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>
+   *             be accepted manually.</p>
    */
   AcceptanceRequired?: boolean;
 
@@ -1867,6 +1972,11 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
    * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
    */
   GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   */
+  SupportedIpAddressTypes?: string[];
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -1901,10 +2011,7 @@ export enum DnsNameState {
 }
 
 /**
- * <p>Information about the private DNS name for the service endpoint. For more information
- *             about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service
- *                 Private DNS Name Verification</a> in the
- *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Information about the private DNS name for the service endpoint.</p>
  */
 export interface PrivateDnsNameConfiguration {
   /**
@@ -1973,6 +2080,11 @@ export namespace ServiceTypeDetail {
   });
 }
 
+export enum ServiceConnectivityType {
+  ipv4 = "ipv4",
+  ipv6 = "ipv6",
+}
+
 /**
  * <p>Describes a service configuration for a VPC endpoint service.</p>
  */
@@ -2022,6 +2134,11 @@ export interface ServiceConfiguration {
    * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
    */
   GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The supported IP address types.</p>
+   */
+  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
 
   /**
    * <p>The DNS names for the service.</p>
@@ -8357,248 +8474,6 @@ export namespace DescribeClientVpnRoutesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeClientVpnRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a Client VPN endpoint route.</p>
- */
-export interface ClientVpnRoute {
-  /**
-   * <p>The ID of the Client VPN endpoint with which the route is associated.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
-   */
-  DestinationCidr?: string;
-
-  /**
-   * <p>The ID of the subnet through which traffic is routed.</p>
-   */
-  TargetSubnet?: string;
-
-  /**
-   * <p>The route type.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>Indicates how the route was associated with the Client VPN endpoint.
-   * 			<code>associate</code> indicates that the route was automatically added when the target network
-   * 			was associated with the Client VPN endpoint. <code>add-route</code> indicates that the route
-   * 			was manually added using the <b>CreateClientVpnRoute</b> action.</p>
-   */
-  Origin?: string;
-
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-
-  /**
-   * <p>A brief description of the route.</p>
-   */
-  Description?: string;
-}
-
-export namespace ClientVpnRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnRoute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnRoutesResult {
-  /**
-   * <p>Information about the Client VPN endpoint routes.</p>
-   */
-  Routes?: ClientVpnRoute[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnTargetNetworksRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IDs of the target network associations.</p>
-   */
-  AssociationIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-network-id</code> - The ID of the subnet specified as the target network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeClientVpnTargetNetworksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a target network associated with a Client VPN endpoint.</p>
- */
-export interface TargetNetwork {
-  /**
-   * <p>The ID of the association.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the subnet specified as the target network.</p>
-   */
-  TargetNetworkId?: string;
-
-  /**
-   * <p>The ID of the Client VPN endpoint with which the target network is associated.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current state of the target network association.</p>
-   */
-  Status?: AssociationStatus;
-
-  /**
-   * <p>The IDs of the security groups applied to the target network association.</p>
-   */
-  SecurityGroups?: string[];
-}
-
-export namespace TargetNetwork {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetNetwork): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnTargetNetworksResult {
-  /**
-   * <p>Information about the associated target networks.</p>
-   */
-  ClientVpnTargetNetworks?: TargetNetwork[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnTargetNetworksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCoipPoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeCoipPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
     ...obj,
   });
 }

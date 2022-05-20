@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -66,6 +67,7 @@ import {
 } from "./commands/GetOutpostInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
 import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
@@ -98,6 +100,7 @@ export type ServiceInputTypes =
   | GetOutpostInstanceTypesCommandInput
   | GetSiteAddressCommandInput
   | GetSiteCommandInput
+  | ListAssetsCommandInput
   | ListCatalogItemsCommandInput
   | ListOrdersCommandInput
   | ListOutpostsCommandInput
@@ -123,6 +126,7 @@ export type ServiceOutputTypes =
   | GetOutpostInstanceTypesCommandOutput
   | GetSiteAddressCommandOutput
   | GetSiteCommandOutput
+  | ListAssetsCommandOutput
   | ListCatalogItemsCommandOutput
   | ListOrdersCommandOutput
   | ListOutpostsCommandOutput

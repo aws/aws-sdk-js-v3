@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteMonitoringSubscriptionRequest } from "../models/models_0";
-import { DeleteMonitoringSubscriptionResult } from "../models/models_1";
+import { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteMonitoringSubscriptionCommand,
   serializeAws_restXmlDeleteMonitoringSubscriptionCommand,

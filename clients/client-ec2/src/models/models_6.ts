@@ -1,3 +1,6 @@
+// smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   AddressAttribute,
@@ -40,8 +43,423 @@ import {
   InstanceNetworkInterfaceSpecification,
   RunInstancesMonitoringEnabled,
   SnapshotAttributeName,
+  SpotFleetRequestConfigData,
+  SpotInstanceRequest,
+  SpotPlacement,
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+
+export interface ReplaceTransitGatewayRouteResult {
+  /**
+   * <p>Information about the modified route.</p>
+   */
+  Route?: TransitGatewayRoute;
+}
+
+export namespace ReplaceTransitGatewayRouteResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
+    ...obj,
+  });
+}
+
+export type ReportInstanceReasonCodes =
+  | "instance-stuck-in-state"
+  | "not-accepting-credentials"
+  | "other"
+  | "password-not-available"
+  | "performance-ebs-volume"
+  | "performance-instance-store"
+  | "performance-network"
+  | "performance-other"
+  | "unresponsive";
+
+export type ReportStatusType = "impaired" | "ok";
+
+export interface ReportInstanceStatusRequest {
+  /**
+   * <p>Descriptive text about the health state of your instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The time at which the reported instance health state ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The instances.</p>
+   */
+  Instances: string[] | undefined;
+
+  /**
+   * <p>The reason codes that describe the health state of your instance.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>unresponsive</code>: My instance is unresponsive.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>not-accepting-credentials</code>: My instance is not accepting my
+   *                     credentials.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>password-not-available</code>: A password is not available for my
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-network</code>: My instance is experiencing performance
+   *                     problems that I believe are network related.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-instance-store</code>: My instance is experiencing performance
+   *                     problems that I believe are related to the instance stores.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-ebs-volume</code>: My instance is experiencing performance
+   *                     problems that I believe are related to an EBS volume.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-other</code>: My instance is experiencing performance
+   *                     problems.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>other</code>: [explain using the description parameter]</p>
+   *             </li>
+   *          </ul>
+   */
+  ReasonCodes: (ReportInstanceReasonCodes | string)[] | undefined;
+
+  /**
+   * <p>The time at which the reported instance health state began.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The status of all instances listed.</p>
+   */
+  Status: ReportStatusType | string | undefined;
+}
+
+export namespace ReportInstanceStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The configuration for the Spot Fleet request.</p>
+   */
+  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
+}
+
+export namespace RequestSpotFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetResponse {
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId?: string;
+}
+
+export namespace RequestSpotFleetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the launch specification for an instance.</p>
+ */
+export interface RequestSpotLaunchSpecification {
+  /**
+   * <p>One or more security group IDs.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  AddressingType?: string;
+
+  /**
+   * <p>One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value.
+   *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
+   *            it is not blank and its encryption status is used for the volume encryption status.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The instance type. Only one instance type can be specified.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>Indicates whether basic or detailed monitoring is enabled for the instance.</p>
+   *          <p>Default: Disabled</p>
+   */
+  Monitoring?: RunInstancesMonitoringEnabled;
+
+  /**
+   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   *            subnet IDs and security group IDs using the network interface.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+
+  /**
+   * <p>The placement information for the instance.</p>
+   */
+  Placement?: SpotPlacement;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The ID of the subnet in which to launch the instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Base64-encoded user data for the instance. User data is limited to 16 KB.</p>
+   */
+  UserData?: string;
+}
+
+export namespace RequestSpotLaunchSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for RequestSpotInstances.</p>
+ */
+export interface RequestSpotInstancesRequest {
+  /**
+   * <p>The user-specified name for a logical grouping of requests.</p>
+   *         <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
+   *             Instances in the request are launched in the same Availability Zone. Instance proximity
+   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
+   *             applies only to requests for Spot Instances of the same instance type. Any additional
+   *             Spot Instance requests that are specified with the same Availability Zone group name are
+   *             launched in that same Availability Zone, as long as at least one instance from the group
+   *             is still active.</p>
+   *         <p>If there is no active instance running in the Availability Zone group that you specify
+   *             for a new Spot Instance request (all instances are terminated, the request is expired,
+   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
+   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
+   *             subsequent set of Spot Instances could be placed in a different zone from the original
+   *             request, even if you specified the same Availability Zone group.</p>
+   *         <p>Default: Instances are launched in any available Availability Zone.</p>
+   */
+  AvailabilityZoneGroup?: string;
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of Spot Instances to launch.</p>
+   *         <p>Default: 1</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
+   *             terminate together.</p>
+   *         <p>Default: Instances are launched and terminated individually</p>
+   */
+  LaunchGroup?: string;
+
+  /**
+   * <p>The launch specification.</p>
+   */
+  LaunchSpecification?: RequestSpotLaunchSpecification;
+
+  /**
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance. The
+   *             default is the On-Demand price.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   *         <p>Default: <code>one-time</code>
+   *         </p>
+   */
+  Type?: SpotInstanceType | string;
+
+  /**
+   * <p>The start date of the request. If this is a one-time request, the request becomes
+   *             active at this date and time and remains active until all instances launch, the request
+   *             expires, or the request is canceled. If the request is persistent, the request becomes
+   *             active at this date and time and remains active until it expires or is canceled.</p>
+   *         <p>The specified start date and time cannot be equal to the current date and time. You
+   *             must specify a start date and time that occurs after the current date and time.</p>
+   */
+  ValidFrom?: Date;
+
+  /**
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it. </p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
+   *                     reached. By default, the request is valid for 7 days from the date the request
+   *                     was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
+   *                 <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
+   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace RequestSpotInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of RequestSpotInstances.</p>
+ */
+export interface RequestSpotInstancesResult {
+  /**
+   * <p>One or more Spot Instance requests.</p>
+   */
+  SpotInstanceRequests?: SpotInstanceRequest[];
+}
+
+export namespace RequestSpotInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
+    ...obj,
+  });
+}
 
 export interface ResetAddressAttributeRequest {
   /**
@@ -1304,9 +1722,8 @@ export interface RunInstancesRequest {
   SubnetId?: string;
 
   /**
-   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on
-   *                 your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your
-   *                 Windows instance at launch</a>. If you are using a command line tool,
+   * <p>The user data script to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
+   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
    *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
    *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -1502,6 +1919,7 @@ export namespace RunInstancesRequest {
    */
   export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
     ...obj,
+    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
   });
 }
 

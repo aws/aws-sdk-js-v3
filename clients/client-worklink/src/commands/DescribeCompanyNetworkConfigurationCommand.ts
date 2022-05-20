@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,6 +28,8 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes the networking configuration to access the internal websites associated with
  *             the specified fleet.</p>
  * @example

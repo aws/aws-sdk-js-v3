@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,8 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * <p>Returns a list of dataset export jobs that use the given dataset. When a dataset is not
  *       specified, all the dataset export jobs associated with the account are listed. The response
  *       provides the properties for each dataset export job, including the Amazon Resource Name (ARN).
- *       For more information on dataset export jobs, see <a>CreateDatasetExportJob</a>. For
- *       more information on datasets, see <a>CreateDataset</a>.</p>
+ *       For more information on dataset export jobs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>. For
+ *       more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

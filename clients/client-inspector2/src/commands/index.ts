@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateMemberCommand";
 export * from "./BatchGetAccountStatusCommand";
 export * from "./BatchGetFreeTrialInfoCommand";

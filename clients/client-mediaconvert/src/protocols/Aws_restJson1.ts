@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -122,11 +123,11 @@ import {
   InputClipping,
   InputDecryptionSettings,
   InputTemplate,
+  InputVideoGenerator,
   InsertableImage,
   JobMessages,
   KantarWatermarkSettings,
   M2tsScte35Esam,
-  M2tsSettings,
   MotionImageInserter,
   MotionImageInsertionFramerate,
   MotionImageInsertionOffset,
@@ -190,6 +191,7 @@ import {
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
+  M2tsSettings,
   M3u8Settings,
   MovSettings,
   Mp4Settings,
@@ -214,7 +216,6 @@ import {
   Queue,
   ReservationPlan,
   ReservationPlanSettings,
-  ResourceTags,
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
@@ -233,6 +234,7 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
+import { ResourceTags } from "../models/models_2";
 
 export const serializeAws_restJson1AssociateCertificateCommand = async (
   input: AssociateCertificateCommandInput,
@@ -3850,6 +3852,7 @@ const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __Serd
       input.DescriptiveVideoServiceFlag !== null && { descriptiveVideoServiceFlag: input.DescriptiveVideoServiceFlag }),
     ...(input.IFrameOnlyManifest !== undefined &&
       input.IFrameOnlyManifest !== null && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
@@ -4013,6 +4016,7 @@ const serializeAws_restJson1DolbyVision = (input: DolbyVision, context: __SerdeC
         l6Metadata: serializeAws_restJson1DolbyVisionLevel6Metadata(input.L6Metadata, context),
       }),
     ...(input.L6Mode !== undefined && input.L6Mode !== null && { l6Mode: input.L6Mode }),
+    ...(input.Mapping !== undefined && input.Mapping !== null && { mapping: input.Mapping }),
     ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
   };
 };
@@ -4759,6 +4763,10 @@ const serializeAws_restJson1Input = (input: Input, context: __SerdeContext): any
     ...(input.TimecodeSource !== undefined &&
       input.TimecodeSource !== null && { timecodeSource: input.TimecodeSource }),
     ...(input.TimecodeStart !== undefined && input.TimecodeStart !== null && { timecodeStart: input.TimecodeStart }),
+    ...(input.VideoGenerator !== undefined &&
+      input.VideoGenerator !== null && {
+        videoGenerator: serializeAws_restJson1InputVideoGenerator(input.VideoGenerator, context),
+      }),
     ...(input.VideoSelector !== undefined &&
       input.VideoSelector !== null && {
         videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
@@ -4831,6 +4839,12 @@ const serializeAws_restJson1InputTemplate = (input: InputTemplate, context: __Se
       input.VideoSelector !== null && {
         videoSelector: serializeAws_restJson1VideoSelector(input.VideoSelector, context),
       }),
+  };
+};
+
+const serializeAws_restJson1InputVideoGenerator = (input: InputVideoGenerator, context: __SerdeContext): any => {
+  return {
+    ...(input.Duration !== undefined && input.Duration !== null && { duration: input.Duration }),
   };
 };
 
@@ -5023,6 +5037,7 @@ const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __Serd
       input.ForceTsVideoEbpOrder !== null && { forceTsVideoEbpOrder: input.ForceTsVideoEbpOrder }),
     ...(input.FragmentTime !== undefined &&
       input.FragmentTime !== null && { fragmentTime: __serializeFloat(input.FragmentTime) }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.MaxPcrInterval !== undefined &&
       input.MaxPcrInterval !== null && { maxPcrInterval: input.MaxPcrInterval }),
     ...(input.MinEbpInterval !== undefined &&
@@ -5176,6 +5191,7 @@ const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeC
     ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
     ...(input.CaptionContainerType !== undefined &&
       input.CaptionContainerType !== null && { captionContainerType: input.CaptionContainerType }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
@@ -5914,6 +5930,7 @@ const serializeAws_restJson1VideoSelector = (input: VideoSelector, context: __Se
       input.Hdr10Metadata !== null && {
         hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
       }),
+    ...(input.PadVideo !== undefined && input.PadVideo !== null && { padVideo: input.PadVideo }),
     ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
     ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
     ...(input.Rotate !== undefined && input.Rotate !== null && { rotate: input.Rotate }),
@@ -7192,6 +7209,7 @@ const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeConte
     AudioTrackType: __expectString(output.audioTrackType),
     DescriptiveVideoServiceFlag: __expectString(output.descriptiveVideoServiceFlag),
     IFrameOnlyManifest: __expectString(output.iFrameOnlyManifest),
+    KlvMetadata: __expectString(output.klvMetadata),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),
@@ -7350,6 +7368,7 @@ const deserializeAws_restJson1DolbyVision = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1DolbyVisionLevel6Metadata(output.l6Metadata, context)
         : undefined,
     L6Mode: __expectString(output.l6Mode),
+    Mapping: __expectString(output.mapping),
     Profile: __expectString(output.profile),
   } as any;
 };
@@ -7934,6 +7953,10 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
         : undefined,
     TimecodeSource: __expectString(output.timecodeSource),
     TimecodeStart: __expectString(output.timecodeStart),
+    VideoGenerator:
+      output.videoGenerator !== undefined && output.videoGenerator !== null
+        ? deserializeAws_restJson1InputVideoGenerator(output.videoGenerator, context)
+        : undefined,
     VideoSelector:
       output.videoSelector !== undefined && output.videoSelector !== null
         ? deserializeAws_restJson1VideoSelector(output.videoSelector, context)
@@ -8004,6 +8027,12 @@ const deserializeAws_restJson1InputTemplate = (output: any, context: __SerdeCont
       output.videoSelector !== undefined && output.videoSelector !== null
         ? deserializeAws_restJson1VideoSelector(output.videoSelector, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputVideoGenerator = (output: any, context: __SerdeContext): InputVideoGenerator => {
+  return {
+    Duration: __expectInt32(output.duration),
   } as any;
 };
 
@@ -8287,6 +8316,7 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
     EsRateInPes: __expectString(output.esRateInPes),
     ForceTsVideoEbpOrder: __expectString(output.forceTsVideoEbpOrder),
     FragmentTime: __limitedParseDouble(output.fragmentTime),
+    KlvMetadata: __expectString(output.klvMetadata),
     MaxPcrInterval: __expectInt32(output.maxPcrInterval),
     MinEbpInterval: __expectInt32(output.minEbpInterval),
     NielsenId3: __expectString(output.nielsenId3),
@@ -8422,6 +8452,7 @@ const deserializeAws_restJson1MpdSettings = (output: any, context: __SerdeContex
     AccessibilityCaptionHints: __expectString(output.accessibilityCaptionHints),
     AudioDuration: __expectString(output.audioDuration),
     CaptionContainerType: __expectString(output.captionContainerType),
+    KlvMetadata: __expectString(output.klvMetadata),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),
@@ -9229,6 +9260,7 @@ const deserializeAws_restJson1VideoSelector = (output: any, context: __SerdeCont
       output.hdr10Metadata !== undefined && output.hdr10Metadata !== null
         ? deserializeAws_restJson1Hdr10Metadata(output.hdr10Metadata, context)
         : undefined,
+    PadVideo: __expectString(output.padVideo),
     Pid: __expectInt32(output.pid),
     ProgramNumber: __expectInt32(output.programNumber),
     Rotate: __expectString(output.rotate),

@@ -1,4 +1,5 @@
 export * from "./ElasticsearchService";
+// smithy-typescript generated code
 export * from "./ElasticsearchServiceClient";
 export * from "./commands";
 export * from "./models";

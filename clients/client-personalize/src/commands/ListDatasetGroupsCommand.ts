@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
 /**
  * <p>Returns a list of dataset groups. The response provides the properties for each dataset
  *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
- *         <a>CreateDatasetGroup</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

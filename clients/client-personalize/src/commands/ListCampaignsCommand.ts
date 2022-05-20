@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * <p>Returns a list of campaigns that use the given solution.
  *       When a solution is not specified, all the campaigns associated with the account are listed.
  *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
- *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ *       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

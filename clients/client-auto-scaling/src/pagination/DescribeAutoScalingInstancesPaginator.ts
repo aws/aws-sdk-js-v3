@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { AutoScaling } from "../AutoScaling";
@@ -51,8 +52,9 @@ export async function* paginateDescribeAutoScalingInstances(
       throw new Error("Invalid client, expected AutoScaling | AutoScalingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

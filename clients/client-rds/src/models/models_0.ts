@@ -1,5 +1,5 @@
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
@@ -2961,196 +2961,6 @@ export class OptionGroupQuotaExceededFault extends __BaseException {
   }
 }
 
-/**
- * <p></p>
- */
-export interface CreateCustomAvailabilityZoneMessage {
-  /**
-   * <p>The name of the custom Availability Zone (AZ).</p>
-   */
-  CustomAvailabilityZoneName: string | undefined;
-
-  /**
-   * <p>The ID of an existing virtual private network (VPN) between the Amazon RDS website and
-   *             the VMware vSphere cluster.</p>
-   */
-  ExistingVpnId?: string;
-
-  /**
-   * <p>The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.</p>
-   *         <p>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</p>
-   */
-  NewVpnTunnelName?: string;
-
-  /**
-   * <p>The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.</p>
-   *         <p>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</p>
-   */
-  VpnTunnelOriginatorIP?: string;
-}
-
-export namespace CreateCustomAvailabilityZoneMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomAvailabilityZoneMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the Amazon Web Services website.</p>
- *         <p>For more information about RDS on VMware, see the
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
- *                 RDS on VMware User Guide.</a>
- *          </p>
- */
-export interface VpnDetails {
-  /**
-   * <p>The ID of the VPN.</p>
-   */
-  VpnId?: string;
-
-  /**
-   * <p>The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.</p>
-   */
-  VpnTunnelOriginatorIP?: string;
-
-  /**
-   * <p>The IP address of network traffic from Amazon Web Services to your on-premises data center.</p>
-   */
-  VpnGatewayIp?: string;
-
-  /**
-   * <p>The preshared key (PSK) for the VPN.</p>
-   */
-  VpnPSK?: string;
-
-  /**
-   * <p>The name of the VPN.</p>
-   */
-  VpnName?: string;
-
-  /**
-   * <p>The state of the VPN.</p>
-   */
-  VpnState?: string;
-}
-
-export namespace VpnDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnDetails): any => ({
-    ...obj,
-    ...(obj.VpnPSK && { VpnPSK: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
- *         <p>For more information about RDS on VMware, see the
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
- *                 RDS on VMware User Guide.</a>
- *          </p>
- */
-export interface CustomAvailabilityZone {
-  /**
-   * <p>The identifier of the custom AZ.</p>
-   *         <p>Amazon RDS generates a unique identifier when a custom AZ is created.</p>
-   */
-  CustomAvailabilityZoneId?: string;
-
-  /**
-   * <p>The name of the custom AZ.</p>
-   */
-  CustomAvailabilityZoneName?: string;
-
-  /**
-   * <p>The status of the custom AZ.</p>
-   */
-  CustomAvailabilityZoneStatus?: string;
-
-  /**
-   * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster
-   *             and the Amazon Web Services website.</p>
-   */
-  VpnDetails?: VpnDetails;
-}
-
-export namespace CustomAvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAvailabilityZone): any => ({
-    ...obj,
-    ...(obj.VpnDetails && { VpnDetails: VpnDetails.filterSensitiveLog(obj.VpnDetails) }),
-  });
-}
-
-export interface CreateCustomAvailabilityZoneResult {
-  /**
-   * <p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
-   *         <p>For more information about RDS on VMware, see the
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 RDS on VMware User Guide.</a>
-   *          </p>
-   */
-  CustomAvailabilityZone?: CustomAvailabilityZone;
-}
-
-export namespace CreateCustomAvailabilityZoneResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomAvailabilityZoneResult): any => ({
-    ...obj,
-    ...(obj.CustomAvailabilityZone && {
-      CustomAvailabilityZone: CustomAvailabilityZone.filterSensitiveLog(obj.CustomAvailabilityZone),
-    }),
-  });
-}
-
-/**
- * <p>
- *             <code>CustomAvailabilityZoneName</code> is already used by an existing custom
- *             Availability Zone.</p>
- */
-export class CustomAvailabilityZoneAlreadyExistsFault extends __BaseException {
-  readonly name: "CustomAvailabilityZoneAlreadyExistsFault" = "CustomAvailabilityZoneAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CustomAvailabilityZoneAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomAvailabilityZoneAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the maximum number of custom Availability Zones.</p>
- */
-export class CustomAvailabilityZoneQuotaExceededFault extends __BaseException {
-  readonly name: "CustomAvailabilityZoneQuotaExceededFault" = "CustomAvailabilityZoneQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CustomAvailabilityZoneQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomAvailabilityZoneQuotaExceededFault.prototype);
-  }
-}
-
 export interface CreateCustomDBEngineVersionMessage {
   /**
    * <p>The database engine to use for your custom engine version (CEV). The only supported value is
@@ -3621,6 +3431,36 @@ export namespace ScalingConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ScalingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+ *             <i>Amazon Aurora User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfiguration {
+  /**
+   * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
+   *             that you can use is 0.5.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
+   *             that you can use is 128.</p>
+   */
+  MaxCapacity?: number;
+}
+
+export namespace ServerlessV2ScalingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfiguration): any => ({
     ...obj,
   });
 }
@@ -4253,6 +4093,13 @@ export interface CreateDBClusterMessage {
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace CreateDBClusterMessage {
@@ -4532,6 +4379,36 @@ export namespace ScalingConfigurationInfo {
    * @internal
    */
   export const filterSensitiveLog = (obj: ScalingConfigurationInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Shows the scaling configuration for an Aurora Serverless v2 DB cluster.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+ *             <i>Amazon Aurora User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfigurationInfo {
+  /**
+   * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
+   *             that you can use is 0.5.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
+   *             that you can use is 128.</p>
+   */
+  MaxCapacity?: number;
+}
+
+export namespace ServerlessV2ScalingConfigurationInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfigurationInfo): any => ({
     ...obj,
   });
 }
@@ -4955,6 +4832,13 @@ export interface DBCluster {
    *         <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Shows the scaling configuration for an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
 }
 
 export namespace DBCluster {
@@ -6122,21 +6006,13 @@ export interface CreateDBInstanceMessage {
    *         <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *         <p>Not applicable. Availability Zones are managed by the DB cluster.</p>
+   *         <p>Each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these
+   *             Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.</p>
    *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *         <p>Example: <code>us-east-1d</code>
    *          </p>
    *         <p>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
    *             The specified Availability Zone must be in the same Amazon Web Services Region as the current endpoint.</p>
-   *         <note>
-   *             <p>If you're creating a DB instance in an RDS on VMware environment,
-   *                 specify the identifier of the custom Availability Zone to create the DB instance
-   *                 in.</p>
-   *             <p>For more information about RDS on VMware, see the
-   *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                   RDS on VMware User Guide.</a>
-   *             </p>
-   *         </note>
    */
   AvailabilityZone?: string;
 
@@ -6313,7 +6189,7 @@ export interface CreateDBInstanceMessage {
    *         <p>
    *             <b>Amazon RDS Custom for SQL Server</b>
    *          </p>
-   *         <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS Custom for SQL Server general requirements</a>
+   *         <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html">RDS Custom for SQL Server general requirements</a>
    *           in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>
    *             <b>MariaDB</b>
@@ -6702,6 +6578,31 @@ export interface CreateDBInstanceMessage {
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace CreateDBInstanceMessage {
@@ -6959,6 +6860,30 @@ export interface DBSubnetGroup {
    * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
    */
   DBSubnetGroupArn?: string;
+
+  /**
+   * <p>The network type of the DB subnet group.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  SupportedNetworkTypes?: string[];
 }
 
 export namespace DBSubnetGroup {
@@ -7693,6 +7618,34 @@ export interface DBInstance {
    * <p>Specifies where automated backups and manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *                 Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace DBInstance {
@@ -7781,6 +7734,25 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
+  }
+}
+
+/**
+ * <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ */
+export class NetworkTypeNotSupported extends __BaseException {
+  readonly name: "NetworkTypeNotSupported" = "NetworkTypeNotSupported";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NetworkTypeNotSupported, __BaseException>) {
+    super({
+      name: "NetworkTypeNotSupported",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NetworkTypeNotSupported.prototype);
   }
 }
 
@@ -8258,6 +8230,31 @@ export interface CreateDBInstanceReadReplicaMessage {
    *         <p>This setting is required for RDS Custom.</p>
    */
   CustomIamInstanceProfile?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for read replica.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace CreateDBInstanceReadReplicaMessage {
@@ -9967,45 +9964,6 @@ export namespace CreateOptionGroupResult {
   });
 }
 
-export interface DeleteCustomAvailabilityZoneMessage {
-  /**
-   * <p>The custom AZ identifier.</p>
-   */
-  CustomAvailabilityZoneId: string | undefined;
-}
-
-export namespace DeleteCustomAvailabilityZoneMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomAvailabilityZoneMessage): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteCustomAvailabilityZoneResult {
-  /**
-   * <p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
-   *         <p>For more information about RDS on VMware, see the
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 RDS on VMware User Guide.</a>
-   *          </p>
-   */
-  CustomAvailabilityZone?: CustomAvailabilityZone;
-}
-
-export namespace DeleteCustomAvailabilityZoneResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomAvailabilityZoneResult): any => ({
-    ...obj,
-    ...(obj.CustomAvailabilityZone && {
-      CustomAvailabilityZone: CustomAvailabilityZone.filterSensitiveLog(obj.CustomAvailabilityZone),
-    }),
-  });
-}
-
 /**
  * <p>The specified CEV was not found.</p>
  */
@@ -11035,118 +10993,6 @@ export namespace DeleteGlobalClusterResult {
   });
 }
 
-export interface DeleteInstallationMediaMessage {
-  /**
-   * <p>The installation medium ID.</p>
-   */
-  InstallationMediaId: string | undefined;
-}
-
-export namespace DeleteInstallationMediaMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstallationMediaMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the cause of an installation media failure. Installation media is used
- *           for a DB engine that requires an on-premises
- *           customer provided license, such as Microsoft SQL Server.</p>
- */
-export interface InstallationMediaFailureCause {
-  /**
-   * <p>The reason that an installation media import failed.</p>
-   */
-  Message?: string;
-}
-
-export namespace InstallationMediaFailureCause {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMediaFailureCause): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the installation media for a DB engine that requires an on-premises
- *           customer provided license, such as Microsoft SQL Server.</p>
- */
-export interface InstallationMedia {
-  /**
-   * <p>The installation medium ID.</p>
-   */
-  InstallationMediaId?: string;
-
-  /**
-   * <p>The custom Availability Zone (AZ) that contains the installation media.</p>
-   */
-  CustomAvailabilityZoneId?: string;
-
-  /**
-   * <p>The DB engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The engine version of the DB engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The path to the installation medium for the DB engine.</p>
-   */
-  EngineInstallationMediaPath?: string;
-
-  /**
-   * <p>The path to the installation medium for the operating system associated with the DB engine.</p>
-   */
-  OSInstallationMediaPath?: string;
-
-  /**
-   * <p>The status of the installation medium.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>If an installation media failure occurred, the cause of the failure.</p>
-   */
-  FailureCause?: InstallationMediaFailureCause;
-}
-
-export namespace InstallationMedia {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMedia): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *             <code>InstallationMediaID</code> doesn't refer to an existing installation medium.</p>
- */
-export class InstallationMediaNotFoundFault extends __BaseException {
-  readonly name: "InstallationMediaNotFoundFault" = "InstallationMediaNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstallationMediaNotFoundFault, __BaseException>) {
-    super({
-      name: "InstallationMediaNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstallationMediaNotFoundFault.prototype);
-  }
-}
-
 /**
  * <p></p>
  */
@@ -11469,75 +11315,6 @@ export namespace DescribeCertificatesMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
-    ...obj,
-  });
-}
-
-export interface CustomAvailabilityZoneMessage {
-  /**
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeCustomAvailabilityZones</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The list of <a>CustomAvailabilityZone</a> objects for the Amazon Web Services account.</p>
-   */
-  CustomAvailabilityZones?: CustomAvailabilityZone[];
-}
-
-export namespace CustomAvailabilityZoneMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAvailabilityZoneMessage): any => ({
-    ...obj,
-    ...(obj.CustomAvailabilityZones && {
-      CustomAvailabilityZones: obj.CustomAvailabilityZones.map((item) =>
-        CustomAvailabilityZone.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
-export interface DescribeCustomAvailabilityZonesMessage {
-  /**
-   * <p>The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.</p>
-   */
-  CustomAvailabilityZoneId?: string;
-
-  /**
-   * <p>A filter that specifies one or more custom AZs to describe.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeCustomAvailabilityZones</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeCustomAvailabilityZonesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomAvailabilityZonesMessage): any => ({
     ...obj,
   });
 }
@@ -13466,6 +13243,270 @@ export namespace DescribeDBProxyTargetsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TargetRole {
+  READ_ONLY = "READ_ONLY",
+  READ_WRITE = "READ_WRITE",
+  UNKNOWN = "UNKNOWN",
+}
+
+export enum TargetHealthReason {
+  AUTH_FAILURE = "AUTH_FAILURE",
+  CONNECTION_FAILED = "CONNECTION_FAILED",
+  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
+  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
+  UNREACHABLE = "UNREACHABLE",
+}
+
+export enum TargetState {
+  available = "AVAILABLE",
+  registering = "REGISTERING",
+  unavailable = "UNAVAILABLE",
+}
+
+/**
+ * <p>Information about the connection health of an RDS Proxy target.</p>
+ */
+export interface TargetHealth {
+  /**
+   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
+   *            The following is a typical lifecycle example for the states of an RDS Proxy target:</p>
+   *         <p>
+   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
+   *          </p>
+   */
+  State?: TargetState | string;
+
+  /**
+   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
+   */
+  Reason?: TargetHealthReason | string;
+
+  /**
+   * <p>A description of the health of the RDS Proxy target.
+   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
+   */
+  Description?: string;
+}
+
+export namespace TargetHealth {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetHealth): any => ({
+    ...obj,
+  });
+}
+
+export enum TargetType {
+  RDS_INSTANCE = "RDS_INSTANCE",
+  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
+  TRACKED_CLUSTER = "TRACKED_CLUSTER",
+}
+
+/**
+ * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
+ *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
+ *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
+ */
+export interface DBProxyTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
+   */
+  TrackedClusterId?: string;
+
+  /**
+   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
+   *         or the cluster identifier for an Aurora DB cluster.</p>
+   */
+  RdsResourceId?: string;
+
+  /**
+   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
+   */
+  Type?: TargetType | string;
+
+  /**
+   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
+   */
+  Role?: TargetRole | string;
+
+  /**
+   * <p>Information about the connection health of the RDS Proxy target.</p>
+   */
+  TargetHealth?: TargetHealth;
+}
+
+export namespace DBProxyTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBProxyTarget): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDBProxyTargetsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
+   */
+  Targets?: DBProxyTarget[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeDBProxyTargetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
+ */
+export interface DBSecurityGroupMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>DBSecurityGroup</code> instances.</p>
+   */
+  DBSecurityGroups?: DBSecurityGroup[];
+}
+
+export namespace DBSecurityGroupMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSecurityGroupsMessage {
+  /**
+   * <p>The name of the DB security group to return details for.</p>
+   */
+  DBSecurityGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBSecurityGroups</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeDBSecurityGroupsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSnapshotAttributesMessage {
+  /**
+   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
+   */
+  DBSnapshotIdentifier: string | undefined;
+}
+
+export namespace DescribeDBSnapshotAttributesMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the name and values of a manual DB snapshot attribute</p>
+ *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+ *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *     API.</p>
+ */
+export interface DBSnapshotAttribute {
+  /**
+   * <p>The name of the manual DB snapshot attribute.</p>
+   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
+   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *           see the <code>ModifyDBSnapshotAttribute</code>
+   *           API action.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * <p>The value or values for the manual DB snapshot attribute.</p>
+   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
+   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
+   *       is public and available for any Amazon Web Services account to copy or restore.</p>
+   */
+  AttributeValues?: string[];
+}
+
+export namespace DBSnapshotAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
     ...obj,
   });
 }

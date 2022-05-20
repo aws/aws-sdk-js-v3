@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * <p>Returns a list of solutions that use the given dataset group.
  *       When a dataset group is not specified, all the solutions associated with the account are listed.
  *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
- *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

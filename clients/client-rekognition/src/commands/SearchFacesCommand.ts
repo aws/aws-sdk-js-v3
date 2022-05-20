@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -39,7 +40,7 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  *       that the specific face matches the input face.
  *     </p>
  *
- *          <p>For an example, see Searching for a Face Using Its Face ID in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition Developer Guide.</p>
  *
  *          <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
  *       action.</p>

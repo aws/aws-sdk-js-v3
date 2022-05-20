@@ -1,4 +1,5 @@
 export * from "./Glacier";
+// smithy-typescript generated code
 export * from "./GlacierClient";
 export * from "./commands";
 export * from "./models";

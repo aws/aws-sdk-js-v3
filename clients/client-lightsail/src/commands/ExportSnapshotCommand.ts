@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,8 +28,8 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
  *          <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the
  *       instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in
- *       Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the
- *       source Lightsail snapshot.</p>
+ *       Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in
+ *       Amazon EC2 as the source Lightsail snapshot.</p>
  *          <p></p>
  *          <p>The <code>export snapshot</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>source snapshot name</code>. For more

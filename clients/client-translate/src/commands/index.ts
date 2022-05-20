@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateParallelDataCommand";
 export * from "./DeleteParallelDataCommand";
 export * from "./DeleteTerminologyCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -371,9 +372,8 @@ export interface PanoramaClientResolvedConfig extends PanoramaClientResolvedConf
  *          <p>
  *             <b>Overview</b>
  *          </p>
- *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see
- *            <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a>
- *            in the <i>AWS Panorama Developer Guide</i>.</p>
+ *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the
+ *         <i>AWS Panorama Developer Guide</i>.</p>
  */
 export class PanoramaClient extends __Client<
   __HttpHandlerOptions,

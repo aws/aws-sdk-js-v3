@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,6 +23,8 @@ export interface DescribeFleetMetadataCommandInput extends DescribeFleetMetadata
 export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>
  * @example

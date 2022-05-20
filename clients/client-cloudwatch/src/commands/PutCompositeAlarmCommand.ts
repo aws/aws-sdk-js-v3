@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,8 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * 			states of other alarms that you have created. The composite alarm goes into ALARM state
  * 			only if all conditions of the rule are met.</p>
  * 		       <p>The alarms specified in a composite alarm's rule expression can include metric alarms
- * 			and other composite alarms.</p>
+ * 			and other composite alarms. The rule expression of a composite alarm can include as many as 100 underlying alarms.
+ * 			Any single alarm can be included in the rule expressions of as many as 150 composite alarms.</p>
  * 		       <p>Using composite alarms can reduce
  * 			alarm noise. You can create multiple metric alarms,
  * 			and also create a composite alarm and

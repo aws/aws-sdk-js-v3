@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
 
 /**
  * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
- *         version represents a container image stored in Amazon Container Registry (ECR). For more information, see
+ *         version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

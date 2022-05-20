@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -52,7 +53,9 @@ import {
   MeetingFeaturesConfiguration,
   NotFoundException,
   NotificationsConfiguration,
+  ServiceFailureException,
   ServiceUnavailableException,
+  ThrottlingException,
   TranscriptionConfiguration,
   UnauthorizedException,
   UnprocessableEntityException,
@@ -515,12 +518,21 @@ const deserializeAws_restJson1BatchCreateAttendeeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -574,9 +586,15 @@ const deserializeAws_restJson1CreateAttendeeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -627,12 +645,21 @@ const deserializeAws_restJson1CreateMeetingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
       throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -688,12 +715,21 @@ const deserializeAws_restJson1CreateMeetingWithAttendeesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
       throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -734,12 +770,27 @@ const deserializeAws_restJson1DeleteAttendeeCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -783,6 +834,21 @@ const deserializeAws_restJson1DeleteMeetingCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmeetings#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -833,6 +899,18 @@ const deserializeAws_restJson1GetAttendeeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -883,6 +961,18 @@ const deserializeAws_restJson1GetMeetingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -937,6 +1027,18 @@ const deserializeAws_restJson1ListAttendeesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -986,9 +1088,15 @@ const deserializeAws_restJson1StartMeetingTranscriptionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -1041,9 +1149,15 @@ const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -1149,6 +1263,28 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceFailureException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Code !== undefined && data.Code !== null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new ServiceFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1168,6 +1304,28 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Code !== undefined && data.Code !== null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

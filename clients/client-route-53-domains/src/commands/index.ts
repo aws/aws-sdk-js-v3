@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptDomainTransferFromAnotherAwsAccountCommand";
 export * from "./CancelDomainTransferToAnotherAwsAccountCommand";
 export * from "./CheckDomainAvailabilityCommand";

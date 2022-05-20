@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -174,6 +175,8 @@ import {
   MetricStat,
   MetricStreamEntry,
   MetricStreamFilter,
+  MetricStreamStatisticsConfiguration,
+  MetricStreamStatisticsMetric,
   MissingRequiredParameterException,
   PartialFailure,
   PutAnomalyDetectorInput,
@@ -3525,6 +3528,99 @@ const serializeAws_queryMetricStreamNames = (input: string[], context: __SerdeCo
   return entries;
 };
 
+const serializeAws_queryMetricStreamStatisticsAdditionalStatistics = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamStatisticsConfiguration = (
+  input: MetricStreamStatisticsConfiguration,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.IncludeMetrics !== undefined && input.IncludeMetrics !== null) {
+    const memberEntries = serializeAws_queryMetricStreamStatisticsIncludeMetrics(input.IncludeMetrics, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IncludeMetrics.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AdditionalStatistics !== undefined && input.AdditionalStatistics !== null) {
+    const memberEntries = serializeAws_queryMetricStreamStatisticsAdditionalStatistics(
+      input.AdditionalStatistics,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AdditionalStatistics.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamStatisticsConfigurations = (
+  input: MetricStreamStatisticsConfiguration[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryMetricStreamStatisticsConfiguration(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamStatisticsIncludeMetrics = (
+  input: MetricStreamStatisticsMetric[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryMetricStreamStatisticsMetric(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamStatisticsMetric = (
+  input: MetricStreamStatisticsMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Namespace !== undefined && input.Namespace !== null) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined && input.MetricName !== null) {
+    entries["MetricName"] = input.MetricName;
+  }
+  return entries;
+};
+
 const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Namespace !== undefined && input.Namespace !== null) {
@@ -3786,6 +3882,16 @@ const serializeAws_queryPutMetricStreamInput = (input: PutMetricStreamInput, con
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.StatisticsConfigurations !== undefined && input.StatisticsConfigurations !== null) {
+    const memberEntries = serializeAws_queryMetricStreamStatisticsConfigurations(
+      input.StatisticsConfigurations,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `StatisticsConfigurations.${key}`;
       entries[loc] = value;
     });
   }
@@ -4776,6 +4882,7 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
     CreationDate: undefined,
     LastUpdateDate: undefined,
     OutputFormat: undefined,
+    StatisticsConfigurations: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
@@ -4818,6 +4925,15 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
   }
   if (output["OutputFormat"] !== undefined) {
     contents.OutputFormat = __expectString(output["OutputFormat"]);
+  }
+  if (output.StatisticsConfigurations === "") {
+    contents.StatisticsConfigurations = [];
+  }
+  if (output["StatisticsConfigurations"] !== undefined && output["StatisticsConfigurations"]["member"] !== undefined) {
+    contents.StatisticsConfigurations = deserializeAws_queryMetricStreamStatisticsConfigurations(
+      __getArrayIfSingleItem(output["StatisticsConfigurations"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5592,6 +5708,94 @@ const deserializeAws_queryMetricStreamFilters = (output: any, context: __SerdeCo
       }
       return deserializeAws_queryMetricStreamFilter(entry, context);
     });
+};
+
+const deserializeAws_queryMetricStreamStatisticsAdditionalStatistics = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_queryMetricStreamStatisticsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MetricStreamStatisticsConfiguration => {
+  const contents: any = {
+    IncludeMetrics: undefined,
+    AdditionalStatistics: undefined,
+  };
+  if (output.IncludeMetrics === "") {
+    contents.IncludeMetrics = [];
+  }
+  if (output["IncludeMetrics"] !== undefined && output["IncludeMetrics"]["member"] !== undefined) {
+    contents.IncludeMetrics = deserializeAws_queryMetricStreamStatisticsIncludeMetrics(
+      __getArrayIfSingleItem(output["IncludeMetrics"]["member"]),
+      context
+    );
+  }
+  if (output.AdditionalStatistics === "") {
+    contents.AdditionalStatistics = [];
+  }
+  if (output["AdditionalStatistics"] !== undefined && output["AdditionalStatistics"]["member"] !== undefined) {
+    contents.AdditionalStatistics = deserializeAws_queryMetricStreamStatisticsAdditionalStatistics(
+      __getArrayIfSingleItem(output["AdditionalStatistics"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryMetricStreamStatisticsConfigurations = (
+  output: any,
+  context: __SerdeContext
+): MetricStreamStatisticsConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricStreamStatisticsConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_queryMetricStreamStatisticsIncludeMetrics = (
+  output: any,
+  context: __SerdeContext
+): MetricStreamStatisticsMetric[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricStreamStatisticsMetric(entry, context);
+    });
+};
+
+const deserializeAws_queryMetricStreamStatisticsMetric = (
+  output: any,
+  context: __SerdeContext
+): MetricStreamStatisticsMetric => {
+  const contents: any = {
+    Namespace: undefined,
+    MetricName: undefined,
+  };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = __expectString(output["Namespace"]);
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = __expectString(output["MetricName"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryMissingRequiredParameterException = (

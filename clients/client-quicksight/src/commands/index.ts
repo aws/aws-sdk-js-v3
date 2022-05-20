@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelIngestionCommand";
 export * from "./CreateAccountCustomizationCommand";
 export * from "./CreateAnalysisCommand";
@@ -108,6 +109,7 @@ export * from "./UpdateFolderPermissionsCommand";
 export * from "./UpdateGroupCommand";
 export * from "./UpdateIAMPolicyAssignmentCommand";
 export * from "./UpdateIpRestrictionCommand";
+export * from "./UpdatePublicSharingSettingsCommand";
 export * from "./UpdateTemplateAliasCommand";
 export * from "./UpdateTemplateCommand";
 export * from "./UpdateTemplatePermissionsCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -263,9 +264,10 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *          of your environment based on controls from supported security standards. Security Hub collects
  *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
  *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <i>Security Hub<a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">User
- *                Guide</a>
- *             </i>.</p>
+ *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+ *                <i>Security HubUser
+ *             Guide</i>
+ *             </a>.</p>
  *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
  *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
  *          request. Any configuration or settings change that results from the operation is applied
@@ -289,8 +291,13 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateFindings</code> - <code>RateLimit</code> of 1 request per
- *                second. <code>BurstLimit</code> of 5 requests per second.</p>
+ *                   <code>BatchImportFindings</code> - <code>RateLimit</code> of 10 requests per second.
+ *             <code>BurstLimit</code> of 30 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BatchUpdateFindings</code> - <code>RateLimit</code> of 10 requests per second.
+ *             <code>BurstLimit</code> of 30 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -461,11 +468,16 @@ export class SecurityHub extends SecurityHubClient {
    *             <code>BatchImportFindings</code> must be called by one of the following:</p>
    *          <ul>
    *             <li>
-   *                <p>The account that is associated with the findings. The identifier of the associated
-   *                account is the value of the <code>AwsAccountId</code> attribute for the finding.</p>
+   *                <p>The Amazon Web Services account that is associated with a finding if you are using
+   *                the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs">default product ARN</a>
+   *                or are a partner sending findings from within a customer's Amazon Web Services account.
+   *                In these cases, the identifier of the account that you are calling <code>BatchImportFindings</code>
+   *                from needs to be the same as the <code>AwsAccountId</code> attribute for the finding.</p>
    *             </li>
    *             <li>
-   *                <p>An account that is allow-listed for an official Security Hub partner integration.</p>
+   *                <p>An Amazon Web Services account that Security Hub has allow-listed for an official partner
+   *                integration. In this case, you can call <code>BatchImportFindings</code> from the allow-listed
+   *                account and send findings from different customer accounts in the same batch.</p>
    *             </li>
    *          </ul>
    *          <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
@@ -680,7 +692,7 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
-   *          <p>For more details about cross-Region replication, see <a href="securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
+   *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
    *       </p>
    */
   public createFindingAggregator(

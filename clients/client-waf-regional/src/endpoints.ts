@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
@@ -105,6 +106,19 @@ const regionHash: RegionHash = {
       },
     ],
     signingRegion: "ap-southeast-2",
+  },
+  "ap-southeast-3": {
+    variants: [
+      {
+        hostname: "waf-regional.ap-southeast-3.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "waf-regional-fips.ap-southeast-3.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "ap-southeast-3",
   },
   "ca-central-1": {
     variants: [
@@ -356,6 +370,7 @@ const partitionHash: PartitionHash = {
       "fips-ap-south-1",
       "fips-ap-southeast-1",
       "fips-ap-southeast-2",
+      "fips-ap-southeast-3",
       "fips-ca-central-1",
       "fips-eu-central-1",
       "fips-eu-north-1",

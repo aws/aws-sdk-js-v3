@@ -40,7 +40,7 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
     @Override
     public SymbolProvider decorateSymbolProvider(
-            TypeScriptSettings settings, Model model, SymbolProvider symbolProvider) {
+            Model model, TypeScriptSettings settings, SymbolProvider symbolProvider) {
         return shape -> {
             Symbol symbol = symbolProvider.toSymbol(shape);
 

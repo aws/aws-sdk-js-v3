@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,6 +23,8 @@ export interface SignOutUserCommandInput extends SignOutUserRequest {}
 export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
  *             valid credentials.</p>
  * @example

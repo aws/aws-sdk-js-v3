@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
@@ -497,11 +498,11 @@ export class GameLift extends GameLiftClient {
    *             <code>PLACING</code>, where a new game session is created for the match. </p>
    *         <p>If any player rejects the match, or if acceptances are not received before a specified
    *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
-   *             of two ways: For tickets where one or more players rejected the match, the ticket status
-   *             is returned to <code>SEARCHING</code> to find a new match. For tickets where one or more
-   *             players failed to respond, the ticket status is set to <code>CANCELLED</code>, and
-   *             processing is terminated. A new matchmaking request for these players can be submitted
-   *             as needed. </p>
+   *             of two ways: For tickets where one or more players rejected the match or failed to
+   *             respond, the ticket status is set to <code>CANCELLED</code>, and processing is
+   *             terminated. For tickets where players have accepted or not yet responded, the ticket
+   *             status is returned to <code>SEARCHING</code> to find a new match. A new matchmaking
+   *             request for these players can be submitted as needed. </p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
@@ -635,7 +636,7 @@ export class GameLift extends GameLiftClient {
    *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
    *             redirecting player traffic from one fleet to another, such as when updating your game
    *             build.  </p>
-   *         <p>Amazon Web Services supports two types of routing strategies for aliases: simple and terminal. A
+   *         <p>Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. A
    *             simple alias points to an active fleet. A terminal alias is used to display messaging or
    *             link to a URL instead of routing players to an active fleet. For example, you might use
    *             a terminal alias when a game version is no longer supported and you want to direct
@@ -682,8 +683,8 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Creates a new Amazon Web Services build resource for your game server binary files. Game server
-   *             binaries must be combined into a zip file for use with Amazon Web Services. </p>
+   * <p>Creates a new Amazon GameLift build resource for your game server binary files. Game server
+   *             binaries must be combined into a zip file for use with Amazon GameLift. </p>
    *         <important>
    *             <p>When setting up a new game build for GameLift, we recommend using the Amazon Web Services CLI
    *                 command <b>
@@ -696,7 +697,7 @@ export class GameLift extends GameLiftClient {
    *         <ul>
    *             <li>
    *                 <p>To create a new game build with build files that are in an Amazon S3 location under
-   *                     an Amazon Web Services account that you control. To use this option, you must first give Amazon Web Services
+   *                     an Amazon Web Services account that you control. To use this option, you must first give Amazon GameLift
    *                     access to the Amazon S3 bucket. With permissions in place, call
    *                         <code>CreateBuild</code> and specify a build name, operating system, and the
    *                     Amazon S3 storage location of your game build.</p>
@@ -1031,7 +1032,7 @@ export class GameLift extends GameLiftClient {
    *         <p>Game session logs are retained for all active game sessions for 14 days. To access the
    *             logs, call <a>GetGameSessionLogUrl</a> to download the log files.</p>
    *         <p>
-   *             <i>Available in Amazon Web Services Local.</i>
+   *             <i>Available in Amazon GameLift Local.</i>
    *          </p>
    *         <p>
    *             <b>Learn more</b>
@@ -1331,7 +1332,7 @@ export class GameLift extends GameLiftClient {
    *          <p>The maximum number of players per game session is 200. It is not adjustable.
    *     </p>
    *          <p>
-   *             <i>Available in Amazon Web Services Local.</i>
+   *             <i>Available in Amazon GameLift Local.</i>
    *          </p>
    *          <p>
    *             <b>Related actions</b>
@@ -1388,7 +1389,7 @@ export class GameLift extends GameLiftClient {
    *          <p>The maximum number of players per game session is 200. It is not adjustable.
    *     </p>
    *          <p>
-   *             <i>Available in Amazon Web Services Local.</i>
+   *             <i>Available in Amazon GameLift Local.</i>
    *          </p>
    *          <p>
    *             <b>Related actions</b>
@@ -1447,23 +1448,23 @@ export class GameLift extends GameLiftClient {
    *             <li>
    *                <p>An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services account. Use the
    *                         <i>StorageLocation</i> parameter for this option. You'll need
-   *                     to have an Identity Access Management (IAM) role that allows the Amazon Web Services
+   *                     to have an Identity Access Management (IAM) role that allows the Amazon GameLift
    *                     service to access your S3 bucket. </p>
    *             </li>
    *          </ul>
    *         <p>If the call is successful, a new script record is created with a unique script ID. If the
-   *             script file is provided as a local file, the file is uploaded to an Amazon Web Services-owned S3 bucket
+   *             script file is provided as a local file, the file is uploaded to an Amazon GameLift-owned S3 bucket
    *             and the script record's storage location reflects this location. If the script file is provided
-   *             as an S3 bucket, Amazon Web Services accesses the file at this storage location as needed for deployment.</p>
+   *             as an S3 bucket, Amazon GameLift accesses the file at this storage location as needed for deployment.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set Up a Role for Amazon Web Services Access</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set Up a Role for Amazon GameLift Access</a>
    *          </p>
    *         <p>
    *             <b>Related actions</b>
@@ -1505,24 +1506,24 @@ export class GameLift extends GameLiftClient {
 
   /**
    * <p>Requests authorization to create or delete a peer connection between the VPC for
-   *             your Amazon Web Services fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game
+   *             your Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game
    *             servers on your fleet to communicate directly with other Amazon Web Services resources. Once you've
    *             received authorization, call <a>CreateVpcPeeringConnection</a> to establish
-   *             the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon Web Services
+   *             the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift
    *                 Fleets</a>.</p>
    *         <p>You can peer with VPCs that are owned by any Amazon Web Services account you have access to,
-   *             including the account that you use to manage your Amazon Web Services fleets. You cannot peer with
+   *             including the account that you use to manage your Amazon GameLift fleets. You cannot peer with
    *             VPCs that are in different Regions.</p>
    *         <p>To request authorization to create a connection, call this operation from the Amazon Web Services
-   *             account with the VPC that you want to peer to your Amazon Web Services fleet. For example, to
+   *             account with the VPC that you want to peer to your Amazon GameLift fleet. For example, to
    *             enable your game servers to retrieve data from a DynamoDB table, use the account that
    *             manages that DynamoDB resource. Identify the following values: (1) The ID of the VPC
    *             that you want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage
-   *             Amazon Web Services. If successful, VPC peering is authorized for the specified VPC. </p>
+   *             Amazon GameLift. If successful, VPC peering is authorized for the specified VPC. </p>
    *         <p>To request authorization to delete a connection, call this operation from the Amazon Web Services
-   *             account with the VPC that is peered with your Amazon Web Services fleet. Identify the following
+   *             account with the VPC that is peered with your Amazon GameLift fleet. Identify the following
    *             values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the
-   *             Amazon Web Services account that you use to manage Amazon Web Services. </p>
+   *             Amazon Web Services account that you use to manage Amazon GameLift. </p>
    *         <p>The authorization remains valid for 24 hours unless it is canceled by a call to
    *                 <a>DeleteVpcPeeringAuthorization</a>. You must create or delete the
    *             peering connection while the authorization is valid. </p>
@@ -1570,18 +1571,18 @@ export class GameLift extends GameLiftClient {
 
   /**
    * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
-   *             for your Amazon Web Services fleet. VPC peering enables the game servers on your fleet to
+   *             for your Amazon GameLift fleet. VPC peering enables the game servers on your fleet to
    *             communicate directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account
-   *             that you have access to, including the account that you use to manage your Amazon Web Services
+   *             that you have access to, including the account that you use to manage your Amazon GameLift
    *             fleets. You cannot peer with VPCs that are in different Regions. For more information,
-   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon Web Services Fleets</a>.</p>
+   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
    *         <p>Before calling this operation to establish the peering connection, you first need
    *             to call <a>CreateVpcPeeringAuthorization</a> and identify the VPC you want to
    *             peer with. Once the authorization for the specified VPC is issued, you have 24 hours to
    *             establish the connection. These two operations handle all tasks necessary to peer the
    *             two VPCs, including acceptance, updating routing tables, etc. </p>
    *         <p>To establish the connection, call this operation from the Amazon Web Services account that is used
-   *             to manage the Amazon Web Services fleets. Identify the following values: (1) The ID of the fleet
+   *             to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet
    *             you want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC
    *             that you want to peer with; and (3) The ID of the VPC you want to peer with. This
    *             operation is asynchronous. If successful, a <a>VpcPeeringConnection</a>
@@ -2140,7 +2141,7 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
    *         </p>
    *         <p>
    *             <b>Related actions</b>
@@ -2231,7 +2232,7 @@ export class GameLift extends GameLiftClient {
    *             an authorization by calling <a>DescribeVpcPeeringAuthorizations</a> or
    *             request a new one using <a>CreateVpcPeeringAuthorization</a>. </p>
    *         <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
-   *             used to manage the Amazon Web Services fleets. Identify the connection to delete by the connection
+   *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection
    *             ID and fleet ID. If successful, the connection is removed. </p>
    *         <p>
    *             <b>Related actions</b>
@@ -3526,7 +3527,7 @@ export class GameLift extends GameLiftClient {
    *             <a>DescribeGameSessions</a> should only be used for games in development
    *             with low matchmaking usage.</p>
    *         <p>
-   *             <i>Available in Amazon Web Services Local.</i>
+   *             <i>Available in Amazon GameLift Local.</i>
    *          </p>
    *         <p>
    *             <b>Learn more</b>
@@ -3857,7 +3858,7 @@ export class GameLift extends GameLiftClient {
    *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
    *             matches the request.</p>
    *          <p>
-   *             <i>Available in Amazon Web Services Local.</i>
+   *             <i>Available in Amazon GameLift Local.</i>
    *          </p>
    *          <p>
    *             <b>Related actions</b>
@@ -4026,7 +4027,7 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
    *         </p>
    *         <p>
    *             <b>Related actions</b>
@@ -4119,7 +4120,7 @@ export class GameLift extends GameLiftClient {
    * <p>Retrieves information on VPC peering connections. Use this operation to get peering
    *             information for all fleets or for one specific fleet ID. </p>
    *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that
-   *             is used to manage the Amazon Web Services fleets. Specify a fleet ID or leave the parameter empty
+   *             is used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty
    *             to retrieve all connection records. If successful, the retrieved information includes
    *             both active and pending connections. Active connections identify the IpV4 CIDR block
    *             that the VPC uses to connect. </p>
@@ -4568,7 +4569,7 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
    *         </p>
    *         <p>
    *             <b>Related actions</b>
@@ -4688,7 +4689,7 @@ export class GameLift extends GameLiftClient {
   /**
    * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
    *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
-   *             policy instructs Amazon Web Services to track a fleet metric and automatically change the fleet's
+   *             policy instructs Amazon GameLift to track a fleet metric and automatically change the fleet's
    *             capacity when a certain threshold is reached. There are two types of scaling policies:
    *             target-based and rule-based. Use a target-based policy to quickly and efficiently manage
    *             fleet scaling; this option is the most commonly used. Use rule-based policies when you
@@ -4710,12 +4711,12 @@ export class GameLift extends GameLiftClient {
    *             metric tells us how much of a fleet's hosting capacity is ready to host game sessions
    *             but is not currently in use. This is the fleet's buffer; it measures the additional
    *             player demand that the fleet could handle at current capacity. With a target-based
-   *             policy, you set your ideal buffer size and leave it to Amazon Web Services to take whatever action
+   *             policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action
    *             is needed to maintain that target. </p>
    *         <p>For example, you might choose to maintain a 10% buffer for a fleet that has the
-   *             capacity to host 100 simultaneous game sessions. This policy tells Amazon Web Services to take
+   *             capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take
    *             action whenever the fleet's available capacity falls below or rises above 10 game
-   *             sessions. Amazon Web Services will start new instances or stop unused instances in order to return
+   *             sessions. Amazon GameLift will start new instances or stop unused instances in order to return
    *             to the 10% buffer. </p>
    *         <p>To create or update a target-based policy, specify a fleet ID and name, and set the
    *             policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)
@@ -4861,7 +4862,7 @@ export class GameLift extends GameLiftClient {
 
   /**
    * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
-   *             files to Amazon Web Services's Amazon S3. This is done as part of the build creation process; see
+   *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
    *                 <a>CreateBuild</a>.</p>
    *         <p>To request new credentials, specify the build ID as returned with an initial
    *                 <code>CreateBuild</code> request. If successful, a new set of credentials are
@@ -5223,20 +5224,20 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>). When processing a placement request, Amazon Web Services
+   * <p>Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>). When processing a placement request, Amazon GameLift
    *         searches for available resources on the queue's destinations, scanning each until it
    *         finds resources or the placement request times out.</p>
    *          <p>A game session placement request can also request player sessions. When a new game
-   *         session is successfully created, Amazon Web Services creates a player session for each player
+   *         session is successfully created, Amazon GameLift creates a player session for each player
    *         included in the request.</p>
-   *          <p>When placing a game session, by default Amazon Web Services tries each fleet in the order they
+   *          <p>When placing a game session, by default Amazon GameLift tries each fleet in the order they
    *         are listed in the queue configuration. Ideally, a queue's destinations are listed in
    *         preference order.</p>
    *          <p>Alternatively, when requesting a game session with players, you can also provide
    *         latency data for each player in relevant Regions. Latency data indicates the performance
-   *         lag a player experiences when connected to a fleet in the Region. Amazon Web Services uses latency
+   *         lag a player experiences when connected to a fleet in the Region. Amazon GameLift uses latency
    *         data to reorder the list of destinations to place the game session in a Region with
-   *         minimal lag. If latency data is provided for multiple players, Amazon Web Services calculates each
+   *         minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each
    *         Region's average lag for all players and reorders to get the best game play across all
    *         players. </p>
    *          <p>To place a new game session request, specify the following:</p>
@@ -6551,13 +6552,13 @@ export class GameLift extends GameLiftClient {
    *             original script was uploaded. Use the <i>Version</i> parameter to track
    *             updates to the script.</p>
    *         <p>If the call is successful, the updated metadata is stored in the script record and a
-   *             revised script is uploaded to the Amazon Web Services service. Once the script is updated and
+   *             revised script is uploaded to the Amazon GameLift service. Once the script is updated and
    *             acquired by a fleet instance, the new version is used for all new game sessions. </p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
    *         </p>
    *         <p>
    *             <b>Related actions</b>

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface ListIndicesCommandInput extends ListIndicesRequest {}
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Kendra indexes that you have created.</p>
+ * <p>Lists the Amazon Kendra indexes that you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -66,6 +67,10 @@ import {
   CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import {
+  CreateFunctionUrlConfigCommandInput,
+  CreateFunctionUrlConfigCommandOutput,
+} from "./commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
   DeleteCodeSigningConfigCommandInput,
@@ -88,6 +93,10 @@ import {
   DeleteFunctionEventInvokeConfigCommandInput,
   DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand";
+import {
+  DeleteFunctionUrlConfigCommandInput,
+  DeleteFunctionUrlConfigCommandOutput,
+} from "./commands/DeleteFunctionUrlConfigCommand";
 import { DeleteLayerVersionCommandInput, DeleteLayerVersionCommandOutput } from "./commands/DeleteLayerVersionCommand";
 import {
   DeleteProvisionedConcurrencyConfigCommandInput,
@@ -120,6 +129,10 @@ import {
   GetFunctionEventInvokeConfigCommandInput,
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
+import {
+  GetFunctionUrlConfigCommandInput,
+  GetFunctionUrlConfigCommandOutput,
+} from "./commands/GetFunctionUrlConfigCommand";
 import {
   GetLayerVersionByArnCommandInput,
   GetLayerVersionByArnCommandOutput,
@@ -154,6 +167,10 @@ import {
   ListFunctionsByCodeSigningConfigCommandOutput,
 } from "./commands/ListFunctionsByCodeSigningConfigCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import {
+  ListFunctionUrlConfigsCommandInput,
+  ListFunctionUrlConfigsCommandOutput,
+} from "./commands/ListFunctionUrlConfigsCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand";
 import {
@@ -211,6 +228,10 @@ import {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
+import {
+  UpdateFunctionUrlConfigCommandInput,
+  UpdateFunctionUrlConfigCommandOutput,
+} from "./commands/UpdateFunctionUrlConfigCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -220,6 +241,7 @@ export type ServiceInputTypes =
   | CreateCodeSigningConfigCommandInput
   | CreateEventSourceMappingCommandInput
   | CreateFunctionCommandInput
+  | CreateFunctionUrlConfigCommandInput
   | DeleteAliasCommandInput
   | DeleteCodeSigningConfigCommandInput
   | DeleteEventSourceMappingCommandInput
@@ -227,6 +249,7 @@ export type ServiceInputTypes =
   | DeleteFunctionCommandInput
   | DeleteFunctionConcurrencyCommandInput
   | DeleteFunctionEventInvokeConfigCommandInput
+  | DeleteFunctionUrlConfigCommandInput
   | DeleteLayerVersionCommandInput
   | DeleteProvisionedConcurrencyConfigCommandInput
   | GetAccountSettingsCommandInput
@@ -238,6 +261,7 @@ export type ServiceInputTypes =
   | GetFunctionConcurrencyCommandInput
   | GetFunctionConfigurationCommandInput
   | GetFunctionEventInvokeConfigCommandInput
+  | GetFunctionUrlConfigCommandInput
   | GetLayerVersionByArnCommandInput
   | GetLayerVersionCommandInput
   | GetLayerVersionPolicyCommandInput
@@ -249,6 +273,7 @@ export type ServiceInputTypes =
   | ListCodeSigningConfigsCommandInput
   | ListEventSourceMappingsCommandInput
   | ListFunctionEventInvokeConfigsCommandInput
+  | ListFunctionUrlConfigsCommandInput
   | ListFunctionsByCodeSigningConfigCommandInput
   | ListFunctionsCommandInput
   | ListLayerVersionsCommandInput
@@ -271,7 +296,8 @@ export type ServiceInputTypes =
   | UpdateEventSourceMappingCommandInput
   | UpdateFunctionCodeCommandInput
   | UpdateFunctionConfigurationCommandInput
-  | UpdateFunctionEventInvokeConfigCommandInput;
+  | UpdateFunctionEventInvokeConfigCommandInput
+  | UpdateFunctionUrlConfigCommandInput;
 
 export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
@@ -280,6 +306,7 @@ export type ServiceOutputTypes =
   | CreateCodeSigningConfigCommandOutput
   | CreateEventSourceMappingCommandOutput
   | CreateFunctionCommandOutput
+  | CreateFunctionUrlConfigCommandOutput
   | DeleteAliasCommandOutput
   | DeleteCodeSigningConfigCommandOutput
   | DeleteEventSourceMappingCommandOutput
@@ -287,6 +314,7 @@ export type ServiceOutputTypes =
   | DeleteFunctionCommandOutput
   | DeleteFunctionConcurrencyCommandOutput
   | DeleteFunctionEventInvokeConfigCommandOutput
+  | DeleteFunctionUrlConfigCommandOutput
   | DeleteLayerVersionCommandOutput
   | DeleteProvisionedConcurrencyConfigCommandOutput
   | GetAccountSettingsCommandOutput
@@ -298,6 +326,7 @@ export type ServiceOutputTypes =
   | GetFunctionConcurrencyCommandOutput
   | GetFunctionConfigurationCommandOutput
   | GetFunctionEventInvokeConfigCommandOutput
+  | GetFunctionUrlConfigCommandOutput
   | GetLayerVersionByArnCommandOutput
   | GetLayerVersionCommandOutput
   | GetLayerVersionPolicyCommandOutput
@@ -309,6 +338,7 @@ export type ServiceOutputTypes =
   | ListCodeSigningConfigsCommandOutput
   | ListEventSourceMappingsCommandOutput
   | ListFunctionEventInvokeConfigsCommandOutput
+  | ListFunctionUrlConfigsCommandOutput
   | ListFunctionsByCodeSigningConfigCommandOutput
   | ListFunctionsCommandOutput
   | ListLayerVersionsCommandOutput
@@ -331,7 +361,8 @@ export type ServiceOutputTypes =
   | UpdateEventSourceMappingCommandOutput
   | UpdateFunctionCodeCommandOutput
   | UpdateFunctionConfigurationCommandOutput
-  | UpdateFunctionEventInvokeConfigCommandOutput;
+  | UpdateFunctionEventInvokeConfigCommandOutput
+  | UpdateFunctionUrlConfigCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

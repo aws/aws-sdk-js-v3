@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -135,6 +136,7 @@ import {
   ShareAttributes,
   Tmpfs,
   Ulimit,
+  UpdatePolicy,
   Volume,
 } from "../models/models_0";
 
@@ -812,6 +814,8 @@ export const serializeAws_restJson1UpdateComputeEnvironmentCommand = async (
     ...(input.state !== undefined && input.state !== null && { state: input.state }),
     ...(input.unmanagedvCpus !== undefined &&
       input.unmanagedvCpus !== null && { unmanagedvCpus: input.unmanagedvCpus }),
+    ...(input.updatePolicy !== undefined &&
+      input.updatePolicy !== null && { updatePolicy: serializeAws_restJson1UpdatePolicy(input.updatePolicy, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2143,15 +2147,40 @@ const serializeAws_restJson1ComputeResource = (input: ComputeResource, context: 
 
 const serializeAws_restJson1ComputeResourceUpdate = (input: ComputeResourceUpdate, context: __SerdeContext): any => {
   return {
+    ...(input.allocationStrategy !== undefined &&
+      input.allocationStrategy !== null && { allocationStrategy: input.allocationStrategy }),
+    ...(input.bidPercentage !== undefined && input.bidPercentage !== null && { bidPercentage: input.bidPercentage }),
     ...(input.desiredvCpus !== undefined && input.desiredvCpus !== null && { desiredvCpus: input.desiredvCpus }),
+    ...(input.ec2Configuration !== undefined &&
+      input.ec2Configuration !== null && {
+        ec2Configuration: serializeAws_restJson1Ec2ConfigurationList(input.ec2Configuration, context),
+      }),
+    ...(input.ec2KeyPair !== undefined && input.ec2KeyPair !== null && { ec2KeyPair: input.ec2KeyPair }),
+    ...(input.imageId !== undefined && input.imageId !== null && { imageId: input.imageId }),
+    ...(input.instanceRole !== undefined && input.instanceRole !== null && { instanceRole: input.instanceRole }),
+    ...(input.instanceTypes !== undefined &&
+      input.instanceTypes !== null && {
+        instanceTypes: serializeAws_restJson1StringList(input.instanceTypes, context),
+      }),
+    ...(input.launchTemplate !== undefined &&
+      input.launchTemplate !== null && {
+        launchTemplate: serializeAws_restJson1LaunchTemplateSpecification(input.launchTemplate, context),
+      }),
     ...(input.maxvCpus !== undefined && input.maxvCpus !== null && { maxvCpus: input.maxvCpus }),
     ...(input.minvCpus !== undefined && input.minvCpus !== null && { minvCpus: input.minvCpus }),
+    ...(input.placementGroup !== undefined &&
+      input.placementGroup !== null && { placementGroup: input.placementGroup }),
     ...(input.securityGroupIds !== undefined &&
       input.securityGroupIds !== null && {
         securityGroupIds: serializeAws_restJson1StringList(input.securityGroupIds, context),
       }),
     ...(input.subnets !== undefined &&
       input.subnets !== null && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.updateToLatestImageVersion !== undefined &&
+      input.updateToLatestImageVersion !== null && { updateToLatestImageVersion: input.updateToLatestImageVersion }),
   };
 };
 
@@ -2723,6 +2752,15 @@ const serializeAws_restJson1Ulimits = (input: Ulimit[], context: __SerdeContext)
     });
 };
 
+const serializeAws_restJson1UpdatePolicy = (input: UpdatePolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.jobExecutionTimeoutMinutes !== undefined &&
+      input.jobExecutionTimeoutMinutes !== null && { jobExecutionTimeoutMinutes: input.jobExecutionTimeoutMinutes }),
+    ...(input.terminateJobsOnUpdate !== undefined &&
+      input.terminateJobsOnUpdate !== null && { terminateJobsOnUpdate: input.terminateJobsOnUpdate }),
+  };
+};
+
 const serializeAws_restJson1Volume = (input: Volume, context: __SerdeContext): any => {
   return {
     ...(input.efsVolumeConfiguration !== undefined &&
@@ -2844,6 +2882,10 @@ const deserializeAws_restJson1ComputeEnvironmentDetail = (
         : undefined,
     type: __expectString(output.type),
     unmanagedvCpus: __expectInt32(output.unmanagedvCpus),
+    updatePolicy:
+      output.updatePolicy !== undefined && output.updatePolicy !== null
+        ? deserializeAws_restJson1UpdatePolicy(output.updatePolicy, context)
+        : undefined,
   } as any;
 };
 
@@ -3808,6 +3850,13 @@ const deserializeAws_restJson1Ulimits = (output: any, context: __SerdeContext): 
       return deserializeAws_restJson1Ulimit(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1UpdatePolicy = (output: any, context: __SerdeContext): UpdatePolicy => {
+  return {
+    jobExecutionTimeoutMinutes: __expectLong(output.jobExecutionTimeoutMinutes),
+    terminateJobsOnUpdate: __expectBoolean(output.terminateJobsOnUpdate),
+  } as any;
 };
 
 const deserializeAws_restJson1Volume = (output: any, context: __SerdeContext): Volume => {

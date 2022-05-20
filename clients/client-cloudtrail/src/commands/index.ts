@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsCommand";
 export * from "./CancelQueryCommand";
 export * from "./CreateEventDataStoreCommand";

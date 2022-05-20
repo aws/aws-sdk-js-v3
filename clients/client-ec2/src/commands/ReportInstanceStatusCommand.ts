@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReportInstanceStatusRequest } from "../models/models_5";
+import { ReportInstanceStatusRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ReportInstanceStatusCommand,
   serializeAws_ec2ReportInstanceStatusCommand,

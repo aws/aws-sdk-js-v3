@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { BackupGateway } from "../BackupGateway";
@@ -51,8 +52,9 @@ export async function* paginateListHypervisors(
       throw new Error("Invalid client, expected BackupGateway | BackupGatewayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

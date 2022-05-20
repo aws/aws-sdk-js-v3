@@ -1,15 +1,24 @@
 export * from "./DescribeCertificatesPaginator";
-export * from "./DescribeCustomAvailabilityZonesPaginator";
+
 export * from "./DescribeDBClusterBacktracksPaginator";
+
 export * from "./DescribeDBClusterEndpointsPaginator";
+
 export * from "./DescribeDBClusterParameterGroupsPaginator";
+
 export * from "./DescribeDBClusterParametersPaginator";
+
 export * from "./DescribeDBClusterSnapshotsPaginator";
+
 export * from "./DescribeDBClustersPaginator";
+
 export * from "./DescribeDBEngineVersionsPaginator";
+
 export * from "./DescribeDBInstanceAutomatedBackupsPaginator";
-export * from "./Interfaces";
+
 export * from "./DescribeDBInstancesPaginator";
+// smithy-typescript generated code
+export * from "./Interfaces";
 export * from "./DescribeDBLogFilesPaginator";
 export * from "./DescribeDBParameterGroupsPaginator";
 export * from "./DescribeDBParametersPaginator";
@@ -25,7 +34,6 @@ export * from "./DescribeEventSubscriptionsPaginator";
 export * from "./DescribeEventsPaginator";
 export * from "./DescribeExportTasksPaginator";
 export * from "./DescribeGlobalClustersPaginator";
-export * from "./DescribeInstallationMediaPaginator";
 export * from "./DescribeOptionGroupOptionsPaginator";
 export * from "./DescribeOptionGroupsPaginator";
 export * from "./DescribeOrderableDBInstanceOptionsPaginator";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptDirectConnectGatewayAssociationProposalCommand";
 export * from "./AllocateConnectionOnInterconnectCommand";
 export * from "./AllocateHostedConnectionCommand";

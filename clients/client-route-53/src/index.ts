@@ -1,4 +1,5 @@
 export * from "./Route53";
+// smithy-typescript generated code
 export * from "./Route53Client";
 export * from "./commands";
 export * from "./models";

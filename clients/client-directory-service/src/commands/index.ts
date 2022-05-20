@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptSharedDirectoryCommand";
 export * from "./AddIpRoutesCommand";
 export * from "./AddRegionCommand";

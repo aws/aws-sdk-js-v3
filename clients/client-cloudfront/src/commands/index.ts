@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateAliasCommand";
 export * from "./CreateCachePolicyCommand";
 export * from "./CreateCloudFrontOriginAccessIdentityCommand";

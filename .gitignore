@@ -20,6 +20,7 @@ jspm_packages
 .DS_Store
 .vscode/launch.json
 
+Makefile
 lerna-debug.log
 package-lock.json
 
@@ -35,6 +36,7 @@ codegen/sdk-codegen/smithy-build.json
 .gradle
 */out/
 */*/out/
+workspace
 
 coverage
 dist

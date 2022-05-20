@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/aws-protocoltests-json-10
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-json-10/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json-10)
@@ -113,7 +115,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -147,7 +149,7 @@ client
 
 // callbacks.
 client.emptyInputAndEmptyOutput(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

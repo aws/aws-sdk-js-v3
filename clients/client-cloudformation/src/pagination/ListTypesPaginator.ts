@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { CloudFormation } from "../CloudFormation";
@@ -47,8 +48,9 @@ export async function* paginateListTypes(
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,4 +1,5 @@
 export * from "./ACMPCA";
+// smithy-typescript generated code
 export * from "./ACMPCAClient";
 export * from "./commands";
 export * from "./models";

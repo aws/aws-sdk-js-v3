@@ -1,4 +1,5 @@
 export * from "./Greengrass";
+// smithy-typescript generated code
 export * from "./GreengrassClient";
 export * from "./commands";
 export * from "./models";

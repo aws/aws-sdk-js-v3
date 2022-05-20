@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *         topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier
  *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
  *
- *          <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

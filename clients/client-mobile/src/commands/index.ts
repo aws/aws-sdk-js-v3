@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateProjectCommand";
 export * from "./DeleteProjectCommand";
 export * from "./DescribeBundleCommand";

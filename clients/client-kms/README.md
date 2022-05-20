@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-kms
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms)
@@ -24,8 +26,12 @@ retrying requests automatically. For more information about the Amazon Web Servi
 download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
 Services</a>.</p>
 </note>
-<p>We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS.</p>
-<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients
+<p>We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS. </p>
+<p>If you need to use FIPS 140-2 validated cryptographic modules when communicating with
+Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services Region. For more information about the
+available FIPS endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">Service endpoints</a> in the Key Management Service topic of the <i>Amazon Web Services General Reference</i>.</p>
+<p>All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS).
+KMS recommends you always use the latest supported TLS version. Clients
 must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems
 such as Java 7 and later support these modes.</p>
@@ -205,7 +211,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -239,7 +245,7 @@ client
 
 // callbacks.
 client.cancelKeyDeletion(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDatasetCommand";
 export * from "./CreateInferenceSchedulerCommand";
 export * from "./CreateModelCommand";
@@ -13,6 +14,7 @@ export * from "./ListDatasetsCommand";
 export * from "./ListInferenceExecutionsCommand";
 export * from "./ListInferenceSchedulersCommand";
 export * from "./ListModelsCommand";
+export * from "./ListSensorStatisticsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartDataIngestionJobCommand";
 export * from "./StartInferenceSchedulerCommand";

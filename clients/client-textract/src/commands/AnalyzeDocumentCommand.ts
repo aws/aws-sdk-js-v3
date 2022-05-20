@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -41,11 +42,16 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *         All lines and words that are detected in the document are returned (including text that doesn't have a
  *                relationship with the value of <code>FeatureTypes</code>). </p>
  *             </li>
+ *             <li>
+ *                <p>Queries.A QUERIES_RESULT Block object contains the answer to the query, the alias associated and an ID that
+ *             connect it to the query asked. This Block also contains a location and attached confidence score.</p>
+ *             </li>
  *          </ul>
  *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.
  *          A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,
  *          including the selection status.</p>
+ *
  *          <p>You can choose which type of analysis to perform by specifying the <code>FeatureTypes</code> list.
  *       </p>
  *          <p>The output is returned in a list of <code>Block</code> objects.</p>

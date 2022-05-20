@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -1686,6 +1687,7 @@ export const serializeAws_restJson1ListGeofencesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();

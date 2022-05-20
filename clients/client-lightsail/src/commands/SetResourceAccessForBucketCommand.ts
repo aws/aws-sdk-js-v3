@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,7 +27,7 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  *       bucket.</p>
  *
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
- *       AWS Region.</p>
+ *         Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

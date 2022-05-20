@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a schema. Before deleting a schema, you must delete all
  *       datasets referencing the schema. For more information on schemas, see
- *       <a>CreateSchema</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

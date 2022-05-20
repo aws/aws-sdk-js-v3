@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDomainCommand";
 export * from "./DeleteDomainCommand";
 export * from "./DeleteFraudsterCommand";

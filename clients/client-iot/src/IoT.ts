@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -739,6 +740,11 @@ import {
   ListManagedJobTemplatesCommandInput,
   ListManagedJobTemplatesCommandOutput,
 } from "./commands/ListManagedJobTemplatesCommand";
+import {
+  ListMetricValuesCommand,
+  ListMetricValuesCommandInput,
+  ListMetricValuesCommandOutput,
+} from "./commands/ListMetricValuesCommand";
 import {
   ListMitigationActionsCommand,
   ListMitigationActionsCommandInput,
@@ -6375,6 +6381,39 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListManagedJobTemplatesCommandOutput) => void
   ): Promise<ListManagedJobTemplatesCommandOutput> | void {
     const command = new ListManagedJobTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric)
+   *       by the given thing during the specified time period.</p>
+   */
+  public listMetricValues(
+    args: ListMetricValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricValuesCommandOutput>;
+  public listMetricValues(
+    args: ListMetricValuesCommandInput,
+    cb: (err: any, data?: ListMetricValuesCommandOutput) => void
+  ): void;
+  public listMetricValues(
+    args: ListMetricValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricValuesCommandOutput) => void
+  ): void;
+  public listMetricValues(
+    args: ListMetricValuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricValuesCommandOutput) => void),
+    cb?: (err: any, data?: ListMetricValuesCommandOutput) => void
+  ): Promise<ListMetricValuesCommandOutput> | void {
+    const command = new ListMetricValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

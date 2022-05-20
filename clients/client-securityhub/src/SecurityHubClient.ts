@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -470,9 +471,10 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *          of your environment based on controls from supported security standards. Security Hub collects
  *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
  *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <i>Security Hub<a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">User
- *                Guide</a>
- *             </i>.</p>
+ *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+ *                <i>Security HubUser
+ *             Guide</i>
+ *             </a>.</p>
  *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
  *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
  *          request. Any configuration or settings change that results from the operation is applied
@@ -496,8 +498,13 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateFindings</code> - <code>RateLimit</code> of 1 request per
- *                second. <code>BurstLimit</code> of 5 requests per second.</p>
+ *                   <code>BatchImportFindings</code> - <code>RateLimit</code> of 10 requests per second.
+ *             <code>BurstLimit</code> of 30 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BatchUpdateFindings</code> - <code>RateLimit</code> of 10 requests per second.
+ *             <code>BurstLimit</code> of 30 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>

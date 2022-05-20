@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -71,6 +72,7 @@ import {
 import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
 import { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "./commands/DeleteCoreDeviceCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
 import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "./commands/DescribeComponentCommand";
 import {
   DisassociateServiceRoleFromAccountCommandInput,
@@ -135,6 +137,7 @@ export type ServiceInputTypes =
   | CreateDeploymentCommandInput
   | DeleteComponentCommandInput
   | DeleteCoreDeviceCommandInput
+  | DeleteDeploymentCommandInput
   | DescribeComponentCommandInput
   | DisassociateServiceRoleFromAccountCommandInput
   | GetComponentCommandInput
@@ -165,6 +168,7 @@ export type ServiceOutputTypes =
   | CreateDeploymentCommandOutput
   | DeleteComponentCommandOutput
   | DeleteCoreDeviceCommandOutput
+  | DeleteDeploymentCommandOutput
   | DescribeComponentCommandOutput
   | DisassociateServiceRoleFromAccountCommandOutput
   | GetComponentCommandOutput

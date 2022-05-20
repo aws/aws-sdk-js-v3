@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
 
@@ -71,7 +71,7 @@ export enum AgentStatus {
 }
 
 /**
- * <p>Information about agents or connectors associated with the user’s AWS account.
+ * <p>Information about agents or connectors associated with the user’s Amazon Web Services account.
  *       Information includes agent or connector IDs, IP addresses, media access control (MAC)
  *       addresses, agent or connector health, hostname where the agent or connector resides, and agent
  *       version for each agent.</p>
@@ -171,7 +171,7 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
 }
 
 /**
- * <p>The AWS user account does not have permission to perform the action. Check the IAM
+ * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *       policy associated with this account.</p>
  */
 export class AuthorizationErrorException extends __BaseException {
@@ -375,6 +375,9 @@ export namespace CreateApplicationResponse {
 
 /**
  * <p>Metadata that help you categorize IT assets.</p>
+ *          <important>
+ *             <p>Do not store sensitive information (like personal data) in tags.</p>
+ *          </important>
  */
 export interface Tag {
   /**
@@ -521,7 +524,7 @@ export namespace DeleteTagsResponse {
 /**
  * <p>A filter that can use conditional operators.</p>
  *          <p>For more information about filters, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html">Querying Discovered
- *         Configuration Items</a> in the <i>AWS Application Discovery Service User
+ *         Configuration Items</a> in the <i>Amazon Web Services Application Discovery Service User
  *         Guide</i>. </p>
  */
 export interface Filter {
@@ -560,7 +563,7 @@ export namespace Filter {
 export interface DescribeAgentsRequest {
   /**
    * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
-   *       the system returns information about all agents/Connectors associated with your AWS user
+   *       the system returns information about all agents/Connectors associated with your Amazon Web Services user
    *       account.</p>
    */
   agentIds?: string[];
@@ -746,7 +749,7 @@ export interface ContinuousExportDescription {
    *          <ul>
    *             <li>
    *                <p>ACCESS_DENIED - You don’t have permission to start Data Exploration in Amazon
-   *           Athena. Contact your AWS administrator for help. For more information, see <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html">Setting Up AWS Application Discovery Service</a> in the Application Discovery
+   *           Athena. Contact your Amazon Web Services administrator for help. For more information, see <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html">Setting Up Amazon Web Services Application Discovery Service</a> in the Application Discovery
    *           Service User Guide.</p>
    *             </li>
    *             <li>
@@ -768,12 +771,48 @@ export interface ContinuousExportDescription {
    *             </li>
    *             <li>
    *                <p>INTERNAL_FAILURE - The Data Exploration feature is in an error state because of an
-   *           internal failure. Try again later. If this problem persists, contact AWS
+   *           internal failure. Try again later. If this problem persists, contact Amazon Web Services
    *           Support.</p>
    *             </li>
    *             <li>
+   *                <p>LAKE_FORMATION_ACCESS_DENIED - You don't have sufficient lake formation permissions
+   *           to start continuous export. For more information, see <a href="http://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html">
+   *             Upgrading Amazon Web Services Glue Data Permissions to the Amazon Web Services Lake Formation Model </a> in the
+   *           Amazon Web Services <i>Lake Formation Developer Guide</i>. </p>
+   *                <p>You can use one of the following two ways to resolve this issue.</p>
+   *                <ol>
+   *                   <li>
+   *                      <p>If you don’t want to use the Lake Formation permission model, you can change
+   *               the default Data Catalog settings to use only Amazon Web Services Identity and Access Management
+   *               (IAM) access control for new databases. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings">Change Data Catalog Settings</a> in the <i>Lake Formation
+   *                   Developer Guide</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>You can give the service-linked IAM roles
+   *               AWSServiceRoleForApplicationDiscoveryServiceContinuousExport and
+   *               AWSApplicationDiscoveryServiceFirehose the required Lake Formation permissions. For
+   *               more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/granting-database-permissions.html">
+   *                 Granting Database Permissions</a> in the <i>Lake Formation
+   *                   Developer Guide</i>. </p>
+   *                      <ol>
+   *                         <li>
+   *                            <p>AWSServiceRoleForApplicationDiscoveryServiceContinuousExport - Grant
+   *                   database creator permissions, which gives the role database creation ability and
+   *                   implicit permissions for any created tables. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html">
+   *                     Implicit Lake Formation Permissions </a> in the <i>Lake
+   *                       Formation Developer Guide</i>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>AWSApplicationDiscoveryServiceFirehose - Grant describe permissions for all
+   *                   tables in the database.</p>
+   *                         </li>
+   *                      </ol>
+   *                   </li>
+   *                </ol>
+   *             </li>
+   *             <li>
    *                <p>S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3 buckets. Reduce the
-   *           number of Amazon S3 buckets or request a limit increase and try again. For more
+   *           number of S3 buckets or request a limit increase and try again. For more
    *           information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
    *             Restrictions and Limitations</a> in the Amazon Simple Storage Service Developer
    *           Guide.</p>
@@ -993,13 +1032,12 @@ export namespace DescribeExportConfigurationsResponse {
 export interface ExportFilter {
   /**
    * <p>A single <code>ExportFilter</code> name. Supported filters:
-   *       <code>agentId</code>.</p>
+   *       <code>agentIds</code>.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
-   *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
+   * <p>A single agent ID for a Discovery Agent. An agent ID can be found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html">DescribeAgents</a> action. Typically an ADS agent ID is in the form
    *         <code>o-0123456789abcdef0</code>.</p>
    */
   values: string[] | undefined;
@@ -1177,7 +1215,7 @@ export enum ImportStatus {
 export interface ImportTask {
   /**
    * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
-   *       unique within an AWS account.</p>
+   *       unique within an Amazon Web Services account.</p>
    */
   importTaskId?: string;
 
@@ -1581,6 +1619,71 @@ export namespace CustomerConnectorInfo {
   });
 }
 
+/**
+ * <p>
+ *       The inventory data for installed Migration Evaluator collectors.
+ *     </p>
+ */
+export interface CustomerMeCollectorInfo {
+  /**
+   * <p>
+   *       The number of active Migration Evaluator collectors.
+   *     </p>
+   */
+  activeMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The number of healthy Migration Evaluator collectors.
+   *     </p>
+   */
+  healthyMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The number of deny-listed Migration Evaluator collectors.
+   *     </p>
+   */
+  denyListedMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The number of Migration Evaluator collectors with <code>SHUTDOWN</code> status.
+   *     </p>
+   */
+  shutdownMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The number of unhealthy Migration Evaluator collectors.
+   *     </p>
+   */
+  unhealthyMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The total number of Migration Evaluator collectors.
+   *     </p>
+   */
+  totalMeCollectors: number | undefined;
+
+  /**
+   * <p>
+   *       The number of unknown Migration Evaluator collectors.
+   *     </p>
+   */
+  unknownMeCollectors: number | undefined;
+}
+
+export namespace CustomerMeCollectorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomerMeCollectorInfo): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDiscoverySummaryResponse {
   /**
    * <p>The number of servers discovered.</p>
@@ -1611,6 +1714,13 @@ export interface GetDiscoverySummaryResponse {
    * <p>Details about discovered connectors, including connector status and health.</p>
    */
   connectorSummary?: CustomerConnectorInfo;
+
+  /**
+   * <p>
+   *       Details about Migration Evaluator collectors, including collector status and health.
+   *     </p>
+   */
+  meCollectorSummary?: CustomerMeCollectorInfo;
 }
 
 export namespace GetDiscoverySummaryResponse {
@@ -1664,7 +1774,7 @@ export interface ListConfigurationsRequest {
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
    *          <p>For a complete list of filter options and guidance about using them with this action,
-   *       see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
+   *       see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
    *         Service User Guide</i>.</p>
    */
   filters?: Filter[];
@@ -1684,7 +1794,7 @@ export interface ListConfigurationsRequest {
 
   /**
    * <p>Certain filter criteria return output that can be sorted in ascending or descending
-   *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
+   *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
    *         Service User Guide</i>.</p>
    */
   orderBy?: OrderByElement[];
@@ -1935,7 +2045,7 @@ export interface StartDataCollectionByAgentIdsRequest {
   /**
    * <p>The IDs of the agents or connectors from which to start collecting data. If you send a
    *       request to an agent/connector ID that you do not have permission to contact, according to your
-   *       AWS account, the service does not throw an exception. Instead, it returns the error in the
+   *       Amazon Web Services account, the service does not throw an exception. Instead, it returns the error in the
    *         <i>Description</i> field. If you send a request to multiple agents/connectors
    *       and you do not have permission to contact some of those agents/connectors, the system does not
    *       throw an exception. Instead, the system shows <code>Failed</code> in the
@@ -2060,7 +2170,7 @@ export interface StartImportTaskRequest {
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    *
    *          <note>
-   *             <p>If you're using the AWS CLI, this URL is structured as follows:
+   *             <p>If you're using the Amazon Web Services CLI, this URL is structured as follows:
    *           <code>s3://BucketName/ImportFileName.CSV</code>
    *             </p>
    *          </note>

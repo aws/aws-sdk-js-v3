@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { PanoramaServiceException as __BaseException } from "./PanoramaServiceException";
 
@@ -51,6 +51,7 @@ export enum ApplicationInstanceHealthStatus {
 
 export enum ApplicationInstanceStatus {
   DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
   DEPLOYMENT_IN_PROGRESS = "DEPLOYMENT_IN_PROGRESS",
   DEPLOYMENT_PENDING = "DEPLOYMENT_PENDING",
   DEPLOYMENT_REQUESTED = "DEPLOYMENT_REQUESTED",
@@ -205,9 +206,8 @@ export enum ConnectionType {
 }
 
 /**
- * <p>Parameter overrides for an application instance. This is a JSON document that has a
- *         single key (<code>PayloadData</code>) where the value is an escaped string
- *         representation of the overrides document.</p>
+ * <p>Parameter overrides for an application instance. This is a JSON document that has a single key
+ *         (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.</p>
  */
 export type ManifestOverridesPayload =
   | ManifestOverridesPayload.PayloadDataMember
@@ -247,10 +247,9 @@ export namespace ManifestOverridesPayload {
 }
 
 /**
- * <p>A application verion's manifest file. This is a JSON document that has a
- *         single key (<code>PayloadData</code>) where the value is an escaped string
- *         representation of the application manifest (<code>graph.json</code>). This
- *         file is located in the <code>graphs</code> folder in your application source.</p>
+ * <p>A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>)
+ *       where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This
+ *       file is located in the <code>graphs</code> folder in your application source.</p>
  */
 export type ManifestPayload = ManifestPayload.PayloadDataMember | ManifestPayload.$UnknownMember;
 
@@ -1059,8 +1058,8 @@ export interface DeletePackageRequest {
   PackageId: string | undefined;
 
   /**
-   * <p>Delete the package even if it has artifacts stored in its access point.
-   *            Deletes the package's artifacts from Amazon S3.</p>
+   * <p>Delete the package even if it has artifacts stored in its access point. Deletes the package's artifacts from
+   *       Amazon S3.</p>
    */
   ForceDelete?: boolean;
 }
@@ -1316,6 +1315,11 @@ export namespace DescribeDeviceRequest {
   });
 }
 
+export enum DeviceBrand {
+  AWS_PANORAMA = "AWS_PANORAMA",
+  LENOVO = "LENOVO",
+}
+
 export enum NetworkConnectionStatus {
   CONNECTED = "CONNECTED",
   CONNECTING = "CONNECTING",
@@ -1481,8 +1485,8 @@ export namespace EthernetPayload {
 }
 
 /**
- * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP
- *             servers instead of <code>pool.ntp.org</code>.</p>
+ * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of
+ *         <code>pool.ntp.org</code>.</p>
  */
 export interface NtpPayload {
   /**
@@ -1628,6 +1632,11 @@ export interface DescribeDeviceResponse {
    * <p>The most recent beta software release.</p>
    */
   LatestAlternateSoftware?: string;
+
+  /**
+   * <p>The device's maker.</p>
+   */
+  Brand?: DeviceBrand | string;
 }
 
 export namespace DescribeDeviceResponse {
@@ -2364,6 +2373,11 @@ export interface Device {
    * <p>The device's lease expiration time.</p>
    */
   LeaseExpirationTime?: Date;
+
+  /**
+   * <p>The device's maker.</p>
+   */
+  Brand?: DeviceBrand | string;
 }
 
 export namespace Device {
@@ -2589,6 +2603,7 @@ export namespace ListApplicationInstanceNodeInstancesResponse {
 
 export enum StatusFilter {
   DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
   DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED",
   PROCESSING_DEPLOYMENT = "PROCESSING_DEPLOYMENT",
   PROCESSING_REMOVAL = "PROCESSING_REMOVAL",

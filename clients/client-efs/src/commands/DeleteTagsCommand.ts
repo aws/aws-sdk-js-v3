@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,8 +26,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @deprecated
  *
  * <note>
- *             <p>DEPRECATED - DeleteTags is deprecated and not maintained. Please use the
- *        API action to remove tags from EFS resources.</p>
+ *             <p>DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags from EFS
+ *         resources, use the  API action.</p>
  *          </note>
  *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
  *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an

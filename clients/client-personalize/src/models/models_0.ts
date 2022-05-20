@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { PersonalizeServiceException as __BaseException } from "./PersonalizeServiceException";
 
@@ -312,6 +312,32 @@ export namespace BatchInferenceJobOutput {
   });
 }
 
+/**
+ * <p>The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+ *       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging Personalize resources</a>.
+ *     </p>
+ */
+export interface Tag {
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  tagKey: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that makes up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  tagValue: string | undefined;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateBatchInferenceJobRequest {
   /**
    * <p>The name of the batch inference job to create.</p>
@@ -327,12 +353,12 @@ export interface CreateBatchInferenceJobRequest {
   /**
    * <p>The ARN of the filter to apply to the batch inference job. For more information on using
    *       filters, see
-   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering Batch Recommendations</a>..</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
    */
   filterArn?: string;
 
   /**
-   * <p>The number of recommendations to retreive.</p>
+   * <p>The number of recommendations to retrieve.</p>
    */
   numResults?: number;
 
@@ -357,6 +383,11 @@ export interface CreateBatchInferenceJobRequest {
    * <p>The configuration details of a batch inference job.</p>
    */
   batchInferenceJobConfig?: BatchInferenceJobConfig;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the batch inference job.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateBatchInferenceJobRequest {
@@ -480,6 +511,25 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
+}
+
+/**
  * <p>The input configuration of a batch segment job.</p>
  */
 export interface BatchSegmentJobInput {
@@ -531,7 +581,7 @@ export interface CreateBatchSegmentJobRequest {
 
   /**
    * <p>The ARN of the filter to apply to the batch segment job. For more information on using
-   *       filters, see <a>filter-batch</a>.</p>
+   *       filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
    */
   filterArn?: string;
 
@@ -555,6 +605,11 @@ export interface CreateBatchSegmentJobRequest {
    *       Amazon S3 buckets respectively.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the batch segment job.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateBatchSegmentJobRequest {
@@ -625,6 +680,11 @@ export interface CreateCampaignRequest {
    * <p>The configuration details of a campaign.</p>
    */
   campaignConfig?: CampaignConfig;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the campaign.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateCampaignRequest {
@@ -685,6 +745,11 @@ export interface CreateDatasetRequest {
    *          </ul>
    */
   datasetType: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateDatasetRequest {
@@ -766,6 +831,11 @@ export interface CreateDatasetExportJobRequest {
    * <p>The path to the Amazon S3 bucket where the job's output is stored.</p>
    */
   jobOutput: DatasetExportJobOutput | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset export job.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateDatasetExportJobRequest {
@@ -822,6 +892,11 @@ export interface CreateDatasetGroupRequest {
    *     </p>
    */
   domain?: Domain | string;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset group.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateDatasetGroupRequest {
@@ -897,6 +972,11 @@ export interface CreateDatasetImportJobRequest {
    * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset import job.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateDatasetImportJobRequest {
@@ -934,6 +1014,11 @@ export interface CreateEventTrackerRequest {
    * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
    */
   datasetGroupArn: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the event tracker.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateEventTrackerRequest {
@@ -981,9 +1066,14 @@ export interface CreateFilterRequest {
   /**
    * <p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules.
    *             For information about filter expression structure and syntax, see
-   *              <a>filter-expressions</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter expressions</a>.</p>
    */
   filterExpression: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the filter.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateFilterRequest {
@@ -1062,6 +1152,11 @@ export interface CreateRecommenderRequest {
    * <p>The configuration details of the recommender.</p>
    */
   recommenderConfig?: RecommenderConfig;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the recommender.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateRecommenderRequest {
@@ -1134,7 +1229,7 @@ export namespace CreateSchemaResponse {
 
 /**
  * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
- *       <a>CreateSolution</a>), Amazon Personalize
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), Amazon Personalize
  *       determines which recipe, from the specified list, optimizes the given metric.
  *       Amazon Personalize then uses that recipe for the solution.</p>
  */
@@ -1429,7 +1524,7 @@ export interface SolutionConfig {
   featureTransformationParameters?: { [key: string]: string };
 
   /**
-   * <p>The <a>AutoMLConfig</a> object containing a list of recipes to search
+   * <p>The <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html">AutoMLConfig</a> object containing a list of recipes to search
    *       when AutoML is performed.</p>
    */
   autoMLConfig?: AutoMLConfig;
@@ -1505,6 +1600,11 @@ export interface CreateSolutionRequest {
    *          </note>
    */
   solutionConfig?: SolutionConfig;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the solution.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateSolutionRequest {
@@ -1560,6 +1660,11 @@ export interface CreateSolutionVersionRequest {
    *          </important>
    */
   trainingMode?: TrainingMode | string;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the solution version.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateSolutionVersionRequest {
@@ -2013,7 +2118,7 @@ export namespace DescribeCampaignRequest {
 
 /**
  * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
- *       <a>DescribeCampaign</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
  */
 export interface CampaignUpdateSummary {
   /**
@@ -2073,7 +2178,7 @@ export namespace CampaignUpdateSummary {
 
 /**
  * <p>An object that describes the deployment of a solution version.
- *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ *       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  */
 export interface Campaign {
   /**
@@ -2132,7 +2237,7 @@ export interface Campaign {
 
   /**
    * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
-   *       <a>DescribeCampaign</a> API.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
    */
   latestCampaignUpdate?: CampaignUpdateSummary;
 }
@@ -2285,7 +2390,7 @@ export namespace DescribeDatasetExportJobRequest {
 }
 
 /**
- * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see <a>CreateDatasetExportJob</a>.</p>
+ * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.</p>
  *          <p>A dataset export job can be in one of the following states:</p>
  *          <ul>
  *             <li>
@@ -2416,9 +2521,9 @@ export namespace DescribeDatasetGroupRequest {
 
 /**
  * <p>A dataset group is a collection of related datasets (Interactions, User, and Item). You
- *       create a dataset group by calling <a>CreateDatasetGroup</a>. You then create a
- *       dataset and add it to a dataset group by calling <a>CreateDataset</a>. The dataset
- *       group is used to create and train a solution by calling <a>CreateSolution</a>. A
+ *       create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a
+ *       dataset and add it to a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset
+ *       group is used to create and train a solution by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>. A
  *       dataset group can contain only one of each type of dataset.</p>
  *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group.</p>
  */
@@ -2521,7 +2626,7 @@ export namespace DescribeDatasetImportJobRequest {
 
 /**
  * <p>Describes a job that imports training data from a data source (Amazon S3 bucket) to an
- *       Amazon Personalize dataset. For more information, see <a>CreateDatasetImportJob</a>.</p>
+ *       Amazon Personalize dataset. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>.</p>
  *          <p>A dataset import job can be in one of the following states:</p>
  *          <ul>
  *             <li>
@@ -2856,7 +2961,7 @@ export interface Filter {
   /**
    * <p>Specifies the type of item interactions to filter out of recommendation results. The
    *             filter expression must follow specific format rules. For information about filter expression structure and syntax, see
-   *             <a>filter-expressions</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter expressions</a>.</p>
    */
   filterExpression?: string;
 
@@ -2911,7 +3016,7 @@ export namespace DescribeRecipeRequest {
 
 /**
  * <p>Provides information about a recipe. Each recipe provides an algorithm
- *       that Amazon Personalize uses in model training when you use the <a>CreateSolution</a>
+ *       that Amazon Personalize uses in model training when you use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *       operation. </p>
  */
 export interface Recipe {
@@ -3016,7 +3121,7 @@ export namespace DescribeRecommenderRequest {
 
 /**
  * <p>Provides a summary of the properties of a recommender update. For a complete listing, call the
- *       DescribeRecommender API operation.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a> API.</p>
  */
 export interface RecommenderUpdateSummary {
   /**
@@ -3172,7 +3277,7 @@ export namespace DescribeSchemaRequest {
 
 /**
  * <p>Describes the schema for a dataset. For more information on schemas, see
- *       <a>CreateSchema</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  */
 export interface DatasetSchema {
   /**
@@ -3249,7 +3354,7 @@ export namespace DescribeSolutionRequest {
 
 /**
  * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
- *       <a>CreateSolution</a>), specifies the recipe that best optimized the
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), specifies the recipe that best optimized the
  *       specified metric.</p>
  */
 export interface AutoMLResult {
@@ -3270,7 +3375,7 @@ export namespace AutoMLResult {
 
 /**
  * <p>Provides a summary of the properties of a solution version. For a complete listing, call the
- *       <a>DescribeSolutionVersion</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
  */
 export interface SolutionVersionSummary {
   /**
@@ -3461,7 +3566,7 @@ export namespace TunedHPOParams {
 }
 
 /**
- * <p>An object that provides information about a specific version of a <a>Solution</a> in a Custom dataset group.</p>
+ * <p>An object that provides information about a specific version of a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html">Solution</a> in a Custom dataset group.</p>
  */
 export interface SolutionVersion {
   /**
@@ -3692,7 +3797,8 @@ export namespace ListBatchInferenceJobsRequest {
 }
 
 /**
- * <p>A truncated version of the <a>BatchInferenceJob</a> datatype. The <a>ListBatchInferenceJobs</a> operation returns a list of batch inference job
+ * <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html">BatchInferenceJob</a>. The
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html">ListBatchInferenceJobs</a> operation returns a list of batch inference job
  *       summaries.</p>
  */
 export interface BatchInferenceJobSummary {
@@ -3805,7 +3911,8 @@ export namespace ListBatchSegmentJobsRequest {
 }
 
 /**
- * <p>A truncated version of the <a>BatchSegmentJob</a> datatype. The <a>ListBatchSegmentJobs</a> operation returns a list of batch segment job
+ * <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchSegmentJob.html">BatchSegmentJob</a> datatype.
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchSegmentJobs.html">ListBatchSegmentJobs</a> operation returns a list of batch segment job
  *       summaries.</p>
  */
 export interface BatchSegmentJobSummary {
@@ -3898,7 +4005,7 @@ export interface ListCampaignsRequest {
   solutionArn?: string;
 
   /**
-   * <p>A token returned from the previous call to <code>ListCampaigns</code> for getting
+   * <p>A token returned from the previous call to <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a> for getting
    *       the next set of campaigns (if they exist).</p>
    */
   nextToken?: string;
@@ -3920,7 +4027,7 @@ export namespace ListCampaignsRequest {
 
 /**
  * <p>Provides a summary of the properties of a campaign. For a complete listing, call the
- *       <a>DescribeCampaign</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
  */
 export interface CampaignSummary {
   /**
@@ -4022,7 +4129,7 @@ export namespace ListDatasetExportJobsRequest {
 
 /**
  * <p>Provides a summary of the properties of a dataset export job. For a complete listing, call the
- *       <a>DescribeDatasetExportJob</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a> API.</p>
  */
 export interface DatasetExportJobSummary {
   /**
@@ -4116,7 +4223,7 @@ export namespace ListDatasetGroupsRequest {
 
 /**
  * <p>Provides a summary of the properties of a dataset group. For a complete listing, call the
- *       <a>DescribeDatasetGroup</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> API.</p>
  */
 export interface DatasetGroupSummary {
   /**
@@ -4223,7 +4330,7 @@ export namespace ListDatasetImportJobsRequest {
 
 /**
  * <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
- *       <a>DescribeDatasetImportJob</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> API.</p>
  */
 export interface DatasetImportJobSummary {
   /**
@@ -4323,7 +4430,7 @@ export namespace ListDatasetsRequest {
 
 /**
  * <p>Provides a summary of the properties of a dataset. For a complete listing, call the
- *       <a>DescribeDataset</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a> API.</p>
  */
 export interface DatasetSummary {
   /**
@@ -4440,7 +4547,7 @@ export namespace ListEventTrackersRequest {
 
 /**
  * <p>Provides a summary of the properties of an event tracker. For a complete listing, call the
- *       <a>DescribeEventTracker</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a> API.</p>
  */
 export interface EventTrackerSummary {
   /**
@@ -4629,7 +4736,7 @@ export interface ListRecipesRequest {
   /**
    * <p>
    *       Filters returned recipes by domain for a Domain dataset group. Only recipes (Domain dataset group use cases)
-   *       for this domain are included in the response. If you don't specify a domain, only non-domain recipes are returned.
+   *       for this domain are included in the response. If you don't specify a domain, all recipes are returned.
    *     </p>
    */
   domain?: Domain | string;
@@ -4646,7 +4753,7 @@ export namespace ListRecipesRequest {
 
 /**
  * <p>Provides a summary of the properties of a recipe. For a complete listing, call the
- *       <a>DescribeRecipe</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecipe.html">DescribeRecipe</a> API.</p>
  */
 export interface RecipeSummary {
   /**
@@ -4845,7 +4952,7 @@ export namespace ListSchemasRequest {
 
 /**
  * <p>Provides a summary of the properties of a dataset schema. For a complete listing, call the
- *       <a>DescribeSchema</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a> API.</p>
  */
 export interface DatasetSchemaSummary {
   /**
@@ -4933,7 +5040,7 @@ export namespace ListSolutionsRequest {
 
 /**
  * <p>Provides a summary of the properties of a solution. For a complete listing, call the
- *       <a>DescribeSolution</a> API.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API.</p>
  */
 export interface SolutionSummary {
   /**
@@ -5049,6 +5156,102 @@ export namespace ListSolutionVersionsResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The resource's tags.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartRecommenderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender to start.</p>
+   */
+  recommenderArn: string | undefined;
+}
+
+export namespace StartRecommenderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRecommenderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartRecommenderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender you started.</p>
+   */
+  recommenderArn?: string;
+}
+
+export namespace StartRecommenderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRecommenderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopRecommenderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender to stop.</p>
+   */
+  recommenderArn: string | undefined;
+}
+
+export namespace StopRecommenderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopRecommenderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopRecommenderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>
+   */
+  recommenderArn?: string;
+}
+
+export namespace StopRecommenderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopRecommenderResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StopSolutionVersionCreationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
@@ -5061,6 +5264,89 @@ export namespace StopSolutionVersionCreationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopSolutionVersionCreationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging Personalize resources</a>.</p>
+   */
+  tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
+ */
+export class TooManyTagKeysException extends __BaseException {
+  readonly name: "TooManyTagKeysException" = "TooManyTagKeysException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagKeysException, __BaseException>) {
+    super({
+      name: "TooManyTagKeysException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagKeysException.prototype);
+  }
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Keys to remove from the resource's tags.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

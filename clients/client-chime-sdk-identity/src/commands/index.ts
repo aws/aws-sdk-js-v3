@@ -1,4 +1,5 @@
 export * from "./CreateAppInstanceAdminCommand";
+// smithy-typescript generated code
 export * from "./CreateAppInstanceCommand";
 export * from "./CreateAppInstanceUserCommand";
 export * from "./DeleteAppInstanceAdminCommand";

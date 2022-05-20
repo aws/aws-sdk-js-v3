@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *        wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.
  *      </p>
  *
- *          <p>For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p>
  *          <note>
  *             <p>
  *                <code>DetectLabels</code> does not support the detection of activities. However, activity detection

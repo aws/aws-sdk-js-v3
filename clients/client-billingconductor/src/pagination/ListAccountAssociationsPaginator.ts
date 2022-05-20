@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { Billingconductor } from "../Billingconductor";
@@ -50,8 +51,9 @@ export async function* paginateListAccountAssociations(
       throw new Error("Invalid client, expected Billingconductor | BillingconductorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

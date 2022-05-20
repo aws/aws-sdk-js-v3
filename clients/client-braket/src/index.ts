@@ -1,4 +1,5 @@
 export * from "./Braket";
+// smithy-typescript generated code
 export * from "./BraketClient";
 export * from "./commands";
 export * from "./models";

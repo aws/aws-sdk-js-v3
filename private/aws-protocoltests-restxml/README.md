@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/aws-protocoltests-restxml
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restxml/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)
@@ -115,7 +117,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +151,7 @@ client
 
 // callbacks.
 client.allQueryStringTypes(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

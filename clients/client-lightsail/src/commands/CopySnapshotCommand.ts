@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,8 +25,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
 /**
  * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
  *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
- *       used to copy a manual or automatic snapshot of an instance or a disk from one AWS Region to
- *       another in Amazon Lightsail.</p>
+ *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
  *          <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source
  *         region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code>
  *       parameters.</p>

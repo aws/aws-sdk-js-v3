@@ -1,6 +1,6 @@
+// smithy-typescript generated code
 import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface EchoInput {
   string?: string;

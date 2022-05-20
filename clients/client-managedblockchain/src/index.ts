@@ -1,4 +1,5 @@
 export * from "./ManagedBlockchain";
+// smithy-typescript generated code
 export * from "./ManagedBlockchainClient";
 export * from "./commands";
 export * from "./models";

@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
@@ -85,6 +85,7 @@ export type LanguageCode =
   | "cmn-CN"
   | "cy-GB"
   | "da-DK"
+  | "de-AT"
   | "de-DE"
   | "en-AU"
   | "en-GB"
@@ -182,6 +183,7 @@ export type VoiceId =
   | "Geraint"
   | "Giorgio"
   | "Gwyneth"
+  | "Hannah"
   | "Hans"
   | "Ines"
   | "Ivy"

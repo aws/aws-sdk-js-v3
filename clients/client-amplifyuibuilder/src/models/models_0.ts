@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderServiceException as __BaseException } from "./AmplifyUIBuilderServiceException";
 
@@ -1124,8 +1124,8 @@ export namespace UpdateThemeData {
 }
 
 /**
- * <p>Represents the state configuration when an action modifies a property of another
- *       element within the same component.</p>
+ * <p>Represents the state configuration when an action modifies a property of another element
+ *       within the same component.</p>
  */
 export interface MutationActionSetStateParameter {
   /**
@@ -1343,14 +1343,15 @@ export namespace ExportThemesResponse {
 }
 
 /**
- * <p>Represents the event action configuration for an element of a <code>Component</code>
- *       or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
+ * <p>Represents the event action configuration for an element of a <code>Component</code> or
+ *         <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
  *       that allows you to bind events and actions to components. <code>ActionParameters</code>
  *       defines the action that is performed when an event occurs on the component.</p>
  */
 export interface ActionParameters {
   /**
-   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>. This value is required for a navigation action.</p>
+   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>.
+   *       This value is required for a navigation action.</p>
    */
   type?: ComponentProperty;
 
@@ -1360,7 +1361,8 @@ export interface ActionParameters {
   url?: ComponentProperty;
 
   /**
-   * <p>The HTML anchor link to the location to open. Specify this value for a navigation action.</p>
+   * <p>The HTML anchor link to the location to open. Specify this value for a navigation
+   *       action.</p>
    */
   anchor?: ComponentProperty;
 
@@ -1370,13 +1372,13 @@ export interface ActionParameters {
   target?: ComponentProperty;
 
   /**
-   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.</p>
+   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth
+   *       sign out action.</p>
    */
   global?: ComponentProperty;
 
   /**
-   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore
-   *       model.</p>
+   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>
    */
   model?: string;
 
@@ -1386,8 +1388,9 @@ export interface ActionParameters {
   id?: ComponentProperty;
 
   /**
-   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action
-   *       performs an operation on an Amplify DataStore model.</p>
+   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields
+   *       in a data model. Use when the action performs an operation on an Amplify
+   *       DataStore model.</p>
    */
   fields?: { [key: string]: ComponentProperty };
 
@@ -1407,9 +1410,9 @@ export namespace ActionParameters {
 }
 
 /**
- * <p>Describes the configuration of an event. You can bind an event and a corresponding
- *       action to a <code>Component</code> or a <code>ComponentChild</code>. A button click
- *       is an example of an event. </p>
+ * <p>Describes the configuration of an event. You can bind an event and a corresponding action
+ *       to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of
+ *       an event. </p>
  */
 export interface ComponentEvent {
   /**
@@ -1421,6 +1424,11 @@ export interface ComponentEvent {
    * <p>Describes information about the action.</p>
    */
   parameters?: ActionParameters;
+
+  /**
+   * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>, the event is called when the action is performed.</p>
+   */
+  bindingEvent?: string;
 }
 
 export namespace ComponentEvent {
@@ -1458,10 +1466,16 @@ export interface ComponentChild {
   children?: ComponentChild[];
 
   /**
-   * <p>Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to
-   *       bind events and actions to components.</p>
+   * <p>Describes the events that can be raised on the child component. Use for the workflow
+   *       feature in Amplify Studio that allows you to bind events and actions to
+   *       components.</p>
    */
   events?: { [key: string]: ComponentEvent };
+
+  /**
+   * <p>The unique ID of the child component in its original source system, such as Figma.</p>
+   */
+  sourceId?: string;
 }
 
 export namespace ComponentChild {
@@ -1566,8 +1580,9 @@ export interface Component {
   tags?: { [key: string]: string };
 
   /**
-   * <p>Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to
-   *       bind events and actions to components.</p>
+   * <p>Describes the events that can be raised on the component. Use for the workflow feature in
+   *         Amplify Studio that allows you to bind events and actions to
+   *       components.</p>
    */
   events?: { [key: string]: ComponentEvent };
 

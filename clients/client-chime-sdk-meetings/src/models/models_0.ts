@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
@@ -280,6 +280,31 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The service encountered an unexpected error.</p>
+ */
+export class ServiceFailureException extends __BaseException {
+  readonly name: "ServiceFailureException" = "ServiceFailureException";
+  readonly $fault: "server" = "server";
+  Code?: string;
+  Message?: string;
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -314,6 +339,31 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * <p>The number of customer requests exceeds the request rate limit.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>The user isn't authorized to request a resource.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -335,6 +385,34 @@ export class UnauthorizedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ */
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p>The request id associated with the call responsible for the exception.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
     this.Code = opts.Code;
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
@@ -378,34 +456,6 @@ export namespace CreateAttendeeResponse {
     ...obj,
     ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
   });
-}
-
-/**
- * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**

@@ -1,13 +1,13 @@
-const ROLE_ASSUMER_WITH_WEB_IDENTITY = "ROLE_ASSUMER_WITH_WEB_IDENTITY";
-
-jest.mock("@aws-sdk/client-sts", () => ({
-  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(ROLE_ASSUMER_WITH_WEB_IDENTITY),
-}));
-
 import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromWebToken as coreProvider } from "@aws-sdk/credential-provider-web-identity";
 
 import { fromWebToken } from "./fromWebToken";
+
+const mockRoleAssumerWithWebIdentity = jest.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
+
+jest.mock("@aws-sdk/client-sts", () => ({
+  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
+}));
 
 jest.mock("@aws-sdk/credential-provider-web-identity", () => ({
   fromWebToken: jest.fn(),
@@ -29,7 +29,7 @@ describe("fromWebToken", () => {
     expect(coreProvider).toBeCalledWith({
       roleArn,
       webIdentityToken,
-      roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
+      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
   });
@@ -44,7 +44,7 @@ describe("fromWebToken", () => {
       clientConfig,
     });
     expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
-      roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
+      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
   });

@@ -1,4 +1,5 @@
 export * from "./MigrationHubRefactorSpaces";
+// smithy-typescript generated code
 export * from "./MigrationHubRefactorSpacesClient";
 export * from "./commands";
 export * from "./models";

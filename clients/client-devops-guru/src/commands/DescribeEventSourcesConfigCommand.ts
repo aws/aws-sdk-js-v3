@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,10 @@ export interface DescribeEventSourcesConfigCommandInput extends DescribeEventSou
 export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists details about a DevOps Guru event source that is shared with your  account.</p>
+ * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
+ * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
+ * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
+ * 			DevOps Guru.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

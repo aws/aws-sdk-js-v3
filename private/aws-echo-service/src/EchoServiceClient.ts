@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";

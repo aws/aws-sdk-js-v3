@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddProfilePermissionCommand";
 export * from "./CancelSigningProfileCommand";
 export * from "./DescribeSigningJobCommand";

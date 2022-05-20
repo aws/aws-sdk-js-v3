@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -19,6 +20,10 @@ import {
   BatchAcknowledgeAlarmCommandInput,
   BatchAcknowledgeAlarmCommandOutput,
 } from "../commands/BatchAcknowledgeAlarmCommand";
+import {
+  BatchDeleteDetectorCommandInput,
+  BatchDeleteDetectorCommandOutput,
+} from "../commands/BatchDeleteDetectorCommand";
 import { BatchDisableAlarmCommandInput, BatchDisableAlarmCommandOutput } from "../commands/BatchDisableAlarmCommand";
 import { BatchEnableAlarmCommandInput, BatchEnableAlarmCommandOutput } from "../commands/BatchEnableAlarmCommand";
 import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "../commands/BatchPutMessageCommand";
@@ -40,9 +45,11 @@ import {
   AlarmState,
   AlarmSummary,
   BatchAlarmActionErrorEntry,
+  BatchDeleteDetectorErrorEntry,
   BatchPutMessageErrorEntry,
   BatchUpdateDetectorErrorEntry,
   CustomerAction,
+  DeleteDetectorRequest,
   Detector,
   DetectorState,
   DetectorStateDefinition,
@@ -91,6 +98,33 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
           input.acknowledgeActionRequests,
           context
         ),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchDeleteDetectorCommand = async (
+  input: BatchDeleteDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/delete";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.detectors !== undefined &&
+      input.detectors !== null && {
+        detectors: serializeAws_restJson1DeleteDetectorRequests(input.detectors, context),
       }),
   });
   return new __HttpRequest({
@@ -420,6 +454,62 @@ const deserializeAws_restJson1BatchAcknowledgeAlarmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAcknowledgeAlarmCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.ioteventsdata#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.ioteventsdata#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ioteventsdata#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchDeleteDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteDetectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDeleteDetectorCommandError(output, context);
+  }
+  const contents: BatchDeleteDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    batchDeleteDetectorErrorEntries: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.batchDeleteDetectorErrorEntries !== undefined && data.batchDeleteDetectorErrorEntries !== null) {
+    contents.batchDeleteDetectorErrorEntries = deserializeAws_restJson1BatchDeleteDetectorErrorEntries(
+      data.batchDeleteDetectorErrorEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchDeleteDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteDetectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1114,6 +1204,26 @@ const serializeAws_restJson1AcknowledgeAlarmActionRequests = (
     });
 };
 
+const serializeAws_restJson1DeleteDetectorRequest = (input: DeleteDetectorRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.detectorModelName !== undefined &&
+      input.detectorModelName !== null && { detectorModelName: input.detectorModelName }),
+    ...(input.keyValue !== undefined && input.keyValue !== null && { keyValue: input.keyValue }),
+    ...(input.messageId !== undefined && input.messageId !== null && { messageId: input.messageId }),
+  };
+};
+
+const serializeAws_restJson1DeleteDetectorRequests = (input: DeleteDetectorRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DeleteDetectorRequest(entry, context);
+    });
+};
+
 const serializeAws_restJson1DetectorStateDefinition = (
   input: DetectorStateDefinition,
   context: __SerdeContext
@@ -1422,6 +1532,32 @@ const deserializeAws_restJson1BatchAlarmActionErrorEntry = (
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
     requestId: __expectString(output.requestId),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchDeleteDetectorErrorEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteDetectorErrorEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchDeleteDetectorErrorEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchDeleteDetectorErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteDetectorErrorEntry => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    messageId: __expectString(output.messageId),
   } as any;
 };
 

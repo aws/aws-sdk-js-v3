@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelOrderCommand";
 export * from "./CreateOrderCommand";
 export * from "./CreateOutpostCommand";
@@ -10,6 +11,7 @@ export * from "./GetOutpostCommand";
 export * from "./GetOutpostInstanceTypesCommand";
 export * from "./GetSiteAddressCommand";
 export * from "./GetSiteCommand";
+export * from "./ListAssetsCommand";
 export * from "./ListCatalogItemsCommand";
 export * from "./ListOrdersCommand";
 export * from "./ListOutpostsCommand";

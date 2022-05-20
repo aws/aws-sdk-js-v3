@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 

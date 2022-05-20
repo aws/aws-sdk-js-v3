@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { GrafanaServiceException as __BaseException } from "./GrafanaServiceException";
 
@@ -31,6 +31,340 @@ export enum AccountAccessType {
    * Indicates that the customer is using Grafana to monitor resources in organizational units.
    */
   ORGANIZATION = "ORGANIZATION",
+}
+
+/**
+ * <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that is associated with the error.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that is associated with the error.</p>
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+export interface CreateWorkspaceApiKeyRequest {
+  /**
+   * <p>Specifies the name of the key to create.  Key names must be unique to the workspace.</p>
+   */
+  keyName: string | undefined;
+
+  /**
+   * <p>Specifies the permission level of the key.</p>
+   *          <p>Valid Values: <code>VIEWER</code> | <code>EDITOR</code> | <code>ADMIN</code>
+   *          </p>
+   */
+  keyRole: string | undefined;
+
+  /**
+   * <p>Specifies the time in seconds until the key expires.  Keys can be valid for up to 30 days.</p>
+   */
+  secondsToLive: number | undefined;
+
+  /**
+   * <p>The ID of the workspace in which to create an API key.</p>
+   */
+  workspaceId: string | undefined;
+}
+
+export namespace CreateWorkspaceApiKeyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkspaceApiKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateWorkspaceApiKeyResponse {
+  /**
+   * <p>The name of the key that was created.</p>
+   */
+  keyName: string | undefined;
+
+  /**
+   * <p>The key token that was created.  Use this value as a bearer token to
+   *          authenticate HTTP requests to the workspace.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The ID of the workspace that the key is valid for.</p>
+   */
+  workspaceId: string | undefined;
+}
+
+export namespace CreateWorkspaceApiKeyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkspaceApiKeyResponse): any => ({
+    ...obj,
+    ...(obj.key && { key: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Unexpected error while processing the request. Retry the request.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * <p>How long to wait before you retry this operation.</p>
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>The request references a resource that does not exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that is associated with the error.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that is associated with the error.</p>
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>The request would cause a service quota to be exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that is associated with the error.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that is associated with the error.</p>
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p>The value of a parameter in the request caused an error.</p>
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p>The ID of the service quota that was exceeded.</p>
+   */
+  quotaCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * <p>The request was denied because of request throttling. Retry the request.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * <p>The ID of the service that is associated with the error.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>The ID of the service quota that was exceeded.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * <p>The value of a parameter in the request caused an error.</p>
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>A structure that contains information about a request parameter that caused an error.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that caused the validation error.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why this field couldn't be validated.</p>
+   */
+  message: string | undefined;
+}
+
+export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
+    ...obj,
+  });
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
+  OTHER = "OTHER",
+  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
+}
+
+/**
+ * <p>The value of a parameter in the request caused an error.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The reason that the operation failed.</p>
+   */
+  reason: ValidationExceptionReason | string | undefined;
+
+  /**
+   * <p>A list of fields that might be associated with the error.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+export interface DeleteWorkspaceApiKeyRequest {
+  /**
+   * <p>The name of the API key to delete.</p>
+   */
+  keyName: string | undefined;
+
+  /**
+   * <p>The ID of the workspace to delete.</p>
+   */
+  workspaceId: string | undefined;
+}
+
+export namespace DeleteWorkspaceApiKeyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkspaceApiKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkspaceApiKeyResponse {
+  /**
+   * <p>The name of the API key that was deleted.</p>
+   */
+  keyName: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the key was deleted.</p>
+   */
+  workspaceId: string | undefined;
+}
+
+export namespace DeleteWorkspaceApiKeyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkspaceApiKeyResponse): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -426,163 +760,6 @@ export namespace AssociateLicenseResponse {
   });
 }
 
-/**
- * <p>Unexpected error while processing the request. Retry the request.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>How long to wait before you retry this operation.</p>
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The request references a resource that does not exist.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that is associated with the error.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request was denied because of request throttling. Retry the request.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * <p>The ID of the service that is associated with the error.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>The ID of the service quota that was exceeded.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * <p>The value of a parameter in the request caused an error.</p>
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>A structure that contains information about a request parameter that caused an error.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field that caused the validation error.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A message describing why this field couldn't be validated.</p>
-   */
-  message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
-
-/**
- * <p>The value of a parameter in the request caused an error.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason that the operation failed.</p>
-   */
-  reason: ValidationExceptionReason | string | undefined;
-
-  /**
-   * <p>A list of fields that might be associated with the error.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
 export interface DescribeWorkspaceAuthenticationRequest {
   /**
    * <p>The ID of the workspace to return authentication information about.</p>
@@ -825,37 +1002,6 @@ export namespace DescribeWorkspaceAuthenticationResponse {
   });
 }
 
-/**
- * <p>A resource was in an inconsistent state during an update or a deletion.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that is associated with the error.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
 export interface UpdateWorkspaceAuthenticationRequest {
   /**
    * <p>The ID of the workspace to update the authentication for.</p>
@@ -1040,6 +1186,10 @@ export enum Role {
    * Role Editor.
    */
   EDITOR = "EDITOR",
+  /**
+   * Role Viewer.
+   */
+  VIEWER = "VIEWER",
 }
 
 /**
@@ -1414,49 +1564,6 @@ export namespace CreateWorkspaceResponse {
     ...obj,
     ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
   });
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that is associated with the error.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The value of a parameter in the request caused an error.</p>
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The ID of the service quota that was exceeded.</p>
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 export interface DeleteWorkspaceRequest {

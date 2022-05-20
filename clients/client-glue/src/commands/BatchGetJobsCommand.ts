@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,7 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetJobsRequest, BatchGetJobsResponse } from "../models/models_0";
+import { BatchGetJobsRequest } from "../models/models_0";
+import { BatchGetJobsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1BatchGetJobsCommand,
   serializeAws_json1_1BatchGetJobsCommand,

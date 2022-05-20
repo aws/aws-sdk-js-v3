@@ -1,4 +1,5 @@
 export * from "./Glue";
+// smithy-typescript generated code
 export * from "./GlueClient";
 export * from "./commands";
 export * from "./models";

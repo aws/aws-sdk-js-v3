@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,11 +24,11 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
 
 /**
  * <p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you
- *    can assign to your documents, managed nodes, maintenance windows, Parameter Store parameters, and
- *    patch baselines. Tags enable you to categorize your resources in different ways, for example, by
- *    purpose, owner, or environment. Each tag consists of a key and an optional value, both of which
- *    you define. For example, you could define a set of tags for your account's managed nodes that
- *    helps you track each node's owner and stack level. For example:</p>
+ *    can assign to your automations, documents, managed nodes, maintenance windows, Parameter Store
+ *    parameters, and patch baselines. Tags enable you to categorize your resources in different ways,
+ *    for example, by purpose, owner, or environment. Each tag consists of a key and an optional value,
+ *    both of which you define. For example, you could define a set of tags for your account's managed
+ *    nodes that helps you track each node's owner and stack level. For example:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -60,11 +61,12 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Each resource can have a maximum of 50 tags.</p>
+ *          <p>Most resources can have a maximum of 50 tags. Automations can have a maximum of 5
+ *    tags.</p>
  *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
  *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
  *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
- *    to and are interpreted strictly as a string of characters. </p>
+ *    to and are interpreted strictly as a string of characters.</p>
  *          <p>For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
  *     resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

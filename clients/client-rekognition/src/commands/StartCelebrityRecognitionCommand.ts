@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,7 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *       topic is <code>SUCCEEDED</code>. If so, call  <a>GetCelebrityRecognition</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p>
  *
- *          <p>For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

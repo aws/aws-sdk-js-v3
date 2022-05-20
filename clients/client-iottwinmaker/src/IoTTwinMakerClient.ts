@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -307,12 +308,7 @@ type IoTTwinMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface IoTTwinMakerClientResolvedConfig extends IoTTwinMakerClientResolvedConfigType {}
 
 /**
- * <important>
- *             <p>
- *         TwinMaker is in public preview and is subject to change.
- *       </p>
- *          </important>
- *          <p>IoT TwinMaker is a service that enables you to build operational digital twins of
+ * <p>IoT TwinMaker is a service that enables you to build operational digital twins of
  *          physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
  *          cameras, and enterprise applications so you can create data visualizations to monitor your
  *          physical factory, building, or industrial plant. You can use this real-world data to

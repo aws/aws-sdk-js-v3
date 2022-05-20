@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AnalyzeDocumentCommand";
 export * from "./AnalyzeExpenseCommand";
 export * from "./AnalyzeIDCommand";

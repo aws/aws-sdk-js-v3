@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *         <a>SearchFaces</a> and <a>SearchFacesByImage</a>
  *       operations.</p>
  *
- *          <p>For more information, see Adding Faces to a Collection in the Amazon Rekognition
+ *          <p>For more information, see Adding faces to a collection in the Amazon Rekognition
  *       Developer Guide.</p>
  *          <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p>
  *
@@ -110,7 +111,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *          <p>If you request all facial attributes (by using the <code>detectionAttributes</code>
  *       parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for
  *       example, location of eye and mouth) and other facial attributes. If you provide
- *       the same image, specify the same collection, use the same external ID, and use the same model version in the
+ *       the same image, specify the same collection, and use the same external ID in the
  *         <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
  *
  *

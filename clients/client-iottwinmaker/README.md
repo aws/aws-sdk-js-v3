@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-iottwinmaker
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iottwinmaker/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iottwinmaker)
@@ -7,11 +9,6 @@
 
 AWS SDK for JavaScript IoTTwinMaker Client for Node.js, Browser and React Native.
 
-<important>
-<p>
-TwinMaker is in public preview and is subject to change.
-</p>
-</important>
 <p>IoT TwinMaker is a service that enables you to build operational digital twins of
 physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
 cameras, and enterprise applications so you can create data visualizations to monitor your
@@ -124,7 +121,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -158,7 +155,7 @@ client
 
 // callbacks.
 client.batchPutPropertyValues(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

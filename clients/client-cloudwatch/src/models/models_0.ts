@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
 
@@ -111,15 +111,17 @@ export namespace AnomalyDetectorConfiguration {
 }
 
 /**
- * <p>A dimension is a name/value pair that is part of the identity of a metric. You
- * 			can assign up to 10 dimensions to a metric. Because dimensions are part of the unique
+ * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
  * 			identifier for a metric, whenever you add a unique name/value pair to one of
- * 			your metrics, you are creating a new variation of that metric. </p>
+ * 			your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish
+ * 		<code>InstanceId</code> as a dimension name, and the actual instance ID as the value for that dimension.</p>
+ * 		       <p>You
+ * 		can assign up to 10 dimensions to a metric.</p>
  */
 export interface Dimension {
   /**
-   * <p>The name of the dimension. Dimension names must contain only ASCII characters and must include
-   * 			at least one non-whitespace character.</p>
+   * <p>The name of the dimension. Dimension names must contain only ASCII characters, must include
+   * 			at least one non-whitespace character, and cannot start with a colon (<code>:</code>).</p>
    */
   Name: string | undefined;
 
@@ -254,7 +256,7 @@ export namespace MetricStat {
  * <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported
  * 			use of this structure is different for those two operations.</p>
  * 		       <p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving
- * 			a batch set of data for one metric, or is performing a math expression on metric data. A
+ * 			a batch set of data for one metric, or is performing a Metrics Insights query or a math expression. A
  * 			single <code>GetMetricData</code> call can include up to 500 <code>MetricDataQuery</code>
  * 			structures.</p>
  * 		       <p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a
@@ -293,8 +295,13 @@ export interface MetricDataQuery {
   MetricStat?: MetricStat;
 
   /**
-   * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
-   * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
+   * <p>This field can contain either a Metrics Insights query, or a metric math expression to be performed on the
+   * 			returned data. For more information about Metrics Insights queries, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage">Metrics Insights query components and syntax</a> in the
+   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   * 		       <p>A math expression
+   * 			can use the <code>Id</code> of the other metrics or queries to refer to those metrics, and can also use
+   * 			the <code>Id</code> of other
    * 			expressions to use the result of those expressions. For more information about metric math expressions, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
@@ -1461,7 +1468,12 @@ export interface MetricAlarm {
   ComparisonOperator?: ComparisonOperator | string;
 
   /**
-   * <p>Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of <code>missing</code> is used.</p>
+   * <p>Sets how this alarm is to handle missing data points. The valid values
+   *         	are <code>breaching</code>, <code>notBreaching</code>, <code>ignore</code>, and
+   *         	<code>missing</code>. For more information, see
+   *         	<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring how CloudWatch alarms treat missing data</a>.</p>
+   * 		       <p>If this parameter is omitted, the default
+   *         	behavior of <code>missing</code> is used.</p>
    */
   TreatMissingData?: string;
 
@@ -2218,7 +2230,8 @@ export namespace LabelOptions {
 export interface GetMetricDataInput {
   /**
    * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 500 <code>MetricDataQuery</code>
-   * 		structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data. </p>
+   * 		structures. Each of these structures can specify either a metric to retrieve, a Metrics Insights query,
+   * 		or a math expression to perform on retrieved data. </p>
    */
   MetricDataQueries: MetricDataQuery[] | undefined;
 
@@ -2597,6 +2610,74 @@ export enum MetricStreamOutputFormat {
   OPEN_TELEMETRY_0_7 = "opentelemetry0.7",
 }
 
+/**
+ * <p>This object contains the information for one metric that is to be streamed with
+ * 		additional statistics.</p>
+ */
+export interface MetricStreamStatisticsMetric {
+  /**
+   * <p>The namespace of the metric.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName: string | undefined;
+}
+
+export namespace MetricStreamStatisticsMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricStreamStatisticsMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+ * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. This structure contains information for
+ * 			one metric that includes additional statistics in the stream. For more information about statistics,
+ * 			see CloudWatch, listed in
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+ * 				CloudWatch statistics definitions</a>.</p>
+ */
+export interface MetricStreamStatisticsConfiguration {
+  /**
+   * <p>An array of metric name and namespace pairs that stream the additional statistics listed
+   * 		in the value of the <code>AdditionalStatistics</code> parameter. There can be as many as
+   * 		100 pairs in the array.</p>
+   * 		       <p>All metrics that match the combination of metric name and namespace will be streamed
+   * 		with the additional statistics, no matter their dimensions.</p>
+   */
+  IncludeMetrics: MetricStreamStatisticsMetric[] | undefined;
+
+  /**
+   * <p>The list of additional statistics that are to be streamed for the metrics listed
+   * 		in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
+   * 		       <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry0.7</code>, the only
+   * 			valid values are <code>p<i>??</i>
+   *             </code> percentile statistics such as <code>p90</code>, <code>p99</code> and so on.</p>
+   * 		       <p>If the <code>OutputFormat</code> for the stream is <code>json</code>,
+   * 			the valid values include the abbreviations for all of the statistics listed in
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   * 				CloudWatch statistics definitions</a>. For example, this includes
+   * 		<code>tm98, </code>
+   *             <code>wm90</code>, <code>PR(:300)</code>, and so on.</p>
+   */
+  AdditionalStatistics: string[] | undefined;
+}
+
+export namespace MetricStreamStatisticsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricStreamStatisticsConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface GetMetricStreamOutput {
   /**
    * <p>The ARN of the metric stream.</p>
@@ -2650,9 +2731,21 @@ export interface GetMetricStreamOutput {
   LastUpdateDate?: Date;
 
   /**
-   * <p></p>
+   * <p>The output format for the stream. Valid values are <code>json</code>
+   * 			and <code>opentelemetry0.7</code>. For more information about metric stream
+   * 			output formats, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
+   * 				Metric streams output formats</a>.</p>
    */
   OutputFormat?: MetricStreamOutputFormat | string;
+
+  /**
+   * <p>Each entry in this array displays information about one or more metrics that include additional statistics
+   * 			in the metric stream. For more information about the additional statistics, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   * 				CloudWatch statistics definitions</a>. </p>
+   */
+  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
 }
 
 export namespace GetMetricStreamOutput {
@@ -3619,6 +3712,11 @@ export interface PutMetricAlarmInput {
    * 				Alarms Treats Missing Data</a>.</p>
    * 		       <p>Valid Values: <code>breaching | notBreaching | ignore | missing</code>
    *          </p>
+   * 		       <note>
+   *             <p>Alarms that evaluate metrics in the <code>AWS/DynamoDB</code> namespace always <code>ignore</code>
+   * 			missing data even if you choose a different option for <code>TreatMissingData</code>. When an
+   * 			<code>AWS/DynamoDB</code> metric has missing data, alarms that evaluate that metric remain in their current state.</p>
+   * 		       </note>
    */
   TreatMissingData?: string;
 
@@ -3885,6 +3983,21 @@ export interface PutMetricStreamInput {
    * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+   * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use this parameter to have
+   * 			the metric stream also send additional statistics in the stream. This
+   * 			array can have up to 100 members.</p>
+   * 		       <p>For each entry in this array, you specify one or more metrics and the list of additional statistics to stream
+   * 			for those metrics. The additional statistics that you can stream depend on the stream's <code>OutputFormat</code>.
+   * 			If the <code>OutputFormat</code> is <code>json</code>, you can stream any additional statistic that is supported
+   * 			by CloudWatch, listed in
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is
+   * 			<code>opentelemetry0.7</code>, you can stream percentile statistics such as p95, p99.9 and so on.</p>
+   */
+  StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
 }
 
 export namespace PutMetricStreamInput {

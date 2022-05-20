@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,9 @@ export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelIn
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
- * <p>Provides EMR release label details, such as releases available the region where the API request is run, and the available applications for a specific EMR release label. Can also list EMR release versions that support a specified version of Spark.</p>
+ * <p>Provides EMR release label details, such as releases available the region where the API
+ *          request is run, and the available applications for a specific EMR release label. Can also
+ *          list EMR release versions that support a specified version of Spark.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

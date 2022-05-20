@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_0";
+import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateImageVersionCommand,
   serializeAws_json1_1CreateImageVersionCommand,
@@ -23,7 +24,7 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
 
 /**
  * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
- *         represents the Amazon Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
+ *         represents the Amazon Elastic Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

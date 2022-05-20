@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,11 +26,11 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
 
 /**
  * <p>In a management account, reject an environment account connection from another environment account.</p>
- *          <p>After you reject an environment account connection request, you <i>won’t</i> be able to accept or use the rejected environment
- *    account connection.</p>
- *          <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
+ *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
+ *       connection.</p>
+ *          <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
- *     connections</a> in the <i>Proton Administrator guide</i>.</p>
+ *         connections</a> in the <i>Proton Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

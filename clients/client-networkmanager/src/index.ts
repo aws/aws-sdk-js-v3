@@ -1,4 +1,5 @@
 export * from "./NetworkManager";
+// smithy-typescript generated code
 export * from "./NetworkManagerClient";
 export * from "./commands";
 export * from "./models";

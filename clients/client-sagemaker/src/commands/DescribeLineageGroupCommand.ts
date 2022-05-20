@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_1";
+import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeLineageGroupCommand,
   serializeAws_json1_1DescribeLineageGroupCommand,

@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 
@@ -40,6 +40,11 @@ export interface AbpV1_0_x {
    * <p>Session keys for ABP v1.0.x</p>
    */
   SessionKeys?: SessionKeysAbpV1_0_x;
+
+  /**
+   * <p>The FCnt init value.</p>
+   */
+  FCntStart?: number;
 }
 
 export namespace AbpV1_0_x {
@@ -98,6 +103,11 @@ export interface AbpV1_1 {
    * <p>Session keys for ABP v1.1</p>
    */
   SessionKeys?: SessionKeysAbpV1_1;
+
+  /**
+   * <p>The FCnt init value.</p>
+   */
+  FCntStart?: number;
 }
 
 export namespace AbpV1_1 {
@@ -619,6 +629,94 @@ export enum ConnectionStatus {
   DISCONNECTED = "Disconnected",
 }
 
+export enum EventNotificationTopicStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Object for LoRaWAN connection status resource type event configuration.</p>
+ */
+export interface LoRaWANConnectionStatusEventNotificationConfigurations {
+  /**
+   * <p>Enum to denote whether the gateway eui connection status event topic is enabled or disabled.</p>
+   */
+  GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace LoRaWANConnectionStatusEventNotificationConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANConnectionStatusEventNotificationConfigurations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Connection status event configuration object for enabling or disabling topic.</p>
+ */
+export interface ConnectionStatusEventConfiguration {
+  /**
+   * <p>Connection status event configuration object for enabling or disabling LoRaWAN related event topics.</p>
+   */
+  LoRaWAN?: LoRaWANConnectionStatusEventNotificationConfigurations;
+
+  /**
+   * <p>Enum to denote whether the wireless gateway id connection status event topic is enabled or disabled
+   *             .</p>
+   */
+  WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace ConnectionStatusEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionStatusEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object for LoRaWAN connection status resource type event configuration.</p>
+ */
+export interface LoRaWANConnectionStatusResourceTypeEventConfiguration {
+  /**
+   * <p>Enum to denote whether the wireless gateway connection status event topic is enabled or disabled.</p>
+   */
+  WirelessGatewayEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace LoRaWANConnectionStatusResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANConnectionStatusResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Connection status resource type event configuration object for enabling or disabling topic.</p>
+ */
+export interface ConnectionStatusResourceTypeEventConfiguration {
+  /**
+   * <p>Connection status resource type event configuration object for enabling or disabling LoRaWAN related
+   *             event topics.</p>
+   */
+  LoRaWAN?: LoRaWANConnectionStatusResourceTypeEventConfiguration;
+}
+
+export namespace ConnectionStatusResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionStatusResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum ExpressionType {
   MqttTopic = "MqttTopic",
   RuleName = "RuleName",
@@ -1029,6 +1127,110 @@ export namespace CreateMulticastGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum LogLevel {
+  DISABLED = "DISABLED",
+  ERROR = "ERROR",
+  INFO = "INFO",
+}
+
+export enum WirelessDeviceFrameInfo {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Trace content for your wireless gateway and wireless device resources.</p>
+ */
+export interface TraceContent {
+  /**
+   * <p>FrameInfo of your wireless device resources for the trace content. Use FrameInfo to debug
+   *             the communication between your LoRaWAN end devices and the network server.</p>
+   */
+  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
+
+  /**
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
+   */
+  LogLevel?: LogLevel | string;
+}
+
+export namespace TraceContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TraceContent): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateNetworkAnalyzerConfigurationRequest {
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Trace content for your wireless gateway and wireless device resources.</p>
+   */
+  TraceContent?: TraceContent;
+
+  /**
+   * <p>Wireless device resources to add to the network analyzer configuration. Provide the <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
+   */
+  WirelessDevices?: string[];
+
+  /**
+   * <p>Wireless gateway resources to add to the network analyzer configuration. Provide the <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
+   */
+  WirelessGateways?: string[];
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace CreateNetworkAnalyzerConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateNetworkAnalyzerConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateNetworkAnalyzerConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name of the new resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   */
+  Name?: string;
+}
+
+export namespace CreateNetworkAnalyzerConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateNetworkAnalyzerConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -1721,19 +1923,48 @@ export namespace DeleteMulticastGroupResponse {
   });
 }
 
+export interface DeleteNetworkAnalyzerConfigurationRequest {
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   */
+  ConfigurationName: string | undefined;
+}
+
+export namespace DeleteNetworkAnalyzerConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteNetworkAnalyzerConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkAnalyzerConfigurationResponse {}
+
+export namespace DeleteNetworkAnalyzerConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteNetworkAnalyzerConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteQueuedMessagesRequest {
   /**
-   * <p>Id of a given wireless device which messages will be deleted </p>
+   * <p>The ID of a given wireless device for which downlink messages will be deleted.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>if messageID=="*", the queue for a particular wireless deviceId will be purged, otherwise, the specific message with messageId will be deleted </p>
+   * <p>If message ID is <code>"*"</code>, it cleares the entire downlink queue for a given
+   *             device, specified by the wireless device ID. Otherwise, the downlink message with the
+   *             specified message ID will be deleted.</p>
    */
   MessageId: string | undefined;
 
   /**
-   * <p>The wireless device type, it is either Sidewalk or LoRaWAN. </p>
+   * <p>The wireless device type, which can be either Sidewalk or LoRaWAN.</p>
    */
   WirelessDeviceType?: WirelessDeviceType | string;
 }
@@ -1966,11 +2197,6 @@ export namespace DeviceProfile {
   });
 }
 
-export enum EventNotificationTopicStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
-
 /**
  * <p> SidewalkEventNotificationConfigurations object
  *             Event configuration object for Sidewalk related event topics.</p>
@@ -2000,6 +2226,11 @@ export interface DeviceRegistrationStateEventConfiguration {
    *             topics.</p>
    */
   Sidewalk?: SidewalkEventNotificationConfigurations;
+
+  /**
+   * <p>Enum to denote whether the wireless device id device registration state event topic is enabled or disabled.</p>
+   */
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
 
 export namespace DeviceRegistrationStateEventConfiguration {
@@ -2007,6 +2238,45 @@ export namespace DeviceRegistrationStateEventConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeviceRegistrationStateEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Sidewalk resource type event configuration object for enabling or disabling topic.</p>
+ */
+export interface SidewalkResourceTypeEventConfiguration {
+  /**
+   * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
+   */
+  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace SidewalkResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SidewalkResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Device registration state resource type event configuration object for enabling or disabling topic.</p>
+ */
+export interface DeviceRegistrationStateResourceTypeEventConfiguration {
+  /**
+   * <p>Device registration resource type state event configuration object for enabling or disabling Sidewalk
+   *             related event topics.</p>
+   */
+  Sidewalk?: SidewalkResourceTypeEventConfiguration;
+}
+
+export namespace DeviceRegistrationStateResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeviceRegistrationStateResourceTypeEventConfiguration): any => ({
     ...obj,
   });
 }
@@ -2251,21 +2521,23 @@ export namespace LoRaWANSendDataToDevice {
 }
 
 /**
- * <p>The message in downlink queue.</p>
+ * <p>The message in the downlink queue.</p>
  */
 export interface DownlinkQueueMessage {
   /**
-   * <p> The messageId allocated by IoT Wireless for tracing purpose</p>
+   * <p> The message ID assigned by IoT Wireless to each downlink message, which helps identify the
+   *         message.</p>
    */
   MessageId?: string;
 
   /**
-   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   * <p>The transmit mode to use for sending data to the wireless device. This can be <code>0</code> for UM (unacknowledge mode)
+   *             or <code>1</code> for AM (acknowledge mode).</p>
    */
   TransmitMode?: number;
 
   /**
-   * <p>The timestamp that Iot Wireless received the message.</p>
+   * <p>The time at which Iot Wireless received the downlink message.</p>
    */
   ReceivedAt?: string;
 
@@ -2292,8 +2564,157 @@ export enum Event {
   PASSTHROUGH = "passthrough",
 }
 
+/**
+ * <p>Object for LoRaWAN join resource type event configuration.</p>
+ */
+export interface LoRaWANJoinEventNotificationConfigurations {
+  /**
+   * <p>Enum to denote whether the dev eui join event topic is enabled or disabled.</p>
+   */
+  DevEuiEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace LoRaWANJoinEventNotificationConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANJoinEventNotificationConfigurations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Join event configuration object for enabling or disabling topic.</p>
+ */
+export interface JoinEventConfiguration {
+  /**
+   * <p>Join event configuration object for enabling or disabling LoRaWAN related event topics.</p>
+   */
+  LoRaWAN?: LoRaWANJoinEventNotificationConfigurations;
+
+  /**
+   * <p>Enum to denote whether the wireless device id join event topic is enabled or disabled.</p>
+   */
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace JoinEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JoinEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Proximity event configuration object for enabling and disabling relevant topics.</p>
+ */
+export interface ProximityEventConfiguration {
+  /**
+   * <p>Proximity event configuration object for enabling or disabling Sidewalk related event topics.</p>
+   */
+  Sidewalk?: SidewalkEventNotificationConfigurations;
+
+  /**
+   * <p>Enum to denote whether the wireless device id proximity event topic is enabled or disabled.</p>
+   */
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace ProximityEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object of all event configurations and the status of the event topics.</p>
+ */
+export interface EventNotificationItemConfigurations {
+  /**
+   * <p>Device registration state event configuration for an event configuration item.</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration;
+
+  /**
+   * <p>Proximity event configuration for an event configuration item.</p>
+   */
+  Proximity?: ProximityEventConfiguration;
+
+  /**
+   * <p>Join event configuration for an event configuration item.</p>
+   */
+  Join?: JoinEventConfiguration;
+
+  /**
+   * <p>Connection status event configuration for an event configuration item.</p>
+   */
+  ConnectionStatus?: ConnectionStatusEventConfiguration;
+}
+
+export namespace EventNotificationItemConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventNotificationItemConfigurations): any => ({
+    ...obj,
+  });
+}
+
+export enum IdentifierType {
+  DevEui = "DevEui",
+  GatewayEui = "GatewayEui",
+  PartnerAccountId = "PartnerAccountId",
+  WirelessDeviceId = "WirelessDeviceId",
+  WirelessGatewayId = "WirelessGatewayId",
+}
+
 export enum EventNotificationPartnerType {
   Sidewalk = "Sidewalk",
+}
+
+/**
+ * <p>Event configuration object for a single resource.</p>
+ */
+export interface EventConfigurationItem {
+  /**
+   * <p>Resource identifier opted in for event messaging.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>Identifier type of the particular resource identifier for event configuration.</p>
+   */
+  IdentifierType?: IdentifierType | string;
+
+  /**
+   * <p>Partner type of the resource if the identifier type is PartnerAccountId.</p>
+   */
+  PartnerType?: EventNotificationPartnerType | string;
+
+  /**
+   * <p>Object of all event configurations and the status of the event topics.</p>
+   */
+  Events?: EventNotificationItemConfigurations;
+}
+
+export namespace EventConfigurationItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventConfigurationItem): any => ({
+    ...obj,
+  });
+}
+
+export enum EventNotificationResourceType {
+  SidewalkAccount = "SidewalkAccount",
+  WirelessDevice = "WirelessDevice",
+  WirelessGateway = "WirelessGateway",
 }
 
 export enum FuotaDeviceStatus {
@@ -2451,6 +2872,106 @@ export namespace GetDeviceProfileResponse {
   });
 }
 
+export interface GetEventConfigurationByResourceTypesRequest {}
+
+export namespace GetEventConfigurationByResourceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventConfigurationByResourceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object for LoRaWAN join resource type event configuration.</p>
+ */
+export interface LoRaWANJoinResourceTypeEventConfiguration {
+  /**
+   * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
+   */
+  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace LoRaWANJoinResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANJoinResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Join resource type event configuration object for enabling or disabling topic.</p>
+ */
+export interface JoinResourceTypeEventConfiguration {
+  /**
+   * <p>Join resource type event configuration object for enabling or disabling LoRaWAN related
+   *             event topics.</p>
+   */
+  LoRaWAN?: LoRaWANJoinResourceTypeEventConfiguration;
+}
+
+export namespace JoinResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JoinResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Proximity resource type event configuration object for enabling or disabling topic.</p>
+ */
+export interface ProximityResourceTypeEventConfiguration {
+  /**
+   * <p>Proximity resource type event configuration object for enabling and disabling wireless device topic.</p>
+   */
+  Sidewalk?: SidewalkResourceTypeEventConfiguration;
+}
+
+export namespace ProximityResourceTypeEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProximityResourceTypeEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventConfigurationByResourceTypesResponse {
+  /**
+   * <p>Resource type event configuration for the device registration state event</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
+
+  /**
+   * <p>Resource type event configuration for the proximity event</p>
+   */
+  Proximity?: ProximityResourceTypeEventConfiguration;
+
+  /**
+   * <p>Resource type event configuration for the join event</p>
+   */
+  Join?: JoinResourceTypeEventConfiguration;
+
+  /**
+   * <p>Resource type event configuration for the connection status event</p>
+   */
+  ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
+}
+
+export namespace GetEventConfigurationByResourceTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventConfigurationByResourceTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetFuotaTaskRequest {
   /**
    * <p>The ID of a FUOTA task.</p>
@@ -2558,12 +3079,6 @@ export namespace GetLogLevelsByResourceTypesRequest {
   });
 }
 
-export enum LogLevel {
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-}
-
 export enum WirelessDeviceEvent {
   Downlink_Data = "Downlink_Data",
   Join = "Join",
@@ -2585,7 +3100,8 @@ export interface WirelessDeviceEventLogOption {
   Event: WirelessDeviceEvent | string | undefined;
 
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 }
@@ -2609,7 +3125,8 @@ export interface WirelessDeviceLogOption {
   Type: WirelessDeviceType | string | undefined;
 
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 
@@ -2644,7 +3161,8 @@ export interface WirelessGatewayEventLogOption {
   Event: WirelessGatewayEvent | string | undefined;
 
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 }
@@ -2672,7 +3190,8 @@ export interface WirelessGatewayLogOption {
   Type: WirelessGatewayType | string | undefined;
 
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 
@@ -2693,7 +3212,8 @@ export namespace WirelessGatewayLogOption {
 
 export interface GetLogLevelsByResourceTypesResponse {
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   DefaultLogLevel?: LogLevel | string;
 
@@ -2881,7 +3401,7 @@ export namespace GetMulticastGroupSessionResponse {
 
 export interface GetNetworkAnalyzerConfigurationRequest {
   /**
-   * <p>NetworkAnalyzer configuration name.</p>
+   * <p>Name of the network analyzer configuration.</p>
    */
   ConfigurationName: string | undefined;
 }
@@ -2895,50 +3415,36 @@ export namespace GetNetworkAnalyzerConfigurationRequest {
   });
 }
 
-export enum WirelessDeviceFrameInfo {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-/**
- * <p>Trace Content for resources.</p>
- */
-export interface TraceContent {
-  /**
-   * <p>WirelessDevice FrameInfo for trace content.</p>
-   */
-  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
-
-  /**
-   * <p>The log level for a log message.</p>
-   */
-  LogLevel?: LogLevel | string;
-}
-
-export namespace TraceContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TraceContent): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNetworkAnalyzerConfigurationResponse {
   /**
-   * <p>Trace Content for resources.</p>
+   * <p>Trace content for your wireless gateway and wireless device resources.</p>
    */
   TraceContent?: TraceContent;
 
   /**
-   * <p>List of WirelessDevices in the NetworkAnalyzerConfiguration.</p>
+   * <p>List of wireless gateway resources that have been added to the network analyzer configuration.</p>
    */
   WirelessDevices?: string[];
 
   /**
-   * <p>List of WirelessGateways in the NetworkAnalyzerConfiguration.</p>
+   * <p>List of wireless gateway resources that have been added to the network analyzer configuration.</p>
    */
   WirelessGateways?: string[];
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name of the new resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   */
+  Name?: string;
 }
 
 export namespace GetNetworkAnalyzerConfigurationResponse {
@@ -3023,10 +3529,6 @@ export namespace GetPartnerAccountResponse {
   });
 }
 
-export enum IdentifierType {
-  PartnerAccountId = "PartnerAccountId",
-}
-
 export interface GetResourceEventConfigurationRequest {
   /**
    * <p>Resource identifier to opt in for event messaging.</p>
@@ -3053,25 +3555,6 @@ export namespace GetResourceEventConfigurationRequest {
   });
 }
 
-/**
- * <p>Proximity event configuration object for enabling and disabling relevant topics.</p>
- */
-export interface ProximityEventConfiguration {
-  /**
-   * <p>Proximity event configuration object for enabling or disabling Sidewalk related event topics.</p>
-   */
-  Sidewalk?: SidewalkEventNotificationConfigurations;
-}
-
-export namespace ProximityEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceEventConfigurationResponse {
   /**
    * <p>Event configuration for the device registration state event</p>
@@ -3082,6 +3565,16 @@ export interface GetResourceEventConfigurationResponse {
    * <p>Event configuration for the Proximity event</p>
    */
   Proximity?: ProximityEventConfiguration;
+
+  /**
+   * <p>Event configuration for the join event.</p>
+   */
+  Join?: JoinEventConfiguration;
+
+  /**
+   * <p>Event configuration for the connection status event.</p>
+   */
+  ConnectionStatus?: ConnectionStatusEventConfiguration;
 }
 
 export namespace GetResourceEventConfigurationResponse {
@@ -3117,7 +3610,8 @@ export namespace GetResourceLogLevelRequest {
 
 export interface GetResourceLogLevelResponse {
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel?: LogLevel | string;
 }
@@ -3138,7 +3632,9 @@ export enum WirelessGatewayServiceType {
 
 export interface GetServiceEndpointRequest {
   /**
-   * <p>The service type for which to get endpoint information about. Can be <code>CUPS</code> for the Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN Network Server endpoint.</p>
+   * <p>The service type for which to get endpoint information about. Can be <code>CUPS</code> for the
+   *             Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN Network Server endpoint or
+   *             <code>CLAIM</code> for the global endpoint.</p>
    */
   ServiceType?: WirelessGatewayServiceType | string;
 }
@@ -3997,6 +4493,55 @@ export namespace ListDeviceProfilesResponse {
   });
 }
 
+export interface ListEventConfigurationsRequest {
+  /**
+   * <p>Resource type to filter event configurations.</p>
+   */
+  ResourceType: EventNotificationResourceType | string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
+   *             otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEventConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventConfigurationsResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
+   *             otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Event configurations of all events for a single resource.</p>
+   */
+  EventConfigurationsList?: EventConfigurationItem[];
+}
+
+export namespace ListEventConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListFuotaTasksRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4176,6 +4721,72 @@ export namespace ListMulticastGroupsByFuotaTaskResponse {
   });
 }
 
+export interface ListNetworkAnalyzerConfigurationsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListNetworkAnalyzerConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNetworkAnalyzerConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Network analyzer configurations.</p>
+ */
+export interface NetworkAnalyzerConfigurations {
+  /**
+   * <p>The Amazon Resource Name of the new resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   */
+  Name?: string;
+}
+
+export namespace NetworkAnalyzerConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkAnalyzerConfigurations): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNetworkAnalyzerConfigurationsResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of network analyzer configurations.</p>
+   */
+  NetworkAnalyzerConfigurationList?: NetworkAnalyzerConfigurations[];
+}
+
+export namespace ListNetworkAnalyzerConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNetworkAnalyzerConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListPartnerAccountsRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4223,12 +4834,13 @@ export namespace ListPartnerAccountsResponse {
 
 export interface ListQueuedMessagesRequest {
   /**
-   * <p>Id of a given wireless device which the downlink packets are targeted </p>
+   * <p>The ID of a given wireless device which the downlink message packets are being sent.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise
+   *             <b>null</b> to receive the first set of results.</p>
    */
   NextToken?: string;
 
@@ -4238,7 +4850,7 @@ export interface ListQueuedMessagesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The wireless device type, it is either Sidewalk or LoRaWAN.</p>
+   * <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
    */
   WirelessDeviceType?: WirelessDeviceType | string;
 }
@@ -4254,12 +4866,13 @@ export namespace ListQueuedMessagesRequest {
 
 export interface ListQueuedMessagesResponse {
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
+   *             otherwise <b>null</b> to receive the first set of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The messages in downlink queue.</p>
+   * <p>The messages in the downlink queue.</p>
    */
   DownlinkQueueMessagesList?: DownlinkQueueMessage[];
 }
@@ -4773,7 +5386,8 @@ export interface PutResourceLogLevelRequest {
   ResourceType: string | undefined;
 
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 }
@@ -5361,6 +5975,49 @@ export namespace UpdateDestinationResponse {
   });
 }
 
+export interface UpdateEventConfigurationByResourceTypesRequest {
+  /**
+   * <p>Device registration state resource type event configuration object for enabling and disabling wireless
+   *             gateway topic.</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
+
+  /**
+   * <p>Proximity resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   */
+  Proximity?: ProximityResourceTypeEventConfiguration;
+
+  /**
+   * <p>Join resource type event configuration object for enabling and disabling wireless device topic.</p>
+   */
+  Join?: JoinResourceTypeEventConfiguration;
+
+  /**
+   * <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   */
+  ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
+}
+
+export namespace UpdateEventConfigurationByResourceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventConfigurationByResourceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventConfigurationByResourceTypesResponse {}
+
+export namespace UpdateEventConfigurationByResourceTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventConfigurationByResourceTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateFuotaTaskRequest {
   /**
    * <p>The ID of a FUOTA task.</p>
@@ -5415,7 +6072,8 @@ export namespace UpdateFuotaTaskResponse {
 
 export interface UpdateLogLevelsByResourceTypesRequest {
   /**
-   * <p>The log level for a log message.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   DefaultLogLevel?: LogLevel | string;
 
@@ -5494,34 +6152,43 @@ export namespace UpdateMulticastGroupResponse {
 
 export interface UpdateNetworkAnalyzerConfigurationRequest {
   /**
-   * <p>NetworkAnalyzer configuration name.</p>
+   * <p>Name of the network analyzer configuration.</p>
    */
   ConfigurationName: string | undefined;
 
   /**
-   * <p>Trace Content for resources.</p>
+   * <p>Trace content for your wireless gateway and wireless device resources.</p>
    */
   TraceContent?: TraceContent;
 
   /**
-   * <p>WirelessDevices to add into NetworkAnalyzerConfiguration.</p>
+   * <p>Wireless device resources to add to the network analyzer configuration. Provide the
+   *             <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
    */
   WirelessDevicesToAdd?: string[];
 
   /**
-   * <p>WirelessDevices to remove from NetworkAnalyzerConfiguration.</p>
+   * <p>Wireless device resources to remove from the network analyzer configuration. Provide the
+   *             <code>WirelessDeviceId</code> of the resources to remove in the input array.</p>
    */
   WirelessDevicesToRemove?: string[];
 
   /**
-   * <p>WirelessGateways to add into NetworkAnalyzerConfiguration.</p>
+   * <p>Wireless gateway resources to add to the network analyzer configuration. Provide the
+   *             <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
    */
   WirelessGatewaysToAdd?: string[];
 
   /**
-   * <p>WirelessGateways to remove from NetworkAnalyzerConfiguration.</p>
+   * <p>Wireless gateway resources to remove from the network analyzer configuration. Provide the
+   *             <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
    */
   WirelessGatewaysToRemove?: string[];
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateNetworkAnalyzerConfigurationRequest {
@@ -5627,6 +6294,16 @@ export interface UpdateResourceEventConfigurationRequest {
    * <p>Event configuration for the Proximity event</p>
    */
   Proximity?: ProximityEventConfiguration;
+
+  /**
+   * <p>Event configuration for the join event</p>
+   */
+  Join?: JoinEventConfiguration;
+
+  /**
+   * <p>Event configuration for the connection status event</p>
+   */
+  ConnectionStatus?: ConnectionStatusEventConfiguration;
 }
 
 export namespace UpdateResourceEventConfigurationRequest {
@@ -5650,6 +6327,44 @@ export namespace UpdateResourceEventConfigurationResponse {
 }
 
 /**
+ * <p>ABP device object for LoRaWAN specification v1.0.x</p>
+ */
+export interface UpdateAbpV1_0_x {
+  /**
+   * <p>The FCnt init value.</p>
+   */
+  FCntStart?: number;
+}
+
+export namespace UpdateAbpV1_0_x {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAbpV1_0_x): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>ABP device object for LoRaWAN specification v1.1</p>
+ */
+export interface UpdateAbpV1_1 {
+  /**
+   * <p>The FCnt init value.</p>
+   */
+  FCntStart?: number;
+}
+
+export namespace UpdateAbpV1_1 {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAbpV1_1): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>LoRaWAN object for update functions.</p>
  */
 export interface LoRaWANUpdateDevice {
@@ -5662,6 +6377,16 @@ export interface LoRaWANUpdateDevice {
    * <p>The ID of the service profile.</p>
    */
   ServiceProfileId?: string;
+
+  /**
+   * <p>ABP device object for update APIs for v1.1</p>
+   */
+  AbpV1_1?: UpdateAbpV1_1;
+
+  /**
+   * <p>ABP device object for update APIs for v1.0.x</p>
+   */
+  AbpV1_0_x?: UpdateAbpV1_0_x;
 }
 
 export namespace LoRaWANUpdateDevice {

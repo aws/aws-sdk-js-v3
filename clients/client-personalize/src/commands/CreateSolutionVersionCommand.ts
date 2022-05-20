@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,8 @@ export interface CreateSolutionVersionCommandInput extends CreateSolutionVersion
 export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
+ * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+ *       operation and must be in the ACTIVE state before calling
  *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
  *       call this operation.</p>
  *          <p>
@@ -49,7 +51,7 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  *                <p>CREATE STOPPED</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the version, call <a>DescribeSolutionVersion</a>. Wait
+ *          <p>To get the status of the version, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>. Wait
  *       until the status shows as ACTIVE before calling <code>CreateCampaign</code>.</p>
  *          <p>If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
  *       key, which describes why the job failed.</p>
@@ -59,34 +61,32 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListSolutionVersions</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeSolutionVersion</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListSolutions</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a>
  *                </p>
  *             </li>
  *          </ul>

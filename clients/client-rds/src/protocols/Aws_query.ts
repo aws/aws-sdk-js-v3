@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -8,6 +9,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -55,10 +57,6 @@ import {
 } from "../commands/CopyDBParameterGroupCommand";
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "../commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "../commands/CopyOptionGroupCommand";
-import {
-  CreateCustomAvailabilityZoneCommandInput,
-  CreateCustomAvailabilityZoneCommandOutput,
-} from "../commands/CreateCustomAvailabilityZoneCommand";
 import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
@@ -109,10 +107,6 @@ import {
 } from "../commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
 import {
-  DeleteCustomAvailabilityZoneCommandInput,
-  DeleteCustomAvailabilityZoneCommandOutput,
-} from "../commands/DeleteCustomAvailabilityZoneCommand";
-import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
 } from "../commands/DeleteCustomDBEngineVersionCommand";
@@ -160,10 +154,6 @@ import {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "../commands/DeleteGlobalClusterCommand";
-import {
-  DeleteInstallationMediaCommandInput,
-  DeleteInstallationMediaCommandOutput,
-} from "../commands/DeleteInstallationMediaCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "../commands/DeleteOptionGroupCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
@@ -177,10 +167,6 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "../commands/DescribeCertificatesCommand";
-import {
-  DescribeCustomAvailabilityZonesCommandInput,
-  DescribeCustomAvailabilityZonesCommandOutput,
-} from "../commands/DescribeCustomAvailabilityZonesCommand";
 import {
   DescribeDBClusterBacktracksCommandInput,
   DescribeDBClusterBacktracksCommandOutput,
@@ -282,10 +268,6 @@ import {
   DescribeGlobalClustersCommandOutput,
 } from "../commands/DescribeGlobalClustersCommand";
 import {
-  DescribeInstallationMediaCommandInput,
-  DescribeInstallationMediaCommandOutput,
-} from "../commands/DescribeInstallationMediaCommand";
-import {
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
 } from "../commands/DescribeOptionGroupOptionsCommand";
@@ -326,10 +308,6 @@ import {
   FailoverGlobalClusterCommandInput,
   FailoverGlobalClusterCommandOutput,
 } from "../commands/FailoverGlobalClusterCommand";
-import {
-  ImportInstallationMediaCommandInput,
-  ImportInstallationMediaCommandOutput,
-} from "../commands/ImportInstallationMediaCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -512,8 +490,6 @@ import {
   CopyDBSnapshotResult,
   CopyOptionGroupMessage,
   CopyOptionGroupResult,
-  CreateCustomAvailabilityZoneMessage,
-  CreateCustomAvailabilityZoneResult,
   CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
@@ -544,11 +520,7 @@ import {
   CreateGlobalClusterResult,
   CreateOptionGroupMessage,
   CreateOptionGroupResult,
-  CustomAvailabilityZone,
-  CustomAvailabilityZoneAlreadyExistsFault,
-  CustomAvailabilityZoneMessage,
   CustomAvailabilityZoneNotFoundFault,
-  CustomAvailabilityZoneQuotaExceededFault,
   CustomDBEngineVersionAlreadyExistsFault,
   CustomDBEngineVersionNotFoundFault,
   CustomDBEngineVersionQuotaExceededFault,
@@ -610,17 +582,20 @@ import {
   DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
+  DBProxyTarget,
   DBProxyTargetGroup,
   DBProxyTargetGroupNotFoundFault,
   DBProxyTargetNotFoundFault,
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
+  DBSecurityGroupMessage,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
+  DBSnapshotAttribute,
   DBSnapshotNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
@@ -629,8 +604,6 @@ import {
   DBSubnetGroupNotFoundFault,
   DBSubnetGroupQuotaExceededFault,
   DBSubnetQuotaExceededFault,
-  DeleteCustomAvailabilityZoneMessage,
-  DeleteCustomAvailabilityZoneResult,
   DeleteCustomDBEngineVersionMessage,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
@@ -655,13 +628,11 @@ import {
   DeleteEventSubscriptionResult,
   DeleteGlobalClusterMessage,
   DeleteGlobalClusterResult,
-  DeleteInstallationMediaMessage,
   DeleteOptionGroupMessage,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
   DescribeCertificatesMessage,
-  DescribeCustomAvailabilityZonesMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
   DescribeDBClusterParameterGroupsMessage,
@@ -685,6 +656,9 @@ import {
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse,
   DescribeDBProxyTargetsRequest,
+  DescribeDBProxyTargetsResponse,
+  DescribeDBSecurityGroupsMessage,
+  DescribeDBSnapshotAttributesMessage,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -700,9 +674,6 @@ import {
   GlobalClusterMember,
   GlobalClusterNotFoundFault,
   GlobalClusterQuotaExceededFault,
-  InstallationMedia,
-  InstallationMediaFailureCause,
-  InstallationMediaNotFoundFault,
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
@@ -728,6 +699,7 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  NetworkTypeNotSupported,
   Option,
   OptionGroup,
   OptionGroupAlreadyExistsFault,
@@ -747,6 +719,8 @@ import {
   RestoreWindow,
   ScalingConfiguration,
   ScalingConfigurationInfo,
+  ServerlessV2ScalingConfiguration,
+  ServerlessV2ScalingConfigurationInfo,
   SnapshotQuotaExceededFault,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
@@ -759,12 +733,12 @@ import {
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
   Tag,
+  TargetHealth,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
   UserAuthConfigInfo,
   VpcSecurityGroupMembership,
-  VpnDetails,
 } from "../models/models_0";
 import {
   AvailableProcessorFeature,
@@ -776,17 +750,11 @@ import {
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
-  DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
-  DBSecurityGroupMessage,
-  DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
-  DescribeDBProxyTargetsResponse,
-  DescribeDBSecurityGroupsMessage,
-  DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
   DescribeDBSubnetGroupsMessage,
@@ -799,7 +767,6 @@ import {
   DescribeEventSubscriptionsMessage,
   DescribeExportTasksMessage,
   DescribeGlobalClustersMessage,
-  DescribeInstallationMediaMessage,
   DescribeOptionGroupOptionsMessage,
   DescribeOptionGroupsMessage,
   DescribeOrderableDBInstanceOptionsMessage,
@@ -827,9 +794,6 @@ import {
   GlobalClustersMessage,
   IamRoleMissingPermissionsFault,
   IamRoleNotFoundFault,
-  ImportInstallationMediaMessage,
-  InstallationMediaAlreadyExistsFault,
-  InstallationMediaMessage,
   InsufficientAvailableIPsInSubnetFault,
   InsufficientDBClusterCapacityFault,
   InvalidDBClusterCapacityFault,
@@ -947,7 +911,6 @@ import {
   StopDBInstanceResult,
   SubnetAlreadyInUse,
   TagListMessage,
-  TargetHealth,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1156,22 +1119,6 @@ export const serializeAws_queryCopyOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCopyOptionGroupMessage(input, context),
     Action: "CopyOptionGroup",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_queryCreateCustomAvailabilityZoneCommand = async (
-  input: CreateCustomAvailabilityZoneCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateCustomAvailabilityZoneMessage(input, context),
-    Action: "CreateCustomAvailabilityZone",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1433,22 +1380,6 @@ export const serializeAws_queryCreateOptionGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteCustomAvailabilityZoneCommand = async (
-  input: DeleteCustomAvailabilityZoneCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteCustomAvailabilityZoneMessage(input, context),
-    Action: "DeleteCustomAvailabilityZone",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDeleteCustomDBEngineVersionCommand = async (
   input: DeleteCustomDBEngineVersionCommandInput,
   context: __SerdeContext
@@ -1689,22 +1620,6 @@ export const serializeAws_queryDeleteGlobalClusterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteInstallationMediaCommand = async (
-  input: DeleteInstallationMediaCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteInstallationMediaMessage(input, context),
-    Action: "DeleteInstallationMedia",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDeleteOptionGroupCommand = async (
   input: DeleteOptionGroupCommandInput,
   context: __SerdeContext
@@ -1764,22 +1679,6 @@ export const serializeAws_queryDescribeCertificatesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeCertificatesMessage(input, context),
     Action: "DescribeCertificates",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_queryDescribeCustomAvailabilityZonesCommand = async (
-  input: DescribeCustomAvailabilityZonesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCustomAvailabilityZonesMessage(input, context),
-    Action: "DescribeCustomAvailabilityZones",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2233,22 +2132,6 @@ export const serializeAws_queryDescribeGlobalClustersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeInstallationMediaCommand = async (
-  input: DescribeInstallationMediaCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeInstallationMediaMessage(input, context),
-    Action: "DescribeInstallationMedia",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
 export const serializeAws_queryDescribeOptionGroupOptionsCommand = async (
   input: DescribeOptionGroupOptionsCommandInput,
   context: __SerdeContext
@@ -2420,22 +2303,6 @@ export const serializeAws_queryFailoverGlobalClusterCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryFailoverGlobalClusterMessage(input, context),
     Action: "FailoverGlobalCluster",
-    Version: "2014-10-31",
-  });
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_queryImportInstallationMediaCommand = async (
-  input: ImportInstallationMediaCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
-  let body: any;
-  body = buildFormUrlencodedString({
-    ...serializeAws_queryImportInstallationMediaMessage(input, context),
-    Action: "ImportInstallationMedia",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3867,55 +3734,6 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
   }
 };
 
-export const deserializeAws_queryCreateCustomAvailabilityZoneCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomAvailabilityZoneCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateCustomAvailabilityZoneCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryCreateCustomAvailabilityZoneResult(data.CreateCustomAvailabilityZoneResult, context);
-  const response: CreateCustomAvailabilityZoneCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryCreateCustomAvailabilityZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomAvailabilityZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomAvailabilityZoneAlreadyExistsFault":
-    case "com.amazonaws.rds#CustomAvailabilityZoneAlreadyExistsFault":
-      throw await deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CustomAvailabilityZoneQuotaExceededFault":
-    case "com.amazonaws.rds#CustomAvailabilityZoneQuotaExceededFault":
-      throw await deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
 export const deserializeAws_queryCreateCustomDBEngineVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4292,6 +4110,9 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -4389,6 +4210,9 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -4866,52 +4690,6 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
-export const deserializeAws_queryDeleteCustomAvailabilityZoneCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomAvailabilityZoneCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryDeleteCustomAvailabilityZoneResult(data.DeleteCustomAvailabilityZoneResult, context);
-  const response: DeleteCustomAvailabilityZoneCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDeleteCustomAvailabilityZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomAvailabilityZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomAvailabilityZoneNotFoundFault":
-    case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -5631,49 +5409,6 @@ const deserializeAws_queryDeleteGlobalClusterCommandError = async (
   }
 };
 
-export const deserializeAws_queryDeleteInstallationMediaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteInstallationMediaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryInstallationMedia(data.DeleteInstallationMediaResult, context);
-  const response: DeleteInstallationMediaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDeleteInstallationMediaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstallationMediaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstallationMediaNotFoundFault":
-    case "com.amazonaws.rds#InstallationMediaNotFoundFault":
-      throw await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
 export const deserializeAws_queryDeleteOptionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5841,49 +5576,6 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
     case "CertificateNotFoundFault":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
-export const deserializeAws_queryDescribeCustomAvailabilityZonesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomAvailabilityZonesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCustomAvailabilityZonesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryCustomAvailabilityZoneMessage(data.DescribeCustomAvailabilityZonesResult, context);
-  const response: DescribeCustomAvailabilityZonesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeCustomAvailabilityZonesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomAvailabilityZonesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomAvailabilityZoneNotFoundFault":
-    case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -7117,49 +6809,6 @@ const deserializeAws_queryDescribeGlobalClustersCommandError = async (
   }
 };
 
-export const deserializeAws_queryDescribeInstallationMediaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeInstallationMediaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryInstallationMediaMessage(data.DescribeInstallationMediaResult, context);
-  const response: DescribeInstallationMediaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryDescribeInstallationMediaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstallationMediaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstallationMediaNotFoundFault":
-    case "com.amazonaws.rds#InstallationMediaNotFoundFault":
-      throw await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
 export const deserializeAws_queryDescribeOptionGroupOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7646,52 +7295,6 @@ const deserializeAws_queryFailoverGlobalClusterCommandError = async (
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
       throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
-};
-
-export const deserializeAws_queryImportInstallationMediaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_queryImportInstallationMediaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_queryInstallationMedia(data.ImportInstallationMediaResult, context);
-  const response: ImportInstallationMediaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_queryImportInstallationMediaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportInstallationMediaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomAvailabilityZoneNotFoundFault":
-    case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
-    case "InstallationMediaAlreadyExistsFault":
-    case "com.amazonaws.rds#InstallationMediaAlreadyExistsFault":
-      throw await deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -8199,6 +7802,9 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9708,6 +9314,9 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9799,6 +9408,9 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9905,6 +9517,9 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -10558,19 +10173,6 @@ const deserializeAws_queryCertificateNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<CustomAvailabilityZoneAlreadyExistsFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFault(body.Error, context);
-  const exception = new CustomAvailabilityZoneAlreadyExistsFault({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
 const deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -10578,19 +10180,6 @@ const deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomAvailabilityZoneNotFoundFault(body.Error, context);
   const exception = new CustomAvailabilityZoneNotFoundFault({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<CustomAvailabilityZoneQuotaExceededFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCustomAvailabilityZoneQuotaExceededFault(body.Error, context);
-  const exception = new CustomAvailabilityZoneQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11351,32 +10940,6 @@ const deserializeAws_queryIamRoleNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InstallationMediaAlreadyExistsFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInstallationMediaAlreadyExistsFault(body.Error, context);
-  const exception = new InstallationMediaAlreadyExistsFault({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-const deserializeAws_queryInstallationMediaNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InstallationMediaNotFoundFault> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInstallationMediaNotFoundFault(body.Error, context);
-  const exception = new InstallationMediaNotFoundFault({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
 const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11774,6 +11337,19 @@ const deserializeAws_queryKMSKeyNotAccessibleFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryKMSKeyNotAccessibleFault(body.Error, context);
   const exception = new KMSKeyNotAccessibleFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryNetworkTypeNotSupportedResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NetworkTypeNotSupported> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryNetworkTypeNotSupported(body.Error, context);
+  const exception = new NetworkTypeNotSupported({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -12416,26 +11992,6 @@ const serializeAws_queryCopyOptionGroupMessage = (input: CopyOptionGroupMessage,
   return entries;
 };
 
-const serializeAws_queryCreateCustomAvailabilityZoneMessage = (
-  input: CreateCustomAvailabilityZoneMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.CustomAvailabilityZoneName !== undefined && input.CustomAvailabilityZoneName !== null) {
-    entries["CustomAvailabilityZoneName"] = input.CustomAvailabilityZoneName;
-  }
-  if (input.ExistingVpnId !== undefined && input.ExistingVpnId !== null) {
-    entries["ExistingVpnId"] = input.ExistingVpnId;
-  }
-  if (input.NewVpnTunnelName !== undefined && input.NewVpnTunnelName !== null) {
-    entries["NewVpnTunnelName"] = input.NewVpnTunnelName;
-  }
-  if (input.VpnTunnelOriginatorIP !== undefined && input.VpnTunnelOriginatorIP !== null) {
-    entries["VpnTunnelOriginatorIP"] = input.VpnTunnelOriginatorIP;
-  }
-  return entries;
-};
-
 const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   input: CreateCustomDBEngineVersionMessage,
   context: __SerdeContext
@@ -12667,6 +12223,16 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
     entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -12887,6 +12453,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -13009,6 +12578,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
     entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -13300,17 +12872,6 @@ const serializeAws_queryDBSecurityGroupNameList = (input: string[], context: __S
   return entries;
 };
 
-const serializeAws_queryDeleteCustomAvailabilityZoneMessage = (
-  input: DeleteCustomAvailabilityZoneMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.CustomAvailabilityZoneId !== undefined && input.CustomAvailabilityZoneId !== null) {
-    entries["CustomAvailabilityZoneId"] = input.CustomAvailabilityZoneId;
-  }
-  return entries;
-};
-
 const serializeAws_queryDeleteCustomDBEngineVersionMessage = (
   input: DeleteCustomDBEngineVersionMessage,
   context: __SerdeContext
@@ -13485,17 +13046,6 @@ const serializeAws_queryDeleteGlobalClusterMessage = (
   return entries;
 };
 
-const serializeAws_queryDeleteInstallationMediaMessage = (
-  input: DeleteInstallationMediaMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.InstallationMediaId !== undefined && input.InstallationMediaId !== null) {
-    entries["InstallationMediaId"] = input.InstallationMediaId;
-  }
-  return entries;
-};
-
 const serializeAws_queryDeleteOptionGroupMessage = (input: DeleteOptionGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OptionGroupName !== undefined && input.OptionGroupName !== null) {
@@ -13547,30 +13097,6 @@ const serializeAws_queryDescribeCertificatesMessage = (
   const entries: any = {};
   if (input.CertificateIdentifier !== undefined && input.CertificateIdentifier !== null) {
     entries["CertificateIdentifier"] = input.CertificateIdentifier;
-  }
-  if (input.Filters !== undefined && input.Filters !== null) {
-    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.Marker !== undefined && input.Marker !== null) {
-    entries["Marker"] = input.Marker;
-  }
-  return entries;
-};
-
-const serializeAws_queryDescribeCustomAvailabilityZonesMessage = (
-  input: DescribeCustomAvailabilityZonesMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.CustomAvailabilityZoneId !== undefined && input.CustomAvailabilityZoneId !== null) {
-    entries["CustomAvailabilityZoneId"] = input.CustomAvailabilityZoneId;
   }
   if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
@@ -14328,30 +13854,6 @@ const serializeAws_queryDescribeGlobalClustersMessage = (
   return entries;
 };
 
-const serializeAws_queryDescribeInstallationMediaMessage = (
-  input: DescribeInstallationMediaMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.InstallationMediaId !== undefined && input.InstallationMediaId !== null) {
-    entries["InstallationMediaId"] = input.InstallationMediaId;
-  }
-  if (input.Filters !== undefined && input.Filters !== null) {
-    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filters.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.Marker !== undefined && input.Marker !== null) {
-    entries["Marker"] = input.Marker;
-  }
-  return entries;
-};
-
 const serializeAws_queryDescribeOptionGroupOptionsMessage = (
   input: DescribeOptionGroupOptionsMessage,
   context: __SerdeContext
@@ -14706,29 +14208,6 @@ const serializeAws_queryFilterValueList = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryImportInstallationMediaMessage = (
-  input: ImportInstallationMediaMessage,
-  context: __SerdeContext
-): any => {
-  const entries: any = {};
-  if (input.CustomAvailabilityZoneId !== undefined && input.CustomAvailabilityZoneId !== null) {
-    entries["CustomAvailabilityZoneId"] = input.CustomAvailabilityZoneId;
-  }
-  if (input.Engine !== undefined && input.Engine !== null) {
-    entries["Engine"] = input.Engine;
-  }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
-    entries["EngineVersion"] = input.EngineVersion;
-  }
-  if (input.EngineInstallationMediaPath !== undefined && input.EngineInstallationMediaPath !== null) {
-    entries["EngineInstallationMediaPath"] = input.EngineInstallationMediaPath;
-  }
-  if (input.OSInstallationMediaPath !== undefined && input.OSInstallationMediaPath !== null) {
-    entries["OSInstallationMediaPath"] = input.OSInstallationMediaPath;
-  }
-  return entries;
-};
-
 const serializeAws_queryKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -14974,6 +14453,16 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
     entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -15184,6 +14673,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.ResumeFullAutomationModeMinutes !== undefined && input.ResumeFullAutomationModeMinutes !== null) {
     entries["ResumeFullAutomationModeMinutes"] = input.ResumeFullAutomationModeMinutes;
+  }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -15958,6 +15450,16 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   if (input.DomainIAMRoleName !== undefined && input.DomainIAMRoleName !== null) {
     entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -16064,6 +15566,16 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -16162,6 +15674,16 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.Iops !== undefined && input.Iops !== null) {
     entries["Iops"] = input.Iops;
+  }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -16279,6 +15801,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
+  }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -16440,6 +15965,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   if (input.MaxAllocatedStorage !== undefined && input.MaxAllocatedStorage !== null) {
     entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -16572,6 +16100,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -16617,6 +16148,20 @@ const serializeAws_queryScalingConfiguration = (input: ScalingConfiguration, con
   }
   if (input.SecondsBeforeTimeout !== undefined && input.SecondsBeforeTimeout !== null) {
     entries["SecondsBeforeTimeout"] = input.SecondsBeforeTimeout;
+  }
+  return entries;
+};
+
+const serializeAws_queryServerlessV2ScalingConfiguration = (
+  input: ServerlessV2ScalingConfiguration,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MinCapacity !== undefined && input.MinCapacity !== null) {
+    entries["MinCapacity"] = __serializeFloat(input.MinCapacity);
+  }
+  if (input.MaxCapacity !== undefined && input.MaxCapacity !== null) {
+    entries["MaxCapacity"] = __serializeFloat(input.MaxCapacity);
   }
   return entries;
 };
@@ -17325,22 +16870,6 @@ const deserializeAws_queryCopyOptionGroupResult = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryCreateCustomAvailabilityZoneResult = (
-  output: any,
-  context: __SerdeContext
-): CreateCustomAvailabilityZoneResult => {
-  const contents: any = {
-    CustomAvailabilityZone: undefined,
-  };
-  if (output["CustomAvailabilityZone"] !== undefined) {
-    contents.CustomAvailabilityZone = deserializeAws_queryCustomAvailabilityZone(
-      output["CustomAvailabilityZone"],
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_queryCreateDBClusterParameterGroupResult = (
   output: any,
   context: __SerdeContext
@@ -17511,98 +17040,10 @@ const deserializeAws_queryCreateOptionGroupResult = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryCustomAvailabilityZone = (output: any, context: __SerdeContext): CustomAvailabilityZone => {
-  const contents: any = {
-    CustomAvailabilityZoneId: undefined,
-    CustomAvailabilityZoneName: undefined,
-    CustomAvailabilityZoneStatus: undefined,
-    VpnDetails: undefined,
-  };
-  if (output["CustomAvailabilityZoneId"] !== undefined) {
-    contents.CustomAvailabilityZoneId = __expectString(output["CustomAvailabilityZoneId"]);
-  }
-  if (output["CustomAvailabilityZoneName"] !== undefined) {
-    contents.CustomAvailabilityZoneName = __expectString(output["CustomAvailabilityZoneName"]);
-  }
-  if (output["CustomAvailabilityZoneStatus"] !== undefined) {
-    contents.CustomAvailabilityZoneStatus = __expectString(output["CustomAvailabilityZoneStatus"]);
-  }
-  if (output["VpnDetails"] !== undefined) {
-    contents.VpnDetails = deserializeAws_queryVpnDetails(output["VpnDetails"], context);
-  }
-  return contents;
-};
-
-const deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): CustomAvailabilityZoneAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryCustomAvailabilityZoneList = (
-  output: any,
-  context: __SerdeContext
-): CustomAvailabilityZone[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCustomAvailabilityZone(entry, context);
-    });
-};
-
-const deserializeAws_queryCustomAvailabilityZoneMessage = (
-  output: any,
-  context: __SerdeContext
-): CustomAvailabilityZoneMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CustomAvailabilityZones: undefined,
-  };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
-  }
-  if (output.CustomAvailabilityZones === "") {
-    contents.CustomAvailabilityZones = [];
-  }
-  if (
-    output["CustomAvailabilityZones"] !== undefined &&
-    output["CustomAvailabilityZones"]["CustomAvailabilityZone"] !== undefined
-  ) {
-    contents.CustomAvailabilityZones = deserializeAws_queryCustomAvailabilityZoneList(
-      __getArrayIfSingleItem(output["CustomAvailabilityZones"]["CustomAvailabilityZone"]),
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_queryCustomAvailabilityZoneNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): CustomAvailabilityZoneNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): CustomAvailabilityZoneQuotaExceededFault => {
   const contents: any = {
     message: undefined,
   };
@@ -17720,6 +17161,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsEnabled: undefined,
     PerformanceInsightsKMSKeyId: undefined,
     PerformanceInsightsRetentionPeriod: undefined,
+    ServerlessV2ScalingConfiguration: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -17998,6 +17440,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
       output["PerformanceInsightsRetentionPeriod"]
     ) as number;
+  }
+  if (output["ServerlessV2ScalingConfiguration"] !== undefined) {
+    contents.ServerlessV2ScalingConfiguration = deserializeAws_queryServerlessV2ScalingConfigurationInfo(
+      output["ServerlessV2ScalingConfiguration"],
+      context
+    );
   }
   return contents;
 };
@@ -19048,6 +18496,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     ResumeFullAutomationModeTime: undefined,
     CustomIamInstanceProfile: undefined,
     BackupTarget: undefined,
+    NetworkType: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -19372,6 +18821,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["BackupTarget"] !== undefined) {
     contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
   }
   return contents;
 };
@@ -20692,6 +20144,7 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
     SubnetGroupStatus: undefined,
     Subnets: undefined,
     DBSubnetGroupArn: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["DBSubnetGroupName"] !== undefined) {
     contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
@@ -20713,6 +20166,15 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
   }
   if (output["DBSubnetGroupArn"] !== undefined) {
     contents.DBSubnetGroupArn = __expectString(output["DBSubnetGroupArn"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  }
+  if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -20835,22 +20297,6 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
   };
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryDeleteCustomAvailabilityZoneResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteCustomAvailabilityZoneResult => {
-  const contents: any = {
-    CustomAvailabilityZone: undefined,
-  };
-  if (output["CustomAvailabilityZone"] !== undefined) {
-    contents.CustomAvailabilityZone = deserializeAws_queryCustomAvailabilityZone(
-      output["CustomAvailabilityZone"],
-      context
-    );
   }
   return contents;
 };
@@ -21969,117 +21415,6 @@ const deserializeAws_queryIamRoleNotFoundFault = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryInstallationMedia = (output: any, context: __SerdeContext): InstallationMedia => {
-  const contents: any = {
-    InstallationMediaId: undefined,
-    CustomAvailabilityZoneId: undefined,
-    Engine: undefined,
-    EngineVersion: undefined,
-    EngineInstallationMediaPath: undefined,
-    OSInstallationMediaPath: undefined,
-    Status: undefined,
-    FailureCause: undefined,
-  };
-  if (output["InstallationMediaId"] !== undefined) {
-    contents.InstallationMediaId = __expectString(output["InstallationMediaId"]);
-  }
-  if (output["CustomAvailabilityZoneId"] !== undefined) {
-    contents.CustomAvailabilityZoneId = __expectString(output["CustomAvailabilityZoneId"]);
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
-  }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
-  }
-  if (output["EngineInstallationMediaPath"] !== undefined) {
-    contents.EngineInstallationMediaPath = __expectString(output["EngineInstallationMediaPath"]);
-  }
-  if (output["OSInstallationMediaPath"] !== undefined) {
-    contents.OSInstallationMediaPath = __expectString(output["OSInstallationMediaPath"]);
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
-  }
-  if (output["FailureCause"] !== undefined) {
-    contents.FailureCause = deserializeAws_queryInstallationMediaFailureCause(output["FailureCause"], context);
-  }
-  return contents;
-};
-
-const deserializeAws_queryInstallationMediaAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): InstallationMediaAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryInstallationMediaFailureCause = (
-  output: any,
-  context: __SerdeContext
-): InstallationMediaFailureCause => {
-  const contents: any = {
-    Message: undefined,
-  };
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryInstallationMediaList = (output: any, context: __SerdeContext): InstallationMedia[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryInstallationMedia(entry, context);
-    });
-};
-
-const deserializeAws_queryInstallationMediaMessage = (
-  output: any,
-  context: __SerdeContext
-): InstallationMediaMessage => {
-  const contents: any = {
-    Marker: undefined,
-    InstallationMedia: undefined,
-  };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
-  }
-  if (output.InstallationMedia === "") {
-    contents.InstallationMedia = [];
-  }
-  if (output["InstallationMedia"] !== undefined && output["InstallationMedia"]["InstallationMedia"] !== undefined) {
-    contents.InstallationMedia = deserializeAws_queryInstallationMediaList(
-      __getArrayIfSingleItem(output["InstallationMedia"]["InstallationMedia"]),
-      context
-    );
-  }
-  return contents;
-};
-
-const deserializeAws_queryInstallationMediaNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): InstallationMediaNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
-  }
-  return contents;
-};
-
 const deserializeAws_queryInstanceQuotaExceededFault = (
   output: any,
   context: __SerdeContext
@@ -22698,6 +22033,16 @@ const deserializeAws_queryModifyOptionGroupResult = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryNetworkTypeNotSupported = (output: any, context: __SerdeContext): NetworkTypeNotSupported => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryOption = (output: any, context: __SerdeContext): Option => {
   const contents: any = {
     OptionName: undefined,
@@ -23249,6 +22594,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportedActivityStreamModes: undefined,
     SupportsGlobalDatabases: undefined,
     SupportsClusters: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -23366,6 +22712,15 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   }
   if (output["SupportsClusters"] !== undefined) {
     contents.SupportsClusters = __parseBoolean(output["SupportsClusters"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  }
+  if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -24379,6 +23734,23 @@ const deserializeAws_queryScalingConfigurationInfo = (
   return contents;
 };
 
+const deserializeAws_queryServerlessV2ScalingConfigurationInfo = (
+  output: any,
+  context: __SerdeContext
+): ServerlessV2ScalingConfigurationInfo => {
+  const contents: any = {
+    MinCapacity: undefined,
+    MaxCapacity: undefined,
+  };
+  if (output["MinCapacity"] !== undefined) {
+    contents.MinCapacity = __strictParseFloat(output["MinCapacity"]) as number;
+  }
+  if (output["MaxCapacity"] !== undefined) {
+    contents.MaxCapacity = __strictParseFloat(output["MaxCapacity"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_querySharedSnapshotQuotaExceededFault = (
   output: any,
   context: __SerdeContext
@@ -25081,36 +24453,6 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
       }
       return deserializeAws_queryVpcSecurityGroupMembership(entry, context);
     });
-};
-
-const deserializeAws_queryVpnDetails = (output: any, context: __SerdeContext): VpnDetails => {
-  const contents: any = {
-    VpnId: undefined,
-    VpnTunnelOriginatorIP: undefined,
-    VpnGatewayIp: undefined,
-    VpnPSK: undefined,
-    VpnName: undefined,
-    VpnState: undefined,
-  };
-  if (output["VpnId"] !== undefined) {
-    contents.VpnId = __expectString(output["VpnId"]);
-  }
-  if (output["VpnTunnelOriginatorIP"] !== undefined) {
-    contents.VpnTunnelOriginatorIP = __expectString(output["VpnTunnelOriginatorIP"]);
-  }
-  if (output["VpnGatewayIp"] !== undefined) {
-    contents.VpnGatewayIp = __expectString(output["VpnGatewayIp"]);
-  }
-  if (output["VpnPSK"] !== undefined) {
-    contents.VpnPSK = __expectString(output["VpnPSK"]);
-  }
-  if (output["VpnName"] !== undefined) {
-    contents.VpnName = __expectString(output["VpnName"]);
-  }
-  if (output["VpnState"] !== undefined) {
-    contents.VpnState = __expectString(output["VpnState"]);
-  }
-  return contents;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

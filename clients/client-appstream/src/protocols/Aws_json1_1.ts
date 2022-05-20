@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -4897,6 +4898,10 @@ const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, conte
       input.MaxUserDurationInSeconds !== null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+    ...(input.SessionScriptS3Location !== undefined &&
+      input.SessionScriptS3Location !== null && {
+        SessionScriptS3Location: serializeAws_json1_1S3Location(input.SessionScriptS3Location, context),
+      }),
     ...(input.StreamView !== undefined && input.StreamView !== null && { StreamView: input.StreamView }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.UsbDeviceFilterStrings !== undefined &&
@@ -5745,6 +5750,10 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
       input.MaxUserDurationInSeconds !== null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+    ...(input.SessionScriptS3Location !== undefined &&
+      input.SessionScriptS3Location !== null && {
+        SessionScriptS3Location: serializeAws_json1_1S3Location(input.SessionScriptS3Location, context),
+      }),
     ...(input.StreamView !== undefined && input.StreamView !== null && { StreamView: input.StreamView }),
     ...(input.UsbDeviceFilterStrings !== undefined &&
       input.UsbDeviceFilterStrings !== null && {
@@ -6663,6 +6672,10 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
     MaxUserDurationInSeconds: __expectInt32(output.MaxUserDurationInSeconds),
     Name: __expectString(output.Name),
     Platform: __expectString(output.Platform),
+    SessionScriptS3Location:
+      output.SessionScriptS3Location !== undefined && output.SessionScriptS3Location !== null
+        ? deserializeAws_json1_1S3Location(output.SessionScriptS3Location, context)
+        : undefined,
     State: __expectString(output.State),
     StreamView: __expectString(output.StreamView),
     UsbDeviceFilterStrings:

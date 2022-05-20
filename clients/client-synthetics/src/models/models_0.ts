@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { SyntheticsServiceException as __BaseException } from "./SyntheticsServiceException";
 
@@ -222,7 +222,18 @@ export enum CanaryState {
 }
 
 export enum CanaryStateReasonCode {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_PENDING = "CREATE_PENDING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
   INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
+  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED = "ROLLBACK_FAILED",
+  SYNC_DELETE_IN_PROGRESS = "SYNC_DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE = "UPDATE_COMPLETE",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_PENDING = "UPDATE_PENDING",
 }
 
 /**
@@ -1007,6 +1018,13 @@ export interface DeleteCanaryRequest {
    * <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default
+   *       is false.</p>
+   *          <p>Type: Boolean</p>
+   */
+  DeleteLambda?: boolean;
 }
 
 export namespace DeleteCanaryRequest {

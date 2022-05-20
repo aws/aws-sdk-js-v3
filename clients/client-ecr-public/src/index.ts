@@ -1,4 +1,5 @@
 export * from "./ECRPUBLIC";
+// smithy-typescript generated code
 export * from "./ECRPUBLICClient";
 export * from "./commands";
 export * from "./models";

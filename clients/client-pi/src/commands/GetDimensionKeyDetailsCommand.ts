@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,11 +23,10 @@ export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetai
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the attributes of the specified dimension group for a DB instance or data source.
- *           For example, if you specify a SQL ID, <code>GetDimensionKeyDetails</code> retrieves
- *           the full text of the dimension <code>db.sql.statement</code>cassociated with this ID.
- *           This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code>
- *           don't support retrieval of large SQL statement text.</p>
+ * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
+ *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
+ *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
+ *             SQL statement text.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

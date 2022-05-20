@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-cost-and-usage-report-service
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cost-and-usage-report-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cost-and-usage-report-service)
@@ -138,7 +140,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -172,7 +174,7 @@ client
 
 // callbacks.
 client.deleteReportDefinition(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

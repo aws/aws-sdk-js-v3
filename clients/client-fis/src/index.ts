@@ -1,4 +1,5 @@
 export * from "./Fis";
+// smithy-typescript generated code
 export * from "./FisClient";
 export * from "./commands";
 export * from "./models";

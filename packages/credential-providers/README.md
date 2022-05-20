@@ -23,6 +23,7 @@ A collection of all credential providers, with default clients.
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
+1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
 
 ## `fromCognitoIdentity()`
 
@@ -119,7 +120,7 @@ const client = new FooClient({
     // Optional. The master credentials used to get and refresh temporary credentials from AWS STS.
     // If skipped, it uses the default credential resolved by internal STS client.
     masterCredentials: fromTemporaryCredentials({
-      params: { RoleArn: "arn:aws:iam::1234567890:role/RoleA" }
+      params: { RoleArn: "arn:aws:iam::1234567890:role/RoleA" },
     }),
     // Required. Options passed to STS AssumeRole operation.
     params: {
@@ -129,16 +130,16 @@ const client = new FooClient({
       // session name with prefix of 'aws-sdk-js-'.
       RoleSessionName: "aws-sdk-js-123",
       // Optional. The duration, in seconds, of the role session.
-      DurationSeconds: 3600
+      DurationSeconds: 3600,
       // ... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
     },
     // Optional. Custom STS client configurations overriding the default ones.
     clientConfig: { region },
     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided
     // MFA Serial code. Required if `params` has `SerialNumber` config.
-    mfaCodeProvider: async mfaSerial => {
-      return "token"
-    }
+    mfaCodeProvider: async (mfaSerial) => {
+      return "token";
+    },
   }),
 });
 ```
@@ -593,7 +594,7 @@ Successfully signed out of all SSO profiles.
 ### Sample files
 
 This credential provider is only applicable if the profile specified in shared configuration and
-credentials files contain ALL of the following entries:
+credentials files contain ALL of the following entries.
 
 #### `~/.aws/credentials`
 
@@ -613,6 +614,40 @@ sso_account_id = 012345678901
 sso_region = us-east-1
 sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
+```
+
+## `fromNodeProviderChain()`
+
+The credential provider used as default in the Node.js clients, but with default role assumers so
+you don't need to import them from STS client and supply them manually. You normally don't need
+to use this explicitly in the client constructor. It is useful for utility functions requiring
+credentials like S3 presigner, or RDS signer.
+
+This credential provider will attempt to find credentials from the following sources (listed in
+order of precedence):
+
+- [Environment variables exposed via `process.env`](#fromenv)
+- [SSO credentials from token cache](#fromsso)
+- [Web identity token credentials](#fromtokenfile)
+- [Shared credentials and config ini files](#fromini)
+- [The EC2/ECS Instance Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+
+This credential provider will invoke one provider at a time and only
+continue to the next if no credentials have been located. For example, if
+the process finds values defined via the `AWS_ACCESS_KEY_ID` and
+`AWS_SECRET_ACCESS_KEY` environment variables, the files at
+`~/.aws/credentials` and `~/.aws/config` will not be read, nor will any
+messages be sent to the Instance Metadata Service
+
+```js
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
+const credentialProvider = fromNodeProviderChain({
+  //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
+  // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
+  // Optional. Custom STS client configurations overriding the default ones.
+  clientConfig: { region },
+});
 ```
 
 [getcredentialsforidentity_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html

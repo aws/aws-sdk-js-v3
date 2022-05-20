@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelKeyDeletionCommand";
 export * from "./ConnectCustomKeyStoreCommand";
 export * from "./CreateAliasCommand";
@@ -20,6 +21,7 @@ export * from "./GenerateDataKeyCommand";
 export * from "./GenerateDataKeyPairCommand";
 export * from "./GenerateDataKeyPairWithoutPlaintextCommand";
 export * from "./GenerateDataKeyWithoutPlaintextCommand";
+export * from "./GenerateMacCommand";
 export * from "./GenerateRandomCommand";
 export * from "./GetKeyPolicyCommand";
 export * from "./GetKeyRotationStatusCommand";
@@ -46,3 +48,4 @@ export * from "./UpdateCustomKeyStoreCommand";
 export * from "./UpdateKeyDescriptionCommand";
 export * from "./UpdatePrimaryRegionCommand";
 export * from "./VerifyCommand";
+export * from "./VerifyMacCommand";

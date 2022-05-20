@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AllocateStaticIpCommand";
 export * from "./AttachCertificateToDistributionCommand";
 export * from "./AttachDiskCommand";
@@ -101,6 +102,7 @@ export * from "./GetKeyPairsCommand";
 export * from "./GetLoadBalancerCommand";
 export * from "./GetLoadBalancerMetricDataCommand";
 export * from "./GetLoadBalancerTlsCertificatesCommand";
+export * from "./GetLoadBalancerTlsPoliciesCommand";
 export * from "./GetLoadBalancersCommand";
 export * from "./GetOperationCommand";
 export * from "./GetOperationsCommand";

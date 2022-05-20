@@ -3424,6 +3424,22 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#CmfcKlvMetadata": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Applies to CMAF outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+        "smithy.api#enum": [
+          {
+            "value": "PASSTHROUGH",
+            "name": "PASSTHROUGH"
+          },
+          {
+            "value": "NONE",
+            "name": "NONE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#CmfcScte35Esam": {
       "type": "string",
       "traits": {
@@ -3499,6 +3515,13 @@
           "traits": {
             "smithy.api#documentation": "Choose Include (INCLUDE) to have MediaConvert generate an HLS child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude (EXCLUDE).",
             "smithy.api#jsonName": "iFrameOnlyManifest"
+          }
+        },
+        "KlvMetadata": {
+          "target": "com.amazonaws.mediaconvert#CmfcKlvMetadata",
+          "traits": {
+            "smithy.api#documentation": "Applies to CMAF outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+            "smithy.api#jsonName": "klvMetadata"
           }
         },
         "Scte35Esam": {
@@ -5222,10 +5245,17 @@
             "smithy.api#jsonName": "l6Mode"
           }
         },
+        "Mapping": {
+          "target": "com.amazonaws.mediaconvert#DolbyVisionMapping",
+          "traits": {
+            "smithy.api#documentation": "Required when you set Dolby Vision Profile (Profile) to Profile 8.1 (PROFILE_8_1). When you set Content mapping (Mapping) to None (HDR10_NOMAP), content mapping is not applied to the HDR10-compatible signal. Depending on the source peak nit level, clipping might occur on HDR devices without Dolby Vision. When you set Content mapping to Static (HDR10_1000), the transcoder creates a 1,000 nits peak HDR10-compatible signal by applying static content mapping to the source. This mode is speed-optimized for PQ10 sources with metadata that is created from analysis. For graded Dolby Vision content, be aware that creative intent might not be guaranteed with extreme 1,000 nits trims.",
+            "smithy.api#jsonName": "mapping"
+          }
+        },
         "Profile": {
           "target": "com.amazonaws.mediaconvert#DolbyVisionProfile",
           "traits": {
-            "smithy.api#documentation": "In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.",
+            "smithy.api#documentation": "Required when you use Dolby Vision (DolbyVision) processing. Set Profile (DolbyVisionProfile) to Profile 5 (Profile_5) to only include frame-interleaved Dolby Vision metadata in your output. Set Profile to Profile 8.1 (Profile_8_1) to include both frame-interleaved Dolby Vision metadata and HDR10 metadata in your output.",
             "smithy.api#jsonName": "profile"
           }
         }
@@ -5276,14 +5306,34 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#DolbyVisionMapping": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Required when you set Dolby Vision Profile (Profile) to Profile 8.1 (PROFILE_8_1). When you set Content mapping (Mapping) to None (HDR10_NOMAP), content mapping is not applied to the HDR10-compatible signal. Depending on the source peak nit level, clipping might occur on HDR devices without Dolby Vision. When you set Content mapping to Static (HDR10_1000), the transcoder creates a 1,000 nits peak HDR10-compatible signal by applying static content mapping to the source. This mode is speed-optimized for PQ10 sources with metadata that is created from analysis. For graded Dolby Vision content, be aware that creative intent might not be guaranteed with extreme 1,000 nits trims.",
+        "smithy.api#enum": [
+          {
+            "value": "HDR10_NOMAP",
+            "name": "HDR10_NOMAP"
+          },
+          {
+            "value": "HDR10_1000",
+            "name": "HDR10_1000"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#DolbyVisionProfile": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.",
+        "smithy.api#documentation": "Required when you use Dolby Vision (DolbyVision) processing. Set Profile (DolbyVisionProfile) to Profile 5 (Profile_5) to only include frame-interleaved Dolby Vision metadata in your output. Set Profile to Profile 8.1 (Profile_8_1) to include both frame-interleaved Dolby Vision metadata and HDR10 metadata in your output.",
         "smithy.api#enum": [
           {
             "value": "PROFILE_5",
             "name": "PROFILE_5"
+          },
+          {
+            "value": "PROFILE_8_1",
+            "name": "PROFILE_8_1"
           }
         ]
       }
@@ -10327,6 +10377,13 @@
             "smithy.api#jsonName": "timecodeStart"
           }
         },
+        "VideoGenerator": {
+          "target": "com.amazonaws.mediaconvert#InputVideoGenerator",
+          "traits": {
+            "smithy.api#documentation": "Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both.",
+            "smithy.api#jsonName": "videoGenerator"
+          }
+        },
         "VideoSelector": {
           "target": "com.amazonaws.mediaconvert#VideoSelector",
           "traits": {
@@ -10697,6 +10754,21 @@
             "name": "SPECIFIEDSTART"
           }
         ]
+      }
+    },
+    "com.amazonaws.mediaconvert#InputVideoGenerator": {
+      "type": "structure",
+      "members": {
+        "Duration": {
+          "target": "com.amazonaws.mediaconvert#__integerMin50Max86400000",
+          "traits": {
+            "smithy.api#documentation": "Specify an integer value for Black video duration from 50 to 86400000 to generate a black video input for that many milliseconds. Required when you include Video generator.",
+            "smithy.api#jsonName": "duration"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both."
       }
     },
     "com.amazonaws.mediaconvert#InsertableImage": {
@@ -12826,6 +12898,22 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#M2tsKlvMetadata": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Applies to MPEG-TS outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+        "smithy.api#enum": [
+          {
+            "value": "PASSTHROUGH",
+            "name": "PASSTHROUGH"
+          },
+          {
+            "value": "NONE",
+            "name": "NONE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#M2tsNielsenId3": {
       "type": "string",
       "traits": {
@@ -13073,6 +13161,13 @@
           "traits": {
             "smithy.api#documentation": "The length, in seconds, of each fragment. Only used with EBP markers.",
             "smithy.api#jsonName": "fragmentTime"
+          }
+        },
+        "KlvMetadata": {
+          "target": "com.amazonaws.mediaconvert#M2tsKlvMetadata",
+          "traits": {
+            "smithy.api#documentation": "Applies to MPEG-TS outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+            "smithy.api#jsonName": "klvMetadata"
           }
         },
         "MaxPcrInterval": {
@@ -14036,6 +14131,22 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#MpdKlvMetadata": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Applies to DASH ISO outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
+            "name": "NONE"
+          },
+          {
+            "value": "PASSTHROUGH",
+            "name": "PASSTHROUGH"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#MpdScte35Esam": {
       "type": "string",
       "traits": {
@@ -14090,6 +14201,13 @@
           "traits": {
             "smithy.api#documentation": "Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.",
             "smithy.api#jsonName": "captionContainerType"
+          }
+        },
+        "KlvMetadata": {
+          "target": "com.amazonaws.mediaconvert#MpdKlvMetadata",
+          "traits": {
+            "smithy.api#documentation": "Applies to DASH ISO outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.",
+            "smithy.api#jsonName": "klvMetadata"
           }
         },
         "Scte35Esam": {
@@ -15718,6 +15836,22 @@
       },
       "traits": {
         "smithy.api#documentation": "Specific settings for this type of output."
+      }
+    },
+    "com.amazonaws.mediaconvert#PadVideo": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Use this setting if your input has video and audio durations that don't align, and your output or player has strict alignment requirements. Examples: Input audio track has a delayed start. Input video track ends before audio ends. When you set Pad video (padVideo) to Black (BLACK), MediaConvert generates black video frames so that output video and audio durations match. Black video frames are added at the beginning or end, depending on your input. To keep the default behavior and not generate black video, set Pad video to Disabled (DISABLED) or leave blank.",
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          },
+          {
+            "value": "BLACK",
+            "name": "BLACK"
+          }
+        ]
       }
     },
     "com.amazonaws.mediaconvert#PartnerWatermarking": {
@@ -18344,6 +18478,13 @@
             "smithy.api#jsonName": "hdr10Metadata"
           }
         },
+        "PadVideo": {
+          "target": "com.amazonaws.mediaconvert#PadVideo",
+          "traits": {
+            "smithy.api#documentation": "Use this setting if your input has video and audio durations that don't align, and your output or player has strict alignment requirements. Examples: Input audio track has a delayed start. Input video track ends before audio ends. When you set Pad video (padVideo) to Black (BLACK), MediaConvert generates black video frames so that output video and audio durations match. Black video frames are added at the beginning or end, depending on your input. To keep the default behavior and not generate black video, set Pad video to Disabled (DISABLED) or leave blank.",
+            "smithy.api#jsonName": "padVideo"
+          }
+        },
         "Pid": {
           "target": "com.amazonaws.mediaconvert#__integerMin1Max2147483647",
           "traits": {
@@ -18889,7 +19030,7 @@
         "StylePassthrough": {
           "target": "com.amazonaws.mediaconvert#WebvttStylePassthrough",
           "traits": {
-            "smithy.api#documentation": "Set Style passthrough (StylePassthrough) to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use simplified output captions.",
+            "smithy.api#documentation": "To use the available style, color, and position information from your input captions: Set Style passthrough (stylePassthrough) to Enabled (ENABLED). MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Set Style passthrough to Strict (STRICT). MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Set Style passthrough to Disabled (DISABLED), or leave blank.",
             "smithy.api#jsonName": "stylePassthrough"
           }
         }
@@ -18930,7 +19071,7 @@
     "com.amazonaws.mediaconvert#WebvttStylePassthrough": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "Set Style passthrough (StylePassthrough) to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use simplified output captions.",
+        "smithy.api#documentation": "To use the available style, color, and position information from your input captions: Set Style passthrough (stylePassthrough) to Enabled (ENABLED). MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Set Style passthrough to Strict (STRICT). MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Set Style passthrough to Disabled (DISABLED), or leave blank.",
         "smithy.api#enum": [
           {
             "value": "ENABLED",
@@ -18939,6 +19080,10 @@
           {
             "value": "DISABLED",
             "name": "DISABLED"
+          },
+          {
+            "value": "STRICT",
+            "name": "STRICT"
           }
         ]
       }
@@ -20342,6 +20487,15 @@
         "smithy.api#range": {
           "min": 4,
           "max": 12
+        }
+      }
+    },
+    "com.amazonaws.mediaconvert#__integerMin50Max86400000": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 50,
+          "max": 86400000
         }
       }
     },

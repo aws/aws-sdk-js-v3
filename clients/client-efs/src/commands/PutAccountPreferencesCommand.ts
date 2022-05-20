@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,9 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  *       opt-in period as EFS transitions to long resource IDs. For more information,
  *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
  *          <note>
- *             <p>Starting in October, 2021, you will receive an error if you try to set the account preference to use the short 8 character format resource ID.
- *       Contact Amazon Web Services support if you receive an error and need to use short IDs for file system and mount target resources.</p>
+ *             <p>Starting in October, 2021, you will receive an error if you try to set the account preference
+ *         to use the short 8 character format resource ID. Contact Amazon Web Services support if you
+ *         receive an error and must use short IDs for file system and mount target resources.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

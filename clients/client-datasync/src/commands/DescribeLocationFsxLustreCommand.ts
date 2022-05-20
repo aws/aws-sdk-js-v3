@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,8 +23,8 @@ export interface DescribeLocationFsxLustreCommandInput extends DescribeLocationF
 export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata, such as the path information about an Amazon FSx for Lustre
- *       location.</p>
+ * <p>Returns metadata about an Amazon FSx for Lustre
+ *       location, such as information about its path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

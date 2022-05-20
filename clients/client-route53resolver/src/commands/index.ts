@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateFirewallRuleGroupCommand";
 export * from "./AssociateResolverEndpointIpAddressCommand";
 export * from "./AssociateResolverQueryLogConfigCommand";

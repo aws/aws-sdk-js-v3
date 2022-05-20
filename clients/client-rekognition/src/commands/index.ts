@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CompareFacesCommand";
 export * from "./CreateCollectionCommand";
 export * from "./CreateDatasetCommand";
@@ -56,3 +57,4 @@ export * from "./StopStreamProcessorCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDatasetEntriesCommand";
+export * from "./UpdateStreamProcessorCommand";

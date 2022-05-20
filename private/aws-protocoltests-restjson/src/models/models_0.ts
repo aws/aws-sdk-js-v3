@@ -1,8 +1,9 @@
+// smithy-typescript generated code
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@aws-sdk/smithy-client";
-import { DocumentType as __DocumentType, MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { RestJsonProtocolServiceException as __BaseException } from "./RestJsonProtocolServiceException";
@@ -1094,6 +1095,7 @@ export namespace MalformedRequestBodyInput {
 
 export interface MalformedSetInput {
   set?: string[];
+  blobSet?: Uint8Array[];
 }
 
 export namespace MalformedSetInput {
@@ -1473,7 +1475,7 @@ export namespace PlayerAction {
 }
 
 export interface PostPlayerActionInput {
-  action: PlayerAction | undefined;
+  action?: PlayerAction;
 }
 
 export namespace PostPlayerActionInput {
@@ -1577,16 +1579,16 @@ export namespace StreamingTraitsInputOutput {
   });
 }
 
-export interface StreamingTraitsRequireLengthInputOutput {
+export interface StreamingTraitsRequireLengthInput {
   foo?: string;
   blob?: Readable | ReadableStream | Blob;
 }
 
-export namespace StreamingTraitsRequireLengthInputOutput {
+export namespace StreamingTraitsRequireLengthInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StreamingTraitsRequireLengthInputOutput): any => ({
+  export const filterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
     ...obj,
   });
 }

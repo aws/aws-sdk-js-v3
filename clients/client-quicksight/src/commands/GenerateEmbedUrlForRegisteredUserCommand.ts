@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -38,7 +39,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *         that can be customized using the <code>
  *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
  *                   </code> parameter.</p>
- *                 <p>The resulting user session is valid for 15 minutes (default) to 10 hours (maximum).</p>
+ *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
  *             </li>
  *             <li>
  *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>

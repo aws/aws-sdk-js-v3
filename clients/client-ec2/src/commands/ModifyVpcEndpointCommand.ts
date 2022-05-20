@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,9 +24,9 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
 
 /**
  * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
- *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see
- *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
- *                 Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information,
+ *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+ *                 Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

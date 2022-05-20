@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-eventbridge",
   "description": "AWS SDK for JavaScript Eventbridge Client for Node.js, Browser and React Native",
-  "version": "3.58.0",
+  "version": "3.95.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -9,7 +9,9 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo"
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "test": "yarn test:unit",
+    "test:unit": "ts-mocha test/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -28,6 +30,7 @@
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-retry": "*",
+    "@aws-sdk/middleware-sdk-eventbridge": "*",
     "@aws-sdk/middleware-serde": "*",
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-stack": "*",
@@ -35,6 +38,7 @@
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/node-http-handler": "*",
     "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",

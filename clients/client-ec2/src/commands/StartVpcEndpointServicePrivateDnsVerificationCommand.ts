@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -31,7 +32,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
  *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
- *         <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see  <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>
+ *         <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

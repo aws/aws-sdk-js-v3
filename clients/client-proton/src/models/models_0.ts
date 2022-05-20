@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ProtonServiceException as __BaseException } from "./ProtonServiceException";
 
@@ -226,12 +226,6 @@ export enum RepositoryProvider {
 
 /**
  * <p>Detail data for a repository branch.</p>
- *          <important>
- *             <p>Provisioning by pull request is currently in feature preview and is
- *     only usable with Terraform based Proton Templates. To learn more about
- *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
- *     Previews.</p>
- *          </important>
  */
 export interface RepositoryBranch {
   /**
@@ -265,22 +259,18 @@ export namespace RepositoryBranch {
 }
 
 /**
- * <p>The Proton pipeline service role and repository data.</p>
+ * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
  */
 export interface AccountSettings {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton pipeline service role.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
+   *       customer-owned automation for self-managed provisioning.</p>
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>The repository that you provide with pull request provisioning.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The repository configured in the Amazon Web Services account for pipeline provisioning. Required it if you have environments configured for self-managed
+   *       provisioning with services that include pipelines.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranch;
 }
@@ -323,12 +313,6 @@ export namespace GetAccountSettingsOutput {
 
 /**
  * <p>Detail input data for a repository branch.</p>
- *          <important>
- *             <p>Provisioning by pull request is currently in feature preview and is
- *     only usable with Terraform based Proton Templates. To learn more about
- *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
- *     Previews.</p>
- *          </important>
  */
 export interface RepositoryBranchInput {
   /**
@@ -358,24 +342,14 @@ export namespace RepositoryBranchInput {
 
 export interface UpdateAccountSettingsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton pipeline service role.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
+   *       customer-owned automation for self-managed provisioning.</p>
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>The repository that you provide with pull request provisioning.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>A repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include
+   *       pipelines.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranchInput;
 }
@@ -391,7 +365,7 @@ export namespace UpdateAccountSettingsInput {
 
 export interface UpdateAccountSettingsOutput {
   /**
-   * <p>The Proton pipeline service role repository detail data that's returned by Proton.</p>
+   * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
    */
   accountSettings: AccountSettings | undefined;
 }
@@ -476,12 +450,12 @@ export interface Environment {
   templateName: string | undefined;
 
   /**
-   * <p>The ID of the major version of the environment template.</p>
+   * <p>The major version of the environment template.</p>
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * <p>The ID of the minor version of the environment template.</p>
+   * <p>The minor version of the environment template.</p>
    */
   templateMinorVersion: string | undefined;
 
@@ -521,13 +495,7 @@ export interface Environment {
   provisioning?: Provisioning | string;
 
   /**
-   * <p>The repository that you provide with pull request provisioning.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
    */
   provisioningRepository?: RepositoryBranch;
 }
@@ -805,21 +773,21 @@ export namespace Tag {
 
 export interface CreateEnvironmentAccountConnectionInput {
   /**
-   * <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the
-   *    first request created.</p>
+   * <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first
+   *       request created.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The ID of the management account that accepts or rejects the environment account connection. You create an manage the Proton environment in
-   *    this account. If the management account accepts the environment account connection, Proton can use the associated IAM role to provision
-   *    environment infrastructure resources in the associated environment account.</p>
+   * <p>The ID of the management account that accepts or rejects the environment account connection. You create and manage the Proton environment in this
+   *       account. If the management account accepts the environment account connection, Proton can use the associated IAM role to provision environment
+   *       infrastructure resources in the associated environment account.</p>
    */
   managementAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision
-   *    infrastructure resources in the associated environment account.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
+   *       resources in the associated environment account.</p>
    */
   roleArn: string | undefined;
 
@@ -829,8 +797,9 @@ export interface CreateEnvironmentAccountConnectionInput {
   environmentName: string | undefined;
 
   /**
-   * <p>Tags for your environment account connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton resources and tagging</a> in the <i>Proton Administrator
-   *    Guide</i>.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton Administrator Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -966,8 +935,8 @@ export interface ListEnvironmentAccountConnectionsInput {
   statuses?: (EnvironmentAccountConnectionStatus | string)[];
 
   /**
-   * <p>A token to indicate the location of the next environment account connection in the array of environment account connections, after the list of
-   *    environment account connections that was previously requested.</p>
+   * <p>A token that indicates the location of the next environment account connection in the array of environment account connections, after the list of
+   *       environment account connections that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -1052,8 +1021,8 @@ export interface ListEnvironmentAccountConnectionsOutput {
   environmentAccountConnections: EnvironmentAccountConnectionSummary[] | undefined;
 
   /**
-   * <p>A token to indicate the location of the next environment account connection in the array of environment account connections, after the current
-   *    requested list of environment account connections.</p>
+   * <p>A token that indicates the location of the next environment account connection in the array of environment account connections, after the current
+   *       requested list of environment account connections.</p>
    */
   nextToken?: string;
 }
@@ -1106,7 +1075,7 @@ export interface UpdateEnvironmentAccountConnectionInput {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that is associated with the environment account connection to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>
    */
   roleArn: string | undefined;
 }
@@ -1143,8 +1112,8 @@ export interface ListEnvironmentOutputsInput {
   environmentName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next environment output in the array of environment outputs, after the list of environment outputs
-   *    that was previously requested.</p>
+   * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the list of environment outputs that was
+   *       previously requested.</p>
    */
   nextToken?: string;
 }
@@ -1184,8 +1153,8 @@ export namespace Output {
 
 export interface ListEnvironmentOutputsOutput {
   /**
-   * <p>A token to indicate the location of the next environment output in the array of environment outputs, after the current requested list of
-   *    environment outputs.</p>
+   * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of
+   *       environment outputs.</p>
    */
   nextToken?: string;
 
@@ -1212,8 +1181,8 @@ export interface ListEnvironmentProvisionedResourcesInput {
   environmentName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next environment provisioned resource in the array of environment provisioned resources, after the
-   *    list of environment provisioned resources that was previously requested.</p>
+   * <p>A token that indicates the location of the next environment provisioned resource in the array of environment provisioned resources, after the list of
+   *       environment provisioned resources that was previously requested.</p>
    */
   nextToken?: string;
 }
@@ -1247,13 +1216,9 @@ export interface ProvisionedResource {
   identifier?: string;
 
   /**
-   * <p>The resource provisioning engine.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The resource provisioning engine. At this time, <code>CLOUDFORMATION</code> can be used for Amazon Web Services-managed provisioning, and <code>TERRAFORM</code> can
+   *       be used for self-managed provisioning.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
    */
   provisioningEngine?: ProvisionedResourceEngine | string;
 }
@@ -1269,8 +1234,8 @@ export namespace ProvisionedResource {
 
 export interface ListEnvironmentProvisionedResourcesOutput {
   /**
-   * <p>A token to indicate the location of the next environment provisioned resource in the array of provisioned resources, after the current
-   *    requested list of environment provisioned resources.</p>
+   * <p>A token that indicates the location of the next environment provisioned resource in the array of provisioned resources, after the current requested
+   *       list of environment provisioned resources.</p>
    */
   nextToken?: string;
 
@@ -1316,41 +1281,37 @@ export interface CreateEnvironmentInput {
   description?: string;
 
   /**
-   * <p>A link to a YAML formatted spec file that provides inputs as defined in the environment template bundle schema file. For more information, see
-   *     <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>Proton Administrator
-   *     Guide</i>.</p>
+   * <p>A YAML formatted string that provides inputs as defined in the environment template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>Proton Administrator
+   *       Guide</i>.</p>
    */
   spec: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf. You must
-   *    include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value and omit the
-   *     <code>provisioningRepository</code> parameter when you use standard provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
+   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
+   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
    */
   protonServiceRoleArn?: string;
 
   /**
-   * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an
-   *    environment account. You must include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and
-   *    value and omit the <code>provisioningRepository</code> parameter and values. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton Administrator
-   *     guide</i>.</p>
+   * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an environment
+   *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
+   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * <p>Create tags for your environment. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton environment. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>The repository that you provide with pull request provisioning. If you provide this parameter, you must omit the
-   *     <code>environmentAccountConnectionId</code> and <code>protonServiceRoleArn</code> parameters.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
+   *          <p>To use self-managed provisioning for the environment, specify this parameter and omit the <code>environmentAccountConnectionId</code> and
+   *         <code>protonServiceRoleArn</code> parameters.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
 }
@@ -1475,8 +1436,8 @@ export namespace EnvironmentTemplateFilter {
 
 export interface ListEnvironmentsInput {
   /**
-   * <p>A token to indicate the location of the next environment in the array of environments, after the list of environments that was previously
-   *    requested.</p>
+   * <p>A token that indicates the location of the next environment in the array of environments, after the list of environments that was previously
+   *       requested.</p>
    */
   nextToken?: string;
 
@@ -1593,8 +1554,7 @@ export namespace EnvironmentSummary {
 
 export interface ListEnvironmentsOutput {
   /**
-   * <p>A token to indicate the location of the next environment in the array of environments, after the current requested list of
-   *    environments.</p>
+   * <p>A token that indicates the location of the next environment in the array of environments, after the current requested list of environments.</p>
    */
   nextToken?: string;
 
@@ -1655,7 +1615,7 @@ export interface UpdateEnvironmentInput {
   protonServiceRoleArn?: string;
 
   /**
-   * <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the mode.</p>
+   * <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
    *             <dt/>
    *             <dd>
@@ -1670,24 +1630,23 @@ export interface UpdateEnvironmentInput {
    *                   <code>CURRENT_VERSION</code>
    *                </p>
    *                <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *               <i>Don’t</i> include major or minor version parameters when you use this <code>deployment-type</code>.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version
-   *       in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in
+   *             use, by default. You can also specify a different minor version of the current major version in use.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MAJOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current
-   *       template, by default. You can also specify a different major version that is higher than the major version in use and a minor version
-   *       (optional).</p>
+   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template,
+   *             by default. You can also specify a different major version that is higher than the major version in use and a minor version (optional).</p>
    *             </dd>
    *          </dl>
    */
@@ -1695,19 +1654,13 @@ export interface UpdateEnvironmentInput {
 
   /**
    * <p>The ID of the environment account connection.</p>
-   *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment
-   *    account connection was created in and is associated with the current environment.</p>
+   *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment account
+   *       connection was created in and is associated with the current environment.</p>
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * <p>The repository that you provide with pull request provisioning.</p>
-   *          <important>
-   *             <p>Provisioning by pull request is currently in feature preview and is
-   *     only usable with Terraform based Proton Templates. To learn more about
-   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
-   *     Previews.</p>
-   *          </important>
+   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
 }
@@ -1767,7 +1720,8 @@ export interface CreateEnvironmentTemplateInput {
   provisioning?: Provisioning | string;
 
   /**
-   * <p>Create tags for your environment template. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -1935,8 +1889,8 @@ export namespace GetEnvironmentTemplateOutput {
 
 export interface ListEnvironmentTemplatesInput {
   /**
-   * <p>A token to indicate the location of the next environment template in the array of environment templates, after the list of environment
-   *    templates that was previously requested.</p>
+   * <p>A token that indicates the location of the next environment template in the array of environment templates, after the list of environment templates
+   *       that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -2013,8 +1967,8 @@ export namespace EnvironmentTemplateSummary {
 
 export interface ListEnvironmentTemplatesOutput {
   /**
-   * <p>A token to indicate the location of the next environment template in the array of environment templates, after the current requested list of
-   *    environment templates.</p>
+   * <p>A token that indicates the location of the next environment template in the array of environment templates, after the current requested list of
+   *       environment templates.</p>
    */
   nextToken?: string;
 
@@ -2149,8 +2103,8 @@ export namespace TemplateVersionSourceInput {
 
 export interface CreateEnvironmentTemplateVersionInput {
   /**
-   * <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the
-   *    first request created.</p>
+   * <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first
+   *       request created.</p>
    */
   clientToken?: string;
 
@@ -2165,9 +2119,8 @@ export interface CreateEnvironmentTemplateVersionInput {
   description?: string;
 
   /**
-   * <p>To create a new minor version of the environment template, include a <code>major Version</code>.</p>
-   *          <p>To create a new major and minor version of the environment template, <i>exclude</i>
-   *             <code>major Version</code>.</p>
+   * <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+   *          <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
    */
   majorVersion?: string;
 
@@ -2177,7 +2130,8 @@ export interface CreateEnvironmentTemplateVersionInput {
   source: TemplateVersionSourceInput | undefined;
 
   /**
-   * <p>Create tags for a new version of an environment template.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -2383,8 +2337,8 @@ export namespace GetEnvironmentTemplateVersionOutput {
 
 export interface ListEnvironmentTemplateVersionsInput {
   /**
-   * <p>A token to indicate the location of the next major or minor version in the array of major or minor versions of an environment template, after
-   *    the list of major or minor versions that was previously requested.</p>
+   * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
+   *       list of major or minor versions that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -2420,7 +2374,7 @@ export namespace ListEnvironmentTemplateVersionsInput {
  */
 export interface EnvironmentTemplateVersionSummary {
   /**
-   * <p>The name of the version of an environment template.</p>
+   * <p>The name of the environment template.</p>
    */
   templateName: string | undefined;
 
@@ -2483,8 +2437,8 @@ export namespace EnvironmentTemplateVersionSummary {
 
 export interface ListEnvironmentTemplateVersionsOutput {
   /**
-   * <p>A token to indicate the location of the next major or minor version in the array of major or minor versions of an environment template, after
-   *    the list of major or minor versions that was previously requested.</p>
+   * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
+   *       list of major or minor versions that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -2721,7 +2675,7 @@ export interface GetTemplateSyncStatusInput {
   templateType: TemplateType | string | undefined;
 
   /**
-   * <p>The template version.</p>
+   * <p>The template major version.</p>
    */
   templateVersion: string | undefined;
 }
@@ -2918,8 +2872,8 @@ export interface ListRepositorySyncDefinitionsInput {
   syncType: SyncType | string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next repository sync definition in the array of repository sync definitions, after the list of
-   *    repository sync definitions previously requested.</p>
+   * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the list of repository
+   *       sync definitions previously requested.</p>
    */
   nextToken?: string;
 }
@@ -2969,8 +2923,8 @@ export namespace RepositorySyncDefinition {
 
 export interface ListRepositorySyncDefinitionsOutput {
   /**
-   * <p>A token to indicate the location of the next repository sync definition in the array of repository sync definitions, after the current
-   *    requested list of repository sync definitions.</p>
+   * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the current requested
+   *       list of repository sync definitions.</p>
    */
   nextToken?: string;
 
@@ -2996,8 +2950,8 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next resource tag in the array of resource tags, after the list of resource tags that was previously
-   *    requested.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the list of resource tags that was previously
+   *       requested.</p>
    */
   nextToken?: string;
 
@@ -3018,13 +2972,12 @@ export namespace ListTagsForResourceInput {
 
 export interface ListTagsForResourceOutput {
   /**
-   * <p>An array of resource tags with detail data.</p>
+   * <p>A list of resource tags with detail data.</p>
    */
   tags: Tag[] | undefined;
 
   /**
-   * <p>A token to indicate the location of the next resource tag in the array of resource tags, after the current requested list of resource
-   *    tags.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current requested list of resource tags.</p>
    */
   nextToken?: string;
 }
@@ -3100,12 +3053,13 @@ export interface CreateRepositoryInput {
   provider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The repository name, for example <code>myrepos/myrepo</code>.</p>
+   * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your Amazon Web Services CodeStar connection. For more information, see <a href="https://docs.aws.amazon.com/setting-up-for-service">Setting up for Proton</a> in the <i>Proton Administrator Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of your Amazon Web Services CodeStar connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html">Setting up for Proton</a> in the <i>Proton Administrator
+   *       Guide</i>.</p>
    */
   connectionArn: string | undefined;
 
@@ -3113,6 +3067,12 @@ export interface CreateRepositoryInput {
    * <p>The ARN of your customer Amazon Web Services Key Management Service (Amazon Web Services KMS) key.</p>
    */
   encryptionKey?: string;
+
+  /**
+   * <p>An optional list of metadata items that you can associate with the Proton repository. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateRepositoryInput {
@@ -3255,8 +3215,7 @@ export namespace GetRepositoryOutput {
 
 export interface ListRepositoriesInput {
   /**
-   * <p>A token to indicate the location of the next repository in the array of repositories, after the list of repositories previously
-   *    requested.</p>
+   * <p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>
    */
   nextToken?: string;
 
@@ -3306,8 +3265,7 @@ export namespace RepositorySummary {
 
 export interface ListRepositoriesOutput {
   /**
-   * <p>A token to indicate the location of the next repository in the array of repositories, after the current requested list of repositories.
-   *   </p>
+   * <p>A token that indicates the location of the next repository in the array of repositories, after the current requested list of repositories. </p>
    */
   nextToken?: string;
 
@@ -3338,7 +3296,7 @@ export interface ListServiceInstanceOutputsInput {
   serviceName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
    */
   nextToken?: string;
 }
@@ -3354,7 +3312,7 @@ export namespace ListServiceInstanceOutputsInput {
 
 export interface ListServiceInstanceOutputsOutput {
   /**
-   * <p>A token to indicate the location of the next output in the array of outputs, after the current requested list of outputs.</p>
+   * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
    */
   nextToken?: string;
 
@@ -3386,8 +3344,8 @@ export interface ListServiceInstanceProvisionedResourcesInput {
   serviceInstanceName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned
-   *    resources that was previously requested.</p>
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned resources
+   *       that was previously requested.</p>
    */
   nextToken?: string;
 }
@@ -3403,8 +3361,8 @@ export namespace ListServiceInstanceProvisionedResourcesInput {
 
 export interface ListServiceInstanceProvisionedResourcesOutput {
   /**
-   * <p>A token to indicate the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
-   *    provisioned resources.</p>
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
+   *       provisioned resources.</p>
    */
   nextToken?: string;
 
@@ -3468,8 +3426,8 @@ export interface ListServiceInstancesInput {
   serviceName?: string;
 
   /**
-   * <p>A token to indicate the location of the next service in the array of service instances, after the list of service instances that was
-   *    previously requested.</p>
+   * <p>A token that indicates the location of the next service in the array of service instances, after the list of service instances that was previously
+   *       requested.</p>
    */
   nextToken?: string;
 
@@ -3565,8 +3523,8 @@ export namespace ServiceInstanceSummary {
 
 export interface ListServiceInstancesOutput {
   /**
-   * <p>A token to indicate the location of the next service instance in the array of service instances, after the current requested list of service
-   *    instances.</p>
+   * <p>A token that indicates the location of the next service instance in the array of service instances, after the current requested list of service
+   *       instances.</p>
    */
   nextToken?: string;
 
@@ -3601,8 +3559,7 @@ export interface UpdateServiceInstanceInput {
 
   /**
    * <p>The deployment type.</p>
-   *          <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
-   *    mode.</p>
+   *          <p>There are four modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
    *             <dt/>
    *             <dd>
@@ -3617,15 +3574,15 @@ export interface UpdateServiceInstanceInput {
    *                   <code>CURRENT_VERSION</code>
    *                </p>
    *                <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *               <i>Don’t</i> include major or minor version parameters when you use this <code>deployment-type</code>.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the current major
-   *       version in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the current major version
+   *             in use, by default. You can also specify a different minor version of the current major version in use.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
@@ -3633,8 +3590,7 @@ export interface UpdateServiceInstanceInput {
    *                   <code>MAJOR_VERSION</code>
    *                </p>
    *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version of the current
-   *       template, by default. You can also specify a different major version that is higher than the major version in use and a minor version
-   *       (optional).</p>
+   *             template, by default. You can specify a different major version that's higher than the major version in use and a minor version.</p>
    *             </dd>
    *          </dl>
    */
@@ -3668,7 +3624,7 @@ export namespace UpdateServiceInstanceInput {
 
 export interface UpdateServiceInstanceOutput {
   /**
-   * <p>The service instance summary data returned by Proton.</p>
+   * <p>The service instance summary data that's returned by Proton.</p>
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -3690,7 +3646,7 @@ export interface ListServicePipelineOutputsInput {
   serviceName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
    */
   nextToken?: string;
 }
@@ -3706,7 +3662,7 @@ export namespace ListServicePipelineOutputsInput {
 
 export interface ListServicePipelineOutputsOutput {
   /**
-   * <p>A token to indicate the location of the next output in the array of outputs, after the current requested list of outputs.</p>
+   * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
    */
   nextToken?: string;
 
@@ -3733,8 +3689,8 @@ export interface ListServicePipelineProvisionedResourcesInput {
   serviceName: string | undefined;
 
   /**
-   * <p>A token to indicate the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned
-   *    resources that was previously requested.</p>
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned resources
+   *       that was previously requested.</p>
    */
   nextToken?: string;
 }
@@ -3750,8 +3706,8 @@ export namespace ListServicePipelineProvisionedResourcesInput {
 
 export interface ListServicePipelineProvisionedResourcesOutput {
   /**
-   * <p>A token to indicate the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
-   *    provisioned resources.</p>
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
+   *       provisioned resources.</p>
    */
   nextToken?: string;
 
@@ -3783,8 +3739,7 @@ export interface UpdateServicePipelineInput {
 
   /**
    * <p>The deployment type.</p>
-   *          <p>There are four modes for updating a service pipeline as described in the following. The <code>deploymentType</code> field defines the
-   *    mode.</p>
+   *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
    *             <dt/>
    *             <dd>
@@ -3799,15 +3754,15 @@ export interface UpdateServicePipelineInput {
    *                   <code>CURRENT_VERSION</code>
    *                </p>
    *                <p>In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *               <i>Don’t</i> include major or minor version parameters when you use this <code>deployment-type</code>.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the current major
-   *       version in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the current major version
+   *             in use, by default. You can specify a different minor version of the current major version in use.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
@@ -3815,8 +3770,7 @@ export interface UpdateServicePipelineInput {
    *                   <code>MAJOR_VERSION</code>
    *                </p>
    *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version of the current
-   *       template, by default. You can also specify a different major version that is higher than the major version in use and a minor version
-   *       (optional).</p>
+   *             template, by default. You can specify a different major version that's higher than the major version in use and a minor version.</p>
    *             </dd>
    *          </dl>
    */
@@ -3845,7 +3799,7 @@ export namespace UpdateServicePipelineInput {
 
 export interface UpdateServicePipelineOutput {
   /**
-   * <p>The pipeline details returned by Proton.</p>
+   * <p>The pipeline details that are returned by Proton.</p>
    */
   pipeline: ServicePipeline | undefined;
 }
@@ -3887,36 +3841,37 @@ export interface CreateServiceInput {
   templateMinorVersion?: string;
 
   /**
-   * <p>A link to a spec file that provides inputs as defined in the service template bundle schema file. The spec file is in YAML format. Don’t
-   *    include pipeline inputs in the spec if your service template <i>doesn’t</i> include a service pipeline. For more information, see
-   *     <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create a service</a> in the <i>Proton
-   *     Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create a service</a> in the
-   *     <i>Proton User Guide</i>.</p>
+   * <p>A link to a spec file that provides inputs as defined in the service template bundle schema file. The spec file is in YAML format.
+   *         <i>Don’t</i> include pipeline inputs in the spec if your service template <i>doesn’t</i> include a service pipeline. For
+   *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create a service</a> in the
+   *         <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create a
+   *         service</a> in the <i>Proton User Guide</i>.</p>
    */
   spec: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up repository connection</a> in the <i>Proton
-   *     Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up
-   *     with Proton</a> in the <i>Proton User Guide</i>. <i>Don't</i> include this parameter if your service
-   *    template <i>doesn't</i> include a service pipeline.</p>
+   *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with
+   *         Proton</a> in the <i>Proton User Guide</i>. <i>Don't</i> include this parameter if your service template
+   *         <i>doesn't</i> include a service pipeline.</p>
    */
   repositoryConnectionArn?: string;
 
   /**
-   * <p>The ID of the code repository. <i>Don't</i> include this parameter if your service template <i>doesn't</i> include
-   *    a service pipeline.</p>
+   * <p>The ID of the code repository. <i>Don't</i> include this parameter if your service template <i>doesn't</i> include a
+   *       service pipeline.</p>
    */
   repositoryId?: string;
 
   /**
-   * <p>The name of the code repository branch that holds the code that's deployed in Proton. <i>Don't</i> include this parameter if
-   *    your service template <i>doesn't</i> include a service pipeline.</p>
+   * <p>The name of the code repository branch that holds the code that's deployed in Proton. <i>Don't</i> include this parameter if your
+   *       service template <i>doesn't</i> include a service pipeline.</p>
    */
   branchName?: string;
 
   /**
-   * <p>Create tags for your service. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton service. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -4005,8 +3960,8 @@ export interface Service {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up a repository connection</a> in the <i>Proton
-   *     Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up
-   *     with Proton</a> in the <i>Proton User Guide</i>.</p>
+   *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with
+   *         Proton</a> in the <i>Proton User Guide</i>.</p>
    */
   repositoryConnectionArn?: string;
 
@@ -4119,8 +4074,7 @@ export namespace GetServiceOutput {
 
 export interface ListServicesInput {
   /**
-   * <p>A token to indicate the location of the next service in the array of services, after the list of services that was previously
-   *    requested.</p>
+   * <p>A token that indicates the location of the next service in the array of services, after the list of services that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -4197,7 +4151,7 @@ export namespace ServiceSummary {
 
 export interface ListServicesOutput {
   /**
-   * <p>A token to indicate the location of the next service in the array of services, after the current requested list of services.</p>
+   * <p>A token that indicates the location of the next service in the array of services, after the current requested list of services.</p>
    */
   nextToken?: string;
 
@@ -4230,9 +4184,8 @@ export interface UpdateServiceInput {
 
   /**
    * <p>Lists the service instances to add and the existing service instances to remain. Omit the existing service instances to delete from the list.
-   *     <i>Don't</i> include edits to the existing service instances or pipeline. For more information, see <i>Edit a
-   *     service</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html">Proton Administrator Guide</a> or
-   *    the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html">Proton User Guide</a>.</p>
+   *         <i>Don't</i> include edits to the existing service instances or pipeline. For more information, see <i>Edit a service</i> in
+   *       the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html">Proton Administrator Guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html">Proton User Guide</a>.</p>
    */
   spec?: string;
 }
@@ -4287,15 +4240,15 @@ export interface CreateServiceTemplateInput {
   encryptionKey?: string;
 
   /**
-   * <p>Proton includes a service pipeline for your service by default. When included, this parameter indicates that an Proton service pipeline
-   *     <i>won't</i> be included for your service. Once specified, this parameter <i>can't</i> be changed. For more
-   *    information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Service template bundles</a> in the
-   *     <i>Proton Administrator Guide</i>.</p>
+   * <p>By default, Proton provides a service pipeline for your service. When this parameter is included, it indicates that an Proton service pipeline
+   *         <i>isn't</i> provided for your service. After it's included, it <i>can't</i> be changed. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Service template bundles</a> in the <i>Proton Administrator
+   *         Guide</i>.</p>
    */
   pipelineProvisioning?: Provisioning | string;
 
   /**
-   * <p>Create tags for your service template. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -4356,8 +4309,8 @@ export interface ServiceTemplate {
   encryptionKey?: string;
 
   /**
-   * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template. Otherwise, a service
-   *    pipeline <i>isn't</i> included in the service template.</p>
+   * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template. Otherwise, a service pipeline
+   *         <i>isn't</i> included in the service template.</p>
    */
   pipelineProvisioning?: Provisioning | string;
 }
@@ -4458,8 +4411,8 @@ export namespace GetServiceTemplateOutput {
 
 export interface ListServiceTemplatesInput {
   /**
-   * <p>A token to indicate the location of the next service template in the array of service templates, after the list of service templates
-   *    previously requested.</p>
+   * <p>A token that indicates the location of the next service template in the array of service templates, after the list of service templates previously
+   *       requested.</p>
    */
   nextToken?: string;
 
@@ -4518,8 +4471,8 @@ export interface ServiceTemplateSummary {
   recommendedVersion?: string;
 
   /**
-   * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template, otherwise a service
-   *    pipeline <i>isn't</i> included in the service template.</p>
+   * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template, otherwise a service pipeline
+   *         <i>isn't</i> included in the service template.</p>
    */
   pipelineProvisioning?: Provisioning | string;
 }
@@ -4537,8 +4490,8 @@ export namespace ServiceTemplateSummary {
 
 export interface ListServiceTemplatesOutput {
   /**
-   * <p>A token to indicate the location of the next service template in the array of service templates, after the current requested list of service
-   *    templates.</p>
+   * <p>A token that indicates the location of the next service template in the array of service templates, after the current requested list of service
+   *       templates.</p>
    */
   nextToken?: string;
 
@@ -4565,7 +4518,7 @@ export interface UpdateServiceTemplateInput {
   name: string | undefined;
 
   /**
-   * <p>The name of the service template to update as displayed in the developer interface.</p>
+   * <p>The name of the service template to update that's displayed in the developer interface.</p>
    */
   displayName?: string;
 
@@ -4629,8 +4582,8 @@ export namespace CompatibleEnvironmentTemplateInput {
 
 export interface CreateServiceTemplateVersionInput {
   /**
-   * <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first
-   *    request created.</p>
+   * <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first request
+   *       created.</p>
    */
   clientToken?: string;
 
@@ -4662,7 +4615,8 @@ export interface CreateServiceTemplateVersionInput {
   compatibleEnvironmentTemplates: CompatibleEnvironmentTemplateInput[] | undefined;
 
   /**
-   * <p>Create tags for a new version of a service template.</p>
+   * <p>An optional list of metadata items that you can associate with the Proton service template version. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -4890,8 +4844,8 @@ export namespace GetServiceTemplateVersionOutput {
 
 export interface ListServiceTemplateVersionsInput {
   /**
-   * <p>A token to indicate the location of the next major or minor version in the array of major or minor versions of a service template, after the
-   *    list of major or minor versions that was previously requested.</p>
+   * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the list
+   *       of major or minor versions that was previously requested.</p>
    */
   nextToken?: string;
 
@@ -4990,8 +4944,8 @@ export namespace ServiceTemplateVersionSummary {
 
 export interface ListServiceTemplateVersionsOutput {
   /**
-   * <p>A token to indicate the location of the next major or minor version in the array of major or minor versions of a service template, after the
-   *    current requested list of service major or minor versions.</p>
+   * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the
+   *       current requested list of service major or minor versions.</p>
    */
   nextToken?: string;
 
@@ -5076,12 +5030,12 @@ export namespace UpdateServiceTemplateVersionOutput {
 
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that the resource tag is applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the Proton resource to apply customer tags to.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An array of resource tags to apply to a resource.</p>
+   * <p>A list of customer tags to apply to the Proton resource.</p>
    */
   tags: Tag[] | undefined;
 }
@@ -5123,7 +5077,7 @@ export interface CreateTemplateSyncConfigInput {
   repositoryProvider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of your repository, for example <code>myrepos/myrepo</code>.</p>
+   * <p>The name of your repository (for example, <code>myrepos/myrepo</code>).</p>
    */
   repositoryName: string | undefined;
 
@@ -5133,8 +5087,8 @@ export interface CreateTemplateSyncConfigInput {
   branch: string | undefined;
 
   /**
-   * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this
-   *    repository directory.</p>
+   * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this repository
+   *       directory.</p>
    */
   subdirectory?: string;
 }
@@ -5299,7 +5253,7 @@ export interface UpdateTemplateSyncConfigInput {
   repositoryProvider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of the repository, for example <code>myrepos/myrepo</code>.</p>
+   * <p>The name of the repository (for example, <code>myrepos/myrepo</code>).</p>
    */
   repositoryName: string | undefined;
 
@@ -5341,12 +5295,12 @@ export namespace UpdateTemplateSyncConfigOutput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that the tag is to be removed from.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to remove customer tags from.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An array of tag keys indicating the resource tags to be removed from the resource.</p>
+   * <p>A list of customer tag keys that indicate the customer tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }

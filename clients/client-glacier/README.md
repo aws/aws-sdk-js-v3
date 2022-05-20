@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-glacier
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-glacier/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-glacier)
@@ -152,7 +154,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -186,7 +188,7 @@ client
 
 // callbacks.
 client.abortMultipartUpload(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

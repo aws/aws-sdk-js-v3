@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./EchoServiceClient";
 export * from "./EchoService";
 export * from "./commands";

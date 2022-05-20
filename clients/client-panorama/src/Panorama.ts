@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -160,9 +161,8 @@ import { PanoramaClient } from "./PanoramaClient";
  *          <p>
  *             <b>Overview</b>
  *          </p>
- *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see
- *            <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a>
- *            in the <i>AWS Panorama Developer Guide</i>.</p>
+ *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the
+ *         <i>AWS Panorama Developer Guide</i>.</p>
  */
 export class Panorama extends PanoramaClient {
   /**
@@ -356,10 +356,10 @@ export class Panorama extends PanoramaClient {
 
   /**
    * <p>Deletes a package.</p>
-   *         <note>
-   *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code>
-   *                 in addition to permissions for the AWS Panorama API.</p>
-   *         </note>
+   *          <note>
+   *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for
+   *         the AWS Panorama API.</p>
+   *          </note>
    */
   public deletePackage(
     args: DeletePackageCommandInput,
@@ -1013,9 +1013,10 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
-   * <p>Creates a device and returns a configuration archive. The configuration
-   *         archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes.
-   *         Transfer the configuration archive to the device with the included USB storage device within 5 minutes.</p>
+   * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
+   *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
+   *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
+   *       minutes. Use the included USB storage device and connect it to the USB 3.0 port next to the HDMI output.</p>
    */
   public provisionDevice(
     args: ProvisionDeviceCommandInput,

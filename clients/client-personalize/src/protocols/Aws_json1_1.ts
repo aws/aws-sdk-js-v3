@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -127,9 +128,17 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "../commands/ListSolutionVersionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "../commands/StartRecommenderCommand";
+import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "../commands/StopRecommenderCommand";
+import {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
 } from "../commands/StopSolutionVersionCreationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "../commands/UpdateCampaignCommand";
 import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "../commands/UpdateRecommenderCommand";
 import {
@@ -277,6 +286,8 @@ import {
   ListSolutionsResponse,
   ListSolutionVersionsRequest,
   ListSolutionVersionsResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   OptimizationObjective,
   Recipe,
   RecipeSummary,
@@ -293,8 +304,19 @@ import {
   SolutionSummary,
   SolutionVersion,
   SolutionVersionSummary,
+  StartRecommenderRequest,
+  StartRecommenderResponse,
+  StopRecommenderRequest,
+  StopRecommenderResponse,
   StopSolutionVersionCreationRequest,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
+  TooManyTagKeysException,
+  TooManyTagsException,
   TunedHPOParams,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateCampaignRequest,
   UpdateCampaignResponse,
   UpdateRecommenderRequest,
@@ -978,6 +1000,45 @@ export const serializeAws_json1_1ListSolutionVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartRecommenderCommand = async (
+  input: StartRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.StartRecommender",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartRecommenderRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopRecommenderCommand = async (
+  input: StopRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.StopRecommender",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopRecommenderRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StopSolutionVersionCreationCommand = async (
   input: StopSolutionVersionCreationCommandInput,
   context: __SerdeContext
@@ -988,6 +1049,32 @@ export const serializeAws_json1_1StopSolutionVersionCreationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopSolutionVersionCreationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1061,6 +1148,9 @@ const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1116,6 +1206,9 @@ const deserializeAws_json1_1CreateBatchSegmentJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1171,6 +1264,9 @@ const deserializeAws_json1_1CreateCampaignCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1226,6 +1322,9 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1281,6 +1380,9 @@ const deserializeAws_json1_1CreateDatasetExportJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1330,6 +1432,9 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1385,6 +1490,9 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1440,6 +1548,9 @@ const deserializeAws_json1_1CreateEventTrackerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1492,6 +1603,9 @@ const deserializeAws_json1_1CreateFilterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1544,6 +1658,9 @@ const deserializeAws_json1_1CreateRecommenderCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1648,6 +1765,9 @@ const deserializeAws_json1_1CreateSolutionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1700,6 +1820,9 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3505,6 +3628,153 @@ const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StartRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartRecommenderResponse(data, context);
+  const response: StartRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StopRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopRecommenderResponse(data, context);
+  const response: StopRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1StopSolutionVersionCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3540,6 +3810,113 @@ const deserializeAws_json1_1StopSolutionVersionCreationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagKeysException":
+    case "com.amazonaws.personalize#TooManyTagKeysException":
+      throw await deserializeAws_json1_1TooManyTagKeysExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3727,6 +4104,32 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TooManyTagKeysExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagKeysException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagKeysException(body, context);
+  const exception = new TooManyTagKeysException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3876,6 +4279,7 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
     ...(input.solutionVersionArn !== undefined &&
       input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3894,6 +4298,7 @@ const serializeAws_json1_1CreateBatchSegmentJobRequest = (
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
     ...(input.solutionVersionArn !== undefined &&
       input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3908,6 +4313,7 @@ const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest,
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.solutionVersionArn !== undefined &&
       input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3922,6 +4328,7 @@ const serializeAws_json1_1CreateDatasetExportJobRequest = (
     ...(input.jobOutput !== undefined &&
       input.jobOutput !== null && { jobOutput: serializeAws_json1_1DatasetExportJobOutput(input.jobOutput, context) }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3934,6 +4341,7 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
     ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3947,6 +4355,7 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
     ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3957,6 +4366,7 @@ const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, c
     ...(input.datasetType !== undefined && input.datasetType !== null && { datasetType: input.datasetType }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3968,6 +4378,7 @@ const serializeAws_json1_1CreateEventTrackerRequest = (
     ...(input.datasetGroupArn !== undefined &&
       input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3978,6 +4389,7 @@ const serializeAws_json1_1CreateFilterRequest = (input: CreateFilterRequest, con
     ...(input.filterExpression !== undefined &&
       input.filterExpression !== null && { filterExpression: input.filterExpression }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3994,6 +4406,7 @@ const serializeAws_json1_1CreateRecommenderRequest = (
       input.recommenderConfig !== null && {
         recommenderConfig: serializeAws_json1_1RecommenderConfig(input.recommenderConfig, context),
       }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4018,6 +4431,7 @@ const serializeAws_json1_1CreateSolutionRequest = (input: CreateSolutionRequest,
       input.solutionConfig !== null && {
         solutionConfig: serializeAws_json1_1SolutionConfig(input.solutionConfig, context),
       }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4027,6 +4441,7 @@ const serializeAws_json1_1CreateSolutionVersionRequest = (
 ): any => {
   return {
     ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.trainingMode !== undefined && input.trainingMode !== null && { trainingMode: input.trainingMode }),
   };
 };
@@ -4504,6 +4919,15 @@ const serializeAws_json1_1ListSolutionVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+  };
+};
+
 const serializeAws_json1_1OptimizationObjective = (input: OptimizationObjective, context: __SerdeContext): any => {
   return {
     ...(input.itemAttribute !== undefined && input.itemAttribute !== null && { itemAttribute: input.itemAttribute }),
@@ -4558,6 +4982,20 @@ const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __Se
   };
 };
 
+const serializeAws_json1_1StartRecommenderRequest = (input: StartRecommenderRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.recommenderArn !== undefined &&
+      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+  };
+};
+
+const serializeAws_json1_1StopRecommenderRequest = (input: StopRecommenderRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.recommenderArn !== undefined &&
+      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+  };
+};
+
 const serializeAws_json1_1StopSolutionVersionCreationRequest = (
   input: StopSolutionVersionCreationRequest,
   context: __SerdeContext
@@ -4565,6 +5003,50 @@ const serializeAws_json1_1StopSolutionVersionCreationRequest = (
   return {
     ...(input.solutionVersionArn !== undefined &&
       input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+  };
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.tagKey !== undefined && input.tagKey !== null && { tagKey: input.tagKey }),
+    ...(input.tagValue !== undefined && input.tagValue !== null && { tagValue: input.tagValue }),
+  };
+};
+
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined &&
+      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeys(input.tagKeys, context) }),
   };
 };
 
@@ -6070,6 +6552,16 @@ const deserializeAws_json1_1ListSolutionVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    tags:
+      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { [key: string]: number } => {
   return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -6433,6 +6925,62 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1StartRecommenderResponse = (
+  output: any,
+  context: __SerdeContext
+): StartRecommenderResponse => {
+  return {
+    recommenderArn: __expectString(output.recommenderArn),
+  } as any;
+};
+
+const deserializeAws_json1_1StopRecommenderResponse = (
+  output: any,
+  context: __SerdeContext
+): StopRecommenderResponse => {
+  return {
+    recommenderArn: __expectString(output.recommenderArn),
+  } as any;
+};
+
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    tagKey: __expectString(output.tagKey),
+    tagValue: __expectString(output.tagValue),
+  } as any;
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TooManyTagKeysException = (
+  output: any,
+  context: __SerdeContext
+): TooManyTagKeysException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeContext): TunedHPOParams => {
   return {
     algorithmHyperParameters:
@@ -6440,6 +6988,10 @@ const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {

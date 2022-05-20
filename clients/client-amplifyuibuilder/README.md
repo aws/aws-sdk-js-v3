@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-amplifyuibuilder
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-amplifyuibuilder/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-amplifyuibuilder)
@@ -123,7 +125,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -157,7 +159,7 @@ client
 
 // callbacks.
 client.createComponent(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

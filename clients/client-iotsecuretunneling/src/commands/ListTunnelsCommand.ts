@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,8 +27,9 @@ export interface ListTunnelsCommandInput extends ListTunnelsRequest {}
 export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __MetadataBearer {}
 
 /**
- * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
+ * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * 			descending order, newer tunnels will be listed before older tunnels.</p>
+ * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

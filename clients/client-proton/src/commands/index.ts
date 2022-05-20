@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptEnvironmentAccountConnectionCommand";
 export * from "./CancelEnvironmentDeploymentCommand";
 export * from "./CancelServiceInstanceDeploymentCommand";

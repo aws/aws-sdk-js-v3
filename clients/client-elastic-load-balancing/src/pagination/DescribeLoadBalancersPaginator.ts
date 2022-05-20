@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import {
@@ -50,8 +51,9 @@ export async function* paginateDescribeLoadBalancers(
       throw new Error("Invalid client, expected ElasticLoadBalancing | ElasticLoadBalancingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

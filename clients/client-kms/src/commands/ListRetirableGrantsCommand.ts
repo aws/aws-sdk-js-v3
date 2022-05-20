@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,7 +28,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
  *       grants for KMS keys in your Amazon Web Services account and other Amazon Web Services accounts. You might use this
  *       operation to determine which grants you may retire. To retire a grant, use the <a>RetireGrant</a> operation.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>. For examples of working with grants in several

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "../commands/ListPartsCommand";
@@ -47,8 +48,9 @@ export async function* paginateListParts(
       throw new Error("Invalid client, expected S3 | S3Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextPartNumberMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

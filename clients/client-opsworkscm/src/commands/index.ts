@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateNodeCommand";
 export * from "./CreateBackupCommand";
 export * from "./CreateServerCommand";

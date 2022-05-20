@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddListenerCertificatesCommand";
 export * from "./AddTagsCommand";
 export * from "./CreateListenerCommand";

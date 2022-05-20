@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +25,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds the specified tags to the specified resource.</p>
  *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
- *    flows, agent status, and hours of operation.</p>
+ *    flows, agent status, hours of operation, and phone number.</p>
  *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
  *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example

@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { DevOpsGuruServiceException as __BaseException } from "./DevOpsGuruServiceException";
 
@@ -85,9 +85,10 @@ export namespace AccountHealth {
 /**
  * <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
- * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account.
+ * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
  * 				for cross account Amazon SNS topics</a>.</p>
+ * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
  * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -118,9 +119,10 @@ export interface NotificationChannelConfig {
    * <p> Information about a notification channel configured in DevOps Guru to send notifications
    * 			when insights are created. </p>
    *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
-   * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account.
+   * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
    * 				for cross account Amazon SNS topics</a>.</p>
+   * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
    * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
    * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -399,11 +401,14 @@ export enum EventSourceOptInStatus {
 }
 
 /**
- * <p>Information about your account's integration with Amazon CodeGuru Profiler.</p>
+ * <p>Information about your account's integration with Amazon CodeGuru Profiler. This
+ * 			returns whether DevOps Guru is configured to consume recommendations generated from Amazon
+ * 			CodeGuru Profiler.</p>
  */
 export interface AmazonCodeGuruProfilerIntegration {
   /**
-   * <p>The status of the CodeGuru Profiler integration.</p>
+   * <p>The status of the CodeGuru Profiler integration. Specifies if DevOps Guru is enabled to
+   * 			consume recommendations that are generated from Amazon CodeGuru Profiler.</p>
    */
   Status?: EventSourceOptInStatus | string;
 }
@@ -1117,7 +1122,8 @@ export namespace AnomalySourceDetails {
 }
 
 /**
- * <p>Metadata about an anomaly. The anomaly is detected using analysis of the metric data  over a period of time</p>
+ * <p>Metadata about the detection source that generates proactive anomalies. The anomaly is
+ * 			detected using analysis of the metric data  over a period of time</p>
  */
 export interface AnomalySourceMetadata {
   /**
@@ -1179,6 +1185,33 @@ export namespace AnomalyTimeRange {
 export enum AnomalyType {
   CAUSAL = "CAUSAL",
   CONTEXTUAL = "CONTEXTUAL",
+}
+
+export interface DeleteInsightRequest {
+  /**
+   * <p>The ID of the insight.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteInsightRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInsightResponse {}
+
+export namespace DeleteInsightResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface DescribeAccountHealthRequest {}
@@ -1717,11 +1750,13 @@ export namespace DescribeEventSourcesConfigRequest {
 }
 
 /**
- * <p>Describes the event sources.</p>
+ * <p>Information about the integration of DevOps Guru as consumer with another AWS service, such
+ * 			as AWS CodeGuru Profiler via EventBridge.</p>
  */
 export interface EventSourcesConfig {
   /**
-   * <p></p>
+   * <p>Information about whether DevOps Guru is configured to consume recommendations which
+   * 			are generated from AWS CodeGuru Profiler.</p>
    */
   AmazonCodeGuruProfiler?: AmazonCodeGuruProfilerIntegration;
 }
@@ -1737,7 +1772,7 @@ export namespace EventSourcesConfig {
 
 export interface DescribeEventSourcesConfigResponse {
   /**
-   * <p>The name of the event source.</p>
+   * <p>Lists the event sources in the configuration.</p>
    */
   EventSources?: EventSourcesConfig;
 }
@@ -3218,7 +3253,7 @@ export interface ProactiveAnomalySummary {
   Limit?: number;
 
   /**
-   * <p>Returns the metadata of the source.</p>
+   * <p>The metadata of the source which detects proactive anomalies.</p>
    */
   SourceMetadata?: AnomalySourceMetadata;
 
@@ -3972,9 +4007,10 @@ export namespace ListNotificationChannelsRequest {
  * 			you when DevOps Guru creates an insight. The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
  * 		       <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
- * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account.
+ * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
  * 				for cross account Amazon SNS topics</a>.</p>
+ * 				     <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
  * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -4816,7 +4852,8 @@ export namespace StartCostEstimationResponse {
 
 export interface UpdateEventSourcesConfigRequest {
   /**
-   * <p>The name of the event source.</p>
+   * <p>Configuration information about the integration of DevOps Guru as the Consumer via
+   * 			EventBridge with another AWS Service.</p>
    */
   EventSources?: EventSourcesConfig;
 }

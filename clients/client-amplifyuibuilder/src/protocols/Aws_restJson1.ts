@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -1587,6 +1588,7 @@ const serializeAws_restJson1ComponentChild = (input: ComponentChild, context: __
       input.properties !== null && {
         properties: serializeAws_restJson1ComponentProperties(input.properties, context),
       }),
+    ...(input.sourceId !== undefined && input.sourceId !== null && { sourceId: input.sourceId }),
   };
 };
 
@@ -1651,6 +1653,7 @@ const serializeAws_restJson1ComponentDataConfiguration = (
 const serializeAws_restJson1ComponentEvent = (input: ComponentEvent, context: __SerdeContext): any => {
   return {
     ...(input.action !== undefined && input.action !== null && { action: input.action }),
+    ...(input.bindingEvent !== undefined && input.bindingEvent !== null && { bindingEvent: input.bindingEvent }),
     ...(input.parameters !== undefined &&
       input.parameters !== null && { parameters: serializeAws_restJson1ActionParameters(input.parameters, context) }),
   };
@@ -2189,6 +2192,7 @@ const deserializeAws_restJson1ComponentChild = (output: any, context: __SerdeCon
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1ComponentProperties(output.properties, context)
         : undefined,
+    sourceId: __expectString(output.sourceId),
   } as any;
 };
 
@@ -2267,6 +2271,7 @@ const deserializeAws_restJson1ComponentDataConfiguration = (
 const deserializeAws_restJson1ComponentEvent = (output: any, context: __SerdeContext): ComponentEvent => {
   return {
     action: __expectString(output.action),
+    bindingEvent: __expectString(output.bindingEvent),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ActionParameters(output.parameters, context)

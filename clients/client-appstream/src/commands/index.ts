@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateApplicationFleetCommand";
 export * from "./AssociateApplicationToEntitlementCommand";
 export * from "./AssociateFleetCommand";

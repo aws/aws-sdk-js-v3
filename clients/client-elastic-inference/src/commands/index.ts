@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DescribeAcceleratorOfferingsCommand";
 export * from "./DescribeAcceleratorTypesCommand";
 export * from "./DescribeAcceleratorsCommand";

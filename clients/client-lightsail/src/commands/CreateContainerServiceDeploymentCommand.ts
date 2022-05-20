@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,7 +34,8 @@ export interface CreateContainerServiceDeploymentCommandOutput
  *       configuration.</p>
  *
  *          <p>You can deploy containers to your container service using container images from a public
- *       registry like Docker Hub, or from your local machine. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
+ *       registry such as Amazon ECR Public, or from your local machine. For more information, see
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

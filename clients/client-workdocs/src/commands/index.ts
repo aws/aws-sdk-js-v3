@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AbortDocumentVersionUploadCommand";
 export * from "./ActivateUserCommand";
 export * from "./AddResourcePermissionsCommand";

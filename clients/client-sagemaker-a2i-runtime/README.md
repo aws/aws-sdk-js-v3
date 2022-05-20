@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-sagemaker-a2i-runtime
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-a2i-runtime/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-a2i-runtime)
@@ -140,7 +142,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -174,7 +176,7 @@ client
 
 // callbacks.
 client.deleteHumanLoop(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

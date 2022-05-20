@@ -1,4 +1,5 @@
 export * from "./IoTAnalytics";
+// smithy-typescript generated code
 export * from "./IoTAnalyticsClient";
 export * from "./commands";
 export * from "./models";

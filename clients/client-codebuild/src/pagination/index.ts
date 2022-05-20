@@ -1,5 +1,7 @@
 export * from "./DescribeCodeCoveragesPaginator";
+
 export * from "./DescribeTestCasesPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListBuildBatchesForProjectPaginator";
 export * from "./ListBuildBatchesPaginator";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,6 +24,15 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
 
 /**
  * <p>Retrieves the devices available in Amazon Braket.</p>
+ *          <note>
+ *             <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM
+ *             information is omitted from GetDevice API calls. To get this information the user-agent
+ *             needs to present a recent version of the BraketSchemas (1.8.0 or later). The Braket SDK
+ *             automatically reports this for you. If you do not see OpenQASM results in the GetDevice
+ *             response when using a Braket SDK, you may need to set AWS_EXECUTION_ENV environment
+ *             variable to configure user-agent. See the code examples provided below for how to do
+ *             this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

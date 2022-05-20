@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateKmsKeyCommand";
 export * from "./CancelExportTaskCommand";
 export * from "./CreateExportTaskCommand";

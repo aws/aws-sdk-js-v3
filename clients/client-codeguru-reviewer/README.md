@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-codeguru-reviewer
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codeguru-reviewer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguru-reviewer)
@@ -130,7 +132,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -164,7 +166,7 @@ client
 
 // callbacks.
 client.associateRepository(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

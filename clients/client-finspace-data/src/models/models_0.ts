@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { FinspaceDataServiceException as __BaseException } from "./FinspaceDataServiceException";
 
@@ -359,7 +359,7 @@ export namespace DatasetOwnerInfo {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>CreateSnapshot</code>
+ *                   <code>CreateDataView</code>
  *                </p>
  *             </li>
  *             <li>

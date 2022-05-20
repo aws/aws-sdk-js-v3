@@ -39,18 +39,23 @@ interface ResolvedNodeHttpHandlerConfig {
 
 export class NodeHttpHandler implements HttpHandler {
   private config?: ResolvedNodeHttpHandlerConfig;
-  private readonly configProvider?: Provider<ResolvedNodeHttpHandlerConfig>;
+  private readonly configProvider: Promise<ResolvedNodeHttpHandlerConfig>;
+
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
   constructor(options?: NodeHttpHandlerOptions | Provider<NodeHttpHandlerOptions | void>) {
-    if (typeof options === "function") {
-      this.configProvider = async () => {
-        return this.resolveDefaultConfig(await options());
-      };
-    } else {
-      this.config = this.resolveDefaultConfig(options);
-    }
+    this.configProvider = new Promise((resolve, reject) => {
+      if (typeof options === "function") {
+        options()
+          .then((_options) => {
+            resolve(this.resolveDefaultConfig(_options));
+          })
+          .catch(reject);
+      } else {
+        resolve(this.resolveDefaultConfig(options));
+      }
+    });
   }
 
   private resolveDefaultConfig(options?: NodeHttpHandlerOptions | void): ResolvedNodeHttpHandlerConfig {
@@ -71,9 +76,8 @@ export class NodeHttpHandler implements HttpHandler {
   }
 
   async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
-    if (!this.config && this.configProvider) {
-      // TODO: make resolving provide only resolve once at concurrent execution
-      this.config = await this.configProvider();
+    if (!this.config) {
+      this.config = await this.configProvider;
     }
     return new Promise((resolve, reject) => {
       if (!this.config) {

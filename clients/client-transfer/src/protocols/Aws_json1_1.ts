@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -2796,6 +2797,7 @@ const serializeAws_json1_1PosixProfile = (input: PosixProfile, context: __SerdeC
 const serializeAws_json1_1ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
   return {
     ...(input.PassiveIp !== undefined && input.PassiveIp !== null && { PassiveIp: input.PassiveIp }),
+    ...(input.SetStatOption !== undefined && input.SetStatOption !== null && { SetStatOption: input.SetStatOption }),
     ...(input.TlsSessionResumptionMode !== undefined &&
       input.TlsSessionResumptionMode !== null && { TlsSessionResumptionMode: input.TlsSessionResumptionMode }),
   };
@@ -3769,6 +3771,7 @@ const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
   return {
     PassiveIp: __expectString(output.PassiveIp),
+    SetStatOption: __expectString(output.SetStatOption),
     TlsSessionResumptionMode: __expectString(output.TlsSessionResumptionMode),
   } as any;
 };

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivateAnomalyDetectorCommand";
 export * from "./BackTestAnomalyDetectorCommand";
 export * from "./CreateAlertCommand";
@@ -10,6 +11,7 @@ export * from "./DescribeAlertCommand";
 export * from "./DescribeAnomalyDetectionExecutionsCommand";
 export * from "./DescribeAnomalyDetectorCommand";
 export * from "./DescribeMetricSetCommand";
+export * from "./DetectMetricSetConfigCommand";
 export * from "./GetAnomalyGroupCommand";
 export * from "./GetFeedbackCommand";
 export * from "./GetSampleDataCommand";

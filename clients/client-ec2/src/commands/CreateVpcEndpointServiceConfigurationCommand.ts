@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,26 +29,23 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts,
+ * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
  *             IAM users, and IAM roles) can connect.</p>
- *         <p>To create an endpoint service configuration, you must first create one of the
- *             following for your service:</p>
+ *         <p>Before you create an endpoint service, you must create one of the following for your service:</p>
  *         <ul>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an
- *                     interface endpoint.</p>
+ *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
+ *                     Service consumers connect to your service using an interface endpoint.</p>
  *             </li>
  *             <li>
- *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a
- *                     Gateway Load Balancer endpoint.</p>
+ *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
+ *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
  *             </li>
  *          </ul>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the
- *                 <i>Amazon Virtual Private Cloud User Guide</i>. </p>
  *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
- *             name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
- *                 Private DNS Name Verification</a> in the
- *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *             name.</p>
+ * 	        <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+ * 	        Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

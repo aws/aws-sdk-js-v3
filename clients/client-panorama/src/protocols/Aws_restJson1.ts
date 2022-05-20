@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -1849,6 +1850,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     AlternateSoftwares: undefined,
     Arn: undefined,
+    Brand: undefined,
     CreatedTime: undefined,
     CurrentNetworkingStatus: undefined,
     CurrentSoftware: undefined,
@@ -1871,6 +1873,9 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Brand !== undefined && data.Brand !== null) {
+    contents.Brand = __expectString(data.Brand);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
@@ -3820,6 +3825,7 @@ const deserializeAws_restJson1ConflictExceptionErrorArgumentList = (
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
+    Brand: __expectString(output.Brand),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))

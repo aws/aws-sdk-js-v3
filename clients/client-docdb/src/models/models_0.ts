@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { DocDBServiceException as __BaseException } from "./DocDBServiceException";
 
@@ -504,10 +504,10 @@ export interface CopyDBClusterParameterGroupMessage {
    *                 <p>Must specify a valid cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source cluster parameter group is in the same Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
+   *                 <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source parameter group is in a different Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
+   *                 <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -683,11 +683,11 @@ export interface CopyDBClusterSnapshotMessage {
    *                     <i>available</i> state.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source snapshot is in the same Region as the copy, specify a valid snapshot identifier.</p>
+   *                 <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid snapshot identifier.</p>
    *             </li>
    *             <li>
    *
-   *                 <p>If the source snapshot is in a different Region than the copy, specify a valid cluster snapshot ARN.</p>
+   *                 <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid cluster snapshot ARN.</p>
    *             </li>
    *          </ul>
    *         <p>Example: <code>my-cluster-snapshot1</code>
@@ -722,29 +722,29 @@ export interface CopyDBClusterSnapshotMessage {
    *             key ID is the Amazon Resource Name (ARN), KMS key identifier, or
    *             the KMS key alias for the KMS encryption key. </p>
    *
-   *         <p>If you copy an encrypted cluster snapshot from your account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>
+   *         <p>If you copy an encrypted cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>
    *
-   *         <p>If you copy an encrypted cluster snapshot that is shared from another account, then you must specify a value for <code>KmsKeyId</code>.</p>
+   *         <p>If you copy an encrypted cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for <code>KmsKeyId</code>.</p>
    *
-   *         <p>To copy an encrypted cluster snapshot to another Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Region that they are created in, and you can't use encryption keys from one Region in another Region.</p>
+   *         <p>To copy an encrypted cluster snapshot to another Amazon Web Services Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Amazon Web Services Region that they are created in, and you can't use encryption keys from one Amazon Web Services Region in another Amazon Web Services Region.</p>
    *
    *         <p>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Region.</p>
+   * <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Amazon Web Services Region.</p>
    *
    *         <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
    *             <code>SourceRegion</code> (or <code>--source-region</code> for the
    *             CLI) instead of specifying <code>PreSignedUrl</code> manually.
    *             Specifying <code>SourceRegion</code> autogenerates a pre-signed URL
    *             that is a valid request for the operation that can be executed in
-   *             the source Region.</p>
+   *             the source Amazon Web Services Region.</p>
    *
    *         <p>The presigned URL must be a valid request for the
    *             <code>CopyDBClusterSnapshot</code> API action that can be executed
-   *             in the source Region that contains the cluster snapshot to be
+   *             in the source Amazon Web Services Region that contains the cluster snapshot to be
    *             copied. The presigned URL request must contain the following
    *             parameter values:</p>
    *         <ul>
@@ -758,9 +758,9 @@ export interface CopyDBClusterSnapshotMessage {
    *                   <code>SourceDBClusterSnapshotIdentifier</code> - The
    *                     identifier for the the encrypted cluster snapshot to be
    *                     copied. This identifier must be in the Amazon Resource Name
-   *                     (ARN) format for the source Region. For example, if you
+   *                     (ARN) format for the source Amazon Web Services Region. For example, if you
    *                     are copying an encrypted cluster snapshot from the us-east-1
-   *                     Region, then your
+   *                     Amazon Web Services Region, then your
    *                     <code>SourceDBClusterSnapshotIdentifier</code> looks
    *                     something like the following:
    *                     <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p>
@@ -1128,7 +1128,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The daily time range during which automated backups are created if
    *             automated backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region. </p>
+   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -1153,7 +1153,7 @@ export interface CreateDBClusterMessage {
    *             in Universal Coordinated Time (UTC).</p>
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region, occurring on a random day of the week.</p>
+   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region, occurring on a random day of the week.</p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -1171,7 +1171,7 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The KMS key identifier for an encrypted cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon Web Services account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *         <p>If an encryption key is not specified in <code>KmsKeyId</code>:
    *             </p>
    *         <ul>
@@ -1181,7 +1181,7 @@ export interface CreateDBClusterMessage {
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>KMS creates the default encryption key for your account. Your account has a different default encryption key for each Regions.</p>
+   *         <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Regions.</p>
    */
   KmsKeyId?: string;
 
@@ -1467,7 +1467,7 @@ export interface DBCluster {
   KmsKeyId?: string;
 
   /**
-   * <p>The Region-unique, immutable identifier for the cluster. This identifier is
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the cluster. This identifier is
    *             found in CloudTrail log entries whenever the KMS key for the cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
@@ -1950,7 +1950,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The Amazon EC2 Availability Zone that the instance is created in. </p>
-   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Region.</p>
+   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *         <p>Example: <code>us-east-1d</code>
    *          </p>
    */
@@ -1962,7 +1962,7 @@ export interface CreateDBInstanceMessage {
    *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each Region, occurring on a random day of the week. </p>
+   *             each Amazon Web Services Region, occurring on a random day of the week. </p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -1993,6 +1993,25 @@ export interface CreateDBInstanceMessage {
    *         <p>Valid values: 0-15</p>
    */
   PromotionTier?: number;
+
+  /**
+   * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
+   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
+   *                 Performance Insights</a>.</p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The KMS key identifier for encryption of Performance Insights
+   *             data.</p>
+   *         <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+   *             for the KMS key.</p>
+   *         <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
+   *             default KMS key. There is a default KMS key for your
+   *             Amazon Web Services account. Your Amazon Web Services account has a different
+   *             default KMS key for each Amazon Web Services region.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
 }
 
 export namespace CreateDBInstanceMessage {
@@ -2405,7 +2424,7 @@ export interface DBInstance {
   KmsKeyId?: string;
 
   /**
-   * <p>The Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is
    *             accessed.</p>
    */
   DbiResourceId?: string;
@@ -2962,7 +2981,7 @@ export interface GlobalCluster {
   GlobalClusterIdentifier?: string;
 
   /**
-   * <p>The Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed. </p>
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed. </p>
    */
   GlobalClusterResourceId?: string;
 
@@ -3425,7 +3444,7 @@ export namespace DeleteGlobalClusterResult {
 }
 
 /**
- * <p>A certificate authority (CA) certificate for an account.</p>
+ * <p>A certificate authority (CA) certificate for an Amazon Web Services account.</p>
  */
 export interface Certificate {
   /**
@@ -3480,7 +3499,7 @@ export namespace Certificate {
 
 export interface CertificateMessage {
   /**
-   * <p>A list of certificates for this account.</p>
+   * <p>A list of certificates for this Amazon Web Services account.</p>
    */
   Certificates?: Certificate[];
 
@@ -3911,18 +3930,18 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
 
 /**
  * <p>Contains the name and values of a manual cluster snapshot attribute.</p>
- *         <p>Manual cluster snapshot attributes are used to authorize other accounts to restore a manual cluster snapshot.</p>
+ *         <p>Manual cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual cluster snapshot.</p>
  */
 export interface DBClusterSnapshotAttribute {
   /**
    * <p>The name of the manual cluster snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of accounts that have permission to copy or restore the manual cluster snapshot.</p>
+   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual cluster snapshot.</p>
    */
   AttributeName?: string;
 
   /**
    * <p>The values for the manual cluster snapshot attribute.</p>
-   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any account to copy or restore.</p>
+   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any Amazon Web Services account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -4041,15 +4060,15 @@ export interface DescribeDBClusterSnapshotsMessage {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your account.</p>
+   *                     <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>manual</code> - Return all cluster snapshots that you have manually created for your account.</p>
+   *                     <code>manual</code> - Return all cluster snapshots that you have manually created for your Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>shared</code> - Return all manual cluster snapshots that have been shared to your account.</p>
+   *                     <code>shared</code> - Return all manual cluster snapshots that have been shared to your Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4083,12 +4102,12 @@ export interface DescribeDBClusterSnapshotsMessage {
   Marker?: string;
 
   /**
-   * <p>Set to <code>true</code> to include shared manual cluster snapshots from other accounts that this account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>
+   * <p>Set to <code>true</code> to include shared manual cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludeShared?: boolean;
 
   /**
-   * <p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any account, and otherwise <code>false</code>. The default is <code>false</code>.</p>
+   * <p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any Amazon Web Services account, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludePublic?: boolean;
 }
@@ -5352,7 +5371,7 @@ export interface ModifyDBClusterMessage {
    * <p>The daily time range during which automated backups are created if automated backups
    *             are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each Region. </p>
+   *             each Amazon Web Services Region. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -5377,7 +5396,7 @@ export interface ModifyDBClusterMessage {
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each Region, occurring on a random day of the week. </p>
+   *             each Amazon Web Services Region, occurring on a random day of the week. </p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -5499,20 +5518,20 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>The name of the cluster snapshot attribute to modify.</p>
-   *         <p>To manage authorization for other accounts to copy or restore a manual cluster
+   *         <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual cluster
    *             snapshot, set this value to <code>restore</code>.</p>
    */
   AttributeName: string | undefined;
 
   /**
    * <p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To authorize other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account IDs. To make the manual cluster snapshot restorable by any account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all accounts.</p>
+   *         <p>To authorize other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account IDs. To make the manual cluster snapshot restorable by any Amazon Web Services account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all Amazon Web Services accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
    * <p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To remove authorization for other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account identifiers. To remove authorization for any account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
+   *         <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account identifiers. To remove authorization for any Amazon Web Services account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
    */
   ValuesToRemove?: string[];
 }
@@ -5599,7 +5618,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Regions. </p>
+   * <p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Amazon Web Services Regions. </p>
    *         <p>If you modify the instance class, an outage occurs during the change. The change is
    *             applied during the next maintenance window, unless <code>ApplyImmediately</code> is
    *             specified as <code>true</code> for this request. </p>
@@ -5671,6 +5690,25 @@ export interface ModifyDBInstanceMessage {
    *         <p>Valid values: 0-15</p>
    */
   PromotionTier?: number;
+
+  /**
+   * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
+   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
+   *                 Performance Insights</a>.</p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The KMS key identifier for encryption of Performance Insights
+   *             data.</p>
+   *         <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+   *             for the KMS key.</p>
+   *         <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
+   *             default KMS key. There is a default KMS key for your
+   *             Amazon Web Services account. Your Amazon Web Services account has a different
+   *             default KMS key for each Amazon Web Services region.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -6215,7 +6253,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
   /**
    * <p>The KMS key identifier to use when restoring an encrypted cluster from a DB snapshot or cluster snapshot.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
    *         <ul>
@@ -6360,7 +6398,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The KMS key identifier to use when restoring an encrypted cluster from an encrypted cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *         <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>
    *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
    *         <ul>

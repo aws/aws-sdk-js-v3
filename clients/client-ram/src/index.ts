@@ -1,4 +1,5 @@
 export * from "./RAM";
+// smithy-typescript generated code
 export * from "./RAMClient";
 export * from "./commands";
 export * from "./models";

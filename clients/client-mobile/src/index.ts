@@ -1,4 +1,5 @@
 export * from "./Mobile";
+// smithy-typescript generated code
 export * from "./MobileClient";
 export * from "./commands";
 export * from "./models";

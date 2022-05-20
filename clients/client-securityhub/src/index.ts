@@ -1,4 +1,5 @@
 export * from "./SecurityHub";
+// smithy-typescript generated code
 export * from "./SecurityHubClient";
 export * from "./commands";
 export * from "./models";

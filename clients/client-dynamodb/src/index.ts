@@ -1,4 +1,5 @@
 export * from "./DynamoDB";
+// smithy-typescript generated code
 export * from "./DynamoDBClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -64,7 +65,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             <a>DescribeGameSessions</a> should only be used for games in development
  *             with low matchmaking usage.</p>
  *         <p>
- *             <i>Available in Amazon Web Services Local.</i>
+ *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *         <p>
  *             <b>Learn more</b>

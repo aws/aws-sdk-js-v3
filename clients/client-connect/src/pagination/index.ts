@@ -1,5 +1,7 @@
 export * from "./GetCurrentMetricDataPaginator";
+
 export * from "./GetMetricDataPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
@@ -16,6 +18,7 @@ export * from "./ListIntegrationAssociationsPaginator";
 export * from "./ListLambdaFunctionsPaginator";
 export * from "./ListLexBotsPaginator";
 export * from "./ListPhoneNumbersPaginator";
+export * from "./ListPhoneNumbersV2Paginator";
 export * from "./ListPromptsPaginator";
 export * from "./ListQueueQuickConnectsPaginator";
 export * from "./ListQueuesPaginator";
@@ -28,4 +31,6 @@ export * from "./ListSecurityProfilesPaginator";
 export * from "./ListUseCasesPaginator";
 export * from "./ListUserHierarchyGroupsPaginator";
 export * from "./ListUsersPaginator";
+export * from "./SearchAvailablePhoneNumbersPaginator";
+export * from "./SearchUsersPaginator";
 export * from "./SearchVocabulariesPaginator";

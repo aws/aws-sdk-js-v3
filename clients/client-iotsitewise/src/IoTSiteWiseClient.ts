@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -64,6 +65,18 @@ import {
   BatchDisassociateProjectAssetsCommandInput,
   BatchDisassociateProjectAssetsCommandOutput,
 } from "./commands/BatchDisassociateProjectAssetsCommand";
+import {
+  BatchGetAssetPropertyAggregatesCommandInput,
+  BatchGetAssetPropertyAggregatesCommandOutput,
+} from "./commands/BatchGetAssetPropertyAggregatesCommand";
+import {
+  BatchGetAssetPropertyValueCommandInput,
+  BatchGetAssetPropertyValueCommandOutput,
+} from "./commands/BatchGetAssetPropertyValueCommand";
+import {
+  BatchGetAssetPropertyValueHistoryCommandInput,
+  BatchGetAssetPropertyValueHistoryCommandOutput,
+} from "./commands/BatchGetAssetPropertyValueHistoryCommand";
 import {
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
@@ -189,6 +202,9 @@ export type ServiceInputTypes =
   | AssociateTimeSeriesToAssetPropertyCommandInput
   | BatchAssociateProjectAssetsCommandInput
   | BatchDisassociateProjectAssetsCommandInput
+  | BatchGetAssetPropertyAggregatesCommandInput
+  | BatchGetAssetPropertyValueCommandInput
+  | BatchGetAssetPropertyValueHistoryCommandInput
   | BatchPutAssetPropertyValueCommandInput
   | CreateAccessPolicyCommandInput
   | CreateAssetCommandInput
@@ -256,6 +272,9 @@ export type ServiceOutputTypes =
   | AssociateTimeSeriesToAssetPropertyCommandOutput
   | BatchAssociateProjectAssetsCommandOutput
   | BatchDisassociateProjectAssetsCommandOutput
+  | BatchGetAssetPropertyAggregatesCommandOutput
+  | BatchGetAssetPropertyValueCommandOutput
+  | BatchGetAssetPropertyValueHistoryCommandOutput
   | BatchPutAssetPropertyValueCommandOutput
   | CreateAccessPolicyCommandOutput
   | CreateAssetCommandOutput

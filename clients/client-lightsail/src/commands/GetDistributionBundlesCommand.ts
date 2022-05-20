@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
- *       your dsitribution.</p>
+ *       your distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

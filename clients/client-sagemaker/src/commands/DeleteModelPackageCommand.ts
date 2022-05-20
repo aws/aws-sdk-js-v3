@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,8 +24,8 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a model package.</p>
- *         <p>A model package is used to create Amazon SageMaker models or list on Amazon Web Services Marketplace. Buyers can
- *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in Amazon SageMaker.</p>
+ *         <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
+ *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

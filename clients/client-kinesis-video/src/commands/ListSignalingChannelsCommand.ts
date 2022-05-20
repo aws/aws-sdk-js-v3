@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,8 +24,8 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
 
 /**
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
- *             signaling channel. To retrieve only those channels that satisfy a specific condition, you can
- *             specify a <code>ChannelNameCondition</code>.</p>
+ *             signaling channel. To retrieve only those channels that satisfy a specific condition,
+ *             you can specify a <code>ChannelNameCondition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

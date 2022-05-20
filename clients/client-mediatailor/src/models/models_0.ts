@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { MediaTailorServiceException as __BaseException } from "./MediaTailorServiceException";
 
@@ -306,6 +306,11 @@ export interface Channel {
    * <p>The tags to assign to the channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The tier for this channel. STANDARD tier channels can contain live programs.</p>
+   */
+  Tier: string | undefined;
 }
 
 export namespace Channel {
@@ -313,6 +318,89 @@ export namespace Channel {
    * @internal
    */
   export const filterSensitiveLog = (obj: Channel): any => ({
+    ...obj,
+  });
+}
+
+export enum Type {
+  DASH = "DASH",
+  HLS = "HLS",
+}
+
+/**
+ * <p>The HTTP package configuration properties for the requested VOD source.</p>
+ */
+export interface HttpPackageConfiguration {
+  /**
+   * <p>The relative path to the URL for this VOD source. This is combined with SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.</p>
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The name of the source group. This has to match one of the Channel::Outputs::SourceGroup.</p>
+   */
+  SourceGroup: string | undefined;
+
+  /**
+   * <p>The streaming protocol for this package configuration. Supported values are HLS and DASH.</p>
+   */
+  Type: Type | string | undefined;
+}
+
+export namespace HttpPackageConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpPackageConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Live source configuration parameters.</p>
+ */
+export interface LiveSource {
+  /**
+   * <p>The ARN for the live source.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the live source was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The HTTP package configurations for the live source.</p>
+   */
+  HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
+
+  /**
+   * <p>The timestamp that indicates when the live source was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The name that's used to refer to a live source.</p>
+   */
+  LiveSourceName: string | undefined;
+
+  /**
+   * <p>The name of the source location.</p>
+   */
+  SourceLocationName: string | undefined;
+
+  /**
+   * <p>The tags assigned to the live source.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace LiveSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LiveSource): any => ({
     ...obj,
   });
 }
@@ -375,7 +463,7 @@ export namespace Bumper {
  */
 export interface CdnConfiguration {
   /**
-   * <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&amp;lt;region&gt;.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
+   * <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&amp;lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
    */
   AdSegmentUrlPrefix?: string;
 
@@ -803,6 +891,11 @@ export interface ScheduleEntry {
   ChannelName: string | undefined;
 
   /**
+   * <p>The name of the live source used for the program.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
    * <p>The name of the program.</p>
    */
   ProgramName: string | undefined;
@@ -825,7 +918,7 @@ export interface ScheduleEntry {
   /**
    * <p>The name of the VOD source.</p>
    */
-  VodSourceName: string | undefined;
+  VodSourceName?: string;
 }
 
 export namespace ScheduleEntry {
@@ -837,8 +930,18 @@ export namespace ScheduleEntry {
   });
 }
 
+/**
+ * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as https://example.com/some/path. To use a relative URL specify the relative path, such as /some/path*.</p>
+ */
 export interface SegmentDeliveryConfiguration {
+  /**
+   * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as https://example.com/some/path. To use a relative URL specify the relative path, such as /some/path*.</p>
+   */
   BaseUrl?: string;
+
+  /**
+   * <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+   */
   Name?: string;
 }
 
@@ -981,7 +1084,11 @@ export interface SourceLocation {
    */
   LastModifiedTime?: Date;
 
+  /**
+   * <p>The segment delivery configurations for the source location.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The name of the source location.</p>
    */
@@ -998,40 +1105,6 @@ export namespace SourceLocation {
    * @internal
    */
   export const filterSensitiveLog = (obj: SourceLocation): any => ({
-    ...obj,
-  });
-}
-
-export enum Type {
-  DASH = "DASH",
-  HLS = "HLS",
-}
-
-/**
- * <p>The HTTP package configuration properties for the requested VOD source.</p>
- */
-export interface HttpPackageConfiguration {
-  /**
-   * <p>The relative path to the URL for this VOD source. This is combined with SourceLocation::HttpConfiguration::BaseUrl to form a valid URL.</p>
-   */
-  Path: string | undefined;
-
-  /**
-   * <p>The name of the source group. This has to match one of the Channel::Outputs::SourceGroup.</p>
-   */
-  SourceGroup: string | undefined;
-
-  /**
-   * <p>The streaming protocol for this package configuration. Supported values are HLS and DASH.</p>
-   */
-  Type: Type | string | undefined;
-}
-
-export namespace HttpPackageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPackageConfiguration): any => ({
     ...obj,
   });
 }
@@ -1195,6 +1268,11 @@ export enum PlaybackMode {
   LOOP = "LOOP",
 }
 
+export enum Tier {
+  BASIC = "BASIC",
+  STANDARD = "STANDARD",
+}
+
 export interface CreateChannelRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
@@ -1220,6 +1298,11 @@ export interface CreateChannelRequest {
    * <p>The tags to assign to the channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The tier of the channel.</p>
+   */
+  Tier?: Tier | string;
 }
 
 export namespace CreateChannelRequest {
@@ -1276,6 +1359,11 @@ export interface CreateChannelResponse {
    * <p>The tags assigned to the channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The channel's tier.</p>
+   */
+  Tier?: string;
 }
 
 export namespace CreateChannelResponse {
@@ -1283,6 +1371,83 @@ export namespace CreateChannelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLiveSourceRequest {
+  /**
+   * <p>A list of HTTP package configuration parameters for this live source.</p>
+   */
+  HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
+
+  /**
+   * <p>The identifier for the live source you are working on.</p>
+   */
+  LiveSourceName: string | undefined;
+
+  /**
+   * <p>The identifier for the source location you are working on.</p>
+   */
+  SourceLocationName: string | undefined;
+
+  /**
+   * <p>The tags to assign to the live source.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateLiveSourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLiveSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLiveSourceResponse {
+  /**
+   * <p>The ARN of the live source.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The timestamp that indicates when the live source was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The HTTP package configurations.</p>
+   */
+  HttpPackageConfigurations?: HttpPackageConfiguration[];
+
+  /**
+   * <p>The timestamp that indicates when the live source was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The name of the live source.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
+   * <p>The name of the source location associated with the VOD source.</p>
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The tags assigned to the live source.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateLiveSourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLiveSourceResponse): any => ({
     ...obj,
   });
 }
@@ -1374,6 +1539,11 @@ export enum RelativePosition {
  */
 export interface Transition {
   /**
+   * <p>The duration of the live program in seconds.</p>
+   */
+  DurationMillis?: number;
+
+  /**
    * <p>The position where this program will be inserted relative to the RelativePosition.</p>
    */
   RelativePosition: RelativePosition | string | undefined;
@@ -1434,6 +1604,11 @@ export interface CreateProgramRequest {
   ChannelName: string | undefined;
 
   /**
+   * <p>The name of the LiveSource for this Program.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
    * <p>The identifier for the program you are working on.</p>
    */
   ProgramName: string | undefined;
@@ -1451,7 +1626,7 @@ export interface CreateProgramRequest {
   /**
    * <p>The name that's used to refer to a VOD source.</p>
    */
-  VodSourceName: string | undefined;
+  VodSourceName?: string;
 }
 
 export namespace CreateProgramRequest {
@@ -1483,6 +1658,11 @@ export interface CreateProgramResponse {
    * <p>The timestamp of when the program was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The name of the LiveSource for this Program.</p>
+   */
+  LiveSourceName?: string;
 
   /**
    * <p>The name of the program.</p>
@@ -1530,7 +1710,11 @@ export interface CreateSourceLocationRequest {
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
+  /**
+   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The identifier for the source location you are working on.</p>
    */
@@ -1582,7 +1766,11 @@ export interface CreateSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  /**
+   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The name of the source location.</p>
    */
@@ -1605,7 +1793,7 @@ export namespace CreateSourceLocationResponse {
 
 export interface CreateVodSourceRequest {
   /**
-   * <p>An array of HTTP package configuration parameters for this VOD source.</p>
+   * <p>A list of HTTP package configuration parameters for this VOD source.</p>
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
@@ -1651,7 +1839,7 @@ export interface CreateVodSourceResponse {
   HttpPackageConfigurations?: HttpPackageConfiguration[];
 
   /**
-   * <p>The ARN for the VOD source.</p>
+   * <p>The last modified time of the VOD source.</p>
    */
   LastModifiedTime?: Date;
 
@@ -1754,6 +1942,38 @@ export namespace DeleteChannelPolicyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteChannelPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLiveSourceRequest {
+  /**
+   * <p>The identifier for the live source you are working on.</p>
+   */
+  LiveSourceName: string | undefined;
+
+  /**
+   * <p>The identifier for the source location you are working on.</p>
+   */
+  SourceLocationName: string | undefined;
+}
+
+export namespace DeleteLiveSourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLiveSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLiveSourceResponse {}
+
+export namespace DeleteLiveSourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLiveSourceResponse): any => ({
     ...obj,
   });
 }
@@ -1969,6 +2189,11 @@ export interface DescribeChannelResponse {
    * <p>The tags assigned to the channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The channel's tier.</p>
+   */
+  Tier?: string;
 }
 
 export namespace DescribeChannelResponse {
@@ -1976,6 +2201,73 @@ export namespace DescribeChannelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLiveSourceRequest {
+  /**
+   * <p>The identifier for the live source you are working on.</p>
+   */
+  LiveSourceName: string | undefined;
+
+  /**
+   * <p>The identifier for the source location you are working on.</p>
+   */
+  SourceLocationName: string | undefined;
+}
+
+export namespace DescribeLiveSourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLiveSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLiveSourceResponse {
+  /**
+   * <p>The ARN of the live source.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The timestamp that indicates when the live source was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The HTTP package configurations.</p>
+   */
+  HttpPackageConfigurations?: HttpPackageConfiguration[];
+
+  /**
+   * <p>The timestamp that indicates when the live source was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The name of the live source.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
+   * <p>The name of the source location associated with the VOD source.</p>
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The tags assigned to the live source.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace DescribeLiveSourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLiveSourceResponse): any => ({
     ...obj,
   });
 }
@@ -2021,6 +2313,11 @@ export interface DescribeProgramResponse {
    * <p>The timestamp of when the program was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The name of the LiveSource for this Program.</p>
+   */
+  LiveSourceName?: string;
 
   /**
    * <p>The name of the program.</p>
@@ -2099,7 +2396,11 @@ export interface DescribeSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  /**
+   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The name of the source location.</p>
    */
@@ -2158,7 +2459,7 @@ export interface DescribeVodSourceResponse {
   HttpPackageConfigurations?: HttpPackageConfiguration[];
 
   /**
-   * <p>The ARN for the VOD source.</p>
+   * <p>The last modified time of the VOD source.</p>
    */
   LastModifiedTime?: Date;
 
@@ -2252,7 +2553,7 @@ export namespace GetChannelScheduleRequest {
 
 export interface GetChannelScheduleResponse {
   /**
-   * <p>An array of schedule entries for the channel.</p>
+   * <p>A list of schedule entries for the channel.</p>
    */
   Items?: ScheduleEntry[];
 
@@ -2483,7 +2784,7 @@ export namespace ListAlertsRequest {
 
 export interface ListAlertsResponse {
   /**
-   * <p>An array of alerts that are associated with this resource.</p>
+   * <p>A list of alerts that are associated with this resource.</p>
    */
   Items?: Alert[];
 
@@ -2525,7 +2826,7 @@ export namespace ListChannelsRequest {
 
 export interface ListChannelsResponse {
   /**
-   * <p>An array of channels that are associated with this account.</p>
+   * <p>A list of channels that are associated with this account.</p>
    */
   Items?: Channel[];
 
@@ -2540,6 +2841,53 @@ export namespace ListChannelsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLiveSourcesRequest {
+  /**
+   * <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The identifier for the source location you are working on.</p>
+   */
+  SourceLocationName: string | undefined;
+}
+
+export namespace ListLiveSourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLiveSourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLiveSourcesResponse {
+  /**
+   * <p>Lists the live sources.</p>
+   */
+  Items?: LiveSource[];
+
+  /**
+   * <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLiveSourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLiveSourcesResponse): any => ({
     ...obj,
   });
 }
@@ -2661,7 +3009,7 @@ export namespace ListSourceLocationsRequest {
 
 export interface ListSourceLocationsResponse {
   /**
-   * <p>An array of source locations.</p>
+   * <p>A list of source locations.</p>
    */
   Items?: SourceLocation[];
 
@@ -3145,6 +3493,11 @@ export interface UpdateChannelResponse {
    * <p>The tags assigned to the channel.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The channel's tier.</p>
+   */
+  Tier?: string;
 }
 
 export namespace UpdateChannelResponse {
@@ -3152,6 +3505,78 @@ export namespace UpdateChannelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLiveSourceRequest {
+  /**
+   * <p>A list of HTTP package configurations for the live source on this account.</p>
+   */
+  HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
+
+  /**
+   * <p>The identifier for the live source you are working on.</p>
+   */
+  LiveSourceName: string | undefined;
+
+  /**
+   * <p>The identifier for the source location you are working on.</p>
+   */
+  SourceLocationName: string | undefined;
+}
+
+export namespace UpdateLiveSourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLiveSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLiveSourceResponse {
+  /**
+   * <p>The ARN of the live source.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The timestamp that indicates when the live source was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The HTTP package configurations.</p>
+   */
+  HttpPackageConfigurations?: HttpPackageConfiguration[];
+
+  /**
+   * <p>The timestamp that indicates when the live source was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The name of the live source.</p>
+   */
+  LiveSourceName?: string;
+
+  /**
+   * <p>The name of the source location associated with the VOD source.</p>
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The tags assigned to the live source.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace UpdateLiveSourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLiveSourceResponse): any => ({
     ...obj,
   });
 }
@@ -3172,7 +3597,11 @@ export interface UpdateSourceLocationRequest {
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
+  /**
+   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The identifier for the source location you are working on.</p>
    */
@@ -3219,7 +3648,11 @@ export interface UpdateSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  /**
+   * <p>A list of the segment delivery configurations associated with this resource.</p>
+   */
   SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
+
   /**
    * <p>The name of the source location.</p>
    */
@@ -3242,7 +3675,7 @@ export namespace UpdateSourceLocationResponse {
 
 export interface UpdateVodSourceRequest {
   /**
-   * <p>An array of HTTP package configurations for the VOD source on this account.</p>
+   * <p>A list of HTTP package configurations for the VOD source on this account.</p>
    */
   HttpPackageConfigurations: HttpPackageConfiguration[] | undefined;
 
@@ -3283,7 +3716,7 @@ export interface UpdateVodSourceResponse {
   HttpPackageConfigurations?: HttpPackageConfiguration[];
 
   /**
-   * <p>The ARN for the VOD source.</p>
+   * <p>The last modified time of the VOD source.</p>
    */
   LastModifiedTime?: Date;
 

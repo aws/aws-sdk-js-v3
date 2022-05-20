@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
@@ -704,7 +704,8 @@ export interface DataShare {
   AllowPubliclyAccessibleConsumers?: boolean;
 
   /**
-   * <p>A value that specifies when the datashare has an association between a producer and data consumers.</p>
+   * <p>A value that specifies when the datashare has an association between producer and data
+   *             consumers.</p>
    */
   DataShareAssociations?: DataShareAssociation[];
 
@@ -3307,12 +3308,12 @@ export class ClusterAlreadyExistsFault extends __BaseException {
  */
 export interface ClusterCredentials {
   /**
-   * <p>A database user name that is authorized to log on to the database
-   *                 <code>DbName</code> using the password <code>DbPassword</code>. If the specified
-   *             DbUser exists in the database, the new user name has the same database privileges as the
-   *             the user named in DbUser. By default, the user is added to PUBLIC. If the
-   *                 <code>DbGroups</code> parameter is specifed, <code>DbUser</code> is added to the
-   *             listed groups for any sessions created using these credentials.</p>
+   * <p>A database user name that is authorized to log on to the database <code>DbName</code>
+   *             using the password <code>DbPassword</code>. If the specified DbUser exists in the
+   *             database, the new user name has the same database permissions as the the user named in
+   *             DbUser. By default, the user is added to PUBLIC. If the <code>DbGroups</code> parameter
+   *             is specifed, <code>DbUser</code> is added to the listed groups for any sessions created
+   *             using these credentials.</p>
    */
   DbUser?: string;
 
@@ -4653,6 +4654,11 @@ export interface CreateClusterMessage {
    * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created. </p>
    */
   DefaultIamRoleArn?: string;
+
+  /**
+   * <p>A flag that specifies whether to load sample data once the cluster is created.</p>
+   */
+  LoadSampleData?: string;
 }
 
 export namespace CreateClusterMessage {

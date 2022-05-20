@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AllQueryStringTypesCommand";
 export * from "./ConstantAndVariableQueryStringCommand";
 export * from "./ConstantQueryStringCommand";

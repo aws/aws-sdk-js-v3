@@ -1,4 +1,5 @@
 export * from "./AppStream";
+// smithy-typescript generated code
 export * from "./AppStreamClient";
 export * from "./commands";
 export * from "./models";

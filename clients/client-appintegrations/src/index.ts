@@ -1,4 +1,5 @@
 export * from "./AppIntegrations";
+// smithy-typescript generated code
 export * from "./AppIntegrationsClient";
 export * from "./commands";
 export * from "./models";

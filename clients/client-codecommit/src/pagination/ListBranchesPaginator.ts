@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { CodeCommit } from "../CodeCommit";
@@ -50,8 +51,9 @@ export async function* paginateListBranches(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

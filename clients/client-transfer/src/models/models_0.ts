@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { TransferServiceException as __BaseException } from "./TransferServiceException";
 
@@ -190,7 +190,7 @@ export namespace CopyStepDetails {
  *         <code>HomeDirectoryMappings</code>.</p>
  *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
  *          <p>
- *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+ *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
  *          </p>
  */
 export interface HomeDirectoryMapEntry {
@@ -286,7 +286,7 @@ export interface CreateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -639,6 +639,11 @@ export enum IdentityProviderType {
   SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
+export enum SetStatOption {
+  DEFAULT = "DEFAULT",
+  ENABLE_NO_OP = "ENABLE_NO_OP",
+}
+
 export enum TlsSessionResumptionMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -703,6 +708,20 @@ export interface ProtocolDetails {
    *          </ul>
    */
   TlsSessionResumptionMode?: TlsSessionResumptionMode | string;
+
+  /**
+   * <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.</p>
+   *          <p>Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as SETSTAT when uploading the file.
+   *         However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when
+   *         the file is otherwise successfully uploaded.</p>
+   *          <p>Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.
+   *         While the <code>SetStatOption</code>
+   *             <code>ENABLE_NO_OP</code> setting ignores the error, it does generate a log entry in CloudWatch Logs, so you can determine when the client is making a SETSTAT call.</p>
+   *          <note>
+   *             <p>If you want to preserve the original timestamp for your file, and modify other file attributes using SETSTAT, you can use Amazon EFS as backend storage with Transfer Family.</p>
+   *          </note>
+   */
+  SetStatOption?: SetStatOption | string;
 }
 
 export namespace ProtocolDetails {
@@ -993,12 +1012,24 @@ export interface CreateServerRequest {
 
   /**
    * <p>The protocol settings that are configured for your server.</p>
-   *          <p>
-   *       Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
-   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-   *     </p>
-   *          <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
-   *       resumes recent, negotiated sessions through a unique session ID.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
+   *           Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.
+   *         Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.
+   *         Note that with <code>SetStatOption</code> set to <code>ENABLE_NO_OP</code>, Transfer generates a log entry to CloudWatch Logs, so you can determine when the client
+   *         is making a SETSTAT call.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
+   *           resumes recent, negotiated sessions through a unique session ID.</p>
+   *             </li>
+   *          </ul>
    */
   ProtocolDetails?: ProtocolDetails;
 
@@ -1105,7 +1136,7 @@ export interface CreateUserRequest {
    *       parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -1376,19 +1407,19 @@ export interface WorkflowStep {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    */
@@ -1457,19 +1488,19 @@ export interface CreateWorkflowRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -1954,19 +1985,19 @@ export interface ExecutionStepResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    */
@@ -3721,7 +3752,7 @@ export interface UpdateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -3860,15 +3891,25 @@ export interface UpdateServerRequest {
   Certificate?: string;
 
   /**
-   * <p>
-   *       The protocol settings that are configured for your server.
-   *     </p>
-   *          <p>
-   *       Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
-   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-   *     </p>
-   *          <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
-   *       resumes recent, negotiated sessions through a unique session ID.</p>
+   * <p>The protocol settings that are configured for your server.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
+   *           Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.
+   *         Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.
+   *         Note that with <code>SetStatOption</code> set to <code>ENABLE_NO_OP</code>, Transfer generates a log entry to CloudWatch Logs, so you can determine when the client
+   *         is making a SETSTAT call.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
+   *           resumes recent, negotiated sessions through a unique session ID.</p>
+   *             </li>
+   *          </ul>
    */
   ProtocolDetails?: ProtocolDetails;
 
@@ -4064,8 +4105,7 @@ export interface UpdateUserRequest {
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target":
-   *         "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
@@ -4075,7 +4115,7 @@ export interface UpdateUserRequest {
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];

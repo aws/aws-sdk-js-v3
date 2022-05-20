@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddProfileKeyCommand";
 export * from "./CreateDomainCommand";
 export * from "./CreateIntegrationWorkflowCommand";

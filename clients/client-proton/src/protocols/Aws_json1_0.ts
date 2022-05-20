@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -5303,6 +5304,7 @@ const serializeAws_json1_0CreateRepositoryInput = (input: CreateRepositoryInput,
     ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 

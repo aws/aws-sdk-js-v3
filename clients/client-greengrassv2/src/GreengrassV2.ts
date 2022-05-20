@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -40,6 +41,11 @@ import {
   DeleteCoreDeviceCommandInput,
   DeleteCoreDeviceCommandOutput,
 } from "./commands/DeleteCoreDeviceCommand";
+import {
+  DeleteDeploymentCommand,
+  DeleteDeploymentCommandInput,
+  DeleteDeploymentCommandOutput,
+} from "./commands/DeleteDeploymentCommand";
 import {
   DescribeComponentCommand,
   DescribeComponentCommandInput,
@@ -343,7 +349,15 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                      </p>
    *                   </li>
    *                   <li>
+   *                      <p>Python 3.9 – <code>python3.9</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
    *                      <p>Java 8 – <code>java8</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Java 11 – <code>java11</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -352,6 +366,10 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                   </li>
    *                   <li>
    *                      <p>Node.js 12 – <code>nodejs12.x</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Node.js 14 – <code>nodejs14.x</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -508,6 +526,42 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
+   * <p>Deletes a deployment. To delete an active deployment, you must first cancel it. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDeployment.html">CancelDeployment</a>.</p>
+   *          <p>Deleting a deployment doesn't affect core devices that run that deployment, because core
+   *       devices store the deployment's configuration on the device. Additionally, core devices can
+   *       roll back to a previous deployment that has been deleted.</p>
+   */
+  public deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentCommandOutput>;
+  public deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+  public deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+  public deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): Promise<DeleteDeploymentCommandOutput> | void {
+    const command = new DeleteDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves metadata for a version of a component.</p>
    */
   public describeComponent(
@@ -605,7 +659,7 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
-   * <p>Gets the pre-signed URL to download a public component artifact. Core devices call this
+   * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices call this
    *       operation to identify the URL that they can use to download an artifact to install.</p>
    */
   public getComponentVersionArtifact(
@@ -677,6 +731,29 @@ export class GreengrassV2 extends GreengrassV2Client {
 
   /**
    * <p>Retrieves metadata for a Greengrass core device.</p>
+   *          <note>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
+   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
+   *         the reported status of that device might not reflect its current status. The status timestamp
+   *         indicates when the device status was last updated.</p>
+   *             <p>Core devices send status updates at the following times:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>When the IoT Greengrass Core software starts</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
+   *             that you can configure</a>, which defaults to 24 hours</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   public getCoreDevice(
     args: GetCoreDeviceCommandInput,
@@ -876,6 +953,29 @@ export class GreengrassV2 extends GreengrassV2Client {
 
   /**
    * <p>Retrieves a paginated list of Greengrass core devices.</p>
+   *          <note>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
+   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
+   *         the reported status of that device might not reflect its current status. The status timestamp
+   *         indicates when the device status was last updated.</p>
+   *             <p>Core devices send status updates at the following times:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>When the IoT Greengrass Core software starts</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
+   *             that you can configure</a>, which defaults to 24 hours</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   public listCoreDevices(
     args: ListCoreDevicesCommandInput,
@@ -972,7 +1072,32 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
-   * <p>Retrieves a paginated list of the components that a Greengrass core device runs.</p>
+   * <p>Retrieves a paginated list of the components that a Greengrass core device runs.
+   *       This list doesn't include components that are deployed from local deployments or
+   *       components that are deployed as dependencies of other components.</p>
+   *          <note>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
+   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
+   *         the reported status of that device might not reflect its current status. The status timestamp
+   *         indicates when the device status was last updated.</p>
+   *             <p>Core devices send status updates at the following times:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>When the IoT Greengrass Core software starts</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
+   *                </li>
+   *                <li>
+   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
+   *             that you can configure</a>, which defaults to 24 hours</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   public listInstalledComponents(
     args: ListInstalledComponentsCommandInput,

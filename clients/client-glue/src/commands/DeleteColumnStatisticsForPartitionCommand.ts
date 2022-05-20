@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,7 +16,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   DeleteColumnStatisticsForPartitionRequest,
   DeleteColumnStatisticsForPartitionResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
   serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,

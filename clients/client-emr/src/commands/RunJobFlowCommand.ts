@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,7 +26,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the
  *          steps specified. After the steps complete, the cluster stops and the HDFS partition is
  *          lost. To prevent loss of data, configure the last step of the job flow to store results in
- *          Amazon S3. If the <a>JobFlowInstancesConfig</a>
+ *             Amazon S3. If the <a>JobFlowInstancesConfig</a>
  *             <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster
  *          transitions to the WAITING state rather than shutting down after the steps have completed. </p>
  *          <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a>
@@ -41,9 +42,9 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
  *          <p>For long running clusters, we recommend that you periodically store your results.</p>
  *          <note>
- *             <p>The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and
- *             later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
- *             parameters or InstanceGroups parameters, but not both.</p>
+ *             <p>The instance fleets configuration is available only in Amazon EMR versions
+ *             4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain
+ *             InstanceFleets parameters or InstanceGroups parameters, but not both.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

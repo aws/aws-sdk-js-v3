@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -64,6 +65,7 @@ import {
   GenerateDataKeyWithoutPlaintextCommandInput,
   GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "../commands/GenerateDataKeyWithoutPlaintextCommand";
+import { GenerateMacCommandInput, GenerateMacCommandOutput } from "../commands/GenerateMacCommand";
 import { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "../commands/GenerateRandomCommand";
 import { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "../commands/GetKeyPolicyCommand";
 import {
@@ -111,6 +113,7 @@ import {
   UpdatePrimaryRegionCommandOutput,
 } from "../commands/UpdatePrimaryRegionCommand";
 import { VerifyCommandInput, VerifyCommandOutput } from "../commands/VerifyCommand";
+import { VerifyMacCommandInput, VerifyMacCommandOutput } from "../commands/VerifyMacCommand";
 import { KMSServiceException as __BaseException } from "../models/KMSServiceException";
 import {
   AliasListEntry,
@@ -166,6 +169,8 @@ import {
   GenerateDataKeyResponse,
   GenerateDataKeyWithoutPlaintextRequest,
   GenerateDataKeyWithoutPlaintextResponse,
+  GenerateMacRequest,
+  GenerateMacResponse,
   GenerateRandomRequest,
   GenerateRandomResponse,
   GetKeyPolicyRequest,
@@ -196,6 +201,7 @@ import {
   KeyMetadata,
   KeyUnavailableException,
   KMSInternalException,
+  KMSInvalidMacException,
   KMSInvalidSignatureException,
   KMSInvalidStateException,
   LimitExceededException,
@@ -210,6 +216,7 @@ import {
   ListResourceTagsRequest,
   ListResourceTagsResponse,
   ListRetirableGrantsRequest,
+  MacAlgorithmSpec,
   MalformedPolicyDocumentException,
   MultiRegionConfiguration,
   MultiRegionKey,
@@ -236,6 +243,8 @@ import {
   UpdateCustomKeyStoreResponse,
   UpdateKeyDescriptionRequest,
   UpdatePrimaryRegionRequest,
+  VerifyMacRequest,
+  VerifyMacResponse,
   VerifyRequest,
   VerifyResponse,
 } from "../models/models_0";
@@ -523,6 +532,19 @@ export const serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GenerateMacCommand = async (
+  input: GenerateMacCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TrentService.GenerateMac",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GenerateMacRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -861,6 +883,19 @@ export const serializeAws_json1_1VerifyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1VerifyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1VerifyMacCommand = async (
+  input: VerifyMacCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TrentService.VerifyMac",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1VerifyMacRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2120,6 +2155,67 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
       throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+    case "DisabledException":
+    case "com.amazonaws.kms#DisabledException":
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+    case "InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+    case "InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+    case "KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GenerateMacCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMacCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GenerateMacCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GenerateMacResponse(data, context);
+  const response: GenerateMacCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GenerateMacCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMacCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
@@ -3672,6 +3768,70 @@ const deserializeAws_json1_1VerifyCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1VerifyMacCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyMacCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1VerifyMacCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1VerifyMacResponse(data, context);
+  const response: VerifyMacCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1VerifyMacCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyMacCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledException":
+    case "com.amazonaws.kms#DisabledException":
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+    case "InvalidGrantTokenException":
+    case "com.amazonaws.kms#InvalidGrantTokenException":
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+    case "InvalidKeyUsageException":
+    case "com.amazonaws.kms#InvalidKeyUsageException":
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+    case "KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "KMSInvalidMacException":
+    case "com.amazonaws.kms#KMSInvalidMacException":
+      throw await deserializeAws_json1_1KMSInvalidMacExceptionResponse(parsedOutput, context);
+    case "KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4004,6 +4164,19 @@ const deserializeAws_json1_1KMSInternalExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KMSInternalException(body, context);
   const exception = new KMSInternalException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1KMSInvalidMacExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KMSInvalidMacException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1KMSInvalidMacException(body, context);
+  const exception = new KMSInvalidMacException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4374,6 +4547,16 @@ const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
   };
 };
 
+const serializeAws_json1_1GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.MacAlgorithm !== undefined && input.MacAlgorithm !== null && { MacAlgorithm: input.MacAlgorithm }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: context.base64Encoder(input.Message) }),
+  };
+};
+
 const serializeAws_json1_1GenerateRandomRequest = (input: GenerateRandomRequest, context: __SerdeContext): any => {
   return {
     ...(input.CustomKeyStoreId !== undefined &&
@@ -4704,6 +4887,17 @@ const serializeAws_json1_1UpdatePrimaryRegionRequest = (
   return {
     ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
     ...(input.PrimaryRegion !== undefined && input.PrimaryRegion !== null && { PrimaryRegion: input.PrimaryRegion }),
+  };
+};
+
+const serializeAws_json1_1VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.GrantTokens !== undefined &&
+      input.GrantTokens !== null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Mac !== undefined && input.Mac !== null && { Mac: context.base64Encoder(input.Mac) }),
+    ...(input.MacAlgorithm !== undefined && input.MacAlgorithm !== null && { MacAlgorithm: input.MacAlgorithm }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: context.base64Encoder(input.Message) }),
   };
 };
 
@@ -5085,6 +5279,14 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GenerateMacResponse = (output: any, context: __SerdeContext): GenerateMacResponse => {
+  return {
+    KeyId: __expectString(output.KeyId),
+    Mac: output.Mac !== undefined && output.Mac !== null ? context.base64Decoder(output.Mac) : undefined,
+    MacAlgorithm: __expectString(output.MacAlgorithm),
+  } as any;
+};
+
 const deserializeAws_json1_1GenerateRandomResponse = (output: any, context: __SerdeContext): GenerateRandomResponse => {
   return {
     Plaintext:
@@ -5351,6 +5553,10 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
     KeySpec: __expectString(output.KeySpec),
     KeyState: __expectString(output.KeyState),
     KeyUsage: __expectString(output.KeyUsage),
+    MacAlgorithms:
+      output.MacAlgorithms !== undefined && output.MacAlgorithms !== null
+        ? deserializeAws_json1_1MacAlgorithmSpecList(output.MacAlgorithms, context)
+        : undefined,
     MultiRegion: __expectBoolean(output.MultiRegion),
     MultiRegionConfiguration:
       output.MultiRegionConfiguration !== undefined && output.MultiRegionConfiguration !== null
@@ -5379,6 +5585,12 @@ const deserializeAws_json1_1KeyUnavailableException = (
 };
 
 const deserializeAws_json1_1KMSInternalException = (output: any, context: __SerdeContext): KMSInternalException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1KMSInvalidMacException = (output: any, context: __SerdeContext): KMSInvalidMacException => {
   return {
     message: __expectString(output.message),
   } as any;
@@ -5467,6 +5679,21 @@ const deserializeAws_json1_1ListResourceTagsResponse = (
         : undefined,
     Truncated: __expectBoolean(output.Truncated),
   } as any;
+};
+
+const deserializeAws_json1_1MacAlgorithmSpecList = (
+  output: any,
+  context: __SerdeContext
+): (MacAlgorithmSpec | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1MalformedPolicyDocumentException = (
@@ -5637,6 +5864,14 @@ const deserializeAws_json1_1UpdateCustomKeyStoreResponse = (
   context: __SerdeContext
 ): UpdateCustomKeyStoreResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1VerifyMacResponse = (output: any, context: __SerdeContext): VerifyMacResponse => {
+  return {
+    KeyId: __expectString(output.KeyId),
+    MacAlgorithm: __expectString(output.MacAlgorithm),
+    MacValid: __expectBoolean(output.MacValid),
+  } as any;
 };
 
 const deserializeAws_json1_1VerifyResponse = (output: any, context: __SerdeContext): VerifyResponse => {

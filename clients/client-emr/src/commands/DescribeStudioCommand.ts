@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,8 +23,8 @@ export interface DescribeStudioCommandInput extends DescribeStudioInput {}
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
- *          access URL, and so on.</p>
+ * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
+ *          Studio access URL, and so on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -179,6 +180,7 @@ import {
   MatchRange,
   MeshData,
   MeshRef,
+  MeshServiceDiscovery,
   MeshSpec,
   MeshStatus,
   NotFoundException,
@@ -4400,6 +4402,7 @@ const serializeAws_restJson1AwsCloudMapServiceDiscovery = (
       input.attributes !== null && {
         attributes: serializeAws_restJson1AwsCloudMapInstanceAttributes(input.attributes, context),
       }),
+    ...(input.ipPreference !== undefined && input.ipPreference !== null && { ipPreference: input.ipPreference }),
     ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
     ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
   };
@@ -4475,6 +4478,7 @@ const serializeAws_restJson1ClientTlsCertificate = (input: ClientTlsCertificate,
 const serializeAws_restJson1DnsServiceDiscovery = (input: DnsServiceDiscovery, context: __SerdeContext): any => {
   return {
     ...(input.hostname !== undefined && input.hostname !== null && { hostname: input.hostname }),
+    ...(input.ipPreference !== undefined && input.ipPreference !== null && { ipPreference: input.ipPreference }),
     ...(input.responseType !== undefined && input.responseType !== null && { responseType: input.responseType }),
   };
 };
@@ -5122,10 +5126,20 @@ const serializeAws_restJson1MatchRange = (input: MatchRange, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1MeshServiceDiscovery = (input: MeshServiceDiscovery, context: __SerdeContext): any => {
+  return {
+    ...(input.ipPreference !== undefined && input.ipPreference !== null && { ipPreference: input.ipPreference }),
+  };
+};
+
 const serializeAws_restJson1MeshSpec = (input: MeshSpec, context: __SerdeContext): any => {
   return {
     ...(input.egressFilter !== undefined &&
       input.egressFilter !== null && { egressFilter: serializeAws_restJson1EgressFilter(input.egressFilter, context) }),
+    ...(input.serviceDiscovery !== undefined &&
+      input.serviceDiscovery !== null && {
+        serviceDiscovery: serializeAws_restJson1MeshServiceDiscovery(input.serviceDiscovery, context),
+      }),
   };
 };
 
@@ -5910,6 +5924,7 @@ const deserializeAws_restJson1AwsCloudMapServiceDiscovery = (
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1AwsCloudMapInstanceAttributes(output.attributes, context)
         : undefined,
+    ipPreference: __expectString(output.ipPreference),
     namespaceName: __expectString(output.namespaceName),
     serviceName: __expectString(output.serviceName),
   } as any;
@@ -6001,6 +6016,7 @@ const deserializeAws_restJson1ClientTlsCertificate = (output: any, context: __Se
 const deserializeAws_restJson1DnsServiceDiscovery = (output: any, context: __SerdeContext): DnsServiceDiscovery => {
   return {
     hostname: __expectString(output.hostname),
+    ipPreference: __expectString(output.ipPreference),
     responseType: __expectString(output.responseType),
   } as any;
 };
@@ -6907,11 +6923,21 @@ const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_restJson1MeshServiceDiscovery = (output: any, context: __SerdeContext): MeshServiceDiscovery => {
+  return {
+    ipPreference: __expectString(output.ipPreference),
+  } as any;
+};
+
 const deserializeAws_restJson1MeshSpec = (output: any, context: __SerdeContext): MeshSpec => {
   return {
     egressFilter:
       output.egressFilter !== undefined && output.egressFilter !== null
         ? deserializeAws_restJson1EgressFilter(output.egressFilter, context)
+        : undefined,
+    serviceDiscovery:
+      output.serviceDiscovery !== undefined && output.serviceDiscovery !== null
+        ? deserializeAws_restJson1MeshServiceDiscovery(output.serviceDiscovery, context)
         : undefined,
   } as any;
 };

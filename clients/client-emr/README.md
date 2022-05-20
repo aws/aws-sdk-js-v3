@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-emr
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-emr/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-emr)
@@ -7,10 +9,9 @@
 
 AWS SDK for JavaScript EMR Client for Node.js, Browser and React Native.
 
-<p>Amazon EMR is a web service that makes it easier to process large amounts of data
-efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do
-tasks such as web indexing, data mining, log file analysis, machine learning, scientific
-simulation, and data warehouse management.</p>
+<p>Amazon EMR is a web service that makes it easier to process large amounts of
+data efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do tasks such as web indexing, data mining, log file analysis,
+machine learning, scientific simulation, and data warehouse management.</p>
 
 ## Installing
 
@@ -118,7 +119,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -152,7 +153,7 @@ client
 
 // callbacks.
 client.addInstanceFleet(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 

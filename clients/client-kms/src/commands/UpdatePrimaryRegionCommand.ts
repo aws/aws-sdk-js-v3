@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
  *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
  *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
- *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The <i>primary key</i> of a multi-Region key is the source for properties
  *       that are always shared by primary and replica keys, including the key material, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-spec">key spec</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-usage">key usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key material
  *       origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
@@ -52,8 +53,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *       update is complete. While the key state is <code>Updating</code>, you can use the keys in
  *       cryptographic operations, but you cannot replicate the new primary key or perform certain
  *       management operations, such as enabling or disabling these keys. For details about the
- *         <code>Updating</code> key state, see <a href="kms/latest/developerguide/key-state.html">Key state:
- *         Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *         <code>Updating</code> key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation does not return any output. To verify that primary key is changed, use the
  *         <a>DescribeKey</a> operation.</p>
  *          <p>

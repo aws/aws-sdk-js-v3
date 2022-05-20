@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
@@ -47,8 +48,9 @@ export async function* paginateListDomains(
       throw new Error("Invalid client, expected Route53Domains | Route53DomainsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextPageMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

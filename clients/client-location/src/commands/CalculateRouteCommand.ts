@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -33,8 +34,9 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code>
- *                     or <code>DepartNow</code>. This calculates a route based on predictive traffic
+ *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a
+ *                         departure time</a> using either <code>DepartureTime</code> or
+ *                         <code>DepartNow</code>. This calculates a route based on predictive traffic
  *                     data at the given time. </p>
  *                 <note>
  *                     <p>You can't specify both <code>DepartureTime</code> and
@@ -44,9 +46,10 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation
- *                     mode used to calculate the routes. This also lets you specify additional route
- *                     preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or
+ *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
+ *                         mode</a> using TravelMode sets the transportation mode used to calculate
+ *                     the routes. This also lets you specify additional route preferences in
+ *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
  *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
  *             </li>
  *          </ul>

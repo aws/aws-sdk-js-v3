@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -23,7 +24,7 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
 
 /**
  * <p>Sends you notification through CloudWatch Events when all files written to your file
- *          share have been uploaded to Amazon S3.</p>
+ *          share have been uploaded to S3. Amazon S3.</p>
  *
  *          <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all
  *          files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you

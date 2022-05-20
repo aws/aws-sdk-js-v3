@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 export * from "./CancelTaskExecutionCommand";
 export * from "./CreateAgentCommand";
 export * from "./CreateLocationEfsCommand";
 export * from "./CreateLocationFsxLustreCommand";
+export * from "./CreateLocationFsxOpenZfsCommand";
 export * from "./CreateLocationFsxWindowsCommand";
 export * from "./CreateLocationHdfsCommand";
 export * from "./CreateLocationNfsCommand";
@@ -15,6 +17,7 @@ export * from "./DeleteTaskCommand";
 export * from "./DescribeAgentCommand";
 export * from "./DescribeLocationEfsCommand";
 export * from "./DescribeLocationFsxLustreCommand";
+export * from "./DescribeLocationFsxOpenZfsCommand";
 export * from "./DescribeLocationFsxWindowsCommand";
 export * from "./DescribeLocationHdfsCommand";
 export * from "./DescribeLocationNfsCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -26,9 +27,6 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *          the S3 storage class that is associated with the pool. When you use your backup application
  *          to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
  *          S3 Glacier Deep Archive) that corresponds to the pool.</p>
- *
- *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

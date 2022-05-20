@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateDelegateToResourceCommand";
 export * from "./AssociateMemberToGroupCommand";
 export * from "./CancelMailboxExportJobCommand";

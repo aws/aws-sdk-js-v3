@@ -1,5 +1,5 @@
+// smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { FSxServiceException as __BaseException } from "./FSxServiceException";
 
@@ -149,6 +149,7 @@ export enum FileSystemLifecycle {
   DELETING = "DELETING",
   FAILED = "FAILED",
   MISCONFIGURED = "MISCONFIGURED",
+  MISCONFIGURED_UNAVAILABLE = "MISCONFIGURED_UNAVAILABLE",
   UPDATING = "UPDATING",
 }
 
@@ -524,6 +525,7 @@ export namespace LustreFileSystemConfiguration {
 
 export enum OntapDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
+  SINGLE_AZ_1 = "SINGLE_AZ_1",
 }
 
 export enum DiskIopsConfigurationMode {
@@ -635,12 +637,29 @@ export interface OntapFileSystemConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>The ONTAP file system deployment type.</p>
+   * <p>Specifies the FSx for ONTAP file system deployment type in use in the file
+   *             system. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>MULTI_AZ_1</code> - (Default) A high availability file system configured
+   *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ)
+   *                     unavailability. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
+   *                     redundancy.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
+   *                 Single-AZ file system deployment</a>. </p>
    */
   DeploymentType?: OntapDeploymentType | string;
 
   /**
-   * <p>The IP address range in which the endpoints to access your file system
+   * <p>(Multi-AZ only) The IP address range in which the endpoints to access your file system
    *             are created.</p>
    *         <important>
    *             <p>The Endpoint IP address range you select for your file system
@@ -673,7 +692,7 @@ export interface OntapFileSystemConfiguration {
   PreferredSubnetId?: string;
 
   /**
-   * <p>The VPC route tables in which your file system's endpoints are
+   * <p>(Multi-AZ only) The VPC route tables in which your file system's endpoints are
    *             created.</p>
    */
   RouteTableIds?: string[];
@@ -3506,7 +3525,8 @@ export namespace CreateFileSystemLustreConfiguration {
 }
 
 /**
- * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.</p>
+ * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you
+ *             are creating.</p>
  */
 export interface CreateFileSystemOntapConfiguration {
   /**
@@ -3524,18 +3544,34 @@ export interface CreateFileSystemOntapConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>Specifies the FSx for ONTAP file system deployment type to use in creating the file system.
-   *             <code>MULTI_AZ_1</code> is the supported ONTAP deployment type.</p>
+   * <p>Specifies the FSx for ONTAP file system deployment type to use in creating
+   *             the file system.  </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>MULTI_AZ_1</code> - (Default) A high availability file system configured
+   *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ)
+   *                     unavailability.  </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
+   *                     redundancy.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
+   *                 Single-AZ file system deployment</a>. </p>
    */
   DeploymentType: OntapDeploymentType | string | undefined;
 
   /**
-   * <p>Specifies the IP address range in which the endpoints to access your file system
-   *             will be created. By default, Amazon FSx selects an unused IP address range for you
-   *             from the 198.19.* range.</p>
+   * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+   *             file system will be created. By default, Amazon FSx selects an unused IP address
+   *             range for you from the 198.19.* range.</p>
    *         <important>
-   *             <p>The Endpoint IP address range you select for your file system
-   *             must exist outside the VPC's CIDR range and must be at least /30 or larger.</p>
+   *             <p>The Endpoint IP address range you select for your file system must exist outside
+   *                 the VPC's CIDR range and must be at least /30 or larger.</p>
    *         </important>
    */
   EndpointIpAddressRange?: string;
@@ -3552,22 +3588,22 @@ export interface CreateFileSystemOntapConfiguration {
   DiskIopsConfiguration?: DiskIopsConfiguration;
 
   /**
-   * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet
-   *             in which you want the preferred file server to be located.</p>
+   * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
+   *             specifies the subnet in which you want the preferred file server to be located.</p>
    */
   PreferredSubnetId?: string;
 
   /**
-   * <p>Specifies the virtual private cloud (VPC) route tables in which your file system's
-   *             endpoints will be created. You should specify all VPC route tables associated with the
-   *             subnets in which your clients are located. By default, Amazon FSx selects your VPC's
-   *             default route table.</p>
+   * <p>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
+   *             file system's endpoints will be created. You should specify all VPC route tables
+   *             associated with the subnets in which your clients are located. By default, Amazon FSx
+   *             selects your VPC's default route table.</p>
    */
   RouteTableIds?: string[];
 
   /**
-   * <p>Sets the throughput capacity for the file system that you're creating.
-   *             Valid values are 128, 256, 512, 1024, and 2048 MBps.</p>
+   * <p>Sets the throughput capacity for the file system that you're creating. Valid values
+   *             are 128, 256, 512, 1024, and 2048 MBps.</p>
    */
   ThroughputCapacity: number | undefined;
 
@@ -4251,7 +4287,8 @@ export interface CreateFileSystemRequest {
   LustreConfiguration?: CreateFileSystemLustreConfiguration;
 
   /**
-   * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.</p>
+   * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you
+   *             are creating.</p>
    */
   OntapConfiguration?: CreateFileSystemOntapConfiguration;
 
@@ -6915,9 +6952,9 @@ export interface RestoreVolumeFromSnapshotRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes any volumes cloned from this
-   *                     volume. If there are any cloned volumes and this option isn't used,
-   *                         <code>RestoreVolumeFromSnapshot</code> fails.</p>
+   *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes any dependent clone volumes
+   *                     created from intermediate snapshots. If there are any dependent clone volumes and this
+   *                     option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p>
    *             </li>
    *          </ul>
    */
@@ -7240,7 +7277,7 @@ export interface UpdateFileSystemOntapConfiguration {
 
   /**
    * <p>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes per second
-   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *             (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</p>
    */
   ThroughputCapacity?: number;
 }
@@ -7995,6 +8032,11 @@ export interface FileSystem {
    *             <li>
    *                <p>
    *                   <code>MISCONFIGURED</code> - The file system is in a failed but recoverable state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURED_UNAVAILABLE</code> - (Amazon FSx for Windows File Server only) The file system is
+   *                     currently unavailable due to a change in your Active Directory configuration.</p>
    *             </li>
    *             <li>
    *                <p>

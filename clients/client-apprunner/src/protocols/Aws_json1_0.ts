@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -24,6 +25,10 @@ import {
   CreateAutoScalingConfigurationCommandOutput,
 } from "../commands/CreateAutoScalingConfigurationCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import {
+  CreateObservabilityConfigurationCommandInput,
+  CreateObservabilityConfigurationCommandOutput,
+} from "../commands/CreateObservabilityConfigurationCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
 import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "../commands/CreateVpcConnectorCommand";
 import {
@@ -31,6 +36,10 @@ import {
   DeleteAutoScalingConfigurationCommandOutput,
 } from "../commands/DeleteAutoScalingConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import {
+  DeleteObservabilityConfigurationCommandInput,
+  DeleteObservabilityConfigurationCommandOutput,
+} from "../commands/DeleteObservabilityConfigurationCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
 import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "../commands/DeleteVpcConnectorCommand";
 import {
@@ -41,6 +50,10 @@ import {
   DescribeCustomDomainsCommandInput,
   DescribeCustomDomainsCommandOutput,
 } from "../commands/DescribeCustomDomainsCommand";
+import {
+  DescribeObservabilityConfigurationCommandInput,
+  DescribeObservabilityConfigurationCommandOutput,
+} from "../commands/DescribeObservabilityConfigurationCommand";
 import { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "../commands/DescribeServiceCommand";
 import {
   DescribeVpcConnectorCommandInput,
@@ -55,6 +68,10 @@ import {
   ListAutoScalingConfigurationsCommandOutput,
 } from "../commands/ListAutoScalingConfigurationsCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
+import {
+  ListObservabilityConfigurationsCommandInput,
+  ListObservabilityConfigurationsCommandOutput,
+} from "../commands/ListObservabilityConfigurationsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
@@ -85,6 +102,8 @@ import {
   CreateAutoScalingConfigurationResponse,
   CreateConnectionRequest,
   CreateConnectionResponse,
+  CreateObservabilityConfigurationRequest,
+  CreateObservabilityConfigurationResponse,
   CreateServiceRequest,
   CreateServiceResponse,
   CreateVpcConnectorRequest,
@@ -94,6 +113,8 @@ import {
   DeleteAutoScalingConfigurationResponse,
   DeleteConnectionRequest,
   DeleteConnectionResponse,
+  DeleteObservabilityConfigurationRequest,
+  DeleteObservabilityConfigurationResponse,
   DeleteServiceRequest,
   DeleteServiceResponse,
   DeleteVpcConnectorRequest,
@@ -102,6 +123,8 @@ import {
   DescribeAutoScalingConfigurationResponse,
   DescribeCustomDomainsRequest,
   DescribeCustomDomainsResponse,
+  DescribeObservabilityConfigurationRequest,
+  DescribeObservabilityConfigurationResponse,
   DescribeServiceRequest,
   DescribeServiceResponse,
   DescribeVpcConnectorRequest,
@@ -121,6 +144,8 @@ import {
   ListAutoScalingConfigurationsResponse,
   ListConnectionsRequest,
   ListConnectionsResponse,
+  ListObservabilityConfigurationsRequest,
+  ListObservabilityConfigurationsResponse,
   ListOperationsRequest,
   ListOperationsResponse,
   ListServicesRequest,
@@ -130,6 +155,8 @@ import {
   ListVpcConnectorsRequest,
   ListVpcConnectorsResponse,
   NetworkConfiguration,
+  ObservabilityConfiguration,
+  ObservabilityConfigurationSummary,
   OperationSummary,
   PauseServiceRequest,
   PauseServiceResponse,
@@ -137,6 +164,7 @@ import {
   ResumeServiceRequest,
   ResumeServiceResponse,
   Service,
+  ServiceObservabilityConfiguration,
   ServiceQuotaExceededException,
   ServiceSummary,
   SourceCodeVersion,
@@ -146,6 +174,7 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TraceConfiguration,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateServiceRequest,
@@ -189,6 +218,19 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateObservabilityConfigurationCommand = async (
+  input: CreateObservabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.CreateObservabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -244,6 +286,19 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DeleteObservabilityConfigurationCommand = async (
+  input: DeleteObservabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DeleteObservabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteObservabilityConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
@@ -293,6 +348,19 @@ export const serializeAws_json1_0DescribeCustomDomainsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeCustomDomainsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeObservabilityConfigurationCommand = async (
+  input: DescribeObservabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DescribeObservabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -358,6 +426,19 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListConnectionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListObservabilityConfigurationsCommand = async (
+  input: ListObservabilityConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.ListObservabilityConfigurations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListObservabilityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -638,6 +719,55 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0CreateObservabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateObservabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateObservabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateObservabilityConfigurationResponse(data, context);
+  const response: CreateObservabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateObservabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateObservabilityConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_0CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -806,6 +936,55 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0DeleteObservabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteObservabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteObservabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteObservabilityConfigurationResponse(data, context);
+  const response: DeleteObservabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteObservabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteObservabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1005,6 +1184,55 @@ const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomDomainsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0DescribeObservabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeObservabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeObservabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeObservabilityConfigurationResponse(data, context);
+  const response: DescribeObservabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeObservabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeObservabilityConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1250,6 +1478,52 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListObservabilityConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListObservabilityConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListObservabilityConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListObservabilityConfigurationsResponse(data, context);
+  const response: ListObservabilityConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListObservabilityConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListObservabilityConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1931,6 +2205,23 @@ const serializeAws_json1_0CreateConnectionRequest = (input: CreateConnectionRequ
   };
 };
 
+const serializeAws_json1_0CreateObservabilityConfigurationRequest = (
+  input: CreateObservabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ObservabilityConfigurationName !== undefined &&
+      input.ObservabilityConfigurationName !== null && {
+        ObservabilityConfigurationName: input.ObservabilityConfigurationName,
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.TraceConfiguration !== undefined &&
+      input.TraceConfiguration !== null && {
+        TraceConfiguration: serializeAws_json1_0TraceConfiguration(input.TraceConfiguration, context),
+      }),
+  };
+};
+
 const serializeAws_json1_0CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AutoScalingConfigurationArn !== undefined &&
@@ -1950,6 +2241,13 @@ const serializeAws_json1_0CreateServiceRequest = (input: CreateServiceRequest, c
     ...(input.NetworkConfiguration !== undefined &&
       input.NetworkConfiguration !== null && {
         NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+      }),
+    ...(input.ObservabilityConfiguration !== undefined &&
+      input.ObservabilityConfiguration !== null && {
+        ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
+          input.ObservabilityConfiguration,
+          context
+        ),
       }),
     ...(input.ServiceName !== undefined && input.ServiceName !== null && { ServiceName: input.ServiceName }),
     ...(input.SourceConfiguration !== undefined &&
@@ -1993,6 +2291,18 @@ const serializeAws_json1_0DeleteConnectionRequest = (input: DeleteConnectionRequ
   };
 };
 
+const serializeAws_json1_0DeleteObservabilityConfigurationRequest = (
+  input: DeleteObservabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ObservabilityConfigurationArn !== undefined &&
+      input.ObservabilityConfigurationArn !== null && {
+        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+      }),
+  };
+};
+
 const serializeAws_json1_0DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
@@ -2027,6 +2337,18 @@ const serializeAws_json1_0DescribeCustomDomainsRequest = (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+  };
+};
+
+const serializeAws_json1_0DescribeObservabilityConfigurationRequest = (
+  input: DescribeObservabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ObservabilityConfigurationArn !== undefined &&
+      input.ObservabilityConfigurationArn !== null && {
+        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+      }),
   };
 };
 
@@ -2146,6 +2468,21 @@ const serializeAws_json1_0ListConnectionsRequest = (input: ListConnectionsReques
   };
 };
 
+const serializeAws_json1_0ListObservabilityConfigurationsRequest = (
+  input: ListObservabilityConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LatestOnly !== undefined && input.LatestOnly !== null && { LatestOnly: input.LatestOnly }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ObservabilityConfigurationName !== undefined &&
+      input.ObservabilityConfigurationName !== null && {
+        ObservabilityConfigurationName: input.ObservabilityConfigurationName,
+      }),
+  };
+};
+
 const serializeAws_json1_0ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -2214,6 +2551,20 @@ const serializeAws_json1_0RuntimeEnvironmentVariables = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_0ServiceObservabilityConfiguration = (
+  input: ServiceObservabilityConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ObservabilityConfigurationArn !== undefined &&
+      input.ObservabilityConfigurationArn !== null && {
+        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+      }),
+    ...(input.ObservabilityEnabled !== undefined &&
+      input.ObservabilityEnabled !== null && { ObservabilityEnabled: input.ObservabilityEnabled }),
+  };
 };
 
 const serializeAws_json1_0SourceCodeVersion = (input: SourceCodeVersion, context: __SerdeContext): any => {
@@ -2298,6 +2649,12 @@ const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_0TraceConfiguration = (input: TraceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Vendor !== undefined && input.Vendor !== null && { Vendor: input.Vendor }),
+  };
+};
+
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
@@ -2321,6 +2678,13 @@ const serializeAws_json1_0UpdateServiceRequest = (input: UpdateServiceRequest, c
     ...(input.NetworkConfiguration !== undefined &&
       input.NetworkConfiguration !== null && {
         NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+      }),
+    ...(input.ObservabilityConfiguration !== undefined &&
+      input.ObservabilityConfiguration !== null && {
+        ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
+          input.ObservabilityConfiguration,
+          context
+        ),
       }),
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
     ...(input.SourceConfiguration !== undefined &&
@@ -2533,6 +2897,18 @@ const deserializeAws_json1_0CreateConnectionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0CreateObservabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateObservabilityConfigurationResponse => {
+  return {
+    ObservabilityConfiguration:
+      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
@@ -2603,6 +2979,18 @@ const deserializeAws_json1_0DeleteConnectionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DeleteObservabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteObservabilityConfigurationResponse => {
+  return {
+    ObservabilityConfiguration:
+      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
@@ -2649,6 +3037,18 @@ const deserializeAws_json1_0DescribeCustomDomainsResponse = (
     DNSTarget: __expectString(output.DNSTarget),
     NextToken: __expectString(output.NextToken),
     ServiceArn: __expectString(output.ServiceArn),
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeObservabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeObservabilityConfigurationResponse => {
+  return {
+    ObservabilityConfiguration:
+      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -2800,6 +3200,23 @@ const deserializeAws_json1_0ListConnectionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListObservabilityConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListObservabilityConfigurationsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ObservabilityConfigurationSummaryList:
+      output.ObservabilityConfigurationSummaryList !== undefined &&
+      output.ObservabilityConfigurationSummaryList !== null
+        ? deserializeAws_json1_0ObservabilityConfigurationSummaryList(
+            output.ObservabilityConfigurationSummaryList,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
@@ -2852,6 +3269,57 @@ const deserializeAws_json1_0NetworkConfiguration = (output: any, context: __Serd
         ? deserializeAws_json1_0EgressConfiguration(output.EgressConfiguration, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0ObservabilityConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ObservabilityConfiguration => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    DeletedAt:
+      output.DeletedAt !== undefined && output.DeletedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
+        : undefined,
+    Latest: __expectBoolean(output.Latest),
+    ObservabilityConfigurationArn: __expectString(output.ObservabilityConfigurationArn),
+    ObservabilityConfigurationName: __expectString(output.ObservabilityConfigurationName),
+    ObservabilityConfigurationRevision: __expectInt32(output.ObservabilityConfigurationRevision),
+    Status: __expectString(output.Status),
+    TraceConfiguration:
+      output.TraceConfiguration !== undefined && output.TraceConfiguration !== null
+        ? deserializeAws_json1_0TraceConfiguration(output.TraceConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ObservabilityConfigurationSummary = (
+  output: any,
+  context: __SerdeContext
+): ObservabilityConfigurationSummary => {
+  return {
+    ObservabilityConfigurationArn: __expectString(output.ObservabilityConfigurationArn),
+    ObservabilityConfigurationName: __expectString(output.ObservabilityConfigurationName),
+    ObservabilityConfigurationRevision: __expectInt32(output.ObservabilityConfigurationRevision),
+  } as any;
+};
+
+const deserializeAws_json1_0ObservabilityConfigurationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ObservabilityConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ObservabilityConfigurationSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
@@ -2961,6 +3429,10 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
       output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
         ? deserializeAws_json1_0NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
+    ObservabilityConfiguration:
+      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+        ? deserializeAws_json1_0ServiceObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        : undefined,
     ServiceArn: __expectString(output.ServiceArn),
     ServiceId: __expectString(output.ServiceId),
     ServiceName: __expectString(output.ServiceName),
@@ -2974,6 +3446,16 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ServiceObservabilityConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServiceObservabilityConfiguration => {
+  return {
+    ObservabilityConfigurationArn: __expectString(output.ObservabilityConfigurationArn),
+    ObservabilityEnabled: __expectBoolean(output.ObservabilityEnabled),
   } as any;
 };
 
@@ -3083,6 +3565,12 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_0TraceConfiguration = (output: any, context: __SerdeContext): TraceConfiguration => {
+  return {
+    Vendor: __expectString(output.Vendor),
+  } as any;
 };
 
 const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptPortfolioShareCommand";
 export * from "./AssociateBudgetWithResourceCommand";
 export * from "./AssociatePrincipalWithPortfolioCommand";

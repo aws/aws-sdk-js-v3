@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,11 +23,16 @@ export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRe
 export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Creates a launch template. A launch template contains the parameters to launch an
+ * <p>Creates a launch template.</p>
+ *         <p>A launch template contains the parameters to launch an
  *             instance. When you launch an instance using <a>RunInstances</a>, you can
  *             specify a launch template instead of providing the launch parameters in the request. For
  *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a
  *                 launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <p>If you want to clone an existing launch template as the basis for creating a new
+ *             launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
+ *             cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
+ *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

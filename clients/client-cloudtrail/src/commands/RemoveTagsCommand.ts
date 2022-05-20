@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from a trail.</p>
+ * <p>Removes the specified tags from a trail or event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

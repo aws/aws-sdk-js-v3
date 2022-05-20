@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -22,7 +23,7 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a JSON description of the data that is in each time series dataset, including names, column names, and data types.</p>
+ * <p>Provides a JSON description of the data in each time series dataset, including names, column names, and data types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

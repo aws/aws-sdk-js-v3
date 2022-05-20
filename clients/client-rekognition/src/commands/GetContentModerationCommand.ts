@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -51,7 +52,7 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  *        and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
  *        returned from the previous call to <code>GetContentModeration</code>.</p>
  *
- *          <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see moderating content in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

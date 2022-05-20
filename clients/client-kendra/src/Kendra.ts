@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -1022,7 +1023,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Describes an existing Amazon Kendra index</p>
+   * <p>Describes an existing Amazon Kendra index.</p>
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -1569,7 +1570,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Lists the Amazon Kendra indexes that you have created.</p>
+   * <p>Lists the Amazon Kendra indexes that you created.</p>
    */
   public listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
   public listIndices(args: ListIndicesCommandInput, cb: (err: any, data?: ListIndicesCommandOutput) => void): void;

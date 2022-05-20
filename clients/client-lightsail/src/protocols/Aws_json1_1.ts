@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -267,6 +268,10 @@ import {
   GetLoadBalancerTlsCertificatesCommandInput,
   GetLoadBalancerTlsCertificatesCommandOutput,
 } from "../commands/GetLoadBalancerTlsCertificatesCommand";
+import {
+  GetLoadBalancerTlsPoliciesCommandInput,
+  GetLoadBalancerTlsPoliciesCommandOutput,
+} from "../commands/GetLoadBalancerTlsPoliciesCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "../commands/GetOperationCommand";
 import { GetOperationsCommandInput, GetOperationsCommandOutput } from "../commands/GetOperationsCommand";
 import {
@@ -403,6 +408,7 @@ import {
   AccessKey,
   AccessKeyLastUsed,
   AccessRules,
+  AccountLevelBpaSync,
   AccountSetupInProgressException,
   AddOn,
   AddOnRequest,
@@ -641,7 +647,6 @@ import {
   InstanceEntry,
   InstanceHardware,
   InstancePlatform,
-  InstancePortInfo,
   InstanceSnapshotInfo,
   InvalidInputException,
   KeyPair,
@@ -649,7 +654,6 @@ import {
   MetricDatapoint,
   MetricStatistic,
   MonitoredResourceInfo,
-  MonthlyTransfer,
   NotFoundException,
   Operation,
   OperationFailureException,
@@ -692,6 +696,8 @@ import {
   GetLoadBalancersResult,
   GetLoadBalancerTlsCertificatesRequest,
   GetLoadBalancerTlsCertificatesResult,
+  GetLoadBalancerTlsPoliciesRequest,
+  GetLoadBalancerTlsPoliciesResult,
   GetOperationRequest,
   GetOperationResult,
   GetOperationsForResourceRequest,
@@ -735,6 +741,7 @@ import {
   InstanceAccessDetails,
   InstanceHealthSummary,
   InstanceNetworking,
+  InstancePortInfo,
   InstancePortState,
   InstanceSnapshot,
   InstanceState,
@@ -747,7 +754,9 @@ import {
   LoadBalancerTlsCertificateDomainValidationRecord,
   LoadBalancerTlsCertificateRenewalSummary,
   LoadBalancerTlsCertificateSummary,
+  LoadBalancerTlsPolicy,
   LogEvent,
+  MonthlyTransfer,
   OpenInstancePublicPortsRequest,
   OpenInstancePublicPortsResult,
   PasswordData,
@@ -2170,6 +2179,19 @@ export const serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetLoadBalancerTlsPoliciesCommand = async (
+  input: GetLoadBalancerTlsPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.GetLoadBalancerTlsPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLoadBalancerTlsPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -8953,6 +8975,61 @@ const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetLoadBalancerTlsPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLoadBalancerTlsPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLoadBalancerTlsPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLoadBalancerTlsPoliciesResult(data, context);
+  const response: GetLoadBalancerTlsPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLoadBalancerTlsPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLoadBalancerTlsPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      throw await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1GetOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12581,6 +12658,7 @@ const serializeAws_json1_1CreateLoadBalancerRequest = (
     ...(input.loadBalancerName !== undefined &&
       input.loadBalancerName !== null && { loadBalancerName: input.loadBalancerName }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tlsPolicyName !== undefined && input.tlsPolicyName !== null && { tlsPolicyName: input.tlsPolicyName }),
   };
 };
 
@@ -13425,6 +13503,15 @@ const serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest = (
   };
 };
 
+const serializeAws_json1_1GetLoadBalancerTlsPoliciesRequest = (
+  input: GetLoadBalancerTlsPoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.pageToken !== undefined && input.pageToken !== null && { pageToken: input.pageToken }),
+  };
+};
+
 const serializeAws_json1_1GetOperationRequest = (input: GetOperationRequest, context: __SerdeContext): any => {
   return {
     ...(input.operationId !== undefined && input.operationId !== null && { operationId: input.operationId }),
@@ -13472,6 +13559,8 @@ const serializeAws_json1_1GetRelationalDatabaseBundlesRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.includeInactive !== undefined &&
+      input.includeInactive !== null && { includeInactive: input.includeInactive }),
     ...(input.pageToken !== undefined && input.pageToken !== null && { pageToken: input.pageToken }),
   };
 };
@@ -14252,6 +14341,18 @@ const deserializeAws_json1_1AccessRules = (output: any, context: __SerdeContext)
   return {
     allowPublicOverrides: __expectBoolean(output.allowPublicOverrides),
     getObject: __expectString(output.getObject),
+  } as any;
+};
+
+const deserializeAws_json1_1AccountLevelBpaSync = (output: any, context: __SerdeContext): AccountLevelBpaSync => {
+  return {
+    bpaImpactsLightsail: __expectBoolean(output.bpaImpactsLightsail),
+    lastSyncedAt:
+      output.lastSyncedAt !== undefined && output.lastSyncedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastSyncedAt)))
+        : undefined,
+    message: __expectString(output.message),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -16219,6 +16320,10 @@ const deserializeAws_json1_1GetBucketMetricDataResult = (
 
 const deserializeAws_json1_1GetBucketsResult = (output: any, context: __SerdeContext): GetBucketsResult => {
   return {
+    accountLevelBpaSync:
+      output.accountLevelBpaSync !== undefined && output.accountLevelBpaSync !== null
+        ? deserializeAws_json1_1AccountLevelBpaSync(output.accountLevelBpaSync, context)
+        : undefined,
     buckets:
       output.buckets !== undefined && output.buckets !== null
         ? deserializeAws_json1_1BucketList(output.buckets, context)
@@ -16607,6 +16712,19 @@ const deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult = (
     tlsCertificates:
       output.tlsCertificates !== undefined && output.tlsCertificates !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateList(output.tlsCertificates, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetLoadBalancerTlsPoliciesResult = (
+  output: any,
+  context: __SerdeContext
+): GetLoadBalancerTlsPoliciesResult => {
+  return {
+    nextPageToken: __expectString(output.nextPageToken),
+    tlsPolicies:
+      output.tlsPolicies !== undefined && output.tlsPolicies !== null
+        ? deserializeAws_json1_1LoadBalancerTlsPolicyList(output.tlsPolicies, context)
         : undefined,
   } as any;
 };
@@ -17293,6 +17411,7 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
         : undefined,
     dnsName: __expectString(output.dnsName),
     healthCheckPath: __expectString(output.healthCheckPath),
+    httpsRedirectionEnabled: __expectBoolean(output.httpsRedirectionEnabled),
     instanceHealthSummary:
       output.instanceHealthSummary !== undefined && output.instanceHealthSummary !== null
         ? deserializeAws_json1_1InstanceHealthSummaryList(output.instanceHealthSummary, context)
@@ -17320,6 +17439,7 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
       output.tlsCertificateSummaries !== undefined && output.tlsCertificateSummaries !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateSummaryList(output.tlsCertificateSummaries, context)
         : undefined,
+    tlsPolicyName: __expectString(output.tlsPolicyName),
   } as any;
 };
 
@@ -17524,6 +17644,37 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateSummaryList = (
         return null as any;
       }
       return deserializeAws_json1_1LoadBalancerTlsCertificateSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LoadBalancerTlsPolicy = (output: any, context: __SerdeContext): LoadBalancerTlsPolicy => {
+  return {
+    ciphers:
+      output.ciphers !== undefined && output.ciphers !== null
+        ? deserializeAws_json1_1StringList(output.ciphers, context)
+        : undefined,
+    description: __expectString(output.description),
+    isDefault: __expectBoolean(output.isDefault),
+    name: __expectString(output.name),
+    protocols:
+      output.protocols !== undefined && output.protocols !== null
+        ? deserializeAws_json1_1StringList(output.protocols, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LoadBalancerTlsPolicyList = (
+  output: any,
+  context: __SerdeContext
+): LoadBalancerTlsPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LoadBalancerTlsPolicy(entry, context);
     });
   return retVal;
 };

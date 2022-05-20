@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { EchoServiceClient } from "./EchoServiceClient";
 import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateOriginationIdentityCommand";
 export * from "./CreateConfigurationSetCommand";
 export * from "./CreateEventDestinationCommand";

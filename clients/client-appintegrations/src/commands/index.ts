@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDataIntegrationCommand";
 export * from "./CreateEventIntegrationCommand";
 export * from "./DeleteDataIntegrationCommand";

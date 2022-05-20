@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-sagemaker
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker)
@@ -7,12 +9,12 @@
 
 AWS SDK for JavaScript SageMaker Client for Node.js, Browser and React Native.
 
-<p>Provides APIs for creating and managing Amazon SageMaker resources. </p>
+<p>Provides APIs for creating and managing SageMaker resources. </p>
 <p>Other Resources:</p>
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">Amazon SageMaker Developer
+<a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer
 Guide</a>
 </p>
 </li>
@@ -130,7 +132,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -164,7 +166,7 @@ client
 
 // callbacks.
 client.addAssociation(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
