@@ -29,7 +29,7 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
 
 /**
  * <p>Stops a targeted sentiment detection job in progress.</p>
- *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
+ *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
  *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
  *       <code>STOPPED</code> state.</p>

@@ -24,7 +24,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
 
 /**
  * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
- *       must be deleted in order for the model to be deleted.</p>
+ *       must be deleted in order for the model to be deleted.
+ *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

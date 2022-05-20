@@ -24,7 +24,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
 
 /**
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
- *       custom model </p>
+ *       custom model
+ *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

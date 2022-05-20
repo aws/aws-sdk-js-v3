@@ -23,7 +23,8 @@ export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates information about the specified endpoint.</p>
+ * <p>Updates information about the specified endpoint.
+ *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

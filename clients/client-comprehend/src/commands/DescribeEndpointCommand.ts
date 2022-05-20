@@ -24,7 +24,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
 
 /**
  * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
- *       status of an endpoint.</p>
+ *       status of an endpoint.
+ *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

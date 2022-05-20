@@ -483,7 +483,7 @@ export class UnsupportedLanguageException extends __BaseException {
 export interface BatchDetectKeyPhrasesRequest {
   /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
+   *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
   TextList: string[] | undefined;
@@ -1028,7 +1028,7 @@ export interface ClassifyDocumentRequest {
   Text: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the endpoint.</p>
+   * <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   EndpointArn: string | undefined;
 }
@@ -1148,7 +1148,7 @@ export interface ContainsPiiEntitiesRequest {
   Text: string | undefined;
 
   /**
-   * <p>The language of the input documents.</p>
+   * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 }
@@ -1170,13 +1170,21 @@ export enum PiiEntityType {
   AWS_SECRET_KEY = "AWS_SECRET_KEY",
   BANK_ACCOUNT_NUMBER = "BANK_ACCOUNT_NUMBER",
   BANK_ROUTING = "BANK_ROUTING",
+  CA_HEALTH_NUMBER = "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER = "CA_SOCIAL_INSURANCE_NUMBER",
   CREDIT_DEBIT_CVV = "CREDIT_DEBIT_CVV",
   CREDIT_DEBIT_EXPIRY = "CREDIT_DEBIT_EXPIRY",
   CREDIT_DEBIT_NUMBER = "CREDIT_DEBIT_NUMBER",
   DATE_TIME = "DATE_TIME",
   DRIVER_ID = "DRIVER_ID",
   EMAIL = "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER = "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IN_AADHAAR = "IN_AADHAAR",
+  IN_NREGA = "IN_NREGA",
+  IN_PERMANENT_ACCOUNT_NUMBER = "IN_PERMANENT_ACCOUNT_NUMBER",
+  IN_VOTER_NUMBER = "IN_VOTER_NUMBER",
   IP_ADDRESS = "IP_ADDRESS",
+  LICENSE_PLATE = "LICENSE_PLATE",
   MAC_ADDRESS = "MAC_ADDRESS",
   NAME = "NAME",
   PASSPORT_NUMBER = "PASSPORT_NUMBER",
@@ -1184,8 +1192,14 @@ export enum PiiEntityType {
   PHONE = "PHONE",
   PIN = "PIN",
   SSN = "SSN",
+  SWIFT_CODE = "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER = "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER = "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER = "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
   URL = "URL",
   USERNAME = "USERNAME",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER = "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER",
 }
 
 /**
@@ -1238,7 +1252,7 @@ export enum DocumentClassifierDataFormat {
 
 /**
  * <p>The input properties for training a document classifier. </p>
- *          <p>For more information on how the input file is formatted, see <a>how-document-classification-training-data</a>. </p>
+ *          <p>For more information on how the input file is formatted, see <a>prep-classifier-data</a>. </p>
  */
 export interface DocumentClassifierInputDataConfig {
   /**
@@ -2048,7 +2062,7 @@ export interface CreateEntityRecognizerRequest {
   /**
    * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
    *       the resources you are using for your custom entity recognizer. For more information, see
-   *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -2522,7 +2536,7 @@ export interface DocumentClassificationJobProperties {
 
   /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -2696,7 +2710,7 @@ export interface DocumentClassifierProperties {
 
   /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -2871,7 +2885,7 @@ export interface DominantLanguageDetectionJobProperties {
   /**
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
    *       resources you are using for your dominant language detection job. For more information, see
-   *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -2928,7 +2942,8 @@ export enum EndpointStatus {
 }
 
 /**
- * <p>Specifies information about the specified endpoint.</p>
+ * <p>Specifies information about the specified endpoint.
+ *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 export interface EndpointProperties {
   /**
@@ -4450,6 +4465,7 @@ export interface DetectEntitiesRequest {
    *       model instead of the default model that is used by Amazon Comprehend.</p>
    *          <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and
    *       it ignores any language code that you provide in your request.</p>
+   *          <p>For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
    */
   EndpointArn?: string;
 }
@@ -4536,7 +4552,7 @@ export interface DetectPiiEntitiesRequest {
   Text: string | undefined;
 
   /**
-   * <p>The language of the input documents.</p>
+   * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 }
@@ -6178,7 +6194,7 @@ export interface StartDocumentClassificationJobRequest {
   /**
    * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
    *       the resources you are using for your document classification job. For more information, see
-   *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -6665,7 +6681,7 @@ export interface StartKeyPhrasesDetectionJobRequest {
   /**
    * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
    *       the resources you are using for your key phrases detection job. For more information, see
-   *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -6774,7 +6790,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
   JobName?: string;
 
   /**
-   * <p>The language of the input documents.</p>
+   * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -6985,8 +7001,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   JobName?: string;
 
   /**
-   * <p>The language of the input documents. You can specify any of the primary languages
-   *       supported by Amazon Comprehend. All documents must be in the same language.</p>
+   * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
