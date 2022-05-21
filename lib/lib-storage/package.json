@@ -62,7 +62,7 @@
   "files": [
     "dist-*"
   ],
-  "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/main/lib/lib-storage",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
