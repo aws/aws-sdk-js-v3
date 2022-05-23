@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.97.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.96.0...v3.97.0) (2022-05-23)
+
+
+### Features
+
+* **client-elasticache:** Added support for encryption in transit for Memcached clusters. Customers can now launch Memcached cluster with encryption in transit enabled when using Memcached version 1.6.12 or later. ([6f1e857](https://github.com/aws/aws-sdk-js-v3/commit/6f1e8570f8e80ef414292d5ee57d54b0ab216fae))
+* **client-forecast:** New APIs for Monitor that help you understand how your predictors perform over time. ([74fa9b8](https://github.com/aws/aws-sdk-js-v3/commit/74fa9b8ae3ae68cc953ccfc018ac65c612bd601e))
+* **client-personalize:** Adding modelMetrics as part of DescribeRecommender API response for Personalize. ([16f4208](https://github.com/aws/aws-sdk-js-v3/commit/16f42083d78a7680400c8d6f8586fdb2142adc70))
+* **clients:** update client endpoints as of 2022-05-23 ([aff7bd4](https://github.com/aws/aws-sdk-js-v3/commit/aff7bd4fa32fcb52a70dc1f78c2d9853ba54b2ee))
+* Standardize issue template for discussions ([#3506](https://github.com/aws/aws-sdk-js-v3/issues/3506)) ([ac8f021](https://github.com/aws/aws-sdk-js-v3/commit/ac8f021ec991a4e6edb3b4a6fcc31507b5851aed))
+
+
+
+
+
 # [3.96.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.95.0...v3.96.0) (2022-05-20)
 
 

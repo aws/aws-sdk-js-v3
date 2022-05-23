@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.97.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.96.0...v3.97.0) (2022-05-23)
+
+
+### Features
+
+* **client-forecast:** New APIs for Monitor that help you understand how your predictors perform over time. ([74fa9b8](https://github.com/aws/aws-sdk-js-v3/commit/74fa9b8ae3ae68cc953ccfc018ac65c612bd601e))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-forecast

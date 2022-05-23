@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.97.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.96.0...v3.97.0) (2022-05-23)
+
+
+### Features
+
+* **client-personalize:** Adding modelMetrics as part of DescribeRecommender API response for Personalize. ([16f4208](https://github.com/aws/aws-sdk-js-v3/commit/16f42083d78a7680400c8d6f8586fdb2142adc70))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-personalize
