@@ -1708,7 +1708,7 @@ export interface Snapshot {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -1738,7 +1738,7 @@ export interface Snapshot {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -1853,7 +1853,7 @@ export interface Snapshot {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -2385,7 +2385,7 @@ export interface CreateCacheClusterMessage {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -2415,7 +2415,7 @@ export interface CreateCacheClusterMessage {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -2488,7 +2488,7 @@ export interface CreateCacheClusterMessage {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -2697,6 +2697,17 @@ export interface CreateCacheClusterMessage {
    * <p>Specifies the destination, format and type of the logs. </p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to true.
+   *
+   *             You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster. </p>
+   *
+   *         <p>
+   *             <b>Required:</b>
+   *             Only available when creating a cache cluster in an Amazon VPC using Memcached version <code>1.6.12</code> or later.</p>
+   */
+  TransitEncryptionEnabled?: boolean;
 }
 
 export namespace CreateCacheClusterMessage {
@@ -2795,7 +2806,7 @@ export namespace CreateCacheClusterMessage {
  *
  *     						        </li>
  *                   <li>
- *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+ *                      <p>Previous generation: (not recommended)</p>
  * 						               <p>
  *                         <b>T1 node types:</b>
  * 					                   <code>cache.t1.micro</code>
@@ -2825,7 +2836,7 @@ export namespace CreateCacheClusterMessage {
  *
  * 				           <ul>
  *                   <li>
- *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+ *                      <p>Previous generation: (not recommended)</p>
  * 			                  <p>
  *                         <b>C1 node types:</b>
  * 			                     <code>cache.c1.xlarge</code>
@@ -2929,7 +2940,7 @@ export namespace CreateCacheClusterMessage {
  *
  *     					         </li>
  *                   <li>
- *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+ *                      <p>Previous generation: (not recommended)</p>
  *                         <p>
  *                         <b>M2 node types:</b>
  *     					               <code>cache.m2.xlarge</code>,
@@ -3285,7 +3296,7 @@ export interface CacheCluster {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -3315,7 +3326,7 @@ export interface CacheCluster {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -3420,7 +3431,7 @@ export interface CacheCluster {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -4788,7 +4799,7 @@ export interface CreateReplicationGroupMessage {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -4818,7 +4829,7 @@ export interface CreateReplicationGroupMessage {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -4923,7 +4934,7 @@ export interface CreateReplicationGroupMessage {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -7448,7 +7459,7 @@ export interface DescribeReservedCacheNodesMessage {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -7478,7 +7489,7 @@ export interface DescribeReservedCacheNodesMessage {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -7582,7 +7593,7 @@ export interface DescribeReservedCacheNodesMessage {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -7797,7 +7808,7 @@ export interface ReservedCacheNode {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -7827,7 +7838,7 @@ export interface ReservedCacheNode {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -7931,7 +7942,7 @@ export interface ReservedCacheNode {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -8160,7 +8171,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -8190,7 +8201,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -8296,7 +8307,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,
@@ -8483,7 +8494,7 @@ export interface ReservedCacheNodesOffering {
    *
    *     						        </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 						               <p>
    *                         <b>T1 node types:</b>
    * 					                   <code>cache.t1.micro</code>
@@ -8513,7 +8524,7 @@ export interface ReservedCacheNodesOffering {
    *
    * 				           <ul>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    * 			                  <p>
    *                         <b>C1 node types:</b>
    * 			                     <code>cache.c1.xlarge</code>
@@ -8619,7 +8630,7 @@ export interface ReservedCacheNodesOffering {
    *
    *     					         </li>
    *                   <li>
-   *                      <p>Previous generation: (not recommended. Existing clusters are still supported but creation of new clusters is not supported for these types.)</p>
+   *                      <p>Previous generation: (not recommended)</p>
    *                         <p>
    *                         <b>M2 node types:</b>
    *     					               <code>cache.m2.xlarge</code>,

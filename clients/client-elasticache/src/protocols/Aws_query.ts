@@ -6408,6 +6408,9 @@ const serializeAws_queryCreateCacheClusterMessage = (
       entries[loc] = value;
     });
   }
+  if (input.TransitEncryptionEnabled !== undefined && input.TransitEncryptionEnabled !== null) {
+    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
   return entries;
 };
 
