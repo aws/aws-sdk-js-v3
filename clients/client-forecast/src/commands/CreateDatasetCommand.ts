@@ -56,14 +56,14 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *          </ul>
  *          <p>After creating a dataset, you import your training data into it and add the dataset to a
  *       dataset group. You use the dataset group to create a predictor. For more information, see
- *         <a>howitworks-datasets-groups</a>.</p>
- *          <p>To get a list of all your datasets, use the <a>ListDatasets</a>
- *       operation.</p>
+ *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing datasets</a>.</p>
+ *          <p>To get a list of all your datasets, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation.</p>
  *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon Forecast Sample GitHub
  *         repository</a>.</p>
  *          <note>
  *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
- *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
+ *         training data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation to get
+ *         the status.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

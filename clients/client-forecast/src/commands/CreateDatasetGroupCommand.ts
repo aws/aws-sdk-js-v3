@@ -24,14 +24,14 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
 
 /**
  * <p>Creates a dataset group, which holds a collection of related datasets. You can add
- *       datasets to the dataset group when you create the dataset group, or later by using the <a>UpdateDatasetGroup</a> operation.</p>
+ *       datasets to the dataset group when you create the dataset group, or later by using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation.</p>
  *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
- *       create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p>
- *          <p>To get a list of all your datasets groups, use the <a>ListDatasetGroups</a>
+ *       create a predictor. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Dataset groups</a>.</p>
+ *          <p>To get a list of all your datasets groups, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
  *       operation.</p>
  *          <note>
  *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
- *         use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+ *         use the dataset group to create a predictor. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> operation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

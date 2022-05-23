@@ -41,7 +41,7 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *             provide a Forecast ARN.</p>
  *         <p>
  *             <b>CreateExplainability with a Predictor ARN</b>
- *          </p>
+ *         </p>
  *         <note>
  *             <p>You can only have one Explainability resource per predictor. If you already
  *                 enabled <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that
@@ -91,7 +91,7 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *          </ul>
  *         <p>
  *             <b>CreateExplainability with a Forecast ARN</b>
- *          </p>
+ *         </p>
  *         <note>
  *             <p>You can specify a maximum of 50 time series and 500 time points.</p>
  *         </note>

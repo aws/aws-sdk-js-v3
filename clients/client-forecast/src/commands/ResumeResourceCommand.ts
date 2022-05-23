@@ -13,44 +13,41 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteDatasetImportJobRequest } from "../models/models_0";
+import { ResumeResourceRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDatasetImportJobCommand,
-  serializeAws_json1_1DeleteDatasetImportJobCommand,
+  deserializeAws_json1_1ResumeResourceCommand,
+  serializeAws_json1_1ResumeResourceCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DeleteDatasetImportJobCommandInput extends DeleteDatasetImportJobRequest {}
-export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
+export interface ResumeResourceCommandInput extends ResumeResourceRequest {}
+export interface ResumeResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
- *       operation. You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
- *       or <code>CREATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
- *       operation.</p>
+ * <p>Resumes a stopped monitor resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeleteDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeleteDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ResumeResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, ResumeResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const command = new DeleteDatasetImportJobCommand(input);
+ * const command = new ResumeResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteDatasetImportJobCommandInput} for command's `input` shape.
- * @see {@link DeleteDatasetImportJobCommandOutput} for command's `response` shape.
+ * @see {@link ResumeResourceCommandInput} for command's `input` shape.
+ * @see {@link ResumeResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
-export class DeleteDatasetImportJobCommand extends $Command<
-  DeleteDatasetImportJobCommandInput,
-  DeleteDatasetImportJobCommandOutput,
+export class ResumeResourceCommand extends $Command<
+  ResumeResourceCommandInput,
+  ResumeResourceCommandOutput,
   ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteDatasetImportJobCommandInput) {
+  constructor(readonly input: ResumeResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -63,19 +60,19 @@ export class DeleteDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDatasetImportJobCommandInput, DeleteDatasetImportJobCommandOutput> {
+  ): Handler<ResumeResourceCommandInput, ResumeResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ForecastClient";
-    const commandName = "DeleteDatasetImportJobCommand";
+    const commandName = "ResumeResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetImportJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
@@ -86,12 +83,12 @@ export class DeleteDatasetImportJobCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetImportJobCommand(input, context);
+  private serialize(input: ResumeResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ResumeResourceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetImportJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeResourceCommandOutput> {
+    return deserializeAws_json1_1ResumeResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

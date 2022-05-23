@@ -13,43 +13,43 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
+import { CreateMonitorRequest, CreateMonitorResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListDatasetsCommand,
-  serializeAws_json1_1ListDatasetsCommand,
+  deserializeAws_json1_1CreateMonitorCommand,
+  serializeAws_json1_1CreateMonitorCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
-export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
+export interface CreateMonitorCommandInput extends CreateMonitorRequest {}
+export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of datasets created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation. For each
- *       dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned.
- *       To retrieve the complete set of properties, use the ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation.</p>
+ * <p>Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
+ *            For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.
+ *        </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListDatasetsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListDatasetsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreateMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const command = new ListDatasetsCommand(input);
+ * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListDatasetsCommandInput} for command's `input` shape.
- * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
+ * @see {@link CreateMonitorCommandInput} for command's `input` shape.
+ * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
-export class ListDatasetsCommand extends $Command<
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
+export class CreateMonitorCommand extends $Command<
+  CreateMonitorCommandInput,
+  CreateMonitorCommandOutput,
   ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListDatasetsCommandInput) {
+  constructor(readonly input: CreateMonitorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -62,20 +62,20 @@ export class ListDatasetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDatasetsCommandInput, ListDatasetsCommandOutput> {
+  ): Handler<CreateMonitorCommandInput, CreateMonitorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ForecastClient";
-    const commandName = "ListDatasetsCommand";
+    const commandName = "CreateMonitorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMonitorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMonitorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +85,12 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetsCommand(input, context);
+  private serialize(input: CreateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateMonitorCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitorCommandOutput> {
+    return deserializeAws_json1_1CreateMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

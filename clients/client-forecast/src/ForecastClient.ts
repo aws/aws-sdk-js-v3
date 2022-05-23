@@ -75,6 +75,7 @@ import {
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
+import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
 import {
   CreatePredictorBacktestExportJobCommandInput,
   CreatePredictorBacktestExportJobCommandOutput,
@@ -99,6 +100,7 @@ import {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
+import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
 import {
   DeletePredictorBacktestExportJobCommandInput,
   DeletePredictorBacktestExportJobCommandOutput,
@@ -131,6 +133,7 @@ import {
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
+import { DescribeMonitorCommandInput, DescribeMonitorCommandOutput } from "./commands/DescribeMonitorCommand";
 import {
   DescribePredictorBacktestExportJobCommandInput,
   DescribePredictorBacktestExportJobCommandOutput,
@@ -157,6 +160,11 @@ import {
 } from "./commands/ListForecastExportJobsCommand";
 import { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
 import {
+  ListMonitorEvaluationsCommandInput,
+  ListMonitorEvaluationsCommandOutput,
+} from "./commands/ListMonitorEvaluationsCommand";
+import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
+import {
   ListPredictorBacktestExportJobsCommandInput,
   ListPredictorBacktestExportJobsCommandOutput,
 } from "./commands/ListPredictorBacktestExportJobsCommand";
@@ -165,6 +173,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ResumeResourceCommandInput, ResumeResourceCommandOutput } from "./commands/ResumeResourceCommand";
 import { StopResourceCommandInput, StopResourceCommandOutput } from "./commands/StopResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -180,6 +189,7 @@ export type ServiceInputTypes =
   | CreateExplainabilityExportCommandInput
   | CreateForecastCommandInput
   | CreateForecastExportJobCommandInput
+  | CreateMonitorCommandInput
   | CreatePredictorBacktestExportJobCommandInput
   | CreatePredictorCommandInput
   | DeleteDatasetCommandInput
@@ -189,6 +199,7 @@ export type ServiceInputTypes =
   | DeleteExplainabilityExportCommandInput
   | DeleteForecastCommandInput
   | DeleteForecastExportJobCommandInput
+  | DeleteMonitorCommandInput
   | DeletePredictorBacktestExportJobCommandInput
   | DeletePredictorCommandInput
   | DeleteResourceTreeCommandInput
@@ -200,6 +211,7 @@ export type ServiceInputTypes =
   | DescribeExplainabilityExportCommandInput
   | DescribeForecastCommandInput
   | DescribeForecastExportJobCommandInput
+  | DescribeMonitorCommandInput
   | DescribePredictorBacktestExportJobCommandInput
   | DescribePredictorCommandInput
   | GetAccuracyMetricsCommandInput
@@ -210,9 +222,12 @@ export type ServiceInputTypes =
   | ListExplainabilityExportsCommandInput
   | ListForecastExportJobsCommandInput
   | ListForecastsCommandInput
+  | ListMonitorEvaluationsCommandInput
+  | ListMonitorsCommandInput
   | ListPredictorBacktestExportJobsCommandInput
   | ListPredictorsCommandInput
   | ListTagsForResourceCommandInput
+  | ResumeResourceCommandInput
   | StopResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -227,6 +242,7 @@ export type ServiceOutputTypes =
   | CreateExplainabilityExportCommandOutput
   | CreateForecastCommandOutput
   | CreateForecastExportJobCommandOutput
+  | CreateMonitorCommandOutput
   | CreatePredictorBacktestExportJobCommandOutput
   | CreatePredictorCommandOutput
   | DeleteDatasetCommandOutput
@@ -236,6 +252,7 @@ export type ServiceOutputTypes =
   | DeleteExplainabilityExportCommandOutput
   | DeleteForecastCommandOutput
   | DeleteForecastExportJobCommandOutput
+  | DeleteMonitorCommandOutput
   | DeletePredictorBacktestExportJobCommandOutput
   | DeletePredictorCommandOutput
   | DeleteResourceTreeCommandOutput
@@ -247,6 +264,7 @@ export type ServiceOutputTypes =
   | DescribeExplainabilityExportCommandOutput
   | DescribeForecastCommandOutput
   | DescribeForecastExportJobCommandOutput
+  | DescribeMonitorCommandOutput
   | DescribePredictorBacktestExportJobCommandOutput
   | DescribePredictorCommandOutput
   | GetAccuracyMetricsCommandOutput
@@ -257,9 +275,12 @@ export type ServiceOutputTypes =
   | ListExplainabilityExportsCommandOutput
   | ListForecastExportJobsCommandOutput
   | ListForecastsCommandOutput
+  | ListMonitorEvaluationsCommandOutput
+  | ListMonitorsCommandOutput
   | ListPredictorBacktestExportJobsCommandOutput
   | ListPredictorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ResumeResourceCommandOutput
   | StopResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

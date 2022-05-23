@@ -26,11 +26,13 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * <p>Creates an Amazon Forecast predictor.</p>
  *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
  *             optimal combination of algorithms to each time series in your datasets. You can use
- *             <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain existing
- *             predictors.</p>
+ *                 <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain
+ *             existing predictors.</p>
+ *
  *         <p>
  *             <b>Creating new predictors</b>
  *          </p>
+ *
  *         <p>The following parameters are required when creating a new predictor:</p>
  *         <ul>
  *             <li>
@@ -49,15 +51,15 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>ForecastHorizon</code> - The number of time steps being
- *                     forecasted.</p>
+ *                   <code>ForecastHorizon</code> - The number of time-steps that the model
+ *                     predicts. The forecast horizon is also called the prediction length.</p>
  *             </li>
  *          </ul>
  *         <p>When creating a new predictor, do not specify a value for
  *                 <code>ReferencePredictorArn</code>.</p>
  *         <p>
  *             <b>Upgrading and retraining predictors</b>
- *          </p>
+ *         </p>
  *         <p>The following parameters are required when retraining or upgrading a predictor:</p>
  *         <ul>
  *             <li>

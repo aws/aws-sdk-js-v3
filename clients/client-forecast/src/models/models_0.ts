@@ -7,7 +7,7 @@ import { ForecastServiceException as __BaseException } from "./ForecastServiceEx
  * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
  *         <p>
  *             <b>Weather Index</b>
- *          </p>
+ *         </p>
  *         <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
  *             projected weather information into your model. The Weather Index supplements your
  *             datasets with over two years of historical weather data and up to 14 days of projected
@@ -15,7 +15,7 @@ import { ForecastServiceException as __BaseException } from "./ForecastServiceEx
  *                 Weather Index</a>.</p>
  *         <p>
  *             <b>Holidays</b>
- *          </p>
+ *         </p>
  *         <p>Holidays is a built-in dataset that incorporates national holiday information into
  *             your model. It provides native support for the holiday calendars of 66 countries. To
  *             view the holiday calendars, refer to the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> library. For more
@@ -32,14 +32,18 @@ export interface AdditionalDataset {
   /**
    * <p>
    *             <b>Weather Index</b>
-   *          </p>
+   *         </p>
    *         <p>To enable the Weather Index, do not specify a value for
    *             <code>Configuration</code>.</p>
    *         <p>
    *             <b>Holidays</b>
    *          </p>
-   *         <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter country
-   *             codes:</p>
+   *
+   *         <p>
+   *             <b>Holidays</b>
+   *         </p>
+   *         <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter
+   *             country codes:</p>
    *         <ul>
    *             <li>
    *                 <p>"AL" - ALBANIA</p>
@@ -258,17 +262,17 @@ export namespace AdditionalDataset {
  *         <p>The following is an example using the RETAIL domain:</p>
  *         <p>
  *             <code>{</code>
- *          </p>
+ *         </p>
  *         <p>
  *             <code>"AttributeName": "demand",</code>
- *          </p>
+ *         </p>
  *         <p>
  *             <code>"Transformations": {"aggregation": "sum", "middlefill": "zero", "backfill":
  *                 "zero"}</code>
- *          </p>
+ *         </p>
  *         <p>
  *             <code>}</code>
- *          </p>
+ *         </p>
  */
 export interface AttributeConfig {
   /**
@@ -413,6 +417,25 @@ export namespace EncryptionConfig {
   });
 }
 
+/**
+ * <p>The configuration details for the predictor monitor.</p>
+ */
+export interface MonitorConfig {
+  /**
+   * <p>The name of the monitor resource.</p>
+   */
+  MonitorName: string | undefined;
+}
+
+export namespace MonitorConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitorConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum OptimizationMetric {
   AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
   MAPE = "MAPE",
@@ -492,6 +515,13 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>The number of time-steps that the model predicts. The forecast horizon is also called
    *             the prediction length.</p>
+   *         <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
+   *             TARGET_TIME_SERIES dataset length. If you are retraining an existing AutoPredictor, then
+   *             the maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the
+   *             TARGET_TIME_SERIES dataset length.</p>
+   *         <p>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
+   *             cannot update the forecast horizon parameter. You can meet this requirement by providing
+   *             longer time-series in the dataset.</p>
    */
   ForecastHorizon?: number;
 
@@ -590,6 +620,13 @@ export interface CreateAutoPredictorRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The configuration details for predictor monitoring. Provide a name for the monitor resource to enable predictor monitoring.</p>
+   *          <p>Predictor monitoring allows you to see how your predictor's performance changes over time.
+   *          For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.</p>
+   */
+  MonitorConfig?: MonitorConfig;
 }
 
 export namespace CreateAutoPredictorRequest {
@@ -751,7 +788,7 @@ export enum AttributeType {
 
 /**
  * <p>An attribute of a schema, which defines a dataset field. A schema attribute is required
- *       for every field in a dataset. The <a>Schema</a> object contains an array of
+ *       for every field in a dataset. The <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_Schema.html">Schema</a> object contains an array of
  *         <code>SchemaAttribute</code> objects.</p>
  */
 export interface SchemaAttribute {
@@ -762,6 +799,7 @@ export interface SchemaAttribute {
 
   /**
    * <p>The data type of the field.</p>
+   *          <p>For a related time series dataset, other than date, item_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).</p>
    */
   AttributeType?: AttributeType | string;
 }
@@ -802,12 +840,13 @@ export interface CreateDatasetRequest {
 
   /**
    * <p>The domain associated with the dataset. When you add a dataset to a dataset group, this
-   *       value and the value specified for the <code>Domain</code> parameter of the <a>CreateDatasetGroup</a> operation must match.</p>
+   *       value and the value specified for the <code>Domain</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation must match.</p>
    *          <p>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the fields
    *       that must be present in the training data that you import to the dataset. For example, if you
    *       choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as the
    *         <code>DatasetType</code>, Amazon Forecast requires <code>item_id</code>, <code>timestamp</code>,
-   *       and <code>demand</code> fields to be present in your data. For more information, see <a>howitworks-datasets-groups</a>.</p>
+   *       and <code>demand</code> fields to be present in your data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
+   *         datasets</a>.</p>
    */
   Domain: Domain | string | undefined;
 
@@ -829,7 +868,8 @@ export interface CreateDatasetRequest {
    * <p>The schema for the dataset. The schema attributes and their order must match the fields in
    *       your data. The dataset <code>Domain</code> and <code>DatasetType</code> that you choose
    *       determine the minimum required fields in your training data. For information about the
-   *       required fields for a specific dataset domain and type, see <a>howitworks-domains-ds-types</a>.</p>
+   *       required fields for a specific dataset domain and type, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html">Dataset Domains and Dataset
+   *         Types</a>.</p>
    */
   Schema: Schema | undefined;
 
@@ -913,13 +953,14 @@ export interface CreateDatasetGroupRequest {
 
   /**
    * <p>The domain associated with the dataset group. When you add a dataset to a dataset group,
-   *       this value and the value specified for the <code>Domain</code> parameter of the <a>CreateDataset</a> operation must match.</p>
+   *       this value and the value specified for the <code>Domain</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
+   *       operation must match.</p>
    *          <p>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the fields
    *       that must be present in training data that you import to a dataset. For example, if you choose
    *       the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as the
    *         <code>DatasetType</code>, Amazon Forecast requires that <code>item_id</code>,
    *         <code>timestamp</code>, and <code>demand</code> fields are present in your data. For more
-   *       information, see <a>howitworks-datasets-groups</a>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Dataset groups</a>.</p>
    */
   Domain: Domain | string | undefined;
 
@@ -1071,7 +1112,8 @@ export interface CreateDatasetImportJobRequest {
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
    *          <p>If encryption is used, <code>DataSource</code> must include an AWS Key Management Service (KMS) key and the
    *       IAM role must allow Amazon Forecast permission to access the key. The KMS key and IAM role must
-   *       match those specified in the <code>EncryptionConfig</code> parameter of the <a>CreateDataset</a> operation.</p>
+   *       match those specified in the <code>EncryptionConfig</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
+   *       operation.</p>
    */
   DataSource: DataSource | undefined;
 
@@ -1211,8 +1253,9 @@ export enum TimeSeriesGranularity {
  *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to “ALL”.
  *             When creating Predictor Explainability, Amazon Forecast considers all time series and
  *             time points.</p>
- *         <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set <code>TimePointGranularity</code> and
- *             <code>TimeSeriesGranularity</code> to either “ALL” or “Specific”.</p>
+ *         <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set
+ *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to either
+ *             “ALL” or “Specific”.</p>
  */
 export interface ExplainabilityConfig {
   /**
@@ -1273,21 +1316,23 @@ export interface CreateExplainabilityRequest {
   Schema?: Schema;
 
   /**
-   * <p>Create an Expainability visualization that is viewable within the AWS console.</p>
+   * <p>Create an Explainability visualization that is viewable within the AWS console.</p>
    */
   EnableVisualization?: boolean;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
    *             point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
+   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *             2015-01-01T20:00:00)</p>
    */
   StartDateTime?: string;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
    *             time point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
+   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *             2015-01-01T20:00:00)</p>
    */
   EndDateTime?: string;
 
@@ -1471,7 +1516,11 @@ export interface CreateForecastRequest {
    *         can currently specify up to 5 quantiles per forecast</b>. Accepted values include
    *         <code>0.01 to 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast
    *       is different from the median (0.50) when the distribution is not symmetric (for example, Beta
-   *       and Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</p>
+   *       and Negative Binomial).
+   *       </p>
+   *          <p>The default quantiles are the quantiles you specified during predictor creation.
+   *       If you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>.
+   *     </p>
    */
   ForecastTypes?: string[];
 
@@ -1624,6 +1673,49 @@ export namespace CreateForecastExportJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMonitorRequest {
+  /**
+   * <p>The name of the monitor resource.</p>
+   */
+  MonitorName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor to monitor.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the monitor resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateMonitorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMonitorRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface CreateMonitorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
+   */
+  MonitorArn?: string;
+}
+
+export namespace CreateMonitorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMonitorResponse): any => ({
     ...obj,
   });
 }
@@ -2804,6 +2896,22 @@ export namespace DeleteForecastExportJobRequest {
   });
 }
 
+export interface DeleteMonitorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource to delete.</p>
+   */
+  MonitorArn: string | undefined;
+}
+
+export namespace DeleteMonitorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMonitorRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeletePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
@@ -2883,13 +2991,13 @@ export interface ExplainabilityInfo {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *                     <code>CREATE_FAILED</code>
+   *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2900,7 +3008,7 @@ export interface ExplainabilityInfo {
    *             <li>
    *                 <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *                     <code>DELETE_FAILED</code>
+   *                         <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2913,6 +3021,57 @@ export namespace ExplainabilityInfo {
    * @internal
    */
   export const filterSensitiveLog = (obj: ExplainabilityInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the monitor resource.</p>
+ */
+export interface MonitorInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
+   */
+  MonitorArn?: string;
+
+  /**
+   * <p>The status of the monitor. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE_STOPPING</code>, <code>ACTIVE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+}
+
+export namespace MonitorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitorInfo): any => ({
     ...obj,
   });
 }
@@ -2979,7 +3138,8 @@ export interface DescribeAutoPredictorResponse {
   ForecastFrequency?: string;
 
   /**
-   * <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
+   * <p>An array of dimension (field) names that specify the attributes used to group your
+   *             time series.</p>
    */
   ForecastDimensions?: string[];
 
@@ -3018,8 +3178,8 @@ export interface DescribeAutoPredictorResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3090,6 +3250,11 @@ export interface DescribeAutoPredictorResponse {
    * <p>Provides the status and ARN of the Predictor Explainability.</p>
    */
   ExplainabilityInfo?: ExplainabilityInfo;
+
+  /**
+   * <p>A  object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
+   */
+  MonitorInfo?: MonitorInfo;
 }
 
 export namespace DescribeAutoPredictorResponse {
@@ -3186,9 +3351,9 @@ export interface DescribeDatasetResponse {
    *             </li>
    *          </ul>
    *          <p>The <code>UPDATE</code> states apply while data is imported to the dataset from a call to
-   *       the <a>CreateDatasetImportJob</a> operation and reflect the status of the dataset
-   *       import job. For example, when the import job status is <code>CREATE_IN_PROGRESS</code>, the
-   *       status of the dataset is <code>UPDATE_IN_PROGRESS</code>.</p>
+   *       the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> operation and reflect the status of the dataset import job.
+   *       For example, when the import job status is <code>CREATE_IN_PROGRESS</code>, the status of the
+   *       dataset is <code>UPDATE_IN_PROGRESS</code>.</p>
    *          <note>
    *             <p>The <code>Status</code> of the dataset must be <code>ACTIVE</code> before you can import
    *         training data.</p>
@@ -3205,8 +3370,9 @@ export interface DescribeDatasetResponse {
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
    *         <code>CreationTime</code>. While data is being imported to the dataset,
    *         <code>LastModificationTime</code> is the current time of the <code>DescribeDataset</code>
-   *       call. After a <a>CreateDatasetImportJob</a> operation has finished,
-   *         <code>LastModificationTime</code> is when the import job completed or failed.</p>
+   *       call. After a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
+   *       operation has finished, <code>LastModificationTime</code> is when the import job completed or
+   *       failed.</p>
    */
   LastModificationTime?: Date;
 }
@@ -3285,7 +3451,8 @@ export interface DescribeDatasetGroupResponse {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The <code>UPDATE</code> states apply when you call the <a>UpdateDatasetGroup</a> operation.</p>
+   *          <p>The <code>UPDATE</code> states apply when you call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a>
+   *       operation.</p>
    *          <note>
    *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
    *         use the dataset group to create a predictor.</p>
@@ -3299,7 +3466,7 @@ export interface DescribeDatasetGroupResponse {
   CreationTime?: Date;
 
   /**
-   * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
+   * <p>When the dataset group was created or last updated from a call to the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation. While the dataset group is being updated,
    *         <code>LastModificationTime</code> is the current time of the
    *         <code>DescribeDatasetGroup</code> call.</p>
    */
@@ -3333,7 +3500,7 @@ export namespace DescribeDatasetImportJobRequest {
 
 /**
  * <p>Provides statistics for each data field imported into to an Amazon Forecast dataset with
- *       the <a>CreateDatasetImportJob</a> operation.</p>
+ *       the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> operation.</p>
  */
 export interface Statistics {
   /**
@@ -3344,19 +3511,19 @@ export interface Statistics {
 
   /**
    * <p>The number of distinct values in the field. If the response value is -1, refer to
-   *       <code>CountDistinctLong</code>.</p>
+   *         <code>CountDistinctLong</code>.</p>
    */
   CountDistinct?: number;
 
   /**
    * <p>The number of null values in the field. If the response value is -1, refer to
-   *       <code>CountNullLong</code>.</p>
+   *         <code>CountNullLong</code>.</p>
    */
   CountNull?: number;
 
   /**
-   * <p>The number of NAN (not a number) values in the field. If the response value is -1, refer to
-   *       <code>CountNanLong</code>.</p>
+   * <p>The number of NAN (not a number) values in the field. If the response value is -1, refer
+   *       to <code>CountNanLong</code>.</p>
    */
   CountNan?: number;
 
@@ -3649,8 +3816,8 @@ export interface DescribeExplainabilityResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3765,8 +3932,8 @@ export interface DescribeExplainabilityExportResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4075,6 +4242,152 @@ export namespace DescribeForecastExportJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMonitorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource to describe.</p>
+   */
+  MonitorArn: string | undefined;
+}
+
+export namespace DescribeMonitorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeMonitorRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An individual metric that you can use for comparison as you evaluate your monitoring results.</p>
+ */
+export interface BaselineMetric {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The value for the metric.</p>
+   */
+  Value?: number;
+}
+
+export namespace BaselineMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
+ */
+export interface PredictorBaseline {
+  /**
+   * <p>The initial <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">accuracy metrics</a> for the predictor. Use these metrics as a baseline for comparison purposes as you
+   *          use your predictor and the metrics change.</p>
+   */
+  BaselineMetrics?: BaselineMetric[];
+}
+
+export namespace PredictorBaseline {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictorBaseline): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
+ */
+export interface Baseline {
+  /**
+   * <p>The initial <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">accuracy metrics</a> for the predictor you are monitoring. Use these metrics as a baseline for comparison purposes as you
+   *          use your predictor and the metrics change.</p>
+   */
+  PredictorBaseline?: PredictorBaseline;
+}
+
+export namespace Baseline {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Baseline): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMonitorResponse {
+  /**
+   * <p>The name of the monitor.</p>
+   */
+  MonitorName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource described.</p>
+   */
+  MonitorArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the auto predictor being monitored.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The status of the monitor resource.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The timestamp of the latest evaluation completed by the monitor.</p>
+   */
+  LastEvaluationTime?: Date;
+
+  /**
+   * <p>The state of the monitor's latest evaluation.</p>
+   */
+  LastEvaluationState?: string;
+
+  /**
+   * <p>Metrics you can use as a baseline for comparison purposes. Use these values you interpret monitoring results for an auto predictor.</p>
+   */
+  Baseline?: Baseline;
+
+  /**
+   * <p>An error message, if any, for the monitor.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The timestamp for when the monitor resource was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp of the latest modification to the monitor.</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>The estimated number of minutes remaining before the monitor resource finishes its current evaluation.</p>
+   */
+  EstimatedEvaluationTimeRemainingInMinutes?: number;
+}
+
+export namespace DescribeMonitorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeMonitorResponse): any => ({
     ...obj,
   });
 }
@@ -4801,9 +5114,9 @@ export namespace ListDatasetGroupsRequest {
 }
 
 /**
- * <p>Provides a summary of the dataset group properties used in the <a>ListDatasetGroups</a> operation. To get the complete set of properties, call the
- *         <a>DescribeDatasetGroup</a> operation, and provide the
- *         <code>DatasetGroupArn</code>.</p>
+ * <p>Provides a summary of the dataset group properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a> operation. To
+ *       get the complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
+ *       operation, and provide the <code>DatasetGroupArn</code>.</p>
  */
 export interface DatasetGroupSummary {
   /**
@@ -4822,7 +5135,7 @@ export interface DatasetGroupSummary {
   CreationTime?: Date;
 
   /**
-   * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
+   * <p>When the dataset group was created or last updated from a call to the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation. While the dataset group is being updated,
    *         <code>LastModificationTime</code> is the current time of the <code>ListDatasetGroups</code>
    *       call.</p>
    */
@@ -4940,8 +5253,7 @@ export interface ListDatasetImportJobsRequest {
    *          <p>For example, to list all dataset import jobs whose status is ACTIVE, you specify the
    *       following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" }
-   *       ]</code>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
    *          </p>
    */
   Filters?: Filter[];
@@ -4957,8 +5269,8 @@ export namespace ListDatasetImportJobsRequest {
 }
 
 /**
- * <p>Provides a summary of the dataset import job properties used in the <a>ListDatasetImportJobs</a> operation. To get the complete set of properties, call the
- *         <a>DescribeDatasetImportJob</a> operation, and provide the
+ * <p>Provides a summary of the dataset import job properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a> operation. To get the complete set of properties, call the
+ *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> operation, and provide the
  *         <code>DatasetImportJobArn</code>.</p>
  */
 export interface DatasetImportJobSummary {
@@ -5103,9 +5415,9 @@ export namespace ListDatasetsRequest {
 }
 
 /**
- * <p>Provides a summary of the dataset properties used in the <a>ListDatasets</a>
- *       operation. To get the complete set of properties, call the <a>DescribeDataset</a>
- *       operation, and provide the <code>DatasetArn</code>.</p>
+ * <p>Provides a summary of the dataset properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation. To get the
+ *       complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation, and
+ *       provide the <code>DatasetArn</code>.</p>
  */
 export interface DatasetSummary {
   /**
@@ -5137,8 +5449,8 @@ export interface DatasetSummary {
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
    *         <code>CreationTime</code>. While data is being imported to the dataset,
    *         <code>LastModificationTime</code> is the current time of the <code>ListDatasets</code> call.
-   *       After a <a>CreateDatasetImportJob</a> operation has finished,
-   *         <code>LastModificationTime</code> is when the import job completed or failed.</p>
+   *       After a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> operation has finished, <code>LastModificationTime</code> is
+   *       when the import job completed or failed.</p>
    */
   LastModificationTime?: Date;
 }
@@ -5257,8 +5569,8 @@ export interface ExplainabilitySummary {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5431,8 +5743,8 @@ export interface ExplainabilityExportSummary {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5901,6 +6213,397 @@ export namespace ListForecastsResponse {
   });
 }
 
+export interface ListMonitorEvaluationsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *          <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *          request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of monitoring results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
+   */
+  MonitorArn: string | undefined;
+
+  /**
+   * <p>An array of filters. For each filter, provide a condition and a match statement. The
+   *          condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *          include or exclude the resources that match the statement from the list. The match
+   *          statement consists of a key and a value.</p>
+   *          <p>
+   *             <b>Filter properties</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are
+   *                <code>IS</code> and <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. The only valid value is
+   *                <code>EvaluationState</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, to list only successful monitor evaluations, you would specify:</p>
+   *          <p>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListMonitorEvaluationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitorEvaluationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An individual metric Forecast calculated when monitoring predictor usage. You can compare the value for this metric to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
+ *          <p>For more information about metrics generated by Forecast see <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Evaluating Predictor Accuracy</a>
+ *          </p>
+ */
+export interface MetricResult {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The value for the metric.</p>
+   */
+  MetricValue?: number;
+}
+
+export namespace MetricResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The source of the data the monitor used during the evaluation.</p>
+ */
+export interface MonitorDataSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset import job used to import the data that initiated the monitor evaluation.</p>
+   */
+  DatasetImportJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the forecast the monitor used during the evaluation.</p>
+   */
+  ForecastArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor resource you are monitoring.</p>
+   */
+  PredictorArn?: string;
+}
+
+export namespace MonitorDataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitorDataSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about a predictor event, such as a retraining.</p>
+ */
+export interface PredictorEvent {
+  /**
+   * <p>The type of event. For example, <code>Retrain</code>. A retraining event denotes the timepoint when a predictor was retrained. Any monitor results from before the <code>Datetime</code> are from the previous predictor. Any new metrics are for the newly retrained predictor.</p>
+   */
+  Detail?: string;
+
+  /**
+   * <p>The timestamp for when the event occurred.</p>
+   */
+  Datetime?: Date;
+}
+
+export namespace PredictorEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictorEvent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the results of a monitor evaluation.</p>
+ */
+export interface PredictorMonitorEvaluation {
+  ResourceArn?: string;
+  MonitorArn?: string;
+  /**
+   * <p>The timestamp that indicates when the monitor evaluation was started. </p>
+   */
+  EvaluationTime?: Date;
+
+  /**
+   * <p>The status of the monitor evaluation. The state can be <code>SUCCESS</code> or <code>FAILURE</code>.</p>
+   */
+  EvaluationState?: string;
+
+  /**
+   * <p>The timestamp that indicates the start of the window that is used for monitor evaluation.</p>
+   */
+  WindowStartDatetime?: Date;
+
+  /**
+   * <p>The timestamp that indicates the end of the window that is used for monitor evaluation.</p>
+   */
+  WindowEndDatetime?: Date;
+
+  /**
+   * <p>Provides details about a predictor event, such as a retraining.</p>
+   */
+  PredictorEvent?: PredictorEvent;
+
+  /**
+   * <p>The source of the data the monitor resource used during the evaluation.</p>
+   */
+  MonitorDataSource?: MonitorDataSource;
+
+  /**
+   * <p>A list of metrics Forecast calculated when monitoring a predictor. You can compare the value for each metric in the list to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
+   */
+  MetricResults?: MetricResult[];
+
+  /**
+   * <p>The number of items considered during the evaluation.</p>
+   */
+  NumItemsEvaluated?: number;
+
+  /**
+   * <p>Information about any errors that may have occurred during the monitor evaluation.</p>
+   */
+  Message?: string;
+}
+
+export namespace PredictorMonitorEvaluation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictorMonitorEvaluation): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitorEvaluationsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
+   *          results, use the token in the next request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The monitoring results and predictor events collected by the monitor resource during different windows of time.</p>
+   *          <p>For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>. For more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
+   */
+  PredictorMonitorEvaluations?: PredictorMonitorEvaluation[];
+}
+
+export namespace ListMonitorEvaluationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitorEvaluationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitorsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *          <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *          request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of monitors to include in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, provide a condition and a match statement. The
+   *          condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *          include or exclude the resources that match the statement from the list. The match
+   *          statement consists of a key and a value.</p>
+   *          <p>
+   *             <b>Filter properties</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are
+   *                <code>IS</code> and <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. The only valid value is
+   *                <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, to list all monitors who's status is ACTIVE, you would specify:</p>
+   *          <p>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListMonitorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitorsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a summary of the monitor properties used in the <a>ListMonitors</a> operation. To get a complete set of properties,
+ *          call the <a>DescribeMonitor</a> operation, and provide the listed
+ *          <code>MonitorArn</code>.</p>
+ */
+export interface MonitorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
+   */
+  MonitorArn?: string;
+
+  /**
+   * <p>The name of the monitor resource.</p>
+   */
+  MonitorName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor being monitored.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The status of the monitor. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE_STOPPING</code>, <code>ACTIVE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>When the monitor resource was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the monitor resource was modified. The timestamp depends on the status of the
+   *          job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code> - When the resource stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the monitor creation finished or
+   *                failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace MonitorSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitorSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitorsResponse {
+  /**
+   * <p>An array of objects that summarize each monitor's properties.</p>
+   */
+  Monitors?: MonitorSummary[];
+
+  /**
+   * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
+   *          results, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMonitorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitorsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListPredictorBacktestExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6299,6 +7002,22 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ResumeResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ResumeResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResumeResourceRequest): any => ({
+    ...obj,
   });
 }
 

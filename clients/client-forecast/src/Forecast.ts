@@ -42,6 +42,11 @@ import {
   CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
 import {
+  CreateMonitorCommand,
+  CreateMonitorCommandInput,
+  CreateMonitorCommandOutput,
+} from "./commands/CreateMonitorCommand";
+import {
   CreatePredictorBacktestExportJobCommand,
   CreatePredictorBacktestExportJobCommandInput,
   CreatePredictorBacktestExportJobCommandOutput,
@@ -86,6 +91,11 @@ import {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
+import {
+  DeleteMonitorCommand,
+  DeleteMonitorCommandInput,
+  DeleteMonitorCommandOutput,
+} from "./commands/DeleteMonitorCommand";
 import {
   DeletePredictorBacktestExportJobCommand,
   DeletePredictorBacktestExportJobCommandInput,
@@ -142,6 +152,11 @@ import {
   DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
 import {
+  DescribeMonitorCommand,
+  DescribeMonitorCommandInput,
+  DescribeMonitorCommandOutput,
+} from "./commands/DescribeMonitorCommand";
+import {
   DescribePredictorBacktestExportJobCommand,
   DescribePredictorBacktestExportJobCommandInput,
   DescribePredictorBacktestExportJobCommandOutput,
@@ -192,6 +207,16 @@ import {
   ListForecastsCommandOutput,
 } from "./commands/ListForecastsCommand";
 import {
+  ListMonitorEvaluationsCommand,
+  ListMonitorEvaluationsCommandInput,
+  ListMonitorEvaluationsCommandOutput,
+} from "./commands/ListMonitorEvaluationsCommand";
+import {
+  ListMonitorsCommand,
+  ListMonitorsCommandInput,
+  ListMonitorsCommandOutput,
+} from "./commands/ListMonitorsCommand";
+import {
   ListPredictorBacktestExportJobsCommand,
   ListPredictorBacktestExportJobsCommandInput,
   ListPredictorBacktestExportJobsCommandOutput,
@@ -206,6 +231,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ResumeResourceCommand,
+  ResumeResourceCommandInput,
+  ResumeResourceCommandOutput,
+} from "./commands/ResumeResourceCommand";
 import {
   StopResourceCommand,
   StopResourceCommandInput,
@@ -232,11 +262,13 @@ export class Forecast extends ForecastClient {
    * <p>Creates an Amazon Forecast predictor.</p>
    *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
    *             optimal combination of algorithms to each time series in your datasets. You can use
-   *             <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain existing
-   *             predictors.</p>
+   *                 <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain
+   *             existing predictors.</p>
+   *
    *         <p>
    *             <b>Creating new predictors</b>
    *          </p>
+   *
    *         <p>The following parameters are required when creating a new predictor:</p>
    *         <ul>
    *             <li>
@@ -255,15 +287,15 @@ export class Forecast extends ForecastClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ForecastHorizon</code> - The number of time steps being
-   *                     forecasted.</p>
+   *                   <code>ForecastHorizon</code> - The number of time-steps that the model
+   *                     predicts. The forecast horizon is also called the prediction length.</p>
    *             </li>
    *          </ul>
    *         <p>When creating a new predictor, do not specify a value for
    *                 <code>ReferencePredictorArn</code>.</p>
    *         <p>
    *             <b>Upgrading and retraining predictors</b>
-   *          </p>
+   *         </p>
    *         <p>The following parameters are required when retraining or upgrading a predictor:</p>
    *         <ul>
    *             <li>
@@ -342,14 +374,14 @@ export class Forecast extends ForecastClient {
    *          </ul>
    *          <p>After creating a dataset, you import your training data into it and add the dataset to a
    *       dataset group. You use the dataset group to create a predictor. For more information, see
-   *         <a>howitworks-datasets-groups</a>.</p>
-   *          <p>To get a list of all your datasets, use the <a>ListDatasets</a>
-   *       operation.</p>
+   *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing datasets</a>.</p>
+   *          <p>To get a list of all your datasets, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation.</p>
    *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon Forecast Sample GitHub
    *         repository</a>.</p>
    *          <note>
    *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
-   *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
+   *         training data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation to get
+   *         the status.</p>
    *          </note>
    */
   public createDataset(
@@ -383,14 +415,14 @@ export class Forecast extends ForecastClient {
 
   /**
    * <p>Creates a dataset group, which holds a collection of related datasets. You can add
-   *       datasets to the dataset group when you create the dataset group, or later by using the <a>UpdateDatasetGroup</a> operation.</p>
+   *       datasets to the dataset group when you create the dataset group, or later by using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation.</p>
    *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
-   *       create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p>
-   *          <p>To get a list of all your datasets groups, use the <a>ListDatasetGroups</a>
+   *       create a predictor. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Dataset groups</a>.</p>
+   *          <p>To get a list of all your datasets groups, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
    *       operation.</p>
    *          <note>
    *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
-   *         use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+   *         use the dataset group to create a predictor. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> operation.</p>
    *          </note>
    */
   public createDatasetGroup(
@@ -426,9 +458,10 @@ export class Forecast extends ForecastClient {
    * <p>Imports your training data to an Amazon Forecast dataset. You provide the location of your
    *       training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
    *       that you want to import the data to.</p>
-   *          <p>You must specify a <a>DataSource</a> object that includes an AWS Identity and Access Management (IAM)
-   *       role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy of your data and
-   *       processes it in an internal AWS system. For more information, see <a>aws-forecast-iam-roles</a>.</p>
+   *          <p>You must specify a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html">DataSource</a> object that includes an
+   *       AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
+   *       of your data and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set up
+   *         permissions</a>.</p>
    *          <p>The training data must be in CSV format. The delimiter must be a comma (,).</p>
    *          <p>You can specify the path to a specific CSV file, the S3 bucket, or to a folder in the S3
    *       bucket. For the latter two cases, Amazon Forecast imports all files up to the limit of 10,000
@@ -442,7 +475,7 @@ export class Forecast extends ForecastClient {
    *
    *
    *          <p>To get a list of all your dataset import jobs, filtered by specified criteria, use the
-   *         <a>ListDatasetImportJobs</a> operation.</p>
+   *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a> operation.</p>
    */
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
@@ -492,7 +525,7 @@ export class Forecast extends ForecastClient {
    *             provide a Forecast ARN.</p>
    *         <p>
    *             <b>CreateExplainability with a Predictor ARN</b>
-   *          </p>
+   *         </p>
    *         <note>
    *             <p>You can only have one Explainability resource per predictor. If you already
    *                 enabled <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that
@@ -542,7 +575,7 @@ export class Forecast extends ForecastClient {
    *          </ul>
    *         <p>
    *             <b>CreateExplainability with a Forecast ARN</b>
-   *          </p>
+   *         </p>
    *         <note>
    *             <p>You can specify a maximum of 50 time series and 500 time points.</p>
    *         </note>
@@ -759,6 +792,40 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
+   *            For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.
+   *        </p>
+   */
+  public createMonitor(
+    args: CreateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitorCommandOutput>;
+  public createMonitor(
+    args: CreateMonitorCommandInput,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
+  public createMonitor(
+    args: CreateMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
+  public createMonitor(
+    args: CreateMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMonitorCommandOutput) => void),
+    cb?: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): Promise<CreateMonitorCommandOutput> | void {
+    const command = new CreateMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
    *             <p> This operation creates a legacy predictor that does not include all the predictor
    *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
@@ -899,14 +966,13 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>
-   *       operation. You can only delete datasets that have a status of <code>ACTIVE</code> or
-   *         <code>CREATE_FAILED</code>. To get the status use the <a>DescribeDataset</a>
-   *       operation.</p>
+   * <p>Deletes an Amazon Forecast dataset that was created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation. You can
+   *       only delete datasets that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+   *       To get the status use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation.</p>
    *          <note>
    *             <p>Forecast does not automatically update any dataset groups that contain the deleted dataset.
-   *         In order to update the dataset group, use the
-   *         operation, omitting the deleted dataset's ARN.</p>
+   *         In order to update the dataset group, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation,
+   *         omitting the deleted dataset's ARN.</p>
    *          </note>
    */
   public deleteDataset(
@@ -939,9 +1005,9 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation.
+   * <p>Deletes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
    *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
-   *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+   *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> operation.</p>
    *          <p>This operation deletes only the dataset group, not the datasets in the group.</p>
    */
   public deleteDatasetGroup(
@@ -974,9 +1040,10 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Deletes a dataset import job created using the <a>CreateDatasetImportJob</a>
+   * <p>Deletes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
    *       operation. You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
-   *       or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeDatasetImportJob</a> operation.</p>
+   *       or <code>CREATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
+   *       operation.</p>
    */
   public deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
@@ -1133,6 +1200,38 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: DeleteForecastExportJobCommandOutput) => void
   ): Promise<DeleteForecastExportJobCommandOutput> | void {
     const command = new DeleteForecastExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a monitor resource. You can only delete a monitor resource with a status of <code>ACTIVE</code>, <code>ACTIVE_STOPPED</code>, <code>CREATE_FAILED</code>, or <code>CREATE_STOPPED</code>.</p>
+   */
+  public deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitorCommandOutput>;
+  public deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
+  public deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
+  public deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMonitorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): Promise<DeleteMonitorCommandOutput> | void {
+    const command = new DeleteMonitorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1304,8 +1403,7 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
-   *       operation.</p>
+   * <p>Describes an Amazon Forecast dataset created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation.</p>
    *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
    *       this operation includes the following dataset properties:</p>
    *          <ul>
@@ -1356,7 +1454,7 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Describes a dataset group created using the <a>CreateDatasetGroup</a>
+   * <p>Describes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
    *       request, this operation includes the following properties:</p>
@@ -1412,7 +1510,7 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Describes a dataset import job created using the <a>CreateDatasetImportJob</a>
+   * <p>Describes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
    *       request, this operation includes the following properties:</p>
@@ -1658,6 +1756,75 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Baseline</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastEvaluationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastEvaluationState</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastModificationTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Message</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeMonitor(
+    args: DescribeMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMonitorCommandOutput>;
+  public describeMonitor(
+    args: DescribeMonitorCommandInput,
+    cb: (err: any, data?: DescribeMonitorCommandOutput) => void
+  ): void;
+  public describeMonitor(
+    args: DescribeMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMonitorCommandOutput) => void
+  ): void;
+  public describeMonitor(
+    args: DescribeMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMonitorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMonitorCommandOutput) => void
+  ): Promise<DescribeMonitorCommandOutput> | void {
+    const command = new DescribeMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
    *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
    *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
@@ -1833,10 +2000,11 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>
-   *       operation. For each dataset group, this operation returns a summary of its properties,
-   *       including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
-   *       using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.</p>
+   * <p>Returns a list of dataset groups created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
+   *       For each dataset group, this operation returns a summary of its properties, including its
+   *       Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
+   *       dataset group ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
+   *       operation.</p>
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1868,10 +2036,11 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a> operation. For each import job, this operation returns a
-   *       summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the
-   *       complete set of properties by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter the list by providing an array of <a>Filter</a>
-   *       objects.</p>
+   * <p>Returns a list of dataset import jobs created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
+   *       operation. For each import job, this operation returns a summary of its properties, including
+   *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
+   *       ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
+   *       operation. You can filter the list by providing an array of <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html">Filter</a> objects.</p>
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1903,9 +2072,9 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Returns a list of datasets created using the <a>CreateDataset</a> operation.
-   *       For each dataset, a summary of its properties, including its Amazon Resource Name (ARN), is
-   *       returned. To retrieve the complete set of properties, use the ARN with the <a>DescribeDataset</a> operation.</p>
+   * <p>Returns a list of datasets created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation. For each
+   *       dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned.
+   *       To retrieve the complete set of properties, use the ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation.</p>
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -2076,6 +2245,70 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Returns a list of the monitoring evaluation results and predictor events collected by
+   *          the monitor resource during different windows of time.</p>
+   *          <p>For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>. For more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
+   */
+  public listMonitorEvaluations(
+    args: ListMonitorEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorEvaluationsCommandOutput>;
+  public listMonitorEvaluations(
+    args: ListMonitorEvaluationsCommandInput,
+    cb: (err: any, data?: ListMonitorEvaluationsCommandOutput) => void
+  ): void;
+  public listMonitorEvaluations(
+    args: ListMonitorEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMonitorEvaluationsCommandOutput) => void
+  ): void;
+  public listMonitorEvaluations(
+    args: ListMonitorEvaluationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitorEvaluationsCommandOutput) => void),
+    cb?: (err: any, data?: ListMonitorEvaluationsCommandOutput) => void
+  ): Promise<ListMonitorEvaluationsCommandOutput> | void {
+    const command = new ListMonitorEvaluationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of monitors created with the <a>CreateMonitor</a> operation and <a>CreateAutoPredictor</a> operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You
+   *          can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the <a>DescribeMonitor</a> operation.</p>
+   */
+  public listMonitors(
+    args: ListMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorsCommandOutput>;
+  public listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
+  public listMonitors(
+    args: ListMonitorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): void;
+  public listMonitors(
+    args: ListMonitorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitorsCommandOutput) => void),
+    cb?: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): Promise<ListMonitorsCommandOutput> | void {
+    const command = new ListMonitorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
    *             summary for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
    *         <p>To retrieve the complete set of properties for a particular backtest export job, use
@@ -2168,6 +2401,38 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Resumes a stopped monitor resource.</p>
+   */
+  public resumeResource(
+    args: ResumeResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeResourceCommandOutput>;
+  public resumeResource(
+    args: ResumeResourceCommandInput,
+    cb: (err: any, data?: ResumeResourceCommandOutput) => void
+  ): void;
+  public resumeResource(
+    args: ResumeResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeResourceCommandOutput) => void
+  ): void;
+  public resumeResource(
+    args: ResumeResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeResourceCommandOutput) => void),
+    cb?: (err: any, data?: ResumeResourceCommandOutput) => void
+  ): Promise<ResumeResourceCommandOutput> | void {
+    const command = new ResumeResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2300,7 +2565,7 @@ export class Forecast extends ForecastClient {
    * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
    *          <note>
    *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
-   *         use the dataset group to create a predictor. Use the <a>DescribeDatasetGroup</a>
+   *         use the dataset group to create a predictor. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
    *         operation to get the status.</p>
    *          </note>
    */

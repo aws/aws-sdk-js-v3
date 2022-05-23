@@ -26,7 +26,7 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
  *          <note>
  *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
- *         use the dataset group to create a predictor. Use the <a>DescribeDatasetGroup</a>
+ *         use the dataset group to create a predictor. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
  *         operation to get the status.</p>
  *          </note>
  * @example

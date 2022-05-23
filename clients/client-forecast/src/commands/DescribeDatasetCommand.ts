@@ -23,8 +23,7 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
- *       operation.</p>
+ * <p>Describes an Amazon Forecast dataset created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation.</p>
  *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
  *       this operation includes the following dataset properties:</p>
  *          <ul>

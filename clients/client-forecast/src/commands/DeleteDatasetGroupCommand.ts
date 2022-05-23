@@ -23,9 +23,9 @@ export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupReques
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation.
+ * <p>Deletes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
  *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
- *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+ *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> operation.</p>
  *          <p>This operation deletes only the dataset group, not the datasets in the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

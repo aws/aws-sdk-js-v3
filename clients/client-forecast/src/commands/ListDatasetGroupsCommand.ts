@@ -23,10 +23,11 @@ export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest 
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>
- *       operation. For each dataset group, this operation returns a summary of its properties,
- *       including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
- *       using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.</p>
+ * <p>Returns a list of dataset groups created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
+ *       For each dataset group, this operation returns a summary of its properties, including its
+ *       Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
+ *       dataset group ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
+ *       operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

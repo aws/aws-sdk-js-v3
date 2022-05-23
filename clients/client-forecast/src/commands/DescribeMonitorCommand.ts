@@ -13,24 +13,36 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/models_0";
+import { DescribeMonitorRequest, DescribeMonitorResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDatasetImportJobCommand,
-  serializeAws_json1_1DescribeDatasetImportJobCommand,
+  deserializeAws_json1_1DescribeMonitorCommand,
+  serializeAws_json1_1DescribeMonitorCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImportJobRequest {}
-export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
+export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
+export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
- *       operation.</p>
- *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
- *       request, this operation includes the following properties:</p>
+ * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
  *          <ul>
  *             <li>
  *                <p>
+ *                   <code>Baseline</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastEvaluationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastEvaluationState</code>
  *                </p>
  *             </li>
  *             <li>
@@ -40,12 +52,7 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DataSize</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FieldStatistics</code>
+ *                   <code>Message</code>
  *                </p>
  *             </li>
  *             <li>
@@ -53,35 +60,31 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  *                   <code>Status</code>
  *                </p>
  *             </li>
- *             <li>
- *                <p>
- *                   <code>Message</code> - If an error occurred, information about the error.</p>
- *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, DescribeMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const command = new DescribeDatasetImportJobCommand(input);
+ * const command = new DescribeMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
- * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
+ * @see {@link DescribeMonitorCommandInput} for command's `input` shape.
+ * @see {@link DescribeMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
-export class DescribeDatasetImportJobCommand extends $Command<
-  DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput,
+export class DescribeMonitorCommand extends $Command<
+  DescribeMonitorCommandInput,
+  DescribeMonitorCommandOutput,
   ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeDatasetImportJobCommandInput) {
+  constructor(readonly input: DescribeMonitorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -94,20 +97,20 @@ export class DescribeDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDatasetImportJobCommandInput, DescribeDatasetImportJobCommandOutput> {
+  ): Handler<DescribeMonitorCommandInput, DescribeMonitorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ForecastClient";
-    const commandName = "DescribeDatasetImportJobCommand";
+    const commandName = "DescribeMonitorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetImportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMonitorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMonitorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,12 @@ export class DescribeDatasetImportJobCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetImportJobCommand(input, context);
+  private serialize(input: DescribeMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeMonitorCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMonitorCommandOutput> {
+    return deserializeAws_json1_1DescribeMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra
