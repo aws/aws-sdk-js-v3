@@ -3147,6 +3147,9 @@ export interface RecommenderUpdateSummary {
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *             <li>
+   *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+   *             </li>
+   *             <li>
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
@@ -3217,6 +3220,9 @@ export interface Recommender {
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *             <li>
+   *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+   *             </li>
+   *             <li>
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
@@ -3232,6 +3238,14 @@ export interface Recommender {
    * <p>Provides a summary of the latest updates to the recommender. </p>
    */
   latestRecommenderUpdate?: RecommenderUpdateSummary;
+
+  /**
+   * <p>Provides evaluation metrics that help you determine the performance
+   *     of a recommender. For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html">
+   *         Evaluating a recommender</a>.</p>
+   */
+  modelMetrics?: { [key: string]: number };
 }
 
 export namespace Recommender {
@@ -3735,7 +3749,10 @@ export interface GetSolutionMetricsResponse {
   solutionVersionArn?: string;
 
   /**
-   * <p>The metrics for the solution version.</p>
+   * <p>The metrics for the solution version. For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html">
+   *         Evaluating a solution version with metrics
+   *       </a>.</p>
    */
   metrics?: { [key: string]: number };
 }
@@ -4879,6 +4896,9 @@ export interface RecommenderSummary {
    *          <ul>
    *             <li>
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
    *             </li>
    *             <li>
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>

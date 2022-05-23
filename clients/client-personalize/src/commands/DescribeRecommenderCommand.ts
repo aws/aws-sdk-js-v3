@@ -30,11 +30,16 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
  *             </li>
  *             <li>
+ *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+ *             </li>
+ *             <li>
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
  *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
  *       <code>failureReason</code> key, which describes why.</p>
+ *          <p>The <code>modelMetrics</code> key is null when
+ *       the recommender is being created or deleted.</p>
  *          <p>For more information on recommenders, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html">CreateRecommender</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

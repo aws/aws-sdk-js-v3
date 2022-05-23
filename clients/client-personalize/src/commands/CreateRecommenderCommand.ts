@@ -63,6 +63,9 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
  *             </li>
  *             <li>
+ *                <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+ *             </li>
+ *             <li>
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>

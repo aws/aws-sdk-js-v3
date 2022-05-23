@@ -1655,6 +1655,9 @@ const deserializeAws_json1_1CreateRecommenderCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
       throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -6645,6 +6648,10 @@ const deserializeAws_json1_1Recommender = (output: any, context: __SerdeContext)
     latestRecommenderUpdate:
       output.latestRecommenderUpdate !== undefined && output.latestRecommenderUpdate !== null
         ? deserializeAws_json1_1RecommenderUpdateSummary(output.latestRecommenderUpdate, context)
+        : undefined,
+    modelMetrics:
+      output.modelMetrics !== undefined && output.modelMetrics !== null
+        ? deserializeAws_json1_1Metrics(output.modelMetrics, context)
         : undefined,
     name: __expectString(output.name),
     recipeArn: __expectString(output.recipeArn),
