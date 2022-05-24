@@ -269,6 +269,11 @@ import {
   ListCoreNetworksCommandOutput,
 } from "./commands/ListCoreNetworksCommand";
 import {
+  ListOrganizationServiceAccessStatusCommand,
+  ListOrganizationServiceAccessStatusCommandInput,
+  ListOrganizationServiceAccessStatusCommandOutput,
+} from "./commands/ListOrganizationServiceAccessStatusCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -298,6 +303,11 @@ import {
   RestoreCoreNetworkPolicyVersionCommandInput,
   RestoreCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/RestoreCoreNetworkPolicyVersionCommand";
+import {
+  StartOrganizationServiceAccessUpdateCommand,
+  StartOrganizationServiceAccessUpdateCommandInput,
+  StartOrganizationServiceAccessUpdateCommandOutput,
+} from "./commands/StartOrganizationServiceAccessUpdateCommand";
 import {
   StartRouteAnalysisCommand,
   StartRouteAnalysisCommandInput,
@@ -344,8 +354,7 @@ import {
 import { NetworkManagerClient } from "./NetworkManagerClient";
 
 /**
- * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
- *             Amazon Web Services and on-premises networks that are built around transit gateways.</p>
+ * <p>Amazon Web Services enables you to centrally manage your Amazon Web Services Cloud WAN core network and your Transit Gateway network across Amazon Web Services accounts, Regions, and on-premises locations.</p>
  */
 export class NetworkManager extends NetworkManagerClient {
   /**
@@ -421,8 +430,8 @@ export class NetworkManager extends NetworkManagerClient {
    * <p>Associates a customer gateway with a device and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
    *         <p>You can only associate customer gateways that are connected to a VPN attachment on a
-   *             transit gateway. The transit gateway must be registered in your global network. When
-   *             you register a transit gateway, customer gateways that are connected to the transit
+   *             transit gateway or core network registered in your global network. When you register a
+   *             transit gateway or core network, customer gateways that are connected to the transit
    *             gateway are automatically included in the global network. To list customer gateways
    *             that are connected to a transit gateway, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html">DescribeVpnConnections</a> EC2 API and filter by
    *                 <code>transit-gateway-id</code>.</p>
@@ -593,7 +602,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Creates a core network connect peer for a specified core network connect attachment between a core network and an appliance.
+   * <p>Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
    *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
    */
   public createConnectPeer(
@@ -772,7 +781,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Creates a site-to-site VPN attachment on an edge location of a core network.</p>
+   * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
    */
   public createSiteToSiteVpnAttachment(
     args: CreateSiteToSiteVpnAttachmentCommandInput,
@@ -1027,7 +1036,7 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    * <p>Deletes an existing global network. You must first delete all global network objects
-   *             (devices, links, and sites) and deregister all transit gateways.</p>
+   *             (devices, links, and sites), deregister all transit gateways, and delete any core networks.</p>
    */
   public deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
@@ -1503,7 +1512,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Returns information about a core network. By default it returns the LIVE policy.</p>
+   * <p>Returns information about the LIVE policy for a core network.</p>
    */
   public getCoreNetwork(
     args: GetCoreNetworkCommandInput,
@@ -2227,6 +2236,35 @@ export class NetworkManager extends NetworkManagerClient {
     }
   }
 
+  public listOrganizationServiceAccessStatus(
+    args: ListOrganizationServiceAccessStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationServiceAccessStatusCommandOutput>;
+  public listOrganizationServiceAccessStatus(
+    args: ListOrganizationServiceAccessStatusCommandInput,
+    cb: (err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void
+  ): void;
+  public listOrganizationServiceAccessStatus(
+    args: ListOrganizationServiceAccessStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void
+  ): void;
+  public listOrganizationServiceAccessStatus(
+    args: ListOrganizationServiceAccessStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void),
+    cb?: (err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void
+  ): Promise<ListOrganizationServiceAccessStatusCommandOutput> | void {
+    const command = new ListOrganizationServiceAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Lists the tags for a specified resource.</p>
    */
@@ -2411,6 +2449,35 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void
   ): Promise<RestoreCoreNetworkPolicyVersionCommandOutput> | void {
     const command = new RestoreCoreNetworkPolicyVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public startOrganizationServiceAccessUpdate(
+    args: StartOrganizationServiceAccessUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOrganizationServiceAccessUpdateCommandOutput>;
+  public startOrganizationServiceAccessUpdate(
+    args: StartOrganizationServiceAccessUpdateCommandInput,
+    cb: (err: any, data?: StartOrganizationServiceAccessUpdateCommandOutput) => void
+  ): void;
+  public startOrganizationServiceAccessUpdate(
+    args: StartOrganizationServiceAccessUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOrganizationServiceAccessUpdateCommandOutput) => void
+  ): void;
+  public startOrganizationServiceAccessUpdate(
+    args: StartOrganizationServiceAccessUpdateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartOrganizationServiceAccessUpdateCommandOutput) => void),
+    cb?: (err: any, data?: StartOrganizationServiceAccessUpdateCommandOutput) => void
+  ): Promise<StartOrganizationServiceAccessUpdateCommandOutput> | void {
+    const command = new StartOrganizationServiceAccessUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

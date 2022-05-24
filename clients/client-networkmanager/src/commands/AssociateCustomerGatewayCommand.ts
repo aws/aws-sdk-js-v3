@@ -26,8 +26,8 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * <p>Associates a customer gateway with a device and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *         <p>You can only associate customer gateways that are connected to a VPN attachment on a
- *             transit gateway. The transit gateway must be registered in your global network. When
- *             you register a transit gateway, customer gateways that are connected to the transit
+ *             transit gateway or core network registered in your global network. When you register a
+ *             transit gateway or core network, customer gateways that are connected to the transit
  *             gateway are automatically included in the global network. To list customer gateways
  *             that are connected to a transit gateway, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html">DescribeVpnConnections</a> EC2 API and filter by
  *                 <code>transit-gateway-id</code>.</p>

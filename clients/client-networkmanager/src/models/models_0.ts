@@ -403,6 +403,20 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export interface AccountStatus {
+  AccountId?: string;
+  SLRDeploymentStatus?: string;
+}
+
+export namespace AccountStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccountStatus): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateConnectPeerRequest {
   /**
    * <p>The ID of your global network.</p>
@@ -2170,7 +2184,7 @@ export enum GlobalNetworkState {
 }
 
 /**
- * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-manged Core Network.</p>
+ * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-managed Core Network.</p>
  */
 export interface GlobalNetwork {
   /**
@@ -5718,6 +5732,50 @@ export namespace ListCoreNetworksResponse {
   });
 }
 
+export interface ListOrganizationServiceAccessStatusRequest {
+  MaxResults?: number;
+  NextToken?: string;
+}
+
+export namespace ListOrganizationServiceAccessStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOrganizationServiceAccessStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface OrganizationStatus {
+  OrganizationId?: string;
+  OrganizationAwsServiceAccessStatus?: string;
+  SLRDeploymentStatus?: string;
+  AccountStatusList?: AccountStatus[];
+}
+
+export namespace OrganizationStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOrganizationServiceAccessStatusResponse {
+  OrganizationStatus?: OrganizationStatus;
+  NextToken?: string;
+}
+
+export namespace ListOrganizationServiceAccessStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOrganizationServiceAccessStatusResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -5936,6 +5994,32 @@ export namespace RestoreCoreNetworkPolicyVersionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RestoreCoreNetworkPolicyVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartOrganizationServiceAccessUpdateRequest {
+  Action: string | undefined;
+}
+
+export namespace StartOrganizationServiceAccessUpdateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOrganizationServiceAccessUpdateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartOrganizationServiceAccessUpdateResponse {
+  OrganizationStatus?: OrganizationStatus;
+}
+
+export namespace StartOrganizationServiceAccessUpdateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOrganizationServiceAccessUpdateResponse): any => ({
     ...obj,
   });
 }

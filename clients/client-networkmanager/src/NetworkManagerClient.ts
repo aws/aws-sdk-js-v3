@@ -202,6 +202,10 @@ import {
 } from "./commands/ListCoreNetworkPolicyVersionsCommand";
 import { ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput } from "./commands/ListCoreNetworksCommand";
 import {
+  ListOrganizationServiceAccessStatusCommandInput,
+  ListOrganizationServiceAccessStatusCommandOutput,
+} from "./commands/ListOrganizationServiceAccessStatusCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -219,6 +223,10 @@ import {
   RestoreCoreNetworkPolicyVersionCommandInput,
   RestoreCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/RestoreCoreNetworkPolicyVersionCommand";
+import {
+  StartOrganizationServiceAccessUpdateCommandInput,
+  StartOrganizationServiceAccessUpdateCommandOutput,
+} from "./commands/StartOrganizationServiceAccessUpdateCommand";
 import { StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput } from "./commands/StartRouteAnalysisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -301,12 +309,14 @@ export type ServiceInputTypes =
   | ListConnectPeersCommandInput
   | ListCoreNetworkPolicyVersionsCommandInput
   | ListCoreNetworksCommandInput
+  | ListOrganizationServiceAccessStatusCommandInput
   | ListTagsForResourceCommandInput
   | PutCoreNetworkPolicyCommandInput
   | PutResourcePolicyCommandInput
   | RegisterTransitGatewayCommandInput
   | RejectAttachmentCommandInput
   | RestoreCoreNetworkPolicyVersionCommandInput
+  | StartOrganizationServiceAccessUpdateCommandInput
   | StartRouteAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -379,12 +389,14 @@ export type ServiceOutputTypes =
   | ListConnectPeersCommandOutput
   | ListCoreNetworkPolicyVersionsCommandOutput
   | ListCoreNetworksCommandOutput
+  | ListOrganizationServiceAccessStatusCommandOutput
   | ListTagsForResourceCommandOutput
   | PutCoreNetworkPolicyCommandOutput
   | PutResourcePolicyCommandOutput
   | RegisterTransitGatewayCommandOutput
   | RejectAttachmentCommandOutput
   | RestoreCoreNetworkPolicyVersionCommandOutput
+  | StartOrganizationServiceAccessUpdateCommandOutput
   | StartRouteAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -551,8 +563,7 @@ type NetworkManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface NetworkManagerClientResolvedConfig extends NetworkManagerClientResolvedConfigType {}
 
 /**
- * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
- *             Amazon Web Services and on-premises networks that are built around transit gateways.</p>
+ * <p>Amazon Web Services enables you to centrally manage your Amazon Web Services Cloud WAN core network and your Transit Gateway network across Amazon Web Services accounts, Regions, and on-premises locations.</p>
  */
 export class NetworkManagerClient extends __Client<
   __HttpHandlerOptions,

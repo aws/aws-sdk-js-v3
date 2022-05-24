@@ -23,7 +23,7 @@ export interface GetCoreNetworkCommandInput extends GetCoreNetworkRequest {}
 export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a core network. By default it returns the LIVE policy.</p>
+ * <p>Returns information about the LIVE policy for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

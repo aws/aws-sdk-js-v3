@@ -171,6 +171,10 @@ import {
 } from "../commands/ListCoreNetworkPolicyVersionsCommand";
 import { ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput } from "../commands/ListCoreNetworksCommand";
 import {
+  ListOrganizationServiceAccessStatusCommandInput,
+  ListOrganizationServiceAccessStatusCommandOutput,
+} from "../commands/ListOrganizationServiceAccessStatusCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -188,6 +192,10 @@ import {
   RestoreCoreNetworkPolicyVersionCommandInput,
   RestoreCoreNetworkPolicyVersionCommandOutput,
 } from "../commands/RestoreCoreNetworkPolicyVersionCommand";
+import {
+  StartOrganizationServiceAccessUpdateCommandInput,
+  StartOrganizationServiceAccessUpdateCommandOutput,
+} from "../commands/StartOrganizationServiceAccessUpdateCommand";
 import { StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput } from "../commands/StartRouteAnalysisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -210,6 +218,7 @@ import {
 } from "../commands/UpdateVpcAttachmentCommand";
 import {
   AccessDeniedException,
+  AccountStatus,
   Attachment,
   AWSLocation,
   Bandwidth,
@@ -248,6 +257,7 @@ import {
   NetworkRoute,
   NetworkRouteDestination,
   NetworkTelemetry,
+  OrganizationStatus,
   PathComponent,
   ProposedSegmentChange,
   Relationship,
@@ -2377,6 +2387,31 @@ export const serializeAws_restJson1ListCoreNetworksCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListOrganizationServiceAccessStatusCommand = async (
+  input: ListOrganizationServiceAccessStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organizations/service-access";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -2573,6 +2608,31 @@ export const serializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand = asyn
     throw new Error("No value provided for input HTTP label: PolicyVersionId.");
   }
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand = async (
+  input: StartOrganizationServiceAccessUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organizations/service-access";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6592,6 +6652,51 @@ const deserializeAws_restJson1ListCoreNetworksCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListOrganizationServiceAccessStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationServiceAccessStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListOrganizationServiceAccessStatusCommandError(output, context);
+  }
+  const contents: ListOrganizationServiceAccessStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    OrganizationStatus: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.OrganizationStatus !== undefined && data.OrganizationStatus !== null) {
+    contents.OrganizationStatus = deserializeAws_restJson1OrganizationStatus(data.OrganizationStatus, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListOrganizationServiceAccessStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationServiceAccessStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6928,6 +7033,65 @@ const deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommandError = asyn
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1StartOrganizationServiceAccessUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOrganizationServiceAccessUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartOrganizationServiceAccessUpdateCommandError(output, context);
+  }
+  const contents: StartOrganizationServiceAccessUpdateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    OrganizationStatus: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.OrganizationStatus !== undefined && data.OrganizationStatus !== null) {
+    contents.OrganizationStatus = deserializeAws_restJson1OrganizationStatus(data.OrganizationStatus, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartOrganizationServiceAccessUpdateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOrganizationServiceAccessUpdateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.networkmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkmanager#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -7945,6 +8109,25 @@ const serializeAws_restJson1VpcOptions = (input: VpcOptions, context: __SerdeCon
   };
 };
 
+const deserializeAws_restJson1AccountStatus = (output: any, context: __SerdeContext): AccountStatus => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    SLRDeploymentStatus: __expectString(output.SLRDeploymentStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1AccountStatusList = (output: any, context: __SerdeContext): AccountStatus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccountStatus(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Attachment = (output: any, context: __SerdeContext): Attachment => {
   return {
     AttachmentId: __expectString(output.AttachmentId),
@@ -8815,6 +8998,18 @@ const deserializeAws_restJson1NetworkTelemetryList = (output: any, context: __Se
       return deserializeAws_restJson1NetworkTelemetry(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1OrganizationStatus = (output: any, context: __SerdeContext): OrganizationStatus => {
+  return {
+    AccountStatusList:
+      output.AccountStatusList !== undefined && output.AccountStatusList !== null
+        ? deserializeAws_restJson1AccountStatusList(output.AccountStatusList, context)
+        : undefined,
+    OrganizationAwsServiceAccessStatus: __expectString(output.OrganizationAwsServiceAccessStatus),
+    OrganizationId: __expectString(output.OrganizationId),
+    SLRDeploymentStatus: __expectString(output.SLRDeploymentStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1PathComponent = (output: any, context: __SerdeContext): PathComponent => {

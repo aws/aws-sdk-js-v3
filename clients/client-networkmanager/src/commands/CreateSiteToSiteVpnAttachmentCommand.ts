@@ -25,7 +25,7 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a site-to-site VPN attachment on an edge location of a core network.</p>
+ * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

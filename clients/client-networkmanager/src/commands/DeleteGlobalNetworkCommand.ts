@@ -24,7 +24,7 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
 
 /**
  * <p>Deletes an existing global network. You must first delete all global network objects
- *             (devices, links, and sites) and deregister all transit gateways.</p>
+ *             (devices, links, and sites), deregister all transit gateways, and delete any core networks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
