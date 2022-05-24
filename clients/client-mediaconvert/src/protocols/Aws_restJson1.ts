@@ -62,6 +62,7 @@ import {
   Ac3Settings,
   AccelerationSettings,
   AiffSettings,
+  AllowedRenditionSize,
   AncillarySourceSettings,
   AudioChannelTaggingSettings,
   AudioCodecSettings,
@@ -69,6 +70,7 @@ import {
   AudioNormalizationSettings,
   AudioSelector,
   AudioSelectorGroup,
+  AutomatedAbrRule,
   AutomatedAbrSettings,
   AutomatedEncodingSettings,
   AvailBlanking,
@@ -107,6 +109,7 @@ import {
   F4vSettings,
   FileGroupSettings,
   FileSourceSettings,
+  ForceIncludeRenditionSize,
   Hdr10Metadata,
   HlsAdditionalManifest,
   HlsAdMarkers,
@@ -127,7 +130,8 @@ import {
   InsertableImage,
   JobMessages,
   KantarWatermarkSettings,
-  M2tsScte35Esam,
+  MinBottomRenditionSize,
+  MinTopRenditionSize,
   MotionImageInserter,
   MotionImageInsertionFramerate,
   MotionImageInsertionOffset,
@@ -191,6 +195,7 @@ import {
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
+  M2tsScte35Esam,
   M2tsSettings,
   M3u8Settings,
   MovSettings,
@@ -2929,6 +2934,20 @@ const serializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (input: strin
     });
 };
 
+const serializeAws_restJson1__listOfAllowedRenditionSize = (
+  input: AllowedRenditionSize[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AllowedRenditionSize(entry, context);
+    });
+};
+
 const serializeAws_restJson1__listOfAudioDescription = (input: AudioDescription[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2937,6 +2956,17 @@ const serializeAws_restJson1__listOfAudioDescription = (input: AudioDescription[
         return null as any;
       }
       return serializeAws_restJson1AudioDescription(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfAutomatedAbrRule = (input: AutomatedAbrRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AutomatedAbrRule(entry, context);
     });
 };
 
@@ -2993,6 +3023,20 @@ const serializeAws_restJson1__listOfDashAdditionalManifest = (
         return null as any;
       }
       return serializeAws_restJson1DashAdditionalManifest(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfForceIncludeRenditionSize = (
+  input: ForceIncludeRenditionSize[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ForceIncludeRenditionSize(entry, context);
     });
 };
 
@@ -3275,6 +3319,14 @@ const serializeAws_restJson1AiffSettings = (input: AiffSettings, context: __Serd
   };
 };
 
+const serializeAws_restJson1AllowedRenditionSize = (input: AllowedRenditionSize, context: __SerdeContext): any => {
+  return {
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Required !== undefined && input.Required !== null && { required: input.Required }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
+  };
+};
+
 const serializeAws_restJson1AncillarySourceSettings = (
   input: AncillarySourceSettings,
   context: __SerdeContext
@@ -3429,11 +3481,38 @@ const serializeAws_restJson1AudioSelectorGroup = (input: AudioSelectorGroup, con
   };
 };
 
+const serializeAws_restJson1AutomatedAbrRule = (input: AutomatedAbrRule, context: __SerdeContext): any => {
+  return {
+    ...(input.AllowedRenditions !== undefined &&
+      input.AllowedRenditions !== null && {
+        allowedRenditions: serializeAws_restJson1__listOfAllowedRenditionSize(input.AllowedRenditions, context),
+      }),
+    ...(input.ForceIncludeRenditions !== undefined &&
+      input.ForceIncludeRenditions !== null && {
+        forceIncludeRenditions: serializeAws_restJson1__listOfForceIncludeRenditionSize(
+          input.ForceIncludeRenditions,
+          context
+        ),
+      }),
+    ...(input.MinBottomRenditionSize !== undefined &&
+      input.MinBottomRenditionSize !== null && {
+        minBottomRenditionSize: serializeAws_restJson1MinBottomRenditionSize(input.MinBottomRenditionSize, context),
+      }),
+    ...(input.MinTopRenditionSize !== undefined &&
+      input.MinTopRenditionSize !== null && {
+        minTopRenditionSize: serializeAws_restJson1MinTopRenditionSize(input.MinTopRenditionSize, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
+  };
+};
+
 const serializeAws_restJson1AutomatedAbrSettings = (input: AutomatedAbrSettings, context: __SerdeContext): any => {
   return {
     ...(input.MaxAbrBitrate !== undefined && input.MaxAbrBitrate !== null && { maxAbrBitrate: input.MaxAbrBitrate }),
     ...(input.MaxRenditions !== undefined && input.MaxRenditions !== null && { maxRenditions: input.MaxRenditions }),
     ...(input.MinAbrBitrate !== undefined && input.MinAbrBitrate !== null && { minAbrBitrate: input.MinAbrBitrate }),
+    ...(input.Rules !== undefined &&
+      input.Rules !== null && { rules: serializeAws_restJson1__listOfAutomatedAbrRule(input.Rules, context) }),
   };
 };
 
@@ -4277,6 +4356,16 @@ const serializeAws_restJson1FileSourceSettings = (input: FileSourceSettings, con
   };
 };
 
+const serializeAws_restJson1ForceIncludeRenditionSize = (
+  input: ForceIncludeRenditionSize,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
+  };
+};
+
 const serializeAws_restJson1FrameCaptureSettings = (input: FrameCaptureSettings, context: __SerdeContext): any => {
   return {
     ...(input.FramerateDenominator !== undefined &&
@@ -5102,6 +5191,20 @@ const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __Serd
     ...(input.TransportStreamId !== undefined &&
       input.TransportStreamId !== null && { transportStreamId: input.TransportStreamId }),
     ...(input.VideoPid !== undefined && input.VideoPid !== null && { videoPid: input.VideoPid }),
+  };
+};
+
+const serializeAws_restJson1MinBottomRenditionSize = (input: MinBottomRenditionSize, context: __SerdeContext): any => {
+  return {
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
+  };
+};
+
+const serializeAws_restJson1MinTopRenditionSize = (input: MinTopRenditionSize, context: __SerdeContext): any => {
+  return {
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
   };
 };
 
@@ -6267,6 +6370,21 @@ const deserializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (
   return retVal;
 };
 
+const deserializeAws_restJson1__listOfAllowedRenditionSize = (
+  output: any,
+  context: __SerdeContext
+): AllowedRenditionSize[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AllowedRenditionSize(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: __SerdeContext): AudioDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6275,6 +6393,18 @@ const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: 
         return null as any;
       }
       return deserializeAws_restJson1AudioDescription(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfAutomatedAbrRule = (output: any, context: __SerdeContext): AutomatedAbrRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AutomatedAbrRule(entry, context);
     });
   return retVal;
 };
@@ -6347,6 +6477,21 @@ const deserializeAws_restJson1__listOfEndpoint = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_restJson1Endpoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfForceIncludeRenditionSize = (
+  output: any,
+  context: __SerdeContext
+): ForceIncludeRenditionSize[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ForceIncludeRenditionSize(entry, context);
     });
   return retVal;
 };
@@ -6724,6 +6869,14 @@ const deserializeAws_restJson1AiffSettings = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1AllowedRenditionSize = (output: any, context: __SerdeContext): AllowedRenditionSize => {
+  return {
+    Height: __expectInt32(output.height),
+    Required: __expectString(output.required),
+    Width: __expectInt32(output.width),
+  } as any;
+};
+
 const deserializeAws_restJson1AncillarySourceSettings = (
   output: any,
   context: __SerdeContext
@@ -6869,11 +7022,37 @@ const deserializeAws_restJson1AudioSelectorGroup = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1AutomatedAbrRule = (output: any, context: __SerdeContext): AutomatedAbrRule => {
+  return {
+    AllowedRenditions:
+      output.allowedRenditions !== undefined && output.allowedRenditions !== null
+        ? deserializeAws_restJson1__listOfAllowedRenditionSize(output.allowedRenditions, context)
+        : undefined,
+    ForceIncludeRenditions:
+      output.forceIncludeRenditions !== undefined && output.forceIncludeRenditions !== null
+        ? deserializeAws_restJson1__listOfForceIncludeRenditionSize(output.forceIncludeRenditions, context)
+        : undefined,
+    MinBottomRenditionSize:
+      output.minBottomRenditionSize !== undefined && output.minBottomRenditionSize !== null
+        ? deserializeAws_restJson1MinBottomRenditionSize(output.minBottomRenditionSize, context)
+        : undefined,
+    MinTopRenditionSize:
+      output.minTopRenditionSize !== undefined && output.minTopRenditionSize !== null
+        ? deserializeAws_restJson1MinTopRenditionSize(output.minTopRenditionSize, context)
+        : undefined,
+    Type: __expectString(output.type),
+  } as any;
+};
+
 const deserializeAws_restJson1AutomatedAbrSettings = (output: any, context: __SerdeContext): AutomatedAbrSettings => {
   return {
     MaxAbrBitrate: __expectInt32(output.maxAbrBitrate),
     MaxRenditions: __expectInt32(output.maxRenditions),
     MinAbrBitrate: __expectInt32(output.minAbrBitrate),
+    Rules:
+      output.rules !== undefined && output.rules !== null
+        ? deserializeAws_restJson1__listOfAutomatedAbrRule(output.rules, context)
+        : undefined,
   } as any;
 };
 
@@ -7591,6 +7770,16 @@ const deserializeAws_restJson1FileSourceSettings = (output: any, context: __Serd
     SourceFile: __expectString(output.sourceFile),
     TimeDelta: __expectInt32(output.timeDelta),
     TimeDeltaUnits: __expectString(output.timeDeltaUnits),
+  } as any;
+};
+
+const deserializeAws_restJson1ForceIncludeRenditionSize = (
+  output: any,
+  context: __SerdeContext
+): ForceIncludeRenditionSize => {
+  return {
+    Height: __expectInt32(output.height),
+    Width: __expectInt32(output.width),
   } as any;
 };
 
@@ -8368,6 +8557,23 @@ const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeConte
     TimedMetadataPid: __expectInt32(output.timedMetadataPid),
     TransportStreamId: __expectInt32(output.transportStreamId),
     VideoPid: __expectInt32(output.videoPid),
+  } as any;
+};
+
+const deserializeAws_restJson1MinBottomRenditionSize = (
+  output: any,
+  context: __SerdeContext
+): MinBottomRenditionSize => {
+  return {
+    Height: __expectInt32(output.height),
+    Width: __expectInt32(output.width),
+  } as any;
+};
+
+const deserializeAws_restJson1MinTopRenditionSize = (output: any, context: __SerdeContext): MinTopRenditionSize => {
+  return {
+    Height: __expectInt32(output.height),
+    Width: __expectInt32(output.width),
   } as any;
 };
 

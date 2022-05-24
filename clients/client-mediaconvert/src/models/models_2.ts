@@ -2,7 +2,9 @@
 import { AccelerationSettings, HopDestination } from "./models_0";
 import {
   JobTemplate,
+  JobTemplateListBy,
   JobTemplateSettings,
+  Order,
   Policy,
   Preset,
   PresetSettings,
@@ -11,6 +13,162 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface ListJobTemplatesRequest {
+  /**
+   * Optionally, specify a job template category to limit responses to only job templates from that category.
+   */
+  Category?: string;
+
+  /**
+   * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+   */
+  ListBy?: JobTemplateListBy | string;
+
+  /**
+   * Optional. Number of job templates, up to twenty, that will be returned at one time.
+   */
+  MaxResults?: number;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of job templates.
+   */
+  NextToken?: string;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   */
+  Order?: Order | string;
+}
+
+export namespace ListJobTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListJobTemplatesResponse {
+  /**
+   * List of Job templates.
+   */
+  JobTemplates?: JobTemplate[];
+
+  /**
+   * Use this string to request the next batch of job templates.
+   */
+  NextToken?: string;
+}
+
+export namespace ListJobTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum PresetListBy {
+  CREATION_DATE = "CREATION_DATE",
+  NAME = "NAME",
+  SYSTEM = "SYSTEM",
+}
+
+export interface ListPresetsRequest {
+  /**
+   * Optionally, specify a preset category to limit responses to only presets from that category.
+   */
+  Category?: string;
+
+  /**
+   * Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+   */
+  ListBy?: PresetListBy | string;
+
+  /**
+   * Optional. Number of presets, up to twenty, that will be returned at one time
+   */
+  MaxResults?: number;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of presets.
+   */
+  NextToken?: string;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   */
+  Order?: Order | string;
+}
+
+export namespace ListPresetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPresetsResponse {
+  /**
+   * Use this string to request the next batch of presets.
+   */
+  NextToken?: string;
+
+  /**
+   * List of presets
+   */
+  Presets?: Preset[];
+}
+
+export namespace ListPresetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum QueueListBy {
+  CREATION_DATE = "CREATION_DATE",
+  NAME = "NAME",
+}
+
+export interface ListQueuesRequest {
+  /**
+   * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
+   */
+  ListBy?: QueueListBy | string;
+
+  /**
+   * Optional. Number of queues, up to twenty, that will be returned at one time.
+   */
+  MaxResults?: number;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of queues.
+   */
+  NextToken?: string;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   */
+  Order?: Order | string;
+}
+
+export namespace ListQueuesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListQueuesResponse {
   /**
