@@ -28,9 +28,12 @@ export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAt
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p>
- *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
- *         <p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p>
+ * <p>Updates the specified user's attributes, including developer attributes, as an
+ *             administrator. Works on any user.</p>
+ *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+ *             attribute name.</p>
+ *         <p>In addition to updating user attributes, this API can also be used to mark phone and
+ *             email as verified.</p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

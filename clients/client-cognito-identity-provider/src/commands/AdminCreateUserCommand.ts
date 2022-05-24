@@ -29,9 +29,8 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
 
 /**
  * <p>Creates a new user in the specified user pool.</p>
- *         <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via email or phone (SMS).</p>
- *
- *
+ *         <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via
+ *             email or phone (SMS).</p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
@@ -51,10 +50,13 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *                     Developer Guide</i>.</p>
  *          </note>
  *
- *         <p>This message is based on a template that you configured in your call to create or update a user pool. This template includes your custom sign-up instructions and placeholders for
- *             user name and temporary password.</p>
- *         <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code> for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
- *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p>
+ *         <p>This message is based on a template that you configured in your call to create or
+ *             update a user pool. This template includes your custom sign-up instructions and
+ *             placeholders for user name and temporary password.</p>
+ *         <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
+ *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
+ *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
+ *             they sign in and change their password.</p>
  *         <p>
  *             <code>AdminCreateUser</code> requires developer credentials.</p>
  * @example

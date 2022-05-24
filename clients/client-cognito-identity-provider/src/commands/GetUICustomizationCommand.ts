@@ -28,8 +28,11 @@ export interface GetUICustomizationCommandInput extends GetUICustomizationReques
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the user interface (UI) Customization information for a particular app client's app UI, if any such information exists for the client. If nothing is set for the particular client,
- *             but there is an existing pool level customization (the app <code>clientId</code> is <code>ALL</code>), then that information is returned. If nothing is present, then an empty shape is returned.</p>
+ * <p>Gets the user interface (UI) Customization information for a particular app client's
+ *             app UI, if any such information exists for the client. If nothing is set for the
+ *             particular client, but there is an existing pool level customization (the app
+ *                 <code>clientId</code> is <code>ALL</code>), then that information is returned. If
+ *             nothing is present, then an empty shape is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

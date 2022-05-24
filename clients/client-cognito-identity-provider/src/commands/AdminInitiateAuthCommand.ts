@@ -30,7 +30,6 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
 /**
  * <p>Initiates the authentication flow, as an administrator.</p>
  *
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

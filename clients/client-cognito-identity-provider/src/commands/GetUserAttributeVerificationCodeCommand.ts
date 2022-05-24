@@ -29,7 +29,9 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the user attribute verification code for the specified attribute name.</p>
+ * <p>Generates a user attribute verification code for the specified attribute name. Sends a
+ *             message to a user with a code that they must return in a VerifyUserAttribute
+ *             request.</p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

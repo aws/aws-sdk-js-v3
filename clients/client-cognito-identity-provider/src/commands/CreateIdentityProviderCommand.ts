@@ -28,7 +28,7 @@ export interface CreateIdentityProviderCommandInput extends CreateIdentityProvid
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an identity provider for a user pool.</p>
+ * <p>Creates an IdP for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

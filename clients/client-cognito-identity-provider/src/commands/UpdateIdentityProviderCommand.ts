@@ -28,7 +28,7 @@ export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProvid
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Updates identity provider information for a user pool.</p>
+ * <p>Updates IdP information for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

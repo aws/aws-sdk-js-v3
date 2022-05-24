@@ -28,7 +28,8 @@ export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the header information for the comma-separated value (CSV) file to be used as input for the user import job.</p>
+ * <p>Gets the header information for the comma-separated value (CSV) file to be used as
+ *             input for the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

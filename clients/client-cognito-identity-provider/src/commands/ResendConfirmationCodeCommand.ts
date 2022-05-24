@@ -27,7 +27,8 @@ export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCo
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Resends the confirmation (for confirmation of registration) to a specific user in the user pool.</p>
+ * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
+ *             user pool.</p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

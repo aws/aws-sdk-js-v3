@@ -28,7 +28,7 @@ export interface ListDevicesCommandInput extends ListDevicesRequest {}
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the devices.</p>
+ * <p>Lists the sign-in devices that Amazon Cognito has registered to the current user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

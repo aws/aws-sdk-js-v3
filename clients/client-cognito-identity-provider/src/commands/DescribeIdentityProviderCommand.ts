@@ -28,7 +28,7 @@ export interface DescribeIdentityProviderCommandInput extends DescribeIdentityPr
 export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specific identity provider.</p>
+ * <p>Gets information about a specific IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

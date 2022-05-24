@@ -29,9 +29,9 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
 
 /**
  * <p>
- *             <i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure time-based one-time password (TOTP)
- *             software token MFA. To configure either type of MFA,
- *             use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
+ *             <i>This action is no longer supported.</i> You can use it to configure
+ *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
+ *             token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

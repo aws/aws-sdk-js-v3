@@ -28,9 +28,10 @@ export interface UpdateUserPoolCommandInput extends UpdateUserPoolRequest {}
 export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using
- *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.
- *             If you don't provide a value for an attribute, it will be set to the default value.</p>
+ * <p>Updates the specified user pool with the specified attributes. You can get a list of
+ *             the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don't provide a value for an attribute, it will be
+ *             set to the default value.
+ *         </p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

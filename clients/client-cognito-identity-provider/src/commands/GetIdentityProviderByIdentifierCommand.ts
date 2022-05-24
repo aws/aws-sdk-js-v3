@@ -30,7 +30,7 @@ export interface GetIdentityProviderByIdentifierCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the specified identity provider.</p>
+ * <p>Gets the specified IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

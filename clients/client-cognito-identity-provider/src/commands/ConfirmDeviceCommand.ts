@@ -28,7 +28,8 @@ export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms tracking of the device. This API call is the call that begins device tracking.</p>
+ * <p>Confirms tracking of the device. This API call is the call that begins device
+ *             tracking.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

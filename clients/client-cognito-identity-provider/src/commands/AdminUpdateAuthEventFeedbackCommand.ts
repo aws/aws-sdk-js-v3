@@ -30,8 +30,9 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides feedback for an authentication event indicating if it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool
- *             as part of Amazon Cognito advanced security.</p>
+ * <p>Provides feedback for an authentication event indicating if it was from a valid user.
+ *             This feedback is used for improving the risk evaluation decision for the user pool as
+ *             part of Amazon Cognito advanced security.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

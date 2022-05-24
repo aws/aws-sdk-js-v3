@@ -28,7 +28,8 @@ export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpReques
 export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p>
+ * <p>Confirms user registration as an admin without using a confirmation code. Works on any
+ *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

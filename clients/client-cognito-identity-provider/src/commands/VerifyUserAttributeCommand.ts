@@ -28,6 +28,12 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
 
 /**
  * <p>Verifies the specified user attributes in the user pool.</p>
+ *         <p>
+ *             If your user pool requires verification before Amazon Cognito updates the attribute value,
+ *             VerifyUserAttribute updates the affected attribute to its pending value. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html">
+ *             UserAttributeUpdateSettingsType</a>.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

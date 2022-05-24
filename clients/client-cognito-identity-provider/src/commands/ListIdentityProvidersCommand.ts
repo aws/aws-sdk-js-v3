@@ -28,7 +28,7 @@ export interface ListIdentityProvidersCommandInput extends ListIdentityProviders
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about all identity providers for a user pool.</p>
+ * <p>Lists information about all IdPs for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

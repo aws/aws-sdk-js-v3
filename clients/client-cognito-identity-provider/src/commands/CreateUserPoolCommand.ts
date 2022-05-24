@@ -28,7 +28,8 @@ export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Cognito user pool and sets the password policy for the pool.</p>
+ * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
+ *             pool.</p>
  *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

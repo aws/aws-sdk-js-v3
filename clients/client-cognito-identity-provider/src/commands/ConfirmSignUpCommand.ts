@@ -27,7 +27,7 @@ export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms registration of a user and handles the existing alias from a previous user.</p>
+ * <p>Confirms registration of a new user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,8 @@ export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClie
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Client method for returning the configuration information and metadata of the specified user pool app client.</p>
+ * <p>Client method for returning the configuration information and metadata of the
+ *             specified user pool app client.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

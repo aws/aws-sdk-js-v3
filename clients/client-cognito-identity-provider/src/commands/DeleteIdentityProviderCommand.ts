@@ -28,7 +28,7 @@ export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProvid
 export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an identity provider for a user pool.</p>
+ * <p>Deletes an IdP for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

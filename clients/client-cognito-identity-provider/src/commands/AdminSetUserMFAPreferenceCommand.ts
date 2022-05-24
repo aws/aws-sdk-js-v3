@@ -28,9 +28,11 @@ export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPr
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
- * <p>The user's multi-factor authentication (MFA) preference, including which MFA options are activated, and if any are preferred. Only one factor can be set as preferred. The preferred
- *             MFA factor will be used to authenticate a user if multiple factors are activated. If multiple options are activated and no preference is set, a challenge to choose an MFA option will
- *             be returned during sign-in.</p>
+ * <p>The user's multi-factor authentication (MFA) preference, including which MFA options
+ *             are activated, and if any are preferred. Only one factor can be set as preferred. The
+ *             preferred MFA factor will be used to authenticate a user if multiple factors are
+ *             activated. If multiple options are activated and no preference is set, a challenge to
+ *             choose an MFA option will be returned during sign-in.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

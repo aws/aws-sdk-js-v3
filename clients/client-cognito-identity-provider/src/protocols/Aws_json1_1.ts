@@ -528,7 +528,6 @@ import {
   SoftwareTokenMfaConfigType,
   SoftwareTokenMFANotFoundException,
   SoftwareTokenMfaSettingsType,
-  StartUserImportJobRequest,
   StringAttributeConstraintsType,
   TokenValidityUnitsType,
   TooManyFailedAttemptsException,
@@ -540,6 +539,7 @@ import {
   UnsupportedOperationException,
   UnsupportedTokenTypeException,
   UnsupportedUserStateException,
+  UserAttributeUpdateSettingsType,
   UserContextDataType,
   UserImportInProgressException,
   UserImportJobType,
@@ -563,6 +563,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  StartUserImportJobRequest,
   StartUserImportJobResponse,
   StopUserImportJobRequest,
   StopUserImportJobResponse,
@@ -8198,6 +8199,9 @@ const deserializeAws_json1_1VerifyUserAttributeCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AliasExistsException":
+    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
+      throw await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
     case "CodeMismatchException":
     case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
       throw await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
@@ -9277,6 +9281,20 @@ const serializeAws_json1_1AttributeNameListType = (input: string[], context: __S
     });
 };
 
+const serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
+  input: (VerifiedAttributeType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1AttributeType = (input: AttributeType, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -9652,6 +9670,13 @@ const serializeAws_json1_1CreateUserPoolRequest = (input: CreateUserPoolRequest,
       }),
     ...(input.SmsVerificationMessage !== undefined &&
       input.SmsVerificationMessage !== null && { SmsVerificationMessage: input.SmsVerificationMessage }),
+    ...(input.UserAttributeUpdateSettings !== undefined &&
+      input.UserAttributeUpdateSettings !== null && {
+        UserAttributeUpdateSettings: serializeAws_json1_1UserAttributeUpdateSettingsType(
+          input.UserAttributeUpdateSettings,
+          context
+        ),
+      }),
     ...(input.UserPoolAddOns !== undefined &&
       input.UserPoolAddOns !== null && {
         UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
@@ -10978,6 +11003,13 @@ const serializeAws_json1_1UpdateUserPoolRequest = (input: UpdateUserPoolRequest,
       }),
     ...(input.SmsVerificationMessage !== undefined &&
       input.SmsVerificationMessage !== null && { SmsVerificationMessage: input.SmsVerificationMessage }),
+    ...(input.UserAttributeUpdateSettings !== undefined &&
+      input.UserAttributeUpdateSettings !== null && {
+        UserAttributeUpdateSettings: serializeAws_json1_1UserAttributeUpdateSettingsType(
+          input.UserAttributeUpdateSettings,
+          context
+        ),
+      }),
     ...(input.UserPoolAddOns !== undefined &&
       input.UserPoolAddOns !== null && {
         UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
@@ -10991,6 +11023,21 @@ const serializeAws_json1_1UpdateUserPoolRequest = (input: UpdateUserPoolRequest,
       input.VerificationMessageTemplate !== null && {
         VerificationMessageTemplate: serializeAws_json1_1VerificationMessageTemplateType(
           input.VerificationMessageTemplate,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1UserAttributeUpdateSettingsType = (
+  input: UserAttributeUpdateSettingsType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttributesRequireVerificationBeforeUpdate !== undefined &&
+      input.AttributesRequireVerificationBeforeUpdate !== null && {
+        AttributesRequireVerificationBeforeUpdate: serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType(
+          input.AttributesRequireVerificationBeforeUpdate,
           context
         ),
       }),
@@ -11491,6 +11538,21 @@ const deserializeAws_json1_1AttributeMappingType = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
+  output: any,
+  context: __SerdeContext
+): (VerifiedAttributeType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttributeType = (output: any, context: __SerdeContext): AttributeType => {
@@ -13262,6 +13324,22 @@ const deserializeAws_json1_1UpdateUserPoolResponse = (output: any, context: __Se
   return {} as any;
 };
 
+const deserializeAws_json1_1UserAttributeUpdateSettingsType = (
+  output: any,
+  context: __SerdeContext
+): UserAttributeUpdateSettingsType => {
+  return {
+    AttributesRequireVerificationBeforeUpdate:
+      output.AttributesRequireVerificationBeforeUpdate !== undefined &&
+      output.AttributesRequireVerificationBeforeUpdate !== null
+        ? deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType(
+            output.AttributesRequireVerificationBeforeUpdate,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UserImportInProgressException = (
   output: any,
   context: __SerdeContext
@@ -13613,6 +13691,10 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
     SmsConfigurationFailure: __expectString(output.SmsConfigurationFailure),
     SmsVerificationMessage: __expectString(output.SmsVerificationMessage),
     Status: __expectString(output.Status),
+    UserAttributeUpdateSettings:
+      output.UserAttributeUpdateSettings !== undefined && output.UserAttributeUpdateSettings !== null
+        ? deserializeAws_json1_1UserAttributeUpdateSettingsType(output.UserAttributeUpdateSettings, context)
+        : undefined,
     UserPoolAddOns:
       output.UserPoolAddOns !== undefined && output.UserPoolAddOns !== null
         ? deserializeAws_json1_1UserPoolAddOnsType(output.UserPoolAddOns, context)
