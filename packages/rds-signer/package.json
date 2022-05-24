@@ -6,15 +6,16 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 12.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -37,6 +38,10 @@
   "devDependencies": {
     "@aws-sdk/types": "*",
     "@types/node": "^10.0.0",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.7.0",
+    "rimraf": "3.0.2",
+    "typedoc": "0.19.2",
     "typescript": "~4.6.2"
   },
   "typesVersions": {
