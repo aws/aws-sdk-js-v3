@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.98.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.97.0...v3.98.0) (2022-05-24)
+
+
+### Bug Fixes
+
+* **rds-signer:** update package.json with latest values ([#3632](https://github.com/aws/aws-sdk-js-v3/issues/3632)) ([953fd97](https://github.com/aws/aws-sdk-js-v3/commit/953fd9757b521d80688465c34ae28e45118c2e72))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports requiring attribute verification (ex. email and phone number) before update. ([6ee832d](https://github.com/aws/aws-sdk-js-v3/commit/6ee832d8dcc3c3b856c35cd5b887d595ffeed6cf))
+* **client-ec2:** Stop Protection feature enables customers to protect their instances from accidental stop actions. ([097a389](https://github.com/aws/aws-sdk-js-v3/commit/097a38940e73dfbe0f732680e6c5360488ebc799))
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK has added support for rules that constrain Automatic-ABR rendition selection when generating ABR package ladders. ([0035863](https://github.com/aws/aws-sdk-js-v3/commit/003586367de048238a02492009924a5900091593))
+* **client-networkmanager:** This release adds Multi Account API support for a TGW Global Network, to enable and disable AWSServiceAccess with AwsOrganizations for Network Manager service and dependency CloudFormation StackSets service. ([2b041ea](https://github.com/aws/aws-sdk-js-v3/commit/2b041eabeac3913deadbc83a45530c79cc1bab15))
+* **clients:** update client endpoints as of 2022-05-24 ([92f1e36](https://github.com/aws/aws-sdk-js-v3/commit/92f1e361a665aa008bdcc282eae02b5ed319feea))
+* **rds-signer:** add RDS Signer ([#1823](https://github.com/aws/aws-sdk-js-v3/issues/1823)) ([#3084](https://github.com/aws/aws-sdk-js-v3/issues/3084)) ([bec7eee](https://github.com/aws/aws-sdk-js-v3/commit/bec7eeeb75c2e888e9af321c86a2c12c98da028e))
+
+
+
+
+
 # [3.97.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.96.0...v3.97.0) (2022-05-23)
 
 

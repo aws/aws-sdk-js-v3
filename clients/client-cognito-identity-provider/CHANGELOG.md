@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.98.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.97.0...v3.98.0) (2022-05-24)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports requiring attribute verification (ex. email and phone number) before update. ([6ee832d](https://github.com/aws/aws-sdk-js-v3/commit/6ee832d8dcc3c3b856c35cd5b887d595ffeed6cf))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
