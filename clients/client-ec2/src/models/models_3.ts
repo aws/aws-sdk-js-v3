@@ -5217,6 +5217,7 @@ export namespace DescribeImportSnapshotTasksResult {
 
 export type InstanceAttributeName =
   | "blockDeviceMapping"
+  | "disableApiStop"
   | "disableApiTermination"
   | "ebsOptimized"
   | "enaSupport"
@@ -5453,6 +5454,12 @@ export interface InstanceAttribute {
    * <p>The user data.</p>
    */
   UserData?: AttributeValue;
+
+  /**
+   * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
+   *             <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   */
+  DisableApiStop?: AttributeBooleanValue;
 }
 
 export namespace InstanceAttribute {

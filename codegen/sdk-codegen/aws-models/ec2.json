@@ -11811,7 +11811,7 @@
         "target": "com.amazonaws.ec2#CreateLaunchTemplateResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a launch template.</p>\n        <p>A launch template contains the parameters to launch an\n            instance. When you launch an instance using <a>RunInstances</a>, you can\n            specify a launch template instead of providing the launch parameters in the request. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launching an instance from a\n                launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>If you want to clone an existing launch template as the basis for creating a new\n            launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support\n            cloning a template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\">Create a launch template from an existing launch template</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a launch template.</p>\n        <p>A launch template contains the parameters to launch an\n            instance. When you launch an instance using <a>RunInstances</a>, you can\n            specify a launch template instead of providing the launch parameters in the request. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launch an instance from a\n                launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>If you want to clone an existing launch template as the basis for creating a new\n            launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support\n            cloning a template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\">Create a launch template from an existing launch template</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateLaunchTemplateRequest": {
@@ -11826,7 +11826,7 @@
         "ClientToken": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                Idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
           }
         },
         "LaunchTemplateName": {
@@ -11888,7 +11888,7 @@
         "target": "com.amazonaws.ec2#CreateLaunchTemplateVersionResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new version for a launch template. You can specify an existing version of\n            launch template from which to base the new version.</p>\n        <p>Launch template versions are numbered in the order in which they are created. You\n            cannot specify, change, or replace the numbering of launch template versions.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\">Managing launch template versions</a>in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a new version for a launch template. You can specify an existing version of\n            launch template from which to base the new version.</p>\n        <p>Launch template versions are numbered in the order in which they are created. You\n            cannot specify, change, or replace the numbering of launch template versions.</p>\n        <p>Launch templates are immutable; after you create a launch template, you can't modify it. \n            Instead, you can create a new version of the launch template that includes any changes you require.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\">Modify a launch template (manage launch template versions)</a>in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateLaunchTemplateVersionRequest": {
@@ -11903,7 +11903,7 @@
         "ClientToken": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                Idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
           }
         },
         "LaunchTemplateId": {
@@ -43179,6 +43179,14 @@
             "smithy.api#documentation": "<p>The user data.</p>",
             "smithy.api#xmlName": "userData"
           }
+        },
+        "DisableApiStop": {
+          "target": "com.amazonaws.ec2#AttributeBooleanValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DisableApiStop",
+            "smithy.api#documentation": "<p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to\n            <code>true</code>; otherwise, set it to <code>false</code>.</p>",
+            "smithy.api#xmlName": "disableApiStop"
+          }
         }
       },
       "traits": {
@@ -43248,6 +43256,10 @@
           {
             "value": "enclaveOptions",
             "name": "enclaveOptions"
+          },
+          {
+            "value": "disableApiStop",
+            "name": "disableApiStop"
           }
         ]
       }
@@ -50856,7 +50868,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more\n            information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\"> What is Amazon Web Services Nitro Enclaves?</a>\n            in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more\n            information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\">What is Amazon Web Services Nitro Enclaves?</a>\n            in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateErrorCode": {
@@ -50917,7 +50929,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Indicates whether the instance is configured for hibernation. This parameter is valid\n            only if the instance meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\">hibernation\n                prerequisites</a>.</p>"
+        "smithy.api#documentation": "<p>Indicates whether the instance is configured for hibernation. This parameter is valid\n            only if the instance meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\">hibernation\n                prerequisites</a>.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateHttpTokensState": {
@@ -54516,6 +54528,12 @@
             "smithy.api#documentation": "<p>A new value for the attribute. Use only with the <code>kernel</code>,\n                <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or\n                <code>instanceInitiatedShutdownBehavior</code> attribute.</p>",
             "smithy.api#xmlName": "value"
           }
+        },
+        "DisableApiStop": {
+          "target": "com.amazonaws.ec2#AttributeBooleanValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for stop protection. \n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop Protection</a>.</p>\n        <p></p>"
+          }
         }
       }
     },
@@ -55269,7 +55287,7 @@
         "ClientToken": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                Idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
+            "smithy.api#documentation": "<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the\n            request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring\n                idempotency</a>.</p>\n        <p>Constraint: Maximum 128 ASCII characters.</p>"
           }
         },
         "LaunchTemplateId": {
@@ -64247,7 +64265,7 @@
         "KernelId": {
           "target": "com.amazonaws.ec2#KernelId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the kernel.</p>\n        <important>\n            <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more\n                information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\">User Provided\n                    Kernels</a> in the <i>Amazon Elastic Compute Cloud User\n                    Guide</i>.</p>\n        </important>"
+            "smithy.api#documentation": "<p>The ID of the kernel.</p>\n        <important>\n            <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more\n                information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\">User provided\n                    kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        </important>"
           }
         },
         "EbsOptimized": {
@@ -64285,7 +64303,7 @@
         "InstanceType": {
           "target": "com.amazonaws.ec2#InstanceType",
           "traits": {
-            "smithy.api#documentation": "<p>The instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance Types</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>If you specify <code>InstanceTypes</code>, you can't specify\n                <code>InstanceRequirements</code>.</p>"
+            "smithy.api#documentation": "<p>The instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>If you specify <code>InstanceTypes</code>, you can't specify\n                <code>InstanceRequirements</code>.</p>"
           }
         },
         "KeyName": {
@@ -64309,7 +64327,7 @@
         "RamDiskId": {
           "target": "com.amazonaws.ec2#RamdiskId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the RAM disk.</p>\n        <important>\n            <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more\n                information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\">User Provided\n                    Kernels</a> in the <i>Amazon Elastic Compute Cloud User\n                    Guide</i>.</p>\n        </important>"
+            "smithy.api#documentation": "<p>The ID of the RAM disk.</p>\n        <important>\n            <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more\n                information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\">User provided\n                    kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        </important>"
           }
         },
         "DisableApiTermination": {
@@ -64327,7 +64345,7 @@
         "UserData": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user data to make available to the instance. You must provide base64-encoded text.\n            User data is limited to 16 KB. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\">Running Commands on Your Linux Instance\n                at Launch</a> (Linux) or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data\">Adding User Data</a> (Windows).</p>\n\n        <p>If you are creating the launch template for use with Batch, the user\n            data must be provided in the <a href=\"https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive\"> MIME multi-part archive format</a>. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The user data to make available to the instance. You must provide base64-encoded text.\n            User data is limited to 16 KB. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\">Run commands on your Linux instance\n                at launch</a> (Linux) or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html\">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\n        <p>If you are creating the launch template for use with Batch, the user\n            data must be provided in the <a href=\"https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive\"> MIME multi-part archive format</a>. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>"
           }
         },
         "TagSpecifications": {
@@ -64399,7 +64417,7 @@
         "HibernationOptions": {
           "target": "com.amazonaws.ec2#LaunchTemplateHibernationOptionsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for hibernation. This parameter is valid only\n            if the instance meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\">hibernation\n                prerequisites</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate your instance</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for hibernation. This parameter is valid only\n            if the instance meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\">hibernation\n                prerequisites</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate your instance</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
           }
         },
         "MetadataOptions": {
@@ -64430,6 +64448,12 @@
           "target": "com.amazonaws.ec2#LaunchTemplateInstanceMaintenanceOptionsRequest",
           "traits": {
             "smithy.api#documentation": "<p>The maintenance options for the instance.</p>"
+          }
+        },
+        "DisableApiStop": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to enable the instance for stop protection. For more information,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop\n                Protection</a>.</p>"
           }
         }
       },
@@ -66635,6 +66659,14 @@
             "smithy.api#documentation": "<p>The maintenance options for your instance.</p>",
             "smithy.api#xmlName": "maintenanceOptions"
           }
+        },
+        "DisableApiStop": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DisableApiStop",
+            "smithy.api#documentation": "<p>Indicates whether the instance is enabled for stop protection. \n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop Protection</a>.</p>",
+            "smithy.api#xmlName": "disableApiStop"
+          }
         }
       },
       "traits": {
@@ -68015,6 +68047,12 @@
           "target": "com.amazonaws.ec2#InstanceMaintenanceOptionsRequest",
           "traits": {
             "smithy.api#documentation": "<p>The maintenance and recovery options for the instance.</p>"
+          }
+        },
+        "DisableApiStop": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for stop protection. For more information,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop\n                Protection</a>.\n        </p>"
           }
         }
       }
@@ -77795,7 +77833,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "Code",
-            "smithy.api#documentation": "<p>The error code that indicates why the parameter or parameter combination is not valid.\n            For more information about error codes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\">Error\n            Codes</a>.</p>",
+            "smithy.api#documentation": "<p>The error code that indicates why the parameter or parameter combination is not valid.\n            For more information about error codes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\">Error\n            codes</a>.</p>",
             "smithy.api#xmlName": "code"
           }
         },
@@ -77803,7 +77841,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "Message",
-            "smithy.api#documentation": "<p>The error message that describes why the parameter or parameter combination is not\n            valid. For more information about error messages, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\">Error\n            Codes</a>.</p>",
+            "smithy.api#documentation": "<p>The error message that describes why the parameter or parameter combination is not\n            valid. For more information about error messages, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\">Error\n            codes</a>.</p>",
             "smithy.api#xmlName": "message"
           }
         }

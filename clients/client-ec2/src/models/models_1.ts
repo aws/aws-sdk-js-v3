@@ -3853,7 +3853,7 @@ export namespace LaunchTemplateElasticInferenceAccelerator {
 
 /**
  * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
- *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a>
+ *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a>
  *             in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
  */
 export interface LaunchTemplateEnclaveOptionsRequest {
@@ -3875,7 +3875,7 @@ export namespace LaunchTemplateEnclaveOptionsRequest {
 
 /**
  * <p>Indicates whether the instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
  *                 prerequisites</a>.</p>
  */
 export interface LaunchTemplateHibernationOptionsRequest {
@@ -4487,9 +4487,8 @@ export interface RequestLaunchTemplateData {
    * <p>The ID of the kernel.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User Provided
-   *                     Kernels</a> in the <i>Amazon Elastic Compute Cloud User
-   *                     Guide</i>.</p>
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
+   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *         </important>
    */
   KernelId?: string;
@@ -4525,7 +4524,7 @@ export interface RequestLaunchTemplateData {
   ImageId?: string;
 
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *         <p>If you specify <code>InstanceTypes</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
@@ -4556,9 +4555,8 @@ export interface RequestLaunchTemplateData {
    * <p>The ID of the RAM disk.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User Provided
-   *                     Kernels</a> in the <i>Amazon Elastic Compute Cloud User
-   *                     Guide</i>.</p>
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
+   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *         </important>
    */
   RamDiskId?: string;
@@ -4582,8 +4580,8 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>The user data to make available to the instance. You must provide base64-encoded text.
-   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance
-   *                 at Launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p>
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance
+   *                 at launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
    *         <p>If you are creating the launch template for use with Batch, the user
    *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
@@ -4652,7 +4650,7 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
-   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
    *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -4690,6 +4688,13 @@ export interface RequestLaunchTemplateData {
    * <p>The maintenance options for the instance.</p>
    */
   MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptionsRequest;
+
+  /**
+   * <p>Indicates whether to enable the instance for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.</p>
+   */
+  DisableApiStop?: boolean;
 }
 
 export namespace RequestLaunchTemplateData {
@@ -4713,7 +4718,7 @@ export interface CreateLaunchTemplateRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
+   *                 idempotency</a>.</p>
    *         <p>Constraint: Maximum 128 ASCII characters.</p>
    */
   ClientToken?: string;
@@ -4805,15 +4810,15 @@ export namespace LaunchTemplate {
 export interface ValidationError {
   /**
    * <p>The error code that indicates why the parameter or parameter combination is not valid.
-   *             For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error
-   *             Codes</a>.</p>
+   *             For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
+   *             codes</a>.</p>
    */
   Code?: string;
 
   /**
    * <p>The error message that describes why the parameter or parameter combination is not
-   *             valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error
-   *             Codes</a>.</p>
+   *             valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
+   *             codes</a>.</p>
    */
   Message?: string;
 }
@@ -4883,7 +4888,7 @@ export interface CreateLaunchTemplateVersionRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
+   *                 idempotency</a>.</p>
    *         <p>Constraint: Maximum 128 ASCII characters.</p>
    */
   ClientToken?: string;
@@ -5887,6 +5892,12 @@ export interface ResponseLaunchTemplateData {
    * <p>The maintenance options for your instance.</p>
    */
   MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptions;
+
+  /**
+   * <p>Indicates whether the instance is enabled for stop protection.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+   */
+  DisableApiStop?: boolean;
 }
 
 export namespace ResponseLaunchTemplateData {

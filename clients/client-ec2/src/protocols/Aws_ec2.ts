@@ -47000,6 +47000,13 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
   if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
+  if (input.DisableApiStop !== undefined && input.DisableApiStop !== null) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.DisableApiStop, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DisableApiStop.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -50340,6 +50347,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       entries[loc] = value;
     });
   }
+  if (input.DisableApiStop !== undefined && input.DisableApiStop !== null) {
+    entries["DisableApiStop"] = input.DisableApiStop;
+  }
   return entries;
 };
 
@@ -51298,6 +51308,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
       const loc = `MaintenanceOptions.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.DisableApiStop !== undefined && input.DisableApiStop !== null) {
+    entries["DisableApiStop"] = input.DisableApiStop;
   }
   return entries;
 };
@@ -67140,6 +67153,7 @@ const deserializeAws_ec2InstanceAttribute = (output: any, context: __SerdeContex
     SourceDestCheck: undefined,
     SriovNetSupport: undefined,
     UserData: undefined,
+    DisableApiStop: undefined,
   };
   if (output.groupSet === "") {
     contents.Groups = [];
@@ -67209,6 +67223,9 @@ const deserializeAws_ec2InstanceAttribute = (output: any, context: __SerdeContex
   }
   if (output["userData"] !== undefined) {
     contents.UserData = deserializeAws_ec2AttributeValue(output["userData"], context);
+  }
+  if (output["disableApiStop"] !== undefined) {
+    contents.DisableApiStop = deserializeAws_ec2AttributeBooleanValue(output["disableApiStop"], context);
   }
   return contents;
 };
@@ -75337,6 +75354,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     InstanceRequirements: undefined,
     PrivateDnsNameOptions: undefined,
     MaintenanceOptions: undefined,
+    DisableApiStop: undefined,
   };
   if (output["kernelId"] !== undefined) {
     contents.KernelId = __expectString(output["kernelId"]);
@@ -75503,6 +75521,9 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
       output["maintenanceOptions"],
       context
     );
+  }
+  if (output["disableApiStop"] !== undefined) {
+    contents.DisableApiStop = __parseBoolean(output["disableApiStop"]);
   }
   return contents;
 };

@@ -5205,7 +5205,7 @@ export class EC2 extends EC2Client {
    *         <p>A launch template contains the parameters to launch an
    *             instance. When you launch an instance using <a>RunInstances</a>, you can
    *             specify a launch template instead of providing the launch parameters in the request. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a
    *                 launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *         <p>If you want to clone an existing launch template as the basis for creating a new
    *             launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
@@ -5246,7 +5246,9 @@ export class EC2 extends EC2Client {
    *             launch template from which to base the new version.</p>
    *         <p>Launch template versions are numbered in the order in which they are created. You
    *             cannot specify, change, or replace the numbering of launch template versions.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the
+   *         <p>Launch templates are immutable; after you create a launch template, you can't modify it.
+   *             Instead, you can create a new version of the launch template that includes any changes you require.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a>in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createLaunchTemplateVersion(

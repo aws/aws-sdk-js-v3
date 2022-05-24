@@ -4823,6 +4823,13 @@ export interface ModifyInstanceAttributeRequest {
    *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
    */
   Value?: string;
+
+  /**
+   * <p>Indicates whether an instance is enabled for stop protection.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+   *         <p></p>
+   */
+  DisableApiStop?: AttributeBooleanValue;
 }
 
 export namespace ModifyInstanceAttributeRequest {
@@ -5716,7 +5723,7 @@ export interface ModifyLaunchTemplateRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
+   *                 idempotency</a>.</p>
    *         <p>Constraint: Maximum 128 ASCII characters.</p>
    */
   ClientToken?: string;

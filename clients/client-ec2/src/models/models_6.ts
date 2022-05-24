@@ -1911,6 +1911,14 @@ export interface RunInstancesRequest {
    * <p>The maintenance and recovery options for the instance.</p>
    */
   MaintenanceOptions?: InstanceMaintenanceOptionsRequest;
+
+  /**
+   * <p>Indicates whether an instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.
+   *         </p>
+   */
+  DisableApiStop?: boolean;
 }
 
 export namespace RunInstancesRequest {
