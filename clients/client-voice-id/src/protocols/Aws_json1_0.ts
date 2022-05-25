@@ -2499,6 +2499,10 @@ const deserializeAws_json1_0Speaker = (output: any, context: __SerdeContext): Sp
     CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
     DomainId: __expectString(output.DomainId),
     GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
+    LastAccessedAt:
+      output.LastAccessedAt !== undefined && output.LastAccessedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
+        : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
@@ -2609,6 +2613,10 @@ const deserializeAws_json1_0SpeakerSummary = (output: any, context: __SerdeConte
     CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
     DomainId: __expectString(output.DomainId),
     GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
+    LastAccessedAt:
+      output.LastAccessedAt !== undefined && output.LastAccessedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
+        : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null

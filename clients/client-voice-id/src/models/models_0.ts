@@ -48,6 +48,7 @@ export enum AuthenticationDecision {
   ACCEPT = "ACCEPT",
   NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
   REJECT = "REJECT",
+  SPEAKER_EXPIRED = "SPEAKER_EXPIRED",
   SPEAKER_ID_NOT_PROVIDED = "SPEAKER_ID_NOT_PROVIDED",
   SPEAKER_NOT_ENROLLED = "SPEAKER_NOT_ENROLLED",
   SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
@@ -952,6 +953,11 @@ export interface Speaker {
    * <p>A timestamp showing the speaker's last update.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The timestamp when the speaker was last accessed for enrollment, re-enrollment or a successful authentication. This timestamp is accurate to one hour.</p>
+   */
+  LastAccessedAt?: Date;
 }
 
 export namespace Speaker {
@@ -1803,6 +1809,11 @@ export interface SpeakerSummary {
    * <p>A timestamp showing the speaker's last update.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The timestamp when the speaker was last accessed for enrollment, re-enrollment or a successful authentication. This timestamp is accurate to one hour.</p>
+   */
+  LastAccessedAt?: Date;
 }
 
 export namespace SpeakerSummary {
