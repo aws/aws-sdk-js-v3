@@ -7,6 +7,27 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
 
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj,
+  });
+}
+
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
+
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -163,14 +184,6 @@ export class InvalidGreeting extends __BaseException {
   }
 }
 
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
-
 export interface JsonEnumsInputOutput {
   fooEnum1?: FooEnum | string;
   fooEnum2?: FooEnum | string;
@@ -185,19 +198,6 @@ export namespace JsonEnumsInputOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
 }

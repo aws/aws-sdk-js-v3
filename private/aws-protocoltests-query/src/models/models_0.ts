@@ -3,6 +3,27 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { QueryProtocolServiceException as __BaseException } from "./QueryProtocolServiceException";
 
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj,
+  });
+}
+
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 export namespace EmptyInputAndEmptyOutputInput {
@@ -36,14 +57,6 @@ export namespace HostLabelInput {
   export const filterSensitiveLog = (obj: HostLabelInput): any => ({
     ...obj,
   });
-}
-
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
 }
 
 export interface FlattenedXmlMapOutput {
@@ -217,19 +230,6 @@ export namespace QueryIdempotencyTokenAutoFillInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
-    ...obj,
-  });
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
 }

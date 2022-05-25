@@ -8,6 +8,19 @@ import { Readable } from "stream";
 
 import { RestJsonProtocolServiceException as __BaseException } from "./RestJsonProtocolServiceException";
 
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj,
+  });
+}
+
 export enum FooEnum {
   BAR = "Bar",
   BAZ = "Baz",
@@ -108,19 +121,6 @@ export namespace ConstantQueryStringInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
-    ...obj,
-  });
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
 }
