@@ -1534,7 +1534,7 @@ export interface PutResourcePolicyRequest {
   ResourcePolicy: string | undefined;
 
   /**
-   * <p>Specifies whether to block resource-based policies that allow broad access to the secret. By default, Secrets Manager blocks policies that allow broad access, for example those that use a wildcard for the principal.</p>
+   * <p>Specifies whether to block resource-based policies that allow broad access to the secret, for example those that use a wildcard for the principal.</p>
    */
   BlockPublicPolicy?: boolean;
 }
