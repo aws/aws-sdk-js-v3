@@ -493,8 +493,7 @@ import {
  */
 export class APIGateway extends APIGatewayClient {
   /**
-   * <p>Create an <a>ApiKey</a> resource. </p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS CLI</a></div>
+   * <p>Create an ApiKey resource. </p>
    */
   public createApiKey(
     args: CreateApiKeyCommandInput,
@@ -523,8 +522,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.</p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS CLI</a></div>
+   * <p>Adds a new Authorizer resource to an existing RestApi resource.</p>
    */
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -556,7 +554,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a new <a>BasePathMapping</a> resource.</p>
+   * <p>Creates a new BasePathMapping resource.</p>
    */
   public createBasePathMapping(
     args: CreateBasePathMappingCommandInput,
@@ -588,7 +586,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>
+   * <p>Creates a Deployment resource, which makes a specified RestApi callable over the internet.</p>
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -619,6 +617,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Creates a documentation part.</p>
+   */
   public createDocumentationPart(
     args: CreateDocumentationPartCommandInput,
     options?: __HttpHandlerOptions
@@ -648,6 +649,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Creates a documentation version</p>
+   */
   public createDocumentationVersion(
     args: CreateDocumentationVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -710,7 +714,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>
+   * <p>Adds a new Model resource to an existing RestApi resource.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
   public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
@@ -736,7 +740,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a <a>ReqeustValidator</a> of a given <a>RestApi</a>.</p>
+   * <p>Creates a RequestValidator of a given RestApi.</p>
    */
   public createRequestValidator(
     args: CreateRequestValidatorCommandInput,
@@ -768,7 +772,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a <a>Resource</a> resource.</p>
+   * <p>Creates a Resource resource.</p>
    */
   public createResource(
     args: CreateResourceCommandInput,
@@ -800,7 +804,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a new <a>RestApi</a> resource.</p>
+   * <p>Creates a new RestApi resource.</p>
    */
   public createRestApi(
     args: CreateRestApiCommandInput,
@@ -832,8 +836,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>
-   *         <!--   <p>Creates a <a>Stage</a> resource.</p>  -->
+   * <p>Creates a new Stage resource that references a pre-existing Deployment for the API. </p>
    */
   public createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
   public createStage(args: CreateStageCommandInput, cb: (err: any, data?: CreateStageCommandOutput) => void): void;
@@ -955,7 +958,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes the <a>ApiKey</a> resource.</p>
+   * <p>Deletes the ApiKey resource.</p>
    */
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
@@ -984,8 +987,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes an existing <a>Authorizer</a> resource.</p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS CLI</a></div>
+   * <p>Deletes an existing Authorizer resource.</p>
    */
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -1017,7 +1019,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes the <a>BasePathMapping</a> resource.</p>
+   * <p>Deletes the BasePathMapping resource.</p>
    */
   public deleteBasePathMapping(
     args: DeleteBasePathMappingCommandInput,
@@ -1049,7 +1051,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes the <a>ClientCertificate</a> resource.</p>
+   * <p>Deletes the ClientCertificate resource.</p>
    */
   public deleteClientCertificate(
     args: DeleteClientCertificateCommandInput,
@@ -1081,7 +1083,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
+   * <p>Deletes a Deployment resource. Deleting a deployment will only succeed if there are no Stage resources associated with it.</p>
    */
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
@@ -1112,6 +1114,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Deletes a documentation part</p>
+   */
   public deleteDocumentationPart(
     args: DeleteDocumentationPartCommandInput,
     options?: __HttpHandlerOptions
@@ -1141,6 +1146,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Deletes a documentation version.</p>
+   */
   public deleteDocumentationVersion(
     args: DeleteDocumentationVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -1171,7 +1179,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes the <a>DomainName</a> resource.</p>
+   * <p>Deletes the DomainName resource.</p>
    */
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
@@ -1203,7 +1211,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
+   * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
    */
   public deleteGatewayResponse(
     args: DeleteGatewayResponseCommandInput,
@@ -1299,7 +1307,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes an existing <a>Method</a> resource.</p>
+   * <p>Deletes an existing Method resource.</p>
    */
   public deleteMethod(
     args: DeleteMethodCommandInput,
@@ -1328,7 +1336,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes an existing <a>MethodResponse</a> resource.</p>
+   * <p>Deletes an existing MethodResponse resource.</p>
    */
   public deleteMethodResponse(
     args: DeleteMethodResponseCommandInput,
@@ -1386,7 +1394,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+   * <p>Deletes a RequestValidator of a given RestApi.</p>
    */
   public deleteRequestValidator(
     args: DeleteRequestValidatorCommandInput,
@@ -1418,7 +1426,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes a <a>Resource</a> resource.</p>
+   * <p>Deletes a Resource resource.</p>
    */
   public deleteResource(
     args: DeleteResourceCommandInput,
@@ -1482,7 +1490,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes a <a>Stage</a> resource.</p>
+   * <p>Deletes a Stage resource.</p>
    */
   public deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
   public deleteStage(args: DeleteStageCommandInput, cb: (err: any, data?: DeleteStageCommandOutput) => void): void;
@@ -1572,7 +1580,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
+   * <p>Deletes an existing VpcLink of a specified identifier.</p>
    */
   public deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
@@ -1668,7 +1676,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Generates a <a>ClientCertificate</a> resource.</p>
+   * <p>Generates a ClientCertificate resource.</p>
    */
   public generateClientCertificate(
     args: GenerateClientCertificateCommandInput,
@@ -1700,7 +1708,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about the current <a>Account</a> resource.</p>
+   * <p>Gets information about the current Account resource.</p>
    */
   public getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
   public getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
@@ -1726,7 +1734,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about the current <a>ApiKey</a> resource.</p>
+   * <p>Gets information about the current ApiKey resource.</p>
    */
   public getApiKey(args: GetApiKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetApiKeyCommandOutput>;
   public getApiKey(args: GetApiKeyCommandInput, cb: (err: any, data?: GetApiKeyCommandOutput) => void): void;
@@ -1752,7 +1760,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about the current <a>ApiKeys</a> resource.</p>
+   * <p>Gets information about the current ApiKeys resource.</p>
    */
   public getApiKeys(args: GetApiKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetApiKeysCommandOutput>;
   public getApiKeys(args: GetApiKeysCommandInput, cb: (err: any, data?: GetApiKeysCommandOutput) => void): void;
@@ -1778,8 +1786,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describe an existing <a>Authorizer</a> resource.</p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html">AWS CLI</a></div>
+   * <p>Describe an existing Authorizer resource.</p>
    */
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
@@ -1811,8 +1818,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describe an existing <a>Authorizers</a> resource.</p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS CLI</a></div>
+   * <p>Describe an existing Authorizers resource.</p>
    */
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
@@ -1844,7 +1850,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describe a <a>BasePathMapping</a> resource.</p>
+   * <p>Describe a BasePathMapping resource.</p>
    */
   public getBasePathMapping(
     args: GetBasePathMappingCommandInput,
@@ -1876,7 +1882,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
+   * <p>Represents a collection of BasePathMapping resources.</p>
    */
   public getBasePathMappings(
     args: GetBasePathMappingsCommandInput,
@@ -1908,7 +1914,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about the current <a>ClientCertificate</a> resource.</p>
+   * <p>Gets information about the current ClientCertificate resource.</p>
    */
   public getClientCertificate(
     args: GetClientCertificateCommandInput,
@@ -1940,7 +1946,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets a collection of <a>ClientCertificate</a> resources.</p>
+   * <p>Gets a collection of ClientCertificate resources.</p>
    */
   public getClientCertificates(
     args: GetClientCertificatesCommandInput,
@@ -1972,7 +1978,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about a <a>Deployment</a> resource.</p>
+   * <p>Gets information about a Deployment resource.</p>
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -2004,7 +2010,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about a <a>Deployments</a> collection.</p>
+   * <p>Gets information about a Deployments collection.</p>
    */
   public getDeployments(
     args: GetDeploymentsCommandInput,
@@ -2035,6 +2041,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets a documentation part.</p>
+   */
   public getDocumentationPart(
     args: GetDocumentationPartCommandInput,
     options?: __HttpHandlerOptions
@@ -2064,6 +2073,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets documentation parts.</p>
+   */
   public getDocumentationParts(
     args: GetDocumentationPartsCommandInput,
     options?: __HttpHandlerOptions
@@ -2093,6 +2105,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets a documentation version.</p>
+   */
   public getDocumentationVersion(
     args: GetDocumentationVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -2122,6 +2137,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets documentation versions.</p>
+   */
   public getDocumentationVersions(
     args: GetDocumentationVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2184,7 +2202,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Represents a collection of <a>DomainName</a> resources.</p>
+   * <p>Represents a collection of DomainName resources.</p>
    */
   public getDomainNames(
     args: GetDomainNamesCommandInput,
@@ -2216,7 +2234,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Exports a deployed version of a <a>RestApi</a> in a specified format.</p>
+   * <p>Exports a deployed version of a RestApi in a specified format.</p>
    */
   public getExport(args: GetExportCommandInput, options?: __HttpHandlerOptions): Promise<GetExportCommandOutput>;
   public getExport(args: GetExportCommandInput, cb: (err: any, data?: GetExportCommandOutput) => void): void;
@@ -2242,7 +2260,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
+   * <p>Gets a GatewayResponse of a specified response type on the given RestApi.</p>
    */
   public getGatewayResponse(
     args: GetGatewayResponseCommandInput,
@@ -2274,7 +2292,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
+   * <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
    */
   public getGatewayResponses(
     args: GetGatewayResponsesCommandInput,
@@ -2370,7 +2388,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describe an existing <a>Method</a> resource.</p>
+   * <p>Describe an existing Method resource.</p>
    */
   public getMethod(args: GetMethodCommandInput, options?: __HttpHandlerOptions): Promise<GetMethodCommandOutput>;
   public getMethod(args: GetMethodCommandInput, cb: (err: any, data?: GetMethodCommandOutput) => void): void;
@@ -2396,7 +2414,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describes a <a>MethodResponse</a> resource.</p>
+   * <p>Describes a MethodResponse resource.</p>
    */
   public getMethodResponse(
     args: GetMethodResponseCommandInput,
@@ -2428,7 +2446,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describes an existing model defined for a <a>RestApi</a> resource.</p>
+   * <p>Describes an existing model defined for a RestApi resource.</p>
    */
   public getModel(args: GetModelCommandInput, options?: __HttpHandlerOptions): Promise<GetModelCommandOutput>;
   public getModel(args: GetModelCommandInput, cb: (err: any, data?: GetModelCommandOutput) => void): void;
@@ -2454,7 +2472,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
+   * <p>Describes existing Models defined for a RestApi resource.</p>
    */
   public getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
   public getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
@@ -2512,7 +2530,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+   * <p>Gets a RequestValidator of a given RestApi.</p>
    */
   public getRequestValidator(
     args: GetRequestValidatorCommandInput,
@@ -2544,7 +2562,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
+   * <p>Gets the RequestValidators collection of a given RestApi.</p>
    */
   public getRequestValidators(
     args: GetRequestValidatorsCommandInput,
@@ -2602,7 +2620,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Lists information about a collection of <a>Resource</a> resources.</p>
+   * <p>Lists information about a collection of Resource resources.</p>
    */
   public getResources(
     args: GetResourcesCommandInput,
@@ -2631,7 +2649,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Lists the <a>RestApi</a> resource in the collection.</p>
+   * <p>Lists the RestApi resource in the collection.</p>
    */
   public getRestApi(args: GetRestApiCommandInput, options?: __HttpHandlerOptions): Promise<GetRestApiCommandOutput>;
   public getRestApi(args: GetRestApiCommandInput, cb: (err: any, data?: GetRestApiCommandOutput) => void): void;
@@ -2657,7 +2675,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Lists the <a>RestApis</a> resources for your collection.</p>
+   * <p>Lists the RestApis resources for your collection.</p>
    */
   public getRestApis(args: GetRestApisCommandInput, options?: __HttpHandlerOptions): Promise<GetRestApisCommandOutput>;
   public getRestApis(args: GetRestApisCommandInput, cb: (err: any, data?: GetRestApisCommandOutput) => void): void;
@@ -2683,7 +2701,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
+   * <p>Generates a client SDK for a RestApi and Stage.</p>
    */
   public getSdk(args: GetSdkCommandInput, options?: __HttpHandlerOptions): Promise<GetSdkCommandOutput>;
   public getSdk(args: GetSdkCommandInput, cb: (err: any, data?: GetSdkCommandOutput) => void): void;
@@ -2708,6 +2726,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets an SDK type.</p>
+   */
   public getSdkType(args: GetSdkTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetSdkTypeCommandOutput>;
   public getSdkType(args: GetSdkTypeCommandInput, cb: (err: any, data?: GetSdkTypeCommandOutput) => void): void;
   public getSdkType(
@@ -2731,6 +2752,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Gets SDK types</p>
+   */
   public getSdkTypes(args: GetSdkTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetSdkTypesCommandOutput>;
   public getSdkTypes(args: GetSdkTypesCommandInput, cb: (err: any, data?: GetSdkTypesCommandOutput) => void): void;
   public getSdkTypes(
@@ -2755,7 +2779,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about a <a>Stage</a> resource.</p>
+   * <p>Gets information about a Stage resource.</p>
    */
   public getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
   public getStage(args: GetStageCommandInput, cb: (err: any, data?: GetStageCommandOutput) => void): void;
@@ -2781,7 +2805,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets information about one or more <a>Stage</a> resources.</p>
+   * <p>Gets information about one or more Stage resources.</p>
    */
   public getStages(args: GetStagesCommandInput, options?: __HttpHandlerOptions): Promise<GetStagesCommandOutput>;
   public getStages(args: GetStagesCommandInput, cb: (err: any, data?: GetStagesCommandOutput) => void): void;
@@ -2807,7 +2831,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets the <a>Tags</a> collection for a given resource.</p>
+   * <p>Gets the Tags collection for a given resource.</p>
    */
   public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
   public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
@@ -3010,7 +3034,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
+   * <p>Gets the VpcLinks collection under the caller's account in a selected region.</p>
    */
   public getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
   public getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
@@ -3067,6 +3091,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Imports documentation parts</p>
+   */
   public importDocumentationParts(
     args: ImportDocumentationPartsCommandInput,
     options?: __HttpHandlerOptions
@@ -3129,7 +3156,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>
+   * <p>Creates a customization of a GatewayResponse of a specified response type and status code on the given RestApi.</p>
    */
   public putGatewayResponse(
     args: PutGatewayResponseCommandInput,
@@ -3225,7 +3252,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Add a method to an existing <a>Resource</a> resource.</p>
+   * <p>Add a method to an existing Resource resource.</p>
    */
   public putMethod(args: PutMethodCommandInput, options?: __HttpHandlerOptions): Promise<PutMethodCommandOutput>;
   public putMethod(args: PutMethodCommandInput, cb: (err: any, data?: PutMethodCommandOutput) => void): void;
@@ -3251,7 +3278,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Adds a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
+   * <p>Adds a MethodResponse to an existing Method resource.</p>
    */
   public putMethodResponse(
     args: PutMethodResponseCommandInput,
@@ -3336,11 +3363,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
-   *       <div class="seeAlso">
-   *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use Lambda Function as Authorizer</a>
-   *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
-   *       </div>
+   * <p>Simulate the execution of an Authorizer in your RestApi with headers, parameters, and an incoming request body.</p>
    */
   public testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
@@ -3372,7 +3395,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
+   * <p>Simulate the invocation of a Method in your RestApi with headers, parameters, and an incoming request body.</p>
    */
   public testInvokeMethod(
     args: TestInvokeMethodCommandInput,
@@ -3436,7 +3459,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about the current <a>Account</a> resource.</p>
+   * <p>Changes information about the current Account resource.</p>
    */
   public updateAccount(
     args: UpdateAccountCommandInput,
@@ -3468,7 +3491,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about an <a>ApiKey</a> resource.</p>
+   * <p>Changes information about an ApiKey resource.</p>
    */
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
@@ -3497,8 +3520,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates an existing <a>Authorizer</a> resource.</p>
-   *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
+   * <p>Updates an existing Authorizer resource.</p>
    */
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -3530,7 +3552,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about the <a>BasePathMapping</a> resource.</p>
+   * <p>Changes information about the BasePathMapping resource.</p>
    */
   public updateBasePathMapping(
     args: UpdateBasePathMappingCommandInput,
@@ -3562,7 +3584,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about an <a>ClientCertificate</a> resource.</p>
+   * <p>Changes information about an ClientCertificate resource.</p>
    */
   public updateClientCertificate(
     args: UpdateClientCertificateCommandInput,
@@ -3594,7 +3616,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about a <a>Deployment</a> resource.</p>
+   * <p>Changes information about a Deployment resource.</p>
    */
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
@@ -3625,6 +3647,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Updates a documentation part.</p>
+   */
   public updateDocumentationPart(
     args: UpdateDocumentationPartCommandInput,
     options?: __HttpHandlerOptions
@@ -3654,6 +3679,9 @@ export class APIGateway extends APIGatewayClient {
     }
   }
 
+  /**
+   * <p>Updates a documentation version.</p>
+   */
   public updateDocumentationVersion(
     args: UpdateDocumentationVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -3684,7 +3712,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about the <a>DomainName</a> resource.</p>
+   * <p>Changes information about the DomainName resource.</p>
    */
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
@@ -3716,7 +3744,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
+   * <p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
    */
   public updateGatewayResponse(
     args: UpdateGatewayResponseCommandInput,
@@ -3812,7 +3840,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates an existing <a>Method</a> resource.</p>
+   * <p>Updates an existing Method resource.</p>
    */
   public updateMethod(
     args: UpdateMethodCommandInput,
@@ -3841,7 +3869,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates an existing <a>MethodResponse</a> resource.</p>
+   * <p>Updates an existing MethodResponse resource.</p>
    */
   public updateMethodResponse(
     args: UpdateMethodResponseCommandInput,
@@ -3899,7 +3927,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+   * <p>Updates a RequestValidator of a given RestApi.</p>
    */
   public updateRequestValidator(
     args: UpdateRequestValidatorCommandInput,
@@ -3931,7 +3959,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about a <a>Resource</a> resource.</p>
+   * <p>Changes information about a Resource resource.</p>
    */
   public updateResource(
     args: UpdateResourceCommandInput,
@@ -3995,7 +4023,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Changes information about a <a>Stage</a> resource.</p>
+   * <p>Changes information about a Stage resource.</p>
    */
   public updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
   public updateStage(args: UpdateStageCommandInput, cb: (err: any, data?: UpdateStageCommandOutput) => void): void;
@@ -4079,7 +4107,7 @@ export class APIGateway extends APIGatewayClient {
   }
 
   /**
-   * <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
+   * <p>Updates an existing VpcLink of a specified identifier.</p>
    */
   public updateVpcLink(
     args: UpdateVpcLinkCommandInput,

@@ -23,7 +23,7 @@ export interface GetVpcLinksCommandInput extends GetVpcLinksRequest {}
 export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
 
 /**
- * <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
+ * <p>Gets the VpcLinks collection under the caller's account in a selected region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

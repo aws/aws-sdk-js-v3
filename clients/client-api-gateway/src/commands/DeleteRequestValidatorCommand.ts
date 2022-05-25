@@ -23,7 +23,7 @@ export interface DeleteRequestValidatorCommandInput extends DeleteRequestValidat
 export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ * <p>Deletes a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,6 +22,23 @@ import {
 export interface GetSdkTypesCommandInput extends GetSdkTypesRequest {}
 export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
 
+/**
+ * <p>Gets SDK types</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetSdkTypesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetSdkTypesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetSdkTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSdkTypesCommandInput} for command's `input` shape.
+ * @see {@link GetSdkTypesCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class GetSdkTypesCommand extends $Command<
   GetSdkTypesCommandInput,
   GetSdkTypesCommandOutput,

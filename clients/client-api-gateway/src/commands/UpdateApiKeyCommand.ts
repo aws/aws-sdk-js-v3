@@ -23,7 +23,7 @@ export interface UpdateApiKeyCommandInput extends UpdateApiKeyRequest {}
 export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
- * <p>Changes information about an <a>ApiKey</a> resource.</p>
+ * <p>Changes information about an ApiKey resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

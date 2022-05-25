@@ -23,8 +23,7 @@ export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
 export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
- * <p>Create an <a>ApiKey</a> resource. </p>
- *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS CLI</a></div>
+ * <p>Create an ApiKey resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

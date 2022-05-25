@@ -23,7 +23,7 @@ export interface CreateModelCommandInput extends CreateModelRequest {}
 export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
- * <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>
+ * <p>Adds a new Model resource to an existing RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

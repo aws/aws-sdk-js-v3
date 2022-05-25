@@ -23,11 +23,7 @@ export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRe
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
- * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
- *       <div class="seeAlso">
- *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use Lambda Function as Authorizer</a>
- *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
- *       </div>
+ * <p>Simulate the execution of an Authorizer in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

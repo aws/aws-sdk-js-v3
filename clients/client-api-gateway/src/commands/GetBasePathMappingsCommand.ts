@@ -23,7 +23,7 @@ export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequ
 export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**
- * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
+ * <p>Represents a collection of BasePathMapping resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

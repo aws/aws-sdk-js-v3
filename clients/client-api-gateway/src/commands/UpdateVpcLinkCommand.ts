@@ -23,7 +23,7 @@ export interface UpdateVpcLinkCommandInput extends UpdateVpcLinkRequest {}
 export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
+ * <p>Updates an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

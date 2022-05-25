@@ -23,8 +23,7 @@ export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
- * <p>Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.</p>
- *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS CLI</a></div>
+ * <p>Adds a new Authorizer resource to an existing RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

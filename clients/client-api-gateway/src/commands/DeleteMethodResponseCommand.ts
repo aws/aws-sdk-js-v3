@@ -23,7 +23,7 @@ export interface DeleteMethodResponseCommandInput extends DeleteMethodResponseRe
 export interface DeleteMethodResponseCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing <a>MethodResponse</a> resource.</p>
+ * <p>Deletes an existing MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

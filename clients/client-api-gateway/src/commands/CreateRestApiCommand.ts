@@ -23,7 +23,7 @@ export interface CreateRestApiCommandInput extends CreateRestApiRequest {}
 export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * <p>Creates a new <a>RestApi</a> resource.</p>
+ * <p>Creates a new RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

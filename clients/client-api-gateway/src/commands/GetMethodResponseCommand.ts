@@ -23,7 +23,7 @@ export interface GetMethodResponseCommandInput extends GetMethodResponseRequest 
 export interface GetMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a <a>MethodResponse</a> resource.</p>
+ * <p>Describes a MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

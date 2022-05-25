@@ -23,7 +23,7 @@ export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
 export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the <a>DomainName</a> resource.</p>
+ * <p>Deletes the DomainName resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

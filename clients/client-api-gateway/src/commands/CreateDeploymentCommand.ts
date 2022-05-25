@@ -23,7 +23,7 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>
+ * <p>Creates a Deployment resource, which makes a specified RestApi callable over the internet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

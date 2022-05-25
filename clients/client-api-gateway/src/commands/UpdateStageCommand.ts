@@ -23,7 +23,7 @@ export interface UpdateStageCommandInput extends UpdateStageRequest {}
 export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
- * <p>Changes information about a <a>Stage</a> resource.</p>
+ * <p>Changes information about a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

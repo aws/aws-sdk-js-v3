@@ -23,7 +23,7 @@ export interface DeleteApiKeyCommandInput extends DeleteApiKeyRequest {}
 export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the <a>ApiKey</a> resource.</p>
+ * <p>Deletes the ApiKey resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

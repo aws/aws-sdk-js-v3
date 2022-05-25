@@ -23,7 +23,7 @@ export interface UpdateBasePathMappingCommandInput extends UpdateBasePathMapping
 export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
- * <p>Changes information about the <a>BasePathMapping</a> resource.</p>
+ * <p>Changes information about the BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

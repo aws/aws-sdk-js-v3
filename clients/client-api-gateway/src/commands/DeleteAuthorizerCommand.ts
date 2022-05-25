@@ -23,8 +23,7 @@ export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
 export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing <a>Authorizer</a> resource.</p>
- *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS CLI</a></div>
+ * <p>Deletes an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

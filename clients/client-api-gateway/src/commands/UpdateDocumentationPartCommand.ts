@@ -22,6 +22,23 @@ import {
 export interface UpdateDocumentationPartCommandInput extends UpdateDocumentationPartRequest {}
 export interface UpdateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
+/**
+ * <p>Updates a documentation part.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, UpdateDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateDocumentationPartCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentationPartCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentationPartCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class UpdateDocumentationPartCommand extends $Command<
   UpdateDocumentationPartCommandInput,
   UpdateDocumentationPartCommandOutput,

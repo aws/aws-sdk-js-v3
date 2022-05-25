@@ -23,7 +23,7 @@ export interface DeleteDeploymentCommandInput extends DeleteDeploymentRequest {}
 export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
+ * <p>Deletes a Deployment resource. Deleting a deployment will only succeed if there are no Stage resources associated with it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

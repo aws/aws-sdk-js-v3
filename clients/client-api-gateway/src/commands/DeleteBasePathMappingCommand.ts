@@ -23,7 +23,7 @@ export interface DeleteBasePathMappingCommandInput extends DeleteBasePathMapping
 export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the <a>BasePathMapping</a> resource.</p>
+ * <p>Deletes the BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

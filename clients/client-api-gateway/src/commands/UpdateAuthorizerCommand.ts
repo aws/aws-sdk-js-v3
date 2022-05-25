@@ -23,8 +23,7 @@ export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <a>Authorizer</a> resource.</p>
- *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
+ * <p>Updates an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface PutMethodCommandInput extends PutMethodRequest {}
 export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
- * <p>Add a method to an existing <a>Resource</a> resource.</p>
+ * <p>Add a method to an existing Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

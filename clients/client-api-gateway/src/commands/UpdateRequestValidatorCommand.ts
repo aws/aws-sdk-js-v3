@@ -23,7 +23,7 @@ export interface UpdateRequestValidatorCommandInput extends UpdateRequestValidat
 export interface UpdateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
- * <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ * <p>Updates a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

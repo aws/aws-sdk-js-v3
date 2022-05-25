@@ -23,7 +23,7 @@ export interface GetRequestValidatorCommandInput extends GetRequestValidatorRequ
 export interface GetRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
- * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ * <p>Gets a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

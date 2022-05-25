@@ -22,6 +22,23 @@ import {
 export interface UpdateDocumentationVersionCommandInput extends UpdateDocumentationVersionRequest {}
 export interface UpdateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
+/**
+ * <p>Updates a documentation version.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, UpdateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateDocumentationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentationVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentationVersionCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class UpdateDocumentationVersionCommand extends $Command<
   UpdateDocumentationVersionCommandInput,
   UpdateDocumentationVersionCommandOutput,

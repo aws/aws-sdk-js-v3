@@ -23,8 +23,7 @@ export interface GetAuthorizersCommandInput extends GetAuthorizersRequest {}
 export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBearer {}
 
 /**
- * <p>Describe an existing <a>Authorizers</a> resource.</p>
- *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS CLI</a></div>
+ * <p>Describe an existing Authorizers resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

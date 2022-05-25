@@ -23,7 +23,7 @@ export interface CreateBasePathMappingCommandInput extends CreateBasePathMapping
 export interface CreateBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
- * <p>Creates a new <a>BasePathMapping</a> resource.</p>
+ * <p>Creates a new BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

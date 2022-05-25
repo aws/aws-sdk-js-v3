@@ -23,7 +23,7 @@ export interface CreateResourceCommandInput extends CreateResourceRequest {}
 export interface CreateResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
- * <p>Creates a <a>Resource</a> resource.</p>
+ * <p>Creates a Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

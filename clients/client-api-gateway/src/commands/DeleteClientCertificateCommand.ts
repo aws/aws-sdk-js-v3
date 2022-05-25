@@ -23,7 +23,7 @@ export interface DeleteClientCertificateCommandInput extends DeleteClientCertifi
 export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the <a>ClientCertificate</a> resource.</p>
+ * <p>Deletes the ClientCertificate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

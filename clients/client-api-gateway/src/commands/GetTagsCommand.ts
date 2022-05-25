@@ -23,7 +23,7 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
 
 /**
- * <p>Gets the <a>Tags</a> collection for a given resource.</p>
+ * <p>Gets the Tags collection for a given resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

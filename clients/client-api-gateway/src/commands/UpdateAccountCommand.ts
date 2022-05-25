@@ -23,7 +23,7 @@ export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
 export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
- * <p>Changes information about the current <a>Account</a> resource.</p>
+ * <p>Changes information about the current Account resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

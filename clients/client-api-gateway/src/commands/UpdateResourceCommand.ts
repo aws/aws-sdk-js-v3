@@ -23,7 +23,7 @@ export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
- * <p>Changes information about a <a>Resource</a> resource.</p>
+ * <p>Changes information about a Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

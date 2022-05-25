@@ -22,6 +22,23 @@ import {
 export interface DeleteDocumentationPartCommandInput extends DeleteDocumentationPartRequest {}
 export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {}
 
+/**
+ * <p>Deletes a documentation part</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteDocumentationPartCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDocumentationPartCommandInput} for command's `input` shape.
+ * @see {@link DeleteDocumentationPartCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class DeleteDocumentationPartCommand extends $Command<
   DeleteDocumentationPartCommandInput,
   DeleteDocumentationPartCommandOutput,

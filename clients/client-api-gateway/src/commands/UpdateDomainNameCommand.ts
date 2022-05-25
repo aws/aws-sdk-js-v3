@@ -23,7 +23,7 @@ export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
 export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBearer {}
 
 /**
- * <p>Changes information about the <a>DomainName</a> resource.</p>
+ * <p>Changes information about the DomainName resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

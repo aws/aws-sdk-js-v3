@@ -23,7 +23,7 @@ export interface GetClientCertificateCommandInput extends GetClientCertificateRe
 export interface GetClientCertificateCommandOutput extends ClientCertificate, __MetadataBearer {}
 
 /**
- * <p>Gets information about the current <a>ClientCertificate</a> resource.</p>
+ * <p>Gets information about the current ClientCertificate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

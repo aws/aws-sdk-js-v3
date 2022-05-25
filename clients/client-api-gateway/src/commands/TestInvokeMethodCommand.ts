@@ -23,7 +23,7 @@ export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
 export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**
- * <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
+ * <p>Simulate the invocation of a Method in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

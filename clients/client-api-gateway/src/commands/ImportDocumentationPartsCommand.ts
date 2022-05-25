@@ -22,6 +22,23 @@ import {
 export interface ImportDocumentationPartsCommandInput extends ImportDocumentationPartsRequest {}
 export interface ImportDocumentationPartsCommandOutput extends DocumentationPartIds, __MetadataBearer {}
 
+/**
+ * <p>Imports documentation parts</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, ImportDocumentationPartsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, ImportDocumentationPartsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new ImportDocumentationPartsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportDocumentationPartsCommandInput} for command's `input` shape.
+ * @see {@link ImportDocumentationPartsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class ImportDocumentationPartsCommand extends $Command<
   ImportDocumentationPartsCommandInput,
   ImportDocumentationPartsCommandOutput,

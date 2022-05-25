@@ -23,7 +23,7 @@ export interface GetGatewayResponsesCommandInput extends GetGatewayResponsesRequ
 export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __MetadataBearer {}
 
 /**
- * <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
+ * <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

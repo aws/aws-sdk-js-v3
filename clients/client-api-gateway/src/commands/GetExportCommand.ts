@@ -23,7 +23,7 @@ export interface GetExportCommandInput extends GetExportRequest {}
 export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer {}
 
 /**
- * <p>Exports a deployed version of a <a>RestApi</a> in a specified format.</p>
+ * <p>Exports a deployed version of a RestApi in a specified format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

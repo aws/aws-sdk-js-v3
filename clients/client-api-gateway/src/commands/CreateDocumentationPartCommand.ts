@@ -22,6 +22,23 @@ import {
 export interface CreateDocumentationPartCommandInput extends CreateDocumentationPartRequest {}
 export interface CreateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
+/**
+ * <p>Creates a documentation part.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, CreateDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, CreateDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateDocumentationPartCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDocumentationPartCommandInput} for command's `input` shape.
+ * @see {@link CreateDocumentationPartCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class CreateDocumentationPartCommand extends $Command<
   CreateDocumentationPartCommandInput,
   CreateDocumentationPartCommandOutput,

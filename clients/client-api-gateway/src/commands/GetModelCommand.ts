@@ -23,7 +23,7 @@ export interface GetModelCommandInput extends GetModelRequest {}
 export interface GetModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
- * <p>Describes an existing model defined for a <a>RestApi</a> resource.</p>
+ * <p>Describes an existing model defined for a RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

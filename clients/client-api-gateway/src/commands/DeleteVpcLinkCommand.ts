@@ -23,7 +23,7 @@ export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
 export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
+ * <p>Deletes an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

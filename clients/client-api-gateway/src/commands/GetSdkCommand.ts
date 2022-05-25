@@ -20,7 +20,7 @@ export interface GetSdkCommandInput extends GetSdkRequest {}
 export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
+ * <p>Generates a client SDK for a RestApi and Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

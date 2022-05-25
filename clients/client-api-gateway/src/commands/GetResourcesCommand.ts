@@ -23,7 +23,7 @@ export interface GetResourcesCommandInput extends GetResourcesRequest {}
 export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {}
 
 /**
- * <p>Lists information about a collection of <a>Resource</a> resources.</p>
+ * <p>Lists information about a collection of Resource resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

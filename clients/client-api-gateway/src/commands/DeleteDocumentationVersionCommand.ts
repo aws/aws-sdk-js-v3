@@ -22,6 +22,23 @@ import {
 export interface DeleteDocumentationVersionCommandInput extends DeleteDocumentationVersionRequest {}
 export interface DeleteDocumentationVersionCommandOutput extends __MetadataBearer {}
 
+/**
+ * <p>Deletes a documentation version.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteDocumentationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDocumentationVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteDocumentationVersionCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class DeleteDocumentationVersionCommand extends $Command<
   DeleteDocumentationVersionCommandInput,
   DeleteDocumentationVersionCommandOutput,

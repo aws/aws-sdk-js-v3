@@ -23,7 +23,7 @@ export interface UpdateGatewayResponseCommandInput extends UpdateGatewayResponse
 export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
+ * <p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

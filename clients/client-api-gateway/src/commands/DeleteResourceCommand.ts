@@ -23,7 +23,7 @@ export interface DeleteResourceCommandInput extends DeleteResourceRequest {}
 export interface DeleteResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <a>Resource</a> resource.</p>
+ * <p>Deletes a Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

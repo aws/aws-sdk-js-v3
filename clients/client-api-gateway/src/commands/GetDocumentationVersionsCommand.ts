@@ -22,6 +22,23 @@ import {
 export interface GetDocumentationVersionsCommandInput extends GetDocumentationVersionsRequest {}
 export interface GetDocumentationVersionsCommandOutput extends DocumentationVersions, __MetadataBearer {}
 
+/**
+ * <p>Gets documentation versions.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetDocumentationVersionsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetDocumentationVersionsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetDocumentationVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentationVersionsCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentationVersionsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class GetDocumentationVersionsCommand extends $Command<
   GetDocumentationVersionsCommandInput,
   GetDocumentationVersionsCommandOutput,

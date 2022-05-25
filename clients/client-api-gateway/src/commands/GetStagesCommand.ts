@@ -23,7 +23,7 @@ export interface GetStagesCommandInput extends GetStagesRequest {}
 export interface GetStagesCommandOutput extends Stages, __MetadataBearer {}
 
 /**
- * <p>Gets information about one or more <a>Stage</a> resources.</p>
+ * <p>Gets information about one or more Stage resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

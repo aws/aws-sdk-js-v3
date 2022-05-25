@@ -22,6 +22,23 @@ import {
 export interface CreateDocumentationVersionCommandInput extends CreateDocumentationVersionRequest {}
 export interface CreateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
+/**
+ * <p>Creates a documentation version</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, CreateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, CreateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateDocumentationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDocumentationVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateDocumentationVersionCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ */
 export class CreateDocumentationVersionCommand extends $Command<
   CreateDocumentationVersionCommandInput,
   CreateDocumentationVersionCommandOutput,

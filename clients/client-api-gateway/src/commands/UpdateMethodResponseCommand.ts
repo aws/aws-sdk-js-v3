@@ -23,7 +23,7 @@ export interface UpdateMethodResponseCommandInput extends UpdateMethodResponseRe
 export interface UpdateMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing <a>MethodResponse</a> resource.</p>
+ * <p>Updates an existing MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

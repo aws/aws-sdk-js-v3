@@ -23,7 +23,7 @@ export interface GetAccountCommandInput extends GetAccountRequest {}
 export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
- * <p>Gets information about the current <a>Account</a> resource.</p>
+ * <p>Gets information about the current Account resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

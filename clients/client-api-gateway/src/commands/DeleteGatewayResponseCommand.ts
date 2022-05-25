@@ -23,7 +23,7 @@ export interface DeleteGatewayResponseCommandInput extends DeleteGatewayResponse
 export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
+ * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
