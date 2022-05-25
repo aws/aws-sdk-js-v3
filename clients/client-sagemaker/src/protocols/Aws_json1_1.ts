@@ -681,6 +681,7 @@ import {
   AsyncInferenceOutputConfig,
   AthenaDatasetDefinition,
   AutoMLCandidate,
+  AutoMLCandidateGenerationConfig,
   AutoMLCandidateStep,
   AutoMLChannel,
   AutoMLContainerDefinition,
@@ -769,7 +770,6 @@ import {
   CreateHyperParameterTuningJobRequest,
   CreateHyperParameterTuningJobResponse,
   CreateImageRequest,
-  CreateImageResponse,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -877,6 +877,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
   CreateInferenceRecommendationsJobRequest,
@@ -1062,7 +1063,6 @@ import {
   LabelingJobDataAttributes,
   LabelingJobDataSource,
   LabelingJobInputConfig,
-  LabelingJobOutput,
   LabelingJobOutputConfig,
   LabelingJobResourceConfig,
   LabelingJobS3DataSource,
@@ -1241,6 +1241,7 @@ import {
   InferenceRecommendationsJob,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
+  LabelingJobOutput,
   LabelingJobSummary,
   LambdaStepMetadata,
   LineageGroupSummary,
@@ -1341,7 +1342,6 @@ import {
   ListStudioLifecycleConfigsResponse,
   ListSubscribedWorkteamsRequest,
   ListSubscribedWorkteamsResponse,
-  ListTagsInput,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1389,6 +1389,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListTagsInput,
   ListTagsOutput,
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
@@ -15707,6 +15708,16 @@ const serializeAws_json1_1AttributeNames = (input: string[], context: __SerdeCon
     });
 };
 
+const serializeAws_json1_1AutoMLCandidateGenerationConfig = (
+  input: AutoMLCandidateGenerationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeatureSpecificationS3Uri !== undefined &&
+      input.FeatureSpecificationS3Uri !== null && { FeatureSpecificationS3Uri: input.FeatureSpecificationS3Uri }),
+  };
+};
+
 const serializeAws_json1_1AutoMLChannel = (input: AutoMLChannel, context: __SerdeContext): any => {
   return {
     ...(input.ChannelType !== undefined && input.ChannelType !== null && { ChannelType: input.ChannelType }),
@@ -15766,6 +15777,13 @@ const serializeAws_json1_1AutoMLJobCompletionCriteria = (
 
 const serializeAws_json1_1AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): any => {
   return {
+    ...(input.CandidateGenerationConfig !== undefined &&
+      input.CandidateGenerationConfig !== null && {
+        CandidateGenerationConfig: serializeAws_json1_1AutoMLCandidateGenerationConfig(
+          input.CandidateGenerationConfig,
+          context
+        ),
+      }),
     ...(input.CompletionCriteria !== undefined &&
       input.CompletionCriteria !== null && {
         CompletionCriteria: serializeAws_json1_1AutoMLJobCompletionCriteria(input.CompletionCriteria, context),
@@ -24263,6 +24281,15 @@ const deserializeAws_json1_1AutoMLCandidate = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1AutoMLCandidateGenerationConfig = (
+  output: any,
+  context: __SerdeContext
+): AutoMLCandidateGenerationConfig => {
+  return {
+    FeatureSpecificationS3Uri: __expectString(output.FeatureSpecificationS3Uri),
+  } as any;
+};
+
 const deserializeAws_json1_1AutoMLCandidates = (output: any, context: __SerdeContext): AutoMLCandidate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -24372,6 +24399,10 @@ const deserializeAws_json1_1AutoMLJobCompletionCriteria = (
 
 const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeContext): AutoMLJobConfig => {
   return {
+    CandidateGenerationConfig:
+      output.CandidateGenerationConfig !== undefined && output.CandidateGenerationConfig !== null
+        ? deserializeAws_json1_1AutoMLCandidateGenerationConfig(output.CandidateGenerationConfig, context)
+        : undefined,
     CompletionCriteria:
       output.CompletionCriteria !== undefined && output.CompletionCriteria !== null
         ? deserializeAws_json1_1AutoMLJobCompletionCriteria(output.CompletionCriteria, context)

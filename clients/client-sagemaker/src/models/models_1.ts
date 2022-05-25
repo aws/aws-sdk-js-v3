@@ -105,6 +105,22 @@ import {
   VpcConfig,
 } from "./models_0";
 
+export interface CreateImageResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  ImageArn?: string;
+}
+
+export namespace CreateImageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateImageVersionRequest {
   /**
    * <p>The registry path of the container image to use as the starting point for this
@@ -3780,7 +3796,11 @@ export interface CreateModelPackageInput {
 
   /**
    * <p>The machine learning task your model package accomplishes. Common machine
-   *     learning tasks include object detection and image classification.</p>
+   *     learning tasks include object detection and image classification. The following
+   *     tasks are supported by Inference Recommender:
+   *    <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> |
+   *    <code>"FILL_MASK"</code> | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</p>
+   *          <p>Specify "OTHER" if none of the tasks listed fit your use case.</p>
    */
   Task?: string;
 
@@ -7050,31 +7070,31 @@ export namespace CreateWorkteamResponse {
 }
 
 /**
- * <p></p>
+ * <p>The currently active data capture configuration used by your Endpoint.</p>
  */
 export interface DataCaptureConfigSummary {
   /**
-   * <p></p>
+   * <p>Whether data capture is enabled or disabled.</p>
    */
   EnableCapture: boolean | undefined;
 
   /**
-   * <p></p>
+   * <p>Whether data capture is currently functional.</p>
    */
   CaptureStatus: CaptureStatus | string | undefined;
 
   /**
-   * <p></p>
+   * <p>The percentage of requests being captured by your Endpoint.</p>
    */
   CurrentSamplingPercentage: number | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon S3 location being used to capture the data.</p>
    */
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The KMS key being used to encrypt the data in Amazon S3.</p>
    */
   KmsKeyId: string | undefined;
 }
@@ -9892,7 +9912,7 @@ export interface DescribeEndpointOutput {
   ProductionVariants?: ProductionVariantSummary[];
 
   /**
-   * <p></p>
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
    */
   DataCaptureConfig?: DataCaptureConfigSummary;
 
@@ -10028,7 +10048,7 @@ export interface DescribeEndpointConfigOutput {
   ProductionVariants: ProductionVariant[] | undefined;
 
   /**
-   * <p></p>
+   * <p>Configuration to control how SageMaker captures inference data.</p>
    */
   DataCaptureConfig?: DataCaptureConfig;
 
@@ -11334,31 +11354,6 @@ export namespace LabelCounters {
    * @internal
    */
   export const filterSensitiveLog = (obj: LabelCounters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the location of the output produced by the labeling job. </p>
- */
-export interface LabelingJobOutput {
-  /**
-   * <p>The Amazon S3 bucket location of the manifest file for labeled data. </p>
-   */
-  OutputDatasetS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the most recent SageMaker model trained as part of
-   *             automated data labeling. </p>
-   */
-  FinalActiveLearningModelArn?: string;
-}
-
-export namespace LabelingJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobOutput): any => ({
     ...obj,
   });
 }

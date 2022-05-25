@@ -1772,7 +1772,8 @@ export interface TransformOutput {
    *                 Developer Guide.</i>
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *                 <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+   * 	<a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>
+   * 		request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
    *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
    *                 Guide</i>.</p>
    */
@@ -4254,7 +4255,12 @@ export interface MetricDatum {
   Set?: MetricSetSource | string;
 
   /**
-   * <p>The name of the standard metric.</p>
+   * <p>The name of the standard metric. </p>
+   *          <note>
+   *             <p>For definitions of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-metrics">
+   *                   <code>Autopilot candidate metrics</code>
+   *                </a>.</p>
+   *          </note>
    */
   StandardMetricName?: AutoMLMetricExtendedEnum | string;
 }
@@ -4477,6 +4483,32 @@ export namespace AutoMLCandidate {
   });
 }
 
+/**
+ * <p>Stores the config information for how a candidate is generated (optional).</p>
+ */
+export interface AutoMLCandidateGenerationConfig {
+  /**
+   * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
+   *          run an Autopilot job (optional). This file should be in json format as shown below: </p>
+   *          <p>
+   *             <code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</p>
+   *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
+   *             <code>["col1", "col2", ...]</code> is case sensitive and should be a list of strings
+   *          containing unique values that are a subset of the column names in the input data. The list
+   *          of columns provided must not include the target column.</p>
+   */
+  FeatureSpecificationS3Uri?: string;
+}
+
+export namespace AutoMLCandidateGenerationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLCandidateGenerationConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum AutoMLChannelType {
   TRAINING = "training",
   VALIDATION = "validation",
@@ -4534,9 +4566,9 @@ export namespace AutoMLDataSource {
 }
 
 /**
- * <p>A channel is a named input source that training algorithms can consume. The
- *          validation dataset size is limited to less than 2 GB. The training dataset size must be
- *          less than 100 GB. For more information, see .</p>
+ * <p>A channel is a named input source that training algorithms can consume. The validation
+ *          dataset size is limited to less than 2 GB. The training dataset size must be less than 100
+ *          GB. For more information, see .</p>
  *          <note>
  *             <p>A validation dataset must contain the same headers as the training dataset.</p>
  *          </note>
@@ -4568,9 +4600,12 @@ export interface AutoMLChannel {
   ContentType?: string;
 
   /**
-   * <p>The channel type (optional) is an enum string. The default value is
+   * <p>The channel type (optional) is an <code>enum</code> string. The default value is
    *             <code>training</code>. Channels for training and validation must share the same
-   *             <code>ContentType</code> and <code>TargetAttributeName</code>.</p>
+   *             <code>ContentType</code> and <code>TargetAttributeName</code>. For information on
+   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">
+   *                <code>How to specify training and validation datasets</code>
+   *             </a>.</p>
    */
   ChannelType?: AutoMLChannelType | string;
 }
@@ -4592,8 +4627,8 @@ export namespace AutoMLChannel {
 export interface AutoMLDataSplitConfig {
   /**
    * <p>The validation fraction (optional) is a float that specifies the portion of the training
-   *          dataset to be used for validation. The default value is 0.2, and values can range from 0 to
-   *          1. We recommend setting this value to be less than 0.5.</p>
+   *          dataset to be used for validation. The default value is 0.2, and values must be greater
+   *          than 0 and less than 1. We recommend setting this value to be less than 0.5.</p>
    */
   ValidationFraction?: number;
 }
@@ -4745,6 +4780,11 @@ export interface AutoMLJobConfig {
    *          <p>Type: AutoMLDataSplitConfig</p>
    */
   DataSplitConfig?: AutoMLDataSplitConfig;
+
+  /**
+   * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
+   */
+  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
 }
 
 export namespace AutoMLJobConfig {
@@ -5480,16 +5520,17 @@ export enum CandidateSortBy {
 }
 
 /**
- * <p></p>
+ * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker
+ *          will by default base64 encode when capturing the data.</p>
  */
 export interface CaptureContentTypeHeader {
   /**
-   * <p></p>
+   * <p>The list of all content type headers that SageMaker will treat as CSV and capture accordingly.</p>
    */
   CsvContentTypes?: string[];
 
   /**
-   * <p></p>
+   * <p>The list of all content type headers that SageMaker will treat as JSON and capture accordingly.</p>
    */
   JsonContentTypes?: string[];
 }
@@ -5509,11 +5550,11 @@ export enum CaptureMode {
 }
 
 /**
- * <p></p>
+ * <p>Specifies data Model Monitor will capture.</p>
  */
 export interface CaptureOption {
   /**
-   * <p></p>
+   * <p>Specify the boundary of data to capture.</p>
    */
   CaptureMode: CaptureMode | string | undefined;
 }
@@ -7177,8 +7218,9 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s) supported: CSV. Minimum
-   *          of 500 rows.</p>
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s) supported: CSV, Parquet.
+   *          A minimum of 500 rows is required for the training dataset. There is not a minimum number
+   *          of rows required for the validation dataset.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -7189,9 +7231,8 @@ export interface CreateAutoMLJobRequest {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>Defines the type of supervised learning available for the candidates. Options include:
-   *             <code>BinaryClassification</code>, <code>MulticlassClassification</code>, and
-   *             <code>Regression</code>. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+   * <p>Defines the type of supervised learning available for the candidates. For more
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
    *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
    */
   ProblemType?: ProblemType | string;
@@ -7204,8 +7245,7 @@ export interface CreateAutoMLJobRequest {
   AutoMLJobObjective?: AutoMLJobObjective;
 
   /**
-   * <p>Contains <code>CompletionCriteria</code> and <code>SecurityConfig</code> settings for
-   *          the AutoML job.</p>
+   * <p>A collection of settings used to configure an AutoML job.</p>
    */
   AutoMLJobConfig?: AutoMLJobConfig;
 
@@ -9503,36 +9543,61 @@ export namespace CreateEndpointOutput {
 }
 
 /**
- * <p></p>
+ * <p>Configuration to control how SageMaker captures inference data.</p>
  */
 export interface DataCaptureConfig {
   /**
-   * <p></p>
+   * <p>Whether data capture should be enabled or disabled (defaults to enabled).</p>
    */
   EnableCapture?: boolean;
 
   /**
-   * <p></p>
+   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
+   *          Endpoints with high traffic.</p>
    */
   InitialSamplingPercentage: number | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon S3 location used to capture the data.</p>
    */
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
+   *          the storage volume attached to the ML compute instance that hosts the endpoint.</p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   KmsKeyId?: string;
 
   /**
-   * <p></p>
+   * <p>Specifies data Model Monitor will capture. You can configure whether to
+   *          collect only input, only output, or both</p>
    */
   CaptureOptions: CaptureOption[] | undefined;
 
   /**
-   * <p></p>
+   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
+   *          by default base64 encode when capturing the data.</p>
    */
   CaptureContentTypeHeader?: CaptureContentTypeHeader;
 }
@@ -9725,7 +9790,7 @@ export interface CreateEndpointConfigInput {
   ProductionVariants: ProductionVariant[] | undefined;
 
   /**
-   * <p></p>
+   * <p>Configuration to control how SageMaker captures inference data.</p>
    */
   DataCaptureConfig?: DataCaptureConfig;
 
@@ -11923,22 +11988,6 @@ export namespace CreateImageRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateImageResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  ImageArn?: string;
-}
-
-export namespace CreateImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
     ...obj,
   });
 }

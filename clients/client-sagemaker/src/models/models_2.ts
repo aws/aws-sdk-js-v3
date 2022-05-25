@@ -88,7 +88,6 @@ import {
   LabelCounters,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
-  LabelingJobOutput,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
   MemberDefinition,
@@ -137,6 +136,31 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>Specifies the location of the output produced by the labeling job. </p>
+ */
+export interface LabelingJobOutput {
+  /**
+   * <p>The Amazon S3 bucket location of the manifest file for labeled data. </p>
+   */
+  OutputDatasetS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the most recent SageMaker model trained as part of
+   *             automated data labeling. </p>
+   */
+  FinalActiveLearningModelArn?: string;
+}
+
+export namespace LabelingJobOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobOutput): any => ({
+    ...obj,
+  });
+}
 
 export enum LabelingJobStatus {
   COMPLETED = "Completed",
@@ -4347,7 +4371,7 @@ export interface Endpoint {
   ProductionVariants?: ProductionVariantSummary[];
 
   /**
-   * <p></p>
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
    */
   DataCaptureConfig?: DataCaptureConfigSummary;
 
@@ -10893,35 +10917,6 @@ export namespace ListSubscribedWorkteamsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
-   *             retrieve.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p> If the response to the previous <code>ListTags</code> request is truncated, SageMaker
-   *             returns this token. To retrieve the next set of tags, use it in the subsequent request.
-   *         </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Maximum number of tags to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsInput): any => ({
     ...obj,
   });
 }

@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsInput } from "../models/models_2";
-import { ListTagsOutput } from "../models/models_3";
+import { ListTagsInput, ListTagsOutput } from "../models/models_3";
 import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

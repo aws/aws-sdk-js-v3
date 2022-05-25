@@ -103,6 +103,35 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface ListTagsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
+   *             retrieve.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p> If the response to the previous <code>ListTags</code> request is truncated, SageMaker
+   *             returns this token. To retrieve the next set of tags, use it in the subsequent request.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of tags to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTagsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsInput): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsOutput {
   /**
    * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
