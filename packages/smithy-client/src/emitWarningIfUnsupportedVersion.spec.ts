@@ -1,7 +1,7 @@
 describe("emitWarningIfUnsupportedVersion", () => {
   let emitWarningIfUnsupportedVersion;
   const emitWarning = process.emitWarning;
-  const supportedVersion = "12.0.0";
+  const supportedVersion = "14.0.0";
 
   beforeEach(() => {
     const module = require("./emitWarningIfUnsupportedVersion");
@@ -38,10 +38,10 @@ describe("emitWarningIfUnsupportedVersion", () => {
       expect(process.emitWarning).toHaveBeenCalledTimes(1);
       expect(process.emitWarning).toHaveBeenCalledWith(
         `The AWS SDK for JavaScript (v3) will\n` +
-          `no longer support Node.js ${unsupportedVersion} as of January 1, 2022.\n` +
+          `no longer support Node.js ${unsupportedVersion} on November 1, 2022.\n\n` +
           `To continue receiving updates to AWS services, bug fixes, and security\n` +
-          `updates please upgrade to Node.js 12.x or later.\n\n` +
-          `More information can be found at: https://a.co/1l6FLnu`,
+          `updates please upgrade to Node.js 14.x or later.\n\n` +
+          `For details, please refer our blog post: https://a.co/48dbdYz`,
         `NodeDeprecationWarning`
       );
 
