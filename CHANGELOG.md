@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
+
+
+### Features
+
+* **client-cloudformation:** Add a new parameter statusReason to DescribeStackSetOperation output for additional details ([9051437](https://github.com/aws/aws-sdk-js-v3/commit/90514375503b4df2e6709371728c46cfa8042492))
+* **client-fsx:** This release adds root squash support to FSx for Lustre to restrict root level access from clients by mapping root users to a less-privileged user/group with limited permissions. ([920eafe](https://github.com/aws/aws-sdk-js-v3/commit/920eafe0c8ab69eebc0c79569ee72ad1a9fdaa8a))
+* **client-lookoutmetrics:** Adding AthenaSourceConfig for MetricSet APIs to support Athena as a data source. ([41aa257](https://github.com/aws/aws-sdk-js-v3/commit/41aa25712afe684d39ebb85dcb7b2d1eef56588e))
+* **client-sagemaker:** Amazon SageMaker Autopilot adds support for manually selecting features from the input dataset using the CreateAutoMLJob API. ([212b3e3](https://github.com/aws/aws-sdk-js-v3/commit/212b3e3b89cc40ee302cc15a23a9e1c6446cac7b))
+* **client-voice-id:** VoiceID will now automatically expire Speakers if they haven't been accessed for Enrollment, Re-enrollment or Successful Auth for three years. The Speaker APIs now return a "LastAccessedAt" time for Speakers, and the EvaluateSession API returns "SPEAKER_EXPIRED" Auth Decision for EXPIRED Speakers. ([7bd32c7](https://github.com/aws/aws-sdk-js-v3/commit/7bd32c786bae60d657f57a037a156714c4cde2ed))
+* **clients:** update client endpoints as of 2022-05-25 ([272235a](https://github.com/aws/aws-sdk-js-v3/commit/272235a5420791924da9e9e9390fb4a7de21f75b))
+
+
+
+
+
 # [3.98.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.97.0...v3.98.0) (2022-05-24)
 
 

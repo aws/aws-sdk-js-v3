@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
+
+
+### Features
+
+* **client-fsx:** This release adds root squash support to FSx for Lustre to restrict root level access from clients by mapping root users to a less-privileged user/group with limited permissions. ([920eafe](https://github.com/aws/aws-sdk-js-v3/commit/920eafe0c8ab69eebc0c79569ee72ad1a9fdaa8a))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

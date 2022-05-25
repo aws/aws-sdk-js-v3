@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
+
+
+### Features
+
+* **client-cloudformation:** Add a new parameter statusReason to DescribeStackSetOperation output for additional details ([9051437](https://github.com/aws/aws-sdk-js-v3/commit/90514375503b4df2e6709371728c46cfa8042492))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

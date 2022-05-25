@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
+
+
+### Features
+
+* **client-lookoutmetrics:** Adding AthenaSourceConfig for MetricSet APIs to support Athena as a data source. ([41aa257](https://github.com/aws/aws-sdk-js-v3/commit/41aa25712afe684d39ebb85dcb7b2d1eef56588e))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 
