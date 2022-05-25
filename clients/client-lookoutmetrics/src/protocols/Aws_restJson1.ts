@@ -103,9 +103,11 @@ import {
   AnomalyGroupTimeSeries,
   AnomalyGroupTimeSeriesFeedback,
   AppFlowConfig,
+  AthenaSourceConfig,
   AttributeValue,
   AutoDetectionMetricSource,
   AutoDetectionS3SourceConfig,
+  BackTestConfiguration,
   CloudWatchConfig,
   ConflictException,
   ContributionMatrix,
@@ -2866,6 +2868,21 @@ const serializeAws_restJson1AppFlowConfig = (input: AppFlowConfig, context: __Se
   };
 };
 
+const serializeAws_restJson1AthenaSourceConfig = (input: AthenaSourceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.BackTestConfiguration !== undefined &&
+      input.BackTestConfiguration !== null && {
+        BackTestConfiguration: serializeAws_restJson1BackTestConfiguration(input.BackTestConfiguration, context),
+      }),
+    ...(input.DataCatalog !== undefined && input.DataCatalog !== null && { DataCatalog: input.DataCatalog }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.S3ResultsPath !== undefined && input.S3ResultsPath !== null && { S3ResultsPath: input.S3ResultsPath }),
+    ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
+    ...(input.WorkGroupName !== undefined && input.WorkGroupName !== null && { WorkGroupName: input.WorkGroupName }),
+  };
+};
+
 const serializeAws_restJson1AutoDetectionMetricSource = (
   input: AutoDetectionMetricSource,
   context: __SerdeContext
@@ -2891,6 +2908,13 @@ const serializeAws_restJson1AutoDetectionS3SourceConfig = (
       input.TemplatedPathList !== null && {
         TemplatedPathList: serializeAws_restJson1TemplatedPathList(input.TemplatedPathList, context),
       }),
+  };
+};
+
+const serializeAws_restJson1BackTestConfiguration = (input: BackTestConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.RunBackTestMode !== undefined &&
+      input.RunBackTestMode !== null && { RunBackTestMode: input.RunBackTestMode }),
   };
 };
 
@@ -3000,6 +3024,10 @@ const serializeAws_restJson1MetricSource = (input: MetricSource, context: __Serd
     ...(input.AppFlowConfig !== undefined &&
       input.AppFlowConfig !== null && {
         AppFlowConfig: serializeAws_restJson1AppFlowConfig(input.AppFlowConfig, context),
+      }),
+    ...(input.AthenaSourceConfig !== undefined &&
+      input.AthenaSourceConfig !== null && {
+        AthenaSourceConfig: serializeAws_restJson1AthenaSourceConfig(input.AthenaSourceConfig, context),
       }),
     ...(input.CloudWatchConfig !== undefined &&
       input.CloudWatchConfig !== null && {
@@ -3346,6 +3374,21 @@ const deserializeAws_restJson1AppFlowConfig = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1AthenaSourceConfig = (output: any, context: __SerdeContext): AthenaSourceConfig => {
+  return {
+    BackTestConfiguration:
+      output.BackTestConfiguration !== undefined && output.BackTestConfiguration !== null
+        ? deserializeAws_restJson1BackTestConfiguration(output.BackTestConfiguration, context)
+        : undefined,
+    DataCatalog: __expectString(output.DataCatalog),
+    DatabaseName: __expectString(output.DatabaseName),
+    RoleArn: __expectString(output.RoleArn),
+    S3ResultsPath: __expectString(output.S3ResultsPath),
+    TableName: __expectString(output.TableName),
+    WorkGroupName: __expectString(output.WorkGroupName),
+  } as any;
+};
+
 const deserializeAws_restJson1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
     B: __expectString(output.B),
@@ -3363,6 +3406,12 @@ const deserializeAws_restJson1AttributeValue = (output: any, context: __SerdeCon
       output.SS !== undefined && output.SS !== null
         ? deserializeAws_restJson1StringListAttributeValue(output.SS, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BackTestConfiguration = (output: any, context: __SerdeContext): BackTestConfiguration => {
+  return {
+    RunBackTestMode: __expectBoolean(output.RunBackTestMode),
   } as any;
 };
 
@@ -3817,6 +3866,10 @@ const deserializeAws_restJson1MetricSource = (output: any, context: __SerdeConte
     AppFlowConfig:
       output.AppFlowConfig !== undefined && output.AppFlowConfig !== null
         ? deserializeAws_restJson1AppFlowConfig(output.AppFlowConfig, context)
+        : undefined,
+    AthenaSourceConfig:
+      output.AthenaSourceConfig !== undefined && output.AthenaSourceConfig !== null
+        ? deserializeAws_restJson1AthenaSourceConfig(output.AthenaSourceConfig, context)
         : undefined,
     CloudWatchConfig:
       output.CloudWatchConfig !== undefined && output.CloudWatchConfig !== null

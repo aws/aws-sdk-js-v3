@@ -70,7 +70,7 @@ export interface SNSConfiguration {
   SnsTopicArn: string | undefined;
 
   /**
-   * <p>The text format for alerts.</p>
+   * <p>The format of the SNS topic.</p>
    */
   SnsFormat?: SnsFormat | string;
 }
@@ -876,6 +876,74 @@ export namespace AppFlowConfig {
 }
 
 /**
+ * <p>Settings for backtest mode.</p>
+ */
+export interface BackTestConfiguration {
+  /**
+   * <p>Run a backtest instead of monitoring new data.</p>
+   */
+  RunBackTestMode: boolean | undefined;
+}
+
+export namespace BackTestConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BackTestConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Amazon Athena datasource.</p>
+ */
+export interface AthenaSourceConfig {
+  /**
+   * <p>An IAM role that gives Amazon Lookout for Metrics permission to access the data.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The database's name.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The database's data catalog.</p>
+   */
+  DataCatalog?: string;
+
+  /**
+   * <p>The database's table name.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The database's work group name.</p>
+   */
+  WorkGroupName?: string;
+
+  /**
+   * <p>The database's results path.</p>
+   */
+  S3ResultsPath?: string;
+
+  /**
+   * <p>Settings for backtest mode.</p>
+   */
+  BackTestConfiguration?: BackTestConfiguration;
+}
+
+export namespace AthenaSourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AthenaSourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An attribute value.</p>
  */
 export interface AttributeValue {
@@ -1465,7 +1533,7 @@ export namespace S3SourceConfig {
 }
 
 /**
- * <p>Contains information about source data used to generate a metric.</p>
+ * <p>Contains information about source data used to generate metrics.</p>
  */
 export interface MetricSource {
   /**
@@ -1474,24 +1542,29 @@ export interface MetricSource {
   S3SourceConfig?: S3SourceConfig;
 
   /**
-   * <p>An object containing information about the AppFlow configuration.</p>
+   * <p>Details about an AppFlow datasource.</p>
    */
   AppFlowConfig?: AppFlowConfig;
 
   /**
-   * <p>An object containing information about the Amazon CloudWatch monitoring configuration.</p>
+   * <p>Details about an Amazon CloudWatch monitoring datasource.</p>
    */
   CloudWatchConfig?: CloudWatchConfig;
 
   /**
-   * <p>An object containing information about the Amazon Relational Database Service (RDS) configuration.</p>
+   * <p>Details about an Amazon Relational Database Service (RDS) datasource.</p>
    */
   RDSSourceConfig?: RDSSourceConfig;
 
   /**
-   * <p>An object containing information about the Amazon Redshift database configuration.</p>
+   * <p>Details about an Amazon Redshift database datasource.</p>
    */
   RedshiftSourceConfig?: RedshiftSourceConfig;
+
+  /**
+   * <p>Details about an Amazon Athena datasource.</p>
+   */
+  AthenaSourceConfig?: AthenaSourceConfig;
 }
 
 export namespace MetricSource {
@@ -3074,7 +3147,7 @@ export interface UpdateMetricSetRequest {
   MetricSetFrequency?: Frequency | string;
 
   /**
-   * <p>Contains information about source data used to generate a metric.</p>
+   * <p>Contains information about source data used to generate metrics.</p>
    */
   MetricSource?: MetricSource;
 }
