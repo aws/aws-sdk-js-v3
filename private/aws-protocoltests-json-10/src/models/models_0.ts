@@ -3,6 +3,27 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { JSONRPC10ServiceException as __BaseException } from "./JSONRPC10ServiceException";
 
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj,
+  });
+}
+
+export enum FooEnum {
+  BAR = "Bar",
+  BAZ = "Baz",
+  FOO = "Foo",
+  ONE = "1",
+  ZERO = "0",
+}
+
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -139,27 +160,6 @@ export class InvalidGreeting extends __BaseException {
     Object.setPrototypeOf(this, InvalidGreeting.prototype);
     this.Message = opts.Message;
   }
-}
-
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
 }
 
 /**

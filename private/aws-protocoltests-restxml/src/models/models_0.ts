@@ -3,6 +3,19 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RestXmlProtocolServiceException as __BaseException } from "./RestXmlProtocolServiceException";
 
+export interface GreetingStruct {
+  hi?: string;
+}
+
+export namespace GreetingStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj,
+  });
+}
+
 export enum FooEnum {
   BAR = "Bar",
   BAZ = "Baz",
@@ -745,19 +758,6 @@ export namespace XmlListsInputOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: XmlListsInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
 }
