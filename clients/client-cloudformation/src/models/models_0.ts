@@ -165,7 +165,7 @@ export interface ActivateTypeInput {
   Type?: ThirdPartyType | string;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the public extension.</p>
+   * <p>The Amazon Resource Name (ARN) of the public extension.</p>
    *          <p>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
    *             <code>Type</code>, and <code>PublisherId</code>.</p>
    */
@@ -255,7 +255,7 @@ export namespace ActivateTypeInput {
 
 export interface ActivateTypeOutput {
   /**
-   * <p>The Amazon Resource Number (ARN) of the activated extension, in this account and
+   * <p>The Amazon Resource Name (ARN) of the activated extension, in this account and
    *          region.</p>
    */
   Arn?: string;
@@ -501,8 +501,7 @@ export interface TypeConfigurationDetails {
   TypeName?: string;
 
   /**
-   * <p>Whether or not this configuration data is the default configuration for the
-   *          extension.</p>
+   * <p>Whether this configuration data is the default configuration for the extension.</p>
    */
   IsDefaultConfiguration?: boolean;
 }
@@ -797,7 +796,7 @@ export namespace ResourceChangeDetail {
 /**
  * <p>Contains information about the module from which the resource was created, if the
  *          resource was created from a module included in the stack template.</p>
- *          <p>For more information on modules, see <a href="AWSCloudFormation/latest/UserGuide/modules.html">Using modules to encapsulate and
+ *          <p>For more information about modules, see <a href="AWSCloudFormation/latest/UserGuide/modules.html">Using modules to encapsulate and
  *             reuse resource configurations</a> in the
  *          <i>CloudFormation User Guide</i>.</p>
  */
@@ -1620,7 +1619,7 @@ export interface CreateChangeSetInput {
    *                      returns an <code>InsufficientCapabilities</code> error.</p>
    *                   </li>
    *                </ul>
-   *                <p>If your stack template contains these resources, we recommend that you review all
+   *                <p>If your stack template contains these resources, we suggest that you review all
    *                permissions associated with them and edit their permissions if necessary.</p>
    *                <ul>
    *                   <li>
@@ -1685,7 +1684,7 @@ export interface CreateChangeSetInput {
    *                      <i>and</i> nested stacks, you must create or update the stack
    *                   directly from the template using the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</p>
    *                </note>
-   *                <p>For more information on macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros to
+   *                <p>For more information about macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros to
    *                   perform custom processing on templates</a>.</p>
    *             </li>
    *          </ul>
@@ -1842,7 +1841,7 @@ export class InsufficientCapabilitiesException extends __BaseException {
 
 /**
  * <p>The quota for the resource has already been reached.</p>
- *          <p>For information on resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -2213,7 +2212,7 @@ export enum RegionConcurrencyType {
 /**
  * <p>The user-specified preferences for how CloudFormation performs a stack set
  *          operation.</p>
- *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+ *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
  */
 export interface StackSetOperationPreferences {
   /**
@@ -2612,7 +2611,7 @@ export interface CreateStackSetInput {
   TemplateURL?: string;
 
   /**
-   * <p>The stack ID you are importing into a new stack set. Specify the Amazon Resource Number
+   * <p>The stack ID you are importing into a new stack set. Specify the Amazon Resource Name
    *          (ARN) of the stack.</p>
    */
   StackId?: string;
@@ -2730,7 +2729,7 @@ export interface CreateStackSetInput {
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role to use to create this
+   * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this
    *          stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles
    *          to control which users or groups can manage specific stack sets within the same
@@ -4679,8 +4678,8 @@ export interface DescribeStackResourceDriftsOutput {
   StackResourceDrifts: StackResourceDrift[] | undefined;
 
   /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
-   *          set to a token. To retrieve the next set of results, call
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set
+   *          to a token. To retrieve the next set of results, call
    *             <code>DescribeStackResourceDrifts</code> again and assign that token to the request
    *          object's <code>NextToken</code> parameter. If the request returns all results,
    *             <code>NextToken</code> is set to <code>null</code>.</p>
@@ -5100,9 +5099,9 @@ export interface Stack {
   /**
    * <p>Whether termination protection is enabled for the stack.</p>
    *          <p>For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
-   *          termination protection is set on the root stack and cannot be changed directly on the
-   *          nested stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being
-   *             Deleted</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          termination protection is set on the root stack and can't be changed directly on the nested
+   *          stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being Deleted</a> in the
+   *             <i>CloudFormation User Guide</i>.</p>
    */
   EnableTerminationProtection?: boolean;
 
@@ -5122,7 +5121,7 @@ export interface Stack {
   RootId?: string;
 
   /**
-   * <p>Information on whether a stack's actual configuration differs, or has
+   * <p>Information about whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
    *             Changes to Stacks and Resources</a>.</p>
@@ -5402,12 +5401,12 @@ export interface StackSet {
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the stack set.</p>
+   * <p>The Amazon Resource Name (ARN) of the stack set.</p>
    */
   StackSetARN?: string;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role used to create or update
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update
    *          the stack set.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific
    *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack
@@ -5617,7 +5616,7 @@ export interface StackSetOperation {
   RetainStacks?: boolean;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role used to perform this
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this
    *          stack set operation.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific
    *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple
@@ -5664,6 +5663,11 @@ export interface StackSetOperation {
    *             Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
    */
   StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
+
+  /**
+   * <p>The status of the operation in details.</p>
+   */
+  StatusReason?: string;
 }
 
 export namespace StackSetOperation {
@@ -5746,7 +5750,7 @@ export interface DescribeTypeInput {
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
-   *          <p>Extensions provided by Amazon are not assigned a publisher ID.</p>
+   *          <p>Extensions provided by Amazon Web Services are not assigned a publisher ID.</p>
    */
   PublisherId?: string;
 
@@ -5846,7 +5850,7 @@ export interface DescribeTypeOutput {
    * <p>The ID of the default version of the extension. The default version is used when the
    *          extension version isn't specified.</p>
    *          <p>This applies only to private extensions you have registered in your account. For public
-   *          extensions, both those provided by Amazon and published by third parties, CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *          extensions, both those provided by Amazon Web Services and published by third parties, CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *          <p>To set the default version of an extension, use <code>
    *                <a>SetTypeDefaultVersion</a>
    *             </code>.</p>
@@ -5856,8 +5860,8 @@ export interface DescribeTypeOutput {
   /**
    * <p>Whether the specified extension version is set as the default version.</p>
    *          <p>This applies only to private extensions you have registered in your account, and
-   *          extensions published by Amazon. For public third-party extensions, whether or not they are
-   *          activated in your account, CloudFormation returns <code>null</code>.</p>
+   *          extensions published by Amazon Web Services. For public third-party extensions, whether they
+   *          are activated in your account, CloudFormation returns <code>null</code>.</p>
    */
   IsDefaultVersion?: boolean;
 
@@ -5866,8 +5870,8 @@ export interface DescribeTypeOutput {
    *          test status of a specific extension version, you must specify
    *          <code>VersionId</code>.</p>
    *          <p>This applies only to registered private extension versions. CloudFormation
-   *          doesn't return this information for public extensions, whether or not they are activated in
-   *          your account.</p>
+   *          doesn't return this information for public extensions, whether they are activated in your
+   *          account.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5899,8 +5903,8 @@ export interface DescribeTypeOutput {
    * <p>The description of the test status. To return the extension test status of a specific
    *          extension version, you must specify <code>VersionId</code>.</p>
    *          <p>This applies only to registered private extension versions. CloudFormation
-   *          doesn't return this information for public extensions, whether or not they are activated in
-   *          your account.</p>
+   *          doesn't return this information for public extensions, whether they are activated in your
+   *          account.</p>
    */
   TypeTestsStatusDescription?: string;
 
@@ -5911,7 +5915,7 @@ export interface DescribeTypeOutput {
 
   /**
    * <p>The schema that defines the extension.</p>
-   *          <p>For more information on extension schemas, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource Provider
+   *          <p>For more information about extension schemas, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource Provider
    *             Schema</a> in the <i>CloudFormation CLI User
    *          Guide</i>.</p>
    */
@@ -5978,7 +5982,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>Contains logging configuration information for private extensions. This applies only to
    *          private extensions you have registered in your account. For public extensions, both those
-   *          provided by Amazon and published by third parties, CloudFormation returns
+   *          provided by Amazon Web Services and published by third parties, CloudFormation returns
    *             <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    */
   LoggingConfig?: LoggingConfig;
@@ -5993,7 +5997,6 @@ export interface DescribeTypeOutput {
    * <p>The Amazon Resource Name (ARN) of the IAM execution role used to register
    *          the extension. This applies only to private extensions you have registered in your account.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
-   *          <p></p>
    *          <p>If the registered extension calls any Amazon Web Services APIs, you must create an
    *                <i>
    *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution role</a>
@@ -6018,7 +6021,7 @@ export interface DescribeTypeOutput {
    *             <li>
    *                <p>
    *                   <code>PUBLIC</code>: The extension is publicly visible and usable within any
-   *                Amazon account.</p>
+   *                Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    */
@@ -6104,7 +6107,7 @@ export interface DescribeTypeOutput {
   LatestPublicVersion?: string;
 
   /**
-   * <p>Whether or not the extension is activated in the account and region.</p>
+   * <p>Whether the extension is activated in the account and region.</p>
    *          <p>This only applies to public third-party extensions. For all other extensions, CloudFormation returns <code>null</code>.</p>
    */
   IsActivated?: boolean;
@@ -6273,7 +6276,7 @@ export interface DetectStackSetDriftInput {
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set
    *          operation.</p>
-   *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
    */
   OperationPreferences?: StackSetOperationPreferences;
 
@@ -6846,7 +6849,7 @@ export interface ImportStacksToStackSetInput {
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set
    *          operation.</p>
-   *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
    */
   OperationPreferences?: StackSetOperationPreferences;
 
@@ -7121,7 +7124,7 @@ export interface ListStackInstancesInput {
   StackSetName: string | undefined;
 
   /**
-   * <p>If the previous request didn't return all of the remaining results, the response's
+   * <p>If the previous request didn't return all the remaining results, the response's
    *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
    *          results, call <code>ListStackInstances</code> again and assign that token to the request
    *          object's <code>NextToken</code> parameter. If there are no remaining results, the previous
@@ -7397,7 +7400,7 @@ export interface StackResourceDriftInformationSummary {
    *                <p>Any resources that don't currently support drift detection have a status of
    *                   <code>NOT_CHECKED</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>. If you performed an <a>ContinueUpdateRollback</a> operation on a stack, any resources included in
    *                   <code>ResourcesToSkip</code> will also have a status of <code>NOT_CHECKED</code>.
-   *                For more information on skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue Rolling Back an Update</a> in the CloudFormation User Guide.</p>
+   *                For more information about skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue Rolling Back an Update</a> in the CloudFormation User Guide.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7646,7 +7649,7 @@ export interface StackSummary {
   RootId?: string;
 
   /**
-   * <p>Summarizes information on whether a stack's actual configuration differs, or has
+   * <p>Summarizes information about whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
    *             Changes to Stacks and Resources</a>.</p>
@@ -7702,11 +7705,11 @@ export interface ListStackSetOperationResultsInput {
   OperationId: string | undefined;
 
   /**
-   * <p>If the previous request didn't return all of the remaining results, the response
-   *          object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set
-   *          of results, call <code>ListStackSetOperationResults</code> again and assign that token to
-   *          the request object's <code>NextToken</code> parameter. If there are no remaining results,
-   *          the previous response object's <code>NextToken</code> parameter is set to
+   * <p>If the previous request didn't return all the remaining results, the response object's
+   *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *          results, call <code>ListStackSetOperationResults</code> again and assign that token to the
+   *          request object's <code>NextToken</code> parameter. If there are no remaining results, the
+   *          previous response object's <code>NextToken</code> parameter is set to
    *          <code>null</code>.</p>
    */
   NextToken?: string;
@@ -7985,6 +7988,11 @@ export interface StackSetOperationSummary {
    *          successful, or even attempted, in each account or Region.</p>
    */
   EndTimestamp?: Date;
+
+  /**
+   * <p>The status of the operation in details.</p>
+   */
+  StatusReason?: string;
 }
 
 export namespace StackSetOperationSummary {
@@ -8269,8 +8277,8 @@ export interface ListTypeRegistrationsOutput {
   RegistrationTokenList?: string[];
 
   /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
-   *          set to a token. To retrieve the next set of results, call this action again and assign that
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set
+   *          to a token. To retrieve the next set of results, call this action again and assign that
    *          token to the request object's <code>NextToken</code> parameter. If the request returns all
    *          results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
@@ -8369,8 +8377,8 @@ export interface ListTypesInput {
    *             <li>
    *                <p>
    *                   <code>PUBLIC</code>: Extensions that are publicly visible and available to be
-   *                activated within any Amazon account. This includes extensions from Amazon, as well as
-   *                third-party publishers.</p>
+   *                activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in
+   *                addition to third-party publishers.</p>
    *             </li>
    *          </ul>
    *          <p>The default is <code>PRIVATE</code>.</p>
@@ -8446,9 +8454,9 @@ export interface ListTypesInput {
   MaxResults?: number;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the
-   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-   *          next set of results, call this action again and assign that token to the request object's
+   * <p>If the previous paginated request didn't return all the remaining results, the response
+   *          object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set
+   *          of results, call this action again and assign that token to the request object's
    *             <code>NextToken</code> parameter. If there are no remaining results, the previous
    *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    */
@@ -8572,7 +8580,7 @@ export interface TypeSummary {
   PublisherName?: string;
 
   /**
-   * <p>Whether or not the extension is activated for this account and region.</p>
+   * <p>Whether the extension is activated for this account and region.</p>
    *          <p>This applies only to third-party public extensions. Extensions published by Amazon are
    *          activated by default.</p>
    */
@@ -8789,7 +8797,7 @@ export interface PublishTypeInput {
   Type?: ThirdPartyType | string;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the extension.</p>
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
    *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
    *             <code>Type</code>.</p>
    */
@@ -8830,7 +8838,7 @@ export namespace PublishTypeInput {
 
 export interface PublishTypeOutput {
   /**
-   * <p>The Amazon Resource Number (ARN) assigned to the public extension upon
+   * <p>The Amazon Resource Name (ARN) assigned to the public extension upon
    *          publication.</p>
    */
   PublicTypeArn?: string;
@@ -9027,7 +9035,7 @@ export interface RegisterTypeInput {
 
   /**
    * <p>The name of the extension being registered.</p>
-   *          <p>We recommend that extension names adhere to the following patterns:</p>
+   *          <p>We suggest that extension names adhere to the following patterns:</p>
    *          <ul>
    *             <li>
    *                <p>For resource types,
@@ -9036,6 +9044,9 @@ export interface RegisterTypeInput {
    *             <li>
    *                <p>For modules,
    *                   <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</p>
+   *             </li>
+   *             <li>
+   *                <p>For hooks, <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>
    *             </li>
    *          </ul>
    *
@@ -9081,7 +9092,7 @@ export interface RegisterTypeInput {
   /**
    * <p>A URL to the S3 bucket containing the extension project package that contains the
    *          necessary files for the extension you want to register.</p>
-   *          <p>For information on generating a schema handler package for the extension you want to
+   *          <p>For information about generating a schema handler package for the extension you want to
    *          register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a>
    *          in the <i>CloudFormation CLI User Guide</i>.</p>
    *          <note>
@@ -9103,7 +9114,7 @@ export interface RegisterTypeInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the extension.</p>
    *          <p>For CloudFormation to assume the specified execution role, the role must
    *          contain a trust relationship with the CloudFormation service principle
-   *             (<code>resources.cloudformation.amazonaws.com</code>). For more information on adding
+   *             (<code>resources.cloudformation.amazonaws.com</code>). For more information about adding
    *          trust relationships, see <a href="IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying a role trust policy</a> in the <i>Identity and Access Management User
    *             Guide</i>.</p>
    *          <p>If your extension calls Amazon Web Services APIs in any of its handlers, you must create
@@ -9577,7 +9588,7 @@ export interface UpdateStackInput {
    *          the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code>
    *          parameter, but not both.</p>
    *          <p>If you want to update protected resources, specify a temporary overriding stack policy
-   *          during this update. If you do not specify a stack policy, the current policy that is
+   *          during this update. If you don't specify a stack policy, the current policy that is
    *          associated with the stack will be used.</p>
    */
   StackPolicyDuringUpdateBody?: string;
@@ -9588,7 +9599,7 @@ export interface UpdateStackInput {
    *          can specify either the <code>StackPolicyDuringUpdateBody</code> or the
    *             <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p>
    *          <p>If you want to update protected resources, specify a temporary overriding stack policy
-   *          during this update. If you do not specify a stack policy, the current policy that is
+   *          during this update. If you don't specify a stack policy, the current policy that is
    *          associated with the stack will be used.</p>
    */
   StackPolicyDuringUpdateURL?: string;
@@ -9629,7 +9640,7 @@ export interface UpdateStackInput {
    *                         <code>InsufficientCapabilities</code> error.</p>
    *                   </li>
    *                </ul>
-   *                <p>If your stack template contains these resources, we recommend that you review all
+   *                <p>If your stack template contains these resources, we suggest that you review all
    *                permissions associated with them and edit their permissions if necessary.</p>
    *                <ul>
    *                   <li>
@@ -10140,7 +10151,7 @@ export interface UpdateStackSetInput {
   OperationPreferences?: StackSetOperationPreferences;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role to use to update this
+   * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this
    *          stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles
    *          to control which users or groups can manage specific stack sets within the same

@@ -33,8 +33,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *                <p>Making the extension available for use in your account.</p>
  *             </li>
  *          </ul>
- *          <p>For more information on how to develop extensions and ready them for registration, see
- *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource
+ *          <p>For more information about how to develop extensions and ready them for registration,
+ *          see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource
  *             Providers</a> in the <i>CloudFormation CLI User
  *          Guide</i>.</p>
  *          <p>You can have a maximum of 50 resource extension versions registered at a time. This

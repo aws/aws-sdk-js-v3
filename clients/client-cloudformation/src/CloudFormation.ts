@@ -743,8 +743,8 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
-   *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>.</p>
+   * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
+   *          must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
    */
   public deleteStackSet(
     args: DeleteStackSetCommandInput,
@@ -920,7 +920,7 @@ export class CloudFormation extends CloudFormationClient {
    *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
    *          publisher, <code>DescribePublisher</code> returns information about your own publisher
    *          account.</p>
-   *          <p>For more information on registering as a publisher, see:</p>
+   *          <p>For more information about registering as a publisher, see:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -969,7 +969,7 @@ export class CloudFormation extends CloudFormationClient {
    *          operation detects whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. A stack is considered to have
-   *          drifted if one or more of its resources have drifted. For more information on stack and
+   *          drifted if one or more of its resources have drifted. For more information about stack and
    *          resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
    *             Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    *          <p>Use <a>DetectStackDrift</a> to initiate a stack drift detection operation.
@@ -1511,7 +1511,7 @@ export class CloudFormation extends CloudFormationClient {
    *                drift time checked.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information on performing a drift detection operation on a stack set, see
+   *          <p>For more information about performing a drift detection operation on a stack set, see
    *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged
    *             changes in stack sets</a>.</p>
    *          <p>You can only run a single drift detection operation on a given stack set at one
@@ -2168,7 +2168,7 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Publishes the specified extension to the CloudFormation registry as a public
-   *          extension in this region. Public extensions are available for use by all CloudFormation users. For more information on publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the
+   *          extension in this region. Public extensions are available for use by all CloudFormation users. For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the
    *                <i>CloudFormation CLI User Guide</i>.</p>
    *          <p>To publish an extension, you must be registered as a publisher with CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>.</p>
    */
@@ -2231,7 +2231,7 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
    *          This publisher ID applies to your account in all Amazon Web Services Regions.</p>
-   *          <p>For information on requirements for registering as a public extension publisher, see
+   *          <p>For information about requirements for registering as a public extension publisher, see
    *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation
    *             extensions</a> in the <i>CloudFormation CLI User
    *          Guide</i>.</p>
@@ -2280,8 +2280,8 @@ export class CloudFormation extends CloudFormationClient {
    *                <p>Making the extension available for use in your account.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information on how to develop extensions and ready them for registration, see
-   *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource
+   *          <p>For more information about how to develop extensions and ready them for registration,
+   *          see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource
    *             Providers</a> in the <i>CloudFormation CLI User
    *          Guide</i>.</p>
    *          <p>You can have a maximum of 50 resource extension versions registered at a time. This

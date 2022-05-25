@@ -9820,6 +9820,7 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
     EndTimestamp: undefined,
     DeploymentTargets: undefined,
     StackSetDriftDetectionDetails: undefined,
+    StatusReason: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = __expectString(output["OperationId"]);
@@ -9862,6 +9863,9 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
       output["StackSetDriftDetectionDetails"],
       context
     );
+  }
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = __expectString(output["StatusReason"]);
   }
   return contents;
 };
@@ -9976,6 +9980,7 @@ const deserializeAws_queryStackSetOperationSummary = (
     Status: undefined,
     CreationTimestamp: undefined,
     EndTimestamp: undefined,
+    StatusReason: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = __expectString(output["OperationId"]);
@@ -9991,6 +9996,9 @@ const deserializeAws_queryStackSetOperationSummary = (
   }
   if (output["EndTimestamp"] !== undefined) {
     contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTime(output["EndTimestamp"]));
+  }
+  if (output["StatusReason"] !== undefined) {
+    contents.StatusReason = __expectString(output["StatusReason"]);
   }
   return contents;
 };

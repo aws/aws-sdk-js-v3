@@ -60,7 +60,7 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  *                drift time checked.</p>
  *             </li>
  *          </ul>
- *          <p>For more information on performing a drift detection operation on a stack set, see
+ *          <p>For more information about performing a drift detection operation on a stack set, see
  *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged
  *             changes in stack sets</a>.</p>
  *          <p>You can only run a single drift detection operation on a given stack set at one

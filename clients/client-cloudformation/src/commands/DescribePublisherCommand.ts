@@ -27,7 +27,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
  *          publisher, <code>DescribePublisher</code> returns information about your own publisher
  *          account.</p>
- *          <p>For more information on registering as a publisher, see:</p>
+ *          <p>For more information about registering as a publisher, see:</p>
  *          <ul>
  *             <li>
  *                <p>

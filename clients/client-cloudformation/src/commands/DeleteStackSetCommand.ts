@@ -23,8 +23,8 @@ export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
- *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>.</p>
+ * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
+ *          must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
