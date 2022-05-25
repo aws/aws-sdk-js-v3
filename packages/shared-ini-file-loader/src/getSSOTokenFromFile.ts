@@ -1,9 +1,7 @@
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
-import { promises as fsPromises } from "fs";
+import { readFile } from "fs/promises";
 
 import { getSSOTokenFilepath } from "./getSSOTokenFilepath";
-
-const { readFile } = fsPromises;
 
 /**
  * Cached SSO token retrieved from SSO login flow.

@@ -1,7 +1,4 @@
-// ToDo: Change to "fs/promises" when supporting nodejs>=14
-import { promises as fsPromises } from "fs";
-
-const { readFile } = fsPromises;
+import { readFile } from "fs/promises";
 
 const filePromisesHash: { [key: string]: Promise<string> } = {};
 
