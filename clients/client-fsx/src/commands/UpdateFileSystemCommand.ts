@@ -89,6 +89,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>LustreRootSquashConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>

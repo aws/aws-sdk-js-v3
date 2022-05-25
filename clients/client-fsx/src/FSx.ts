@@ -1722,6 +1722,11 @@ export class FSx extends FSxClient {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>LustreRootSquashConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>StorageCapacity</code>
    *                </p>
    *             </li>

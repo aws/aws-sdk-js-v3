@@ -386,12 +386,71 @@ export namespace LustreLogConfiguration {
 }
 
 /**
+ * <p>The configuration for Lustre root squash used to restrict root-level access
+ *             from clients that try to access your FSx for Lustre file system as root.
+ *             Use the <code>RootSquash</code> parameter to enable root squash. To learn more
+ *             about Lustre root squash,
+ *             see  <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/root-squash.html">Lustre root squash</a>.</p>
+ *         <p>You can also use the <code>NoSquashNids</code> parameter to provide an array of clients
+ *             who are not affected by the root squash setting. These clients will access the file system as root,
+ *             with unrestricted privileges.</p>
+ */
+export interface LustreRootSquashConfiguration {
+  /**
+   * <p>You enable root squash by setting a user ID (UID) and group ID (GID) for the file
+   *             system in the format <code>UID:GID</code> (for example, <code>365534:65534</code>).
+   *             The UID and GID values can range from <code>0</code> to <code>4294967294</code>:</p>
+   *         <ul>
+   *             <li>
+   *                <p>A non-zero value for UID and GID enables root squash. The UID and GID
+   *                 values can be different, but each must be a non-zero value.</p>
+   *             </li>
+   *             <li>
+   *                <p>A value of <code>0</code> (zero) for UID and GID indicates root,
+   *                 and therefore disables root squash.</p>
+   *             </li>
+   *          </ul>
+   *         <p>When root squash is enabled, the user ID and group ID of a root user accessing
+   *             the file system are re-mapped to the UID and GID you provide.</p>
+   */
+  RootSquash?: string;
+
+  /**
+   * <p>When root squash is enabled, you can optionally specify an array of NIDs of clients
+   *             for which root squash does not apply. A client NID is a Lustre Network Identifier used
+   *             to uniquely identify a client. You can specify the NID as either a single address or a
+   *             range of addresses:</p>
+   *         <ul>
+   *             <li>
+   *                <p>A single address is described in standard Lustre NID format by specifying
+   *                 the client’s IP address followed by the Lustre network ID (for example,
+   *                 <code>10.0.1.6@tcp</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>An address range is described using a dash to separate the range (for example,
+   *                 <code>10.0.[2-10].[1-255]@tcp</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  NoSquashNids?: string[];
+}
+
+export namespace LustreRootSquashConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LustreRootSquashConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The configuration for the Amazon FSx for Lustre file system.</p>
  */
 export interface LustreFileSystemConfiguration {
   /**
    * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone. Here, d is the weekday number, from 1 through 7, beginning with Monday and
+   *             time zone. Here, <code>d</code> is the weekday number, from 1 through 7, beginning with Monday and
    *             ending with Sunday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
@@ -512,6 +571,13 @@ export interface LustreFileSystemConfiguration {
    *             events for your file system to Amazon CloudWatch Logs.</p>
    */
   LogConfiguration?: LustreLogConfiguration;
+
+  /**
+   * <p>The Lustre root squash configuration for an Amazon FSx for Lustre
+   *             file system. When enabled, root squash restricts root-level access from clients that
+   *             try to access your file system as a root user.</p>
+   */
+  RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
 export namespace LustreFileSystemConfiguration {
@@ -3513,6 +3579,13 @@ export interface CreateFileSystemLustreConfiguration {
    *             associated with your file system to Amazon CloudWatch Logs.</p>
    */
   LogConfiguration?: LustreLogCreateConfiguration;
+
+  /**
+   * <p>The Lustre root squash configuration used when creating an Amazon FSx for Lustre
+   *             file system. When enabled, root squash restricts root-level access from clients that
+   *             try to access your file system as a root user.</p>
+   */
+  RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
 export namespace CreateFileSystemLustreConfiguration {
@@ -3560,8 +3633,7 @@ export interface CreateFileSystemOntapConfiguration {
    *             </li>
    *          </ul>
    *         <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
-   *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
-   *                 Single-AZ file system deployment</a>. </p>
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing a file system deployment type</a>. </p>
    */
   DeploymentType: OntapDeploymentType | string | undefined;
 
@@ -7221,6 +7293,13 @@ export interface UpdateFileSystemLustreConfiguration {
    *             data repositories associated with your file system to Amazon CloudWatch Logs.</p>
    */
   LogConfiguration?: LustreLogCreateConfiguration;
+
+  /**
+   * <p>The Lustre root squash configuration used when updating an Amazon FSx for Lustre
+   *             file system. When enabled, root squash restricts root-level access from clients that
+   *             try to access your file system as a root user.</p>
+   */
+  RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
 export namespace UpdateFileSystemLustreConfiguration {

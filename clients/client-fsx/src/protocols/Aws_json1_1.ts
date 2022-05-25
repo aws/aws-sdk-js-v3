@@ -242,6 +242,7 @@ import {
   LustreFileSystemConfiguration,
   LustreLogConfiguration,
   LustreLogCreateConfiguration,
+  LustreRootSquashConfiguration,
   MissingFileSystemConfiguration,
   MissingVolumeConfiguration,
   NotServiceResourceError,
@@ -3479,6 +3480,13 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
       }),
     ...(input.PerUnitStorageThroughput !== undefined &&
       input.PerUnitStorageThroughput !== null && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
+    ...(input.RootSquashConfiguration !== undefined &&
+      input.RootSquashConfiguration !== null && {
+        RootSquashConfiguration: serializeAws_json1_1LustreRootSquashConfiguration(
+          input.RootSquashConfiguration,
+          context
+        ),
+      }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
@@ -4229,6 +4237,30 @@ const serializeAws_json1_1LustreLogCreateConfiguration = (
   };
 };
 
+const serializeAws_json1_1LustreNoSquashNids = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1LustreRootSquashConfiguration = (
+  input: LustreRootSquashConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NoSquashNids !== undefined &&
+      input.NoSquashNids !== null && {
+        NoSquashNids: serializeAws_json1_1LustreNoSquashNids(input.NoSquashNids, context),
+      }),
+    ...(input.RootSquash !== undefined && input.RootSquash !== null && { RootSquash: input.RootSquash }),
+  };
+};
+
 const serializeAws_json1_1OpenZFSClientConfiguration = (
   input: OpenZFSClientConfiguration,
   context: __SerdeContext
@@ -4633,6 +4665,13 @@ const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
     ...(input.LogConfiguration !== undefined &&
       input.LogConfiguration !== null && {
         LogConfiguration: serializeAws_json1_1LustreLogCreateConfiguration(input.LogConfiguration, context),
+      }),
+    ...(input.RootSquashConfiguration !== undefined &&
+      input.RootSquashConfiguration !== null && {
+        RootSquashConfiguration: serializeAws_json1_1LustreRootSquashConfiguration(
+          input.RootSquashConfiguration,
+          context
+        ),
       }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
@@ -5957,6 +5996,10 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
         : undefined,
     MountName: __expectString(output.MountName),
     PerUnitStorageThroughput: __expectInt32(output.PerUnitStorageThroughput),
+    RootSquashConfiguration:
+      output.RootSquashConfiguration !== undefined && output.RootSquashConfiguration !== null
+        ? deserializeAws_json1_1LustreRootSquashConfiguration(output.RootSquashConfiguration, context)
+        : undefined,
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
   } as any;
 };
@@ -5965,6 +6008,31 @@ const deserializeAws_json1_1LustreLogConfiguration = (output: any, context: __Se
   return {
     Destination: __expectString(output.Destination),
     Level: __expectString(output.Level),
+  } as any;
+};
+
+const deserializeAws_json1_1LustreNoSquashNids = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LustreRootSquashConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LustreRootSquashConfiguration => {
+  return {
+    NoSquashNids:
+      output.NoSquashNids !== undefined && output.NoSquashNids !== null
+        ? deserializeAws_json1_1LustreNoSquashNids(output.NoSquashNids, context)
+        : undefined,
+    RootSquash: __expectString(output.RootSquash),
   } as any;
 };
 
