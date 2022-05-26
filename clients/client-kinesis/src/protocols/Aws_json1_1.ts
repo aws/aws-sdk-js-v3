@@ -13,6 +13,7 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -1920,14 +1921,21 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
 
 export const deserializeAws_json1_1SubscribeToShardCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<SubscribeToShardCommandOutput> => {
   if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubscribeToShardCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1SubscribeToShardOutput(data, context);
+  const contents: any = {};
+  contents.EventStream = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
+    const eventName = Object.keys(event)[0];
+    const parsedEvent = {
+      EventStream: {
+        [eventName]: JSON.parse(Buffer.from(event[eventName].body).toString()),
+      },
+    };
+    return deserializeAws_json1_1SubscribeToShardOutput(parsedEvent, context).EventStream;
+  });
   const response: SubscribeToShardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
