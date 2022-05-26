@@ -20,8 +20,8 @@ import {
   ContainerServicePowerName,
   Disk,
   DomainEntry,
+  ExportSnapshotRecord,
   InputOrigin,
-  InstanceHardware,
   IpAddressType,
   KeyPair,
   MetricDatapoint,
@@ -31,12 +31,101 @@ import {
   NetworkProtocol,
   Operation,
   PortInfo,
+  PrivateRegistryAccessRequest,
   RegionName,
   ResourceLocation,
   ResourceType,
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+export interface GetExportSnapshotRecordsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If
+   *       your results are paginated, the response will return a next page token that you can specify as
+   *       the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export namespace GetExportSnapshotRecordsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExportSnapshotRecordsResult {
+  /**
+   * <p>A list of objects describing the export snapshot records.</p>
+   */
+  exportSnapshotRecords?: ExportSnapshotRecord[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetExportSnapshotRecords</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export namespace GetExportSnapshotRecordsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInstanceRequest {
+  /**
+   * <p>The name of the instance.</p>
+   */
+  instanceName: string | undefined;
+}
+
+export namespace GetInstanceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the hardware for the instance.</p>
+ */
+export interface InstanceHardware {
+  /**
+   * <p>The number of vCPUs the instance has.</p>
+   */
+  cpuCount?: number;
+
+  /**
+   * <p>The disks attached to the instance.</p>
+   */
+  disks?: Disk[];
+
+  /**
+   * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
+   */
+  ramSizeInGb?: number;
+}
+
+export namespace InstanceHardware {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceHardware): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the monthly data transfer in and out of your virtual private server (or
@@ -5662,6 +5751,15 @@ export interface UpdateContainerServiceRequest {
    *       later on this page.</p>
    */
   publicDomainNames?: { [key: string]: string[] };
+
+  /**
+   * <p>An object to describe the configuration for the container service to access private
+   *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
+   *       repositories.</p>
+   *
+   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
 export namespace UpdateContainerServiceRequest {

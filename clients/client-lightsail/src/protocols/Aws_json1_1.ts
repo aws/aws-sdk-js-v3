@@ -453,6 +453,8 @@ import {
   ContainerService,
   ContainerServiceDeployment,
   ContainerServiceDeploymentRequest,
+  ContainerServiceECRImagePullerRole,
+  ContainerServiceECRImagePullerRoleRequest,
   ContainerServiceEndpoint,
   ContainerServiceHealthCheckConfig,
   ContainerServiceLogEvent,
@@ -638,14 +640,10 @@ import {
   GetDomainResult,
   GetDomainsRequest,
   GetDomainsResult,
-  GetExportSnapshotRecordsRequest,
-  GetExportSnapshotRecordsResult,
-  GetInstanceRequest,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
   InstanceEntry,
-  InstanceHardware,
   InstancePlatform,
   InstanceSnapshotInfo,
   InvalidInputException,
@@ -659,6 +657,8 @@ import {
   OperationFailureException,
   Origin,
   PortInfo,
+  PrivateRegistryAccess,
+  PrivateRegistryAccessRequest,
   QueryStringObject,
   RenewalSummary,
   ResourceLocation,
@@ -669,12 +669,15 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetExportSnapshotRecordsRequest,
+  GetExportSnapshotRecordsResult,
   GetInstanceAccessDetailsRequest,
   GetInstanceAccessDetailsResult,
   GetInstanceMetricDataRequest,
   GetInstanceMetricDataResult,
   GetInstancePortStatesRequest,
   GetInstancePortStatesResult,
+  GetInstanceRequest,
   GetInstanceResult,
   GetInstanceSnapshotRequest,
   GetInstanceSnapshotResult,
@@ -739,6 +742,7 @@ import {
   ImportKeyPairResult,
   Instance,
   InstanceAccessDetails,
+  InstanceHardware,
   InstanceHealthSummary,
   InstanceNetworking,
   InstancePortInfo,
@@ -12305,6 +12309,15 @@ const serializeAws_json1_1ContainerServiceDeploymentRequest = (
   };
 };
 
+const serializeAws_json1_1ContainerServiceECRImagePullerRoleRequest = (
+  input: ContainerServiceECRImagePullerRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.isActive !== undefined && input.isActive !== null && { isActive: input.isActive }),
+  };
+};
+
 const serializeAws_json1_1ContainerServiceHealthCheckConfig = (
   input: ContainerServiceHealthCheckConfig,
   context: __SerdeContext
@@ -12464,6 +12477,10 @@ const serializeAws_json1_1CreateContainerServiceRequest = (
         deployment: serializeAws_json1_1ContainerServiceDeploymentRequest(input.deployment, context),
       }),
     ...(input.power !== undefined && input.power !== null && { power: input.power }),
+    ...(input.privateRegistryAccess !== undefined &&
+      input.privateRegistryAccess !== null && {
+        privateRegistryAccess: serializeAws_json1_1PrivateRegistryAccessRequest(input.privateRegistryAccess, context),
+      }),
     ...(input.publicDomainNames !== undefined &&
       input.publicDomainNames !== null && {
         publicDomainNames: serializeAws_json1_1ContainerServicePublicDomains(input.publicDomainNames, context),
@@ -13854,6 +13871,21 @@ const serializeAws_json1_1PortMap = (
   }, {});
 };
 
+const serializeAws_json1_1PrivateRegistryAccessRequest = (
+  input: PrivateRegistryAccessRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ecrImagePullerRole !== undefined &&
+      input.ecrImagePullerRole !== null && {
+        ecrImagePullerRole: serializeAws_json1_1ContainerServiceECRImagePullerRoleRequest(
+          input.ecrImagePullerRole,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_json1_1PutAlarmRequest = (input: PutAlarmRequest, context: __SerdeContext): any => {
   return {
     ...(input.alarmName !== undefined && input.alarmName !== null && { alarmName: input.alarmName }),
@@ -14166,6 +14198,10 @@ const serializeAws_json1_1UpdateContainerServiceRequest = (
   return {
     ...(input.isDisabled !== undefined && input.isDisabled !== null && { isDisabled: input.isDisabled }),
     ...(input.power !== undefined && input.power !== null && { power: input.power }),
+    ...(input.privateRegistryAccess !== undefined &&
+      input.privateRegistryAccess !== null && {
+        privateRegistryAccess: serializeAws_json1_1PrivateRegistryAccessRequest(input.privateRegistryAccess, context),
+      }),
     ...(input.publicDomainNames !== undefined &&
       input.publicDomainNames !== null && {
         publicDomainNames: serializeAws_json1_1ContainerServicePublicDomains(input.publicDomainNames, context),
@@ -15058,6 +15094,10 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
     powerId: __expectString(output.powerId),
     principalArn: __expectString(output.principalArn),
     privateDomainName: __expectString(output.privateDomainName),
+    privateRegistryAccess:
+      output.privateRegistryAccess !== undefined && output.privateRegistryAccess !== null
+        ? deserializeAws_json1_1PrivateRegistryAccess(output.privateRegistryAccess, context)
+        : undefined,
     publicDomainNames:
       output.publicDomainNames !== undefined && output.publicDomainNames !== null
         ? deserializeAws_json1_1ContainerServicePublicDomains(output.publicDomainNames, context)
@@ -15112,6 +15152,16 @@ const deserializeAws_json1_1ContainerServiceDeploymentList = (
       return deserializeAws_json1_1ContainerServiceDeployment(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ContainerServiceECRImagePullerRole = (
+  output: any,
+  context: __SerdeContext
+): ContainerServiceECRImagePullerRole => {
+  return {
+    isActive: __expectBoolean(output.isActive),
+    principalArn: __expectString(output.principalArn),
+  } as any;
 };
 
 const deserializeAws_json1_1ContainerServiceEndpoint = (
@@ -17933,6 +17983,15 @@ const deserializeAws_json1_1PortMap = (
     },
     {}
   );
+};
+
+const deserializeAws_json1_1PrivateRegistryAccess = (output: any, context: __SerdeContext): PrivateRegistryAccess => {
+  return {
+    ecrImagePullerRole:
+      output.ecrImagePullerRole !== undefined && output.ecrImagePullerRole !== null
+        ? deserializeAws_json1_1ContainerServiceECRImagePullerRole(output.ecrImagePullerRole, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1PutAlarmResult = (output: any, context: __SerdeContext): PutAlarmResult => {

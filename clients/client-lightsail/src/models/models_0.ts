@@ -3467,6 +3467,62 @@ export enum ContainerServicePowerName {
   xlarge = "xlarge",
 }
 
+/**
+ * <p>Describes the activation status of the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR)
+ *       private repositories.</p>
+ *
+ *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
+ *       for the specified Lightsail container service. You can use the ARN of the role to create a
+ *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
+ *       service to pull images from Amazon ECR private repositories. For more information, see
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface ContainerServiceECRImagePullerRole {
+  /**
+   * <p>A Boolean value that indicates whether the role is activated.</p>
+   */
+  isActive?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role, if it is activated.</p>
+   */
+  principalArn?: string;
+}
+
+export namespace ContainerServiceECRImagePullerRole {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContainerServiceECRImagePullerRole): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for an Amazon Lightsail container service to
+ *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
+ *
+ *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface PrivateRegistryAccess {
+  /**
+   * <p>An object that describes the activation status of the role that you can use to grant a
+   *         Lightsail container service access to Amazon ECR private
+   *       repositories. If the role is activated, the Amazon Resource Name (ARN) of the role is also
+   *       listed.</p>
+   */
+  ecrImagePullerRole?: ContainerServiceECRImagePullerRole;
+}
+
+export namespace PrivateRegistryAccess {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateRegistryAccess): any => ({
+    ...obj,
+  });
+}
+
 export enum ContainerServiceState {
   DELETING = "DELETING",
   DEPLOYING = "DEPLOYING",
@@ -3747,6 +3803,15 @@ export interface ContainerService {
    *       a 404 response.</p>
    */
   url?: string;
+
+  /**
+   * <p>An object that describes the configuration for the container service to access private
+   *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
+   *       repositories.</p>
+   *
+   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  privateRegistryAccess?: PrivateRegistryAccess;
 }
 
 export namespace ContainerService {
@@ -3812,6 +3877,32 @@ export namespace ContainerServiceDeploymentRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ContainerServiceDeploymentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a request to activate or deactivate the role that you can use to grant an
+ *         Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
+ *
+ *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
+ *       for the specified Lightsail container service. You can use the ARN of the role to create a
+ *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
+ *       service to pull images from Amazon ECR private repositories. For more information, see
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface ContainerServiceECRImagePullerRoleRequest {
+  /**
+   * <p>A Boolean value that indicates whether to activate the role.</p>
+   */
+  isActive?: boolean;
+}
+
+export namespace ContainerServiceECRImagePullerRoleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContainerServiceECRImagePullerRoleRequest): any => ({
     ...obj,
   });
 }
@@ -4422,6 +4513,30 @@ export namespace CreateContactMethodResult {
   });
 }
 
+/**
+ * <p>Describes a request to configure an Amazon Lightsail container service to
+ *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
+ *
+ *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface PrivateRegistryAccessRequest {
+  /**
+   * <p>An object to describe a request to activate or deactivate the role that you can use to
+   *       grant an Amazon Lightsail container service access to Amazon Elastic Container Registry
+   *         (Amazon ECR) private repositories.</p>
+   */
+  ecrImagePullerRole?: ContainerServiceECRImagePullerRoleRequest;
+}
+
+export namespace PrivateRegistryAccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateRegistryAccessRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateContainerServiceRequest {
   /**
    * <p>The name for the container service.</p>
@@ -4519,6 +4634,15 @@ export interface CreateContainerServiceRequest {
    *       configuration.</p>
    */
   deployment?: ContainerServiceDeploymentRequest;
+
+  /**
+   * <p>An object to describe the configuration for the container service to access private
+   *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
+   *       repositories.</p>
+   *
+   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
 export namespace CreateContainerServiceRequest {
@@ -9628,94 +9752,6 @@ export namespace GetDomainsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDomainsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportSnapshotRecordsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If
-   *       your results are paginated, the response will return a next page token that you can specify as
-   *       the page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export namespace GetExportSnapshotRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportSnapshotRecordsResult {
-  /**
-   * <p>A list of objects describing the export snapshot records.</p>
-   */
-  exportSnapshotRecords?: ExportSnapshotRecord[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetExportSnapshotRecords</code>
-   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
-export namespace GetExportSnapshotRecordsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetInstanceRequest {
-  /**
-   * <p>The name of the instance.</p>
-   */
-  instanceName: string | undefined;
-}
-
-export namespace GetInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the hardware for the instance.</p>
- */
-export interface InstanceHardware {
-  /**
-   * <p>The number of vCPUs the instance has.</p>
-   */
-  cpuCount?: number;
-
-  /**
-   * <p>The disks attached to the instance.</p>
-   */
-  disks?: Disk[];
-
-  /**
-   * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
-   */
-  ramSizeInGb?: number;
-}
-
-export namespace InstanceHardware {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceHardware): any => ({
     ...obj,
   });
 }
