@@ -47626,6 +47626,50 @@
           {
             "value": "i4i.32xlarge",
             "name": "i4i_32xlarge"
+          },
+          {
+            "value": "i4i.metal",
+            "name": "i4i_metal"
+          },
+          {
+            "value": "x2idn.metal",
+            "name": "x2idn_metal"
+          },
+          {
+            "value": "x2iedn.metal",
+            "name": "x2iedn_metal"
+          },
+          {
+            "value": "c7g.medium",
+            "name": "c7g_medium"
+          },
+          {
+            "value": "c7g.large",
+            "name": "c7g_large"
+          },
+          {
+            "value": "c7g.xlarge",
+            "name": "c7g_xlarge"
+          },
+          {
+            "value": "c7g.2xlarge",
+            "name": "c7g_2xlarge"
+          },
+          {
+            "value": "c7g.4xlarge",
+            "name": "c7g_4xlarge"
+          },
+          {
+            "value": "c7g.8xlarge",
+            "name": "c7g_8xlarge"
+          },
+          {
+            "value": "c7g.12xlarge",
+            "name": "c7g_12xlarge"
+          },
+          {
+            "value": "c7g.16xlarge",
+            "name": "c7g_16xlarge"
           }
         ]
       }
