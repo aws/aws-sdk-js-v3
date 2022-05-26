@@ -289,6 +289,7 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   TestWindowSummary,
+  TimeAlignmentBoundary,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateDatasetGroupRequest,
@@ -3637,6 +3638,10 @@ const serializeAws_json1_1CreateAutoPredictorRequest = (
     ...(input.ReferencePredictorArn !== undefined &&
       input.ReferencePredictorArn !== null && { ReferencePredictorArn: input.ReferencePredictorArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TimeAlignmentBoundary !== undefined &&
+      input.TimeAlignmentBoundary !== null && {
+        TimeAlignmentBoundary: serializeAws_json1_1TimeAlignmentBoundary(input.TimeAlignmentBoundary, context),
+      }),
   };
 };
 
@@ -4494,6 +4499,15 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
     });
 };
 
+const serializeAws_json1_1TimeAlignmentBoundary = (input: TimeAlignmentBoundary, context: __SerdeContext): any => {
+  return {
+    ...(input.DayOfMonth !== undefined && input.DayOfMonth !== null && { DayOfMonth: input.DayOfMonth }),
+    ...(input.DayOfWeek !== undefined && input.DayOfWeek !== null && { DayOfWeek: input.DayOfWeek }),
+    ...(input.Hour !== undefined && input.Hour !== null && { Hour: input.Hour }),
+    ...(input.Month !== undefined && input.Month !== null && { Month: input.Month }),
+  };
+};
+
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -4967,6 +4981,10 @@ const deserializeAws_json1_1DescribeAutoPredictorResponse = (
         ? deserializeAws_json1_1ReferencePredictorSummary(output.ReferencePredictorSummary, context)
         : undefined,
     Status: __expectString(output.Status),
+    TimeAlignmentBoundary:
+      output.TimeAlignmentBoundary !== undefined && output.TimeAlignmentBoundary !== null
+        ? deserializeAws_json1_1TimeAlignmentBoundary(output.TimeAlignmentBoundary, context)
+        : undefined,
   } as any;
 };
 
@@ -6281,6 +6299,15 @@ const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeCo
       output.TestWindowStart !== undefined && output.TestWindowStart !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TimeAlignmentBoundary = (output: any, context: __SerdeContext): TimeAlignmentBoundary => {
+  return {
+    DayOfMonth: __expectInt32(output.DayOfMonth),
+    DayOfWeek: __expectString(output.DayOfWeek),
+    Hour: __expectInt32(output.Hour),
+    Month: __expectString(output.Month),
   } as any;
 };
 

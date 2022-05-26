@@ -25,7 +25,8 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
 /**
  * <p>Returns a list of the monitoring evaluation results and predictor events collected by
  *          the monitor resource during different windows of time.</p>
- *          <p>For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>. For more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
+ *          <p>For information about monitoring see <a>predictor-monitoring</a>. For
+ *          more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

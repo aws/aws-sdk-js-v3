@@ -506,6 +506,74 @@ export namespace Tag {
   });
 }
 
+export enum DayOfWeek {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+}
+
+export enum Month {
+  APRIL = "APRIL",
+  AUGUST = "AUGUST",
+  DECEMBER = "DECEMBER",
+  FEBRUARY = "FEBRUARY",
+  JANUARY = "JANUARY",
+  JULY = "JULY",
+  JUNE = "JUNE",
+  MARCH = "MARCH",
+  MAY = "MAY",
+  NOVEMBER = "NOVEMBER",
+  OCTOBER = "OCTOBER",
+  SEPTEMBER = "SEPTEMBER",
+}
+
+/**
+ * <p>The time boundary Forecast uses to align and aggregate your data to match your forecast frequency. Provide the unit of time and the time boundary as a key value pair. If you
+ *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.
+ *         </p>
+ *
+ *         <p>For more information about aggregation,
+ *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html">Data Aggregation for Different Forecast Frequencies</a>.
+ *             For more information setting a custom time boundary,
+ *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#specifying-time-boundary">Specifying a Time Boundary</a>.
+ *
+ *         </p>
+ */
+export interface TimeAlignmentBoundary {
+  /**
+   * <p>The month to use for time alignment during aggregation. The month must be in uppercase.</p>
+   */
+  Month?: Month | string;
+
+  /**
+   * <p>The day of the month to use for time alignment during aggregation.</p>
+   */
+  DayOfMonth?: number;
+
+  /**
+   * <p>The day of week to use for time alignment during aggregation. The day must be in uppercase.</p>
+   */
+  DayOfWeek?: DayOfWeek | string;
+
+  /**
+   * <p>The hour of day to use for time alignment during aggregation.</p>
+   */
+  Hour?: number;
+}
+
+export namespace TimeAlignmentBoundary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeAlignmentBoundary): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAutoPredictorRequest {
   /**
    * <p>A unique name for the predictor</p>
@@ -627,6 +695,14 @@ export interface CreateAutoPredictorRequest {
    *          For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.</p>
    */
   MonitorConfig?: MonitorConfig;
+
+  /**
+   * <p>The time boundary Forecast uses to align and aggregate any data that doesn't align with your forecast frequency. Provide the unit of time and the time boundary as a key value pair.
+   *             For more information on specifying a time boundary, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#specifying-time-boundary">Specifying a Time Boundary</a>.
+   *             If you
+   *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.</p>
+   */
+  TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
 export namespace CreateAutoPredictorRequest {
@@ -3255,6 +3331,11 @@ export interface DescribeAutoPredictorResponse {
    * <p>A  object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
    */
   MonitorInfo?: MonitorInfo;
+
+  /**
+   * <p>The time boundary Forecast uses when aggregating data.</p>
+   */
+  TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
 export namespace DescribeAutoPredictorResponse {
@@ -6355,8 +6436,16 @@ export namespace PredictorEvent {
  * <p>Describes the results of a monitor evaluation.</p>
  */
 export interface PredictorMonitorEvaluation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to monitor.</p>
+   */
   ResourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
+   */
   MonitorArn?: string;
+
   /**
    * <p>The timestamp that indicates when the monitor evaluation was started. </p>
    */
