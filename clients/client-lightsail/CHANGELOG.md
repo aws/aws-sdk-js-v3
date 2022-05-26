@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
+
+
+### Features
+
+* **client-lightsail:** Amazon Lightsail now supports the ability to configure a Lightsail Container Service to pull images from Amazon ECR private repositories in your account. ([a8ba37c](https://github.com/aws/aws-sdk-js-v3/commit/a8ba37cc3ea0deb0aec4a696a504eb7876fbabf4))
+
+
+
+
+
 # [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

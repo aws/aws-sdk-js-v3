@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
+
+
+### Features
+
+* **client-ec2:** C7g instances, powered by the latest generation AWS Graviton3 processors, provide the best price performance in Amazon EC2 for compute-intensive workloads. ([58efcc5](https://github.com/aws/aws-sdk-js-v3/commit/58efcc5c87d9de1ebf8c939e46e3f75f8ebd58f1))
+* **client-emr-serverless:** This release adds support for Amazon EMR Serverless, a serverless runtime environment that simplifies running analytics applications using the latest open source frameworks such as Apache Spark and Apache Hive. ([8c98a71](https://github.com/aws/aws-sdk-js-v3/commit/8c98a71ab97d00f46477773dc76608c99d06ead4))
+* **client-forecast:** Introduced a new field in Auto Predictor as Time Alignment Boundary. It helps in aligning the timestamps generated during Forecast exports ([4ce40b0](https://github.com/aws/aws-sdk-js-v3/commit/4ce40b0ec779ed829df6e9bfb5d269b1ec36c754))
+* **client-lightsail:** Amazon Lightsail now supports the ability to configure a Lightsail Container Service to pull images from Amazon ECR private repositories in your account. ([a8ba37c](https://github.com/aws/aws-sdk-js-v3/commit/a8ba37cc3ea0deb0aec4a696a504eb7876fbabf4))
+* **clients:** update client endpoints as of 2022-05-26 ([16da1e7](https://github.com/aws/aws-sdk-js-v3/commit/16da1e70317b68335a5344682dda08a8fbdb721c))
+
+
+
+
+
 # [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
 
 

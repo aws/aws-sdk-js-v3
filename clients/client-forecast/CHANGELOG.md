@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
+
+
+### Features
+
+* **client-forecast:** Introduced a new field in Auto Predictor as Time Alignment Boundary. It helps in aligning the timestamps generated during Forecast exports ([4ce40b0](https://github.com/aws/aws-sdk-js-v3/commit/4ce40b0ec779ed829df6e9bfb5d269b1ec36c754))
+
+
+
+
+
 # [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
 
 **Note:** Version bump only for package @aws-sdk/client-forecast
