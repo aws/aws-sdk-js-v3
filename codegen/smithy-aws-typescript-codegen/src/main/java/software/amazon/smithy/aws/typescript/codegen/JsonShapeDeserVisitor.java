@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
@@ -165,17 +167,22 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
+                String propertyAccess = getFrom("output", locationName);
+
                 if (usesExpect(target)) {
                     // Booleans and numbers will call expectBoolean/expectNumber which will handle
                     // null/undefined properly.
                     writer.write("$L: $L,",
                             memberName,
-                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
+                            target.accept(getMemberVisitor(memberShape, propertyAccess)));
                 } else {
-                    writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
-                                    + " ? $3L: undefined,", memberName, locationName,
-                            // Dispatch to the output value provider for any additional handling.
-                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
+                    writer.write(
+                        "$1L: ($2L !== undefined && $2L !== null) ? $3L: undefined,",
+                        memberName,
+                        propertyAccess,
+                        // Dispatch to the output value provider for any additional handling.
+                        target.accept(getMemberVisitor(memberShape, propertyAccess))
+                    );
                 }
             });
         });
@@ -202,7 +209,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             Shape target = model.expectShape(memberShape.getTarget());
             String locationName = memberNameStrategy.apply(memberShape, memberName);
 
-            String memberValue = target.accept(getMemberVisitor(memberShape, "output." + locationName));
+            String memberValue = target.accept(getMemberVisitor(memberShape, getFrom("output", locationName)));
             if (usesExpect(target)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.
@@ -210,13 +217,17 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     writer.write("return { $L: $L as any }", memberName, memberValue);
                 });
             } else {
-                writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName,
-                    locationName, () -> {
-                        writer.openBlock("return {", "};", () -> {
+                writer.openBlock(
+                    "if ($1L !== undefined && $1L !== null) {", "}",
+                    getFrom("output", locationName),
+                    () -> writer.openBlock(
+                        "return {", "};",
+                        () -> {
                             // Dispatch to the output value provider for any additional handling.
                             writer.write("$L: $L", memberName, memberValue);
-                        });
-                    });
+                        }
+                    )
+                );
             }
         });
         // Or write to the unknown member the element in the output.

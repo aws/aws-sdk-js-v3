@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -176,7 +178,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                     } else {
                         writer.openBlock("$L(", ")", marshallInput, () -> {
                             writer.write("this.input,");
-                            writer.write("this.$L,", COMMAND_INPUT_KEYNODES);
+                            writer.write(getFrom("this", COMMAND_INPUT_KEYNODES) + ",");
                             writer.write("$L,", marshallOptions);
                         });
                     }

@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
 import java.util.List;
 import java.util.Set;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
@@ -35,6 +37,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
+
 
 /**
  * Handles generating the aws.rest-xml protocol for services. It handles reading and
@@ -267,10 +270,10 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("let contents: any;");
 
         // Generate an if statement to set the body node if the member is set.
-        writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
+        writer.openBlock("if ($L !== undefined) {", "}", getFrom("input", memberName), () -> {
             Shape target = context.getModel().expectShape(member.getTarget());
             writer.write("contents = $L;",
-                    getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
+                    getInputValue(context, Location.PAYLOAD, getFrom("input", memberName), member, target));
 
             String targetName = target.getTrait(XmlNameTrait.class)
                             .map(XmlNameTrait::getValue)

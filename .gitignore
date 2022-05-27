@@ -47,6 +47,7 @@ dist-*
 
 *.tsbuildinfo
 
+codegen/.attach*
 codegen/.project
 codegen/.classpath
 codegen/.settings/
