@@ -33,8 +33,8 @@ export enum AggregationType {
  */
 export interface AggregationConfig {
   /**
-   * <p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave
-   *       them unaggregated. </p>
+   * <p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or
+   *       leave them unaggregated. </p>
    */
   aggregationType?: AggregationType | string;
 }
@@ -1252,9 +1252,10 @@ export namespace ConnectorDetail {
 }
 
 /**
- * <p> The high-level entity that can be queried in Amazon AppFlow. For example, a Salesforce
- *       entity might be an <i>Account</i> or <i>Opportunity</i>, whereas a
- *       ServiceNow entity might be an <i>Incident</i>. </p>
+ * <p> The high-level entity that can be queried in Amazon AppFlow. For example, a
+ *       Salesforce entity might be an <i>Account</i> or
+ *       <i>Opportunity</i>, whereas a ServiceNow entity might be an
+ *         <i>Incident</i>. </p>
  */
 export interface ConnectorEntity {
   /**
@@ -1965,8 +1966,8 @@ export interface OAuth2Properties {
   oAuth2GrantType: OAuth2GrantType | string | undefined;
 
   /**
-   * <p>Associates your token URL with a map of properties that you define. Use this parameter
-   *       to provide any additional details that the connector requires to authenticate your
+   * <p>Associates your token URL with a map of properties that you define. Use this parameter to
+   *       provide any additional details that the connector requires to authenticate your
    *       request.</p>
    */
   tokenUrlCustomProperties?: { [key: string]: string };
@@ -2311,9 +2312,8 @@ export interface SnowflakeConnectorProfileProperties {
   warehouse: string | undefined;
 
   /**
-   * <p> The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in
-   *       the Snowflake account. This is written in the following format: < Database><
-   *       Schema><Stage Name>. </p>
+   * <p> The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: <
+   *       Database>< Schema><Stage Name>. </p>
    */
   stage: string | undefined;
 
@@ -2323,7 +2323,8 @@ export interface SnowflakeConnectorProfileProperties {
   bucketName: string | undefined;
 
   /**
-   * <p> The bucket path that refers to the Amazon S3 bucket associated with Snowflake. </p>
+   * <p> The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+   *     </p>
    */
   bucketPrefix?: string;
 
@@ -2930,7 +2931,8 @@ export namespace MarketoConnectorProfileCredentials {
 }
 
 /**
- * <p> The connector-specific profile credentials required when using Amazon Redshift. </p>
+ * <p> The connector-specific profile credentials required when using Amazon Redshift.
+ *     </p>
  */
 export interface RedshiftConnectorProfileCredentials {
   /**
@@ -3437,9 +3439,8 @@ export interface CreateConnectorProfileRequest {
 
   /**
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
-   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If
-   *       you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   *     </p>
+   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
+   *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
    */
   kmsArn?: string;
 
@@ -3553,9 +3554,9 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
- *       destination. For example, this setting would determine if the flow should fail after one
- *       insertion error, or continue and attempt to insert every record regardless of the initial
+ * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+ *       in the destination. For example, this setting would determine if the flow should fail after
+ *       one insertion error, or continue and attempt to insert every record regardless of the initial
  *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
  *     </p>
  */
@@ -3597,8 +3598,8 @@ export interface CustomConnectorDestinationProperties {
   entityName: string | undefined;
 
   /**
-   * <p>The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       custom connector as destination.</p>
+   * <p>The settings that determine how Amazon AppFlow handles an error when placing data in
+   *       the custom connector as destination.</p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
 
@@ -3609,8 +3610,8 @@ export interface CustomConnectorDestinationProperties {
   writeOperationType?: WriteOperationType | string;
 
   /**
-   * <p>The name of the field that Amazon AppFlow uses as an ID when performing a write operation
-   *       such as update, delete, or upsert.</p>
+   * <p>The name of the field that Amazon AppFlow uses as an ID when performing a write
+   *       operation such as update, delete, or upsert.</p>
    */
   idFieldNames?: string[];
 
@@ -3641,7 +3642,8 @@ export interface CustomerProfilesDestinationProperties {
   domainName: string | undefined;
 
   /**
-   * <p> The object specified in the Amazon Connect Customer Profiles flow destination. </p>
+   * <p> The object specified in the Amazon Connect Customer Profiles flow destination.
+   *     </p>
    */
   objectTypeName?: string;
 }
@@ -3656,8 +3658,8 @@ export namespace CustomerProfilesDestinationProperties {
 }
 
 /**
- * <p> The properties that are applied when Amazon EventBridge is being used as a destination.
- *     </p>
+ * <p> The properties that are applied when Amazon EventBridge is being used as a
+ *       destination. </p>
  */
 export interface EventBridgeDestinationProperties {
   /**
@@ -3666,9 +3668,9 @@ export interface EventBridgeDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       destination. For example, this setting would determine if the flow should fail after one
-   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the destination. For example, this setting would determine if the flow should fail after
+   *       one insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -3694,9 +3696,9 @@ export interface HoneycodeDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       destination. For example, this setting would determine if the flow should fail after one
-   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the destination. For example, this setting would determine if the flow should fail after
+   *       one insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -3728,7 +3730,8 @@ export namespace LookoutMetricsDestinationProperties {
 }
 
 /**
- * <p>The properties that Amazon AppFlow applies when you use Marketo as a flow destination.</p>
+ * <p>The properties that Amazon AppFlow applies when you use Marketo as a flow
+ *       destination.</p>
  */
 export interface MarketoDestinationProperties {
   /**
@@ -3737,9 +3740,9 @@ export interface MarketoDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       destination. For example, this setting would determine if the flow should fail after one
-   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the destination. For example, this setting would determine if the flow should fail after
+   *       one insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -3766,8 +3769,7 @@ export interface RedshiftDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-   *     </p>
+   * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift. </p>
    */
   intermediateBucketName: string | undefined;
 
@@ -3778,11 +3780,11 @@ export interface RedshiftDestinationProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       Amazon Redshift destination. For example, this setting would determine if the flow should fail
-   *       after one insertion error, or continue and attempt to insert every record regardless of the
-   *       initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
-   *       details. </p>
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the Amazon Redshift destination. For example, this setting would determine if the flow
+   *       should fail after one insertion error, or continue and attempt to insert every record
+   *       regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the
+   *       destination connector details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
 }
@@ -3817,8 +3819,8 @@ export enum PrefixType {
 }
 
 /**
- * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name. You can
- *       name your destination folders according to the flow frequency and date. </p>
+ * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
+ *       You can name your destination folders according to the flow frequency and date. </p>
  */
 export interface PrefixConfig {
   /**
@@ -3843,18 +3845,18 @@ export namespace PrefixConfig {
 }
 
 /**
- * <p> The configuration that determines how Amazon AppFlow should format the flow output data
- *       when Amazon S3 is used as the destination. </p>
+ * <p> The configuration that determines how Amazon AppFlow should format the flow output
+ *       data when Amazon S3 is used as the destination. </p>
  */
 export interface S3OutputFormatConfig {
   /**
-   * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket. </p>
+   * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3
+   *       bucket. </p>
    */
   fileType?: FileType | string;
 
   /**
-   * <p> Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3
-   *       bucket. You can name folders according to the flow frequency and date. </p>
+   * <p> Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. </p>
    */
   prefixConfig?: PrefixConfig;
 
@@ -3863,6 +3865,25 @@ export interface S3OutputFormatConfig {
    *       data. </p>
    */
   aggregationConfig?: AggregationConfig;
+
+  /**
+   * <p>If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>true</code>: Amazon AppFlow preserves the data types when it writes to
+   *             Amazon S3. For example, an integer or <code>1</code> in your source data is
+   *           still an integer in your output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>false</code>: Amazon AppFlow converts all of the source data into strings
+   *           when it writes to Amazon S3. For example, an integer of <code>1</code> in your
+   *           source data becomes the string <code>"1"</code> in the output.</p>
+   *             </li>
+   *          </ul>
+   */
+  preserveSourceDataTyping?: boolean;
 }
 
 export namespace S3OutputFormatConfig {
@@ -3879,7 +3900,8 @@ export namespace S3OutputFormatConfig {
  */
 export interface S3DestinationProperties {
   /**
-   * <p> The Amazon S3 bucket name in which Amazon AppFlow places the transferred data. </p>
+   * <p> The Amazon S3 bucket name in which Amazon AppFlow places the transferred
+   *       data. </p>
    */
   bucketName: string | undefined;
 
@@ -3890,8 +3912,8 @@ export interface S3DestinationProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The configuration that determines how Amazon AppFlow should format the flow output data
-   *       when Amazon S3 is used as the destination. </p>
+   * <p> The configuration that determines how Amazon AppFlow should format the flow output
+   *       data when Amazon S3 is used as the destination. </p>
    */
   s3OutputFormatConfig?: S3OutputFormatConfig;
 }
@@ -3915,16 +3937,16 @@ export interface SalesforceDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The name of the field that Amazon AppFlow uses as an ID when performing a write operation
-   *       such as update or delete. </p>
+   * <p> The name of the field that Amazon AppFlow uses as an ID when performing a write
+   *       operation such as update or delete. </p>
    */
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       Salesforce destination. For example, this setting would determine if the flow should fail
-   *       after one insertion error, or continue and attempt to insert every record regardless of the
-   *       initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the Salesforce destination. For example, this setting would determine if the flow should
+   *       fail after one insertion error, or continue and attempt to insert every record regardless of
+   *       the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
    *       details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
@@ -3946,11 +3968,10 @@ export namespace SalesforceDestinationProperties {
 }
 
 /**
- * <p>Determines how Amazon AppFlow handles the success response that it gets
- *       from the connector after placing data.</p>
- *          <p>For example, this setting would determine
- *       where to write the response from the destination connector upon a successful insert
- *       operation.</p>
+ * <p>Determines how Amazon AppFlow handles the success response that it gets from the
+ *       connector after placing data.</p>
+ *          <p>For example, this setting would determine where to write the response from the destination
+ *       connector upon a successful insert operation.</p>
  */
 export interface SuccessResponseHandlingConfig {
   /**
@@ -3983,8 +4004,8 @@ export interface SAPODataDestinationProperties {
   objectPath: string | undefined;
 
   /**
-   * <p>Determines how Amazon AppFlow handles the success response that it gets
-   *       from the connector after placing data.</p>
+   * <p>Determines how Amazon AppFlow handles the success response that it gets from the
+   *       connector after placing data.</p>
    *          <p>For example, this setting would determine where to write the response from a destination
    *       connector upon a successful insert operation.</p>
    */
@@ -3997,9 +4018,9 @@ export interface SAPODataDestinationProperties {
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       destination. For example, this setting would determine if the flow should fail after one
-   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the destination. For example, this setting would determine if the flow should fail after
+   *       one insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -4031,7 +4052,8 @@ export interface SnowflakeDestinationProperties {
   object: string | undefined;
 
   /**
-   * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake. </p>
+   * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
+   *     </p>
    */
   intermediateBucketName: string | undefined;
 
@@ -4042,11 +4064,11 @@ export interface SnowflakeDestinationProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       Snowflake destination. For example, this setting would determine if the flow should fail after
-   *       one insertion error, or continue and attempt to insert every record regardless of the initial
-   *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
-   *     </p>
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the Snowflake destination. For example, this setting would determine if the flow should
+   *       fail after one insertion error, or continue and attempt to insert every record regardless of
+   *       the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector
+   *       details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
 }
@@ -4061,19 +4083,18 @@ export namespace SnowflakeDestinationProperties {
 }
 
 /**
- * <p> The configuration that determines how Amazon AppFlow formats the flow output data when
- *       Upsolver is used as the destination. </p>
+ * <p> The configuration that determines how Amazon AppFlow formats the flow output data
+ *       when Upsolver is used as the destination. </p>
  */
 export interface UpsolverS3OutputFormatConfig {
   /**
-   * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
-   *     </p>
+   * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. </p>
    */
   fileType?: FileType | string;
 
   /**
-   * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name. You can
-   *       name your destination folders according to the flow frequency and date. </p>
+   * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
+   *       You can name your destination folders according to the flow frequency and date. </p>
    */
   prefixConfig: PrefixConfig | undefined;
 
@@ -4098,14 +4119,13 @@ export namespace UpsolverS3OutputFormatConfig {
  */
 export interface UpsolverDestinationProperties {
   /**
-   * <p> The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-   *     </p>
+   * <p> The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the
+   *       transferred data. </p>
    */
   bucketName: string | undefined;
 
   /**
-   * <p> The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow
-   *       places the files. </p>
+   * <p> The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files. </p>
    */
   bucketPrefix?: string;
 
@@ -4141,9 +4161,9 @@ export interface ZendeskDestinationProperties {
   idFieldNames?: string[];
 
   /**
-   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
-   *       destination. For example, this setting would determine if the flow should fail after one
-   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data
+   *       in the destination. For example, this setting would determine if the flow should fail after
+   *       one insertion error, or continue and attempt to insert every record regardless of the initial
    *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *     </p>
    */
@@ -4427,7 +4447,8 @@ export enum S3InputFileType {
 }
 
 /**
- * <p> When you use Amazon S3 as the source, the configuration format that you provide the flow input data. </p>
+ * <p> When you use Amazon S3 as the source, the configuration format that you provide
+ *       the flow input data. </p>
  */
 export interface S3InputFormatConfig {
   /**
@@ -4446,7 +4467,8 @@ export namespace S3InputFormatConfig {
 }
 
 /**
- * <p> The properties that are applied when Amazon S3 is being used as the flow source. </p>
+ * <p> The properties that are applied when Amazon S3 is being used as the flow source.
+ *     </p>
  */
 export interface S3SourceProperties {
   /**
@@ -4455,12 +4477,14 @@ export interface S3SourceProperties {
   bucketName: string | undefined;
 
   /**
-   * <p> The object key for the Amazon S3 bucket in which the source files are stored. </p>
+   * <p> The object key for the Amazon S3 bucket in which the source files are stored.
+   *     </p>
    */
   bucketPrefix?: string;
 
   /**
-   * <p> When you use Amazon S3 as the source, the configuration format that you provide the flow input data. </p>
+   * <p> When you use Amazon S3 as the source, the configuration format that you provide
+   *       the flow input data. </p>
    */
   s3InputFormatConfig?: S3InputFormatConfig;
 }
@@ -4891,18 +4915,24 @@ export interface ScheduledTriggerProperties {
   dataPullMode?: DataPullMode | string;
 
   /**
-   * <p> Specifies the scheduled start time for a schedule-triggered flow. </p>
+   * <p>The time at which the scheduled flow starts. The time is formatted as a timestamp that
+   *       follows the ISO 8601 standard, such as <code>2022-04-26T13:00:00-07:00</code>.</p>
    */
   scheduleStartTime?: Date;
 
   /**
-   * <p> Specifies the scheduled end time for a schedule-triggered flow. </p>
+   * <p>The time at which the scheduled flow ends. The time is formatted as a timestamp that
+   *       follows the ISO 8601 standard, such as <code>2022-04-27T13:00:00-07:00</code>.</p>
    */
   scheduleEndTime?: Date;
 
   /**
-   * <p> Specifies the time zone used when referring to the date and time of a scheduled-triggered
-   *       flow, such as <code>America/New_York</code>. </p>
+   * <p>Specifies the time zone used when referring to the dates and times of a scheduled flow,
+   *       such as <code>America/New_York</code>. This time zone is only a descriptive label. It doesn't affect how
+   *       Amazon AppFlow interprets the timestamps that you specify to schedule the flow.</p>
+   *          <p>If you want to schedule a flow by using times in a particular time zone, indicate the time zone as a UTC
+   *       offset in your timestamps. For example, the UTC offsets for the <code>America/New_York</code> timezone are
+   *       <code>-04:00</code> EDT and <code>-05:00 EST</code>.</p>
    */
   timezone?: string;
 
@@ -4917,6 +4947,12 @@ export interface ScheduledTriggerProperties {
    *       run. </p>
    */
   firstExecutionFrom?: Date;
+
+  /**
+   * <p>Defines how many times a scheduled flow fails consecutively before Amazon AppFlow
+   *       deactivates it.</p>
+   */
+  flowErrorDeactivationThreshold?: number;
 }
 
 export namespace ScheduledTriggerProperties {
@@ -4950,8 +4986,8 @@ export namespace TriggerProperties {
 }
 
 /**
- * <p> The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
- *     </p>
+ * <p> The trigger settings that determine how and when Amazon AppFlow runs the specified
+ *       flow. </p>
  */
 export interface TriggerConfig {
   /**
@@ -4990,9 +5026,8 @@ export interface CreateFlowRequest {
 
   /**
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
-   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If
-   *       you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   *     </p>
+   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
+   *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
    */
   kmsArn?: string;
 
@@ -5014,8 +5049,8 @@ export interface CreateFlowRequest {
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-   *     </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
+   *       flow run. </p>
    */
   tasks: Task[] | undefined;
 
@@ -5092,8 +5127,8 @@ export interface DeleteConnectorProfileRequest {
   connectorProfileName: string | undefined;
 
   /**
-   * <p> Indicates whether Amazon AppFlow should delete the profile, even if it is currently in
-   *       use in one or more flows. </p>
+   * <p> Indicates whether Amazon AppFlow should delete the profile, even if it is currently
+   *       in use in one or more flows. </p>
    */
   forceDelete?: boolean;
 }
@@ -5126,8 +5161,8 @@ export interface DeleteFlowRequest {
   flowName: string | undefined;
 
   /**
-   * <p> Indicates whether Amazon AppFlow should delete the flow, even if it is currently in use.
-   *     </p>
+   * <p> Indicates whether Amazon AppFlow should delete the flow, even if it is currently in
+   *       use. </p>
    */
   forceDelete?: boolean;
 }
@@ -5429,9 +5464,8 @@ export interface DescribeFlowResponse {
 
   /**
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
-   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If
-   *       you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   *     </p>
+   *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
+   *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
    */
   kmsArn?: string;
 
@@ -5453,8 +5487,8 @@ export interface DescribeFlowResponse {
   sourceFlowConfig?: SourceFlowConfig;
 
   /**
-   * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
-   *       connector. </p>
+   * <p> The configuration that controls how Amazon AppFlow transfers data to the
+   *       destination connector. </p>
    */
   destinationFlowConfigList?: DestinationFlowConfig[];
 
@@ -5469,8 +5503,8 @@ export interface DescribeFlowResponse {
   triggerConfig?: TriggerConfig;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-   *     </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
+   *       flow run. </p>
    */
   tasks?: Task[];
 
@@ -5696,8 +5730,8 @@ export interface FlowDefinition {
   flowStatus?: FlowStatus | string;
 
   /**
-   * <p> Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude, and so on.
-   *     </p>
+   * <p> Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude,
+   *       and so on. </p>
    */
   sourceConnectorType?: ConnectorType | string;
 
@@ -5707,8 +5741,8 @@ export interface FlowDefinition {
   sourceConnectorLabel?: string;
 
   /**
-   * <p> Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and
-   *       so on. </p>
+   * <p> Specifies the destination connector type, such as Salesforce, Amazon S3,
+   *       Amplitude, and so on. </p>
    */
   destinationConnectorType?: ConnectorType | string;
 
@@ -6147,8 +6181,8 @@ export interface UnregisterConnectorRequest {
   connectorLabel: string | undefined;
 
   /**
-   * <p>Indicates whether Amazon AppFlow should unregister the connector, even if it is currently
-   *       in use in one or more connector profiles. The default value is false.</p>
+   * <p>Indicates whether Amazon AppFlow should unregister the connector, even if it is
+   *       currently in use in one or more connector profiles. The default value is false.</p>
    */
   forceDelete?: boolean;
 }
@@ -6272,14 +6306,14 @@ export interface UpdateFlowRequest {
   sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
-   * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
-   *       connector. </p>
+   * <p> The configuration that controls how Amazon AppFlow transfers data to the
+   *       destination connector. </p>
    */
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
-   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-   *     </p>
+   * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the
+   *       flow run. </p>
    */
   tasks: Task[] | undefined;
 }

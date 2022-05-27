@@ -3192,6 +3192,8 @@ const serializeAws_restJson1S3OutputFormatConfig = (input: S3OutputFormatConfig,
     ...(input.fileType !== undefined && input.fileType !== null && { fileType: input.fileType }),
     ...(input.prefixConfig !== undefined &&
       input.prefixConfig !== null && { prefixConfig: serializeAws_restJson1PrefixConfig(input.prefixConfig, context) }),
+    ...(input.preserveSourceDataTyping !== undefined &&
+      input.preserveSourceDataTyping !== null && { preserveSourceDataTyping: input.preserveSourceDataTyping }),
   };
 };
 
@@ -3346,6 +3348,10 @@ const serializeAws_restJson1ScheduledTriggerProperties = (
     ...(input.firstExecutionFrom !== undefined &&
       input.firstExecutionFrom !== null && {
         firstExecutionFrom: Math.round(input.firstExecutionFrom.getTime() / 1000),
+      }),
+    ...(input.flowErrorDeactivationThreshold !== undefined &&
+      input.flowErrorDeactivationThreshold !== null && {
+        flowErrorDeactivationThreshold: input.flowErrorDeactivationThreshold,
       }),
     ...(input.scheduleEndTime !== undefined &&
       input.scheduleEndTime !== null && { scheduleEndTime: Math.round(input.scheduleEndTime.getTime() / 1000) }),
@@ -5212,6 +5218,7 @@ const deserializeAws_restJson1S3OutputFormatConfig = (output: any, context: __Se
       output.prefixConfig !== undefined && output.prefixConfig !== null
         ? deserializeAws_restJson1PrefixConfig(output.prefixConfig, context)
         : undefined,
+    preserveSourceDataTyping: __expectBoolean(output.preserveSourceDataTyping),
   } as any;
 };
 
@@ -5337,6 +5344,7 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
       output.firstExecutionFrom !== undefined && output.firstExecutionFrom !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstExecutionFrom)))
         : undefined,
+    flowErrorDeactivationThreshold: __expectInt32(output.flowErrorDeactivationThreshold),
     scheduleEndTime:
       output.scheduleEndTime !== undefined && output.scheduleEndTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduleEndTime)))

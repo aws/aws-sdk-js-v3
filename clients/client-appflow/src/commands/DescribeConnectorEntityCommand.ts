@@ -24,7 +24,7 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
 
 /**
  * <p> Provides details regarding the entity used with the connector, with a description of the
- *       data model for each entity. </p>
+ *       data model for each field in that entity. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

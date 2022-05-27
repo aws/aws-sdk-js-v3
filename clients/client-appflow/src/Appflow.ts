@@ -88,19 +88,15 @@ import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } fr
 /**
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need
  *       detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
- *
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
  *       transfer data between software as a service (SaaS) applications like Salesforce, Marketo,
  *       Slack, and ServiceNow, and Amazon Web Services like Amazon S3 and Amazon Redshift. </p>
- *
- *
- *
  *          <p>Use the following links to get started on the Amazon AppFlow API:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API operations.</p>
+ *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API
+ *           operations.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -117,14 +113,12 @@ import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } fr
  *             errors</a>: Client and server errors that all operations can return.</p>
  *             </li>
  *          </ul>
- *
- *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User
- *         Guide</a>.</p>
+ *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User Guide</a>.</p>
  *          <p>Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and include
  *       applicable OAuth attributes (such as <code>auth-code</code> and <code>redirecturi</code>) with
  *       the connector-specific <code>ConnectorProfileProperties</code> when creating a new connector
- *       profile using Amazon AppFlow API operations. For example, Salesforce users can refer to the
- *         <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm">
+ *       profile using Amazon AppFlow API operations. For example, Salesforce users can refer to
+ *       the <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm">
  *                <i>Authorize Apps with OAuth</i>
  *             </a> documentation.</p>
  */
@@ -132,8 +126,8 @@ export class Appflow extends AppflowClient {
   /**
    * <p> Creates a new connector profile associated with your Amazon Web Services account. There
    *       is a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
-   *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team
-   *       through the Amazon AppFlow support channel. </p>
+   *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you
+   *       create, you can provide the credentials and properties for only one connector.</p>
    */
   public createConnectorProfile(
     args: CreateConnectorProfileCommandInput,
@@ -165,10 +159,11 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p> Enables your application to create a new flow using Amazon AppFlow. You must create a
-   *       connector profile before calling this API. Please note that the Request Syntax below shows
+   * <p> Enables your application to create a new flow using Amazon AppFlow. You must create
+   *       a connector profile before calling this API. Please note that the Request Syntax below shows
    *       syntax for multiple destinations, however, you can only transfer data to one item in this list
-   *       at a time. Amazon AppFlow does not currently support flows to multiple destinations at once. </p>
+   *       at a time. Amazon AppFlow does not currently support flows to multiple destinations at
+   *       once. </p>
    */
   public createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
   public createFlow(args: CreateFlowCommandInput, cb: (err: any, data?: CreateFlowCommandOutput) => void): void;
@@ -226,9 +221,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon
-   *       AppFlow validates the request by checking the flow configuration and status. You can delete
-   *       flows one at a time. </p>
+   * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
+   *       delete flows one at a time. </p>
    */
   public deleteFlow(args: DeleteFlowCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFlowCommandOutput>;
   public deleteFlow(args: DeleteFlowCommandInput, cb: (err: any, data?: DeleteFlowCommandOutput) => void): void;
@@ -289,7 +283,7 @@ export class Appflow extends AppflowClient {
 
   /**
    * <p> Provides details regarding the entity used with the connector, with a description of the
-   *       data model for each entity. </p>
+   *       data model for each field in that entity. </p>
    */
   public describeConnectorEntity(
     args: DescribeConnectorEntityCommandInput,
@@ -357,10 +351,9 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If you
-   *       don't specify a connector type, this operation describes all connectors vended by Amazon
-   *       AppFlow. If there are more connectors than can be returned in one page, the response contains
-   *       a <code>nextToken</code> object, which can be be passed in to the next call to the
+   * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If
+   *       you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response
+   *       contains a <code>nextToken</code> object, which can be be passed in to the next call to the
    *         <code>DescribeConnectors</code> API operation to retrieve the next page. </p>
    */
   public describeConnectors(
