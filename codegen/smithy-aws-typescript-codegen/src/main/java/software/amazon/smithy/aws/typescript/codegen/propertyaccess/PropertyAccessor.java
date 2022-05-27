@@ -1,19 +1,36 @@
+/*
+ * Copyright 2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
 package software.amazon.smithy.aws.typescript.codegen.propertyaccess;
 
 import java.util.regex.Pattern;
 
-public class PropertyAccessor {
+public final class PropertyAccessor {
     /**
-     * Starts with alpha or underscore, and contains only alphanumeric and underscores. 
+     * Starts with alpha or underscore, and contains only alphanumeric and underscores.
      */
-    public static final Pattern validJavaScriptPropertyName = Pattern.compile("^(?![0-9])[a-zA-Z0-9$_]+$");
+    public static final Pattern VALID_JAVA_SCRIPT_PROPERTY_NAME = Pattern.compile("^(?![0-9])[a-zA-Z0-9$_]+$");
+
+    private PropertyAccessor() {}
 
     /**
      * @param propertyName - property being accessed.
      * @return brackets wrapping the name if it's not a valid JavaScript property name.
      */
     public static String getPropertyAccessor(String propertyName) {
-        if (validJavaScriptPropertyName.matcher(propertyName).matches()) {
+        if (VALID_JAVA_SCRIPT_PROPERTY_NAME.matcher(propertyName).matches()) {
             return "." + propertyName;
         }
         if (propertyName.contains("\"")) {
