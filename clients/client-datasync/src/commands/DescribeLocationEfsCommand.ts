@@ -23,7 +23,7 @@ export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequ
 export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
+ * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

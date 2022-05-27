@@ -267,7 +267,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for an Amazon EFS file system.</p>
+   * <p>Creates an endpoint for an Amazon EFS file system that DataSync
+   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
    */
   public createLocationEfs(
     args: CreateLocationEfsCommandInput,
@@ -729,7 +730,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
+   * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
    */
   public describeLocationEfs(
     args: DescribeLocationEfsCommandInput,

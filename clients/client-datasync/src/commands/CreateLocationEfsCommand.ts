@@ -23,7 +23,8 @@ export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest 
 export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon EFS file system.</p>
+ * <p>Creates an endpoint for an Amazon EFS file system that DataSync
+ *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

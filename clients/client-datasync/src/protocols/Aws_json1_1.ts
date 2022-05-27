@@ -2766,10 +2766,16 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AccessPointArn !== undefined &&
+      input.AccessPointArn !== null && { AccessPointArn: input.AccessPointArn }),
     ...(input.Ec2Config !== undefined &&
       input.Ec2Config !== null && { Ec2Config: serializeAws_json1_1Ec2Config(input.Ec2Config, context) }),
     ...(input.EfsFilesystemArn !== undefined &&
       input.EfsFilesystemArn !== null && { EfsFilesystemArn: input.EfsFilesystemArn }),
+    ...(input.FileSystemAccessRoleArn !== undefined &&
+      input.FileSystemAccessRoleArn !== null && { FileSystemAccessRoleArn: input.FileSystemAccessRoleArn }),
+    ...(input.InTransitEncryption !== undefined &&
+      input.InTransitEncryption !== null && { InTransitEncryption: input.InTransitEncryption }),
     ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
@@ -3696,6 +3702,7 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
   context: __SerdeContext
 ): DescribeLocationEfsResponse => {
   return {
+    AccessPointArn: __expectString(output.AccessPointArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -3704,6 +3711,8 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
       output.Ec2Config !== undefined && output.Ec2Config !== null
         ? deserializeAws_json1_1Ec2Config(output.Ec2Config, context)
         : undefined,
+    FileSystemAccessRoleArn: __expectString(output.FileSystemAccessRoleArn),
+    InTransitEncryption: __expectString(output.InTransitEncryption),
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
   } as any;
