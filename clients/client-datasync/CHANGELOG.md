@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports TLS encryption in transit, file system policies and access points for EFS locations. ([691df14](https://github.com/aws/aws-sdk-js-v3/commit/691df1466cae728f02e375cd879f784cb422eb8e))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

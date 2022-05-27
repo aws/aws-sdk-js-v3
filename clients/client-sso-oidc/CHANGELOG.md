@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-05-27 ([088c46d](https://github.com/aws/aws-sdk-js-v3/commit/088c46de9587226aea621d78d58c647d61db3ec7))
+
+
+
+
+
 # [3.99.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.98.0...v3.99.0) (2022-05-25)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-oidc

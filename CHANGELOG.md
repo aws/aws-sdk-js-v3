@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
+
+
+### Features
+
+* **client-appflow:** Adding the following features/changes: Parquet output that preserves typing from the source connector, Failed executions threshold before deactivation for scheduled flows, increasing max size of access and refresh token from 2048 to 4096 ([0762754](https://github.com/aws/aws-sdk-js-v3/commit/07627544b4981b3a4fdd76fa6101db4883a322dc))
+* **client-datasync:** AWS DataSync now supports TLS encryption in transit, file system policies and access points for EFS locations. ([691df14](https://github.com/aws/aws-sdk-js-v3/commit/691df1466cae728f02e375cd879f784cb422eb8e))
+* **client-emr-serverless:** This release adds support for Amazon EMR Serverless, a serverless runtime environment that simplifies running analytics applications using the latest open source frameworks such as Apache Spark and Apache Hive. ([b056f11](https://github.com/aws/aws-sdk-js-v3/commit/b056f11a0e3b3c75af2233c9e2611e5eab56487b))
+* **client-sagemaker:** Amazon SageMaker Notebook Instances now allows configuration of Instance Metadata Service version and Amazon SageMaker Studio now supports G5 instance types. ([cf58e1e](https://github.com/aws/aws-sdk-js-v3/commit/cf58e1e13c48afa2ec4cd068a07fe2295f138667))
+* **clients:** update client endpoints as of 2022-05-27 ([088c46d](https://github.com/aws/aws-sdk-js-v3/commit/088c46de9587226aea621d78d58c647d61db3ec7))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Notebook Instances now allows configuration of Instance Metadata Service version and Amazon SageMaker Studio now supports G5 instance types. ([cf58e1e](https://github.com/aws/aws-sdk-js-v3/commit/cf58e1e13c48afa2ec4cd068a07fe2295f138667))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

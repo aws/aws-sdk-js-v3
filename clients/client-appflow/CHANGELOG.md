@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
+
+
+### Features
+
+* **client-appflow:** Adding the following features/changes: Parquet output that preserves typing from the source connector, Failed executions threshold before deactivation for scheduled flows, increasing max size of access and refresh token from 2048 to 4096 ([0762754](https://github.com/aws/aws-sdk-js-v3/commit/07627544b4981b3a4fdd76fa6101db4883a322dc))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow
