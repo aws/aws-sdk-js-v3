@@ -38,6 +38,8 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
 @SmithyInternalApi
 final class DocumentClientCommandGenerator implements Runnable {
     static final String COMMAND_PROPERTIES_SECTION = "command_properties";
@@ -176,7 +178,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                     } else {
                         writer.openBlock("$L(", ")", marshallInput, () -> {
                             writer.write("this.input,");
-                            writer.write("this.$L,", COMMAND_INPUT_KEYNODES);
+                            writer.write(getFrom("this", COMMAND_INPUT_KEYNODES) + ",");
                             writer.write("$L,", marshallOptions);
                         });
                     }
