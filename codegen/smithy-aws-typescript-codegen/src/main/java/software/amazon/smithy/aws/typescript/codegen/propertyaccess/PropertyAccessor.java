@@ -21,7 +21,7 @@ public final class PropertyAccessor {
     /**
      * Starts with alpha or underscore, and contains only alphanumeric and underscores.
      */
-    public static final Pattern VALID_JAVA_SCRIPT_PROPERTY_NAME = Pattern.compile("^(?![0-9])[a-zA-Z0-9$_]+$");
+    public static final Pattern VALID_JAVASCRIPT_PROPERTY_NAME = Pattern.compile("^(?![0-9])[a-zA-Z0-9$_]+$");
 
     private PropertyAccessor() {}
 
@@ -30,7 +30,7 @@ public final class PropertyAccessor {
      * @return brackets wrapping the name if it's not a valid JavaScript property name.
      */
     public static String getPropertyAccessor(String propertyName) {
-        if (VALID_JAVA_SCRIPT_PROPERTY_NAME.matcher(propertyName).matches()) {
+        if (VALID_JAVASCRIPT_PROPERTY_NAME.matcher(propertyName).matches()) {
             return "." + propertyName;
         }
         if (propertyName.contains("\"")) {

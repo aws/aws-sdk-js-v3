@@ -179,7 +179,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     writer.write(
                         "$1L: ($2L !== undefined && $2L !== null) ? $3L: undefined,",
                         memberName,
-                        getFrom("output", locationName),
+                        propertyAccess,
                         // Dispatch to the output value provider for any additional handling.
                         target.accept(getMemberVisitor(memberShape, propertyAccess))
                     );
@@ -218,8 +218,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 });
             } else {
                 writer.openBlock(
-                    "if ($L !== undefined && $L !== null) {", "}",
-                    getFrom("output", locationName),
+                    "if ($1L !== undefined && $1L !== null) {", "}",
                     getFrom("output", locationName),
                     () -> writer.openBlock(
                         "return {", "};",
