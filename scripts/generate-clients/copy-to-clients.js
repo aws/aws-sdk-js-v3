@@ -1,23 +1,26 @@
 // @ts-check
-const { normalize, join } = require("path");
+const { join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
-  const additionalGeneratedFiles = {
+  const additionalOverwritablePaths = {
     "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
   };
-  const overwritableDirectories = [
+  const unoverwritablePaths = {
+    "@aws-sdk/client-transcribe-streaming": ["README.md"],
+  };
+  const overwritablePaths = [
     "src", // contains all source files
     "LICENCE",
     "README.md",
   ];
-  return subDirectories.filter((subDirectory) => {
-    return (
-      overwritableDirectories.indexOf(subDirectory) >= 0 ||
-      (packageName.startsWith("@aws-sdk/aws-") && subDirectory === "test") ||
-      additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
-    );
+  return subDirectories.filter((path) => {
+    const isUnoverwritablePaths = unoverwritablePaths[packageName]?.indexOf(path) >= 0;
+    const isProtocolTestFolder = packageName.startsWith("@aws-sdk/aws-") && path === "test";
+    const isOverwritableDirectory = overwritablePaths.indexOf(path) >= 0;
+    const isAdditionalOverwritablePaths = additionalOverwritablePaths[packageName]?.indexOf(path) >= 0;
+    return !isUnoverwritablePaths && (isOverwritableDirectory || isProtocolTestFolder || isAdditionalOverwritablePaths);
   });
 };
 
