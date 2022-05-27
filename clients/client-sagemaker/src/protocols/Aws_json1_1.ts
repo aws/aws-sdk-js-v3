@@ -1058,7 +1058,7 @@ import {
   HyperParameterTrainingJobSummary,
   InferenceExecutionConfig,
   InferenceRecommendation,
-  LabelCounters,
+  InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
@@ -1239,6 +1239,7 @@ import {
   Image,
   ImageVersion,
   InferenceRecommendationsJob,
+  LabelCounters,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
   LabelingJobOutput,
@@ -1341,7 +1342,6 @@ import {
   ListStudioLifecycleConfigsRequest,
   ListStudioLifecycleConfigsResponse,
   ListSubscribedWorkteamsRequest,
-  ListSubscribedWorkteamsResponse,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1389,6 +1389,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListSubscribedWorkteamsResponse,
   ListTagsInput,
   ListTagsOutput,
   ListTrainingJobsForHyperParameterTuningJobRequest,
@@ -17056,6 +17057,13 @@ const serializeAws_json1_1CreateNotebookInstanceInput = (
       input.DefaultCodeRepository !== null && { DefaultCodeRepository: input.DefaultCodeRepository }),
     ...(input.DirectInternetAccess !== undefined &&
       input.DirectInternetAccess !== null && { DirectInternetAccess: input.DirectInternetAccess }),
+    ...(input.InstanceMetadataServiceConfiguration !== undefined &&
+      input.InstanceMetadataServiceConfiguration !== null && {
+        InstanceMetadataServiceConfiguration: serializeAws_json1_1InstanceMetadataServiceConfiguration(
+          input.InstanceMetadataServiceConfiguration,
+          context
+        ),
+      }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.LifecycleConfigName !== undefined &&
@@ -19357,6 +19365,18 @@ const serializeAws_json1_1InputModes = (input: (TrainingInputMode | string)[], c
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1InstanceMetadataServiceConfiguration = (
+  input: InstanceMetadataServiceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinimumInstanceMetadataServiceVersion !== undefined &&
+      input.MinimumInstanceMetadataServiceVersion !== null && {
+        MinimumInstanceMetadataServiceVersion: input.MinimumInstanceMetadataServiceVersion,
+      }),
+  };
 };
 
 const serializeAws_json1_1IntegerParameterRange = (input: IntegerParameterRange, context: __SerdeContext): any => {
@@ -23427,6 +23447,13 @@ const serializeAws_json1_1UpdateNotebookInstanceInput = (
       }),
     ...(input.DisassociateLifecycleConfig !== undefined &&
       input.DisassociateLifecycleConfig !== null && { DisassociateLifecycleConfig: input.DisassociateLifecycleConfig }),
+    ...(input.InstanceMetadataServiceConfiguration !== undefined &&
+      input.InstanceMetadataServiceConfiguration !== null && {
+        InstanceMetadataServiceConfiguration: serializeAws_json1_1InstanceMetadataServiceConfiguration(
+          input.InstanceMetadataServiceConfiguration,
+          context
+        ),
+      }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
     ...(input.LifecycleConfigName !== undefined &&
       input.LifecycleConfigName !== null && { LifecycleConfigName: input.LifecycleConfigName }),
@@ -27177,6 +27204,13 @@ const deserializeAws_json1_1DescribeNotebookInstanceOutput = (
     DefaultCodeRepository: __expectString(output.DefaultCodeRepository),
     DirectInternetAccess: __expectString(output.DirectInternetAccess),
     FailureReason: __expectString(output.FailureReason),
+    InstanceMetadataServiceConfiguration:
+      output.InstanceMetadataServiceConfiguration !== undefined && output.InstanceMetadataServiceConfiguration !== null
+        ? deserializeAws_json1_1InstanceMetadataServiceConfiguration(
+            output.InstanceMetadataServiceConfiguration,
+            context
+          )
+        : undefined,
     InstanceType: __expectString(output.InstanceType),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastModifiedTime:
@@ -29339,6 +29373,15 @@ const deserializeAws_json1_1InputModes = (output: any, context: __SerdeContext):
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1InstanceMetadataServiceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): InstanceMetadataServiceConfiguration => {
+  return {
+    MinimumInstanceMetadataServiceVersion: __expectString(output.MinimumInstanceMetadataServiceVersion),
+  } as any;
 };
 
 const deserializeAws_json1_1IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {

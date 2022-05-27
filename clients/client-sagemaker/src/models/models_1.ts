@@ -4449,6 +4449,25 @@ export enum DirectInternetAccess {
   ENABLED = "Enabled",
 }
 
+/**
+ * <p>Information on the IMDS configuration of the notebook instance</p>
+ */
+export interface InstanceMetadataServiceConfiguration {
+  /**
+   * <p>Indicates the minimum IMDS version that the notebook instance supports. When passed as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of <code>UpdateNotebookInstance</code>, there is no default.</p>
+   */
+  MinimumInstanceMetadataServiceVersion: string | undefined;
+}
+
+export namespace InstanceMetadataServiceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMetadataServiceConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum _InstanceType {
   ML_C4_2XLARGE = "ml.c4.2xlarge",
   ML_C4_4XLARGE = "ml.c4.4xlarge",
@@ -4645,6 +4664,11 @@ export interface CreateNotebookInstanceInput {
    * <p>The platform identifier of the notebook instance runtime environment.</p>
    */
   PlatformIdentifier?: string;
+
+  /**
+   * <p>Information on the IMDS configuration of the notebook instance</p>
+   */
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
 export namespace CreateNotebookInstanceInput {
@@ -11315,45 +11339,6 @@ export namespace DescribeLabelingJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeLabelingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides a breakdown of the number of objects labeled.</p>
- */
-export interface LabelCounters {
-  /**
-   * <p>The total number of objects labeled.</p>
-   */
-  TotalLabeled?: number;
-
-  /**
-   * <p>The total number of objects labeled by a human worker.</p>
-   */
-  HumanLabeled?: number;
-
-  /**
-   * <p>The total number of objects labeled by automated data labeling.</p>
-   */
-  MachineLabeled?: number;
-
-  /**
-   * <p>The total number of objects that could not be labeled due to an error.</p>
-   */
-  FailedNonRetryableError?: number;
-
-  /**
-   * <p>The total number of objects not yet labeled.</p>
-   */
-  Unlabeled?: number;
-}
-
-export namespace LabelCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelCounters): any => ({
     ...obj,
   });
 }

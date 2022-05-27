@@ -85,7 +85,7 @@ import {
   ImageStatus,
   ImageVersionStatus,
   InferenceExecutionConfig,
-  LabelCounters,
+  InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
@@ -136,6 +136,45 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>Provides a breakdown of the number of objects labeled.</p>
+ */
+export interface LabelCounters {
+  /**
+   * <p>The total number of objects labeled.</p>
+   */
+  TotalLabeled?: number;
+
+  /**
+   * <p>The total number of objects labeled by a human worker.</p>
+   */
+  HumanLabeled?: number;
+
+  /**
+   * <p>The total number of objects labeled by automated data labeling.</p>
+   */
+  MachineLabeled?: number;
+
+  /**
+   * <p>The total number of objects that could not be labeled due to an error.</p>
+   */
+  FailedNonRetryableError?: number;
+
+  /**
+   * <p>The total number of objects not yet labeled.</p>
+   */
+  Unlabeled?: number;
+}
+
+export namespace LabelCounters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelCounters): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Specifies the location of the output produced by the labeling job. </p>
@@ -1381,6 +1420,11 @@ export interface DescribeNotebookInstanceOutput {
    * <p>The platform identifier of the notebook instance runtime environment.</p>
    */
   PlatformIdentifier?: string;
+
+  /**
+   * <p>Information on the IMDS configuration of the notebook instance</p>
+   */
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
 export namespace DescribeNotebookInstanceOutput {
@@ -10895,28 +10939,6 @@ export namespace ListSubscribedWorkteamsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListSubscribedWorkteamsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSubscribedWorkteamsResponse {
-  /**
-   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
-   */
-  SubscribedWorkteams: SubscribedWorkteam[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
-   *             work teams, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListSubscribedWorkteamsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
     ...obj,
   });
 }

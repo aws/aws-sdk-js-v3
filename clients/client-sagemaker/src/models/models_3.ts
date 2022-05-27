@@ -38,6 +38,7 @@ import {
   DriftCheckBaselines,
   ExperimentConfig,
   HyperParameterTrainingJobSummary,
+  InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
@@ -94,6 +95,7 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
+  SubscribedWorkteam,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -102,6 +104,28 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListSubscribedWorkteamsResponse {
+  /**
+   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
+   */
+  SubscribedWorkteams: SubscribedWorkteam[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             work teams, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSubscribedWorkteamsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTagsInput {
   /**
@@ -4336,6 +4360,11 @@ export interface UpdateNotebookInstanceInput {
    *         </note>
    */
   RootAccess?: RootAccess | string;
+
+  /**
+   * <p>Information on the IMDS configuration of the notebook instance</p>
+   */
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
 export namespace UpdateNotebookInstanceInput {

@@ -642,18 +642,32 @@ export interface AlgorithmSpecification {
   /**
    * <p>The registry path of the Docker image
    *              that contains the training algorithm.
-   *             For information about docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
-   *                 Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both
-   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>.</p>
+   *             For information about docker registry paths for SageMaker built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Docker Registry Paths and Example Code</a> in the <i>Amazon SageMaker developer guide</i>.
+   *                 SageMaker supports both <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information about using your custom training container, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.</p>
+   *         <note>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
+   *                 or the image URI of the algorithm container
+   *                 to the <code>TrainingImage</code> parameter.</p>
+   *             <p>For more information, see the note in the <code>AlgorithmName</code> parameter description.</p>
+   *         </note>
    */
   TrainingImage?: string;
 
   /**
    * <p>The name of the algorithm resource to use for the training job. This must be an
-   *             algorithm resource that you created or subscribe to on Amazon Web Services Marketplace. If you specify a value for
-   *             this parameter, you can't specify a value for <code>TrainingImage</code>.</p>
+   *             algorithm resource that you created or subscribe to on Amazon Web Services Marketplace.</p>
+   *         <note>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
+   *                 or the image URI of the algorithm container
+   *                 to the <code>TrainingImage</code> parameter.</p>
+   *             <p>Note that the <code>AlgorithmName</code> parameter is mutually exclusive
+   *                 with the <code>TrainingImage</code> parameter.
+   *                 If you specify a value for the <code>AlgorithmName</code> parameter,
+   *                 you can't specify a value for <code>TrainingImage</code>, and vice versa.</p>
+   *             <p>If you specify values for both parameters, the training job might break; if you don't specify
+   *                 any value for both parameters, the training job might raise a <code>null</code> error.</p>
+   *         </note>
    */
   AlgorithmName?: string;
 
@@ -3688,6 +3702,14 @@ export enum AppInstanceType {
   ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
   ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
   ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_G5_12XLARGE = "ml.g5.12xlarge",
+  ML_G5_16XLARGE = "ml.g5.16xlarge",
+  ML_G5_24XLARGE = "ml.g5.24xlarge",
+  ML_G5_2XLARGE = "ml.g5.2xlarge",
+  ML_G5_48XLARGE = "ml.g5.48xlarge",
+  ML_G5_4XLARGE = "ml.g5.4xlarge",
+  ML_G5_8XLARGE = "ml.g5.8xlarge",
+  ML_G5_XLARGE = "ml.g5.xlarge",
   ML_M5D_12XLARGE = "ml.m5d.12xlarge",
   ML_M5D_16XLARGE = "ml.m5d.16xlarge",
   ML_M5D_24XLARGE = "ml.m5d.24xlarge",
