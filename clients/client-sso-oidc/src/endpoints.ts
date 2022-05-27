@@ -21,6 +21,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "ap-northeast-2",
   },
+  "ap-northeast-3": {
+    variants: [
+      {
+        hostname: "oidc.ap-northeast-3.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-northeast-3",
+  },
   "ap-south-1": {
     variants: [
       {
