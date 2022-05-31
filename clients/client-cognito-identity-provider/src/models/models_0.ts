@@ -1413,8 +1413,8 @@ export namespace AdminDisableProviderForUserResponse {
 
 /**
  * <p>This exception is thrown when a user tries to confirm the account with an email
- *             address or phone number that has already been supplied as an alias from a different
- *             account. This exception indicates that an account with this email address or phone
+ *             address or phone number that has already been supplied as an alias for a different
+ *             user profile. This exception indicates that an account with this email address or phone
  *             already exists in a user pool that you've configured to use email address or phone
  *             number as a sign-in alias.</p>
  */
@@ -1836,7 +1836,7 @@ export namespace HttpHeader {
  */
 export interface ContextDataType {
   /**
-   * <p>Source IP address of your user.</p>
+   * <p>The source IP address of your user's device.</p>
    */
   IpAddress: string | undefined;
 
@@ -1856,8 +1856,8 @@ export interface ContextDataType {
   HttpHeaders: HttpHeader[] | undefined;
 
   /**
-   * <p>Encoded data containing device fingerprinting details collected using the Amazon Cognito
-   *             context data collection library.</p>
+   * <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito
+   *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
    */
   EncodedData?: string;
 }
@@ -2050,8 +2050,9 @@ export interface AdminInitiateAuthRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   ContextData?: ContextDataType;
 }
@@ -2665,7 +2666,7 @@ export namespace ChallengeResponseType {
  */
 export interface EventContextDataType {
   /**
-   * <p>The user's IP address.</p>
+   * <p>The source IP address of your user's device.</p>
    */
   IpAddress?: string;
 
@@ -3104,8 +3105,9 @@ export interface AdminRespondToAuthChallengeRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   ContextData?: ContextDataType;
 
@@ -3977,14 +3979,19 @@ export namespace ConfirmDeviceResponse {
 }
 
 /**
- * <p>Information that your app generates about a user's <code>AdminInitiateAuth</code> or
- *                 <code>AdminRespondToAuthChallenge</code> session. Amazon Cognito advanced security features
- *             calculate risk levels for user sessions based on this context data.</p>
+ * <p>Contextual data, such as the user's device fingerprint, IP address, or location, used
+ *             for evaluating the risk of an unexpected event by Amazon Cognito advanced
+ *         security.</p>
  */
 export interface UserContextDataType {
   /**
-   * <p>Contextual data, such as the user's device fingerprint, IP address, or location, used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>The source IP address of your user's device.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito
+   *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
    */
   EncodedData?: string;
 }
@@ -4037,8 +4044,9 @@ export interface ConfirmForgotPasswordRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 
@@ -4150,8 +4158,9 @@ export interface ConfirmSignUpRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 
@@ -5399,7 +5408,10 @@ export namespace SmsConfigurationType {
 }
 
 /**
- * <p>The settings for updates to user attributes.</p>
+ * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
+ * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+ * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
+ * Verifying updates to to email addresses and phone numbers</a>.</p>
  */
 export interface UserAttributeUpdateSettingsType {
   /**
@@ -5627,7 +5639,10 @@ export interface CreateUserPoolRequest {
   MfaConfiguration?: UserPoolMfaType | string;
 
   /**
-   * <p></p>
+   * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
+   * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+   * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
+   * Verifying updates to to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
@@ -5794,7 +5809,10 @@ export interface UserPoolType {
   SmsAuthenticationMessage?: string;
 
   /**
-   * <p></p>
+   * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
+   * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+   * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
+   * Verifying updates to to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
@@ -6011,20 +6029,24 @@ export enum TimeUnitsType {
  */
 export interface TokenValidityUnitsType {
   /**
-   * <p> A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in
-   *             AccessTokenValidity, defaulting to hours.</p>
+   * <p> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+   *                 <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
+   *             parameter. The default <code>AccessTokenValidity</code> time unit is hours.</p>
    */
   AccessToken?: TimeUnitsType | string;
 
   /**
-   * <p>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in
-   *             IdTokenValidity, defaulting to hours.</p>
+   * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+   *                 <code>days</code> for the value that you set in the <code>IdTokenValidity</code>
+   *             parameter. The default <code>IdTokenValidity</code> time unit is hours.</p>
    */
   IdToken?: TimeUnitsType | string;
 
   /**
-   * <p>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in
-   *             RefreshTokenValidity, defaulting to days.</p>
+   * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
+   *                 <code>days</code> for the value that you set in the
+   *                 <code>RefreshTokenValidity</code> parameter. The default
+   *                 <code>RefreshTokenValidity</code> time unit is days.</p>
    */
   RefreshToken?: TimeUnitsType | string;
 }
@@ -6303,6 +6325,16 @@ export interface CreateUserPoolClientRequest {
    *             the new user pool client.</p>
    */
   EnableTokenRevocation?: boolean;
+
+  /**
+   * <p>Activates the propagation of additional user context data. For more information about
+   *             propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this
+   *             parameter, you can't send device fingerprint information, including source IP address,
+   *             to Amazon Cognito advanced security. You can only activate
+   *                 <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
+   *             client secret.</p>
+   */
+  EnablePropagateAdditionalUserContextData?: boolean;
 }
 
 export namespace CreateUserPoolClientRequest {
@@ -6579,6 +6611,25 @@ export interface UserPoolClientType {
    *             information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
    */
   EnableTokenRevocation?: boolean;
+
+  /**
+   * <p>When <code>EnablePropagateAdditionalUserContextData</code> is true, Amazon Cognito accepts an
+   *                 <code>IpAddress</code> value that you send in the <code>UserContextData</code>
+   *             parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito
+   *             advanced security for risk analysis. You can send <code>UserContextData</code> when you
+   *             sign in Amazon Cognito native users with the <code>InitiateAuth</code> and
+   *                 <code>RespondToAuthChallenge</code> API operations.</p>
+   *         <p>When <code>EnablePropagateAdditionalUserContextData</code> is false, you can't send
+   *             your user's source IP address to Amazon Cognito advanced security with unauthenticated API
+   *             operations. <code>EnablePropagateAdditionalUserContextData</code> doesn't affect whether
+   *             you can send a source IP address in a <code>ContextData</code> parameter with the
+   *             authenticated API operations <code>AdminInitiateAuth</code> and
+   *                 <code>AdminRespondToAuthChallenge</code>.</p>
+   *         <p>You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app
+   *             client that has a client secret. For more information about propagation of user context
+   *             data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
+   */
+  EnablePropagateAdditionalUserContextData?: boolean;
 }
 
 export namespace UserPoolClientType {
@@ -7458,8 +7509,9 @@ export interface ForgotPasswordRequest {
   SecretHash?: string;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 
@@ -7558,8 +7610,7 @@ export namespace CodeDeliveryDetailsType {
 }
 
 /**
- * <p>Represents the response from the server regarding the request to reset a
- *             password.</p>
+ * <p>The response from Amazon Cognito to a request to reset a password.</p>
  */
 export interface ForgotPasswordResponse {
   /**
@@ -8332,8 +8383,9 @@ export interface InitiateAuthRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 }
@@ -9199,8 +9251,9 @@ export interface ResendConfirmationCodeRequest {
   SecretHash?: string;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 
@@ -9388,8 +9441,9 @@ export interface RespondToAuthChallengeRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 
@@ -9909,8 +9963,9 @@ export interface SignUpRequest {
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * <p>Contextual data such as the user's device fingerprint, IP address, or location used
-   *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
    */
   UserContextData?: UserContextDataType;
 

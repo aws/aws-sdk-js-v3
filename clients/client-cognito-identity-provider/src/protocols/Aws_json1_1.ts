@@ -9568,6 +9568,10 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
     ...(input.ClientName !== undefined && input.ClientName !== null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI !== undefined &&
       input.DefaultRedirectURI !== null && { DefaultRedirectURI: input.DefaultRedirectURI }),
+    ...(input.EnablePropagateAdditionalUserContextData !== undefined &&
+      input.EnablePropagateAdditionalUserContextData !== null && {
+        EnablePropagateAdditionalUserContextData: input.EnablePropagateAdditionalUserContextData,
+      }),
     ...(input.EnableTokenRevocation !== undefined &&
       input.EnableTokenRevocation !== null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows !== undefined &&
@@ -10910,6 +10914,10 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     ...(input.ClientName !== undefined && input.ClientName !== null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI !== undefined &&
       input.DefaultRedirectURI !== null && { DefaultRedirectURI: input.DefaultRedirectURI }),
+    ...(input.EnablePropagateAdditionalUserContextData !== undefined &&
+      input.EnablePropagateAdditionalUserContextData !== null && {
+        EnablePropagateAdditionalUserContextData: input.EnablePropagateAdditionalUserContextData,
+      }),
     ...(input.EnableTokenRevocation !== undefined &&
       input.EnableTokenRevocation !== null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows !== undefined &&
@@ -11047,6 +11055,7 @@ const serializeAws_json1_1UserAttributeUpdateSettingsType = (
 const serializeAws_json1_1UserContextDataType = (input: UserContextDataType, context: __SerdeContext): any => {
   return {
     ...(input.EncodedData !== undefined && input.EncodedData !== null && { EncodedData: input.EncodedData }),
+    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
   };
 };
 
@@ -13526,6 +13535,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DefaultRedirectURI: __expectString(output.DefaultRedirectURI),
+    EnablePropagateAdditionalUserContextData: __expectBoolean(output.EnablePropagateAdditionalUserContextData),
     EnableTokenRevocation: __expectBoolean(output.EnableTokenRevocation),
     ExplicitAuthFlows:
       output.ExplicitAuthFlows !== undefined && output.ExplicitAuthFlows !== null

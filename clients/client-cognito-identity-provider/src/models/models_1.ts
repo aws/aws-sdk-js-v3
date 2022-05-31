@@ -579,7 +579,10 @@ export interface UpdateUserPoolRequest {
   SmsAuthenticationMessage?: string;
 
   /**
-   * <p></p>
+   * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
+   * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+   * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
+   * Verifying updates to to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
@@ -930,6 +933,16 @@ export interface UpdateUserPoolClientRequest {
    *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
    */
   EnableTokenRevocation?: boolean;
+
+  /**
+   * <p>Activates the propagation of additional user context data. For more information about
+   *             propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this
+   *             parameter, you can't send device fingerprint information, including source IP address,
+   *             to Amazon Cognito advanced security. You can only activate
+   *                 <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
+   *             client secret.</p>
+   */
+  EnablePropagateAdditionalUserContextData?: boolean;
 }
 
 export namespace UpdateUserPoolClientRequest {
