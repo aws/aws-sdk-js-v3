@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./CreateExtendedSourceServerCommand";
 export * from "./CreateReplicationConfigurationTemplateCommand";
 export * from "./DeleteJobCommand";
 export * from "./DeleteRecoveryInstanceCommand";
@@ -16,6 +17,8 @@ export * from "./GetFailbackReplicationConfigurationCommand";
 export * from "./GetLaunchConfigurationCommand";
 export * from "./GetReplicationConfigurationCommand";
 export * from "./InitializeServiceCommand";
+export * from "./ListExtensibleSourceServersCommand";
+export * from "./ListStagingAccountsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./RetryDataReplicationCommand";
 export * from "./StartFailbackLaunchCommand";

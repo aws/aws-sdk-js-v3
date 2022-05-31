@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  CreateExtendedSourceServerCommand,
+  CreateExtendedSourceServerCommandInput,
+  CreateExtendedSourceServerCommandOutput,
+} from "./commands/CreateExtendedSourceServerCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
@@ -83,6 +88,16 @@ import {
   InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
 import {
+  ListExtensibleSourceServersCommand,
+  ListExtensibleSourceServersCommandInput,
+  ListExtensibleSourceServersCommandOutput,
+} from "./commands/ListExtensibleSourceServersCommand";
+import {
+  ListStagingAccountsCommand,
+  ListStagingAccountsCommandInput,
+  ListStagingAccountsCommandOutput,
+} from "./commands/ListStagingAccountsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -144,6 +159,38 @@ import { DrsClient } from "./DrsClient";
  * <p>AWS Elastic Disaster Recovery Service.</p>
  */
 export class Drs extends DrsClient {
+  /**
+   * <p>Create an extended source server in the target Account based on the source server in staging account.</p>
+   */
+  public createExtendedSourceServer(
+    args: CreateExtendedSourceServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExtendedSourceServerCommandOutput>;
+  public createExtendedSourceServer(
+    args: CreateExtendedSourceServerCommandInput,
+    cb: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
+  ): void;
+  public createExtendedSourceServer(
+    args: CreateExtendedSourceServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
+  ): void;
+  public createExtendedSourceServer(
+    args: CreateExtendedSourceServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExtendedSourceServerCommandOutput) => void),
+    cb?: (err: any, data?: CreateExtendedSourceServerCommandOutput) => void
+  ): Promise<CreateExtendedSourceServerCommandOutput> | void {
+    const command = new CreateExtendedSourceServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new ReplicationConfigurationTemplate.</p>
    */
@@ -675,6 +722,73 @@ export class Drs extends DrsClient {
     cb?: (err: any, data?: InitializeServiceCommandOutput) => void
   ): Promise<InitializeServiceCommandOutput> | void {
     const command = new InitializeServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of source servers on a staging account that are extensible, which means that:
+   *             a. The source server is not already extended into this Account.
+   *             b. The source server on the Account we’re reading from is not an extension of another source server.
+   *         </p>
+   */
+  public listExtensibleSourceServers(
+    args: ListExtensibleSourceServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExtensibleSourceServersCommandOutput>;
+  public listExtensibleSourceServers(
+    args: ListExtensibleSourceServersCommandInput,
+    cb: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
+  ): void;
+  public listExtensibleSourceServers(
+    args: ListExtensibleSourceServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
+  ): void;
+  public listExtensibleSourceServers(
+    args: ListExtensibleSourceServersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExtensibleSourceServersCommandOutput) => void),
+    cb?: (err: any, data?: ListExtensibleSourceServersCommandOutput) => void
+  ): Promise<ListExtensibleSourceServersCommandOutput> | void {
+    const command = new ListExtensibleSourceServersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of staging accounts for existing extended source servers.</p>
+   */
+  public listStagingAccounts(
+    args: ListStagingAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStagingAccountsCommandOutput>;
+  public listStagingAccounts(
+    args: ListStagingAccountsCommandInput,
+    cb: (err: any, data?: ListStagingAccountsCommandOutput) => void
+  ): void;
+  public listStagingAccounts(
+    args: ListStagingAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStagingAccountsCommandOutput) => void
+  ): void;
+  public listStagingAccounts(
+    args: ListStagingAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStagingAccountsCommandOutput) => void),
+    cb?: (err: any, data?: ListStagingAccountsCommandOutput) => void
+  ): Promise<ListStagingAccountsCommandOutput> | void {
+    const command = new ListStagingAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -11,3 +11,5 @@ export * from "./DescribeReplicationConfigurationTemplatesPaginator";
 export * from "./DescribeSourceServersPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListExtensibleSourceServersPaginator";
+export * from "./ListStagingAccountsPaginator";

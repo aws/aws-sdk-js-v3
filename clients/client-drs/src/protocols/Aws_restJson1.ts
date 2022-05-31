@@ -18,6 +18,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  CreateExtendedSourceServerCommandInput,
+  CreateExtendedSourceServerCommandOutput,
+} from "../commands/CreateExtendedSourceServerCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
@@ -74,6 +78,14 @@ import {
 } from "../commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "../commands/InitializeServiceCommand";
 import {
+  ListExtensibleSourceServersCommandInput,
+  ListExtensibleSourceServersCommandOutput,
+} from "../commands/ListExtensibleSourceServersCommand";
+import {
+  ListStagingAccountsCommandInput,
+  ListStagingAccountsCommandOutput,
+} from "../commands/ListStagingAccountsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -112,7 +124,9 @@ import {
 import { DrsServiceException as __BaseException } from "../models/DrsServiceException";
 import {
   AccessDeniedException,
+  Account,
   ConflictException,
+  ConversionProperties,
   CPU,
   DataReplicationError,
   DataReplicationInfo,
@@ -153,12 +167,42 @@ import {
   ServiceQuotaExceededException,
   SourceProperties,
   SourceServer,
+  StagingArea,
+  StagingSourceServer,
   StartRecoveryRequestSourceServer,
   ThrottlingException,
   UninitializedAccountException,
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
+
+export const serializeAws_restJson1CreateExtendedSourceServerCommand = async (
+  input: CreateExtendedSourceServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateExtendedSourceServer";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.sourceServerArn !== undefined &&
+      input.sourceServerArn !== null && { sourceServerArn: input.sourceServerArn }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateReplicationConfigurationTemplateCommand = async (
   input: CreateReplicationConfigurationTemplateCommandInput,
@@ -658,6 +702,58 @@ export const serializeAws_restJson1InitializeServiceCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListExtensibleSourceServersCommand = async (
+  input: ListExtensibleSourceServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListExtensibleSourceServers";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.stagingAccountID !== undefined &&
+      input.stagingAccountID !== null && { stagingAccountID: input.stagingAccountID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListStagingAccountsCommand = async (
+  input: ListStagingAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStagingAccounts";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -1096,6 +1192,68 @@ export const serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1CreateExtendedSourceServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExtendedSourceServerCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateExtendedSourceServerCommandError(output, context);
+  }
+  const contents: CreateExtendedSourceServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    sourceServer: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.sourceServer !== undefined && data.sourceServer !== null) {
+    contents.sourceServer = deserializeAws_restJson1SourceServer(data.sourceServer, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateExtendedSourceServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExtendedSourceServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
 };
 
 export const deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand = async (
@@ -1847,6 +2005,7 @@ export const deserializeAws_restJson1DisconnectSourceServerCommand = async (
     recoveryInstanceId: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
+    stagingArea: undefined,
     tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -1870,6 +2029,9 @@ export const deserializeAws_restJson1DisconnectSourceServerCommand = async (
   }
   if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
     contents.sourceServerID = __expectString(data.sourceServerID);
+  }
+  if (data.stagingArea !== undefined && data.stagingArea !== null) {
+    contents.stagingArea = deserializeAws_restJson1StagingArea(data.stagingArea, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
@@ -2157,6 +2319,9 @@ const deserializeAws_restJson1GetReplicationConfigurationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.drs#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -2215,6 +2380,126 @@ const deserializeAws_restJson1InitializeServiceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.drs#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListExtensibleSourceServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensibleSourceServersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListExtensibleSourceServersCommandError(output, context);
+  }
+  const contents: ListExtensibleSourceServersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    items: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items !== undefined && data.items !== null) {
+    contents.items = deserializeAws_restJson1StagingSourceServersList(data.items, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListExtensibleSourceServersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExtensibleSourceServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListStagingAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStagingAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListStagingAccountsCommandError(output, context);
+  }
+  const contents: ListStagingAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    accounts: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.accounts !== undefined && data.accounts !== null) {
+    contents.accounts = deserializeAws_restJson1Accounts(data.accounts, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListStagingAccountsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStagingAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.drs#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.drs#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -2301,6 +2586,7 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
     recoveryInstanceId: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
+    stagingArea: undefined,
     tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -2324,6 +2610,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   }
   if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
     contents.sourceServerID = __expectString(data.sourceServerID);
+  }
+  if (data.stagingArea !== undefined && data.stagingArea !== null) {
+    contents.stagingArea = deserializeAws_restJson1StagingArea(data.stagingArea, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
@@ -3270,6 +3559,17 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AccountIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1DescribeJobsRequestFilters = (
   input: DescribeJobsRequestFilters,
   context: __SerdeContext
@@ -3330,6 +3630,10 @@ const serializeAws_restJson1DescribeSourceServersRequestFilters = (
     ...(input.sourceServerIDs !== undefined &&
       input.sourceServerIDs !== null && {
         sourceServerIDs: serializeAws_restJson1DescribeSourceServersRequestFiltersIDs(input.sourceServerIDs, context),
+      }),
+    ...(input.stagingAccountIDs !== undefined &&
+      input.stagingAccountIDs !== null && {
+        stagingAccountIDs: serializeAws_restJson1AccountIDs(input.stagingAccountIDs, context),
       }),
   };
 };
@@ -3512,6 +3816,52 @@ const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): Account => {
+  return {
+    accountID: __expectString(output.accountID),
+  } as any;
+};
+
+const deserializeAws_restJson1Accounts = (output: any, context: __SerdeContext): Account[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Account(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ConversionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1ConversionProperties = (output: any, context: __SerdeContext): ConversionProperties => {
+  return {
+    dataTimestamp: __expectString(output.dataTimestamp),
+    forceUefi: __expectBoolean(output.forceUefi),
+    rootVolumeName: __expectString(output.rootVolumeName),
+    volumeToConversionMap:
+      output.volumeToConversionMap !== undefined && output.volumeToConversionMap !== null
+        ? deserializeAws_restJson1VolumeToConversionMap(output.volumeToConversionMap, context)
+        : undefined,
+    volumeToVolumeSize:
+      output.volumeToVolumeSize !== undefined && output.volumeToVolumeSize !== null
+        ? deserializeAws_restJson1VolumeToSizeMap(output.volumeToVolumeSize, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1CPU = (output: any, context: __SerdeContext): CPU => {
@@ -3727,6 +4077,10 @@ const deserializeAws_restJson1JobLog = (output: any, context: __SerdeContext): J
 
 const deserializeAws_restJson1JobLogEventData = (output: any, context: __SerdeContext): JobLogEventData => {
   return {
+    conversionProperties:
+      output.conversionProperties !== undefined && output.conversionProperties !== null
+        ? deserializeAws_restJson1ConversionProperties(output.conversionProperties, context)
+        : undefined,
     conversionServerID: __expectString(output.conversionServerID),
     rawError: __expectString(output.rawError),
     sourceServerID: __expectString(output.sourceServerID),
@@ -4228,6 +4582,10 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1SourceProperties(output.sourceProperties, context)
         : undefined,
     sourceServerID: __expectString(output.sourceServerID),
+    stagingArea:
+      output.stagingArea !== undefined && output.stagingArea !== null
+        ? deserializeAws_restJson1StagingArea(output.stagingArea, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagsMap(output.tags, context)
@@ -4243,6 +4601,41 @@ const deserializeAws_restJson1SourceServersList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_restJson1SourceServer(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StagingArea = (output: any, context: __SerdeContext): StagingArea => {
+  return {
+    errorMessage: __expectString(output.errorMessage),
+    stagingAccountID: __expectString(output.stagingAccountID),
+    stagingSourceServerArn: __expectString(output.stagingSourceServerArn),
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1StagingSourceServer = (output: any, context: __SerdeContext): StagingSourceServer => {
+  return {
+    arn: __expectString(output.arn),
+    hostname: __expectString(output.hostname),
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagsMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StagingSourceServersList = (
+  output: any,
+  context: __SerdeContext
+): StagingSourceServer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StagingSourceServer(entry, context);
     });
   return retVal;
 };
@@ -4282,6 +4675,36 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1VolumeToConversionMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: { [key: string]: string } } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1ConversionMap(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1VolumeToSizeMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
+  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectLong(value) as any,
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

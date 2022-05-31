@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DrsClient` and
-the commands you need, for example `CreateReplicationConfigurationTemplateCommand`:
+the commands you need, for example `CreateExtendedSourceServerCommand`:
 
 ```js
 // ES5 example
-const { DrsClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs");
+const { DrsClient, CreateExtendedSourceServerCommand } = require("@aws-sdk/client-drs");
 ```
 
 ```ts
 // ES6+ example
-import { DrsClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs";
+import { DrsClient, CreateExtendedSourceServerCommand } from "@aws-sdk/client-drs";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new DrsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateReplicationConfigurationTemplateCommand(params);
+const command = new CreateExtendedSourceServerCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Drs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createReplicationConfigurationTemplate(params);
+  const data = await client.createExtendedSourceServer(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createReplicationConfigurationTemplate(params)
+  .createExtendedSourceServer(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createReplicationConfigurationTemplate(params, (err, data) => {
+client.createExtendedSourceServer(params, (err, data) => {
   // process err and data.
 });
 ```

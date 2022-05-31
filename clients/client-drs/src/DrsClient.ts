@@ -53,6 +53,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  CreateExtendedSourceServerCommandInput,
+  CreateExtendedSourceServerCommandOutput,
+} from "./commands/CreateExtendedSourceServerCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
@@ -109,6 +113,14 @@ import {
 } from "./commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
 import {
+  ListExtensibleSourceServersCommandInput,
+  ListExtensibleSourceServersCommandOutput,
+} from "./commands/ListExtensibleSourceServersCommand";
+import {
+  ListStagingAccountsCommandInput,
+  ListStagingAccountsCommandOutput,
+} from "./commands/ListStagingAccountsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -147,6 +159,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CreateExtendedSourceServerCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | DeleteJobCommandInput
   | DeleteRecoveryInstanceCommandInput
@@ -164,6 +177,8 @@ export type ServiceInputTypes =
   | GetLaunchConfigurationCommandInput
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
+  | ListExtensibleSourceServersCommandInput
+  | ListStagingAccountsCommandInput
   | ListTagsForResourceCommandInput
   | RetryDataReplicationCommandInput
   | StartFailbackLaunchCommandInput
@@ -178,6 +193,7 @@ export type ServiceInputTypes =
   | UpdateReplicationConfigurationTemplateCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateExtendedSourceServerCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | DeleteJobCommandOutput
   | DeleteRecoveryInstanceCommandOutput
@@ -195,6 +211,8 @@ export type ServiceOutputTypes =
   | GetLaunchConfigurationCommandOutput
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
+  | ListExtensibleSourceServersCommandOutput
+  | ListStagingAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | RetryDataReplicationCommandOutput
   | StartFailbackLaunchCommandOutput

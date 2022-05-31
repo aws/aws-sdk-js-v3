@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DrsServiceException as __BaseException } from "./DrsServiceException";
 
 /**
- * <p>TYou do not have sufficient access to perform this action.</p>
+ * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -22,6 +22,25 @@ export class AccessDeniedException extends __BaseException {
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.code = opts.code;
   }
+}
+
+/**
+ * <p>AWS account.</p>
+ */
+export interface Account {
+  /**
+   * <p>Account ID of AWS account.</p>
+   */
+  accountID?: string;
+}
+
+export namespace Account {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Account): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -58,6 +77,45 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>Properties of a conversion job</p>
+ */
+export interface ConversionProperties {
+  /**
+   * <p>A mapping between the volumes being converted and the converted snapshot ids</p>
+   */
+  volumeToConversionMap?: { [key: string]: { [key: string]: string } };
+
+  /**
+   * <p>The root volume name of a conversion job</p>
+   */
+  rootVolumeName?: string;
+
+  /**
+   * <p>Whether the volume being converted uses UEFI or not</p>
+   */
+  forceUefi?: boolean;
+
+  /**
+   * <p>The timestamp of when the snapshot being converted was taken</p>
+   */
+  dataTimestamp?: string;
+
+  /**
+   * <p>A mapping between the volumes and their sizes</p>
+   */
+  volumeToVolumeSize?: { [key: string]: number };
+}
+
+export namespace ConversionProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConversionProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a server's CPU.</p>
  */
 export interface CPU {
@@ -81,433 +139,26 @@ export namespace CPU {
   });
 }
 
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
-
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
-
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
-
-export enum PITPolicyRuleUnits {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MINUTE = "MINUTE",
-}
-
-/**
- * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
- */
-export interface PITPolicyRule {
+export interface CreateExtendedSourceServerRequest {
   /**
-   * <p>The ID of the rule.</p>
+   * <p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>
    */
-  ruleID?: number;
+  sourceServerArn: string | undefined;
 
   /**
-   * <p>The units used to measure the interval and retentionDuration.</p>
-   */
-  units: PITPolicyRuleUnits | string | undefined;
-
-  /**
-   * <p>How often, in the chosen units, a snapshot should be taken.</p>
-   */
-  interval: number | undefined;
-
-  /**
-   * <p>The duration to retain a snapshot for, in the chosen units.</p>
-   */
-  retentionDuration: number | undefined;
-
-  /**
-   * <p>Whether this rule is enabled or not.</p>
-   */
-  enabled?: boolean;
-}
-
-export namespace PITPolicyRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PITPolicyRule): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateReplicationConfigurationTemplateRequest {
-  /**
-   * <p>The subnet to be used by the replication staging area.</p>
-   */
-  stagingAreaSubnetId: string | undefined;
-
-  /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
-   */
-  associateDefaultSecurityGroup: boolean | undefined;
-
-  /**
-   * <p>The security group IDs that will be used by the replication server.</p>
-   */
-  replicationServersSecurityGroupsIDs: string[] | undefined;
-
-  /**
-   * <p>The instance type to be used for the replication server.</p>
-   */
-  replicationServerInstanceType: string | undefined;
-
-  /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
-   */
-  useDedicatedReplicationServer: boolean | undefined;
-
-  /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
-   */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
-
-  /**
-   * <p>The type of EBS encryption to be used during replication.</p>
-   */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
-
-  /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
-   */
-  ebsEncryptionKeyArn?: string;
-
-  /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
-   */
-  bandwidthThrottling: number | undefined;
-
-  /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
-   */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
-
-  /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
-   */
-  createPublicIP: boolean | undefined;
-
-  /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
-   */
-  stagingAreaTags: { [key: string]: string } | undefined;
-
-  /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
-   */
-  pitPolicy: PITPolicyRule[] | undefined;
-
-  /**
-   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
+   * <p>A list of tags associated with the extended source server.</p>
    */
   tags?: { [key: string]: string };
 }
 
-export namespace CreateReplicationConfigurationTemplateRequest {
+export namespace CreateExtendedSourceServerRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateReplicationConfigurationTemplateRequest): any => ({
+  export const filterSensitiveLog = (obj: CreateExtendedSourceServerRequest): any => ({
     ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
     ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The number of seconds after which the request should be safe to retry.</p>
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-export interface ReplicationConfigurationTemplate {
-  /**
-   * <p>The Replication Configuration Template ID.</p>
-   */
-  replicationConfigurationTemplateID: string | undefined;
-
-  /**
-   * <p>The Replication Configuration Template ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The subnet to be used by the replication staging area.</p>
-   */
-  stagingAreaSubnetId?: string;
-
-  /**
-   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
-   */
-  associateDefaultSecurityGroup?: boolean;
-
-  /**
-   * <p>The security group IDs that will be used by the replication server.</p>
-   */
-  replicationServersSecurityGroupsIDs?: string[];
-
-  /**
-   * <p>The instance type to be used for the replication server.</p>
-   */
-  replicationServerInstanceType?: string;
-
-  /**
-   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
-   */
-  useDedicatedReplicationServer?: boolean;
-
-  /**
-   * <p>The Staging Disk EBS volume type to be used during replication.</p>
-   */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
-
-  /**
-   * <p>The type of EBS encryption to be used during replication.</p>
-   */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
-
-  /**
-   * <p>The ARN of the EBS encryption key to be used during replication.</p>
-   */
-  ebsEncryptionKeyArn?: string;
-
-  /**
-   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
-   */
-  bandwidthThrottling?: number;
-
-  /**
-   * <p>The data plane routing mechanism that will be used for replication.</p>
-   */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
-
-  /**
-   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
-   */
-  createPublicIP?: boolean;
-
-  /**
-   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
-   */
-  stagingAreaTags?: { [key: string]: string };
-
-  /**
-   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
-   */
-  pitPolicy?: PITPolicyRule[];
-}
-
-export namespace ReplicationConfigurationTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfigurationTemplate): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>The request could not be completed because its exceeded the service quota.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The type of the resource.</p>
-   */
-  resourceType?: string;
-
-  /**
-   * <p>Service code.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>Quota code.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.code = opts.code;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Service code.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>Quota code.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * <p>The number of seconds after which the request should be safe to retry.</p>
-   */
-  retryAfterSeconds?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The account performing the request has not been initialized.</p>
- */
-export class UninitializedAccountException extends __BaseException {
-  readonly name: "UninitializedAccountException" = "UninitializedAccountException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UninitializedAccountException, __BaseException>) {
-    super({
-      name: "UninitializedAccountException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UninitializedAccountException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Validate exception field.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>Validate exception field name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Validate exception field message.</p>
-   */
-  message?: string;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>Validation exception reason.</p>
-   */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>A list of fields that failed validation.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.code = opts.code;
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 export enum DataReplicationErrorString {
@@ -722,31 +373,405 @@ export namespace DataReplicationInfo {
   });
 }
 
-export interface DeleteJobRequest {
-  /**
-   * <p>The ID of the Job to be deleted.</p>
-   */
-  jobID: string | undefined;
+export enum LastLaunchResult {
+  FAILED = "FAILED",
+  NOT_STARTED = "NOT_STARTED",
+  PENDING = "PENDING",
+  SUCCEEDED = "SUCCEEDED",
 }
 
-export namespace DeleteJobRequest {
+export enum LastLaunchType {
+  DRILL = "DRILL",
+  RECOVERY = "RECOVERY",
+}
+
+/**
+ * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
+ */
+export interface LifeCycleLastLaunchInitiated {
+  /**
+   * <p>The date and time the last Source Server launch was initiated.</p>
+   */
+  apiCallDateTime?: string;
+
+  /**
+   * <p>The ID of the Job that was used to last launch the Source Server.</p>
+   */
+  jobID?: string;
+
+  /**
+   * <p>The Job type that was used to last launch the Source Server.</p>
+   */
+  type?: LastLaunchType | string;
+}
+
+export namespace LifeCycleLastLaunchInitiated {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
+  export const filterSensitiveLog = (obj: LifeCycleLastLaunchInitiated): any => ({
     ...obj,
   });
 }
 
-export interface DeleteJobResponse {}
+/**
+ * <p>An object containing information regarding the last launch of a Source Server.</p>
+ */
+export interface LifeCycleLastLaunch {
+  /**
+   * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
+   */
+  initiated?: LifeCycleLastLaunchInitiated;
+}
 
-export namespace DeleteJobResponse {
+export namespace LifeCycleLastLaunch {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
+  export const filterSensitiveLog = (obj: LifeCycleLastLaunch): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>An object representing the Source Server Lifecycle.</p>
+ */
+export interface LifeCycle {
+  /**
+   * <p>The date and time of when the Source Server was added to the service.</p>
+   */
+  addedToServiceDateTime?: string;
+
+  /**
+   * <p>The date and time of the first byte that was replicated from the Source Server.</p>
+   */
+  firstByteDateTime?: string;
+
+  /**
+   * <p>The amount of time that the Source Server has been replicating for.</p>
+   */
+  elapsedReplicationDuration?: string;
+
+  /**
+   * <p>The date and time this Source Server was last seen by the service.</p>
+   */
+  lastSeenByServiceDateTime?: string;
+
+  /**
+   * <p>An object containing information regarding the last launch of the Source Server.</p>
+   */
+  lastLaunch?: LifeCycleLastLaunch;
+}
+
+export namespace LifeCycle {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LifeCycle): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing a data storage device on a server.</p>
+ */
+export interface Disk {
+  /**
+   * <p>The disk or device name.</p>
+   */
+  deviceName?: string;
+
+  /**
+   * <p>The amount of storage on the disk in bytes.</p>
+   */
+  bytes?: number;
+}
+
+export namespace Disk {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Disk): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Hints used to uniquely identify a machine.</p>
+ */
+export interface IdentificationHints {
+  /**
+   * <p>Fully Qualified Domain Name identification hint.</p>
+   */
+  fqdn?: string;
+
+  /**
+   * <p>Hostname identification hint.</p>
+   */
+  hostname?: string;
+
+  /**
+   * <p>vCenter VM path identification hint.</p>
+   */
+  vmWareUuid?: string;
+
+  /**
+   * <p>AWS Instance ID identification hint.</p>
+   */
+  awsInstanceID?: string;
+}
+
+export namespace IdentificationHints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IdentificationHints): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Network interface.</p>
+ */
+export interface NetworkInterface {
+  /**
+   * <p>The MAC address of the network interface.</p>
+   */
+  macAddress?: string;
+
+  /**
+   * <p>Network interface IPs.</p>
+   */
+  ips?: string[];
+
+  /**
+   * <p>Whether this is the primary network interface.</p>
+   */
+  isPrimary?: boolean;
+}
+
+export namespace NetworkInterface {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Operating System.</p>
+ */
+export interface OS {
+  /**
+   * <p>The long name of the Operating System.</p>
+   */
+  fullString?: string;
+}
+
+export namespace OS {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OS): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Properties of the Source Server machine.</p>
+ */
+export interface SourceProperties {
+  /**
+   * <p>The date and time the Source Properties were last updated on.</p>
+   */
+  lastUpdatedDateTime?: string;
+
+  /**
+   * <p>The recommended EC2 instance type that will be used when recovering the Source Server.</p>
+   */
+  recommendedInstanceType?: string;
+
+  /**
+   * <p>Hints used to uniquely identify a machine.</p>
+   */
+  identificationHints?: IdentificationHints;
+
+  /**
+   * <p>An array of network interfaces.</p>
+   */
+  networkInterfaces?: NetworkInterface[];
+
+  /**
+   * <p>An array of disks.</p>
+   */
+  disks?: Disk[];
+
+  /**
+   * <p>An array of CPUs.</p>
+   */
+  cpus?: CPU[];
+
+  /**
+   * <p>The amount of RAM in bytes.</p>
+   */
+  ramBytes?: number;
+
+  /**
+   * <p>Operating system.</p>
+   */
+  os?: OS;
+}
+
+export namespace SourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceProperties): any => ({
+    ...obj,
+  });
+}
+
+export enum ExtensionStatus {
+  EXTENDED = "EXTENDED",
+  EXTENSION_ERROR = "EXTENSION_ERROR",
+  NOT_EXTENDED = "NOT_EXTENDED",
+}
+
+/**
+ * <p>Staging information related to source server.</p>
+ */
+export interface StagingArea {
+  /**
+   * <p>Status of Source server extension. Possible values:
+   *             (a) NOT_EXTENDED - This is a source server that is replicating in the current account.
+   *             (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account.
+   *             (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
+   */
+  status?: ExtensionStatus | string;
+
+  /**
+   * <p>Account ID of the account to which source server belongs. If this source server is extended - shows Account ID of staging source server.</p>
+   */
+  stagingAccountID?: string;
+
+  /**
+   * <p>Arn of the staging source server if this source server is extended</p>
+   */
+  stagingSourceServerArn?: string;
+
+  /**
+   * <p>Shows an error message that occurred when DRS tried to access the staging source server. In this case StagingArea$status will have value EXTENSION_ERROR</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace StagingArea {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StagingArea): any => ({
+    ...obj,
+  });
+}
+
+export interface SourceServer {
+  /**
+   * <p>The ID of the Source Server.</p>
+   */
+  sourceServerID?: string;
+
+  /**
+   * <p>The ARN of the Source Server.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The tags associated with the Source Server.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The ID of the Recovery Instance associated with this Source Server.</p>
+   */
+  recoveryInstanceId?: string;
+
+  /**
+   * <p>The status of the last recovery launch of this Source Server.</p>
+   */
+  lastLaunchResult?: LastLaunchResult | string;
+
+  /**
+   * <p>The Data Replication Info of the Source Server.</p>
+   */
+  dataReplicationInfo?: DataReplicationInfo;
+
+  /**
+   * <p>The lifecycle information of this Source Server.</p>
+   */
+  lifeCycle?: LifeCycle;
+
+  /**
+   * <p>The source properties of the Source Server.</p>
+   */
+  sourceProperties?: SourceProperties;
+
+  /**
+   * <p>The staging area of the source server.</p>
+   */
+  stagingArea?: StagingArea;
+}
+
+export namespace SourceServer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceServer): any => ({
+    ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateExtendedSourceServerResponse {
+  /**
+   * <p>Created extended source server.</p>
+   */
+  sourceServer?: SourceServer;
+}
+
+export namespace CreateExtendedSourceServerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExtendedSourceServerResponse): any => ({
+    ...obj,
+    ...(obj.sourceServer && { sourceServer: SourceServer.filterSensitiveLog(obj.sourceServer) }),
+  });
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>The number of seconds after which the request should be safe to retry.</p>
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -780,6 +805,437 @@ export class ResourceNotFoundException extends __BaseException {
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
   }
+}
+
+/**
+ * <p>The request could not be completed because its exceeded the service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The type of the resource.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>Service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Quota code.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Quota code.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * <p>The number of seconds after which the request should be safe to retry.</p>
+   */
+  retryAfterSeconds?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>The account performing the request has not been initialized.</p>
+ */
+export class UninitializedAccountException extends __BaseException {
+  readonly name: "UninitializedAccountException" = "UninitializedAccountException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UninitializedAccountException, __BaseException>) {
+    super({
+      name: "UninitializedAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UninitializedAccountException.prototype);
+    this.code = opts.code;
+  }
+}
+
+/**
+ * <p>Validate exception field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>Validate exception field name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Validate exception field message.</p>
+   */
+  message?: string;
+}
+
+export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
+    ...obj,
+  });
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "cannotParse",
+  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
+  OTHER = "other",
+  UNKNOWN_OPERATION = "unknownOperation",
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>Validation exception reason.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>A list of fields that failed validation.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+export enum ReplicationConfigurationDataPlaneRouting {
+  PRIVATE_IP = "PRIVATE_IP",
+  PUBLIC_IP = "PUBLIC_IP",
+}
+
+export enum ReplicationConfigurationDefaultLargeStagingDiskType {
+  GP2 = "GP2",
+  GP3 = "GP3",
+  ST1 = "ST1",
+}
+
+export enum ReplicationConfigurationEbsEncryption {
+  CUSTOM = "CUSTOM",
+  DEFAULT = "DEFAULT",
+}
+
+export enum PITPolicyRuleUnits {
+  DAY = "DAY",
+  HOUR = "HOUR",
+  MINUTE = "MINUTE",
+}
+
+/**
+ * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
+ */
+export interface PITPolicyRule {
+  /**
+   * <p>The ID of the rule.</p>
+   */
+  ruleID?: number;
+
+  /**
+   * <p>The units used to measure the interval and retentionDuration.</p>
+   */
+  units: PITPolicyRuleUnits | string | undefined;
+
+  /**
+   * <p>How often, in the chosen units, a snapshot should be taken.</p>
+   */
+  interval: number | undefined;
+
+  /**
+   * <p>The duration to retain a snapshot for, in the chosen units.</p>
+   */
+  retentionDuration: number | undefined;
+
+  /**
+   * <p>Whether this rule is enabled or not.</p>
+   */
+  enabled?: boolean;
+}
+
+export namespace PITPolicyRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PITPolicyRule): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateReplicationConfigurationTemplateRequest {
+  /**
+   * <p>The subnet to be used by the replication staging area.</p>
+   */
+  stagingAreaSubnetId: string | undefined;
+
+  /**
+   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
+   */
+  associateDefaultSecurityGroup: boolean | undefined;
+
+  /**
+   * <p>The security group IDs that will be used by the replication server.</p>
+   */
+  replicationServersSecurityGroupsIDs: string[] | undefined;
+
+  /**
+   * <p>The instance type to be used for the replication server.</p>
+   */
+  replicationServerInstanceType: string | undefined;
+
+  /**
+   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   */
+  useDedicatedReplicationServer: boolean | undefined;
+
+  /**
+   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   */
+  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+
+  /**
+   * <p>The type of EBS encryption to be used during replication.</p>
+   */
+  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+
+  /**
+   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   */
+  ebsEncryptionKeyArn?: string;
+
+  /**
+   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   */
+  bandwidthThrottling: number | undefined;
+
+  /**
+   * <p>The data plane routing mechanism that will be used for replication.</p>
+   */
+  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+
+  /**
+   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   */
+  createPublicIP: boolean | undefined;
+
+  /**
+   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   */
+  stagingAreaTags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   */
+  pitPolicy: PITPolicyRule[] | undefined;
+
+  /**
+   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateReplicationConfigurationTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateReplicationConfigurationTemplateRequest): any => ({
+    ...obj,
+    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface ReplicationConfigurationTemplate {
+  /**
+   * <p>The Replication Configuration Template ID.</p>
+   */
+  replicationConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>The Replication Configuration Template ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The subnet to be used by the replication staging area.</p>
+   */
+  stagingAreaSubnetId?: string;
+
+  /**
+   * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
+   */
+  associateDefaultSecurityGroup?: boolean;
+
+  /**
+   * <p>The security group IDs that will be used by the replication server.</p>
+   */
+  replicationServersSecurityGroupsIDs?: string[];
+
+  /**
+   * <p>The instance type to be used for the replication server.</p>
+   */
+  replicationServerInstanceType?: string;
+
+  /**
+   * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
+   */
+  useDedicatedReplicationServer?: boolean;
+
+  /**
+   * <p>The Staging Disk EBS volume type to be used during replication.</p>
+   */
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+
+  /**
+   * <p>The type of EBS encryption to be used during replication.</p>
+   */
+  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+
+  /**
+   * <p>The ARN of the EBS encryption key to be used during replication.</p>
+   */
+  ebsEncryptionKeyArn?: string;
+
+  /**
+   * <p>Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.</p>
+   */
+  bandwidthThrottling?: number;
+
+  /**
+   * <p>The data plane routing mechanism that will be used for replication.</p>
+   */
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+
+  /**
+   * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
+   */
+  createPublicIP?: boolean;
+
+  /**
+   * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
+   */
+  stagingAreaTags?: { [key: string]: string };
+
+  /**
+   * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
+   */
+  pitPolicy?: PITPolicyRule[];
+}
+
+export namespace ReplicationConfigurationTemplate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplicationConfigurationTemplate): any => ({
+    ...obj,
+    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface DeleteJobRequest {
+  /**
+   * <p>The ID of the Job to be deleted.</p>
+   */
+  jobID: string | undefined;
+}
+
+export namespace DeleteJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteJobResponse {}
+
+export namespace DeleteJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface DeleteRecoveryInstanceRequest {
@@ -921,6 +1377,11 @@ export interface JobLogEventData {
    * <p>A string representing a job error.</p>
    */
   rawError?: string;
+
+  /**
+   * <p>Properties of a conversion job</p>
+   */
+  conversionProperties?: ConversionProperties;
 }
 
 export namespace JobLogEventData {
@@ -1015,7 +1476,7 @@ export interface DescribeJobsRequest {
   /**
    * <p>A set of filters by which to return Jobs.</p>
    */
-  filters: DescribeJobsRequestFilters | undefined;
+  filters?: DescribeJobsRequestFilters;
 
   /**
    * <p>Maximum number of Jobs to retrieve.</p>
@@ -1042,6 +1503,7 @@ export enum InitiatedBy {
   FAILBACK = "FAILBACK",
   START_DRILL = "START_DRILL",
   START_RECOVERY = "START_RECOVERY",
+  TARGET_ACCOUNT = "TARGET_ACCOUNT",
   TERMINATE_RECOVERY_INSTANCES = "TERMINATE_RECOVERY_INSTANCES",
 }
 
@@ -1089,6 +1551,7 @@ export enum JobStatus {
 }
 
 export enum JobType {
+  CREATE_CONVERTED_SNAPSHOT = "CREATE_CONVERTED_SNAPSHOT",
   LAUNCH = "LAUNCH",
   TERMINATE = "TERMINATE",
 }
@@ -1203,7 +1666,7 @@ export interface DescribeRecoveryInstancesRequest {
   /**
    * <p>A set of filters by which to return Recovery Instances.</p>
    */
-  filters: DescribeRecoveryInstancesRequestFilters | undefined;
+  filters?: DescribeRecoveryInstancesRequestFilters;
 
   /**
    * <p>Maximum number of Recovery Instances to retrieve.</p>
@@ -1530,88 +1993,6 @@ export namespace RecoveryInstanceDisk {
 }
 
 /**
- * <p>Hints used to uniquely identify a machine.</p>
- */
-export interface IdentificationHints {
-  /**
-   * <p>Fully Qualified Domain Name identification hint.</p>
-   */
-  fqdn?: string;
-
-  /**
-   * <p>Hostname identification hint.</p>
-   */
-  hostname?: string;
-
-  /**
-   * <p>vCenter VM path identification hint.</p>
-   */
-  vmWareUuid?: string;
-
-  /**
-   * <p>AWS Instance ID identification hint.</p>
-   */
-  awsInstanceID?: string;
-}
-
-export namespace IdentificationHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentificationHints): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Network interface.</p>
- */
-export interface NetworkInterface {
-  /**
-   * <p>The MAC address of the network interface.</p>
-   */
-  macAddress?: string;
-
-  /**
-   * <p>Network interface IPs.</p>
-   */
-  ips?: string[];
-
-  /**
-   * <p>Whether this is the primary network interface.</p>
-   */
-  isPrimary?: boolean;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Operating System.</p>
- */
-export interface OS {
-  /**
-   * <p>The long name of the Operating System.</p>
-   */
-  fullString?: string;
-}
-
-export namespace OS {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OS): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Properties of the Recovery Instance machine.</p>
  */
 export interface RecoveryInstanceProperties {
@@ -1886,7 +2267,7 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
    */
-  replicationConfigurationTemplateIDs: string[] | undefined;
+  replicationConfigurationTemplateIDs?: string[];
 
   /**
    * <p>Maximum number of Replication Configuration Templates to retrieve.</p>
@@ -1943,6 +2324,11 @@ export interface DescribeSourceServersRequestFilters {
    * <p>An ID that describes the hardware of the Source Server. This is either an EC2 instance id, a VMware uuid or a mac address.</p>
    */
   hardwareId?: string;
+
+  /**
+   * <p>An array of staging account IDs that extended source servers belong to. An empty array means all source servers will be shown.</p>
+   */
+  stagingAccountIDs?: string[];
 }
 
 export namespace DescribeSourceServersRequestFilters {
@@ -1958,7 +2344,7 @@ export interface DescribeSourceServersRequest {
   /**
    * <p>A set of filters by which to return Source Servers.</p>
    */
-  filters: DescribeSourceServersRequestFilters | undefined;
+  filters?: DescribeSourceServersRequestFilters;
 
   /**
    * <p>Maximum number of Source Servers to retrieve.</p>
@@ -1977,235 +2363,6 @@ export namespace DescribeSourceServersRequest {
    */
   export const filterSensitiveLog = (obj: DescribeSourceServersRequest): any => ({
     ...obj,
-  });
-}
-
-export enum LastLaunchResult {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
-
-export enum LastLaunchType {
-  DRILL = "DRILL",
-  RECOVERY = "RECOVERY",
-}
-
-/**
- * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
- */
-export interface LifeCycleLastLaunchInitiated {
-  /**
-   * <p>The date and time the last Source Server launch was initiated.</p>
-   */
-  apiCallDateTime?: string;
-
-  /**
-   * <p>The ID of the Job that was used to last launch the Source Server.</p>
-   */
-  jobID?: string;
-
-  /**
-   * <p>The Job type that was used to last launch the Source Server.</p>
-   */
-  type?: LastLaunchType | string;
-}
-
-export namespace LifeCycleLastLaunchInitiated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycleLastLaunchInitiated): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An object containing information regarding the last launch of a Source Server.</p>
- */
-export interface LifeCycleLastLaunch {
-  /**
-   * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
-   */
-  initiated?: LifeCycleLastLaunchInitiated;
-}
-
-export namespace LifeCycleLastLaunch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycleLastLaunch): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An object representing the Source Server Lifecycle.</p>
- */
-export interface LifeCycle {
-  /**
-   * <p>The date and time of when the Source Server was added to the service.</p>
-   */
-  addedToServiceDateTime?: string;
-
-  /**
-   * <p>The date and time of the first byte that was replicated from the Source Server.</p>
-   */
-  firstByteDateTime?: string;
-
-  /**
-   * <p>The amount of time that the Source Server has been replicating for.</p>
-   */
-  elapsedReplicationDuration?: string;
-
-  /**
-   * <p>The date and time this Source Server was last seen by the service.</p>
-   */
-  lastSeenByServiceDateTime?: string;
-
-  /**
-   * <p>An object containing information regarding the last launch of the Source Server.</p>
-   */
-  lastLaunch?: LifeCycleLastLaunch;
-}
-
-export namespace LifeCycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An object representing a data storage device on a server.</p>
- */
-export interface Disk {
-  /**
-   * <p>The disk or device name.</p>
-   */
-  deviceName?: string;
-
-  /**
-   * <p>The amount of storage on the disk in bytes.</p>
-   */
-  bytes?: number;
-}
-
-export namespace Disk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Disk): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Properties of the Source Server machine.</p>
- */
-export interface SourceProperties {
-  /**
-   * <p>The date and time the Source Properties were last updated on.</p>
-   */
-  lastUpdatedDateTime?: string;
-
-  /**
-   * <p>The recommended EC2 instance type that will be used when recovering the Source Server.</p>
-   */
-  recommendedInstanceType?: string;
-
-  /**
-   * <p>Hints used to uniquely identify a machine.</p>
-   */
-  identificationHints?: IdentificationHints;
-
-  /**
-   * <p>An array of network interfaces.</p>
-   */
-  networkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>An array of disks.</p>
-   */
-  disks?: Disk[];
-
-  /**
-   * <p>An array of CPUs.</p>
-   */
-  cpus?: CPU[];
-
-  /**
-   * <p>The amount of RAM in bytes.</p>
-   */
-  ramBytes?: number;
-
-  /**
-   * <p>Operating system.</p>
-   */
-  os?: OS;
-}
-
-export namespace SourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceProperties): any => ({
-    ...obj,
-  });
-}
-
-export interface SourceServer {
-  /**
-   * <p>The ID of the Source Server.</p>
-   */
-  sourceServerID?: string;
-
-  /**
-   * <p>The ARN of the Source Server.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The tags associated with the Source Server.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The ID of the Recovery Instance associated with this Source Server.</p>
-   */
-  recoveryInstanceId?: string;
-
-  /**
-   * <p>The status of the last recovery launch of this Source Server.</p>
-   */
-  lastLaunchResult?: LastLaunchResult | string;
-
-  /**
-   * <p>The Data Replication Info of the Source Server.</p>
-   */
-  dataReplicationInfo?: DataReplicationInfo;
-
-  /**
-   * <p>The lifecycle information of this Source Server.</p>
-   */
-  lifeCycle?: LifeCycle;
-
-  /**
-   * <p>The source properties of the Source Server.</p>
-   */
-  sourceProperties?: SourceProperties;
-}
-
-export namespace SourceServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceServer): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -2281,6 +2438,126 @@ export namespace InitializeServiceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: InitializeServiceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExtensibleSourceServersRequest {
+  /**
+   * <p>The Id of the staging Account to retrieve extensible source servers from.</p>
+   */
+  stagingAccountID: string | undefined;
+
+  /**
+   * <p>The maximum number of extensible source servers to retrieve.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token of the next extensible source server to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListExtensibleSourceServersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExtensibleSourceServersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Source server in staging account that extended source server connected to.</p>
+ */
+export interface StagingSourceServer {
+  /**
+   * <p>Hostname of staging source server.</p>
+   */
+  hostname?: string;
+
+  /**
+   * <p>The ARN of the source server.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A list of tags associated with the staging source server.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace StagingSourceServer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StagingSourceServer): any => ({
+    ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListExtensibleSourceServersResponse {
+  /**
+   * <p>A list of source servers on a staging Account that are extensible.</p>
+   */
+  items?: StagingSourceServer[];
+
+  /**
+   * <p>The token of the next extensible source server to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListExtensibleSourceServersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExtensibleSourceServersResponse): any => ({
+    ...obj,
+    ...(obj.items && { items: obj.items.map((item) => StagingSourceServer.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListStagingAccountsRequest {
+  /**
+   * <p>The maximum number of staging Accounts to retrieve.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token of the next staging Account to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListStagingAccountsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStagingAccountsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStagingAccountsResponse {
+  /**
+   * <p>An array of staging AWS Accounts.</p>
+   */
+  accounts?: Account[];
+
+  /**
+   * <p>The token of the next staging Account to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListStagingAccountsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStagingAccountsResponse): any => ({
     ...obj,
   });
 }
