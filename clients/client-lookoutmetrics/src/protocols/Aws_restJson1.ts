@@ -2920,6 +2920,10 @@ const serializeAws_restJson1BackTestConfiguration = (input: BackTestConfiguratio
 
 const serializeAws_restJson1CloudWatchConfig = (input: CloudWatchConfig, context: __SerdeContext): any => {
   return {
+    ...(input.BackTestConfiguration !== undefined &&
+      input.BackTestConfiguration !== null && {
+        BackTestConfiguration: serializeAws_restJson1BackTestConfiguration(input.BackTestConfiguration, context),
+      }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
@@ -3429,6 +3433,10 @@ const deserializeAws_restJson1BinaryListAttributeValue = (output: any, context: 
 
 const deserializeAws_restJson1CloudWatchConfig = (output: any, context: __SerdeContext): CloudWatchConfig => {
   return {
+    BackTestConfiguration:
+      output.BackTestConfiguration !== undefined && output.BackTestConfiguration !== null
+        ? deserializeAws_restJson1BackTestConfiguration(output.BackTestConfiguration, context)
+        : undefined,
     RoleArn: __expectString(output.RoleArn),
   } as any;
 };

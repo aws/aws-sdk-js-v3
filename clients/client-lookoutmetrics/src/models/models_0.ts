@@ -1065,6 +1065,11 @@ export interface CloudWatchConfig {
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>Settings for backtest mode.</p>
+   */
+  BackTestConfiguration?: BackTestConfiguration;
 }
 
 export namespace CloudWatchConfig {
