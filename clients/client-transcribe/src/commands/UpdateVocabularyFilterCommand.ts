@@ -23,7 +23,9 @@ export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilt
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a vocabulary filter with a new list of filtered words.</p>
+ * <p>Updates an existing custom vocabulary filter with a new list of words. The new list you provide
+ *             overwrites all previous entries; you cannot append new terms onto an existing vocabulary
+ *             filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

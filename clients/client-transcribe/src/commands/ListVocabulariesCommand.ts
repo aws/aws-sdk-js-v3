@@ -23,8 +23,10 @@ export interface ListVocabulariesCommandInput extends ListVocabulariesRequest {}
 export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified,
- *             returns the entire list of vocabularies.</p>
+ * <p>Provides a list of custom vocabularies that match the specified criteria. If no criteria are
+ *             specified, all custom vocabularies are returned.</p>
+ *         <p>To get detailed information about a specific custom vocabulary, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

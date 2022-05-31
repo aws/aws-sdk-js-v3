@@ -23,7 +23,9 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes specified tags from a specified Amazon Transcribe resource.</p>
+ * <p>Removes the specified tags from the specified Amazon Transcribe resource.</p>
+ *         <p>If you include <code>UntagResource</code> in your request, you must also include
+ *             <code>ResourceArn</code> and <code>TagKeys</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

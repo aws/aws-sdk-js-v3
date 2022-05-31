@@ -23,10 +23,14 @@ export interface GetMedicalTranscriptionJobCommandInput extends GetMedicalTransc
 export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a medical transcription job.</p>
- *         <p>To view the job's status, refer to the <code>TranscriptionJobStatus</code> field. If the
- *             status is <code>COMPLETED</code>, the job is finished. You can then find your transcript at
- *             the URI specified in the <code>TranscriptFileUri</code> field.</p>
+ * <p>Provides information about the specified medical transcription job.</p>
+ *         <p>To view the status of the specified medical transcription job, check the
+ *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the
+ *             job is finished and you can find the results at the location specified in
+ *             <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
+ *             <code>FailureReason</code> provides details on why your transcription job failed.</p>
+ *         <p>To get a list of your medical transcription jobs, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

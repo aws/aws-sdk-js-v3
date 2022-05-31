@@ -25,8 +25,10 @@ export interface ListMedicalTranscriptionJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists medical transcription jobs with a specified status or substring that matches their
- *             names.</p>
+ * <p>Provides a list of medical transcription jobs that match the specified criteria. If no criteria are
+ *             specified, all medical transcription jobs are returned.</p>
+ *         <p>To get detailed information about a specific medical transcription job, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

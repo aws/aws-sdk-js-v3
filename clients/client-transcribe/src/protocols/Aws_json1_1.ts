@@ -202,6 +202,7 @@ import {
   InterruptionFilter,
   JobExecutionSettings,
   LanguageCode,
+  LanguageCodeItem,
   LanguageIdSettings,
   LanguageModel,
   LimitExceededException,
@@ -3529,6 +3530,8 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
       }),
     ...(input.IdentifyLanguage !== undefined &&
       input.IdentifyLanguage !== null && { IdentifyLanguage: input.IdentifyLanguage }),
+    ...(input.IdentifyMultipleLanguages !== undefined &&
+      input.IdentifyMultipleLanguages !== null && { IdentifyMultipleLanguages: input.IdentifyMultipleLanguages }),
     ...(input.JobExecutionSettings !== undefined &&
       input.JobExecutionSettings !== null && {
         JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
@@ -4145,6 +4148,25 @@ const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1LanguageCodeItem = (output: any, context: __SerdeContext): LanguageCodeItem => {
+  return {
+    DurationInSeconds: __limitedParseFloat32(output.DurationInSeconds),
+    LanguageCode: __expectString(output.LanguageCode),
+  } as any;
+};
+
+const deserializeAws_json1_1LanguageCodeList = (output: any, context: __SerdeContext): LanguageCodeItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LanguageCodeItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1LanguageIdSettings = (output: any, context: __SerdeContext): LanguageIdSettings => {
   return {
     LanguageModelName: __expectString(output.LanguageModelName),
@@ -4745,11 +4767,16 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
     FailureReason: __expectString(output.FailureReason),
     IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
+    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
     JobExecutionSettings:
       output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
         ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
         : undefined,
     LanguageCode: __expectString(output.LanguageCode),
+    LanguageCodes:
+      output.LanguageCodes !== undefined && output.LanguageCodes !== null
+        ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context)
+        : undefined,
     LanguageIdSettings:
       output.LanguageIdSettings !== undefined && output.LanguageIdSettings !== null
         ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
@@ -4828,7 +4855,12 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     FailureReason: __expectString(output.FailureReason),
     IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
+    IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
     LanguageCode: __expectString(output.LanguageCode),
+    LanguageCodes:
+      output.LanguageCodes !== undefined && output.LanguageCodes !== null
+        ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context)
+        : undefined,
     ModelSettings:
       output.ModelSettings !== undefined && output.ModelSettings !== null
         ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)

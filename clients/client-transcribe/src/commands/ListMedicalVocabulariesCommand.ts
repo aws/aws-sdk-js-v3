@@ -23,8 +23,10 @@ export interface ListMedicalVocabulariesCommandInput extends ListMedicalVocabula
 export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a value in
- *             any of the request parameters, returns the entire list of vocabularies.</p>
+ * <p>Provides a list of custom medical vocabularies that match the specified criteria. If no
+ *             criteria are specified, all custom medical vocabularies are returned.</p>
+ *         <p>To get detailed information about a specific custom medical vocabulary, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

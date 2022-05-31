@@ -23,7 +23,13 @@ export interface GetVocabularyCommandInput extends GetVocabularyRequest {}
 export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a vocabulary. </p>
+ * <p>Provides information about the specified custom vocabulary.</p>
+ *         <p>To view the status of the specified vocabulary, check the <code>VocabularyState</code>
+ *             field. If the status is <code>READY</code>, your vocabulary is available to use. If the status
+ *             is <code>FAILED</code>, <code>FailureReason</code> provides details on why your
+ *             vocabulary failed.</p>
+ *         <p>To get a list of your custom vocabularies, use the
+ *             operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

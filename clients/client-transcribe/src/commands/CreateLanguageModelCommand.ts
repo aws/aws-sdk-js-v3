@@ -23,11 +23,24 @@ export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequ
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom language model. When creating a new language model,
- *             you must specify if you want a Wideband (audio sample rates over 16,000 Hz) or
- *             Narrowband (audio sample rates under 16,000 Hz) base model. You then include the
- *             S3 URI location of your training and tuning files, the language for the model, a
- *             unique name, and any tags you want associated with your model.</p>
+ * <p>Creates a new custom language model.</p>
+ *         <p>When creating a new language model, you must specify:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio sample
+ *                     rates under 16,000 Hz) base model</p>
+ *             </li>
+ *             <li>
+ *                 <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
+ *             </li>
+ *             <li>
+ *                 <p>The language of your model</p>
+ *             </li>
+ *             <li>
+ *                 <p>A unique name for your model</p>
+ *             </li>
+ *          </ul>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

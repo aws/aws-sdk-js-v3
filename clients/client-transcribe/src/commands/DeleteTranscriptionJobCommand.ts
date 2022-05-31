@@ -23,9 +23,8 @@ export interface DeleteTranscriptionJobCommandInput extends DeleteTranscriptionJ
 export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a transcription job, along with any related information. To use this operation,
- *             specify the name of the job you want to delete using
- *             <code>TranscriptionJobName</code>.</p>
+ * <p>Deletes a transcription job. To use this operation, specify the name of the job you want to
+ *             delete using <code>TranscriptionJobName</code>. Job names are case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

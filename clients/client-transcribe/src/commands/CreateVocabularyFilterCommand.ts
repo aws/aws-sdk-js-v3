@@ -23,9 +23,15 @@ export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilt
 export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new vocabulary filter that you can use to filter words from your transcription
- *             output. For example, you can use this operation to remove profanity from your
- *             transcript.</p>
+ * <p>Creates a new custom vocabulary filter.</p>
+ *         <p>You can use vocabulary filters to mask, delete, or flag specific words from your transcript.
+ *             Vocabulary filters are commonly used to mask profanity in transcripts.</p>
+ *         <p>Each language has a character set that contains all allowed characters for that specific
+ *             language. If you use unsupported characters, your vocabulary filter request fails. Refer to
+ *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for
+ *                 Custom Vocabularies</a> to get the character set for your language.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted
+ *             words</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

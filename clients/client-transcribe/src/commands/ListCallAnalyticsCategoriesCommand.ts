@@ -25,10 +25,9 @@ export interface ListCallAnalyticsCategoriesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides more information about the call analytics categories that you've created. You
- *             can use the information in this list to find a specific category. You can then use the
- *              operation to get more information about
- *             it.</p>
+ * <p>Provides a list of Call Analytics categories, including all rules that make up each category.</p>
+ *         <p>To get detailed information about a specific Call Analytics category, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

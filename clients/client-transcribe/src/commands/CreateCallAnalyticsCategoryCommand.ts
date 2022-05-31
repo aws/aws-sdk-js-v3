@@ -25,13 +25,31 @@ export interface CreateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a call analytics category. Amazon Transcribe applies the conditions specified by your
- *             call analytics categories to your call analytics jobs. For each analytics category, you
- *             must create between 1 and 20 rules. For example, you can create a 'greeting'
- *             category with a rule that flags calls in which your agent does not use a specified
- *             phrase (for example: "Please note this call may be recorded.") in the first 15 seconds
- *             of the call. When you start a call analytics job, Amazon Transcribe applies all your existing call
- *             analytics categories to that job.</p>
+ * <p>Creates a new Call Analytics category.</p>
+ *         <p>All categories are automatically applied to your Call Analytics jobs. Note that in order to apply
+ *             your categories to your jobs, you must create them before submitting your job request, as
+ *             categories cannot be applied retroactively.</p>
+ *         <p>Call Analytics categories are composed of rules. For each category, you must create
+ *             between 1 and 20 rules. Rules can include these parameters: ,
+ *             , , and
+ *             .</p>
+ *         <p>To update an existing category, see .</p>
+ *         <p>To learn more about:</p>
+ *             <ul>
+ *             <li>
+ *                     <p>Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating categories</a>
+ *                </p>
+ *                 </li>
+ *             <li>
+ *                     <p>Using rules, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule
+ *             criteria</a> and refer to the  data type</p>
+ *                 </li>
+ *             <li>
+ *                     <p>Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call
+ *             Analytics</a>
+ *                </p>
+ *                 </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

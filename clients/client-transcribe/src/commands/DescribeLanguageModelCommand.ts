@@ -23,13 +23,15 @@ export interface DescribeLanguageModelCommandInput extends DescribeLanguageModel
 export interface DescribeLanguageModelCommandOutput extends DescribeLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about a specific custom language model in your
- *             Amazon Web Services account.</p>
+ * <p>Provides information about the specified custom language model.</p>
  *         <p>This operation also shows if the base language model you used to create your custom
- *             language model has been updated. If Amazon Transcribe has updated the base model, you can create a
- *             new custom language model using the updated base model.</p>
+ *             language model has been updated. If Amazon Transcribe has updated the base model, you
+ *             can create a new custom language model using the updated base model.</p>
  *         <p>If you tried to create a new custom language model and the request wasn't successful,
- *             you can use this operation to help identify the reason. </p>
+ *             you can use <code>DescribeLanguageModel</code> to help identify the reason for this
+ *             failure.</p>
+ *         <p>To get a list of your custom language models, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

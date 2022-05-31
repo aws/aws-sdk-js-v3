@@ -23,10 +23,10 @@ export interface ListLanguageModelsCommandInput extends ListLanguageModelsReques
 export interface ListLanguageModelsCommandOutput extends ListLanguageModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides more information about the custom language models you've created. You can
- *             use the information in this list to find a specific custom language model. You can then use
- *             the  operation to get more information about
- *             it.</p>
+ * <p>Provides a list of custom language models that match the specified criteria. If no criteria
+ *             are specified, all language models are returned.</p>
+ *         <p>To get detailed information about a specific custom language model, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,10 @@ export interface ListCallAnalyticsJobsCommandInput extends ListCallAnalyticsJobs
 export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJobsResponse, __MetadataBearer {}
 
 /**
- * <p>List call analytics jobs with a specified status or substring that matches their names.</p>
+ * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no criteria are
+ *             specified, all Call Analytics jobs are returned.</p>
+ *         <p>To get detailed information about a specific Call Analytics job, use the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
