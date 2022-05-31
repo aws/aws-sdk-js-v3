@@ -1588,6 +1588,11 @@ export interface AssetSummary {
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
    */
   hierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>A description for the asset.</p>
+   */
+  description?: string;
 }
 
 export namespace AssetSummary {
@@ -1812,6 +1817,11 @@ export interface AssociatedAssetsSummary {
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
    */
   hierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>A description for the asset.</p>
+   */
+  description?: string;
 }
 
 export namespace AssociatedAssetsSummary {
@@ -2948,6 +2958,11 @@ export interface CreateAssetRequest {
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>A description for the asset.</p>
+   */
+  assetDescription?: string;
 }
 
 export namespace CreateAssetRequest {
@@ -3983,6 +3998,11 @@ export interface DescribeAssetResponse {
    * <p>The current status of the asset, which contains a state and any error message.</p>
    */
   assetStatus: AssetStatus | undefined;
+
+  /**
+   * <p>A description for the asset.</p>
+   */
+  assetDescription?: string;
 }
 
 export namespace DescribeAssetResponse {
@@ -4940,7 +4960,7 @@ export interface DescribeStorageConfigurationResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier.
    *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
@@ -6580,7 +6600,7 @@ export interface PutStorageConfigurationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier.
    *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
@@ -6641,7 +6661,7 @@ export interface PutStorageConfigurationResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier.
    *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
@@ -6849,6 +6869,11 @@ export interface UpdateAssetRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>A description for the asset.</p>
+   */
+  assetDescription?: string;
 }
 
 export namespace UpdateAssetRequest {

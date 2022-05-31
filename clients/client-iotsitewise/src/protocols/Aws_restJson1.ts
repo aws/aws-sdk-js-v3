@@ -636,6 +636,8 @@ export const serializeAws_restJson1CreateAssetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets";
   let body: any;
   body = JSON.stringify({
+    ...(input.assetDescription !== undefined &&
+      input.assetDescription !== null && { assetDescription: input.assetDescription }),
     ...(input.assetModelId !== undefined && input.assetModelId !== null && { assetModelId: input.assetModelId }),
     ...(input.assetName !== undefined && input.assetName !== null && { assetName: input.assetName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -2545,6 +2547,8 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.assetDescription !== undefined &&
+      input.assetDescription !== null && { assetDescription: input.assetDescription }),
     ...(input.assetName !== undefined && input.assetName !== null && { assetName: input.assetName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
@@ -4365,6 +4369,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     assetArn: undefined,
     assetCompositeModels: undefined,
     assetCreationDate: undefined,
+    assetDescription: undefined,
     assetHierarchies: undefined,
     assetId: undefined,
     assetLastUpdateDate: undefined,
@@ -4382,6 +4387,9 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   }
   if (data.assetCreationDate !== undefined && data.assetCreationDate !== null) {
     contents.assetCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.assetCreationDate)));
+  }
+  if (data.assetDescription !== undefined && data.assetDescription !== null) {
+    contents.assetDescription = __expectString(data.assetDescription);
   }
   if (data.assetHierarchies !== undefined && data.assetHierarchies !== null) {
     contents.assetHierarchies = deserializeAws_restJson1AssetHierarchies(data.assetHierarchies, context);
@@ -8309,6 +8317,7 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
       output.creationDate !== undefined && output.creationDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
+    description: __expectString(output.description),
     hierarchies:
       output.hierarchies !== undefined && output.hierarchies !== null
         ? deserializeAws_restJson1AssetHierarchies(output.hierarchies, context)
@@ -8352,6 +8361,7 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
       output.creationDate !== undefined && output.creationDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
+    description: __expectString(output.description),
     hierarchies:
       output.hierarchies !== undefined && output.hierarchies !== null
         ? deserializeAws_restJson1AssetHierarchies(output.hierarchies, context)
