@@ -28,6 +28,7 @@
     "@aws-sdk/middleware-endpoint-discovery": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
+    "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-retry": "*",
     "@aws-sdk/middleware-serde": "*",
     "@aws-sdk/middleware-signing": "*",

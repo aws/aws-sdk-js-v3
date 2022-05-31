@@ -41,6 +41,7 @@
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-location-constraint": "*",
     "@aws-sdk/middleware-logger": "*",
+    "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-retry": "*",
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/middleware-serde": "*",

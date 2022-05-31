@@ -33,6 +33,7 @@
     "@aws-sdk/middleware-eventstream": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
+    "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-retry": "*",
     "@aws-sdk/middleware-sdk-transcribe-streaming": "*",
     "@aws-sdk/middleware-serde": "*",

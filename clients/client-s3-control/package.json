@@ -33,6 +33,7 @@
     "@aws-sdk/middleware-content-length": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
+    "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-retry": "*",
     "@aws-sdk/middleware-sdk-s3-control": "*",
     "@aws-sdk/middleware-serde": "*",
