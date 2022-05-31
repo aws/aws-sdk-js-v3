@@ -105,6 +105,10 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
+                                "RecursionDetection", HAS_MIDDLEWARE)
                         .build()
         );
     }
