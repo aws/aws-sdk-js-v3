@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.101.0...v3.102.0) (2022-05-31)
+
+
+### Features
+
+* **client-lookoutmetrics:** Adding backtest mode to detectors using the Cloudwatch data source. ([973cdd0](https://github.com/aws/aws-sdk-js-v3/commit/973cdd03db3b6ad2a86b8f7b55555e1d7da53891))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutmetrics

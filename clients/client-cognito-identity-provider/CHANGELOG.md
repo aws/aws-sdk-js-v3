@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.101.0...v3.102.0) (2022-05-31)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports IP Address propagation for all unauthenticated APIs (e.g. SignUp, ForgotPassword). ([d285512](https://github.com/aws/aws-sdk-js-v3/commit/d28551296728adfae6dfbf6d0ea8d6c903f4a059))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

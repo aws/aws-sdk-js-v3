@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.101.0...v3.102.0) (2022-05-31)
+
+
+### Bug Fixes
+
+* **codegen:** check javascript property validity for property access ([#3649](https://github.com/aws/aws-sdk-js-v3/issues/3649)) ([31e72ac](https://github.com/aws/aws-sdk-js-v3/commit/31e72ac6063fdb3393c2d5042b8964238ce1b23a))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports IP Address propagation for all unauthenticated APIs (e.g. SignUp, ForgotPassword). ([d285512](https://github.com/aws/aws-sdk-js-v3/commit/d28551296728adfae6dfbf6d0ea8d6c903f4a059))
+* **client-drs:** Changed existing APIs and added new APIs to accommodate using multiple AWS accounts with AWS Elastic Disaster Recovery. ([9e66058](https://github.com/aws/aws-sdk-js-v3/commit/9e66058a6bb3ed9b5c2b1a5e10a619099e8a8674))
+* **client-iotsitewise:** This release adds the following new optional field to the IoT SiteWise asset resource: assetDescription. ([6efc758](https://github.com/aws/aws-sdk-js-v3/commit/6efc758715ef357bf835fccbeb62bba66b399ee6))
+* **client-lookoutmetrics:** Adding backtest mode to detectors using the Cloudwatch data source. ([973cdd0](https://github.com/aws/aws-sdk-js-v3/commit/973cdd03db3b6ad2a86b8f7b55555e1d7da53891))
+* **client-sagemaker:** Amazon SageMaker Notebook Instances now support Jupyter Lab 3. ([b363ebe](https://github.com/aws/aws-sdk-js-v3/commit/b363ebe52c0b5a547cf9e54211ded9ead8853514))
+* **client-transcribe:** Amazon Transcribe now supports automatic language identification for multi-lingual audio in batch mode. ([2c3c3cd](https://github.com/aws/aws-sdk-js-v3/commit/2c3c3cd1eb5556b1580d920f104531eef560aa7b))
+* **clients:** update client endpoints as of 2022-05-31 ([3503795](https://github.com/aws/aws-sdk-js-v3/commit/35037950a2d3c4a3ec62deed1303cbcd47725d05))
+
+
+
+
+
 # [3.101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.100.0...v3.101.0) (2022-05-27)
 
 

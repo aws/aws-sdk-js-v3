@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.101.0...v3.102.0) (2022-05-31)
+
+
+### Features
+
+* **client-transcribe:** Amazon Transcribe now supports automatic language identification for multi-lingual audio in batch mode. ([2c3c3cd](https://github.com/aws/aws-sdk-js-v3/commit/2c3c3cd1eb5556b1580d920f104531eef560aa7b))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe
