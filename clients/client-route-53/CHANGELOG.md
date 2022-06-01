@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.102.0...v3.103.0) (2022-06-01)
+
+
+### Features
+
+* **client-route-53:** Add new APIs to support Route 53 IP Based Routing ([d277dd7](https://github.com/aws/aws-sdk-js-v3/commit/d277dd727758767240696db1784b5126823b9f22))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

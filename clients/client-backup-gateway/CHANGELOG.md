@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.102.0...v3.103.0) (2022-06-01)
+
+
+### Features
+
+* **client-backup-gateway:** Adds GetGateway and UpdateGatewaySoftwareNow API and adds hypervisor name to UpdateHypervisor API ([4910403](https://github.com/aws/aws-sdk-js-v3/commit/4910403f98c96600cf9a7532714f2e6f940b842c))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-backup-gateway

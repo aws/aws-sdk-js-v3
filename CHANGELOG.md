@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.102.0...v3.103.0) (2022-06-01)
+
+
+### Features
+
+* **client-backup-gateway:** Adds GetGateway and UpdateGatewaySoftwareNow API and adds hypervisor name to UpdateHypervisor API ([4910403](https://github.com/aws/aws-sdk-js-v3/commit/4910403f98c96600cf9a7532714f2e6f940b842c))
+* **client-chime-sdk-meetings:** Adds support for centrally controlling each participant's ability to send and receive audio, video and screen share within a WebRTC session.  Attendee capabilities can be specified when the attendee is created and updated during the session with the new BatchUpdateAttendeeCapabilitiesExcept API. ([a938290](https://github.com/aws/aws-sdk-js-v3/commit/a938290d1a2010f0e1ee1ee5f35ce95c80883820))
+* **client-forecast:** Added Format field to Import and Export APIs in Amazon Forecast. Added TimeSeriesSelector to Create Forecast API. ([ae5629e](https://github.com/aws/aws-sdk-js-v3/commit/ae5629ecace193ebc198db07681b158be48dbefa))
+* **client-route-53:** Add new APIs to support Route 53 IP Based Routing ([d277dd7](https://github.com/aws/aws-sdk-js-v3/commit/d277dd727758767240696db1784b5126823b9f22))
+
+
+
+
+
 # [3.102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.101.0...v3.102.0) (2022-05-31)
 
 

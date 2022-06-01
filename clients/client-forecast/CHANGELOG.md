@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.102.0...v3.103.0) (2022-06-01)
+
+
+### Features
+
+* **client-forecast:** Added Format field to Import and Export APIs in Amazon Forecast. Added TimeSeriesSelector to Create Forecast API. ([ae5629e](https://github.com/aws/aws-sdk-js-v3/commit/ae5629ecace193ebc198db07681b158be48dbefa))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 
