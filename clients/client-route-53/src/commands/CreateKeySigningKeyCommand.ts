@@ -24,7 +24,8 @@ export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequ
 export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.</p>
+ * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
+ * 			two KSKs per hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,7 +25,8 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
 
 /**
  * <p>Gets information about all of the versions for a specified traffic policy.</p>
- * 		       <p>Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.</p>
+ * 		       <p>Traffic policy versions are listed in numerical order by
+ * 			<code>VersionNumber</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

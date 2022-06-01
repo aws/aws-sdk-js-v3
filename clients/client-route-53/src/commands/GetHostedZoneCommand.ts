@@ -24,7 +24,8 @@ export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
 export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
+ * <p>Gets information about a specified hosted zone including the four name servers
+ * 			assigned to the hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

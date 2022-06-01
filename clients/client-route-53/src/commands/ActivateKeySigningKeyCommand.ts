@@ -24,8 +24,8 @@ export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKey
 export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the
- * 			KSK status to <code>ACTIVE</code>.</p>
+ * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
+ * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

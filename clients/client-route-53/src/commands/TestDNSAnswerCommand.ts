@@ -24,8 +24,9 @@ export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify
- * 			the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
+ * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
+ * 			specified record name and type. You can optionally specify the IP address of a DNS
+ * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
  * 		       <p>This call only supports querying public hosted zones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

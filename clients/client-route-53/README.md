@@ -9,7 +9,8 @@
 
 AWS SDK for JavaScript Route53 Client for Node.js, Browser and React Native.
 
-<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
+<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
+service.</p>
 
 ## Installing
 

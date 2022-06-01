@@ -24,8 +24,8 @@ export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySignin
 export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the
- * 			KSK status to <code>INACTIVE</code>.</p>
+ * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
+ * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

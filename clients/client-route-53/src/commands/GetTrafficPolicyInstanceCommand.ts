@@ -26,12 +26,15 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
 /**
  * <p>Gets information about a specified traffic policy instance.</p>
  * 		       <note>
- * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request,
- * 				there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For
- * 				more information, see the <code>State</code> response element.</p>
+ * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
+ * 					<code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while
+ * 				Amazon Route 53 creates the resource record sets that are specified in the traffic
+ * 				policy definition. For more information, see the <code>State</code> response
+ * 				element.</p>
  * 		       </note>
  * 		       <note>
- * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
+ * 			         <p>In the Route 53 console, traffic policy instances are known as policy
+ * 				records.</p>
  * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

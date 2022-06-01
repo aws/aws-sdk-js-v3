@@ -61,6 +61,10 @@ import {
   AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand";
 import {
+  ChangeCidrCollectionCommandInput,
+  ChangeCidrCollectionCommandOutput,
+} from "./commands/ChangeCidrCollectionCommand";
+import {
   ChangeResourceRecordSetsCommandInput,
   ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand";
@@ -68,6 +72,10 @@ import {
   ChangeTagsForResourceCommandInput,
   ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand";
+import {
+  CreateCidrCollectionCommandInput,
+  CreateCidrCollectionCommandOutput,
+} from "./commands/CreateCidrCollectionCommand";
 import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "./commands/CreateHealthCheckCommand";
 import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand";
 import {
@@ -102,6 +110,10 @@ import {
   DeactivateKeySigningKeyCommandInput,
   DeactivateKeySigningKeyCommandOutput,
 } from "./commands/DeactivateKeySigningKeyCommand";
+import {
+  DeleteCidrCollectionCommandInput,
+  DeleteCidrCollectionCommandOutput,
+} from "./commands/DeleteCidrCollectionCommand";
 import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "./commands/DeleteHealthCheckCommand";
 import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand";
 import {
@@ -182,6 +194,12 @@ import {
   GetTrafficPolicyInstanceCountCommandInput,
   GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand";
+import { ListCidrBlocksCommandInput, ListCidrBlocksCommandOutput } from "./commands/ListCidrBlocksCommand";
+import {
+  ListCidrCollectionsCommandInput,
+  ListCidrCollectionsCommandOutput,
+} from "./commands/ListCidrCollectionsCommand";
+import { ListCidrLocationsCommandInput, ListCidrLocationsCommandOutput } from "./commands/ListCidrLocationsCommand";
 import { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "./commands/ListGeoLocationsCommand";
 import { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "./commands/ListHealthChecksCommand";
 import {
@@ -256,8 +274,10 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | ActivateKeySigningKeyCommandInput
   | AssociateVPCWithHostedZoneCommandInput
+  | ChangeCidrCollectionCommandInput
   | ChangeResourceRecordSetsCommandInput
   | ChangeTagsForResourceCommandInput
+  | CreateCidrCollectionCommandInput
   | CreateHealthCheckCommandInput
   | CreateHostedZoneCommandInput
   | CreateKeySigningKeyCommandInput
@@ -268,6 +288,7 @@ export type ServiceInputTypes =
   | CreateTrafficPolicyVersionCommandInput
   | CreateVPCAssociationAuthorizationCommandInput
   | DeactivateKeySigningKeyCommandInput
+  | DeleteCidrCollectionCommandInput
   | DeleteHealthCheckCommandInput
   | DeleteHostedZoneCommandInput
   | DeleteKeySigningKeyCommandInput
@@ -297,6 +318,9 @@ export type ServiceInputTypes =
   | GetTrafficPolicyCommandInput
   | GetTrafficPolicyInstanceCommandInput
   | GetTrafficPolicyInstanceCountCommandInput
+  | ListCidrBlocksCommandInput
+  | ListCidrCollectionsCommandInput
+  | ListCidrLocationsCommandInput
   | ListGeoLocationsCommandInput
   | ListHealthChecksCommandInput
   | ListHostedZonesByNameCommandInput
@@ -322,8 +346,10 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | ActivateKeySigningKeyCommandOutput
   | AssociateVPCWithHostedZoneCommandOutput
+  | ChangeCidrCollectionCommandOutput
   | ChangeResourceRecordSetsCommandOutput
   | ChangeTagsForResourceCommandOutput
+  | CreateCidrCollectionCommandOutput
   | CreateHealthCheckCommandOutput
   | CreateHostedZoneCommandOutput
   | CreateKeySigningKeyCommandOutput
@@ -334,6 +360,7 @@ export type ServiceOutputTypes =
   | CreateTrafficPolicyVersionCommandOutput
   | CreateVPCAssociationAuthorizationCommandOutput
   | DeactivateKeySigningKeyCommandOutput
+  | DeleteCidrCollectionCommandOutput
   | DeleteHealthCheckCommandOutput
   | DeleteHostedZoneCommandOutput
   | DeleteKeySigningKeyCommandOutput
@@ -363,6 +390,9 @@ export type ServiceOutputTypes =
   | GetTrafficPolicyCommandOutput
   | GetTrafficPolicyInstanceCommandOutput
   | GetTrafficPolicyInstanceCountCommandOutput
+  | ListCidrBlocksCommandOutput
+  | ListCidrCollectionsCommandOutput
+  | ListCidrLocationsCommandOutput
   | ListGeoLocationsCommandOutput
   | ListHealthChecksCommandOutput
   | ListHostedZonesByNameCommandOutput
@@ -539,7 +569,8 @@ type Route53ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
 export interface Route53ClientResolvedConfig extends Route53ClientResolvedConfigType {}
 
 /**
- * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
+ * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
+ * 			service.</p>
  */
 export class Route53Client extends __Client<
   __HttpHandlerOptions,

@@ -29,15 +29,17 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
- * 			request to associate the VPC with a specified hosted zone that was created by a different account.
- * 			To submit a <code>CreateVPCAssociationAuthorization</code> request, you must use the account that created the
- * 			hosted zone. After you authorize the association, use the account that created the VPC to submit an
- * 			<code>AssociateVPCWithHostedZone</code> request.</p>
+ * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an
+ * 				<code>AssociateVPCWithHostedZone</code> request to associate the VPC with a
+ * 			specified hosted zone that was created by a different account. To submit a
+ * 				<code>CreateVPCAssociationAuthorization</code> request, you must use the account
+ * 			that created the hosted zone. After you authorize the association, use the account that
+ * 			created the VPC to submit an <code>AssociateVPCWithHostedZone</code> request.</p>
  * 		       <note>
- *             <p>If you want to associate multiple VPCs that you created by using one account with a hosted zone
- * 			that you created by using a different account, you must submit one authorization request for each VPC.</p>
- *          </note>
+ * 			         <p>If you want to associate multiple VPCs that you created by using one account with
+ * 				a hosted zone that you created by using a different account, you must submit one
+ * 				authorization request for each VPC.</p>
+ * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

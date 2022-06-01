@@ -24,11 +24,10 @@ export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLogging
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs.
- * 			Route 53 doesn't delete any logs that are already in CloudWatch Logs.</p>
- *
- * 		       <p>For more information about DNS query logs, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
+ * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
+ * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
+ * 			that are already in CloudWatch Logs.</p>
+ * 		       <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

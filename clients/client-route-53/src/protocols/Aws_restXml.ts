@@ -32,6 +32,10 @@ import {
   AssociateVPCWithHostedZoneCommandOutput,
 } from "../commands/AssociateVPCWithHostedZoneCommand";
 import {
+  ChangeCidrCollectionCommandInput,
+  ChangeCidrCollectionCommandOutput,
+} from "../commands/ChangeCidrCollectionCommand";
+import {
   ChangeResourceRecordSetsCommandInput,
   ChangeResourceRecordSetsCommandOutput,
 } from "../commands/ChangeResourceRecordSetsCommand";
@@ -39,6 +43,10 @@ import {
   ChangeTagsForResourceCommandInput,
   ChangeTagsForResourceCommandOutput,
 } from "../commands/ChangeTagsForResourceCommand";
+import {
+  CreateCidrCollectionCommandInput,
+  CreateCidrCollectionCommandOutput,
+} from "../commands/CreateCidrCollectionCommand";
 import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "../commands/CreateHealthCheckCommand";
 import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "../commands/CreateHostedZoneCommand";
 import {
@@ -73,6 +81,10 @@ import {
   DeactivateKeySigningKeyCommandInput,
   DeactivateKeySigningKeyCommandOutput,
 } from "../commands/DeactivateKeySigningKeyCommand";
+import {
+  DeleteCidrCollectionCommandInput,
+  DeleteCidrCollectionCommandOutput,
+} from "../commands/DeleteCidrCollectionCommand";
 import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "../commands/DeleteHealthCheckCommand";
 import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "../commands/DeleteHostedZoneCommand";
 import {
@@ -153,6 +165,12 @@ import {
   GetTrafficPolicyInstanceCountCommandInput,
   GetTrafficPolicyInstanceCountCommandOutput,
 } from "../commands/GetTrafficPolicyInstanceCountCommand";
+import { ListCidrBlocksCommandInput, ListCidrBlocksCommandOutput } from "../commands/ListCidrBlocksCommand";
+import {
+  ListCidrCollectionsCommandInput,
+  ListCidrCollectionsCommandOutput,
+} from "../commands/ListCidrCollectionsCommand";
+import { ListCidrLocationsCommandInput, ListCidrLocationsCommandOutput } from "../commands/ListCidrLocationsCommand";
 import { ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput } from "../commands/ListGeoLocationsCommand";
 import { ListHealthChecksCommandInput, ListHealthChecksCommandOutput } from "../commands/ListHealthChecksCommand";
 import {
@@ -229,7 +247,16 @@ import {
   Change,
   ChangeBatch,
   ChangeInfo,
+  CidrBlockInUseException,
+  CidrBlockSummary,
+  CidrCollection,
+  CidrCollectionAlreadyExistsException,
+  CidrCollectionChange,
+  CidrCollectionInUseException,
+  CidrCollectionVersionMismatchException,
+  CidrRoutingConfig,
   CloudWatchAlarmConfiguration,
+  CollectionSummary,
   ConcurrentModification,
   ConflictingDomainExists,
   ConflictingTypes,
@@ -282,7 +309,10 @@ import {
   LastVPCAssociation,
   LimitsExceeded,
   LinkedService,
+  LocationSummary,
   NoSuchChange,
+  NoSuchCidrCollectionException,
+  NoSuchCidrLocationException,
   NoSuchCloudWatchLogsLogGroup,
   NoSuchDelegationSet,
   NoSuchGeoLocation,
@@ -407,6 +437,55 @@ export const serializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   });
 };
 
+export const serializeAws_restXmlChangeCidrCollectionCommand = async (
+  input: ChangeCidrCollectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("ChangeCidrCollectionRequest");
+  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input.Changes !== undefined) {
+    const nodes = serializeAws_restXmlCidrCollectionChanges(input.Changes, context);
+    const containerNode = new __XmlNode("Changes");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.CollectionVersion !== undefined) {
+    const node = new __XmlNode("CollectionVersion")
+      .addChildNode(new __XmlText(String(input.CollectionVersion)))
+      .withName("CollectionVersion");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlChangeResourceRecordSetsCommand = async (
   input: ChangeResourceRecordSetsCommandInput,
   context: __SerdeContext
@@ -495,6 +574,42 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlCreateCidrCollectionCommand = async (
+  input: CreateCidrCollectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateCidrCollectionRequest");
+  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input.CallerReference !== undefined) {
+    const node = new __XmlNode("CidrNonce")
+      .addChildNode(new __XmlText(input.CallerReference))
+      .withName("CallerReference");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Name !== undefined) {
+    const node = new __XmlNode("CollectionName").addChildNode(new __XmlText(input.Name)).withName("Name");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -917,6 +1032,35 @@ export const serializeAws_restXmlDeactivateKeySigningKeyCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDeleteCidrCollectionCommand = async (
+  input: DeleteCidrCollectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -1811,6 +1955,101 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListCidrBlocksCommand = async (
+  input: ListCidrBlocksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2013-04-01/cidrcollection/{CollectionId}/cidrblocks";
+  if (input.CollectionId !== undefined) {
+    const labelValue: string = input.CollectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CollectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CollectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CollectionId.");
+  }
+  const query: any = {
+    ...(input.LocationName !== undefined && { location: input.LocationName }),
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxresults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListCidrCollectionsCommand = async (
+  input: ListCidrCollectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection";
+  const query: any = {
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxresults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListCidrLocationsCommand = async (
+  input: ListCidrLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{CollectionId}";
+  if (input.CollectionId !== undefined) {
+    const labelValue: string = input.CollectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CollectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CollectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CollectionId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxresults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2718,6 +2957,65 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
   }
 };
 
+export const deserializeAws_restXmlChangeCidrCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChangeCidrCollectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlChangeCidrCollectionCommandError(output, context);
+  }
+  const contents: ChangeCidrCollectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Id: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Id"] !== undefined) {
+    contents.Id = __expectString(data["Id"]);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlChangeCidrCollectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChangeCidrCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CidrBlockInUseException":
+    case "com.amazonaws.route53#CidrBlockInUseException":
+      throw await deserializeAws_restXmlCidrBlockInUseExceptionResponse(parsedOutput, context);
+    case "CidrCollectionVersionMismatchException":
+    case "com.amazonaws.route53#CidrCollectionVersionMismatchException":
+      throw await deserializeAws_restXmlCidrCollectionVersionMismatchExceptionResponse(parsedOutput, context);
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "LimitsExceeded":
+    case "com.amazonaws.route53#LimitsExceeded":
+      throw await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context);
+    case "NoSuchCidrCollectionException":
+    case "com.amazonaws.route53#NoSuchCidrCollectionException":
+      throw await deserializeAws_restXmlNoSuchCidrCollectionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
 export const deserializeAws_restXmlChangeResourceRecordSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2815,6 +3113,63 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.route53#ThrottlingException":
       throw await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_restXmlCreateCidrCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCidrCollectionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCreateCidrCollectionCommandError(output, context);
+  }
+  const contents: CreateCidrCollectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Collection: undefined,
+    Location: undefined,
+  };
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
+  }
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Collection"] !== undefined) {
+    contents.Collection = deserializeAws_restXmlCidrCollection(data["Collection"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlCreateCidrCollectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCidrCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CidrCollectionAlreadyExistsException":
+    case "com.amazonaws.route53#CidrCollectionAlreadyExistsException":
+      throw await deserializeAws_restXmlCidrCollectionAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "LimitsExceeded":
+    case "com.amazonaws.route53#LimitsExceeded":
+      throw await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3463,6 +3818,55 @@ const deserializeAws_restXmlDeactivateKeySigningKeyCommandError = async (
     case "NoSuchKeySigningKey":
     case "com.amazonaws.route53#NoSuchKeySigningKey":
       throw await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_restXmlDeleteCidrCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCidrCollectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteCidrCollectionCommandError(output, context);
+  }
+  const contents: DeleteCidrCollectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteCidrCollectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCidrCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CidrCollectionInUseException":
+    case "com.amazonaws.route53#CidrCollectionInUseException":
+      throw await deserializeAws_restXmlCidrCollectionInUseExceptionResponse(parsedOutput, context);
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "NoSuchCidrCollectionException":
+    case "com.amazonaws.route53#NoSuchCidrCollectionException":
+      throw await deserializeAws_restXmlNoSuchCidrCollectionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -4960,6 +5364,177 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError = async (
   }
 };
 
+export const deserializeAws_restXmlListCidrBlocksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrBlocksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListCidrBlocksCommandError(output, context);
+  }
+  const contents: ListCidrBlocksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CidrBlocks: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CidrBlocks === "") {
+    contents.CidrBlocks = [];
+  }
+  if (data["CidrBlocks"] !== undefined && data["CidrBlocks"]["member"] !== undefined) {
+    contents.CidrBlocks = deserializeAws_restXmlCidrBlockSummaries(
+      __getArrayIfSingleItem(data["CidrBlocks"]["member"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListCidrBlocksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrBlocksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "NoSuchCidrCollectionException":
+    case "com.amazonaws.route53#NoSuchCidrCollectionException":
+      throw await deserializeAws_restXmlNoSuchCidrCollectionExceptionResponse(parsedOutput, context);
+    case "NoSuchCidrLocationException":
+    case "com.amazonaws.route53#NoSuchCidrLocationException":
+      throw await deserializeAws_restXmlNoSuchCidrLocationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_restXmlListCidrCollectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrCollectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListCidrCollectionsCommandError(output, context);
+  }
+  const contents: ListCidrCollectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CidrCollections: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CidrCollections === "") {
+    contents.CidrCollections = [];
+  }
+  if (data["CidrCollections"] !== undefined && data["CidrCollections"]["member"] !== undefined) {
+    contents.CidrCollections = deserializeAws_restXmlCollectionSummaries(
+      __getArrayIfSingleItem(data["CidrCollections"]["member"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListCidrCollectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrCollectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_restXmlListCidrLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrLocationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListCidrLocationsCommandError(output, context);
+  }
+  const contents: ListCidrLocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CidrLocations: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CidrLocations === "") {
+    contents.CidrLocations = [];
+  }
+  if (data["CidrLocations"] !== undefined && data["CidrLocations"]["member"] !== undefined) {
+    contents.CidrLocations = deserializeAws_restXmlLocationSummaries(
+      __getArrayIfSingleItem(data["CidrLocations"]["member"]),
+      context
+    );
+  }
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(data["NextToken"]);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListCidrLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCidrLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "NoSuchCidrCollectionException":
+    case "com.amazonaws.route53#NoSuchCidrCollectionException":
+      throw await deserializeAws_restXmlNoSuchCidrCollectionExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
 export const deserializeAws_restXmlListGeoLocationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6332,6 +6907,70 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
   }
 };
 
+const deserializeAws_restXmlCidrBlockInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CidrBlockInUseException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new CidrBlockInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlCidrCollectionAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CidrCollectionAlreadyExistsException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new CidrCollectionAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlCidrCollectionInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CidrCollectionInUseException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new CidrCollectionInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlCidrCollectionVersionMismatchExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CidrCollectionVersionMismatchException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new CidrCollectionVersionMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
 const deserializeAws_restXmlConcurrentModificationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6933,6 +7572,38 @@ const deserializeAws_restXmlNoSuchChangeResponse = async (
   return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
+const deserializeAws_restXmlNoSuchCidrCollectionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoSuchCidrCollectionException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new NoSuchCidrCollectionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlNoSuchCidrLocationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoSuchCidrLocationException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new NoSuchCidrLocationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
 const deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7435,6 +8106,70 @@ const serializeAws_restXmlChildHealthCheckList = (input: string[], context: __Se
     });
 };
 
+const serializeAws_restXmlCidrCollectionChange = (input: CidrCollectionChange, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("CidrCollectionChange");
+  if (input.LocationName !== undefined && input.LocationName !== null) {
+    const node = new __XmlNode("CidrLocationNameDefaultNotAllowed")
+      .addChildNode(new __XmlText(input.LocationName))
+      .withName("LocationName");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Action !== undefined && input.Action !== null) {
+    const node = new __XmlNode("CidrCollectionChangeAction")
+      .addChildNode(new __XmlText(input.Action))
+      .withName("Action");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CidrList !== undefined && input.CidrList !== null) {
+    const nodes = serializeAws_restXmlCidrList(input.CidrList, context);
+    const containerNode = new __XmlNode("CidrList");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlCidrCollectionChanges = (input: CidrCollectionChange[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlCidrCollectionChange(entry, context);
+      return node.withName("member");
+    });
+};
+
+const serializeAws_restXmlCidrList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("Cidr").addChildNode(new __XmlText(entry));
+      return node.withName("Cidr");
+    });
+};
+
+const serializeAws_restXmlCidrRoutingConfig = (input: CidrRoutingConfig, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("CidrRoutingConfig");
+  if (input.CollectionId !== undefined && input.CollectionId !== null) {
+    const node = new __XmlNode("UUID").addChildNode(new __XmlText(input.CollectionId)).withName("CollectionId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.LocationName !== undefined && input.LocationName !== null) {
+    const node = new __XmlNode("CidrLocationNameDefaultAllowed")
+      .addChildNode(new __XmlText(input.LocationName))
+      .withName("LocationName");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlGeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("GeoLocation");
   if (input.ContinentCode !== undefined && input.ContinentCode !== null) {
@@ -7693,6 +8428,10 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
       .withName("TrafficPolicyInstanceId");
     bodyNode.addChildNode(node);
   }
+  if (input.CidrRoutingConfig !== undefined && input.CidrRoutingConfig !== null) {
+    const node = serializeAws_restXmlCidrRoutingConfig(input.CidrRoutingConfig, context).withName("CidrRoutingConfig");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -7848,6 +8587,67 @@ const deserializeAws_restXmlChildHealthCheckList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_restXmlCidrBlockSummaries = (output: any, context: __SerdeContext): CidrBlockSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCidrBlockSummary(entry, context);
+    });
+};
+
+const deserializeAws_restXmlCidrBlockSummary = (output: any, context: __SerdeContext): CidrBlockSummary => {
+  const contents: any = {
+    CidrBlock: undefined,
+    LocationName: undefined,
+  };
+  if (output["CidrBlock"] !== undefined) {
+    contents.CidrBlock = __expectString(output["CidrBlock"]);
+  }
+  if (output["LocationName"] !== undefined) {
+    contents.LocationName = __expectString(output["LocationName"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlCidrCollection = (output: any, context: __SerdeContext): CidrCollection => {
+  const contents: any = {
+    Arn: undefined,
+    Id: undefined,
+    Name: undefined,
+    Version: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = __expectString(output["Arn"]);
+  }
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Version"] !== undefined) {
+    contents.Version = __strictParseLong(output["Version"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlCidrRoutingConfig = (output: any, context: __SerdeContext): CidrRoutingConfig => {
+  const contents: any = {
+    CollectionId: undefined,
+    LocationName: undefined,
+  };
+  if (output["CollectionId"] !== undefined) {
+    contents.CollectionId = __expectString(output["CollectionId"]);
+  }
+  if (output["LocationName"] !== undefined) {
+    contents.LocationName = __expectString(output["LocationName"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   output: any,
   context: __SerdeContext
@@ -7891,6 +8691,39 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
       __getArrayIfSingleItem(output["Dimensions"]["Dimension"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlCollectionSummaries = (output: any, context: __SerdeContext): CollectionSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCollectionSummary(entry, context);
+    });
+};
+
+const deserializeAws_restXmlCollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
+  const contents: any = {
+    Arn: undefined,
+    Id: undefined,
+    Name: undefined,
+    Version: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = __expectString(output["Arn"]);
+  }
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Version"] !== undefined) {
+    contents.Version = __strictParseLong(output["Version"]) as number;
   }
   return contents;
 };
@@ -8437,6 +9270,27 @@ const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContex
   return contents;
 };
 
+const deserializeAws_restXmlLocationSummaries = (output: any, context: __SerdeContext): LocationSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlLocationSummary(entry, context);
+    });
+};
+
+const deserializeAws_restXmlLocationSummary = (output: any, context: __SerdeContext): LocationSummary => {
+  const contents: any = {
+    LocationName: undefined,
+  };
+  if (output["LocationName"] !== undefined) {
+    contents.LocationName = __expectString(output["LocationName"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlQueryLoggingConfig = (output: any, context: __SerdeContext): QueryLoggingConfig => {
   const contents: any = {
     Id: undefined,
@@ -8513,6 +9367,7 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
     AliasTarget: undefined,
     HealthCheckId: undefined,
     TrafficPolicyInstanceId: undefined,
+    CidrRoutingConfig: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -8558,6 +9413,9 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
   }
   if (output["TrafficPolicyInstanceId"] !== undefined) {
     contents.TrafficPolicyInstanceId = __expectString(output["TrafficPolicyInstanceId"]);
+  }
+  if (output["CidrRoutingConfig"] !== undefined) {
+    contents.CidrRoutingConfig = deserializeAws_restXmlCidrRoutingConfig(output["CidrRoutingConfig"], context);
   }
   return contents;
 };

@@ -24,8 +24,8 @@ export interface GetReusableDelegationSetCommandInput extends GetReusableDelegat
 export interface GetReusableDelegationSetCommandOutput extends GetReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned
- * 			to the delegation set.</p>
+ * <p>Retrieves information about a specified reusable delegation set, including the four
+ * 			name servers that are assigned to the delegation set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

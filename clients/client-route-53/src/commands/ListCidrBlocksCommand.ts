@@ -12,47 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/models_0";
+import { ListCidrBlocksRequest, ListCidrBlocksResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetHealthCheckStatusCommand,
-  serializeAws_restXmlGetHealthCheckStatusCommand,
+  deserializeAws_restXmlListCidrBlocksCommand,
+  serializeAws_restXmlListCidrBlocksCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
-export interface GetHealthCheckStatusCommandInput extends GetHealthCheckStatusRequest {}
-export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusResponse, __MetadataBearer {}
+export interface ListCidrBlocksCommandInput extends ListCidrBlocksRequest {}
+export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __MetadataBearer {}
 
 /**
- * <p>Gets status of a specified health check. </p>
- * 		       <important>
- * 			         <p>This API is intended for use during development to diagnose behavior. It doesn’t
- * 				support production use-cases with high query rates that require immediate and
- * 				actionable responses.</p>
- * 		       </important>
+ * <p>Returns a paginated list of location objects and their CIDR blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetHealthCheckStatusCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetHealthCheckStatusCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListCidrBlocksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, ListCidrBlocksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const command = new GetHealthCheckStatusCommand(input);
+ * const command = new ListCidrBlocksCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetHealthCheckStatusCommandInput} for command's `input` shape.
- * @see {@link GetHealthCheckStatusCommandOutput} for command's `response` shape.
+ * @see {@link ListCidrBlocksCommandInput} for command's `input` shape.
+ * @see {@link ListCidrBlocksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
-export class GetHealthCheckStatusCommand extends $Command<
-  GetHealthCheckStatusCommandInput,
-  GetHealthCheckStatusCommandOutput,
+export class ListCidrBlocksCommand extends $Command<
+  ListCidrBlocksCommandInput,
+  ListCidrBlocksCommandOutput,
   Route53ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetHealthCheckStatusCommandInput) {
+  constructor(readonly input: ListCidrBlocksCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +60,20 @@ export class GetHealthCheckStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetHealthCheckStatusCommandInput, GetHealthCheckStatusCommandOutput> {
+  ): Handler<ListCidrBlocksCommandInput, ListCidrBlocksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53Client";
-    const commandName = "GetHealthCheckStatusCommand";
+    const commandName = "ListCidrBlocksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthCheckStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthCheckStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCidrBlocksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCidrBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +83,12 @@ export class GetHealthCheckStatusCommand extends $Command<
     );
   }
 
-  private serialize(input: GetHealthCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckStatusCommand(input, context);
+  private serialize(input: ListCidrBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlListCidrBlocksCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckStatusCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckStatusCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCidrBlocksCommandOutput> {
+    return deserializeAws_restXmlListCidrBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

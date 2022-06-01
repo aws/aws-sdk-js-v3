@@ -24,14 +24,12 @@ export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingCon
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the configurations for DNS query logging that are associated with the current Amazon Web Services account or the configuration
- * 			that is associated with a specified hosted zone.</p>
- *
- * 		       <p>For more information about DNS query logs, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.
- * 			Additional information, including the format of DNS query logs, appears in
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>
- * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ * <p>Lists the configurations for DNS query logging that are associated with the current
+ * 				Amazon Web Services account or the configuration that is associated with a specified
+ * 			hosted zone.</p>
+ * 		       <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>. Additional information, including the format of
+ * 			DNS query logs, appears in <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a> in
+ * 			the <i>Amazon Route 53 Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -13,43 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse } from "../models/models_0";
+import { DeleteCidrCollectionRequest, DeleteCidrCollectionResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlDisableHostedZoneDNSSECCommand,
-  serializeAws_restXmlDisableHostedZoneDNSSECCommand,
+  deserializeAws_restXmlDeleteCidrCollectionCommand,
+  serializeAws_restXmlDeleteCidrCollectionCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
-export interface DisableHostedZoneDNSSECCommandInput extends DisableHostedZoneDNSSECRequest {}
-export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneDNSSECResponse, __MetadataBearer {}
+export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRequest {}
+export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
- * 			key-signing keys (KSKs) that are active in the hosted zone.</p>
+ * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
+ * 			must be empty before it can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DisableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DisableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, DeleteCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const command = new DisableHostedZoneDNSSECCommand(input);
+ * const command = new DeleteCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisableHostedZoneDNSSECCommandInput} for command's `input` shape.
- * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
+ * @see {@link DeleteCidrCollectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
-export class DisableHostedZoneDNSSECCommand extends $Command<
-  DisableHostedZoneDNSSECCommandInput,
-  DisableHostedZoneDNSSECCommandOutput,
+export class DeleteCidrCollectionCommand extends $Command<
+  DeleteCidrCollectionCommandInput,
+  DeleteCidrCollectionCommandOutput,
   Route53ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DisableHostedZoneDNSSECCommandInput) {
+  constructor(readonly input: DeleteCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -62,7 +62,7 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisableHostedZoneDNSSECCommandInput, DisableHostedZoneDNSSECCommandOutput> {
+  ): Handler<DeleteCidrCollectionCommandInput, DeleteCidrCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
@@ -70,13 +70,13 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
 
     const { logger } = configuration;
     const clientName = "Route53Client";
-    const commandName = "DisableHostedZoneDNSSECCommand";
+    const commandName = "DeleteCidrCollectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableHostedZoneDNSSECRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableHostedZoneDNSSECResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCidrCollectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCidrCollectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +86,12 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     );
   }
 
-  private serialize(input: DisableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisableHostedZoneDNSSECCommand(input, context);
+  private serialize(input: DeleteCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlDeleteCidrCollectionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableHostedZoneDNSSECCommandOutput> {
-    return deserializeAws_restXmlDisableHostedZoneDNSSECCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCidrCollectionCommandOutput> {
+    return deserializeAws_restXmlDeleteCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

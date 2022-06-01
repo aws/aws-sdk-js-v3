@@ -12,45 +12,44 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTrafficPolicyInstanceCountRequest, GetTrafficPolicyInstanceCountResponse } from "../models/models_0";
+import { CreateCidrCollectionRequest, CreateCidrCollectionResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
-  serializeAws_restXmlGetTrafficPolicyInstanceCountCommand,
+  deserializeAws_restXmlCreateCidrCollectionCommand,
+  serializeAws_restXmlCreateCidrCollectionCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
-export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPolicyInstanceCountRequest {}
-export interface GetTrafficPolicyInstanceCountCommandOutput
-  extends GetTrafficPolicyInstanceCountResponse,
-    __MetadataBearer {}
+export interface CreateCidrCollectionCommandInput extends CreateCidrCollectionRequest {}
+export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the number of traffic policy instances that are associated with the current
+ * <p>Creates a CIDR collection in the
+ * 			current
  * 				Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetTrafficPolicyInstanceCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetTrafficPolicyInstanceCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, CreateCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const command = new GetTrafficPolicyInstanceCountCommand(input);
+ * const command = new CreateCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetTrafficPolicyInstanceCountCommandInput} for command's `input` shape.
- * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
+ * @see {@link CreateCidrCollectionCommandInput} for command's `input` shape.
+ * @see {@link CreateCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
-export class GetTrafficPolicyInstanceCountCommand extends $Command<
-  GetTrafficPolicyInstanceCountCommandInput,
-  GetTrafficPolicyInstanceCountCommandOutput,
+export class CreateCidrCollectionCommand extends $Command<
+  CreateCidrCollectionCommandInput,
+  CreateCidrCollectionCommandOutput,
   Route53ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetTrafficPolicyInstanceCountCommandInput) {
+  constructor(readonly input: CreateCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -63,20 +62,20 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetTrafficPolicyInstanceCountCommandInput, GetTrafficPolicyInstanceCountCommandOutput> {
+  ): Handler<CreateCidrCollectionCommandInput, CreateCidrCollectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53Client";
-    const commandName = "GetTrafficPolicyInstanceCountCommand";
+    const commandName = "CreateCidrCollectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrafficPolicyInstanceCountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTrafficPolicyInstanceCountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCidrCollectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCidrCollectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +85,12 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     );
   }
 
-  private serialize(input: GetTrafficPolicyInstanceCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(input, context);
+  private serialize(input: CreateCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlCreateCidrCollectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCidrCollectionCommandOutput> {
+    return deserializeAws_restXmlCreateCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,7 +21,8 @@ export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing keys (KSKs) in the hosted zone.</p>
+ * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
+ * 			keys (KSKs) in the hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

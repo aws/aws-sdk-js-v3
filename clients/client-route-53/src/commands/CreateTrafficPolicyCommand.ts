@@ -23,8 +23,9 @@ export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequ
 export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or
- * 			one subdomain name (such as www.example.com).</p>
+ * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
+ * 			for one domain name (such as example.com) or one subdomain name (such as
+ * 			www.example.com).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

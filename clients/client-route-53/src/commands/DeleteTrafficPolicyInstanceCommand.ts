@@ -26,9 +26,11 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.</p>
+ * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
+ * 			Route 53 created when you created the instance.</p>
  * 		       <note>
- * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
+ * 			         <p>In the Route 53 console, traffic policy instances are known as policy
+ * 				records.</p>
  * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

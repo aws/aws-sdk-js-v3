@@ -26,10 +26,12 @@ export interface CreateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version.
- * 			In addition, <code>CreateTrafficPolicyInstance</code> associates the resource record sets with a specified domain name (such as example.com) or
- * 			subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets
- * 			that <code>CreateTrafficPolicyInstance</code> created.</p>
+ * <p>Creates resource record sets in a specified hosted zone based on the settings in a
+ * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
+ * 			associates the resource record sets with a specified domain name (such as example.com)
+ * 			or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for
+ * 			the domain or subdomain name by using the resource record sets that
+ * 				<code>CreateTrafficPolicyInstance</code> created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

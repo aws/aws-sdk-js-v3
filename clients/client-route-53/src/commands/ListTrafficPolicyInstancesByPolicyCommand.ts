@@ -28,14 +28,18 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about the traffic policy instances that you created by using a specify traffic policy version.</p>
+ * <p>Gets information about the traffic policy instances that you created by using a
+ * 			specify traffic policy version.</p>
  * 		       <note>
- * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request,
- * 				there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For
- * 				more information, see the <code>State</code> response element.</p>
+ * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
+ * 					<code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while
+ * 				Amazon Route 53 creates the resource record sets that are specified in the traffic
+ * 				policy definition. For more information, see the <code>State</code> response
+ * 				element.</p>
  * 		       </note>
- * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
- * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
+ * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
+ * 			policy instances, you can use the <code>MaxItems</code> parameter to list them in groups
+ * 			of up to 100.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

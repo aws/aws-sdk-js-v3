@@ -26,10 +26,11 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of the VPCs that were created by other accounts and that can be associated with a
- * 			specified hosted zone because you've submitted one or more <code>CreateVPCAssociationAuthorization</code> requests. </p>
- * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child element for each VPC
- * 			that can be associated with the hosted zone.</p>
+ * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
+ * 			with a specified hosted zone because you've submitted one or more
+ * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
+ * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child
+ * 			element for each VPC that can be associated with the hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
