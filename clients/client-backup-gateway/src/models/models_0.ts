@@ -165,7 +165,7 @@ export interface Tag {
   Key: string | undefined;
 
   /**
-   * <p>The key part of a value's key-value pair.</p>
+   * <p>The value part of a tag's key-value pair.</p>
    */
   Value: string | undefined;
 }
@@ -313,6 +313,94 @@ export namespace DisassociateGatewayFromServerOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateGatewayFromServerOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGatewayInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   */
+  GatewayArn: string | undefined;
+}
+
+export namespace GetGatewayInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGatewayInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of gateway.</p>
+ */
+export interface GatewayDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the
+   *       gateway. Use the <code>ListGateways</code> operation
+   *       to return a list of gateways for your account and
+   *       Amazon Web Services Region.</p>
+   */
+  GatewayArn?: string;
+
+  /**
+   * <p>The display name of the gateway.</p>
+   */
+  GatewayDisplayName?: string;
+
+  /**
+   * <p>The type of the gateway type.</p>
+   */
+  GatewayType?: GatewayType | string;
+
+  /**
+   * <p>The hypervisor ID of the gateway.</p>
+   */
+  HypervisorId?: string;
+
+  /**
+   * <p>Details showing the last time Backup gateway communicated
+   *       with the cloud, in Unix format and UTC time.</p>
+   */
+  LastSeenTime?: Date;
+
+  /**
+   * <p>Details showing the next update availability time of the
+   *       gateway.</p>
+   */
+  NextUpdateAvailabilityTime?: Date;
+
+  /**
+   * <p>The DNS name for the virtual private cloud (VPC) endpoint the gateway
+   *       uses to connect to the cloud for backup gateway.</p>
+   */
+  VpcEndpoint?: string;
+}
+
+export namespace GatewayDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GatewayDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGatewayOutput {
+  /**
+   * <p>By providing the ARN (Amazon Resource Name), this
+   *       API returns the gateway.</p>
+   */
+  Gateway?: GatewayDetails;
+}
+
+export namespace GetGatewayOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGatewayOutput): any => ({
     ...obj,
   });
 }
@@ -544,6 +632,40 @@ export namespace UpdateGatewayInformationOutput {
   });
 }
 
+export interface UpdateGatewaySoftwareNowInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway
+   *       to be updated.</p>
+   */
+  GatewayArn: string | undefined;
+}
+
+export namespace UpdateGatewaySoftwareNowInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateGatewaySoftwareNowOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway
+   *       you updated.</p>
+   */
+  GatewayArn?: string;
+}
+
+export namespace UpdateGatewaySoftwareNowOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteHypervisorInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor to delete.</p>
@@ -756,6 +878,11 @@ export interface UpdateHypervisorInput {
    * <p>The updated password for the hypervisor.</p>
    */
   Password?: string;
+
+  /**
+   * <p>The updated name for the hypervisor</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateHypervisorInput {
@@ -871,7 +998,8 @@ export interface VirtualMachine {
   Path?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the virtual machine.</p>
+   * <p>The Amazon Resource Name (ARN) of the virtual machine. For example,
+   *         <code>arn:aws:backup-gateway:us-west-1:0000000000000:vm/vm-0000ABCDEFGIJKL</code>.</p>
    */
   ResourceArn?: string;
 

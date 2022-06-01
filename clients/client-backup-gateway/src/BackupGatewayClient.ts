@@ -63,6 +63,7 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
+import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
@@ -91,6 +92,10 @@ import {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
+import {
+  UpdateGatewaySoftwareNowCommandInput,
+  UpdateGatewaySoftwareNowCommandOutput,
+} from "./commands/UpdateGatewaySoftwareNowCommand";
 import { UpdateHypervisorCommandInput, UpdateHypervisorCommandOutput } from "./commands/UpdateHypervisorCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
@@ -100,6 +105,7 @@ export type ServiceInputTypes =
   | DeleteGatewayCommandInput
   | DeleteHypervisorCommandInput
   | DisassociateGatewayFromServerCommandInput
+  | GetGatewayCommandInput
   | ImportHypervisorConfigurationCommandInput
   | ListGatewaysCommandInput
   | ListHypervisorsCommandInput
@@ -110,6 +116,7 @@ export type ServiceInputTypes =
   | TestHypervisorConfigurationCommandInput
   | UntagResourceCommandInput
   | UpdateGatewayInformationCommandInput
+  | UpdateGatewaySoftwareNowCommandInput
   | UpdateHypervisorCommandInput;
 
 export type ServiceOutputTypes =
@@ -118,6 +125,7 @@ export type ServiceOutputTypes =
   | DeleteGatewayCommandOutput
   | DeleteHypervisorCommandOutput
   | DisassociateGatewayFromServerCommandOutput
+  | GetGatewayCommandOutput
   | ImportHypervisorConfigurationCommandOutput
   | ListGatewaysCommandOutput
   | ListHypervisorsCommandOutput
@@ -128,6 +136,7 @@ export type ServiceOutputTypes =
   | TestHypervisorConfigurationCommandOutput
   | UntagResourceCommandOutput
   | UpdateGatewayInformationCommandOutput
+  | UpdateGatewaySoftwareNowCommandOutput
   | UpdateHypervisorCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -27,6 +27,7 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
+import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
   ImportHypervisorConfigurationCommand,
   ImportHypervisorConfigurationCommandInput,
@@ -73,6 +74,11 @@ import {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
+import {
+  UpdateGatewaySoftwareNowCommand,
+  UpdateGatewaySoftwareNowCommandInput,
+  UpdateGatewaySoftwareNowCommandOutput,
+} from "./commands/UpdateGatewaySoftwareNowCommand";
 import {
   UpdateHypervisorCommand,
   UpdateHypervisorCommandInput,
@@ -244,6 +250,33 @@ export class BackupGateway extends BackupGatewayClient {
     cb?: (err: any, data?: DisassociateGatewayFromServerCommandOutput) => void
   ): Promise<DisassociateGatewayFromServerCommandOutput> | void {
     const command = new DisassociateGatewayFromServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>By providing the ARN (Amazon Resource Name), this
+   *       API returns the gateway.</p>
+   */
+  public getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
+  public getGateway(args: GetGatewayCommandInput, cb: (err: any, data?: GetGatewayCommandOutput) => void): void;
+  public getGateway(
+    args: GetGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGatewayCommandOutput) => void
+  ): void;
+  public getGateway(
+    args: GetGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGatewayCommandOutput) => void),
+    cb?: (err: any, data?: GetGatewayCommandOutput) => void
+  ): Promise<GetGatewayCommandOutput> | void {
+    const command = new GetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -558,6 +591,44 @@ export class BackupGateway extends BackupGatewayClient {
     cb?: (err: any, data?: UpdateGatewayInformationCommandOutput) => void
   ): Promise<UpdateGatewayInformationCommandOutput> | void {
     const command = new UpdateGatewayInformationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the gateway virtual machine (VM) software.
+   *       The request immediately triggers the software update.</p>
+   *          <note>
+   *             <p>When you make this request, you get a <code>200 OK</code>
+   *         success response immediately. However, it might take some
+   *         time for the update to complete.</p>
+   *          </note>
+   */
+  public updateGatewaySoftwareNow(
+    args: UpdateGatewaySoftwareNowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewaySoftwareNowCommandOutput>;
+  public updateGatewaySoftwareNow(
+    args: UpdateGatewaySoftwareNowCommandInput,
+    cb: (err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void
+  ): void;
+  public updateGatewaySoftwareNow(
+    args: UpdateGatewaySoftwareNowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void
+  ): void;
+  public updateGatewaySoftwareNow(
+    args: UpdateGatewaySoftwareNowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void
+  ): Promise<UpdateGatewaySoftwareNowCommandOutput> | void {
+    const command = new UpdateGatewaySoftwareNowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

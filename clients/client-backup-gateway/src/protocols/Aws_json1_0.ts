@@ -25,6 +25,7 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "../commands/DisassociateGatewayFromServerCommand";
+import { GetGatewayCommandInput, GetGatewayCommandOutput } from "../commands/GetGatewayCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
@@ -53,6 +54,10 @@ import {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "../commands/UpdateGatewayInformationCommand";
+import {
+  UpdateGatewaySoftwareNowCommandInput,
+  UpdateGatewaySoftwareNowCommandOutput,
+} from "../commands/UpdateGatewaySoftwareNowCommand";
 import { UpdateHypervisorCommandInput, UpdateHypervisorCommandOutput } from "../commands/UpdateHypervisorCommand";
 import { BackupGatewayServiceException as __BaseException } from "../models/BackupGatewayServiceException";
 import {
@@ -69,6 +74,9 @@ import {
   DisassociateGatewayFromServerInput,
   DisassociateGatewayFromServerOutput,
   Gateway,
+  GatewayDetails,
+  GetGatewayInput,
+  GetGatewayOutput,
   Hypervisor,
   ImportHypervisorConfigurationInput,
   ImportHypervisorConfigurationOutput,
@@ -93,6 +101,8 @@ import {
   UntagResourceOutput,
   UpdateGatewayInformationInput,
   UpdateGatewayInformationOutput,
+  UpdateGatewaySoftwareNowInput,
+  UpdateGatewaySoftwareNowOutput,
   UpdateHypervisorInput,
   UpdateHypervisorOutput,
   ValidationException,
@@ -161,6 +171,19 @@ export const serializeAws_json1_0DisassociateGatewayFromServerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DisassociateGatewayFromServerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetGatewayCommand = async (
+  input: GetGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.GetGateway",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -291,6 +314,19 @@ export const serializeAws_json1_0UpdateGatewayInformationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateGatewayInformationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateGatewaySoftwareNowCommand = async (
+  input: UpdateGatewaySoftwareNowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.UpdateGatewaySoftwareNow",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateGatewaySoftwareNowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -535,6 +571,55 @@ const deserializeAws_json1_0DisassociateGatewayFromServerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.backupgateway#ConflictException":
       throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0GetGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetGatewayCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetGatewayOutput(data, context);
+  const response: GetGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -1045,6 +1130,55 @@ const deserializeAws_json1_0UpdateGatewayInformationCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateGatewaySoftwareNowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateGatewaySoftwareNowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateGatewaySoftwareNowOutput(data, context);
+  const response: UpdateGatewaySoftwareNowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateGatewaySoftwareNowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_0UpdateHypervisorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1203,6 +1337,12 @@ const serializeAws_json1_0DisassociateGatewayFromServerInput = (
   };
 };
 
+const serializeAws_json1_0GetGatewayInput = (input: GetGatewayInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+  };
+};
+
 const serializeAws_json1_0ImportHypervisorConfigurationInput = (
   input: ImportHypervisorConfigurationInput,
   context: __SerdeContext
@@ -1330,10 +1470,20 @@ const serializeAws_json1_0UpdateGatewayInformationInput = (
   };
 };
 
+const serializeAws_json1_0UpdateGatewaySoftwareNowInput = (
+  input: UpdateGatewaySoftwareNowInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+  };
+};
+
 const serializeAws_json1_0UpdateHypervisorInput = (input: UpdateHypervisorInput, context: __SerdeContext): any => {
   return {
     ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
     ...(input.HypervisorArn !== undefined && input.HypervisorArn !== null && { HypervisorArn: input.HypervisorArn }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
@@ -1402,6 +1552,24 @@ const deserializeAws_json1_0Gateway = (output: any, context: __SerdeContext): Ga
   } as any;
 };
 
+const deserializeAws_json1_0GatewayDetails = (output: any, context: __SerdeContext): GatewayDetails => {
+  return {
+    GatewayArn: __expectString(output.GatewayArn),
+    GatewayDisplayName: __expectString(output.GatewayDisplayName),
+    GatewayType: __expectString(output.GatewayType),
+    HypervisorId: __expectString(output.HypervisorId),
+    LastSeenTime:
+      output.LastSeenTime !== undefined && output.LastSeenTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
+        : undefined,
+    NextUpdateAvailabilityTime:
+      output.NextUpdateAvailabilityTime !== undefined && output.NextUpdateAvailabilityTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextUpdateAvailabilityTime)))
+        : undefined,
+    VpcEndpoint: __expectString(output.VpcEndpoint),
+  } as any;
+};
+
 const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): Gateway[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -1412,6 +1580,15 @@ const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): G
       return deserializeAws_json1_0Gateway(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_0GetGatewayOutput = (output: any, context: __SerdeContext): GetGatewayOutput => {
+  return {
+    Gateway:
+      output.Gateway !== undefined && output.Gateway !== null
+        ? deserializeAws_json1_0GatewayDetails(output.Gateway, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0Hypervisor = (output: any, context: __SerdeContext): Hypervisor => {
@@ -1560,6 +1737,15 @@ const deserializeAws_json1_0UpdateGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateGatewayInformationOutput => {
+  return {
+    GatewayArn: __expectString(output.GatewayArn),
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateGatewaySoftwareNowOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateGatewaySoftwareNowOutput => {
   return {
     GatewayArn: __expectString(output.GatewayArn),
   } as any;
