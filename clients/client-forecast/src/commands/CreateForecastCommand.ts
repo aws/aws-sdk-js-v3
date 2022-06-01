@@ -42,6 +42,8 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *         or export the forecast. Use the <a>DescribeForecast</a> operation to get the
  *         status.</p>
  *          </note>
+ *          <p>By default, a forecast includes predictions for every item (<code>item_id</code>) in the dataset group that was used to train the predictor.
+ *       However, you can use the <code>TimeSeriesSelector</code> object to generate a forecast on a subset of time series. Forecast creation is skipped for any time series that you specify that are not in the input dataset. The forecast export file will not contain these time series or their forecasted values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

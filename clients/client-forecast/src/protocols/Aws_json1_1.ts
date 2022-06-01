@@ -290,6 +290,8 @@ import {
   TagResourceResponse,
   TestWindowSummary,
   TimeAlignmentBoundary,
+  TimeSeriesIdentifiers,
+  TimeSeriesSelector,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateDatasetGroupRequest,
@@ -3669,6 +3671,7 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
     ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
     ...(input.DatasetImportJobName !== undefined &&
       input.DatasetImportJobName !== null && { DatasetImportJobName: input.DatasetImportJobName }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.GeolocationFormat !== undefined &&
       input.GeolocationFormat !== null && { GeolocationFormat: input.GeolocationFormat }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
@@ -3707,6 +3710,7 @@ const serializeAws_json1_1CreateExplainabilityExportRequest = (
       input.ExplainabilityArn !== null && { ExplainabilityArn: input.ExplainabilityArn }),
     ...(input.ExplainabilityExportName !== undefined &&
       input.ExplainabilityExportName !== null && { ExplainabilityExportName: input.ExplainabilityExportName }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
@@ -3745,6 +3749,7 @@ const serializeAws_json1_1CreateForecastExportJobRequest = (
     ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
     ...(input.ForecastExportJobName !== undefined &&
       input.ForecastExportJobName !== null && { ForecastExportJobName: input.ForecastExportJobName }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
@@ -3758,6 +3763,10 @@ const serializeAws_json1_1CreateForecastRequest = (input: CreateForecastRequest,
       }),
     ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TimeSeriesSelector !== undefined &&
+      input.TimeSeriesSelector !== null && {
+        TimeSeriesSelector: serializeAws_json1_1TimeSeriesSelector(input.TimeSeriesSelector, context),
+      }),
   };
 };
 
@@ -3776,6 +3785,7 @@ const serializeAws_json1_1CreatePredictorBacktestExportJobRequest = (
   return {
     ...(input.Destination !== undefined &&
       input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
     ...(input.PredictorBacktestExportJobName !== undefined &&
       input.PredictorBacktestExportJobName !== null && {
@@ -4508,6 +4518,25 @@ const serializeAws_json1_1TimeAlignmentBoundary = (input: TimeAlignmentBoundary,
   };
 };
 
+const serializeAws_json1_1TimeSeriesIdentifiers = (input: TimeSeriesIdentifiers, context: __SerdeContext): any => {
+  return {
+    ...(input.DataSource !== undefined &&
+      input.DataSource !== null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.Schema !== undefined &&
+      input.Schema !== null && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
+  };
+};
+
+const serializeAws_json1_1TimeSeriesSelector = (input: TimeSeriesSelector, context: __SerdeContext): any => {
+  return {
+    ...(input.TimeSeriesIdentifiers !== undefined &&
+      input.TimeSeriesIdentifiers !== null && {
+        TimeSeriesIdentifiers: serializeAws_json1_1TimeSeriesIdentifiers(input.TimeSeriesIdentifiers, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -5034,6 +5063,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.FieldStatistics !== undefined && output.FieldStatistics !== null
         ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
         : undefined,
+    Format: __expectString(output.Format),
     GeolocationFormat: __expectString(output.GeolocationFormat),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
@@ -5093,6 +5123,7 @@ const deserializeAws_json1_1DescribeExplainabilityExportResponse = (
     ExplainabilityArn: __expectString(output.ExplainabilityArn),
     ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
     ExplainabilityExportName: __expectString(output.ExplainabilityExportName),
+    Format: __expectString(output.Format),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -5155,6 +5186,7 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
     ForecastArn: __expectString(output.ForecastArn),
     ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
     ForecastExportJobName: __expectString(output.ForecastExportJobName),
+    Format: __expectString(output.Format),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -5188,6 +5220,10 @@ const deserializeAws_json1_1DescribeForecastResponse = (
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
     Status: __expectString(output.Status),
+    TimeSeriesSelector:
+      output.TimeSeriesSelector !== undefined && output.TimeSeriesSelector !== null
+        ? deserializeAws_json1_1TimeSeriesSelector(output.TimeSeriesSelector, context)
+        : undefined,
   } as any;
 };
 
@@ -5235,6 +5271,7 @@ const deserializeAws_json1_1DescribePredictorBacktestExportJobResponse = (
       output.Destination !== undefined && output.Destination !== null
         ? deserializeAws_json1_1DataDestination(output.Destination, context)
         : undefined,
+    Format: __expectString(output.Format),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -6308,6 +6345,29 @@ const deserializeAws_json1_1TimeAlignmentBoundary = (output: any, context: __Ser
     DayOfWeek: __expectString(output.DayOfWeek),
     Hour: __expectInt32(output.Hour),
     Month: __expectString(output.Month),
+  } as any;
+};
+
+const deserializeAws_json1_1TimeSeriesIdentifiers = (output: any, context: __SerdeContext): TimeSeriesIdentifiers => {
+  return {
+    DataSource:
+      output.DataSource !== undefined && output.DataSource !== null
+        ? deserializeAws_json1_1DataSource(output.DataSource, context)
+        : undefined,
+    Format: __expectString(output.Format),
+    Schema:
+      output.Schema !== undefined && output.Schema !== null
+        ? deserializeAws_json1_1Schema(output.Schema, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TimeSeriesSelector = (output: any, context: __SerdeContext): TimeSeriesSelector => {
+  return {
+    TimeSeriesIdentifiers:
+      output.TimeSeriesIdentifiers !== undefined && output.TimeSeriesIdentifiers !== null
+        ? deserializeAws_json1_1TimeSeriesIdentifiers(output.TimeSeriesIdentifiers, context)
+        : undefined,
   } as any;
 };
 

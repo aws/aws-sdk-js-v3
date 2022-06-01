@@ -30,18 +30,14 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *       AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy
  *       of your data and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set up
  *         permissions</a>.</p>
- *          <p>The training data must be in CSV format. The delimiter must be a comma (,).</p>
- *          <p>You can specify the path to a specific CSV file, the S3 bucket, or to a folder in the S3
+ *          <p>The training data must be in CSV or Parquet format. The delimiter must be a comma (,).</p>
+ *          <p>You can specify the path to a specific file, the S3 bucket, or to a folder in the S3
  *       bucket. For the latter two cases, Amazon Forecast imports all files up to the limit of 10,000
  *       files.</p>
- *
- *
  *          <p>Because dataset imports are not aggregated, your most recent dataset import is the one
  *       that is used when training a predictor or generating a forecast. Make sure that your most
  *       recent dataset import contains all of the data you want to model off of, and not just the new
  *       data collected since the previous import.</p>
- *
- *
  *          <p>To get a list of all your dataset import jobs, filtered by specified criteria, use the
  *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a> operation.</p>
  * @example

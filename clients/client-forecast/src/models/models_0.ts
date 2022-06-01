@@ -1284,6 +1284,11 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The format of the imported data, CSV or PARQUET. The default value is CSV.</p>
+   */
+  Format?: string;
 }
 
 export namespace CreateDatasetImportJobRequest {
@@ -1338,7 +1343,7 @@ export interface ExplainabilityConfig {
    * <p>To create an Explainability for all time series in your datasets, use
    *             <code>ALL</code>. To create an Explainability for specific time series in your datasets,
    *             use <code>SPECIFIC</code>.</p>
-   *         <p>Specify time series by uploading a CSV file to an Amazon S3 bucket and set the location
+   *         <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
    *             within the <a>DataDestination</a> data type.</p>
    */
   TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
@@ -1548,6 +1553,11 @@ export interface CreateExplainabilityExportRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
 }
 
 export namespace CreateExplainabilityExportRequest {
@@ -1572,6 +1582,73 @@ export namespace CreateExplainabilityExportResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateExplainabilityExportResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
+ */
+export interface TimeSeriesIdentifiers {
+  /**
+   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Defines the fields of a dataset.</p>
+   */
+  Schema?: Schema;
+
+  /**
+   * <p>The format of the data, either CSV or PARQUET.</p>
+   */
+  Format?: string;
+}
+
+export namespace TimeSeriesIdentifiers {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeSeriesIdentifiers): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
+ *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DataSource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Format</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Schema</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface TimeSeriesSelector {
+  /**
+   * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
+   */
+  TimeSeriesIdentifiers?: TimeSeriesIdentifiers;
+}
+
+export namespace TimeSeriesSelector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeSeriesSelector): any => ({
     ...obj,
   });
 }
@@ -1638,6 +1715,29 @@ export interface CreateForecastRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
+   *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DataSource</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Format</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Schema</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TimeSeriesSelector?: TimeSeriesSelector;
 }
 
 export namespace CreateForecastRequest {
@@ -1725,6 +1825,11 @@ export interface CreateForecastExportJobRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
+   */
+  Format?: string;
 }
 
 export namespace CreateForecastExportJobRequest {
@@ -2831,6 +2936,11 @@ export interface CreatePredictorBacktestExportJobRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
+   */
+  Format?: string;
 }
 
 export namespace CreatePredictorBacktestExportJobRequest {
@@ -3803,6 +3913,11 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The format of the imported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
 }
 
 export namespace DescribeDatasetImportJobResponse {
@@ -3993,7 +4108,7 @@ export interface DescribeExplainabilityExportResponse {
   ExplainabilityExportName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
    */
   ExplainabilityArn?: string;
 
@@ -4070,6 +4185,11 @@ export interface DescribeExplainabilityExportResponse {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
 }
 
 export namespace DescribeExplainabilityExportResponse {
@@ -4198,6 +4318,11 @@ export interface DescribeForecastResponse {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The time series to include in the forecast.</p>
+   */
+  TimeSeriesSelector?: TimeSeriesSelector;
 }
 
 export namespace DescribeForecastResponse {
@@ -4316,6 +4441,11 @@ export interface DescribeForecastExportJobResponse {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
 }
 
 export namespace DescribeForecastExportJobResponse {
@@ -4895,6 +5025,11 @@ export interface DescribePredictorBacktestExportJobResponse {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
 }
 
 export namespace DescribePredictorBacktestExportJobResponse {
