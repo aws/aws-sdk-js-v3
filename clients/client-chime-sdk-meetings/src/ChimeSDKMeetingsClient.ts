@@ -56,6 +56,10 @@ import {
   BatchCreateAttendeeCommandInput,
   BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
+import {
+  BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+  BatchUpdateAttendeeCapabilitiesExceptCommandOutput,
+} from "./commands/BatchUpdateAttendeeCapabilitiesExceptCommand";
 import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./commands/CreateAttendeeCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
@@ -75,10 +79,15 @@ import {
   StopMeetingTranscriptionCommandInput,
   StopMeetingTranscriptionCommandOutput,
 } from "./commands/StopMeetingTranscriptionCommand";
+import {
+  UpdateAttendeeCapabilitiesCommandInput,
+  UpdateAttendeeCapabilitiesCommandOutput,
+} from "./commands/UpdateAttendeeCapabilitiesCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | BatchCreateAttendeeCommandInput
+  | BatchUpdateAttendeeCapabilitiesExceptCommandInput
   | CreateAttendeeCommandInput
   | CreateMeetingCommandInput
   | CreateMeetingWithAttendeesCommandInput
@@ -88,10 +97,12 @@ export type ServiceInputTypes =
   | GetMeetingCommandInput
   | ListAttendeesCommandInput
   | StartMeetingTranscriptionCommandInput
-  | StopMeetingTranscriptionCommandInput;
+  | StopMeetingTranscriptionCommandInput
+  | UpdateAttendeeCapabilitiesCommandInput;
 
 export type ServiceOutputTypes =
   | BatchCreateAttendeeCommandOutput
+  | BatchUpdateAttendeeCapabilitiesExceptCommandOutput
   | CreateAttendeeCommandOutput
   | CreateMeetingCommandOutput
   | CreateMeetingWithAttendeesCommandOutput
@@ -101,7 +112,8 @@ export type ServiceOutputTypes =
   | GetMeetingCommandOutput
   | ListAttendeesCommandOutput
   | StartMeetingTranscriptionCommandOutput
-  | StopMeetingTranscriptionCommandOutput;
+  | StopMeetingTranscriptionCommandOutput
+  | UpdateAttendeeCapabilitiesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

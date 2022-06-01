@@ -3,6 +3,42 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
+export enum MediaCapabilities {
+  NONE = "None",
+  RECEIVE = "Receive",
+  SEND = "Send",
+  SEND_RECEIVE = "SendReceive",
+}
+
+/**
+ * <p>The media capabilities of an attendee, including audio, video and content. </p>
+ */
+export interface AttendeeCapabilities {
+  /**
+   * <p>The audio capability assigned to an attendee.</p>
+   */
+  Audio: MediaCapabilities | string | undefined;
+
+  /**
+   * <p>The video capability assigned to an attendee.</p>
+   */
+  Video: MediaCapabilities | string | undefined;
+
+  /**
+   * <p>The content capability assigned to an attendee.</p>
+   */
+  Content: MediaCapabilities | string | undefined;
+}
+
+export namespace AttendeeCapabilities {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttendeeCapabilities): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>An Amazon Chime SDK meeting attendee. Includes a unique
  *            <code>AttendeeId</code> and <code>JoinToken</code>. The
@@ -33,6 +69,11 @@ export interface Attendee {
    * <p>The join token used by the Amazon Chime SDK attendee.</p>
    */
   JoinToken?: string;
+
+  /**
+   * <p>The capabilities (audio, video, or content) assigned to an attendee.</p>
+   */
+  Capabilities?: AttendeeCapabilities;
 }
 
 export namespace Attendee {
@@ -43,6 +84,25 @@ export namespace Attendee {
     ...obj,
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
     ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>A structure that contains one or more attendee IDs.</p>
+ */
+export interface AttendeeIdItem {
+  /**
+   * <p>A list of one or more attendee IDs.</p>
+   */
+  AttendeeId: string | undefined;
+}
+
+export namespace AttendeeIdItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttendeeIdItem): any => ({
+    ...obj,
   });
 }
 
@@ -106,6 +166,11 @@ export interface CreateAttendeeRequestItem {
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
    */
   ExternalUserId: string | undefined;
+
+  /**
+   * <p>A list of one or more capabilities.</p>
+   */
+  Capabilities?: AttendeeCapabilities;
 }
 
 export namespace CreateAttendeeRequestItem {
@@ -260,7 +325,7 @@ export class NotFoundException extends __BaseException {
   Code?: string;
   Message?: string;
   /**
-   * <p>The request id associated with the call responsible for the exception.</p>
+   * <p>The request ID associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
   /**
@@ -280,7 +345,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an unexpected error.</p>
+ * <p>The service is currently unavailable.</p>
  */
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
@@ -339,7 +404,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The number of customer requests exceeds the request rate limit.</p>
+ * <p>The number of requests exceeds the limit.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -419,6 +484,57 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
+export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
+  /**
+   * <p>The ID of the meeting associated with the update request.</p>
+   */
+  MeetingId: string | undefined;
+
+  /**
+   * <p>The <code>AttendeeIDs</code> that you want to exclude from one or more capabilities.</p>
+   */
+  ExcludedAttendeeIds: AttendeeIdItem[] | undefined;
+
+  /**
+   * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to update.</p>
+   */
+  Capabilities: AttendeeCapabilities | undefined;
+}
+
+export namespace BatchUpdateAttendeeCapabilitiesExceptRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateAttendeeCapabilitiesExceptRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Multiple instances of the same request have been made simultaneously.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
 export interface CreateAttendeeRequest {
   /**
    * <p>The unique ID of the meeting.</p>
@@ -429,6 +545,12 @@ export interface CreateAttendeeRequest {
    * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p>
    */
   ExternalUserId: string | undefined;
+
+  /**
+   * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on
+   *             all media channels by default.</p>
+   */
+  Capabilities?: AttendeeCapabilities;
 }
 
 export namespace CreateAttendeeRequest {
@@ -1261,5 +1383,60 @@ export namespace StopMeetingTranscriptionRequest {
    */
   export const filterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
     ...obj,
+  });
+}
+
+export interface UpdateAttendeeCapabilitiesRequest {
+  /**
+   * <p>The ID of the meeting associated with the update request.</p>
+   */
+  MeetingId: string | undefined;
+
+  /**
+   * <p>The ID of the attendee associated with the update request.</p>
+   */
+  AttendeeId: string | undefined;
+
+  /**
+   * <p>The capabilties that you want to update.</p>
+   */
+  Capabilities: AttendeeCapabilities | undefined;
+}
+
+export namespace UpdateAttendeeCapabilitiesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAttendeeCapabilitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAttendeeCapabilitiesResponse {
+  /**
+   * <p>An Amazon Chime SDK meeting attendee. Includes a unique
+   *            <code>AttendeeId</code> and <code>JoinToken</code>. The
+   *            <code>JoinToken</code>
+   *            allows a client to authenticate and join as the specified attendee. The
+   *            <code>JoinToken</code>
+   *            expires when the meeting ends, or when
+   *            <a>DeleteAttendee</a>
+   *            is called. After that, the attendee is unable to join the meeting.
+   *        </p>
+   *
+   *          <p>We recommend securely transferring each <code>JoinToken</code> from your server application
+   *            to the client so that no other client has access to the token except for the one
+   *            authorized to represent the attendee.</p>
+   */
+  Attendee?: Attendee;
+}
+
+export namespace UpdateAttendeeCapabilitiesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAttendeeCapabilitiesResponse): any => ({
+    ...obj,
+    ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
   });
 }

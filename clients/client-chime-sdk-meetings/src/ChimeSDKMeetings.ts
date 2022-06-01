@@ -8,6 +8,11 @@ import {
   BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
 import {
+  BatchUpdateAttendeeCapabilitiesExceptCommand,
+  BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+  BatchUpdateAttendeeCapabilitiesExceptCommandOutput,
+} from "./commands/BatchUpdateAttendeeCapabilitiesExceptCommand";
+import {
   CreateAttendeeCommand,
   CreateAttendeeCommandInput,
   CreateAttendeeCommandOutput,
@@ -49,6 +54,11 @@ import {
   StopMeetingTranscriptionCommandInput,
   StopMeetingTranscriptionCommandOutput,
 } from "./commands/StopMeetingTranscriptionCommand";
+import {
+  UpdateAttendeeCapabilitiesCommand,
+  UpdateAttendeeCapabilitiesCommandInput,
+  UpdateAttendeeCapabilitiesCommandOutput,
+} from "./commands/UpdateAttendeeCapabilitiesCommand";
 
 /**
  * <p>The Amazon Chime SDK meetings APIs in this section allow software developers to create Amazon Chime SDK meetings, set the AWS Regions for meetings, create and manage users, and send and
@@ -78,6 +88,40 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
     cb?: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
   ): Promise<BatchCreateAttendeeCommandOutput> | void {
     const command = new BatchCreateAttendeeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
+   */
+  public batchUpdateAttendeeCapabilitiesExcept(
+    args: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput>;
+  public batchUpdateAttendeeCapabilitiesExcept(
+    args: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+    cb: (err: any, data?: BatchUpdateAttendeeCapabilitiesExceptCommandOutput) => void
+  ): void;
+  public batchUpdateAttendeeCapabilitiesExcept(
+    args: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateAttendeeCapabilitiesExceptCommandOutput) => void
+  ): void;
+  public batchUpdateAttendeeCapabilitiesExcept(
+    args: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchUpdateAttendeeCapabilitiesExceptCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdateAttendeeCapabilitiesExceptCommandOutput) => void
+  ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> | void {
+    const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -419,6 +463,38 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
     cb?: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
   ): Promise<StopMeetingTranscriptionCommandOutput> | void {
     const command = new StopMeetingTranscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The capabilties that you want to update.</p>
+   */
+  public updateAttendeeCapabilities(
+    args: UpdateAttendeeCapabilitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAttendeeCapabilitiesCommandOutput>;
+  public updateAttendeeCapabilities(
+    args: UpdateAttendeeCapabilitiesCommandInput,
+    cb: (err: any, data?: UpdateAttendeeCapabilitiesCommandOutput) => void
+  ): void;
+  public updateAttendeeCapabilities(
+    args: UpdateAttendeeCapabilitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAttendeeCapabilitiesCommandOutput) => void
+  ): void;
+  public updateAttendeeCapabilities(
+    args: UpdateAttendeeCapabilitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAttendeeCapabilitiesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAttendeeCapabilitiesCommandOutput) => void
+  ): Promise<UpdateAttendeeCapabilitiesCommandOutput> | void {
+    const command = new UpdateAttendeeCapabilitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

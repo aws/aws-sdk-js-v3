@@ -18,6 +18,10 @@ import {
   BatchCreateAttendeeCommandInput,
   BatchCreateAttendeeCommandOutput,
 } from "../commands/BatchCreateAttendeeCommand";
+import {
+  BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+  BatchUpdateAttendeeCapabilitiesExceptCommandOutput,
+} from "../commands/BatchUpdateAttendeeCapabilitiesExceptCommand";
 import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "../commands/CreateAttendeeCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "../commands/CreateMeetingCommand";
 import {
@@ -37,11 +41,18 @@ import {
   StopMeetingTranscriptionCommandInput,
   StopMeetingTranscriptionCommandOutput,
 } from "../commands/StopMeetingTranscriptionCommand";
+import {
+  UpdateAttendeeCapabilitiesCommandInput,
+  UpdateAttendeeCapabilitiesCommandOutput,
+} from "../commands/UpdateAttendeeCapabilitiesCommand";
 import { ChimeSDKMeetingsServiceException as __BaseException } from "../models/ChimeSDKMeetingsServiceException";
 import {
   Attendee,
+  AttendeeCapabilities,
+  AttendeeIdItem,
   AudioFeatures,
   BadRequestException,
+  ConflictException,
   CreateAttendeeError,
   CreateAttendeeRequestItem,
   EngineTranscribeMedicalSettings,
@@ -102,6 +113,52 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   });
 };
 
+export const serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand = async (
+  input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/meetings/{MeetingId}/attendees/capabilities";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "batch-update-except",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+      }),
+    ...(input.ExcludedAttendeeIds !== undefined &&
+      input.ExcludedAttendeeIds !== null && {
+        ExcludedAttendeeIds: serializeAws_restJson1AttendeeIdsList(input.ExcludedAttendeeIds, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateAttendeeCommand = async (
   input: CreateAttendeeCommandInput,
   context: __SerdeContext
@@ -123,6 +180,10 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+      }),
     ...(input.ExternalUserId !== undefined &&
       input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
   });
@@ -472,6 +533,53 @@ export const serializeAws_restJson1StopMeetingTranscriptionCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
+  input: UpdateAttendeeCapabilitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/meetings/{MeetingId}/attendees/{AttendeeId}/capabilities";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  if (input.AttendeeId !== undefined) {
+    const labelValue: string = input.AttendeeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttendeeId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttendeeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttendeeId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1BatchCreateAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -533,6 +641,61 @@ const deserializeAws_restJson1BatchCreateAttendeeCommandError = async (
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
       throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError(output, context);
+  }
+  const contents: BatchUpdateAttendeeCapabilitiesExceptCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmeetings#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmeetings#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1175,6 +1338,65 @@ const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError(output, context);
+  }
+  const contents: UpdateAttendeeCapabilitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attendee: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attendee !== undefined && data.Attendee !== null) {
+    contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmeetings#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmeetings#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1191,6 +1413,28 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Code !== undefined && data.Code !== null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1376,6 +1620,31 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AttendeeCapabilities = (input: AttendeeCapabilities, context: __SerdeContext): any => {
+  return {
+    ...(input.Audio !== undefined && input.Audio !== null && { Audio: input.Audio }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Video !== undefined && input.Video !== null && { Video: input.Video }),
+  };
+};
+
+const serializeAws_restJson1AttendeeIdItem = (input: AttendeeIdItem, context: __SerdeContext): any => {
+  return {
+    ...(input.AttendeeId !== undefined && input.AttendeeId !== null && { AttendeeId: input.AttendeeId }),
+  };
+};
+
+const serializeAws_restJson1AttendeeIdsList = (input: AttendeeIdItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AttendeeIdItem(entry, context);
+    });
+};
+
 const serializeAws_restJson1AudioFeatures = (input: AudioFeatures, context: __SerdeContext): any => {
   return {
     ...(input.EchoReduction !== undefined && input.EchoReduction !== null && { EchoReduction: input.EchoReduction }),
@@ -1387,6 +1656,10 @@ const serializeAws_restJson1CreateAttendeeRequestItem = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Capabilities !== undefined &&
+      input.Capabilities !== null && {
+        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+      }),
     ...(input.ExternalUserId !== undefined &&
       input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
   };
@@ -1519,8 +1792,20 @@ const serializeAws_restJson1TranscriptionConfiguration = (
 const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext): Attendee => {
   return {
     AttendeeId: __expectString(output.AttendeeId),
+    Capabilities:
+      output.Capabilities !== undefined && output.Capabilities !== null
+        ? deserializeAws_restJson1AttendeeCapabilities(output.Capabilities, context)
+        : undefined,
     ExternalUserId: __expectString(output.ExternalUserId),
     JoinToken: __expectString(output.JoinToken),
+  } as any;
+};
+
+const deserializeAws_restJson1AttendeeCapabilities = (output: any, context: __SerdeContext): AttendeeCapabilities => {
+  return {
+    Audio: __expectString(output.Audio),
+    Content: __expectString(output.Content),
+    Video: __expectString(output.Video),
   } as any;
 };
 

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./BatchCreateAttendeeCommand";
+export * from "./BatchUpdateAttendeeCapabilitiesExceptCommand";
 export * from "./CreateAttendeeCommand";
 export * from "./CreateMeetingCommand";
 export * from "./CreateMeetingWithAttendeesCommand";
@@ -10,3 +11,4 @@ export * from "./GetMeetingCommand";
 export * from "./ListAttendeesCommand";
 export * from "./StartMeetingTranscriptionCommand";
 export * from "./StopMeetingTranscriptionCommand";
+export * from "./UpdateAttendeeCapabilitiesCommand";
