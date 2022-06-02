@@ -9648,7 +9648,7 @@ export const deserializeAws_restXmlSelectObjectContentCommand = async (
     const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
       accummulator[curr[0]] = curr[1].value;
       return accummulator;
-    }, {} as { [key: string]: any });
+    }, {} as Record<string, any>);
     const eventMessage = {
       headers: eventHeaders,
       body: event[eventName].body,
