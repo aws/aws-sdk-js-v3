@@ -265,6 +265,8 @@ import {
   GetQuerySuggestionsResponse,
   GetSnapshotsRequest,
   GetSnapshotsResponse,
+  GitHubConfiguration,
+  GitHubDocumentCrawlProperties,
   GoogleDriveConfiguration,
   GroupMembers,
   GroupOrderingIdSummary,
@@ -307,6 +309,7 @@ import {
   MemberUser,
   OneDriveConfiguration,
   OneDriveUsers,
+  OnPremiseConfiguration,
   PersonasSummary,
   Principal,
   ProxyConfiguration,
@@ -324,6 +327,7 @@ import {
   ResourceUnavailableException,
   S3DataSourceConfiguration,
   S3Path,
+  SaaSConfiguration,
   SalesforceChatterFeedConfiguration,
   SalesforceChatterFeedIncludeFilterType,
   SalesforceConfiguration,
@@ -5092,6 +5096,10 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
       input.FsxConfiguration !== null && {
         FsxConfiguration: serializeAws_json1_1FsxConfiguration(input.FsxConfiguration, context),
       }),
+    ...(input.GitHubConfiguration !== undefined &&
+      input.GitHubConfiguration !== null && {
+        GitHubConfiguration: serializeAws_json1_1GitHubConfiguration(input.GitHubConfiguration, context),
+      }),
     ...(input.GoogleDriveConfiguration !== undefined &&
       input.GoogleDriveConfiguration !== null && {
         GoogleDriveConfiguration: serializeAws_json1_1GoogleDriveConfiguration(input.GoogleDriveConfiguration, context),
@@ -5802,6 +5810,141 @@ const serializeAws_json1_1GetSnapshotsRequest = (input: GetSnapshotsRequest, con
   };
 };
 
+const serializeAws_json1_1GitHubConfiguration = (input: GitHubConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ExclusionFileNamePatterns !== undefined &&
+      input.ExclusionFileNamePatterns !== null && {
+        ExclusionFileNamePatterns: serializeAws_json1_1StringList(input.ExclusionFileNamePatterns, context),
+      }),
+    ...(input.ExclusionFileTypePatterns !== undefined &&
+      input.ExclusionFileTypePatterns !== null && {
+        ExclusionFileTypePatterns: serializeAws_json1_1StringList(input.ExclusionFileTypePatterns, context),
+      }),
+    ...(input.ExclusionFolderNamePatterns !== undefined &&
+      input.ExclusionFolderNamePatterns !== null && {
+        ExclusionFolderNamePatterns: serializeAws_json1_1StringList(input.ExclusionFolderNamePatterns, context),
+      }),
+    ...(input.GitHubCommitConfigurationFieldMappings !== undefined &&
+      input.GitHubCommitConfigurationFieldMappings !== null && {
+        GitHubCommitConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubCommitConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubDocumentCrawlProperties !== undefined &&
+      input.GitHubDocumentCrawlProperties !== null && {
+        GitHubDocumentCrawlProperties: serializeAws_json1_1GitHubDocumentCrawlProperties(
+          input.GitHubDocumentCrawlProperties,
+          context
+        ),
+      }),
+    ...(input.GitHubIssueAttachmentConfigurationFieldMappings !== undefined &&
+      input.GitHubIssueAttachmentConfigurationFieldMappings !== null && {
+        GitHubIssueAttachmentConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubIssueAttachmentConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubIssueCommentConfigurationFieldMappings !== undefined &&
+      input.GitHubIssueCommentConfigurationFieldMappings !== null && {
+        GitHubIssueCommentConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubIssueCommentConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubIssueDocumentConfigurationFieldMappings !== undefined &&
+      input.GitHubIssueDocumentConfigurationFieldMappings !== null && {
+        GitHubIssueDocumentConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubIssueDocumentConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubPullRequestCommentConfigurationFieldMappings !== undefined &&
+      input.GitHubPullRequestCommentConfigurationFieldMappings !== null && {
+        GitHubPullRequestCommentConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubPullRequestCommentConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings !== undefined &&
+      input.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings !== null && {
+        GitHubPullRequestDocumentAttachmentConfigurationFieldMappings:
+          serializeAws_json1_1DataSourceToIndexFieldMappingList(
+            input.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+            context
+          ),
+      }),
+    ...(input.GitHubPullRequestDocumentConfigurationFieldMappings !== undefined &&
+      input.GitHubPullRequestDocumentConfigurationFieldMappings !== null && {
+        GitHubPullRequestDocumentConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubPullRequestDocumentConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.GitHubRepositoryConfigurationFieldMappings !== undefined &&
+      input.GitHubRepositoryConfigurationFieldMappings !== null && {
+        GitHubRepositoryConfigurationFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.GitHubRepositoryConfigurationFieldMappings,
+          context
+        ),
+      }),
+    ...(input.InclusionFileNamePatterns !== undefined &&
+      input.InclusionFileNamePatterns !== null && {
+        InclusionFileNamePatterns: serializeAws_json1_1StringList(input.InclusionFileNamePatterns, context),
+      }),
+    ...(input.InclusionFileTypePatterns !== undefined &&
+      input.InclusionFileTypePatterns !== null && {
+        InclusionFileTypePatterns: serializeAws_json1_1StringList(input.InclusionFileTypePatterns, context),
+      }),
+    ...(input.InclusionFolderNamePatterns !== undefined &&
+      input.InclusionFolderNamePatterns !== null && {
+        InclusionFolderNamePatterns: serializeAws_json1_1StringList(input.InclusionFolderNamePatterns, context),
+      }),
+    ...(input.OnPremiseConfiguration !== undefined &&
+      input.OnPremiseConfiguration !== null && {
+        OnPremiseConfiguration: serializeAws_json1_1OnPremiseConfiguration(input.OnPremiseConfiguration, context),
+      }),
+    ...(input.RepositoryFilter !== undefined &&
+      input.RepositoryFilter !== null && {
+        RepositoryFilter: serializeAws_json1_1RepositoryNames(input.RepositoryFilter, context),
+      }),
+    ...(input.SaaSConfiguration !== undefined &&
+      input.SaaSConfiguration !== null && {
+        SaaSConfiguration: serializeAws_json1_1SaaSConfiguration(input.SaaSConfiguration, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1GitHubDocumentCrawlProperties = (
+  input: GitHubDocumentCrawlProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CrawlIssue !== undefined && input.CrawlIssue !== null && { CrawlIssue: input.CrawlIssue }),
+    ...(input.CrawlIssueComment !== undefined &&
+      input.CrawlIssueComment !== null && { CrawlIssueComment: input.CrawlIssueComment }),
+    ...(input.CrawlIssueCommentAttachment !== undefined &&
+      input.CrawlIssueCommentAttachment !== null && { CrawlIssueCommentAttachment: input.CrawlIssueCommentAttachment }),
+    ...(input.CrawlPullRequest !== undefined &&
+      input.CrawlPullRequest !== null && { CrawlPullRequest: input.CrawlPullRequest }),
+    ...(input.CrawlPullRequestComment !== undefined &&
+      input.CrawlPullRequestComment !== null && { CrawlPullRequestComment: input.CrawlPullRequestComment }),
+    ...(input.CrawlPullRequestCommentAttachment !== undefined &&
+      input.CrawlPullRequestCommentAttachment !== null && {
+        CrawlPullRequestCommentAttachment: input.CrawlPullRequestCommentAttachment,
+      }),
+    ...(input.CrawlRepositoryDocuments !== undefined &&
+      input.CrawlRepositoryDocuments !== null && { CrawlRepositoryDocuments: input.CrawlRepositoryDocuments }),
+  };
+};
+
 const serializeAws_json1_1GoogleDriveConfiguration = (
   input: GoogleDriveConfiguration,
   context: __SerdeContext
@@ -6245,6 +6388,18 @@ const serializeAws_json1_1OneDriveUsers = (input: OneDriveUsers, context: __Serd
   };
 };
 
+const serializeAws_json1_1OnPremiseConfiguration = (input: OnPremiseConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.HostUrl !== undefined && input.HostUrl !== null && { HostUrl: input.HostUrl }),
+    ...(input.OrganizationName !== undefined &&
+      input.OrganizationName !== null && { OrganizationName: input.OrganizationName }),
+    ...(input.SslCertificateS3Path !== undefined &&
+      input.SslCertificateS3Path !== null && {
+        SslCertificateS3Path: serializeAws_json1_1S3Path(input.SslCertificateS3Path, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1Principal = (input: Principal, context: __SerdeContext): any => {
   return {
     ...(input.Access !== undefined && input.Access !== null && { Access: input.Access }),
@@ -6443,6 +6598,17 @@ const serializeAws_json1_1RelevanceFeedbackList = (input: RelevanceFeedback[], c
     });
 };
 
+const serializeAws_json1_1RepositoryNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1S3DataSourceConfiguration = (
   input: S3DataSourceConfiguration,
   context: __SerdeContext
@@ -6482,6 +6648,14 @@ const serializeAws_json1_1S3Path = (input: S3Path, context: __SerdeContext): any
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+  };
+};
+
+const serializeAws_json1_1SaaSConfiguration = (input: SaaSConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.HostUrl !== undefined && input.HostUrl !== null && { HostUrl: input.HostUrl }),
+    ...(input.OrganizationName !== undefined &&
+      input.OrganizationName !== null && { OrganizationName: input.OrganizationName }),
   };
 };
 
@@ -7014,6 +7188,17 @@ const serializeAws_json1_1StopDataSourceSyncJobRequest = (
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
+};
+
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SubmitFeedbackRequest = (input: SubmitFeedbackRequest, context: __SerdeContext): any => {
@@ -8089,6 +8274,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
       output.FsxConfiguration !== undefined && output.FsxConfiguration !== null
         ? deserializeAws_json1_1FsxConfiguration(output.FsxConfiguration, context)
         : undefined,
+    GitHubConfiguration:
+      output.GitHubConfiguration !== undefined && output.GitHubConfiguration !== null
+        ? deserializeAws_json1_1GitHubConfiguration(output.GitHubConfiguration, context)
+        : undefined,
     GoogleDriveConfiguration:
       output.GoogleDriveConfiguration !== undefined && output.GoogleDriveConfiguration !== null
         ? deserializeAws_json1_1GoogleDriveConfiguration(output.GoogleDriveConfiguration, context)
@@ -9011,6 +9200,137 @@ const deserializeAws_json1_1GetSnapshotsResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1GitHubConfiguration = (output: any, context: __SerdeContext): GitHubConfiguration => {
+  return {
+    ExclusionFileNamePatterns:
+      output.ExclusionFileNamePatterns !== undefined && output.ExclusionFileNamePatterns !== null
+        ? deserializeAws_json1_1StringList(output.ExclusionFileNamePatterns, context)
+        : undefined,
+    ExclusionFileTypePatterns:
+      output.ExclusionFileTypePatterns !== undefined && output.ExclusionFileTypePatterns !== null
+        ? deserializeAws_json1_1StringList(output.ExclusionFileTypePatterns, context)
+        : undefined,
+    ExclusionFolderNamePatterns:
+      output.ExclusionFolderNamePatterns !== undefined && output.ExclusionFolderNamePatterns !== null
+        ? deserializeAws_json1_1StringList(output.ExclusionFolderNamePatterns, context)
+        : undefined,
+    GitHubCommitConfigurationFieldMappings:
+      output.GitHubCommitConfigurationFieldMappings !== undefined &&
+      output.GitHubCommitConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubCommitConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubDocumentCrawlProperties:
+      output.GitHubDocumentCrawlProperties !== undefined && output.GitHubDocumentCrawlProperties !== null
+        ? deserializeAws_json1_1GitHubDocumentCrawlProperties(output.GitHubDocumentCrawlProperties, context)
+        : undefined,
+    GitHubIssueAttachmentConfigurationFieldMappings:
+      output.GitHubIssueAttachmentConfigurationFieldMappings !== undefined &&
+      output.GitHubIssueAttachmentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubIssueAttachmentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubIssueCommentConfigurationFieldMappings:
+      output.GitHubIssueCommentConfigurationFieldMappings !== undefined &&
+      output.GitHubIssueCommentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubIssueCommentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubIssueDocumentConfigurationFieldMappings:
+      output.GitHubIssueDocumentConfigurationFieldMappings !== undefined &&
+      output.GitHubIssueDocumentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubIssueDocumentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubPullRequestCommentConfigurationFieldMappings:
+      output.GitHubPullRequestCommentConfigurationFieldMappings !== undefined &&
+      output.GitHubPullRequestCommentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubPullRequestCommentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubPullRequestDocumentAttachmentConfigurationFieldMappings:
+      output.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings !== undefined &&
+      output.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubPullRequestDocumentConfigurationFieldMappings:
+      output.GitHubPullRequestDocumentConfigurationFieldMappings !== undefined &&
+      output.GitHubPullRequestDocumentConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubPullRequestDocumentConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    GitHubRepositoryConfigurationFieldMappings:
+      output.GitHubRepositoryConfigurationFieldMappings !== undefined &&
+      output.GitHubRepositoryConfigurationFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(
+            output.GitHubRepositoryConfigurationFieldMappings,
+            context
+          )
+        : undefined,
+    InclusionFileNamePatterns:
+      output.InclusionFileNamePatterns !== undefined && output.InclusionFileNamePatterns !== null
+        ? deserializeAws_json1_1StringList(output.InclusionFileNamePatterns, context)
+        : undefined,
+    InclusionFileTypePatterns:
+      output.InclusionFileTypePatterns !== undefined && output.InclusionFileTypePatterns !== null
+        ? deserializeAws_json1_1StringList(output.InclusionFileTypePatterns, context)
+        : undefined,
+    InclusionFolderNamePatterns:
+      output.InclusionFolderNamePatterns !== undefined && output.InclusionFolderNamePatterns !== null
+        ? deserializeAws_json1_1StringList(output.InclusionFolderNamePatterns, context)
+        : undefined,
+    OnPremiseConfiguration:
+      output.OnPremiseConfiguration !== undefined && output.OnPremiseConfiguration !== null
+        ? deserializeAws_json1_1OnPremiseConfiguration(output.OnPremiseConfiguration, context)
+        : undefined,
+    RepositoryFilter:
+      output.RepositoryFilter !== undefined && output.RepositoryFilter !== null
+        ? deserializeAws_json1_1RepositoryNames(output.RepositoryFilter, context)
+        : undefined,
+    SaaSConfiguration:
+      output.SaaSConfiguration !== undefined && output.SaaSConfiguration !== null
+        ? deserializeAws_json1_1SaaSConfiguration(output.SaaSConfiguration, context)
+        : undefined,
+    SecretArn: __expectString(output.SecretArn),
+    Type: __expectString(output.Type),
+    UseChangeLog: __expectBoolean(output.UseChangeLog),
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GitHubDocumentCrawlProperties = (
+  output: any,
+  context: __SerdeContext
+): GitHubDocumentCrawlProperties => {
+  return {
+    CrawlIssue: __expectBoolean(output.CrawlIssue),
+    CrawlIssueComment: __expectBoolean(output.CrawlIssueComment),
+    CrawlIssueCommentAttachment: __expectBoolean(output.CrawlIssueCommentAttachment),
+    CrawlPullRequest: __expectBoolean(output.CrawlPullRequest),
+    CrawlPullRequestComment: __expectBoolean(output.CrawlPullRequestComment),
+    CrawlPullRequestCommentAttachment: __expectBoolean(output.CrawlPullRequestCommentAttachment),
+    CrawlRepositoryDocuments: __expectBoolean(output.CrawlRepositoryDocuments),
+  } as any;
+};
+
 const deserializeAws_json1_1GoogleDriveConfiguration = (
   output: any,
   context: __SerdeContext
@@ -9526,6 +9846,17 @@ const deserializeAws_json1_1OneDriveUsers = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1OnPremiseConfiguration = (output: any, context: __SerdeContext): OnPremiseConfiguration => {
+  return {
+    HostUrl: __expectString(output.HostUrl),
+    OrganizationName: __expectString(output.OrganizationName),
+    SslCertificateS3Path:
+      output.SslCertificateS3Path !== undefined && output.SslCertificateS3Path !== null
+        ? deserializeAws_json1_1S3Path(output.SslCertificateS3Path, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PersonasSummary = (output: any, context: __SerdeContext): PersonasSummary => {
   return {
     CreatedAt:
@@ -9748,6 +10079,18 @@ const deserializeAws_json1_1Relevance = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_json1_1RepositoryNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistException = (
   output: any,
   context: __SerdeContext
@@ -9814,6 +10157,13 @@ const deserializeAws_json1_1S3Path = (output: any, context: __SerdeContext): S3P
   return {
     Bucket: __expectString(output.Bucket),
     Key: __expectString(output.Key),
+  } as any;
+};
+
+const deserializeAws_json1_1SaaSConfiguration = (output: any, context: __SerdeContext): SaaSConfiguration => {
+  return {
+    HostUrl: __expectString(output.HostUrl),
+    OrganizationName: __expectString(output.OrganizationName),
   } as any;
 };
 
@@ -10356,6 +10706,18 @@ const deserializeAws_json1_1Status = (output: any, context: __SerdeContext): Sta
     FailureCode: __expectString(output.FailureCode),
     FailureReason: __expectString(output.FailureReason),
   } as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {

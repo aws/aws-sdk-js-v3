@@ -1284,6 +1284,11 @@ export namespace S3Path {
 export interface Document {
   /**
    * <p>A unique identifier of the document in the index.</p>
+   *         <p>Note, each document ID must be unique per index. You cannot create a data source
+   *             to index your documents with their unique IDs and then use the
+   *             <code>BatchPutDocument</code> API to index the same documents, or vice versa. You
+   *             can delete a data source and then use the <code>BatchPutDocument</code> API to index
+   *             the same documents, or vice versa.</p>
    */
   Id: string | undefined;
 
@@ -2417,6 +2422,327 @@ export namespace FsxConfiguration {
 }
 
 /**
+ * <p>Provides the configuration information to include certain types of GitHub content. You can
+ *             configure to index repository files only, or also include issues and pull requests,
+ *             comments, and comment attachments.</p>
+ */
+export interface GitHubDocumentCrawlProperties {
+  /**
+   * <p>
+   *             <code>TRUE</code> to index all files with a repository.</p>
+   */
+  CrawlRepositoryDocuments?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index all issues within a repository.</p>
+   */
+  CrawlIssue?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index all comments on issues.</p>
+   */
+  CrawlIssueComment?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to include all comment attachments for issues.</p>
+   */
+  CrawlIssueCommentAttachment?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index all pull requests within a repository.</p>
+   */
+  CrawlPullRequest?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index all comments on pull requests.</p>
+   */
+  CrawlPullRequestComment?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to include all comment attachments for pull requests.</p>
+   */
+  CrawlPullRequestCommentAttachment?: boolean;
+}
+
+export namespace GitHubDocumentCrawlProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GitHubDocumentCrawlProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to GitHub Enterprise Server (on premises).</p>
+ */
+export interface OnPremiseConfiguration {
+  /**
+   * <p>The GitHub host URL or API endpoint URL. For example,
+   *             <i>https://on-prem-host-url/api/v3/</i>
+   *          </p>
+   */
+  HostUrl: string | undefined;
+
+  /**
+   * <p>The name of the organization of the GitHub Enterprise Server (in-premise) account you want
+   *             to connect to. You can find your organization name by logging into GitHub desktop and
+   *             selecting <b>Your organizations</b> under your profile picture dropdown.</p>
+   */
+  OrganizationName: string | undefined;
+
+  /**
+   * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
+   */
+  SslCertificateS3Path: S3Path | undefined;
+}
+
+export namespace OnPremiseConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OnPremiseConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to GitHub Enterprise Cloud (SaaS).</p>
+ */
+export interface SaaSConfiguration {
+  /**
+   * <p>The name of the organization of the GitHub Enterprise Cloud (SaaS) account you want
+   *             to connect to. You can find your organization name by logging into GitHub desktop and
+   *             selecting <b>Your organizations</b> under your profile picture dropdown.</p>
+   */
+  OrganizationName: string | undefined;
+
+  /**
+   * <p>The GitHub host URL or API endpoint URL. For example,
+   *             <i>https://api.github.com</i>.</p>
+   */
+  HostUrl: string | undefined;
+}
+
+export namespace SaaSConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SaaSConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum Type {
+  ON_PREMISE = "ON_PREMISE",
+  SAAS = "SAAS",
+}
+
+/**
+ * <p>Provides the configuration information to connect to GitHub
+ *             as your data source.</p>
+ */
+export interface GitHubConfiguration {
+  /**
+   * <p>Configuration information to connect to GitHub Enterprise Cloud (SaaS).</p>
+   */
+  SaaSConfiguration?: SaaSConfiguration;
+
+  /**
+   * <p>Configuration information to connect to GitHub Enterprise Server (on premises).</p>
+   */
+  OnPremiseConfiguration?: OnPremiseConfiguration;
+
+  /**
+   * <p>The type of GitHub service you want to connect to—GitHub Enterprise
+   *             Cloud (SaaS) or GitHub Enterprise Server (on premises).</p>
+   */
+  Type?: Type | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains
+   *             the key-value pairs required to connect to your GitHub. The secret must contain
+   *             a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>githubToken—The access token created in GitHub. For more information
+   *                     on creating a token in GitHub, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html#github-authentication">Authentication
+   *                         for a GitHub data source</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to use the GitHub change log to determine which documents require
+   *             updating in the index. Depending on the GitHub change log's size, it may take longer
+   *             for Amazon Kendra to use the change log than to scan all of your documents in
+   *             GitHub.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>Configuration information to include certain types of GitHub content. You can
+   *             configure to index repository files only, or also include issues and pull requests,
+   *             comments, and comment attachments.</p>
+   */
+  GitHubDocumentCrawlProperties?: GitHubDocumentCrawlProperties;
+
+  /**
+   * <p>A list of names of the specific repositories you want to index.</p>
+   */
+  RepositoryFilter?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain folder names in your
+   *             GitHub repository or repositories. Folder names that match the patterns are
+   *             included in the index. Folder names that don't match the patterns are excluded
+   *             from the index. If a folder matches both an inclusion and exclusion pattern, the
+   *             exclusion pattern takes precedence and the folder isn't included in the index.</p>
+   */
+  InclusionFolderNamePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain file types in your
+   *             GitHub repository or repositories. File types that match the patterns are
+   *             included in the index. File types that don't match the patterns are excluded
+   *             from the index. If a file matches both an inclusion and exclusion pattern, the
+   *             exclusion pattern takes precedence and the file isn't included in the index.</p>
+   */
+  InclusionFileTypePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain file names in your
+   *             GitHub repository or repositories. File names that match the patterns are
+   *             included in the index. File names that don't match the patterns are excluded
+   *             from the index. If a file matches both an inclusion and exclusion pattern, the
+   *             exclusion pattern takes precedence and the file isn't included in the index.</p>
+   */
+  InclusionFileNamePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain folder names in your
+   *             GitHub repository or repositories. Folder names that match the patterns are excluded
+   *             from the index. Folder names that don't match the patterns are included in the index.
+   *             If a folder matches both an exclusion and inclusion pattern, the exclusion pattern
+   *             takes precedence and the folder isn't included in the index.</p>
+   */
+  ExclusionFolderNamePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain file types in your
+   *             GitHub repository or repositories. File types that match the patterns are excluded
+   *             from the index. File types that don't match the patterns are included in the index.
+   *             If a file matches both an exclusion and inclusion pattern, the exclusion pattern
+   *             takes precedence and the file isn't included in the index.</p>
+   */
+  ExclusionFileTypePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain file names in your
+   *             GitHub repository or repositories. File names that match the patterns are excluded
+   *             from the index. File names that don't match the patterns are included in the index.
+   *             If a file matches both an exclusion and inclusion pattern, the exclusion pattern
+   *             takes precedence and the file isn't included in the index.</p>
+   */
+  ExclusionFileNamePatterns?: string[];
+
+  /**
+   * <p>Configuration information of an Amazon Virtual Private Cloud to connect to your
+   *             GitHub. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map GitHub
+   *             repository attributes or field names to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubRepositoryConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub commits to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubCommitConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub issues to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubIssueDocumentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub issue comments to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubIssueCommentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub issue attachments to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubIssueAttachmentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub pull request comments to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubPullRequestCommentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub pull requests to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubPullRequestDocumentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of GitHub pull request attachments to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to
+   *             GitHub fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The GitHub data source field names must exist in your GitHub custom metadata.</p>
+   */
+  GitHubPullRequestDocumentAttachmentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
+}
+
+export namespace GitHubConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GitHubConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides the configuration information to connect to
  *             Google Drive as your data source.</p>
  */
@@ -2496,6 +2822,10 @@ export enum IssueSubEntity {
   WORKLOGS = "WORKLOGS",
 }
 
+/**
+ * <p>Provides the configuration information to connect to Jira as your
+ *             data source.</p>
+ */
 export interface JiraConfiguration {
   /**
    * <p>The URL of the Jira account. For example, company.attlassian.net or
@@ -2511,9 +2841,7 @@ export interface JiraConfiguration {
    *             contain a JSON structure with the following keys:</p>
    *         <ul>
    *             <li>
-   *                 <p>jira-id—The Active Directory user name, along with the
-   *                     Domain Name System (DNS) domain name. For example,
-   *                     <i>user@corp.example.com</i>.</p>
+   *                 <p>jira-id—The ID of the Jira account.</p>
    *             </li>
    *             <li>
    *                 <p>jiraCredentials—The password of the Jira account user.</p>
@@ -4260,6 +4588,12 @@ export interface DataSourceConfiguration {
    *             data source.</p>
    */
   JiraConfiguration?: JiraConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to GitHub as
+   *             your data source.</p>
+   */
+  GitHubConfiguration?: GitHubConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -4305,6 +4639,7 @@ export enum DataSourceType {
   CUSTOM = "CUSTOM",
   DATABASE = "DATABASE",
   FSX = "FSX",
+  GITHUB = "GITHUB",
   GOOGLEDRIVE = "GOOGLEDRIVE",
   JIRA = "JIRA",
   ONEDRIVE = "ONEDRIVE",
@@ -4684,14 +5019,14 @@ export enum IndexEdition {
 }
 
 /**
- * <p>Provides the identifier of the KMScustomer master key (CMK)
- *             used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
- *             asymmetric CMKs.</p>
+ * <p>Provides the identifier of the KMS key used to
+ *             encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't
+ *             support asymmetric keys.</p>
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The identifier of the KMScustomer master key (CMK). Amazon Kendra
-   *             doesn't support asymmetric CMKs.</p>
+   * <p>The identifier of the KMS key. Amazon Kendra
+   *             doesn't support asymmetric keys.</p>
    */
   KmsKeyId?: string;
 }
