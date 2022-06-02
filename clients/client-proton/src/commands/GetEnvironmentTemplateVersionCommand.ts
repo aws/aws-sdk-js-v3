@@ -25,7 +25,7 @@ export interface GetEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>View detail data for a major or minor version of an environment template.</p>
+ * <p>Get detailed data for a major or minor version of an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

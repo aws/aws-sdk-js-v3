@@ -1,4 +1,6 @@
+export * from "./waitForComponentDeleted";
 // smithy-typescript generated code
+export * from "./waitForComponentDeployed";
 export * from "./waitForEnvironmentDeployed";
 export * from "./waitForEnvironmentTemplateVersionRegistered";
 export * from "./waitForServiceCreated";

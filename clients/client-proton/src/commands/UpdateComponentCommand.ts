@@ -12,53 +12,50 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateServiceInput, UpdateServiceOutput } from "../models/models_0";
+import { UpdateComponentInput, UpdateComponentOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateServiceCommand,
-  serializeAws_json1_0UpdateServiceCommand,
+  deserializeAws_json1_0UpdateComponentCommand,
+  serializeAws_json1_0UpdateComponentCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
-export interface UpdateServiceCommandInput extends UpdateServiceInput {}
-export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __MetadataBearer {}
+export interface UpdateComponentCommandInput extends UpdateComponentInput {}
+export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __MetadataBearer {}
 
 /**
- * <p>Edit a service description or use a spec to add and delete service instances.</p>
+ * <p>Update a component.</p>
+ *          <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p>
  *          <note>
- *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+ *             <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is
+ *         <code>IN_PROGRESS</code>.</p>
  *          </note>
- *          <p>Use the <code>description</code> parameter to modify the description.</p>
- *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
- *          <note>
- *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
- *             <p>For more information about components, see
+ *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
  *   <i>Proton Administrator Guide</i>.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, UpdateComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const command = new UpdateServiceCommand(input);
+ * const command = new UpdateComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateServiceCommandInput} for command's `input` shape.
- * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @see {@link UpdateComponentCommandInput} for command's `input` shape.
+ * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
-export class UpdateServiceCommand extends $Command<
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
+export class UpdateComponentCommand extends $Command<
+  UpdateComponentCommandInput,
+  UpdateComponentCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateServiceCommandInput) {
+  constructor(readonly input: UpdateComponentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -71,20 +68,20 @@ export class UpdateServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateServiceCommandInput, UpdateServiceCommandOutput> {
+  ): Handler<UpdateComponentCommandInput, UpdateComponentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "UpdateServiceCommand";
+    const commandName = "UpdateComponentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateComponentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateComponentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +91,12 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceCommand(input, context);
+  private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0UpdateComponentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
+    return deserializeAws_json1_0UpdateComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

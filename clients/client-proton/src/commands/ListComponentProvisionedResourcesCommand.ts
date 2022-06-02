@@ -12,46 +12,47 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEnvironmentAccountConnectionInput, GetEnvironmentAccountConnectionOutput } from "../models/models_0";
+import { ListComponentProvisionedResourcesInput, ListComponentProvisionedResourcesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0GetEnvironmentAccountConnectionCommand,
+  deserializeAws_json1_0ListComponentProvisionedResourcesCommand,
+  serializeAws_json1_0ListComponentProvisionedResourcesCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
-export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironmentAccountConnectionInput {}
-export interface GetEnvironmentAccountConnectionCommandOutput
-  extends GetEnvironmentAccountConnectionOutput,
+export interface ListComponentProvisionedResourcesCommandInput extends ListComponentProvisionedResourcesInput {}
+export interface ListComponentProvisionedResourcesCommandOutput
+  extends ListComponentProvisionedResourcesOutput,
     __MetadataBearer {}
 
 /**
- * <p>In an environment account, get the detailed data for an environment account connection.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+ * <p>List provisioned resources for a component with details.</p>
+ *          <p>For more information about components, see
+ *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListComponentProvisionedResourcesCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, ListComponentProvisionedResourcesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const command = new GetEnvironmentAccountConnectionCommand(input);
+ * const command = new ListComponentProvisionedResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetEnvironmentAccountConnectionCommandInput} for command's `input` shape.
- * @see {@link GetEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
+ * @see {@link ListComponentProvisionedResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListComponentProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
-export class GetEnvironmentAccountConnectionCommand extends $Command<
-  GetEnvironmentAccountConnectionCommandInput,
-  GetEnvironmentAccountConnectionCommandOutput,
+export class ListComponentProvisionedResourcesCommand extends $Command<
+  ListComponentProvisionedResourcesCommandInput,
+  ListComponentProvisionedResourcesCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetEnvironmentAccountConnectionCommandInput) {
+  constructor(readonly input: ListComponentProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +65,20 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetEnvironmentAccountConnectionCommandInput, GetEnvironmentAccountConnectionCommandOutput> {
+  ): Handler<ListComponentProvisionedResourcesCommandInput, ListComponentProvisionedResourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "GetEnvironmentAccountConnectionCommand";
+    const commandName = "ListComponentProvisionedResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentAccountConnectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnvironmentAccountConnectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListComponentProvisionedResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListComponentProvisionedResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,17 +89,17 @@ export class GetEnvironmentAccountConnectionCommand extends $Command<
   }
 
   private serialize(
-    input: GetEnvironmentAccountConnectionCommandInput,
+    input: ListComponentProvisionedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentAccountConnectionCommand(input, context);
+    return serializeAws_json1_0ListComponentProvisionedResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentAccountConnectionCommand(output, context);
+  ): Promise<ListComponentProvisionedResourcesCommandOutput> {
+    return deserializeAws_json1_0ListComponentProvisionedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

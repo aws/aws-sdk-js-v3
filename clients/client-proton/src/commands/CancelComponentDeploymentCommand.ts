@@ -12,53 +12,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateServiceInput, UpdateServiceOutput } from "../models/models_0";
+import { CancelComponentDeploymentInput, CancelComponentDeploymentOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateServiceCommand,
-  serializeAws_json1_0UpdateServiceCommand,
+  deserializeAws_json1_0CancelComponentDeploymentCommand,
+  serializeAws_json1_0CancelComponentDeploymentCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
-export interface UpdateServiceCommandInput extends UpdateServiceInput {}
-export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __MetadataBearer {}
+export interface CancelComponentDeploymentCommandInput extends CancelComponentDeploymentInput {}
+export interface CancelComponentDeploymentCommandOutput extends CancelComponentDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Edit a service description or use a spec to add and delete service instances.</p>
- *          <note>
- *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
- *          </note>
- *          <p>Use the <code>description</code> parameter to modify the description.</p>
- *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
- *          <note>
- *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
- *             <p>For more information about components, see
+ * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
+ *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
  *   <i>Proton Administrator Guide</i>.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CancelComponentDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, CancelComponentDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const command = new UpdateServiceCommand(input);
+ * const command = new CancelComponentDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateServiceCommandInput} for command's `input` shape.
- * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @see {@link CancelComponentDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CancelComponentDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
-export class UpdateServiceCommand extends $Command<
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
+export class CancelComponentDeploymentCommand extends $Command<
+  CancelComponentDeploymentCommandInput,
+  CancelComponentDeploymentCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateServiceCommandInput) {
+  constructor(readonly input: CancelComponentDeploymentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -71,20 +63,20 @@ export class UpdateServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateServiceCommandInput, UpdateServiceCommandOutput> {
+  ): Handler<CancelComponentDeploymentCommandInput, CancelComponentDeploymentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "UpdateServiceCommand";
+    const commandName = "CancelComponentDeploymentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelComponentDeploymentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelComponentDeploymentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +86,15 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceCommand(input, context);
+  private serialize(input: CancelComponentDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0CancelComponentDeploymentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CancelComponentDeploymentCommandOutput> {
+    return deserializeAws_json1_0CancelComponentDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,7 +23,7 @@ export interface ListServicePipelineOutputsCommandInput extends ListServicePipel
 export interface ListServicePipelineOutputsCommandOutput extends ListServicePipelineOutputsOutput, __MetadataBearer {}
 
 /**
- * <p>View a list service pipeline infrastructure as code outputs with detail.</p>
+ * <p>Get a list of service pipeline Infrastructure as Code (IaC) outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

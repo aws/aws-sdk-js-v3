@@ -26,7 +26,7 @@ export enum EnvironmentAccountConnectionStatus {
 }
 
 /**
- * <p>The environment account connection detail data.</p>
+ * <p>Detailed data of an Proton environment account connection resource.</p>
  */
 export interface EnvironmentAccountConnection {
   /**
@@ -73,6 +73,17 @@ export interface EnvironmentAccountConnection {
    * <p>The status of the environment account connection.</p>
    */
   status: EnvironmentAccountConnectionStatus | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
+   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
+   *       environments running in the account.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace EnvironmentAccountConnection {
@@ -379,6 +390,135 @@ export namespace UpdateAccountSettingsOutput {
   });
 }
 
+export interface CancelComponentDeploymentInput {
+  /**
+   * <p>The name of the component with the deployment to cancel.</p>
+   */
+  componentName: string | undefined;
+}
+
+export namespace CancelComponentDeploymentInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelComponentDeploymentInput): any => ({
+    ...obj,
+  });
+}
+
+export enum DeploymentStatus {
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  DELETE_COMPLETE = "DELETE_COMPLETE",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Detailed data of an Proton component resource.</p>
+ *          <p>For more information about components, see
+ *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton Administrator Guide</i>.</p>
+ */
+export interface Component {
+  /**
+   * <p>The name of the component.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the component.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the Proton environment that this component is associated with.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The time when the component was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time when the component was last modified.</p>
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The time when a deployment of the component was last attempted.</p>
+   */
+  lastDeploymentAttemptedAt?: Date;
+
+  /**
+   * <p>The time when the component was last deployed successfully.</p>
+   */
+  lastDeploymentSucceededAt?: Date;
+
+  /**
+   * <p>The component deployment status.</p>
+   */
+  deploymentStatus: DeploymentStatus | string | undefined;
+
+  /**
+   * <p>The message associated with the component deployment status.</p>
+   */
+  deploymentStatusMessage?: string;
+
+  /**
+   * <p>The service spec that the component uses to access service inputs. Provided when a component is attached to a service instance.</p>
+   */
+  serviceSpec?: string;
+}
+
+export namespace Component {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Component): any => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+  });
+}
+
+export interface CancelComponentDeploymentOutput {
+  /**
+   * <p>The detailed data of the component with the deployment that is being canceled.</p>
+   */
+  component: Component | undefined;
+}
+
+export namespace CancelComponentDeploymentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelComponentDeploymentOutput): any => ({
+    ...obj,
+    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
+  });
+}
+
 export interface CancelEnvironmentDeploymentInput {
   /**
    * <p>The name of the environment with the deployment to cancel.</p>
@@ -395,23 +535,12 @@ export namespace CancelEnvironmentDeploymentInput {
   });
 }
 
-export enum DeploymentStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
-
 export enum Provisioning {
   CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
 }
 
 /**
- * <p>The environment detail data. An Proton environment is a set resources shared across an Proton service.</p>
+ * <p>Detailed data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
  */
 export interface Environment {
   /**
@@ -498,6 +627,16 @@ export interface Environment {
    * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
    */
   provisioningRepository?: RepositoryBranch;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
+   *       determines the scope of infrastructure that a component can provision.</p>
+   *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace Environment {
@@ -551,7 +690,7 @@ export namespace CancelServiceInstanceDeploymentInput {
 }
 
 /**
- * <p>The service instance detail data.</p>
+ * <p>Detailed data of an Proton service instance resource.</p>
  */
 export interface ServiceInstance {
   /**
@@ -610,7 +749,7 @@ export interface ServiceInstance {
   deploymentStatus: DeploymentStatus | string | undefined;
 
   /**
-   * <p>A service instance deployment status message.</p>
+   * <p>The message associated with the service instance deployment status.</p>
    */
   deploymentStatusMessage?: string;
 
@@ -665,7 +804,7 @@ export namespace CancelServicePipelineDeploymentInput {
 }
 
 /**
- * <p>The service pipeline detail data.</p>
+ * <p>Detailed data of an Proton service instance pipeline resource.</p>
  */
 export interface ServicePipeline {
   /**
@@ -747,6 +886,153 @@ export namespace CancelServicePipelineDeploymentOutput {
   });
 }
 
+export interface ListComponentOutputsInput {
+  /**
+   * <p>The name of the component whose outputs you want.</p>
+   */
+  componentName: string | undefined;
+
+  /**
+   * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListComponentOutputsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentOutputsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An infrastructure as code defined resource output.</p>
+ */
+export interface Output {
+  /**
+   * <p>The output key.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The output value.</p>
+   */
+  valueString?: string;
+}
+
+export namespace Output {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Output): any => ({
+    ...obj,
+  });
+}
+
+export interface ListComponentOutputsOutput {
+  /**
+   * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of component Infrastructure as Code (IaC) outputs.</p>
+   */
+  outputs: Output[] | undefined;
+}
+
+export namespace ListComponentOutputsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentOutputsOutput): any => ({
+    ...obj,
+    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListComponentProvisionedResourcesInput {
+  /**
+   * <p>The name of the component whose provisioned resources you want.</p>
+   */
+  componentName: string | undefined;
+
+  /**
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned resources
+   *       that was previously requested.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListComponentProvisionedResourcesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentProvisionedResourcesInput): any => ({
+    ...obj,
+  });
+}
+
+export enum ProvisionedResourceEngine {
+  CLOUDFORMATION = "CLOUDFORMATION",
+  TERRAFORM = "TERRAFORM",
+}
+
+/**
+ * <p>Detail data for a provisioned resource.</p>
+ */
+export interface ProvisionedResource {
+  /**
+   * <p>The provisioned resource name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The provisioned resource identifier.</p>
+   */
+  identifier?: string;
+
+  /**
+   * <p>The resource provisioning engine. At this time, <code>CLOUDFORMATION</code> can be used for Amazon Web Services-managed provisioning, and <code>TERRAFORM</code> can
+   *       be used for self-managed provisioning.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
+   */
+  provisioningEngine?: ProvisionedResourceEngine | string;
+}
+
+export namespace ProvisionedResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProvisionedResource): any => ({
+    ...obj,
+  });
+}
+
+export interface ListComponentProvisionedResourcesOutput {
+  /**
+   * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
+   *       provisioned resources.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of provisioned resources for a component.</p>
+   */
+  provisionedResources: ProvisionedResource[] | undefined;
+}
+
+export namespace ListComponentProvisionedResourcesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentProvisionedResourcesOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A description of a resource tag.</p>
  */
@@ -768,6 +1054,408 @@ export namespace Tag {
    */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
+  });
+}
+
+export interface CreateComponentInput {
+  /**
+   * <p>The customer-provided name of the component.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An optional customer-provided description of the component.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated with. If you don't specify this, the component isn't attached to any
+   *       service instance. Specify both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance that you want to attach this component to. If you don't specify this, the component isn't attached to any service
+   *       instance. Specify both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The name of the Proton environment that you want to associate this component with. You must specify this when you don't specify
+   *         <code>serviceInstanceName</code> and <code>serviceName</code>.</p>
+   */
+  environmentName?: string;
+
+  /**
+   * <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p>
+   *          <note>
+   *             <p>Components support a single IaC file, even if you use Terraform as your template language.</p>
+   *          </note>
+   */
+  templateFile: string | undefined;
+
+  /**
+   * <p>A path to a manifest file that lists the Infrastructure as Code (IaC) file, template language, and rendering engine for infrastructure that a custom
+   *       component provisions.</p>
+   */
+  manifest: string | undefined;
+
+  /**
+   * <p>The service spec that you want the component to use to access service inputs. Set this only when you attach the component to a service
+   *       instance.</p>
+   */
+  serviceSpec?: string;
+
+  /**
+   * <p>An optional list of metadata items that you can associate with the Proton component. A tag is a key-value pair.</p>
+   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace CreateComponentInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateComponentInput): any => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
+    ...(obj.manifest && { manifest: SENSITIVE_STRING }),
+    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateComponentOutput {
+  /**
+   * <p>The detailed data of the created component.</p>
+   */
+  component: Component | undefined;
+}
+
+export namespace CreateComponentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateComponentOutput): any => ({
+    ...obj,
+    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
+  });
+}
+
+/**
+ * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">Proton Quotas</a> in the <i>Proton Administrator
+ *     Guide</i>.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+export interface DeleteComponentInput {
+  /**
+   * <p>The name of the component to delete.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace DeleteComponentInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteComponentInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteComponentOutput {
+  /**
+   * <p>The detailed data of the component being deleted.</p>
+   */
+  component?: Component;
+}
+
+export namespace DeleteComponentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteComponentOutput): any => ({
+    ...obj,
+    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
+  });
+}
+
+export interface GetComponentInput {
+  /**
+   * <p>The name of the component that you want to get the detailed data for.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace GetComponentInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetComponentInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetComponentOutput {
+  /**
+   * <p>The detailed data of the requested component.</p>
+   */
+  component?: Component;
+}
+
+export namespace GetComponentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetComponentOutput): any => ({
+    ...obj,
+    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
+  });
+}
+
+export interface ListComponentsInput {
+  /**
+   * <p>A token that indicates the location of the next component in the array of components, after the list of components that was previously
+   *       requested.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of an environment for result list filtering. Proton returns components associated with the environment or attached to service instances
+   *       running in it.</p>
+   */
+  environmentName?: string;
+
+  /**
+   * <p>The name of a service for result list filtering. Proton returns components attached to service instances of the service.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of a service instance for result list filtering. Proton returns the component attached to the service instance, if any.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The maximum number of components to list.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListComponentsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary data of an Proton component resource.</p>
+ *          <p>For more information about components, see
+ *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton Administrator Guide</i>.</p>
+ */
+export interface ComponentSummary {
+  /**
+   * <p>The name of the component.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the Proton environment that this component is associated with.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The time when the component was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time when the component was last modified.</p>
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The time when a deployment of the component was last attempted.</p>
+   */
+  lastDeploymentAttemptedAt?: Date;
+
+  /**
+   * <p>The time when the component was last deployed successfully.</p>
+   */
+  lastDeploymentSucceededAt?: Date;
+
+  /**
+   * <p>The component deployment status.</p>
+   */
+  deploymentStatus: DeploymentStatus | string | undefined;
+
+  /**
+   * <p>The message associated with the component deployment status.</p>
+   */
+  deploymentStatusMessage?: string;
+}
+
+export namespace ComponentSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComponentSummary): any => ({
+    ...obj,
+    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListComponentsOutput {
+  /**
+   * <p>A token that indicates the location of the next component in the array of components, after the current requested list of components.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of components with summary data.</p>
+   */
+  components: ComponentSummary[] | undefined;
+}
+
+export namespace ListComponentsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListComponentsOutput): any => ({
+    ...obj,
+    ...(obj.components && { components: obj.components.map((item) => ComponentSummary.filterSensitiveLog(item)) }),
+  });
+}
+
+export enum ComponentDeploymentUpdateType {
+  CURRENT_VERSION = "CURRENT_VERSION",
+  NONE = "NONE",
+}
+
+export interface UpdateComponentInput {
+  /**
+   * <p>The name of the component to update.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The deployment type. It defines the mode for updating a component, as follows:</p>
+   *          <dl>
+   *             <dt/>
+   *             <dd>
+   *                <p>
+   *                   <code>NONE</code>
+   *                </p>
+   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated. You can only specify
+   *               <code>description</code> in this mode.</p>
+   *             </dd>
+   *             <dt/>
+   *             <dd>
+   *                <p>
+   *                   <code>CURRENT_VERSION</code>
+   *                </p>
+   *                <p>In this mode, the component is deployed and updated with the new <code>serviceSpec</code>, <code>templateSource</code>, and/or <code>type</code>
+   *             that you provide. Only requested parameters are updated.</p>
+   *             </dd>
+   *          </dl>
+   */
+  deploymentType: ComponentDeploymentUpdateType | string | undefined;
+
+  /**
+   * <p>An optional customer-provided description of the component.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Don't specify to keep the component's current service instance
+   *       attachment. Specify an empty string to detach the component from the service instance it's attached to. Specify non-empty values for both
+   *         <code>serviceInstanceName</code> and <code>serviceName</code> or for neither of them.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance that you want to attach this component to. Don't specify to keep the component's current service instance attachment.
+   *       Specify an empty string to detach the component from the service instance it's attached to. Specify non-empty values for both
+   *         <code>serviceInstanceName</code> and <code>serviceName</code> or for neither of them.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The service spec that you want the component to use to access service inputs. Set this only when the component is attached to a service
+   *       instance.</p>
+   */
+  serviceSpec?: string;
+
+  /**
+   * <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p>
+   *          <note>
+   *             <p>Components support a single IaC file, even if you use Terraform as your template language.</p>
+   *          </note>
+   */
+  templateFile?: string;
+}
+
+export namespace UpdateComponentInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateComponentInput): any => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+    ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateComponentOutput {
+  /**
+   * <p>The detailed data of the updated component.</p>
+   */
+  component: Component | undefined;
+}
+
+export namespace UpdateComponentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateComponentOutput): any => ({
+    ...obj,
+    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
   });
 }
 
@@ -802,6 +1490,17 @@ export interface CreateEnvironmentAccountConnectionInput {
    *         <i>Proton Administrator Guide</i>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
+   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this
+   *       account.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace CreateEnvironmentAccountConnectionInput {
@@ -829,26 +1528,6 @@ export namespace CreateEnvironmentAccountConnectionOutput {
   });
 }
 
-/**
- * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">Proton Quotas</a> in the <i>Proton Administrator
- *     Guide</i>.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
 export interface DeleteEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection to delete.</p>
@@ -867,7 +1546,7 @@ export namespace DeleteEnvironmentAccountConnectionInput {
 
 export interface DeleteEnvironmentAccountConnectionOutput {
   /**
-   * <p>The environment account connection detail data that's returned by Proton.</p>
+   * <p>The detailed data of the environment account connection being deleted.</p>
    */
   environmentAccountConnection?: EnvironmentAccountConnection;
 }
@@ -883,7 +1562,7 @@ export namespace DeleteEnvironmentAccountConnectionOutput {
 
 export interface GetEnvironmentAccountConnectionInput {
   /**
-   * <p>The ID of the environment account connection.</p>
+   * <p>The ID of the environment account connection that you want to get the detailed data for.</p>
    */
   id: string | undefined;
 }
@@ -899,7 +1578,7 @@ export namespace GetEnvironmentAccountConnectionInput {
 
 export interface GetEnvironmentAccountConnectionOutput {
   /**
-   * <p>The environment account connection detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested environment account connection.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
@@ -956,7 +1635,7 @@ export namespace ListEnvironmentAccountConnectionsInput {
 }
 
 /**
- * <p>A summary of the environment account connection detail data.</p>
+ * <p>Summary data of an Proton environment account connection resource.</p>
  */
 export interface EnvironmentAccountConnectionSummary {
   /**
@@ -1003,6 +1682,17 @@ export interface EnvironmentAccountConnectionSummary {
    * <p>The status of the environment account connection.</p>
    */
   status: EnvironmentAccountConnectionStatus | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
+   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
+   *       environments running in the account.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace EnvironmentAccountConnectionSummary {
@@ -1077,7 +1767,18 @@ export interface UpdateEnvironmentAccountConnectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>
    */
-  roleArn: string | undefined;
+  roleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
+   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
+   *       environments running in the account.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace UpdateEnvironmentAccountConnectionInput {
@@ -1127,30 +1828,6 @@ export namespace ListEnvironmentOutputsInput {
   });
 }
 
-/**
- * <p>An infrastructure as code defined resource output.</p>
- */
-export interface Output {
-  /**
-   * <p>The output key.</p>
-   */
-  key?: string;
-
-  /**
-   * <p>The output value.</p>
-   */
-  valueString?: string;
-}
-
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentOutputsOutput {
   /**
    * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of
@@ -1192,42 +1869,6 @@ export namespace ListEnvironmentProvisionedResourcesInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListEnvironmentProvisionedResourcesInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ProvisionedResourceEngine {
-  CLOUDFORMATION = "CLOUDFORMATION",
-  TERRAFORM = "TERRAFORM",
-}
-
-/**
- * <p>Detail data for a provisioned resource.</p>
- */
-export interface ProvisionedResource {
-  /**
-   * <p>The provisioned resource name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The provisioned resource identifier.</p>
-   */
-  identifier?: string;
-
-  /**
-   * <p>The resource provisioning engine. At this time, <code>CLOUDFORMATION</code> can be used for Amazon Web Services-managed provisioning, and <code>TERRAFORM</code> can
-   *       be used for self-managed provisioning.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
-   */
-  provisioningEngine?: ProvisionedResourceEngine | string;
-}
-
-export namespace ProvisionedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedResource): any => ({
     ...obj,
   });
 }
@@ -1314,6 +1955,16 @@ export interface CreateEnvironmentInput {
    *         <code>protonServiceRoleArn</code> parameters.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
+   *       determines the scope of infrastructure that a component can provision.</p>
+   *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace CreateEnvironmentInput {
@@ -1362,7 +2013,7 @@ export namespace DeleteEnvironmentInput {
 
 export interface DeleteEnvironmentOutput {
   /**
-   * <p>The environment detail data that's returned by Proton.</p>
+   * <p>The detailed data of the environment being deleted.</p>
    */
   environment?: Environment;
 }
@@ -1379,7 +2030,7 @@ export namespace DeleteEnvironmentOutput {
 
 export interface GetEnvironmentInput {
   /**
-   * <p>The name of the environment that you want to get the detail data for.</p>
+   * <p>The name of the environment that you want to get the detailed data for.</p>
    */
   name: string | undefined;
 }
@@ -1395,7 +2046,7 @@ export namespace GetEnvironmentInput {
 
 export interface GetEnvironmentOutput {
   /**
-   * <p>The environment detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested environment.</p>
    */
   environment: Environment | undefined;
 }
@@ -1462,7 +2113,7 @@ export namespace ListEnvironmentsInput {
 }
 
 /**
- * <p>A summary of the environment detail data.</p>
+ * <p>Summary data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
  */
 export interface EnvironmentSummary {
   /**
@@ -1539,6 +2190,16 @@ export interface EnvironmentSummary {
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
   provisioning?: Provisioning | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
+   *       determines the scope of infrastructure that a component can provision.</p>
+   *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace EnvironmentSummary {
@@ -1663,6 +2324,16 @@ export interface UpdateEnvironmentInput {
    * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
+   *       determines the scope of infrastructure that a component can provision.</p>
+   *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  componentRoleArn?: string;
 }
 
 export namespace UpdateEnvironmentInput {
@@ -1835,7 +2506,7 @@ export namespace DeleteEnvironmentTemplateInput {
 
 export interface DeleteEnvironmentTemplateOutput {
   /**
-   * <p>The environment template detail data that's returned by Proton.</p>
+   * <p>The detailed data of the environment template being deleted.</p>
    */
   environmentTemplate?: EnvironmentTemplate;
 }
@@ -1854,7 +2525,7 @@ export namespace DeleteEnvironmentTemplateOutput {
 
 export interface GetEnvironmentTemplateInput {
   /**
-   * <p>The name of the environment template that you want to get the detail data for.</p>
+   * <p>The name of the environment template that you want to get the detailed data for.</p>
    */
   name: string | undefined;
 }
@@ -1870,7 +2541,7 @@ export namespace GetEnvironmentTemplateInput {
 
 export interface GetEnvironmentTemplateOutput {
   /**
-   * <p>The environment template detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested environment template.</p>
    */
   environmentTemplate: EnvironmentTemplate | undefined;
 }
@@ -2273,7 +2944,7 @@ export namespace DeleteEnvironmentTemplateVersionInput {
 
 export interface DeleteEnvironmentTemplateVersionOutput {
   /**
-   * <p>The environment template version detail data that's returned by Proton.</p>
+   * <p>The detailed data of the environment template version being deleted.</p>
    */
   environmentTemplateVersion?: EnvironmentTemplateVersion;
 }
@@ -2292,17 +2963,17 @@ export namespace DeleteEnvironmentTemplateVersionOutput {
 
 export interface GetEnvironmentTemplateVersionInput {
   /**
-   * <p>The name of the environment template.</p>
+   * <p>The name of the environment template a version of which you want to get detailed data for..</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>To view environment template major version detail data, include <code>major Version</code>.</p>
+   * <p>To get environment template major version detail data, include <code>major Version</code>.</p>
    */
   majorVersion: string | undefined;
 
   /**
-   * <p>To view environment template minor version detail data, include <code>minorVersion</code>.</p>
+   * <p>To get environment template minor version detail data, include <code>minorVersion</code>.</p>
    */
   minorVersion: string | undefined;
 }
@@ -2318,7 +2989,7 @@ export namespace GetEnvironmentTemplateVersionInput {
 
 export interface GetEnvironmentTemplateVersionOutput {
   /**
-   * <p>The environment template version detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested environment template version.</p>
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
@@ -3085,7 +3756,7 @@ export namespace CreateRepositoryInput {
 }
 
 /**
- * <p>Detail date for a repository that has been registered with Proton.</p>
+ * <p>Detailed data of a repository that has been registered with Proton.</p>
  */
 export interface Repository {
   /**
@@ -3235,7 +3906,7 @@ export namespace ListRepositoriesInput {
 }
 
 /**
- * <p>A summary of detail data for a registered repository.</p>
+ * <p>Summary data of a repository that has been registered with Proton.</p>
  */
 export interface RepositorySummary {
   /**
@@ -3286,12 +3957,12 @@ export namespace ListRepositoriesOutput {
 
 export interface ListServiceInstanceOutputsInput {
   /**
-   * <p>The service instance name.</p>
+   * <p>The name of the service instance whose outputs you want.</p>
    */
   serviceInstanceName: string | undefined;
 
   /**
-   * <p>The service name.</p>
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated to.</p>
    */
   serviceName: string | undefined;
 
@@ -3317,7 +3988,7 @@ export interface ListServiceInstanceOutputsOutput {
   nextToken?: string;
 
   /**
-   * <p>An array of service instance infrastructure as code outputs.</p>
+   * <p>An array of service instance Infrastructure as Code (IaC) outputs.</p>
    */
   outputs: Output[] | undefined;
 }
@@ -3334,12 +4005,12 @@ export namespace ListServiceInstanceOutputsOutput {
 
 export interface ListServiceInstanceProvisionedResourcesInput {
   /**
-   * <p>The service name.</p>
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated to.</p>
    */
   serviceName: string | undefined;
 
   /**
-   * <p>The service instance name.</p>
+   * <p>The name of the service instance whose provisioned resources you want.</p>
    */
   serviceInstanceName: string | undefined;
 
@@ -3383,7 +4054,7 @@ export namespace ListServiceInstanceProvisionedResourcesOutput {
 
 export interface GetServiceInstanceInput {
   /**
-   * <p>The name of a service instance that you want to get the detail data for.</p>
+   * <p>The name of a service instance that you want to get the detailed data for.</p>
    */
   name: string | undefined;
 
@@ -3404,7 +4075,7 @@ export namespace GetServiceInstanceInput {
 
 export interface GetServiceInstanceOutput {
   /**
-   * <p>The service instance detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested service instance.</p>
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -3447,7 +4118,7 @@ export namespace ListServiceInstancesInput {
 }
 
 /**
- * <p>A summary of the service instance detail data.</p>
+ * <p>Summary data of an Proton service instance resource.</p>
  */
 export interface ServiceInstanceSummary {
   /**
@@ -3529,7 +4200,7 @@ export interface ListServiceInstancesOutput {
   nextToken?: string;
 
   /**
-   * <p>An array of service instances with summaries of detail data.</p>
+   * <p>An array of service instances with summary data.</p>
    */
   serviceInstances: ServiceInstanceSummary[] | undefined;
 }
@@ -3558,8 +4229,7 @@ export interface UpdateServiceInstanceInput {
   serviceName: string | undefined;
 
   /**
-   * <p>The deployment type.</p>
-   *          <p>There are four modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
+   * <p>The deployment type. It defines the mode for updating a service instance, as follows:</p>
    *          <dl>
    *             <dt/>
    *             <dd>
@@ -3574,7 +4244,7 @@ export interface UpdateServiceInstanceInput {
    *                   <code>CURRENT_VERSION</code>
    *                </p>
    *                <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *               <i>Don’t</i> include major or minor version parameters when you use this <code>deployment-type</code>.</p>
+   *               <i>Don’t</i> include major or minor version parameters when you use this deployment type.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
@@ -3641,7 +4311,7 @@ export namespace UpdateServiceInstanceOutput {
 
 export interface ListServicePipelineOutputsInput {
   /**
-   * <p>The service name.</p>
+   * <p>The name of the service whose pipeline's outputs you want.</p>
    */
   serviceName: string | undefined;
 
@@ -3667,7 +4337,7 @@ export interface ListServicePipelineOutputsOutput {
   nextToken?: string;
 
   /**
-   * <p>An array of outputs.</p>
+   * <p>An array of service pipeline Infrastructure as Code (IaC) outputs.</p>
    */
   outputs: Output[] | undefined;
 }
@@ -3684,7 +4354,7 @@ export namespace ListServicePipelineOutputsOutput {
 
 export interface ListServicePipelineProvisionedResourcesInput {
   /**
-   * <p>The service name.</p>
+   * <p>The name of the service whose pipeline's provisioned resources you want.</p>
    */
   serviceName: string | undefined;
 
@@ -3905,7 +4575,7 @@ export enum ServiceStatus {
 }
 
 /**
- * <p>The service detail data.</p>
+ * <p>Detailed data of an Proton service resource.</p>
  */
 export interface Service {
   /**
@@ -3914,7 +4584,7 @@ export interface Service {
   name: string | undefined;
 
   /**
-   * <p>A description of a service.</p>
+   * <p>A description of the service.</p>
    */
   description?: string;
 
@@ -4024,7 +4694,7 @@ export namespace DeleteServiceInput {
 
 export interface DeleteServiceOutput {
   /**
-   * <p>The service detail data that's returned by Proton.</p>
+   * <p>The detailed data of the service being deleted.</p>
    */
   service?: Service;
 }
@@ -4041,7 +4711,7 @@ export namespace DeleteServiceOutput {
 
 export interface GetServiceInput {
   /**
-   * <p>The name of the service that you want to get the detail data for.</p>
+   * <p>The name of the service that you want to get the detailed data for.</p>
    */
   name: string | undefined;
 }
@@ -4057,7 +4727,7 @@ export namespace GetServiceInput {
 
 export interface GetServiceOutput {
   /**
-   * <p>The service detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested service.</p>
    */
   service?: Service;
 }
@@ -4094,7 +4764,7 @@ export namespace ListServicesInput {
 }
 
 /**
- * <p>A summary of the service detail data.</p>
+ * <p>Summary data of an Proton service resource.</p>
  */
 export interface ServiceSummary {
   /**
@@ -4265,7 +4935,7 @@ export namespace CreateServiceTemplateInput {
 }
 
 /**
- * <p>The service template detail data.</p>
+ * <p>Detailed data of an Proton service template resource.</p>
  */
 export interface ServiceTemplate {
   /**
@@ -4361,7 +5031,7 @@ export namespace DeleteServiceTemplateInput {
 
 export interface DeleteServiceTemplateOutput {
   /**
-   * <p>The service template detail data that's returned by Proton.</p>
+   * <p>The detailed data of the service template being deleted.</p>
    */
   serviceTemplate?: ServiceTemplate;
 }
@@ -4378,7 +5048,7 @@ export namespace DeleteServiceTemplateOutput {
 
 export interface GetServiceTemplateInput {
   /**
-   * <p>The name of the service template that you want to get detail data for.</p>
+   * <p>The name of the service template that you want to get detailed data for.</p>
    */
   name: string | undefined;
 }
@@ -4394,7 +5064,7 @@ export namespace GetServiceTemplateInput {
 
 export interface GetServiceTemplateOutput {
   /**
-   * <p>The service template detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested service template.</p>
    */
   serviceTemplate: ServiceTemplate | undefined;
 }
@@ -4432,7 +5102,7 @@ export namespace ListServiceTemplatesInput {
 }
 
 /**
- * <p>The service template summary data.</p>
+ * <p>Summary data of an Proton service template resource.</p>
  */
 export interface ServiceTemplateSummary {
   /**
@@ -4580,6 +5250,10 @@ export namespace CompatibleEnvironmentTemplateInput {
   });
 }
 
+export enum ServiceTemplateSupportedComponentSourceType {
+  DIRECTLY_DEFINED = "DIRECTLY_DEFINED",
+}
+
 export interface CreateServiceTemplateVersionInput {
   /**
    * <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first request
@@ -4610,7 +5284,8 @@ export interface CreateServiceTemplateVersionInput {
   source: TemplateVersionSourceInput | undefined;
 
   /**
-   * <p>An array of compatible environment template objects for the new version of a service template.</p>
+   * <p>An array of environment template objects that are compatible with the new service template version. A service instance based on this service template
+   *       version can run in environments based on compatible templates.</p>
    */
   compatibleEnvironmentTemplates: CompatibleEnvironmentTemplateInput[] | undefined;
 
@@ -4619,6 +5294,15 @@ export interface CreateServiceTemplateVersionInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template
+   *       version.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 export namespace CreateServiceTemplateVersionInput {
@@ -4657,7 +5341,7 @@ export namespace CompatibleEnvironmentTemplate {
 }
 
 /**
- * <p>The version of a service template detail data.</p>
+ * <p>Detailed data of an Proton service template version resource.</p>
  */
 export interface ServiceTemplateVersion {
   /**
@@ -4719,6 +5403,15 @@ export interface ServiceTemplateVersion {
    * <p>The schema of the version of a service template.</p>
    */
   schema?: string;
+
+  /**
+   * <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template
+   *       version.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 export namespace ServiceTemplateVersion {
@@ -4780,7 +5473,7 @@ export namespace DeleteServiceTemplateVersionInput {
 
 export interface DeleteServiceTemplateVersionOutput {
   /**
-   * <p>The service template version detail data that's returned by Proton.</p>
+   * <p>The detailed data of the service template version being deleted.</p>
    */
   serviceTemplateVersion?: ServiceTemplateVersion;
 }
@@ -4799,17 +5492,17 @@ export namespace DeleteServiceTemplateVersionOutput {
 
 export interface GetServiceTemplateVersionInput {
   /**
-   * <p>The name of the service template.</p>
+   * <p>The name of the service template a version of which you want to get detailed data for.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>To view service template major version detail data, include <code>major Version</code>.</p>
+   * <p>To get service template major version detail data, include <code>major Version</code>.</p>
    */
   majorVersion: string | undefined;
 
   /**
-   * <p>To view service template minor version detail data, include <code>minorVersion</code>.</p>
+   * <p>To get service template minor version detail data, include <code>minorVersion</code>.</p>
    */
   minorVersion: string | undefined;
 }
@@ -4825,7 +5518,7 @@ export namespace GetServiceTemplateVersionInput {
 
 export interface GetServiceTemplateVersionOutput {
   /**
-   * <p>The service template version detail data that's returned by Proton.</p>
+   * <p>The detailed data of the requested service template version.</p>
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
@@ -4877,7 +5570,7 @@ export namespace ListServiceTemplateVersionsInput {
 }
 
 /**
- * <p>A summary of the service template version detail data.</p>
+ * <p>Summary data of an Proton service template version resource.</p>
  */
 export interface ServiceTemplateVersionSummary {
   /**
@@ -4994,9 +5687,23 @@ export interface UpdateServiceTemplateVersionInput {
   status?: TemplateVersionStatus | string;
 
   /**
-   * <p>An array of compatible environment names for a service template major or minor version to update.</p>
+   * <p>An array of environment template objects that are compatible with this service template version. A service instance based on this service template
+   *       version can run in environments based on compatible templates.</p>
    */
   compatibleEnvironmentTemplates?: CompatibleEnvironmentTemplateInput[];
+
+  /**
+   * <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template
+   *       version.</p>
+   *          <note>
+   *             <p>A change to <code>supportedComponentSources</code> doesn't impact existing component attachments to instances based on this template version. A
+   *         change only affects later associations.</p>
+   *          </note>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 export namespace UpdateServiceTemplateVersionInput {

@@ -23,7 +23,7 @@ export interface GetEnvironmentTemplateCommandInput extends GetEnvironmentTempla
 export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for an environment template.</p>
+ * <p>Get detailed data for an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

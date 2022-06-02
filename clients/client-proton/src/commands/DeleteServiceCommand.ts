@@ -23,7 +23,13 @@ export interface DeleteServiceCommandInput extends DeleteServiceInput {}
 export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __MetadataBearer {}
 
 /**
- * <p>Delete a service.</p>
+ * <p>Delete a service, with its instances and pipeline.</p>
+ *          <note>
+ *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
+ *             <p>For more information about components, see
+ *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton Administrator Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

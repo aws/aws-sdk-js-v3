@@ -7,6 +7,11 @@ import {
   AcceptEnvironmentAccountConnectionCommandOutput,
 } from "./commands/AcceptEnvironmentAccountConnectionCommand";
 import {
+  CancelComponentDeploymentCommand,
+  CancelComponentDeploymentCommandInput,
+  CancelComponentDeploymentCommandOutput,
+} from "./commands/CancelComponentDeploymentCommand";
+import {
   CancelEnvironmentDeploymentCommand,
   CancelEnvironmentDeploymentCommandInput,
   CancelEnvironmentDeploymentCommandOutput,
@@ -21,6 +26,11 @@ import {
   CancelServicePipelineDeploymentCommandInput,
   CancelServicePipelineDeploymentCommandOutput,
 } from "./commands/CancelServicePipelineDeploymentCommand";
+import {
+  CreateComponentCommand,
+  CreateComponentCommandInput,
+  CreateComponentCommandOutput,
+} from "./commands/CreateComponentCommand";
 import {
   CreateEnvironmentAccountConnectionCommand,
   CreateEnvironmentAccountConnectionCommandInput,
@@ -66,6 +76,11 @@ import {
   CreateTemplateSyncConfigCommandInput,
   CreateTemplateSyncConfigCommandOutput,
 } from "./commands/CreateTemplateSyncConfigCommand";
+import {
+  DeleteComponentCommand,
+  DeleteComponentCommandInput,
+  DeleteComponentCommandOutput,
+} from "./commands/DeleteComponentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommand,
   DeleteEnvironmentAccountConnectionCommandInput,
@@ -116,6 +131,11 @@ import {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
+import {
+  GetComponentCommand,
+  GetComponentCommandInput,
+  GetComponentCommandOutput,
+} from "./commands/GetComponentCommand";
 import {
   GetEnvironmentAccountConnectionCommand,
   GetEnvironmentAccountConnectionCommandInput,
@@ -172,6 +192,21 @@ import {
   GetTemplateSyncStatusCommandInput,
   GetTemplateSyncStatusCommandOutput,
 } from "./commands/GetTemplateSyncStatusCommand";
+import {
+  ListComponentOutputsCommand,
+  ListComponentOutputsCommandInput,
+  ListComponentOutputsCommandOutput,
+} from "./commands/ListComponentOutputsCommand";
+import {
+  ListComponentProvisionedResourcesCommand,
+  ListComponentProvisionedResourcesCommandInput,
+  ListComponentProvisionedResourcesCommandOutput,
+} from "./commands/ListComponentProvisionedResourcesCommand";
+import {
+  ListComponentsCommand,
+  ListComponentsCommandInput,
+  ListComponentsCommandOutput,
+} from "./commands/ListComponentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentAccountConnectionsCommandInput,
@@ -278,6 +313,11 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateComponentCommand,
+  UpdateComponentCommandInput,
+  UpdateComponentCommandOutput,
+} from "./commands/UpdateComponentCommand";
 import {
   UpdateEnvironmentAccountConnectionCommand,
   UpdateEnvironmentAccountConnectionCommandInput,
@@ -489,6 +529,41 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelComponentDeploymentCommandOutput>;
+  public cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    cb: (err: any, data?: CancelComponentDeploymentCommandOutput) => void
+  ): void;
+  public cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelComponentDeploymentCommandOutput) => void
+  ): void;
+  public cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelComponentDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: CancelComponentDeploymentCommandOutput) => void
+  ): Promise<CancelComponentDeploymentCommandOutput> | void {
+    const command = new CancelComponentDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>Proton
    *         Administrator guide</i>.</p>
@@ -617,6 +692,41 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: CancelServicePipelineDeploymentCommandOutput) => void
   ): Promise<CancelServicePipelineDeploymentCommandOutput> | void {
     const command = new CancelServicePipelineDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public createComponent(
+    args: CreateComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComponentCommandOutput>;
+  public createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
+  public createComponent(
+    args: CreateComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
+  public createComponent(
+    args: CreateComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentCommandOutput) => void),
+    cb?: (err: any, data?: CreateComponentCommandOutput) => void
+  ): Promise<CreateComponentCommandOutput> | void {
+    const command = new CreateComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -965,6 +1075,41 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Delete an Proton component resource.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComponentCommandOutput>;
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): Promise<DeleteComponentCommandOutput> | void {
+    const command = new DeleteComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete an environment.</p>
    */
   public deleteEnvironment(
@@ -1135,7 +1280,13 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Delete a service.</p>
+   * <p>Delete a service, with its instances and pipeline.</p>
+   *          <note>
+   *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
+   *             <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   *          </note>
    */
   public deleteService(
     args: DeleteServiceCommandInput,
@@ -1300,7 +1451,39 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for an environment.</p>
+   * <p>Get detailed data for a component.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  public getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  public getComponent(
+    args: GetComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
+  public getComponent(
+    args: GetComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComponentCommandOutput) => void),
+    cb?: (err: any, data?: GetComponentCommandOutput) => void
+  ): Promise<GetComponentCommandOutput> | void {
+    const command = new GetComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get detailed data for an environment.</p>
    */
   public getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -1332,7 +1515,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>In an environment account, view the detail data for an environment account connection.</p>
+   * <p>In an environment account, get the detailed data for an environment account connection.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
    *         connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
@@ -1366,7 +1549,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for an environment template.</p>
+   * <p>Get detailed data for an environment template.</p>
    */
   public getEnvironmentTemplate(
     args: GetEnvironmentTemplateCommandInput,
@@ -1398,7 +1581,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>View detail data for a major or minor version of an environment template.</p>
+   * <p>Get detailed data for a major or minor version of an environment template.</p>
    */
   public getEnvironmentTemplateVersion(
     args: GetEnvironmentTemplateVersionCommandInput,
@@ -1501,7 +1684,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for a service.</p>
+   * <p>Get detailed data for a service.</p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
   public getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
@@ -1527,7 +1710,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
+   * <p>Get detailed data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
    */
   public getServiceInstance(
     args: GetServiceInstanceCommandInput,
@@ -1559,7 +1742,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for a service template.</p>
+   * <p>Get detailed data for a service template.</p>
    */
   public getServiceTemplate(
     args: GetServiceTemplateCommandInput,
@@ -1591,7 +1774,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>View detail data for a major or minor version of a service template.</p>
+   * <p>Get detailed data for a major or minor version of a service template.</p>
    */
   public getServiceTemplateVersion(
     args: GetServiceTemplateVersionCommandInput,
@@ -1676,6 +1859,111 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
   ): Promise<GetTemplateSyncStatusCommandOutput> | void {
     const command = new GetTemplateSyncStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get a list of component Infrastructure as Code (IaC) outputs.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentOutputsCommandOutput>;
+  public listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    cb: (err: any, data?: ListComponentOutputsCommandOutput) => void
+  ): void;
+  public listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentOutputsCommandOutput) => void
+  ): void;
+  public listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentOutputsCommandOutput) => void),
+    cb?: (err: any, data?: ListComponentOutputsCommandOutput) => void
+  ): Promise<ListComponentOutputsCommandOutput> | void {
+    const command = new ListComponentOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List provisioned resources for a component with details.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentProvisionedResourcesCommandOutput>;
+  public listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void
+  ): Promise<ListComponentProvisionedResourcesCommandOutput> | void {
+    const command = new ListComponentProvisionedResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public listComponents(
+    args: ListComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentsCommandOutput>;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentsCommandOutput) => void),
+    cb?: (err: any, data?: ListComponentsCommandOutput) => void
+  ): Promise<ListComponentsCommandOutput> | void {
+    const command = new ListComponentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1945,7 +2233,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>View a list service instance infrastructure as code outputs with detail data.</p>
+   * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
    */
   public listServiceInstanceOutputs(
     args: ListServiceInstanceOutputsCommandInput,
@@ -2011,7 +2299,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List service instances with summaries of detail data.</p>
+   * <p>List service instances with summary data.</p>
    */
   public listServiceInstances(
     args: ListServiceInstancesCommandInput,
@@ -2043,7 +2331,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>View a list service pipeline infrastructure as code outputs with detail.</p>
+   * <p>Get a list of service pipeline Infrastructure as Code (IaC) outputs.</p>
    */
   public listServicePipelineOutputs(
     args: ListServicePipelineOutputsCommandInput,
@@ -2396,6 +2684,46 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Update a component.</p>
+   *          <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p>
+   *          <note>
+   *             <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is
+   *         <code>IN_PROGRESS</code>.</p>
+   *          </note>
+   *          <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   */
+  public updateComponent(
+    args: UpdateComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComponentCommandOutput>;
+  public updateComponent(
+    args: UpdateComponentCommandInput,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
+  public updateComponent(
+    args: UpdateComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
+  public updateComponent(
+    args: UpdateComponentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComponentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): Promise<UpdateComponentCommandOutput> | void {
+    const command = new UpdateComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Update an environment.</p>
    *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
    *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
@@ -2580,6 +2908,12 @@ export class Proton extends ProtonClient {
    *          </note>
    *          <p>Use the <code>description</code> parameter to modify the description.</p>
    *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
+   *          <note>
+   *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
+   *             <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   *          </note>
    */
   public updateService(
     args: UpdateServiceCommandInput,
@@ -2612,40 +2946,14 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Update a service instance.</p>
-   *          <p>There are four modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
-   *          <dl>
-   *             <dt/>
-   *             <dd>
-   *                <p>
-   *                   <code>NONE</code>
-   *                </p>
-   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *             </dd>
-   *             <dt/>
-   *             <dd>
-   *                <p>
-   *                   <code>CURRENT_VERSION</code>
-   *                </p>
-   *                <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *               <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
-   *             </dd>
-   *             <dt/>
-   *             <dd>
-   *                <p>
-   *                   <code>MINOR_VERSION</code>
-   *                </p>
-   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the current major version
-   *             in use, by default. You can also specify a different minor version of the current major version in use.</p>
-   *             </dd>
-   *             <dt/>
-   *             <dd>
-   *                <p>
-   *                   <code>MAJOR_VERSION</code>
-   *                </p>
-   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version of the current
-   *             template, by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p>
-   *             </dd>
-   *          </dl>
+   *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
+   *          <note>
+   *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
+   *         <code>IN_PROGRESS</code>.</p>
+   *             <p>For more information about components, see
+   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton Administrator Guide</i>.</p>
+   *          </note>
    */
   public updateServiceInstance(
     args: UpdateServiceInstanceCommandInput,

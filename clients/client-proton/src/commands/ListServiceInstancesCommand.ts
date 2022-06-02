@@ -23,7 +23,7 @@ export interface ListServiceInstancesCommandInput extends ListServiceInstancesIn
 export interface ListServiceInstancesCommandOutput extends ListServiceInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>List service instances with summaries of detail data.</p>
+ * <p>List service instances with summary data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

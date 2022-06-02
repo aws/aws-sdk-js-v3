@@ -23,7 +23,7 @@ export interface ListServiceInstanceOutputsCommandInput extends ListServiceInsta
 export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInstanceOutputsOutput, __MetadataBearer {}
 
 /**
- * <p>View a list service instance infrastructure as code outputs with detail data.</p>
+ * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

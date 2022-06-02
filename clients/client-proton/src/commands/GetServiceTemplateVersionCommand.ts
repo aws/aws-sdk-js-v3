@@ -23,7 +23,7 @@ export interface GetServiceTemplateVersionCommandInput extends GetServiceTemplat
 export interface GetServiceTemplateVersionCommandOutput extends GetServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>View detail data for a major or minor version of a service template.</p>
+ * <p>Get detailed data for a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -20,6 +20,10 @@ import {
   AcceptEnvironmentAccountConnectionCommandOutput,
 } from "../commands/AcceptEnvironmentAccountConnectionCommand";
 import {
+  CancelComponentDeploymentCommandInput,
+  CancelComponentDeploymentCommandOutput,
+} from "../commands/CancelComponentDeploymentCommand";
+import {
   CancelEnvironmentDeploymentCommandInput,
   CancelEnvironmentDeploymentCommandOutput,
 } from "../commands/CancelEnvironmentDeploymentCommand";
@@ -31,6 +35,7 @@ import {
   CancelServicePipelineDeploymentCommandInput,
   CancelServicePipelineDeploymentCommandOutput,
 } from "../commands/CancelServicePipelineDeploymentCommand";
+import { CreateComponentCommandInput, CreateComponentCommandOutput } from "../commands/CreateComponentCommand";
 import {
   CreateEnvironmentAccountConnectionCommandInput,
   CreateEnvironmentAccountConnectionCommandOutput,
@@ -58,6 +63,7 @@ import {
   CreateTemplateSyncConfigCommandInput,
   CreateTemplateSyncConfigCommandOutput,
 } from "../commands/CreateTemplateSyncConfigCommand";
+import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -86,6 +92,7 @@ import {
   DeleteTemplateSyncConfigCommandOutput,
 } from "../commands/DeleteTemplateSyncConfigCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
+import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import {
   GetEnvironmentAccountConnectionCommandInput,
   GetEnvironmentAccountConnectionCommandOutput,
@@ -119,6 +126,15 @@ import {
   GetTemplateSyncStatusCommandInput,
   GetTemplateSyncStatusCommandOutput,
 } from "../commands/GetTemplateSyncStatusCommand";
+import {
+  ListComponentOutputsCommandInput,
+  ListComponentOutputsCommandOutput,
+} from "../commands/ListComponentOutputsCommand";
+import {
+  ListComponentProvisionedResourcesCommandInput,
+  ListComponentProvisionedResourcesCommandOutput,
+} from "../commands/ListComponentProvisionedResourcesCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
@@ -192,6 +208,7 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "../commands/UpdateAccountSettingsCommand";
+import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "../commands/UpdateComponentCommand";
 import {
   UpdateEnvironmentAccountConnectionCommandInput,
   UpdateEnvironmentAccountConnectionCommandOutput,
@@ -231,6 +248,8 @@ import {
   AcceptEnvironmentAccountConnectionOutput,
   AccessDeniedException,
   AccountSettings,
+  CancelComponentDeploymentInput,
+  CancelComponentDeploymentOutput,
   CancelEnvironmentDeploymentInput,
   CancelEnvironmentDeploymentOutput,
   CancelServiceInstanceDeploymentInput,
@@ -239,7 +258,11 @@ import {
   CancelServicePipelineDeploymentOutput,
   CompatibleEnvironmentTemplate,
   CompatibleEnvironmentTemplateInput,
+  Component,
+  ComponentSummary,
   ConflictException,
+  CreateComponentInput,
+  CreateComponentOutput,
   CreateEnvironmentAccountConnectionInput,
   CreateEnvironmentAccountConnectionOutput,
   CreateEnvironmentInput,
@@ -258,6 +281,8 @@ import {
   CreateServiceTemplateVersionOutput,
   CreateTemplateSyncConfigInput,
   CreateTemplateSyncConfigOutput,
+  DeleteComponentInput,
+  DeleteComponentOutput,
   DeleteEnvironmentAccountConnectionInput,
   DeleteEnvironmentAccountConnectionOutput,
   DeleteEnvironmentInput,
@@ -288,6 +313,8 @@ import {
   EnvironmentTemplateVersionSummary,
   GetAccountSettingsInput,
   GetAccountSettingsOutput,
+  GetComponentInput,
+  GetComponentOutput,
   GetEnvironmentAccountConnectionInput,
   GetEnvironmentAccountConnectionOutput,
   GetEnvironmentInput,
@@ -313,6 +340,12 @@ import {
   GetTemplateSyncStatusInput,
   GetTemplateSyncStatusOutput,
   InternalServerException,
+  ListComponentOutputsInput,
+  ListComponentOutputsOutput,
+  ListComponentProvisionedResourcesInput,
+  ListComponentProvisionedResourcesOutput,
+  ListComponentsInput,
+  ListComponentsOutput,
   ListEnvironmentAccountConnectionsInput,
   ListEnvironmentAccountConnectionsOutput,
   ListEnvironmentOutputsInput,
@@ -373,6 +406,7 @@ import {
   ServiceSummary,
   ServiceTemplate,
   ServiceTemplateSummary,
+  ServiceTemplateSupportedComponentSourceType,
   ServiceTemplateVersion,
   ServiceTemplateVersionSummary,
   Tag,
@@ -385,6 +419,8 @@ import {
   UntagResourceOutput,
   UpdateAccountSettingsInput,
   UpdateAccountSettingsOutput,
+  UpdateComponentInput,
+  UpdateComponentOutput,
   UpdateEnvironmentAccountConnectionInput,
   UpdateEnvironmentAccountConnectionOutput,
   UpdateEnvironmentInput,
@@ -419,6 +455,19 @@ export const serializeAws_json1_0AcceptEnvironmentAccountConnectionCommand = asy
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0AcceptEnvironmentAccountConnectionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CancelComponentDeploymentCommand = async (
+  input: CancelComponentDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.CancelComponentDeployment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CancelComponentDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -458,6 +507,19 @@ export const serializeAws_json1_0CancelServicePipelineDeploymentCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CancelServicePipelineDeploymentInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateComponentCommand = async (
+  input: CreateComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.CreateComponent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -575,6 +637,19 @@ export const serializeAws_json1_0CreateTemplateSyncConfigCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateTemplateSyncConfigInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteComponentCommand = async (
+  input: DeleteComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.DeleteComponent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -705,6 +780,19 @@ export const serializeAws_json1_0GetAccountSettingsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetAccountSettingsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetComponentCommand = async (
+  input: GetComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetComponent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -861,6 +949,45 @@ export const serializeAws_json1_0GetTemplateSyncStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetTemplateSyncStatusInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListComponentOutputsCommand = async (
+  input: ListComponentOutputsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.ListComponentOutputs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListComponentOutputsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListComponentProvisionedResourcesCommand = async (
+  input: ListComponentProvisionedResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.ListComponentProvisionedResources",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListComponentProvisionedResourcesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListComponentsCommand = async (
+  input: ListComponentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.ListComponents",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListComponentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1150,6 +1277,19 @@ export const serializeAws_json1_0UpdateAccountSettingsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0UpdateComponentCommand = async (
+  input: UpdateComponentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.UpdateComponent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateComponentInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
@@ -1301,6 +1441,64 @@ const deserializeAws_json1_0AcceptEnvironmentAccountConnectionCommandError = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptEnvironmentAccountConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0CancelComponentDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelComponentDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CancelComponentDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CancelComponentDeploymentOutput(data, context);
+  const response: CancelComponentDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CancelComponentDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelComponentDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1495,6 +1693,67 @@ const deserializeAws_json1_0CancelServicePipelineDeploymentCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.proton#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0CreateComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateComponentOutput(data, context);
+  const response: CreateComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.proton#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -2029,6 +2288,64 @@ const deserializeAws_json1_0CreateTemplateSyncConfigCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.proton#ServiceQuotaExceededException":
       throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0DeleteComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteComponentOutput(data, context);
+  const response: DeleteComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -2589,6 +2906,61 @@ const deserializeAws_json1_0GetAccountSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0GetComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetComponentOutput(data, context);
+  const response: GetComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3266,6 +3638,168 @@ const deserializeAws_json1_0GetTemplateSyncStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.proton#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListComponentOutputsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentOutputsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListComponentOutputsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListComponentOutputsOutput(data, context);
+  const response: ListComponentOutputsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListComponentOutputsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentOutputsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListComponentProvisionedResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentProvisionedResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListComponentProvisionedResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListComponentProvisionedResourcesOutput(data, context);
+  const response: ListComponentProvisionedResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListComponentProvisionedResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentProvisionedResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListComponentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListComponentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListComponentsOutput(data, context);
+  const response: ListComponentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListComponentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -4493,6 +5027,67 @@ const deserializeAws_json1_0UpdateAccountSettingsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateComponentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateComponentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateComponentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateComponentOutput(data, context);
+  const response: UpdateComponentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateComponentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.proton#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_0UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5176,6 +5771,15 @@ const serializeAws_json1_0AcceptEnvironmentAccountConnectionInput = (
   };
 };
 
+const serializeAws_json1_0CancelComponentDeploymentInput = (
+  input: CancelComponentDeploymentInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
+  };
+};
+
 const serializeAws_json1_0CancelEnvironmentDeploymentInput = (
   input: CancelEnvironmentDeploymentInput,
   context: __SerdeContext
@@ -5230,12 +5834,30 @@ const serializeAws_json1_0CompatibleEnvironmentTemplateInputList = (
     });
 };
 
+const serializeAws_json1_0CreateComponentInput = (input: CreateComponentInput, context: __SerdeContext): any => {
+  return {
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.environmentName !== undefined &&
+      input.environmentName !== null && { environmentName: input.environmentName }),
+    ...(input.manifest !== undefined && input.manifest !== null && { manifest: input.manifest }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.serviceInstanceName !== undefined &&
+      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.serviceSpec !== undefined && input.serviceSpec !== null && { serviceSpec: input.serviceSpec }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateFile !== undefined && input.templateFile !== null && { templateFile: input.templateFile }),
+  };
+};
+
 const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
   input: CreateEnvironmentAccountConnectionInput,
   context: __SerdeContext
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.componentRoleArn !== undefined &&
+      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
     ...(input.environmentName !== undefined &&
       input.environmentName !== null && { environmentName: input.environmentName }),
     ...(input.managementAccountId !== undefined &&
@@ -5247,6 +5869,8 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.componentRoleArn !== undefined &&
+      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.environmentAccountConnectionId !== undefined &&
       input.environmentAccountConnectionId !== null && {
@@ -5358,6 +5982,13 @@ const serializeAws_json1_0CreateServiceTemplateVersionInput = (
     ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
     ...(input.source !== undefined &&
       input.source !== null && { source: serializeAws_json1_0TemplateVersionSourceInput(input.source, context) }),
+    ...(input.supportedComponentSources !== undefined &&
+      input.supportedComponentSources !== null && {
+        supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
+          input.supportedComponentSources,
+          context
+        ),
+      }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
     ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
   };
@@ -5376,6 +6007,12 @@ const serializeAws_json1_0CreateTemplateSyncConfigInput = (
     ...(input.subdirectory !== undefined && input.subdirectory !== null && { subdirectory: input.subdirectory }),
     ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
     ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
+  };
+};
+
+const serializeAws_json1_0DeleteComponentInput = (input: DeleteComponentInput, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -5499,6 +6136,12 @@ const serializeAws_json1_0GetAccountSettingsInput = (input: GetAccountSettingsIn
   return {};
 };
 
+const serializeAws_json1_0GetComponentInput = (input: GetComponentInput, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+  };
+};
+
 const serializeAws_json1_0GetEnvironmentAccountConnectionInput = (
   input: GetEnvironmentAccountConnectionInput,
   context: __SerdeContext
@@ -5604,6 +6247,38 @@ const serializeAws_json1_0GetTemplateSyncStatusInput = (
     ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
     ...(input.templateVersion !== undefined &&
       input.templateVersion !== null && { templateVersion: input.templateVersion }),
+  };
+};
+
+const serializeAws_json1_0ListComponentOutputsInput = (
+  input: ListComponentOutputsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
+const serializeAws_json1_0ListComponentProvisionedResourcesInput = (
+  input: ListComponentProvisionedResourcesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
+const serializeAws_json1_0ListComponentsInput = (input: ListComponentsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.environmentName !== undefined &&
+      input.environmentName !== null && { environmentName: input.environmentName }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.serviceInstanceName !== undefined &&
+      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
   };
 };
 
@@ -5851,6 +6526,20 @@ const serializeAws_json1_0S3ObjectSource = (input: S3ObjectSource, context: __Se
   };
 };
 
+const serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList = (
+  input: (ServiceTemplateSupportedComponentSourceType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && input.key !== null && { key: input.key }),
@@ -5922,11 +6611,27 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
   };
 };
 
+const serializeAws_json1_0UpdateComponentInput = (input: UpdateComponentInput, context: __SerdeContext): any => {
+  return {
+    ...(input.deploymentType !== undefined &&
+      input.deploymentType !== null && { deploymentType: input.deploymentType }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.serviceInstanceName !== undefined &&
+      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.serviceSpec !== undefined && input.serviceSpec !== null && { serviceSpec: input.serviceSpec }),
+    ...(input.templateFile !== undefined && input.templateFile !== null && { templateFile: input.templateFile }),
+  };
+};
+
 const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
   input: UpdateEnvironmentAccountConnectionInput,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.componentRoleArn !== undefined &&
+      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
     ...(input.id !== undefined && input.id !== null && { id: input.id }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   };
@@ -5934,6 +6639,8 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
 
 const serializeAws_json1_0UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __SerdeContext): any => {
   return {
+    ...(input.componentRoleArn !== undefined &&
+      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
     ...(input.deploymentType !== undefined &&
       input.deploymentType !== null && { deploymentType: input.deploymentType }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
@@ -6048,6 +6755,13 @@ const serializeAws_json1_0UpdateServiceTemplateVersionInput = (
     ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
     ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
     ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.supportedComponentSources !== undefined &&
+      input.supportedComponentSources !== null && {
+        supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
+          input.supportedComponentSources,
+          context
+        ),
+      }),
     ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
   };
 };
@@ -6093,6 +6807,18 @@ const deserializeAws_json1_0AccountSettings = (output: any, context: __SerdeCont
         ? deserializeAws_json1_0RepositoryBranch(output.pipelineProvisioningRepository, context)
         : undefined,
     pipelineServiceRoleArn: __expectString(output.pipelineServiceRoleArn),
+  } as any;
+};
+
+const deserializeAws_json1_0CancelComponentDeploymentOutput = (
+  output: any,
+  context: __SerdeContext
+): CancelComponentDeploymentOutput => {
+  return {
+    component:
+      output.component !== undefined && output.component !== null
+        ? deserializeAws_json1_0Component(output.component, context)
+        : undefined,
   } as any;
 };
 
@@ -6157,9 +6883,88 @@ const deserializeAws_json1_0CompatibleEnvironmentTemplateList = (
   return retVal;
 };
 
+const deserializeAws_json1_0Component = (output: any, context: __SerdeContext): Component => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    description: __expectString(output.description),
+    environmentName: __expectString(output.environmentName),
+    lastDeploymentAttemptedAt:
+      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
+        : undefined,
+    lastDeploymentSucceededAt:
+      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
+        : undefined,
+    lastModifiedAt:
+      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
+        : undefined,
+    name: __expectString(output.name),
+    serviceInstanceName: __expectString(output.serviceInstanceName),
+    serviceName: __expectString(output.serviceName),
+    serviceSpec: __expectString(output.serviceSpec),
+  } as any;
+};
+
+const deserializeAws_json1_0ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    environmentName: __expectString(output.environmentName),
+    lastDeploymentAttemptedAt:
+      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
+        : undefined,
+    lastDeploymentSucceededAt:
+      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
+        : undefined,
+    lastModifiedAt:
+      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
+        : undefined,
+    name: __expectString(output.name),
+    serviceInstanceName: __expectString(output.serviceInstanceName),
+    serviceName: __expectString(output.serviceName),
+  } as any;
+};
+
+const deserializeAws_json1_0ComponentSummaryList = (output: any, context: __SerdeContext): ComponentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ComponentSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0CreateComponentOutput = (output: any, context: __SerdeContext): CreateComponentOutput => {
+  return {
+    component:
+      output.component !== undefined && output.component !== null
+        ? deserializeAws_json1_0Component(output.component, context)
+        : undefined,
   } as any;
 };
 
@@ -6261,6 +7066,15 @@ const deserializeAws_json1_0CreateTemplateSyncConfigOutput = (
     templateSyncConfig:
       output.templateSyncConfig !== undefined && output.templateSyncConfig !== null
         ? deserializeAws_json1_0TemplateSyncConfig(output.templateSyncConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DeleteComponentOutput = (output: any, context: __SerdeContext): DeleteComponentOutput => {
+  return {
+    component:
+      output.component !== undefined && output.component !== null
+        ? deserializeAws_json1_0Component(output.component, context)
         : undefined,
   } as any;
 };
@@ -6370,6 +7184,7 @@ const deserializeAws_json1_0DeleteTemplateSyncConfigOutput = (
 const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     arn: __expectString(output.arn),
+    componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
@@ -6407,6 +7222,7 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
 ): EnvironmentAccountConnection => {
   return {
     arn: __expectString(output.arn),
+    componentRoleArn: __expectString(output.componentRoleArn),
     environmentAccountId: __expectString(output.environmentAccountId),
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
@@ -6430,6 +7246,7 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummary = (
 ): EnvironmentAccountConnectionSummary => {
   return {
     arn: __expectString(output.arn),
+    componentRoleArn: __expectString(output.componentRoleArn),
     environmentAccountId: __expectString(output.environmentAccountId),
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
@@ -6465,6 +7282,7 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummaryList = (
 const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
   return {
     arn: __expectString(output.arn),
+    componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
@@ -6636,6 +7454,15 @@ const deserializeAws_json1_0GetAccountSettingsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0GetComponentOutput = (output: any, context: __SerdeContext): GetComponentOutput => {
+  return {
+    component:
+      output.component !== undefined && output.component !== null
+        ? deserializeAws_json1_0Component(output.component, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0GetEnvironmentAccountConnectionOutput = (
   output: any,
   context: __SerdeContext
@@ -6785,6 +7612,42 @@ const deserializeAws_json1_0InternalServerException = (
 ): InternalServerException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_0ListComponentOutputsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListComponentOutputsOutput => {
+  return {
+    nextToken: __expectString(output.nextToken),
+    outputs:
+      output.outputs !== undefined && output.outputs !== null
+        ? deserializeAws_json1_0OutputsList(output.outputs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ListComponentProvisionedResourcesOutput = (
+  output: any,
+  context: __SerdeContext
+): ListComponentProvisionedResourcesOutput => {
+  return {
+    nextToken: __expectString(output.nextToken),
+    provisionedResources:
+      output.provisionedResources !== undefined && output.provisionedResources !== null
+        ? deserializeAws_json1_0ProvisionedResourceList(output.provisionedResources, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ListComponentsOutput = (output: any, context: __SerdeContext): ListComponentsOutput => {
+  return {
+    components:
+      output.components !== undefined && output.components !== null
+        ? deserializeAws_json1_0ComponentSummaryList(output.components, context)
+        : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -7441,6 +8304,21 @@ const deserializeAws_json1_0ServiceTemplateSummaryList = (
   return retVal;
 };
 
+const deserializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList = (
+  output: any,
+  context: __SerdeContext
+): (ServiceTemplateSupportedComponentSourceType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __SerdeContext): ServiceTemplateVersion => {
   return {
     arn: __expectString(output.arn),
@@ -7463,6 +8341,13 @@ const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __Se
     schema: __expectString(output.schema),
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
+    supportedComponentSources:
+      output.supportedComponentSources !== undefined && output.supportedComponentSources !== null
+        ? deserializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
+            output.supportedComponentSources,
+            context
+          )
+        : undefined,
     templateName: __expectString(output.templateName),
   } as any;
 };
@@ -7558,6 +8443,15 @@ const deserializeAws_json1_0UpdateAccountSettingsOutput = (
     accountSettings:
       output.accountSettings !== undefined && output.accountSettings !== null
         ? deserializeAws_json1_0AccountSettings(output.accountSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateComponentOutput = (output: any, context: __SerdeContext): UpdateComponentOutput => {
+  return {
+    component:
+      output.component !== undefined && output.component !== null
+        ? deserializeAws_json1_0Component(output.component, context)
         : undefined,
   } as any;
 };

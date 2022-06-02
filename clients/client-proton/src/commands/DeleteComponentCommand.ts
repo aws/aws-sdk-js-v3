@@ -12,42 +12,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetServiceInstanceInput, GetServiceInstanceOutput } from "../models/models_0";
+import { DeleteComponentInput, DeleteComponentOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetServiceInstanceCommand,
-  serializeAws_json1_0GetServiceInstanceCommand,
+  deserializeAws_json1_0DeleteComponentCommand,
+  serializeAws_json1_0DeleteComponentCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
-export interface GetServiceInstanceCommandInput extends GetServiceInstanceInput {}
-export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutput, __MetadataBearer {}
+export interface DeleteComponentCommandInput extends DeleteComponentInput {}
+export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
+ * <p>Delete an Proton component resource.</p>
+ *          <p>For more information about components, see
+ *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, DeleteComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const command = new GetServiceInstanceCommand(input);
+ * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetServiceInstanceCommandInput} for command's `input` shape.
- * @see {@link GetServiceInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DeleteComponentCommandInput} for command's `input` shape.
+ * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
-export class GetServiceInstanceCommand extends $Command<
-  GetServiceInstanceCommandInput,
-  GetServiceInstanceCommandOutput,
+export class DeleteComponentCommand extends $Command<
+  DeleteComponentCommandInput,
+  DeleteComponentCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetServiceInstanceCommandInput) {
+  constructor(readonly input: DeleteComponentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +63,20 @@ export class GetServiceInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput> {
+  ): Handler<DeleteComponentCommandInput, DeleteComponentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "GetServiceInstanceCommand";
+    const commandName = "DeleteComponentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceInstanceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteComponentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteComponentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +86,12 @@ export class GetServiceInstanceCommand extends $Command<
     );
   }
 
-  private serialize(input: GetServiceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceInstanceCommand(input, context);
+  private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0DeleteComponentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceInstanceCommandOutput> {
-    return deserializeAws_json1_0GetServiceInstanceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
+    return deserializeAws_json1_0DeleteComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

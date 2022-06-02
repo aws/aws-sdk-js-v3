@@ -23,7 +23,7 @@ export interface GetServiceTemplateCommandInput extends GetServiceTemplateInput 
 export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for a service template.</p>
+ * <p>Get detailed data for a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
