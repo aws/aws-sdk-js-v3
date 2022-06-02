@@ -31,7 +31,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  *       </p>
  *          <important>
  *             <p>
- *          Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is deleted, AWS users, roles, and accounts lose permissions to perform
+ *          Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform
  *          the repository actions granted by the deleted policy.
  *        </p>
  *          </important>

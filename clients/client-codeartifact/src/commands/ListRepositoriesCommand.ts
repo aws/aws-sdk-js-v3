@@ -26,7 +26,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
- *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified AWS account and that matches the input
+ *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified Amazon Web Services account and that matches the input
  *        parameters.
  *      </p>
  * @example

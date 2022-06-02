@@ -380,15 +380,15 @@ type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface CodeartifactClientResolvedConfig extends CodeartifactClientResolvedConfigType {}
 
 /**
- * <p> AWS CodeArtifact is a fully managed artifact repository compatible with language-native
- *       package managers and build tools such as npm, Apache Maven, and pip. You can use CodeArtifact to
+ * <p> CodeArtifact is a fully managed artifact repository compatible with language-native
+ *       package managers and build tools such as npm, Apache Maven, pip, and dotnet. You can use CodeArtifact to
  *       share packages with development teams and pull packages. Packages can be pulled from both
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
  *
  *          <p>
- *             <b>AWS CodeArtifact Components</b>
+ *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
  *
@@ -403,9 +403,9 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                      <code>npm</code>
  *                   </b> CLI, the Maven CLI (<b>
  *                      <code>mvn</code>
- *                   </b>), and <b>
+ *                   </b>), Python CLIs (<b>
  *                      <code>pip</code>
- *                   </b>.</p>
+ *                   </b> and <code>twine</code>), and NuGet CLIs (<code>nuget</code> and <code>dotnet</code>).</p>
  *             </li>
  *             <li>
  *                <p>
@@ -414,7 +414,7 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             but are consumed through repositories. A given package asset, such as a Maven JAR file, is
  *             stored once per domain, no matter how many repositories it's present in. All of the assets
  *             and metadata in a domain are encrypted with the same customer master key (CMK) stored in
- *             AWS Key Management Service (AWS KMS).</p>
+ *             Key Management Service (KMS).</p>
  *                <p>Each repository is a member of a single domain and can't be moved to a
  *             different domain.</p>
  *                <p>The domain allows organizational policy to be applied across multiple
@@ -427,7 +427,7 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
- *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a> package formats.</p>
+ *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
  *                <p>In CodeArtifact, a package consists of:</p>
  *                <ul>
  *                   <li>
@@ -565,17 +565,22 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                <ul>
  *                   <li>
  *                      <p>
+ *                         <code>maven</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>npm</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>pypi</code>
+ *                         <code>nuget</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>maven</code>
+ *                         <code>pypi</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -610,7 +615,7 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ListRepositories</code>: Returns a list of repositories owned by the AWS account that called this method.</p>
+ *                   <code>ListRepositories</code>: Returns a list of repositories owned by the Amazon Web Services account that called this method.</p>
  *             </li>
  *             <li>
  *                <p>

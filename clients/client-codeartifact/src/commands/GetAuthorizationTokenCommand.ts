@@ -27,7 +27,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *         Generates a temporary authorization token for accessing repositories in the domain.
  *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
  *         For more information about authorization tokens, see
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">AWS CodeArtifact authentication and tokens</a>.
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">CodeArtifact authentication and tokens</a>.
  *       </p>
  *          <note>
  *             <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command.

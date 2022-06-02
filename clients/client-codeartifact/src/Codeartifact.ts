@@ -166,15 +166,15 @@ import {
 } from "./commands/UpdateRepositoryCommand";
 
 /**
- * <p> AWS CodeArtifact is a fully managed artifact repository compatible with language-native
- *       package managers and build tools such as npm, Apache Maven, and pip. You can use CodeArtifact to
+ * <p> CodeArtifact is a fully managed artifact repository compatible with language-native
+ *       package managers and build tools such as npm, Apache Maven, pip, and dotnet. You can use CodeArtifact to
  *       share packages with development teams and pull packages. Packages can be pulled from both
  *       public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
  *
  *          <p>
- *             <b>AWS CodeArtifact Components</b>
+ *             <b>CodeArtifact Components</b>
  *          </p>
  *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
  *
@@ -189,9 +189,9 @@ import {
  *                      <code>npm</code>
  *                   </b> CLI, the Maven CLI (<b>
  *                      <code>mvn</code>
- *                   </b>), and <b>
+ *                   </b>), Python CLIs (<b>
  *                      <code>pip</code>
- *                   </b>.</p>
+ *                   </b> and <code>twine</code>), and NuGet CLIs (<code>nuget</code> and <code>dotnet</code>).</p>
  *             </li>
  *             <li>
  *                <p>
@@ -200,7 +200,7 @@ import {
  *             but are consumed through repositories. A given package asset, such as a Maven JAR file, is
  *             stored once per domain, no matter how many repositories it's present in. All of the assets
  *             and metadata in a domain are encrypted with the same customer master key (CMK) stored in
- *             AWS Key Management Service (AWS KMS).</p>
+ *             Key Management Service (KMS).</p>
  *                <p>Each repository is a member of a single domain and can't be moved to a
  *             different domain.</p>
  *                <p>The domain allows organizational policy to be applied across multiple
@@ -213,7 +213,7 @@ import {
  *             <li>
  *                <p>
  *                   <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
- *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a> package formats.</p>
+ *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
  *                <p>In CodeArtifact, a package consists of:</p>
  *                <ul>
  *                   <li>
@@ -351,17 +351,22 @@ import {
  *                <ul>
  *                   <li>
  *                      <p>
+ *                         <code>maven</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>npm</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>pypi</code>
+ *                         <code>nuget</code>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>maven</code>
+ *                         <code>pypi</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -396,7 +401,7 @@ import {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ListRepositories</code>: Returns a list of repositories owned by the AWS account that called this method.</p>
+ *                   <code>ListRepositories</code>: Returns a list of repositories owned by the Amazon Web Services account that called this method.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -501,7 +506,7 @@ export class Codeartifact extends CodeartifactClient {
    * <p>
    *       Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an
    *         organization. You can use a domain to apply permissions across many
-   *         repositories owned by different AWS accounts. An asset is stored only once
+   *         repositories owned by different Amazon Web Services accounts. An asset is stored only once
    *         in a domain, even if it's in multiple repositories.
    *     </p>
    *
@@ -713,7 +718,7 @@ export class Codeartifact extends CodeartifactClient {
    *       </p>
    *          <important>
    *             <p>
-   *          Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is deleted, AWS users, roles, and accounts lose permissions to perform
+   *          Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform
    *          the repository actions granted by the deleted policy.
    *        </p>
    *          </important>
@@ -938,7 +943,7 @@ export class Codeartifact extends CodeartifactClient {
    *         Generates a temporary authorization token for accessing repositories in the domain.
    *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
    *         For more information about authorization tokens, see
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">AWS CodeArtifact authentication and tokens</a>.
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">CodeArtifact authentication and tokens</a>.
    *       </p>
    *          <note>
    *             <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command.
@@ -993,7 +998,7 @@ export class Codeartifact extends CodeartifactClient {
    *             <p>
    *          The policy is a resource-based policy, not an identity-based policy. For more information, see
    *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based policies
-   *            and resource-based policies </a> in the <i>AWS Identity and Access Management User Guide</i>.
+   *            and resource-based policies </a> in the <i>IAM User Guide</i>.
    *        </p>
    *          </note>
    */
@@ -1064,9 +1069,7 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
-   *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
-   *         <code>pom.xml</code> file of a Maven package.
+   *          Gets the readme file or descriptive text for a package version.
    *       </p>
    *          <p>
    *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
@@ -1109,17 +1112,22 @@ export class Codeartifact extends CodeartifactClient {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>maven</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>npm</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>pypi</code>
+   *                   <code>nuget</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>maven</code>
+   *                   <code>pypi</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1188,7 +1196,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
-   * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the AWS account that makes
+   * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the Amazon Web Services account that makes
    *       this call. Each returned <code>DomainSummary</code> object contains information about a
    *       domain. </p>
    */
@@ -1362,7 +1370,7 @@ export class Codeartifact extends CodeartifactClient {
    * <p>
    *        Returns a list of
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
-   *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified AWS account and that matches the input
+   *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified Amazon Web Services account and that matches the input
    *        parameters.
    *      </p>
    */
@@ -1433,7 +1441,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
-   * <p>Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS CodeArtifact.</p>
+   * <p>Gets information about Amazon Web Services tags for a specified Amazon Resource Name (ARN) in CodeArtifact.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1543,7 +1551,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
-   * <p>Adds or updates tags for a resource in AWS CodeArtifact.</p>
+   * <p>Adds or updates tags for a resource in CodeArtifact.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1569,7 +1577,7 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
-   * <p>Removes tags from a resource in AWS CodeArtifact.</p>
+   * <p>Removes tags from a resource in CodeArtifact.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1602,7 +1610,10 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *       Updates the status of one or more versions of a package.
+   *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
+   *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
+   *       To set the status of a package version to <code>Disposed</code>, use
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html">DisposePackageVersions</a>.
    *     </p>
    */
   public updatePackageVersionsStatus(

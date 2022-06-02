@@ -24,7 +24,10 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
 
 /**
  * <p>
- *       Updates the status of one or more versions of a package.
+ *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
+ *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
+ *       To set the status of a package version to <code>Disposed</code>, use
+ *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html">DisposePackageVersions</a>.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

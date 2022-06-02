@@ -77,7 +77,7 @@ export interface AssociateExternalConnectionRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -98,6 +98,11 @@ export interface AssociateExternalConnectionRequest {
    *             <li>
    *                <p>
    *                   <code>public:npmjs</code> - for the npm public repository.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
    *         </p>
    *             </li>
    *             <li>
@@ -181,6 +186,11 @@ export interface RepositoryExternalConnectionInfo {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   packageFormat?: PackageFormat | string;
@@ -224,11 +234,11 @@ export namespace UpstreamRepositoryInfo {
 }
 
 /**
- * <p> The details of a repository stored in AWS CodeArtifact. A CodeArtifact repository contains a set of
+ * <p> The details of a repository stored in CodeArtifact. A CodeArtifact repository contains a set of
  *       package versions, each of which maps to a set of assets. Repositories are polyglot—a single
  *       repository can contain packages of any supported type. Each repository exposes endpoints for
  *       fetching and publishing packages using tools like the <code>npm</code> CLI, the Maven CLI
- *         (<code>mvn</code>), and <code>pip</code>. You can create up to 100 repositories per AWS
+ *         (<code>mvn</code>), and <code>pip</code>. You can create up to 100 repositories per Amazon Web Services
  *       account. </p>
  */
 export interface RepositoryDescription {
@@ -240,7 +250,7 @@ export interface RepositoryDescription {
   name?: string;
 
   /**
-   * <p> The 12-digit account number of the AWS account that manages the repository. </p>
+   * <p> The 12-digit account number of the Amazon Web Services account that manages the repository. </p>
    */
   administratorAccount?: string;
 
@@ -253,7 +263,7 @@ export interface RepositoryDescription {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain that contains the repository. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain that contains the repository. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -273,7 +283,7 @@ export interface RepositoryDescription {
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
-   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
+   *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    */
   upstreams?: UpstreamRepositoryInfo[];
@@ -338,7 +348,7 @@ export class ConflictException extends __BaseException {
 
   /**
    * <p>
-   *       The type of AWS resource.
+   *       The type of Amazon Web Services resource.
    *     </p>
    */
   resourceType?: ResourceType | string;
@@ -359,7 +369,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> The operation did not succeed because of an error that occurred inside AWS CodeArtifact. </p>
+ * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -394,7 +404,7 @@ export class ResourceNotFoundException extends __BaseException {
 
   /**
    * <p>
-   *       The type of AWS resource.
+   *       The type of Amazon Web Services resource.
    *     </p>
    */
   resourceType?: ResourceType | string;
@@ -431,7 +441,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 
   /**
    * <p>
-   *       The type of AWS resource.
+   *       The type of Amazon Web Services resource.
    *     </p>
    */
   resourceType?: ResourceType | string;
@@ -527,7 +537,7 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -549,25 +559,8 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *       The format of the package that is copied. The valid package types are:
+   *       The format of the package that is copied.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -750,35 +743,8 @@ export interface SuccessfulPackageVersionInfo {
 
   /**
    * <p>
-   *       The status of a package version. Valid statuses are:
+   *       The status of a package version.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   status?: PackageVersionStatus | string;
 }
@@ -851,7 +817,7 @@ export namespace CopyPackageVersionsResult {
 }
 
 /**
- * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in AWS CodeArtifact.</p>
+ * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in CodeArtifact.</p>
  */
 export interface Tag {
   /**
@@ -876,8 +842,8 @@ export namespace Tag {
 
 export interface CreateDomainRequest {
   /**
-   * <p> The name of the domain to create. All domain names in an AWS Region that are in the
-   *       same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do
+   * <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the
+   *       same Amazon Web Services account must be unique. The domain name is used as the prefix in DNS hostnames. Do
    *       not use sensitive information in a domain name because it is publicly discoverable. </p>
    */
   domain: string | undefined;
@@ -887,13 +853,13 @@ export interface CreateDomainRequest {
    *       An encryption key can be a key ID, a key Amazon Resource Name (ARN), a key alias, or a key
    *       alias ARN. To specify an <code>encryptionKey</code>, your IAM role must have
    *         <code>kms:DescribeKey</code> and <code>kms:CreateGrant</code> permissions on the encryption
-   *       key that is used. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax">DescribeKey</a> in the <i>AWS Key Management Service API Reference</i>
-   *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">AWS KMS API Permissions
-   *         Reference</a> in the <i>AWS Key Management Service Developer Guide</i>. </p>
+   *       key that is used. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax">DescribeKey</a> in the <i>Key Management Service API Reference</i>
+   *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">Key Management Service API Permissions
+   *         Reference</a> in the <i>Key Management Service Developer Guide</i>. </p>
    *          <important>
    *             <p> CodeArtifact supports only symmetric CMKs. Do not associate an asymmetric CMK with your
    *         domain. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric
-   *           keys</a> in the <i>AWS Key Management Service Developer Guide</i>. </p>
+   *           keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
    *          </important>
    */
   encryptionKey?: string;
@@ -933,7 +899,7 @@ export interface DomainDescription {
   name?: string;
 
   /**
-   * <p> The AWS account ID that owns the domain. </p>
+   * <p> The Amazon Web Services account ID that owns the domain. </p>
    */
   owner?: string;
 
@@ -943,19 +909,9 @@ export interface DomainDescription {
   arn?: string;
 
   /**
-   * <p> The current status of a domain. The valid values are </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Active</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>
+   *         The current status of a domain.
+   *       </p>
    */
   status?: DomainStatus | string;
 
@@ -967,7 +923,7 @@ export interface DomainDescription {
   createdTime?: Date;
 
   /**
-   * <p> The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain. </p>
+   * <p> The ARN of an Key Management Service (KMS) key associated with a domain. </p>
    */
   encryptionKey?: string;
 
@@ -1051,7 +1007,7 @@ export interface CreateRepositoryRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1071,7 +1027,7 @@ export interface CreateRepositoryRequest {
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
-   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
+   *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    */
   upstreams?: UpstreamRepository[];
@@ -1119,7 +1075,7 @@ export interface DeleteDomainRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1163,7 +1119,7 @@ export interface DeleteDomainPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1189,7 +1145,7 @@ export namespace DeleteDomainPermissionsPolicyRequest {
 
 /**
  * <p>
- *         An AWS CodeArtifact resource policy that contains a resource ARN, document details, and a revision.
+ *         An CodeArtifact resource policy that contains a resource ARN, document details, and a revision.
  *       </p>
  */
 export interface ResourcePolicy {
@@ -1252,7 +1208,7 @@ export interface DeletePackageVersionsRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1267,25 +1223,8 @@ export interface DeletePackageVersionsRequest {
 
   /**
    * <p>
-   *         The format of the package versions to delete. The valid values are:
+   *         The format of the package versions to delete.
    *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -1331,35 +1270,8 @@ export interface DeletePackageVersionsRequest {
 
   /**
    * <p>
-   *         The expected status of the package version to delete. Valid values are:
+   *         The expected status of the package version to delete.
    *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   expectedStatus?: PackageVersionStatus | string;
 }
@@ -1376,7 +1288,8 @@ export namespace DeletePackageVersionsRequest {
 export interface DeletePackageVersionsResult {
   /**
    * <p>
-   *        A list of the package versions that were successfully deleted.
+   *        A list of the package versions that were successfully deleted. The
+   *        status of every successful version will be <code>Deleted</code>.
    *      </p>
    */
   successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
@@ -1441,7 +1354,7 @@ export interface DeleteRepositoryRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1490,7 +1403,7 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1549,7 +1462,7 @@ export interface DescribeDomainRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1594,7 +1507,7 @@ export interface DescribePackageVersionRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1607,25 +1520,8 @@ export interface DescribePackageVersionRequest {
 
   /**
    * <p>
-   *       A format that specifies the type of the requested package version. The valid values are:
+   *       A format that specifies the type of the requested package version.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -1715,25 +1611,8 @@ export namespace LicenseInfo {
 export interface PackageVersionDescription {
   /**
    * <p>
-   *       The format of the package version. The valid package formats are:
+   *       The format of the package version.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -1832,35 +1711,8 @@ export interface PackageVersionDescription {
 
   /**
    * <p>
-   *       A string that contains the status of the package version. It can be one of the following:
+   *       A string that contains the status of the package version.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   status?: PackageVersionStatus | string;
 }
@@ -1903,7 +1755,7 @@ export interface DescribeRepositoryRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -1953,7 +1805,7 @@ export interface DisassociateExternalConnectionRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2007,7 +1859,7 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2022,25 +1874,8 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       A format that specifies the type of package versions you want to dispose. The valid values are:
+   *       A format that specifies the type of package versions you want to dispose.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -2093,35 +1928,8 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       The expected status of the package version to dispose. Valid values are:
+   *       The expected status of the package version to dispose.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   expectedStatus?: PackageVersionStatus | string;
 }
@@ -2203,7 +2011,7 @@ export interface GetAuthorizationTokenRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2262,7 +2070,7 @@ export interface GetDomainPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2306,7 +2114,7 @@ export interface GetPackageVersionAssetRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2321,25 +2129,8 @@ export interface GetPackageVersionAssetRequest {
 
   /**
    * <p>
-   *       A format that specifies the type of the package version with the requested asset file. The valid values are:
+   *       A format that specifies the type of the package version with the requested asset file.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -2454,7 +2245,7 @@ export interface GetPackageVersionReadmeRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2469,25 +2260,12 @@ export interface GetPackageVersionReadmeRequest {
 
   /**
    * <p>
-   *       A format that specifies the type of the package version with the requested readme file. The valid values are:
+   *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <note>
+   *             <p>Although <code>maven</code> is
+   *       listed as a valid value, CodeArtifact does not support displaying readme files for Maven packages.</p>
+   *          </note>
    */
   format: PackageFormat | string | undefined;
 
@@ -2544,25 +2322,8 @@ export namespace GetPackageVersionReadmeRequest {
 export interface GetPackageVersionReadmeResult {
   /**
    * <p>
-   *       The format of the package with the requested readme file. Valid format types are:
+   *       The format of the package with the requested readme file.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -2640,7 +2401,7 @@ export interface GetRepositoryEndpointRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain that contains the repository. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain that contains the repository. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2656,25 +2417,8 @@ export interface GetRepositoryEndpointRequest {
   /**
    * <p>
    *       Returns which endpoint of a repository to return. A repository has one endpoint for each
-   *       package format:
+   *       package format.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 }
@@ -2716,7 +2460,7 @@ export interface GetRepositoryPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2797,7 +2541,7 @@ export interface DomainSummary {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2812,20 +2556,8 @@ export interface DomainSummary {
 
   /**
    * <p>
-   *       A string that contains the status of the domain. The valid values are:
+   *       A string that contains the status of the domain.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Active</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleted</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   status?: DomainStatus | string;
 
@@ -2888,7 +2620,7 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -2903,25 +2635,8 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *       The format of the packages. The valid package types are:
+   *       The format of the packages.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -2993,25 +2708,8 @@ export namespace ListPackagesRequest {
 export interface PackageSummary {
   /**
    * <p>
-   *       The format of the package. Valid values are:
+   *       The format of the package.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -3094,7 +2792,7 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -3109,25 +2807,8 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *       The format of the package that contains the returned package version assets. The valid package types are:
+   *       The format of the package that contains the returned package version assets.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -3284,7 +2965,7 @@ export interface ListPackageVersionDependenciesRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -3299,25 +2980,8 @@ export interface ListPackageVersionDependenciesRequest {
 
   /**
    * <p>
-   *       The format of the package with the requested dependencies. The valid package types are:
+   *       The format of the package with the requested dependencies.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -3446,25 +3110,8 @@ export namespace PackageDependency {
 export interface ListPackageVersionDependenciesResult {
   /**
    * <p>
-   *       A format that specifies the type of the package that contains the returned dependencies. The valid values are:
+   *       A format that specifies the type of the package that contains the returned dependencies.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -3553,7 +3200,7 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -3568,25 +3215,8 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       The format of the returned packages. The valid package types are:
+   *       The format of the returned packages.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -3625,35 +3255,8 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       A string that specifies the status of the package versions to include in the returned list. It can be one of the following:
+   *       A string that specifies the status of the package versions to include in the returned list.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   status?: PackageVersionStatus | string;
 
@@ -3714,33 +3317,6 @@ export interface PackageVersionSummary {
    * <p>
    *       A string that contains the status of the package version. It can be one of the following:
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   status: PackageVersionStatus | string | undefined;
 }
@@ -3777,25 +3353,8 @@ export interface ListPackageVersionsResult {
 
   /**
    * <p>
-   *       A format of the package. Valid package format values are:
+   *       A format of the package.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format?: PackageFormat | string;
 
@@ -3904,7 +3463,7 @@ export interface RepositorySummary {
 
   /**
    * <p>
-   *          The AWS account ID that manages the repository.
+   *          The Amazon Web Services account ID that manages the repository.
    *       </p>
    */
   administratorAccount?: string;
@@ -3918,7 +3477,7 @@ export interface RepositorySummary {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -3982,7 +3541,7 @@ export interface ListRepositoriesInDomainRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -3990,7 +3549,7 @@ export interface ListRepositoriesInDomainRequest {
 
   /**
    * <p>
-   *          Filter the list of repositories to only include those that are managed by the AWS account ID.
+   *          Filter the list of repositories to only include those that are managed by the Amazon Web Services account ID.
    *        </p>
    */
   administratorAccount?: string;
@@ -4094,7 +3653,7 @@ export interface PutDomainPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -4150,7 +3709,7 @@ export interface PutRepositoryPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -4276,7 +3835,7 @@ export interface UpdatePackageVersionsStatusRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -4291,25 +3850,8 @@ export interface UpdatePackageVersionsStatusRequest {
 
   /**
    * <p>
-   *       A format that specifies the type of the package with the statuses to update. The valid values are:
+   *       A format that specifies the type of the package with the statuses to update.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   format: PackageFormat | string | undefined;
 
@@ -4420,7 +3962,7 @@ export interface UpdateRepositoryRequest {
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
@@ -4442,7 +3984,7 @@ export interface UpdateRepositoryRequest {
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
-   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
+   *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    */
   upstreams?: UpstreamRepository[];

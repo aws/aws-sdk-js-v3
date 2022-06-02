@@ -30,17 +30,22 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *          <ul>
  *             <li>
  *                <p>
+ *                   <code>maven</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>npm</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>pypi</code>
+ *                   <code>nuget</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>maven</code>
+ *                   <code>pypi</code>
  *                </p>
  *             </li>
  *          </ul>

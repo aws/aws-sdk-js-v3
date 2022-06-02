@@ -30,7 +30,7 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  *             <p>
  *          The policy is a resource-based policy, not an identity-based policy. For more information, see
  *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based policies
- *            and resource-based policies </a> in the <i>AWS Identity and Access Management User Guide</i>.
+ *            and resource-based policies </a> in the <i>IAM User Guide</i>.
  *        </p>
  *          </note>
  * @example
