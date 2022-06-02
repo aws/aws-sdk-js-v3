@@ -2011,7 +2011,7 @@ const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): a
 };
 
 const serializeAws_restJson1ImportColumnMap = (
-  input: { [key: string]: SourceDataColumnProperties },
+  input: Record<string, SourceDataColumnProperties>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2053,7 +2053,7 @@ const serializeAws_restJson1ImportOptions = (input: ImportOptions, context: __Se
   };
 };
 
-const serializeAws_restJson1RowDataInput = (input: { [key: string]: CellInput }, context: __SerdeContext): any => {
+const serializeAws_restJson1RowDataInput = (input: Record<string, CellInput>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2085,7 +2085,7 @@ const serializeAws_restJson1SourceDataColumnProperties = (
   };
 };
 
-const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2147,10 +2147,7 @@ const serializeAws_restJson1VariableValue = (input: VariableValue, context: __Se
   };
 };
 
-const serializeAws_restJson1VariableValueMap = (
-  input: { [key: string]: VariableValue },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1VariableValueMap = (input: Record<string, VariableValue>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2194,8 +2191,8 @@ const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1CreatedRowsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1CreatedRowsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2281,9 +2278,9 @@ const deserializeAws_restJson1FormattedValuesList = (output: any, context: __Ser
 const deserializeAws_restJson1ImportColumnMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: SourceDataColumnProperties } => {
+): Record<string, SourceDataColumnProperties> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => {
+    (acc: Record<string, SourceDataColumnProperties>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2393,8 +2390,8 @@ const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeContext): { [key: string]: ResultSet } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ResultSet }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeContext): Record<string, ResultSet> => {
+  return Object.entries(output).reduce((acc: Record<string, ResultSet>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2511,8 +2508,8 @@ const deserializeAws_restJson1Tables = (output: any, context: __SerdeContext): T
   return retVal;
 };
 
-const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2536,8 +2533,8 @@ const deserializeAws_restJson1UpsertRowsResult = (output: any, context: __SerdeC
 const deserializeAws_restJson1UpsertRowsResultMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: UpsertRowsResult } => {
-  return Object.entries(output).reduce((acc: { [key: string]: UpsertRowsResult }, [key, value]: [string, any]) => {
+): Record<string, UpsertRowsResult> => {
+  return Object.entries(output).reduce((acc: Record<string, UpsertRowsResult>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

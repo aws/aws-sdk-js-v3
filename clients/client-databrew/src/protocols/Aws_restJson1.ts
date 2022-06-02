@@ -4645,7 +4645,7 @@ const serializeAws_restJson1OutputList = (input: Output[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1ParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4671,7 +4671,7 @@ const serializeAws_restJson1PathOptions = (input: PathOptions, context: __SerdeC
 };
 
 const serializeAws_restJson1PathParametersMap = (
-  input: { [key: string]: DatasetParameter },
+  input: Record<string, DatasetParameter>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -4881,7 +4881,7 @@ const serializeAws_restJson1StatisticsConfiguration = (
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4926,7 +4926,7 @@ const serializeAws_restJson1ValidationConfigurationList = (
     });
 };
 
-const serializeAws_restJson1ValuesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ValuesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5537,8 +5537,8 @@ const deserializeAws_restJson1OutputList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5569,8 +5569,8 @@ const deserializeAws_restJson1PathOptions = (output: any, context: __SerdeContex
 const deserializeAws_restJson1PathParametersMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: DatasetParameter } => {
-  return Object.entries(output).reduce((acc: { [key: string]: DatasetParameter }, [key, value]: [string, any]) => {
+): Record<string, DatasetParameter> => {
+  return Object.entries(output).reduce((acc: Record<string, DatasetParameter>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5964,8 +5964,8 @@ const deserializeAws_restJson1StatisticsConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6009,8 +6009,8 @@ const deserializeAws_restJson1ValidationConfigurationList = (
   return retVal;
 };
 
-const deserializeAws_restJson1ValuesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ValuesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

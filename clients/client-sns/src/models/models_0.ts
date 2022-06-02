@@ -295,7 +295,7 @@ export interface CreatePlatformApplicationInput {
   /**
    * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace CreatePlatformApplicationInput {
@@ -373,7 +373,7 @@ export interface CreatePlatformEndpointInput {
   /**
    * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace CreatePlatformEndpointInput {
@@ -604,7 +604,7 @@ export interface CreateTopicInput {
    *             </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The list of tags to add to a new topic.</p>
@@ -895,7 +895,7 @@ export interface GetEndpointAttributesResponse {
    *             </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetEndpointAttributesResponse {
@@ -968,7 +968,7 @@ export interface GetPlatformApplicationAttributesResponse {
    *             </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetPlatformApplicationAttributesResponse {
@@ -1009,7 +1009,7 @@ export interface GetSMSAttributesResponse {
   /**
    * <p>The SMS attribute names and their values.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace GetSMSAttributesResponse {
@@ -1151,7 +1151,7 @@ export interface GetSubscriptionAttributesResponse {
    *                     </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetSubscriptionAttributesResponse {
@@ -1278,7 +1278,7 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetTopicAttributesResponse {
@@ -1327,7 +1327,7 @@ export interface Endpoint {
   /**
    * <p>Attributes for endpoint.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace Endpoint {
@@ -1565,7 +1565,7 @@ export interface PlatformApplication {
   /**
    * <p>Attributes for platform application object.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace PlatformApplication {
@@ -2290,7 +2290,7 @@ export interface PublishInput {
   /**
    * <p>Message attributes for Publish action.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
@@ -2476,7 +2476,7 @@ export interface PublishBatchRequestEntry {
   /**
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -2731,7 +2731,7 @@ export interface SetEndpointAttributesInput {
    *             </li>
    *          </ul>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace SetEndpointAttributesInput {
@@ -2846,7 +2846,7 @@ export interface SetPlatformApplicationAttributesInput {
    *             </li>
    *          </ul>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace SetPlatformApplicationAttributesInput {
@@ -2949,7 +2949,7 @@ export interface SetSMSAttributesInput {
    *         <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
    */
-  attributes: { [key: string]: string } | undefined;
+  attributes: Record<string, string> | undefined;
 }
 
 export namespace SetSMSAttributesInput {
@@ -3294,7 +3294,7 @@ export interface SubscribeInput {
    *                     </li>
    *          </ul>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the

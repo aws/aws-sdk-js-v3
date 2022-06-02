@@ -474,7 +474,7 @@ export interface ListTagsForResourceResult {
    *             The tags of the Elastic Inference Accelerator.
    *         </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResult {
@@ -499,7 +499,7 @@ export interface TagResourceRequest {
    *             The tags to add to the Elastic Inference Accelerator.
    *         </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

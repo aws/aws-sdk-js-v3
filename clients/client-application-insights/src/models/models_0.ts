@@ -86,7 +86,7 @@ export interface ApplicationComponent {
   /**
    * <p> Workloads detected in the application component. </p>
    */
-  DetectedWorkload?: { [key: string]: { [key: string]: string } };
+  DetectedWorkload?: Record<string, Record<string, string>>;
 }
 
 export namespace ApplicationComponent {
@@ -1312,7 +1312,7 @@ export interface Problem {
   /**
    * <p>Feedback provided by the user about the problem.</p>
    */
-  Feedback?: { [key: string]: FeedbackValue | string };
+  Feedback?: Record<string, FeedbackValue | string>;
 
   /**
    * <p> The number of times that the same problem reoccurred after the first time it was

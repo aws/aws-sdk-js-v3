@@ -6178,10 +6178,7 @@ const serializeAws_restJson1Environment = (input: Environment, context: __SerdeC
   };
 };
 
-const serializeAws_restJson1EnvironmentVariableMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1EnvironmentVariableMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6497,7 +6494,7 @@ const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6821,8 +6818,8 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
 const deserializeAws_restJson1EnvironmentVariableMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7537,8 +7534,8 @@ const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -4203,7 +4203,7 @@ export interface ManagedRuleSet {
   /**
    * <p>The versions of this managed rule set that are available for use by customers. </p>
    */
-  PublishedVersions?: { [key: string]: ManagedRuleSetVersion };
+  PublishedVersions?: Record<string, ManagedRuleSetVersion>;
 
   /**
    * <p>The version that you would like your customers to use.</p>
@@ -5976,7 +5976,7 @@ export interface PutManagedRuleSetVersionsRequest {
    * <p>The versions of the named managed rule group that you want to offer to your customers.
    *       </p>
    */
-  VersionsToPublish?: { [key: string]: VersionToPublish };
+  VersionsToPublish?: Record<string, VersionToPublish>;
 }
 
 export namespace PutManagedRuleSetVersionsRequest {
@@ -7022,7 +7022,7 @@ export interface CreateRuleGroupRequest {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 }
 
 export namespace CreateRuleGroupRequest {
@@ -7089,7 +7089,7 @@ export interface CreateWebACLRequest {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
@@ -7186,7 +7186,7 @@ export interface RuleGroup {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 
   /**
    * <p>The labels that one or more rules in this rule group add to matching web requests. These labels are defined in the <code>RuleLabels</code> for a <a>Rule</a>.</p>
@@ -7263,7 +7263,7 @@ export interface UpdateRuleGroupRequest {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 }
 
 export namespace UpdateRuleGroupRequest {
@@ -7335,7 +7335,7 @@ export interface UpdateWebACLRequest {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
@@ -7486,7 +7486,7 @@ export interface WebACL {
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
-  CustomResponseBodies?: { [key: string]: CustomResponseBody };
+  CustomResponseBodies?: Record<string, CustomResponseBody>;
 
   /**
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>

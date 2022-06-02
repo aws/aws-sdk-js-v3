@@ -1204,7 +1204,7 @@ export interface CreateDetectorRequest {
   /**
    * <p>The tags to be added to a new detector resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDetectorRequest {
@@ -1245,7 +1245,7 @@ export interface FindingCriteria {
    * <p>Represents a map of finding properties that match specified conditions and values when
    *       querying findings.</p>
    */
-  Criterion?: { [key: string]: Condition };
+  Criterion?: Record<string, Condition>;
 }
 
 export namespace FindingCriteria {
@@ -1477,7 +1477,7 @@ export interface CreateFilterRequest {
   /**
    * <p>The tags to be added to a new filter resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateFilterRequest {
@@ -1551,7 +1551,7 @@ export interface CreateIPSetRequest {
   /**
    * <p>The tags to be added to a new IP set resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateIPSetRequest {
@@ -1802,7 +1802,7 @@ export interface CreateThreatIntelSetRequest {
   /**
    * <p>The tags to be added to a new threat list resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateThreatIntelSetRequest {
@@ -3459,7 +3459,7 @@ export interface FindingStatistics {
   /**
    * <p>Represents a map of severity to count statistics for a set of findings.</p>
    */
-  CountBySeverity?: { [key: string]: number };
+  CountBySeverity?: Record<string, number>;
 }
 
 export namespace FindingStatistics {
@@ -3525,7 +3525,7 @@ export interface GetDetectorResponse {
   /**
    * <p>The tags of the detector resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetDetectorResponse {
@@ -3588,7 +3588,7 @@ export interface GetFilterResponse {
   /**
    * <p>The tags of the filter resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetFilterResponse {
@@ -3797,7 +3797,7 @@ export interface GetIPSetResponse {
   /**
    * <p>The tags of the IPSet resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetIPSetResponse {
@@ -4091,7 +4091,7 @@ export interface GetThreatIntelSetResponse {
   /**
    * <p>The tags of the threat list resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetThreatIntelSetResponse {
@@ -5017,7 +5017,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5168,7 +5168,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to be added to a resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

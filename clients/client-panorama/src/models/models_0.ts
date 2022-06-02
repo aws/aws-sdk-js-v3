@@ -120,7 +120,7 @@ export interface ApplicationInstance {
   /**
    * <p>The application instance's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ApplicationInstance {
@@ -325,7 +325,7 @@ export interface CreateApplicationInstanceRequest {
   /**
    * <p>Tags for the application instance.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateApplicationInstanceRequest {
@@ -682,7 +682,7 @@ export interface JobResourceTags {
   /**
    * <p>The job's tags.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace JobResourceTags {
@@ -727,7 +727,7 @@ export interface CreateNodeFromTemplateJobRequest {
   /**
    * <p>Template parameters for the node.</p>
    */
-  TemplateParameters: { [key: string]: string } | undefined;
+  TemplateParameters: Record<string, string> | undefined;
 
   /**
    * <p>Tags for the job.</p>
@@ -770,7 +770,7 @@ export interface CreatePackageRequest {
   /**
    * <p>Tags for the package.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePackageRequest {
@@ -1216,7 +1216,7 @@ export interface DescribeApplicationInstanceResponse {
   /**
    * <p>The application instance's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeApplicationInstanceResponse {
@@ -1606,7 +1606,7 @@ export interface DescribeDeviceResponse {
   /**
    * <p>The device's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The device's networking configuration.</p>
@@ -2010,7 +2010,7 @@ export interface DescribeNodeFromTemplateJobResponse {
   /**
    * <p>The job's template parameters.</p>
    */
-  TemplateParameters: { [key: string]: string } | undefined;
+  TemplateParameters: Record<string, string> | undefined;
 
   /**
    * <p>The job's tags.</p>
@@ -2083,7 +2083,7 @@ export interface DescribePackageResponse {
   /**
    * <p>The package's tags.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace DescribePackageResponse {
@@ -3108,7 +3108,7 @@ export interface PackageListItem {
   /**
    * <p>The package's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PackageListItem {
@@ -3161,7 +3161,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3187,7 +3187,7 @@ export interface ProvisionDeviceRequest {
   /**
    * <p>Tags for the device.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A networking configuration for the device.</p>
@@ -3323,7 +3323,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags for the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

@@ -457,7 +457,7 @@ export interface CallAnalyticsJobSettings {
    *             parameter with the <code>VocabularyName</code> or
    *             <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
    */
-  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
+  LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
 export namespace CallAnalyticsJobSettings {
@@ -3137,7 +3137,7 @@ export interface TranscriptionJob {
    *             parameter with the <code>VocabularyName</code> or
    *             <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
    */
-  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
+  LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
 export namespace TranscriptionJob {
@@ -4463,7 +4463,7 @@ export interface StartMedicalTranscriptionJobRequest {
    *                 encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in
    *                     KMS</a>.</p>
    */
-  KMSEncryptionContext?: { [key: string]: string };
+  KMSEncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specify additional optional settings in your
@@ -4722,7 +4722,7 @@ export interface StartTranscriptionJobRequest {
    *                 encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in
    *                     KMS</a>.</p>
    */
-  KMSEncryptionContext?: { [key: string]: string };
+  KMSEncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specify additional optional settings in your
@@ -4851,7 +4851,7 @@ export interface StartTranscriptionJobRequest {
    *             parameter with the <code>VocabularyName</code> or
    *             <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
    */
-  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
+  LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
 export namespace StartTranscriptionJobRequest {

@@ -2900,7 +2900,7 @@ export interface CreateAccessPolicyRequest {
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your
    *         IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAccessPolicyRequest {
@@ -2957,7 +2957,7 @@ export interface CreateAssetRequest {
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A description for the asset.</p>
@@ -3082,7 +3082,7 @@ export interface CreateAssetModelRequest {
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAssetModelRequest {
@@ -3156,7 +3156,7 @@ export interface CreateDashboardRequest {
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateDashboardRequest {
@@ -3279,7 +3279,7 @@ export interface CreateGatewayRequest {
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateGatewayRequest {
@@ -3383,7 +3383,7 @@ export interface CreatePortalRequest {
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The service to use to authenticate users to the portal. Choose from the following
@@ -3566,7 +3566,7 @@ export interface CreateProjectRequest {
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateProjectRequest {
@@ -6345,7 +6345,7 @@ export interface ListTagsForResourceResponse {
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -6725,7 +6725,7 @@ export interface TagResourceRequest {
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

@@ -8324,10 +8324,7 @@ const serializeAws_restJson1IdentitySourceList = (input: string[], context: __Se
     });
 };
 
-const serializeAws_restJson1IntegrationParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1IntegrationParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8365,7 +8362,7 @@ const serializeAws_restJson1ParameterConstraints = (input: ParameterConstraints,
 };
 
 const serializeAws_restJson1ResponseParameters = (
-  input: { [key: string]: { [key: string]: string } },
+  input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8379,7 +8376,7 @@ const serializeAws_restJson1ResponseParameters = (
   }, {});
 };
 
-const serializeAws_restJson1RouteModels = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1RouteModels = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8392,7 +8389,7 @@ const serializeAws_restJson1RouteModels = (input: { [key: string]: string }, con
 };
 
 const serializeAws_restJson1RouteParameters = (
-  input: { [key: string]: ParameterConstraints },
+  input: Record<string, ParameterConstraints>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8420,10 +8417,7 @@ const serializeAws_restJson1RouteSettings = (input: RouteSettings, context: __Se
   };
 };
 
-const serializeAws_restJson1RouteSettingsMap = (
-  input: { [key: string]: RouteSettings },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1RouteSettingsMap = (input: Record<string, RouteSettings>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8446,7 +8440,7 @@ const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __S
     });
 };
 
-const serializeAws_restJson1StageVariablesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1StageVariablesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8469,7 +8463,7 @@ const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8481,7 +8475,7 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
   }, {});
 };
 
-const serializeAws_restJson1TemplateMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TemplateMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8925,8 +8919,8 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
 const deserializeAws_restJson1IntegrationParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8997,19 +8991,16 @@ const deserializeAws_restJson1ParameterConstraints = (output: any, context: __Se
 const deserializeAws_restJson1ResponseParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1IntegrationParameters(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, Record<string, string>> => {
+  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1IntegrationParameters(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Route => {
@@ -9039,8 +9030,8 @@ const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Ro
   } as any;
 };
 
-const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9054,8 +9045,8 @@ const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContex
 const deserializeAws_restJson1RouteParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ParameterConstraints } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ParameterConstraints }, [key, value]: [string, any]) => {
+): Record<string, ParameterConstraints> => {
+  return Object.entries(output).reduce((acc: Record<string, ParameterConstraints>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9095,8 +9086,8 @@ const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeCont
 const deserializeAws_restJson1RouteSettingsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: RouteSettings } => {
-  return Object.entries(output).reduce((acc: { [key: string]: RouteSettings }, [key, value]: [string, any]) => {
+): Record<string, RouteSettings> => {
+  return Object.entries(output).reduce((acc: Record<string, RouteSettings>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9159,8 +9150,8 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
   } as any;
 };
 
-const deserializeAws_restJson1StageVariablesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1StageVariablesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9183,8 +9174,8 @@ const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9195,8 +9186,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
   }, {});
 };
 
-const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

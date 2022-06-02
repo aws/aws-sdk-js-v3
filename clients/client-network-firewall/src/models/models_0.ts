@@ -762,7 +762,7 @@ export interface SyncState {
    *          you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the
    *          rules in the endpoint, so it can properly filter network traffic. This is part of the <a>FirewallStatus</a>.</p>
    */
-  Config?: { [key: string]: PerObjectStatus };
+  Config?: Record<string, PerObjectStatus>;
 }
 
 export namespace SyncState {
@@ -809,7 +809,7 @@ export interface FirewallStatus {
    *             <code>ConfigurationSyncStateSummary</code> and <code>Status</code>, broken down by zone
    *          and configuration object. </p>
    */
-  SyncStates?: { [key: string]: SyncState };
+  SyncStates?: Record<string, SyncState>;
 }
 
 export namespace FirewallStatus {
@@ -1859,12 +1859,12 @@ export interface RuleVariables {
   /**
    * <p>A list of IP addresses and address ranges, in CIDR notation. </p>
    */
-  IPSets?: { [key: string]: IPSet };
+  IPSets?: Record<string, IPSet>;
 
   /**
    * <p>A list of port ranges. </p>
    */
-  PortSets?: { [key: string]: PortSet };
+  PortSets?: Record<string, PortSet>;
 }
 
 export namespace RuleVariables {
@@ -2592,7 +2592,7 @@ export interface LogDestinationConfig {
    *             </li>
    *          </ul>
    */
-  LogDestination: { [key: string]: string } | undefined;
+  LogDestination: Record<string, string> | undefined;
 }
 
 export namespace LogDestinationConfig {

@@ -218,7 +218,7 @@ export interface AppMonitor {
   /**
    * <p>The list of tag keys and values associated with this app monitor.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The current state of the app monitor.</p>
@@ -327,7 +327,7 @@ export interface CreateAppMonitorRequest {
    *          <p>You can associate as many as 50 tags with an app monitor.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A structure that contains much of the configuration data for the app monitor. If you are using
@@ -849,7 +849,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -984,7 +984,7 @@ export interface TagResourceRequest {
   /**
    * <p>The list of key-value pairs to associate with the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

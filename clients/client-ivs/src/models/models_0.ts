@@ -123,7 +123,7 @@ export interface Channel {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Channel {
@@ -223,7 +223,7 @@ export interface StreamKey {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StreamKey {
@@ -308,7 +308,7 @@ export interface CreateChannelRequest {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateChannelRequest {
@@ -553,7 +553,7 @@ export interface CreateRecordingConfigurationRequest {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
@@ -605,7 +605,7 @@ export interface RecordingConfiguration {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
@@ -672,7 +672,7 @@ export interface CreateStreamKeyRequest {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateStreamKeyRequest {
@@ -846,7 +846,7 @@ export interface PlaybackKeyPair {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace PlaybackKeyPair {
@@ -1310,7 +1310,7 @@ export interface ImportPlaybackKeyPairRequest {
   /**
    * <p>Any tags provided with the request are added to the playback key pair tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ImportPlaybackKeyPairRequest {
@@ -1407,7 +1407,7 @@ export interface ChannelSummary {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ChannelSummary {
@@ -1480,7 +1480,7 @@ export interface PlaybackKeyPairSummary {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace PlaybackKeyPairSummary {
@@ -1564,7 +1564,7 @@ export interface RecordingConfigurationSummary {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace RecordingConfigurationSummary {
@@ -1642,7 +1642,7 @@ export interface StreamKeySummary {
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StreamKeySummary {
@@ -1895,7 +1895,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p/>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2014,7 +2014,7 @@ export interface TagResourceRequest {
   /**
    * <p>Array of tags to be added or updated.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

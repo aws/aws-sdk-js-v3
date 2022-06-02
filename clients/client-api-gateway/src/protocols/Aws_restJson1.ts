@@ -13985,7 +13985,7 @@ const serializeAws_restJson1ListOfString = (input: string[], context: __SerdeCon
 };
 
 const serializeAws_restJson1MapOfApiStageThrottleSettings = (
-  input: { [key: string]: ThrottleSettings },
+  input: Record<string, ThrottleSettings>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -13999,10 +13999,7 @@ const serializeAws_restJson1MapOfApiStageThrottleSettings = (
   }, {});
 };
 
-const serializeAws_restJson1MapOfStringToBoolean = (
-  input: { [key: string]: boolean },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1MapOfStringToBoolean = (input: Record<string, boolean>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14014,7 +14011,7 @@ const serializeAws_restJson1MapOfStringToBoolean = (
   }, {});
 };
 
-const serializeAws_restJson1MapOfStringToList = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_restJson1MapOfStringToList = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14026,7 +14023,7 @@ const serializeAws_restJson1MapOfStringToList = (input: { [key: string]: string[
   }, {});
 };
 
-const serializeAws_restJson1MapOfStringToString = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1MapOfStringToString = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14666,8 +14663,8 @@ const deserializeAws_restJson1ListOfVpcLink = (output: any, context: __SerdeCont
 const deserializeAws_restJson1MapOfApiStageThrottleSettings = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ThrottleSettings } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ThrottleSettings }, [key, value]: [string, any]) => {
+): Record<string, ThrottleSettings> => {
+  return Object.entries(output).reduce((acc: Record<string, ThrottleSettings>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14681,8 +14678,8 @@ const deserializeAws_restJson1MapOfApiStageThrottleSettings = (
 const deserializeAws_restJson1MapOfIntegrationResponse = (
   output: any,
   context: __SerdeContext
-): { [key: string]: IntegrationResponse } => {
-  return Object.entries(output).reduce((acc: { [key: string]: IntegrationResponse }, [key, value]: [string, any]) => {
+): Record<string, IntegrationResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, IntegrationResponse>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14693,11 +14690,8 @@ const deserializeAws_restJson1MapOfIntegrationResponse = (
   }, {});
 };
 
-const deserializeAws_restJson1MapOfKeyUsages = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number[][] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number[][] }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1MapOfKeyUsages = (output: any, context: __SerdeContext): Record<string, number[][]> => {
+  return Object.entries(output).reduce((acc: Record<string, number[][]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14708,8 +14702,8 @@ const deserializeAws_restJson1MapOfKeyUsages = (
   }, {});
 };
 
-const deserializeAws_restJson1MapOfMethod = (output: any, context: __SerdeContext): { [key: string]: Method } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Method }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1MapOfMethod = (output: any, context: __SerdeContext): Record<string, Method> => {
+  return Object.entries(output).reduce((acc: Record<string, Method>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14723,8 +14717,8 @@ const deserializeAws_restJson1MapOfMethod = (output: any, context: __SerdeContex
 const deserializeAws_restJson1MapOfMethodResponse = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MethodResponse } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MethodResponse }, [key, value]: [string, any]) => {
+): Record<string, MethodResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, MethodResponse>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14738,8 +14732,8 @@ const deserializeAws_restJson1MapOfMethodResponse = (
 const deserializeAws_restJson1MapOfMethodSettings = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MethodSetting } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MethodSetting }, [key, value]: [string, any]) => {
+): Record<string, MethodSetting> => {
+  return Object.entries(output).reduce((acc: Record<string, MethodSetting>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14753,8 +14747,8 @@ const deserializeAws_restJson1MapOfMethodSettings = (
 const deserializeAws_restJson1MapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MethodSnapshot } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MethodSnapshot }, [key, value]: [string, any]) => {
+): Record<string, MethodSnapshot> => {
+  return Object.entries(output).reduce((acc: Record<string, MethodSnapshot>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14768,8 +14762,8 @@ const deserializeAws_restJson1MapOfMethodSnapshot = (
 const deserializeAws_restJson1MapOfStringToBoolean = (
   output: any,
   context: __SerdeContext
-): { [key: string]: boolean } => {
-  return Object.entries(output).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+): Record<string, boolean> => {
+  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14780,11 +14774,8 @@ const deserializeAws_restJson1MapOfStringToBoolean = (
   }, {});
 };
 
-const deserializeAws_restJson1MapOfStringToList = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1MapOfStringToList = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14795,11 +14786,8 @@ const deserializeAws_restJson1MapOfStringToList = (
   }, {});
 };
 
-const deserializeAws_restJson1MapOfStringToString = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1MapOfStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14904,9 +14892,9 @@ const deserializeAws_restJson1MutualTlsAuthentication = (
 const deserializeAws_restJson1PathToMapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: MethodSnapshot } } => {
+): Record<string, Record<string, MethodSnapshot>> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: MethodSnapshot } }, [key, value]: [string, any]) => {
+    (acc: Record<string, Record<string, MethodSnapshot>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

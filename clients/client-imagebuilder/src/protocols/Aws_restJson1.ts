@@ -5891,7 +5891,7 @@ const serializeAws_restJson1OsVersionList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1ResourceTagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ResourceTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5961,7 +5961,7 @@ const serializeAws_restJson1SystemsManagerAgent = (input: SystemsManagerAgent, c
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7060,8 +7060,8 @@ const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7126,8 +7126,8 @@ const deserializeAws_restJson1SystemsManagerAgent = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

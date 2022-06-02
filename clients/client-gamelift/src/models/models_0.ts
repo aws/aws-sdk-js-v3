@@ -284,7 +284,7 @@ export interface AttributeValue {
    * <p>For a map of up to 10 data type:value pairs. Maximum length for each string value
    *             is 100 characters. </p>
    */
-  SDM?: { [key: string]: number };
+  SDM?: Record<string, number>;
 }
 
 export namespace AttributeValue {
@@ -3874,7 +3874,7 @@ export interface CreatePlayerSessionsInput {
    *             as needed for use in the game. Any player data strings for player IDs that are not
    *             included in the <code>PlayerIds</code> parameter are ignored. </p>
    */
-  PlayerDataMap?: { [key: string]: string };
+  PlayerDataMap?: Record<string, string>;
 }
 
 export namespace CreatePlayerSessionsInput {
@@ -6778,7 +6778,7 @@ export interface Player {
    *             matchmaking rule set. Example: <code>"PlayerAttributes": {"skill": {"N": "23"},
    *                 "gameMode": {"S": "deathmatch"}}</code>.</p>
    */
-  PlayerAttributes?: { [key: string]: AttributeValue };
+  PlayerAttributes?: Record<string, AttributeValue>;
 
   /**
    * <p>Name of the team that the player is assigned to in a match. Team names are defined
@@ -6794,7 +6794,7 @@ export interface Player {
    *             assumes that no Regions are available to the player and the ticket is not matchable.
    *         </p>
    */
-  LatencyInMs?: { [key: string]: number };
+  LatencyInMs?: Record<string, number>;
 }
 
 export namespace Player {

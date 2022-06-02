@@ -376,8 +376,8 @@ const deserializeAws_restJson1DocumentServiceWarnings = (
   return retVal;
 };
 
-const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -388,8 +388,8 @@ const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): { 
   }, {});
 };
 
-const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): { [key: string]: BucketInfo } => {
-  return Object.entries(output).reduce((acc: { [key: string]: BucketInfo }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): Record<string, BucketInfo> => {
+  return Object.entries(output).reduce((acc: Record<string, BucketInfo>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -400,8 +400,8 @@ const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): {
   }, {});
 };
 
-const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -437,8 +437,8 @@ const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -498,8 +498,8 @@ const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): { [key: string]: FieldStats } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FieldStats }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): Record<string, FieldStats> => {
+  return Object.entries(output).reduce((acc: Record<string, FieldStats>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

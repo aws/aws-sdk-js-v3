@@ -327,7 +327,7 @@ export interface Configuration {
   /**
    * <p>The list of all tags associated with this configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Configuration {
@@ -804,7 +804,7 @@ export interface CreateBrokerRequest {
   /**
    * <p>Create tags when creating the broker.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Required. The list of broker users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p> <important><title>Amazon MQ for RabbitMQ</title> <p>When you create an Amazon MQ for RabbitMQ broker, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p></important>
@@ -959,7 +959,7 @@ export interface CreateConfigurationRequest {
   /**
    * <p>Create tags when creating the configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateConfigurationRequest {
@@ -1024,7 +1024,7 @@ export interface CreateTagsRequest {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateTagsRequest {
@@ -1487,7 +1487,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The list of all tags associated with this broker.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The list of all broker usernames for the specified broker.</p>
@@ -1683,7 +1683,7 @@ export interface DescribeConfigurationResponse {
   /**
    * <p>The list of all tags associated with this configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeConfigurationResponse {
@@ -1999,7 +1999,7 @@ export interface ListTagsResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsResponse {

@@ -305,7 +305,7 @@ export interface CreateTaskInput {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A token ensuring that the action is called only once with the specified details.</p>
@@ -496,7 +496,7 @@ export interface DescribeDeviceOutput {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The ID of the device that you checked the information for.</p>
@@ -990,7 +990,7 @@ export interface DescribeTaskOutput {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeTaskOutput {
@@ -1025,7 +1025,7 @@ export interface DeviceSummary {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DeviceSummary {
@@ -1272,7 +1272,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the device or task.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -1333,7 +1333,7 @@ export interface TaskSummary {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace TaskSummary {
@@ -1376,7 +1376,7 @@ export interface TagResourceInput {
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceInput {

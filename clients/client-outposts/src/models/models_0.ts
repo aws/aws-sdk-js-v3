@@ -697,7 +697,7 @@ export interface CreateOutpostInput {
   /**
    * <p>The tags to apply to the Outpost.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>
@@ -772,7 +772,7 @@ export interface Outpost {
   /**
    * <p>The Outpost tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the site.</p>
@@ -975,7 +975,7 @@ export interface CreateSiteInput {
    *       The tags to apply to a site.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>
@@ -1041,7 +1041,7 @@ export interface Site {
   /**
    * <p>The site tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the site.</p>
@@ -1703,7 +1703,7 @@ export interface OrderSummary {
    *       The status of all line items in the order.
    *     </p>
    */
-  LineItemCountsByStatus?: { [key: string]: number };
+  LineItemCountsByStatus?: Record<string, number>;
 
   /**
    * <p>
@@ -1912,7 +1912,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The resource tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1933,7 +1933,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

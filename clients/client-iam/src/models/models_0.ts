@@ -3771,7 +3771,7 @@ export interface GetAccountSummaryResponse {
    * <p>A set of key–value pairs containing information about IAM entity usage and
    *             IAM quotas.</p>
    */
-  SummaryMap?: { [key: string]: number };
+  SummaryMap?: Record<string, number>;
 }
 
 export namespace GetAccountSummaryResponse {
@@ -9313,7 +9313,7 @@ export interface ResourceSpecificResult {
    *          This parameter is returned only for cross-account simulations. This parameter explains how
    *          each policy type contributes to the resource-specific evaluation decision.</p>
    */
-  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
 
   /**
    * <p>Contains information about the effect that a permissions boundary has on a policy
@@ -9401,7 +9401,7 @@ export interface EvaluationResult {
    *          this case, policy evaluation does not proceed any further and this parameter is not
    *          returned.</p>
    */
-  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
 
   /**
    * <p>The individual results of the simulation of the API operation specified in

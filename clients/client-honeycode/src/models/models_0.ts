@@ -125,7 +125,7 @@ export interface CreateRowData {
    *             cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
    */
-  cellsToCreate: { [key: string]: CellInput } | undefined;
+  cellsToCreate: Record<string, CellInput> | undefined;
 }
 
 export namespace CreateRowData {
@@ -244,7 +244,7 @@ export interface BatchCreateTableRowsResult {
   /**
    * <p>The map of batch item id to the row id that was created for that item.</p>
    */
-  createdRows: { [key: string]: string } | undefined;
+  createdRows: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -499,7 +499,7 @@ export interface UpdateRowData {
    *             cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
    */
-  cellsToUpdate: { [key: string]: CellInput } | undefined;
+  cellsToUpdate: Record<string, CellInput> | undefined;
 }
 
 export namespace UpdateRowData {
@@ -677,7 +677,7 @@ export interface UpsertRowData {
    *             of the cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
    */
-  cellsToUpdate: { [key: string]: CellInput } | undefined;
+  cellsToUpdate: Record<string, CellInput> | undefined;
 }
 
 export namespace UpsertRowData {
@@ -802,7 +802,7 @@ export interface BatchUpsertTableRowsResult {
    *             with the list of row ids that were affected.
    *         </p>
    */
-  rows: { [key: string]: UpsertRowsResult } | undefined;
+  rows: Record<string, UpsertRowsResult> | undefined;
 
   /**
    * <p>The updated workbook cursor after updating or appending rows in the table.</p>
@@ -1173,7 +1173,7 @@ export interface DestinationOptions {
   /**
    * <p>A map of the column id to the import properties for each column.</p>
    */
-  columnMap?: { [key: string]: SourceDataColumnProperties };
+  columnMap?: Record<string, SourceDataColumnProperties>;
 }
 
 export namespace DestinationOptions {
@@ -1360,7 +1360,7 @@ export interface GetScreenDataRequest {
    *             to the screen.
    *         </p>
    */
-  variables?: { [key: string]: VariableValue };
+  variables?: Record<string, VariableValue>;
 
   /**
    * <p>
@@ -1467,7 +1467,7 @@ export interface GetScreenDataResult {
   /**
    * <p>A map of all the rows on the screen keyed by block name.</p>
    */
-  results: { [key: string]: ResultSet } | undefined;
+  results: Record<string, ResultSet> | undefined;
 
   /**
    * <p>
@@ -1536,7 +1536,7 @@ export interface InvokeScreenAutomationRequest {
    *             to the screen. Any variables defined in a screen are required to be passed in the call.
    *         </p>
    */
-  variables?: { [key: string]: VariableValue };
+  variables?: Record<string, VariableValue>;
 
   /**
    * <p>
@@ -1935,7 +1935,7 @@ export interface ListTagsForResourceResult {
   /**
    * <p>The resource's tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResult {
@@ -2140,7 +2140,7 @@ export interface TagResourceRequest {
   /**
    * <p>A list of tags to apply to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

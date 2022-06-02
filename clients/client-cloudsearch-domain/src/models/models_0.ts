@@ -375,17 +375,17 @@ export interface Hit {
   /**
    * <p>The fields returned from a document that matches the search request.</p>
    */
-  fields?: { [key: string]: string[] };
+  fields?: Record<string, string[]>;
 
   /**
    * <p>The expressions returned from a document that matches the search request.</p>
    */
-  exprs?: { [key: string]: string };
+  exprs?: Record<string, string>;
 
   /**
    * <p>The highlights returned from a document that matches the search request.</p>
    */
-  highlights?: { [key: string]: string };
+  highlights?: Record<string, string>;
 }
 
 export namespace Hit {
@@ -529,12 +529,12 @@ export interface SearchResponse {
   /**
    * <p>The requested facet information.</p>
    */
-  facets?: { [key: string]: BucketInfo };
+  facets?: Record<string, BucketInfo>;
 
   /**
    * <p>The requested field statistics information.</p>
    */
-  stats?: { [key: string]: FieldStats };
+  stats?: Record<string, FieldStats>;
 }
 
 export namespace SearchResponse {

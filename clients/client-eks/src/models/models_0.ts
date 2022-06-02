@@ -150,7 +150,7 @@ export interface Addon {
    *             Add-on tags do not propagate to any other resources associated with the cluster.
    *         </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Addon {
@@ -832,7 +832,7 @@ export interface OidcIdentityProviderConfigRequest {
    *             number of claims that you can require, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service
    *                 quotas</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
-  requiredClaims?: { [key: string]: string };
+  requiredClaims?: Record<string, string>;
 }
 
 export namespace OidcIdentityProviderConfigRequest {
@@ -860,7 +860,7 @@ export interface AssociateIdentityProviderConfigRequest {
    * <p>The metadata to apply to the configuration to assist with categorization and
    *             organization. Each tag consists of a key and an optional value. You define both.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -887,7 +887,7 @@ export interface AssociateIdentityProviderConfigResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace AssociateIdentityProviderConfigResponse {
@@ -970,7 +970,7 @@ export interface CreateAddonRequest {
    * <p>The metadata to apply to the cluster to assist with categorization and organization.
    *             Each tag consists of a key and an optional value. You define both.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAddonRequest {
@@ -1258,7 +1258,7 @@ export interface CreateClusterRequest {
    * <p>The metadata to apply to the cluster to assist with categorization and organization.
    *             Each tag consists of a key and an optional value. You define both.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The encryption configuration for the cluster.</p>
@@ -1585,7 +1585,7 @@ export interface Cluster {
    *             Cluster tags do not propagate to any other resources associated with the
    *             cluster.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The encryption configuration for the cluster.</p>
@@ -1727,7 +1727,7 @@ export interface FargateProfileSelector {
    * <p>The Kubernetes labels that the selector should match. A pod must contain all of the
    *             labels that are specified in the selector for it to be considered a match.</p>
    */
-  labels?: { [key: string]: string };
+  labels?: Record<string, string>;
 }
 
 export namespace FargateProfileSelector {
@@ -1786,7 +1786,7 @@ export interface CreateFargateProfileRequest {
    *             Fargate profile tags do not propagate to any other resources associated with the
    *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFargateProfileRequest {
@@ -1854,7 +1854,7 @@ export interface FargateProfile {
    *             Fargate profile tags do not propagate to any other resources associated with the
    *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace FargateProfile {
@@ -2161,7 +2161,7 @@ export interface CreateNodegroupRequest {
    * <p>The Kubernetes labels to be applied to the nodes in the node group when they are
    *             created.</p>
    */
-  labels?: { [key: string]: string };
+  labels?: Record<string, string>;
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
@@ -2174,7 +2174,7 @@ export interface CreateNodegroupRequest {
    *             define both. Node group tags do not propagate to any other resources associated with the node
    *             group, such as the Amazon EC2 instances or subnets.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2532,7 +2532,7 @@ export interface Nodegroup {
    *                 may be other Kubernetes labels applied to the nodes in this group.</p>
    *         </note>
    */
-  labels?: { [key: string]: string };
+  labels?: Record<string, string>;
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group when they are
@@ -2578,7 +2578,7 @@ export interface Nodegroup {
    *             tags do not propagate to any other resources associated with the node group, such as the
    *             Amazon EC2 instances or subnets. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Nodegroup {
@@ -3084,13 +3084,13 @@ export interface OidcIdentityProviderConfig {
    * <p>The key-value pairs that describe required claims in the identity token. If set, each
    *             claim is verified to be present in the token with a matching value.</p>
    */
-  requiredClaims?: { [key: string]: string };
+  requiredClaims?: Record<string, string>;
 
   /**
    * <p>The metadata to apply to the provider configuration to assist with categorization and
    *             organization. Each tag consists of a key and an optional value. You define both.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The status of the OIDC identity provider.</p>
@@ -3636,7 +3636,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3799,7 +3799,7 @@ export interface RegisterClusterRequest {
    *             define. Cluster tags do not propagate to any other resources associated with the
    *             cluster.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace RegisterClusterRequest {
@@ -3856,7 +3856,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4091,7 +4091,7 @@ export interface UpdateLabelsPayload {
   /**
    * <p>Kubernetes labels to be added or updated.</p>
    */
-  addOrUpdateLabels?: { [key: string]: string };
+  addOrUpdateLabels?: Record<string, string>;
 
   /**
    * <p>Kubernetes labels to be removed.</p>

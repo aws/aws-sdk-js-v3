@@ -648,7 +648,7 @@ export interface DescribeConfigurationsResponse {
   /**
    * <p>A key in the response map. The value is an array of data.</p>
    */
-  configurations?: { [key: string]: string }[];
+  configurations?: Record<string, string>[];
 }
 
 export namespace DescribeConfigurationsResponse {
@@ -856,7 +856,7 @@ export interface ContinuousExportDescription {
    *             </li>
    *          </ul>
    */
-  schemaStorageConfig?: { [key: string]: string };
+  schemaStorageConfig?: Record<string, string>;
 }
 
 export namespace ContinuousExportDescription {
@@ -1814,7 +1814,7 @@ export interface ListConfigurationsResponse {
    * <p>Returns configuration details, including the configuration ID, attribute names, and
    *       attribute values.</p>
    */
-  configurations?: { [key: string]: string }[];
+  configurations?: Record<string, string>[];
 
   /**
    * <p>Token to retrieve the next set of results. For example, if your call to
@@ -2029,7 +2029,7 @@ export interface StartContinuousExportResponse {
    *             </li>
    *          </ul>
    */
-  schemaStorageConfig?: { [key: string]: string };
+  schemaStorageConfig?: Record<string, string>;
 }
 
 export namespace StartContinuousExportResponse {

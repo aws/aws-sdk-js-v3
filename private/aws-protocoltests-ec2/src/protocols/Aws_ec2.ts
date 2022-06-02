@@ -1974,7 +1974,7 @@ const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (F
     });
 };
 
-const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): { [key: string]: FooEnum | string } => {
+const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

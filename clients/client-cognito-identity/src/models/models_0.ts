@@ -68,7 +68,7 @@ export interface CreateIdentityPoolInput {
   /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
-  SupportedLoginProviders?: { [key: string]: string };
+  SupportedLoginProviders?: Record<string, string>;
 
   /**
    * <p>The "domain" by which Cognito will refer to your users. This name acts as a
@@ -102,7 +102,7 @@ export interface CreateIdentityPoolInput {
    *          pools to categorize and manage them in different ways, such as by purpose, owner,
    *          environment, or other criteria.</p>
    */
-  IdentityPoolTags?: { [key: string]: string };
+  IdentityPoolTags?: Record<string, string>;
 }
 
 export namespace CreateIdentityPoolInput {
@@ -142,7 +142,7 @@ export interface IdentityPool {
   /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
-  SupportedLoginProviders?: { [key: string]: string };
+  SupportedLoginProviders?: Record<string, string>;
 
   /**
    * <p>The "domain" by which Cognito will refer to your users.</p>
@@ -170,7 +170,7 @@ export interface IdentityPool {
    *          identity pools to categorize and manage them in different ways, such as by purpose, owner,
    *          environment, or other criteria.</p>
    */
-  IdentityPoolTags?: { [key: string]: string };
+  IdentityPoolTags?: Record<string, string>;
 }
 
 export namespace IdentityPool {
@@ -518,7 +518,7 @@ export interface GetCredentialsForIdentityInput {
    *          examples in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer
    *          Guide.</p>
    */
-  Logins?: { [key: string]: string };
+  Logins?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were
@@ -663,7 +663,7 @@ export interface GetIdInput {
    *             </li>
    *          </ul>
    */
-  Logins?: { [key: string]: string };
+  Logins?: Record<string, string>;
 }
 
 export namespace GetIdInput {
@@ -835,7 +835,7 @@ export interface GetIdentityPoolRolesResponse {
    * <p>The map of roles associated with this pool. Currently only authenticated and
    *          unauthenticated roles are supported.</p>
    */
-  Roles?: { [key: string]: string };
+  Roles?: Record<string, string>;
 
   /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a
@@ -843,7 +843,7 @@ export interface GetIdentityPoolRolesResponse {
    *          provider, for example, "graph.facebook.com" or
    *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
    */
-  RoleMappings?: { [key: string]: RoleMapping };
+  RoleMappings?: Record<string, RoleMapping>;
 }
 
 export namespace GetIdentityPoolRolesResponse {
@@ -870,7 +870,7 @@ export interface GetOpenIdTokenInput {
    *          provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any
    *          other OpenID Connect provider, always include the <code>id_token</code>.</p>
    */
-  Logins?: { [key: string]: string };
+  Logins?: Record<string, string>;
 }
 
 export namespace GetOpenIdTokenInput {
@@ -951,12 +951,12 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
    *          identifier from your backend that uniquely identifies a user. When you create an identity
    *          pool, you can specify the supported logins.</p>
    */
-  Logins: { [key: string]: string } | undefined;
+  Logins: Record<string, string> | undefined;
 
   /**
    * <p>Use this operation to configure attribute mappings for custom providers. </p>
    */
-  PrincipalTags?: { [key: string]: string };
+  PrincipalTags?: Record<string, string>;
 
   /**
    * <p>The expiration time of the token, in seconds. You can specify a custom expiration
@@ -1047,7 +1047,7 @@ export interface GetPrincipalTagAttributeMapResponse {
   /**
    * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
    */
-  PrincipalTags?: { [key: string]: string };
+  PrincipalTags?: Record<string, string>;
 }
 
 export namespace GetPrincipalTagAttributeMapResponse {
@@ -1216,7 +1216,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the identity pool.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1403,7 +1403,7 @@ export interface SetIdentityPoolRolesInput {
    * <p>The map of roles associated with this pool. For a given role, the key will be either
    *          "authenticated" or "unauthenticated" and the value will be the Role ARN.</p>
    */
-  Roles: { [key: string]: string } | undefined;
+  Roles: Record<string, string> | undefined;
 
   /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a string
@@ -1412,7 +1412,7 @@ export interface SetIdentityPoolRolesInput {
    *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
    *          <p>Up to 25 rules can be specified per identity provider.</p>
    */
-  RoleMappings?: { [key: string]: RoleMapping };
+  RoleMappings?: Record<string, RoleMapping>;
 }
 
 export namespace SetIdentityPoolRolesInput {
@@ -1443,7 +1443,7 @@ export interface SetPrincipalTagAttributeMapInput {
   /**
    * <p>You can use this operation to add principal tags.</p>
    */
-  PrincipalTags?: { [key: string]: string };
+  PrincipalTags?: Record<string, string>;
 }
 
 export namespace SetPrincipalTagAttributeMapInput {
@@ -1474,7 +1474,7 @@ export interface SetPrincipalTagAttributeMapResponse {
   /**
    * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
    */
-  PrincipalTags?: { [key: string]: string };
+  PrincipalTags?: Record<string, string>;
 }
 
 export namespace SetPrincipalTagAttributeMapResponse {
@@ -1495,7 +1495,7 @@ export interface TagResourceInput {
   /**
    * <p>The tags to assign to the identity pool.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1565,7 +1565,7 @@ export interface UnlinkIdentityInput {
    * <p>A set of optional name-value pairs that map provider names to provider
    *          tokens.</p>
    */
-  Logins: { [key: string]: string } | undefined;
+  Logins: Record<string, string> | undefined;
 
   /**
    * <p>Provider names to unlink from this identity.</p>

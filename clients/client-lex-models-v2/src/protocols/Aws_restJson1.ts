@@ -8871,7 +8871,7 @@ const serializeAws_restJson1BotAliasLocaleSettings = (input: BotAliasLocaleSetti
 };
 
 const serializeAws_restJson1BotAliasLocaleSettingsMap = (
-  input: { [key: string]: BotAliasLocaleSettings },
+  input: Record<string, BotAliasLocaleSettings>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -9004,7 +9004,7 @@ const serializeAws_restJson1BotVersionLocaleDetails = (
 };
 
 const serializeAws_restJson1BotVersionLocaleSpecification = (
-  input: { [key: string]: BotVersionLocaleDetails },
+  input: Record<string, BotVersionLocaleDetails>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -9077,7 +9077,7 @@ const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecificatio
   };
 };
 
-const serializeAws_restJson1ConditionKeyValueMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ConditionKeyValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9090,7 +9090,7 @@ const serializeAws_restJson1ConditionKeyValueMap = (input: { [key: string]: stri
 };
 
 const serializeAws_restJson1ConditionMap = (
-  input: { [key: string]: { [key: string]: string } },
+  input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -9972,7 +9972,7 @@ const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __Serd
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -10227,19 +10227,16 @@ const deserializeAws_restJson1BotAliasLocaleSettings = (
 const deserializeAws_restJson1BotAliasLocaleSettingsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: BotAliasLocaleSettings } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: BotAliasLocaleSettings }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1BotAliasLocaleSettings(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, BotAliasLocaleSettings> => {
+  return Object.entries(output).reduce((acc: Record<string, BotAliasLocaleSettings>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1BotAliasLocaleSettings(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1BotAliasSummary = (output: any, context: __SerdeContext): BotAliasSummary => {
@@ -10487,19 +10484,16 @@ const deserializeAws_restJson1BotVersionLocaleDetails = (
 const deserializeAws_restJson1BotVersionLocaleSpecification = (
   output: any,
   context: __SerdeContext
-): { [key: string]: BotVersionLocaleDetails } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: BotVersionLocaleDetails }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1BotVersionLocaleDetails(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, BotVersionLocaleDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, BotVersionLocaleDetails>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1BotVersionLocaleDetails(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1BotVersionSummary = (output: any, context: __SerdeContext): BotVersionSummary => {
@@ -11511,8 +11505,8 @@ const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

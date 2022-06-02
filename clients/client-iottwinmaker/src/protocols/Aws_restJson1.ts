@@ -3134,7 +3134,7 @@ const serializeAws_restJson1ComponentRequest = (input: ComponentRequest, context
 };
 
 const serializeAws_restJson1ComponentsMapRequest = (
-  input: { [key: string]: ComponentRequest },
+  input: Record<string, ComponentRequest>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3162,7 +3162,7 @@ const serializeAws_restJson1ComponentUpdateRequest = (input: ComponentUpdateRequ
 };
 
 const serializeAws_restJson1ComponentUpdatesMapRequest = (
-  input: { [key: string]: ComponentUpdateRequest },
+  input: Record<string, ComponentUpdateRequest>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3176,7 +3176,7 @@ const serializeAws_restJson1ComponentUpdatesMapRequest = (
   }, {});
 };
 
-const serializeAws_restJson1Configuration = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Configuration = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3242,7 +3242,7 @@ const serializeAws_restJson1DataValueList = (input: DataValue[], context: __Serd
     });
 };
 
-const serializeAws_restJson1DataValueMap = (input: { [key: string]: DataValue }, context: __SerdeContext): any => {
+const serializeAws_restJson1DataValueMap = (input: Record<string, DataValue>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3291,7 +3291,7 @@ const serializeAws_restJson1ExtendsFrom = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_restJson1ExternalIdProperty = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ExternalIdProperty = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3318,7 +3318,7 @@ const serializeAws_restJson1FunctionRequest = (input: FunctionRequest, context: 
 };
 
 const serializeAws_restJson1FunctionsRequest = (
-  input: { [key: string]: FunctionRequest },
+  input: Record<string, FunctionRequest>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3430,7 +3430,7 @@ const serializeAws_restJson1PropertyDefinitionRequest = (
 };
 
 const serializeAws_restJson1PropertyDefinitionsRequest = (
-  input: { [key: string]: PropertyDefinitionRequest },
+  input: Record<string, PropertyDefinitionRequest>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3477,7 +3477,7 @@ const serializeAws_restJson1PropertyRequest = (input: PropertyRequest, context: 
 };
 
 const serializeAws_restJson1PropertyRequests = (
-  input: { [key: string]: PropertyRequest },
+  input: Record<string, PropertyRequest>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3576,7 +3576,7 @@ const serializeAws_restJson1SelectedPropertyList = (input: string[], context: __
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3631,8 +3631,8 @@ const deserializeAws_restJson1ComponentResponse = (output: any, context: __Serde
 const deserializeAws_restJson1ComponentsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentResponse } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ComponentResponse }, [key, value]: [string, any]) => {
+): Record<string, ComponentResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, ComponentResponse>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3678,8 +3678,8 @@ const deserializeAws_restJson1ComponentTypeSummary = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3754,8 +3754,8 @@ const deserializeAws_restJson1DataValueList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_restJson1DataValueMap = (output: any, context: __SerdeContext): { [key: string]: DataValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: DataValue }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1DataValueMap = (output: any, context: __SerdeContext): Record<string, DataValue> => {
+  return Object.entries(output).reduce((acc: Record<string, DataValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3859,11 +3859,8 @@ const deserializeAws_restJson1ExtendsFrom = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1ExternalIdProperty = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ExternalIdProperty = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3892,8 +3889,8 @@ const deserializeAws_restJson1FunctionResponse = (output: any, context: __SerdeC
 const deserializeAws_restJson1FunctionsResponse = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FunctionResponse } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FunctionResponse }, [key, value]: [string, any]) => {
+): Record<string, FunctionResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, FunctionResponse>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3940,9 +3937,9 @@ const deserializeAws_restJson1PropertyDefinitionResponse = (
 const deserializeAws_restJson1PropertyDefinitionsResponse = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PropertyDefinitionResponse } => {
+): Record<string, PropertyDefinitionResponse> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: PropertyDefinitionResponse }, [key, value]: [string, any]) => {
+    (acc: Record<string, PropertyDefinitionResponse>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3971,8 +3968,8 @@ const deserializeAws_restJson1PropertyLatestValue = (output: any, context: __Ser
 const deserializeAws_restJson1PropertyLatestValueMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PropertyLatestValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PropertyLatestValue }, [key, value]: [string, any]) => {
+): Record<string, PropertyLatestValue> => {
+  return Object.entries(output).reduce((acc: Record<string, PropertyLatestValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3999,8 +3996,8 @@ const deserializeAws_restJson1PropertyResponse = (output: any, context: __SerdeC
 const deserializeAws_restJson1PropertyResponses = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PropertyResponse } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PropertyResponse }, [key, value]: [string, any]) => {
+): Record<string, PropertyResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, PropertyResponse>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4152,8 +4149,8 @@ const deserializeAws_restJson1Status = (output: any, context: __SerdeContext): S
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

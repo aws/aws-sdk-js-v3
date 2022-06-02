@@ -2112,7 +2112,7 @@ const serializeAws_json1_1IdentityPoolTagsListType = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_1IdentityPoolTagsType = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1IdentityPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2124,7 +2124,7 @@ const serializeAws_json1_1IdentityPoolTagsType = (input: { [key: string]: string
   }, {});
 };
 
-const serializeAws_json1_1IdentityProviders = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1IdentityProviders = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2173,7 +2173,7 @@ const serializeAws_json1_1LoginsList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1LoginsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1LoginsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2247,7 +2247,7 @@ const serializeAws_json1_1OIDCProviderList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1PrincipalTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1PrincipalTags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2271,7 +2271,7 @@ const serializeAws_json1_1RoleMapping = (input: RoleMapping, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1RoleMappingMap = (input: { [key: string]: RoleMapping }, context: __SerdeContext): any => {
+const serializeAws_json1_1RoleMappingMap = (input: Record<string, RoleMapping>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2283,7 +2283,7 @@ const serializeAws_json1_1RoleMappingMap = (input: { [key: string]: RoleMapping 
   }, {});
 };
 
-const serializeAws_json1_1RolesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1RolesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2629,11 +2629,8 @@ const deserializeAws_json1_1IdentityPoolsList = (
   return retVal;
 };
 
-const deserializeAws_json1_1IdentityPoolTagsType = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1IdentityPoolTagsType = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2644,8 +2641,8 @@ const deserializeAws_json1_1IdentityPoolTagsType = (
   }, {});
 };
 
-const deserializeAws_json1_1IdentityProviders = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1IdentityProviders = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2796,8 +2793,8 @@ const deserializeAws_json1_1OIDCProviderList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1PrincipalTags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1PrincipalTags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2837,8 +2834,8 @@ const deserializeAws_json1_1RoleMapping = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1RoleMappingMap = (output: any, context: __SerdeContext): { [key: string]: RoleMapping } => {
-  return Object.entries(output).reduce((acc: { [key: string]: RoleMapping }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1RoleMappingMap = (output: any, context: __SerdeContext): Record<string, RoleMapping> => {
+  return Object.entries(output).reduce((acc: Record<string, RoleMapping>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2849,8 +2846,8 @@ const deserializeAws_json1_1RoleMappingMap = (output: any, context: __SerdeConte
   }, {});
 };
 
-const deserializeAws_json1_1RolesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1RolesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -26,7 +26,7 @@ export interface GetPersonalizedRankingRequest {
    *       any interaction information that might be relevant when getting a user's recommendations, such
    *       as the user's current location or device type.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user.
@@ -47,7 +47,7 @@ export interface GetPersonalizedRankingRequest {
    *          <p>For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    */
-  filterValues?: { [key: string]: string };
+  filterValues?: Record<string, string>;
 }
 
 export namespace GetPersonalizedRankingRequest {
@@ -175,7 +175,7 @@ export interface GetRecommendationsRequest {
    *       any interaction information that might be relevant when getting a user's recommendations, such
    *       as the user's current location or device type.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
@@ -196,7 +196,7 @@ export interface GetRecommendationsRequest {
    *          <p>For more information, see
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    */
-  filterValues?: { [key: string]: string };
+  filterValues?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you

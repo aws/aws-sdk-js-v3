@@ -3480,7 +3480,7 @@ export interface GetBlacklistReportsResponse {
    * <p>An object that contains information about a blacklist that one of your dedicated IP
    *             addresses appears on.</p>
    */
-  BlacklistReport: { [key: string]: BlacklistEntry[] } | undefined;
+  BlacklistReport: Record<string, BlacklistEntry[]> | undefined;
 }
 
 export namespace GetBlacklistReportsResponse {
@@ -4368,7 +4368,7 @@ export interface GetEmailIdentityResponse {
   /**
    * <p>A map of policy names to policies.</p>
    */
-  Policies?: { [key: string]: string };
+  Policies?: Record<string, string>;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
@@ -4417,7 +4417,7 @@ export interface GetEmailIdentityPoliciesResponse {
   /**
    * <p>A map of policy names to policies.</p>
    */
-  Policies?: { [key: string]: string };
+  Policies?: Record<string, string>;
 }
 
 export namespace GetEmailIdentityPoliciesResponse {

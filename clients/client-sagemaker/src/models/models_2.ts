@@ -880,7 +880,7 @@ export interface DescribeModelPackageOutput {
   /**
    * <p>The metadata properties associated with the model package versions.</p>
    */
-  CustomerMetadataProperties?: { [key: string]: string };
+  CustomerMetadataProperties?: Record<string, string>;
 
   /**
    * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
@@ -1811,7 +1811,7 @@ export interface DescribeProcessingJobResponse {
   /**
    * <p>The environment variables set in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Networking options for a processing job.</p>
@@ -2662,7 +2662,7 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>Algorithm-specific parameters. </p>
    */
-  HyperParameters?: { [key: string]: string };
+  HyperParameters?: Record<string, string>;
 
   /**
    * <p>Information about the algorithm used for training, and algorithm metadata.
@@ -2876,7 +2876,7 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>The environment variables to set in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace DescribeTrainingJobResponse {
@@ -2987,7 +2987,7 @@ export interface DescribeTransformJobResponse {
    *             environment variables to set in the Docker container. We support up to 16 key and values
    *             entries in the map.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Describes the dataset to be transformed and the Amazon S3 location where it is
@@ -3356,17 +3356,17 @@ export interface DescribeTrialComponentResponse {
   /**
    * <p>The hyperparameters of the component.</p>
    */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
+  Parameters?: Record<string, TrialComponentParameterValue>;
 
   /**
    * <p>The input artifacts of the component.</p>
    */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The output artifacts of the component.</p>
    */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>

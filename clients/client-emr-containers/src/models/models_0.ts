@@ -320,7 +320,7 @@ export interface CreateVirtualClusterRequest {
   /**
    * <p>The tags assigned to the virtual cluster.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateVirtualClusterRequest {
@@ -638,7 +638,7 @@ export interface VirtualCluster {
   /**
    * <p>The assigned tags of the virtual cluster.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace VirtualCluster {
@@ -780,7 +780,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags assigned to resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -902,7 +902,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags assigned to resources.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -969,7 +969,7 @@ export interface Configuration {
   /**
    * <p>A set of properties specified within a configuration classification.</p>
    */
-  properties?: { [key: string]: string };
+  properties?: Record<string, string>;
 
   /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
@@ -1064,7 +1064,7 @@ export interface CreateManagedEndpointRequest {
    * <p>The tags of the managed endpoint.
    *       </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateManagedEndpointRequest {
@@ -1180,7 +1180,7 @@ export interface Endpoint {
    * <p>The tags of the endpoint.
    *       </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Endpoint {
@@ -1277,7 +1277,7 @@ export interface JobRun {
   /**
    * <p>The assigned tags of the job run.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace JobRun {
@@ -1332,7 +1332,7 @@ export interface StartJobRunRequest {
   /**
    * <p>The tags assigned to job runs.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartJobRunRequest {

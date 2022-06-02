@@ -726,7 +726,7 @@ export interface WorkspaceDescription {
   /**
    * <p>The list of tags associated with the workspace.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace WorkspaceDescription {
@@ -1110,7 +1110,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags that are associated with the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1384,7 +1384,7 @@ export interface TagResourceRequest {
    * <p>The list of tag keys and values to associate with the resource.  You can associate tag keys only, tags (key and values) only
    *       or a combination of tag keys and tags.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1532,7 +1532,7 @@ export interface CreateWorkspaceRequest {
   /**
    * <p>The list of tags associated with the workspace.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorkspaceRequest {
@@ -1714,7 +1714,7 @@ export interface WorkspaceSummary {
   /**
    * <p>The list of tags associated with the workspace.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace WorkspaceSummary {

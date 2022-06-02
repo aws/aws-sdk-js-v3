@@ -326,7 +326,7 @@ export interface AgentConfiguration {
    *             </li>
    *          </ul>
    */
-  agentParameters?: { [key: string]: string };
+  agentParameters?: Record<string, string>;
 }
 
 export namespace AgentConfiguration {
@@ -843,7 +843,7 @@ export interface BatchGetFrameMetricDataResponse {
   /**
    * <p>List of instances which remained unprocessed. This will create a missing time step in the list of end times.</p>
    */
-  unprocessedEndTimes: { [key: string]: TimestampStructure[] } | undefined;
+  unprocessedEndTimes: Record<string, TimestampStructure[]> | undefined;
 
   /**
    * <p>Details of the metrics to request a time series of values. The metric includes
@@ -1010,7 +1010,7 @@ export interface ListTagsForResourceResponse {
    *          returned in the response.
    *       </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1130,7 +1130,7 @@ export interface ConfigureAgentRequest {
    *             </li>
    *          </ul>
    */
-  metadata?: { [key: string]: string };
+  metadata?: Record<string, string>;
 }
 
 export namespace ConfigureAgentRequest {
@@ -1214,7 +1214,7 @@ export interface CreateProfilingGroupRequest {
    *          A list of tags to add to the created profiling group.
    *       </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateProfilingGroupRequest {
@@ -1338,7 +1338,7 @@ export interface ProfilingGroupDescription {
    *          A list of the tags that belong to this profiling group.
    *       </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ProfilingGroupDescription {
@@ -2669,7 +2669,7 @@ export interface TagResourceRequest {
    *          The list of tags that are added to the specified resource.
    *       </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

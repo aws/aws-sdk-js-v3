@@ -54,7 +54,7 @@ export interface Connector {
   /**
    * The parameters or configuration that the connector uses.
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace Connector {
@@ -142,7 +142,7 @@ export interface DefinitionInformation {
   /**
    * Tag(s) attached to the resource arn.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DefinitionInformation {
@@ -297,7 +297,7 @@ export interface FunctionConfigurationEnvironment {
   /**
    * Environment variables for the Lambda function's configuration.
    */
-  Variables?: { [key: string]: string };
+  Variables?: Record<string, string>;
 }
 
 export namespace FunctionConfigurationEnvironment {
@@ -1179,7 +1179,7 @@ export interface CreateConnectorDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateConnectorDefinitionRequest {
@@ -1316,7 +1316,7 @@ export interface CreateCoreDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateCoreDefinitionRequest {
@@ -1526,7 +1526,7 @@ export interface CreateDeviceDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateDeviceDefinitionRequest {
@@ -1727,7 +1727,7 @@ export interface CreateFunctionDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFunctionDefinitionRequest {
@@ -1918,7 +1918,7 @@ export interface CreateGroupRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateGroupRequest {
@@ -2138,7 +2138,7 @@ export interface CreateLoggerDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateLoggerDefinitionRequest {
@@ -2291,7 +2291,7 @@ export interface CreateResourceDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateResourceDefinitionRequest {
@@ -2546,7 +2546,7 @@ export interface CreateSubscriptionDefinitionRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSubscriptionDefinitionRequest {
@@ -3057,7 +3057,7 @@ export interface GetBulkDeploymentStatusResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetBulkDeploymentStatusResponse {
@@ -3161,7 +3161,7 @@ export interface GetConnectorDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetConnectorDefinitionResponse {
@@ -3295,7 +3295,7 @@ export interface GetCoreDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetCoreDefinitionResponse {
@@ -3481,7 +3481,7 @@ export interface GetDeviceDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetDeviceDefinitionResponse {
@@ -3615,7 +3615,7 @@ export interface GetFunctionDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetFunctionDefinitionResponse {
@@ -3749,7 +3749,7 @@ export interface GetGroupResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetGroupResponse {
@@ -3962,7 +3962,7 @@ export interface GetLoggerDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetLoggerDefinitionResponse {
@@ -4091,7 +4091,7 @@ export interface GetResourceDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetResourceDefinitionResponse {
@@ -4247,7 +4247,7 @@ export interface GetSubscriptionDefinitionResponse {
   /**
    * Tag(s) attached to the resource arn.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetSubscriptionDefinitionResponse {
@@ -5306,7 +5306,7 @@ export interface ListTagsForResourceResponse {
   /**
    * The key-value pair for the resource tag.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5387,7 +5387,7 @@ export interface StartBulkDeploymentRequest {
   /**
    * Tag(s) to add to the new resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartBulkDeploymentRequest {
@@ -5459,7 +5459,7 @@ export interface TagResourceRequest {
   /**
    * The key-value pair for the resource tag.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace TagResourceRequest {

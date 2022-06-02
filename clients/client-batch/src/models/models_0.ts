@@ -35,7 +35,7 @@ export interface ArrayPropertiesDetail {
    * <p>A summary of the number of array job children in each available job status. This parameter is returned for
    *    parent array jobs.</p>
    */
-  statusSummary?: { [key: string]: number };
+  statusSummary?: Record<string, number>;
 
   /**
    * <p>The size of the array job. This parameter is returned for parent array jobs.</p>
@@ -586,7 +586,7 @@ export interface ComputeResource {
    *    specified.</p>
    *          </note>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel
@@ -751,7 +751,7 @@ export interface CreateComputeEnvironmentRequest {
    *          <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't
    *    propagate to the underlying compute resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateComputeEnvironmentRequest {
@@ -882,7 +882,7 @@ export interface CreateJobQueueRequest {
    * <p>The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists
    *    of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateJobQueueRequest {
@@ -1015,7 +1015,7 @@ export interface CreateSchedulingPolicyRequest {
    *     Reference</i>.</p>
    *          <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSchedulingPolicyRequest {
@@ -1276,7 +1276,7 @@ export interface ComputeEnvironmentDetail {
   /**
    * <p>The tags applied to the compute environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For more information, see
@@ -1775,7 +1775,7 @@ export interface LogConfiguration {
    *  container instance and run the following command: <code>sudo docker version | grep "Server API version"</code>
    *          </p>
    */
-  options?: { [key: string]: string };
+  options?: Record<string, string>;
 
   /**
    * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive data</a> in the
@@ -2621,7 +2621,7 @@ export interface JobDefinition {
    *    parameter defaults from the job definition. For more information about specifying parameters, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html">Job definition parameters</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>
@@ -2651,7 +2651,7 @@ export interface JobDefinition {
   /**
    * <p>The tags applied to the job definition.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no
@@ -2810,7 +2810,7 @@ export interface JobQueueDetail {
    * <p>The tags applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in
    *    <i>Batch User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace JobQueueDetail {
@@ -3225,7 +3225,7 @@ export interface JobDetail {
    * <p>Additional parameters passed to the job that replace parameter substitution placeholders or override any
    *    corresponding parameter defaults from the job definition.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>An object representing the details of the container that's associated with the job.</p>
@@ -3258,7 +3258,7 @@ export interface JobDetail {
   /**
    * <p>The tags applied to the job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no
@@ -3345,7 +3345,7 @@ export interface SchedulingPolicyDetail {
    *    a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General
    *     Reference</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SchedulingPolicyDetail {
@@ -3765,7 +3765,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3806,7 +3806,7 @@ export interface RegisterJobDefinitionRequest {
    *    key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults
    *    from the job definition.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The scheduling priority for jobs that are submitted with this job definition. This will only affect jobs in job
@@ -3867,7 +3867,7 @@ export interface RegisterJobDefinitionRequest {
    * <p>The tags that you apply to the job definition to help you categorize and organize your resources. Each tag
    *    consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging Amazon Web Services Resources</a> in <i>Batch User Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it defaults to
@@ -4114,7 +4114,7 @@ export interface SubmitJobRequest {
    *    definition. Parameters are specified as a key and value pair mapping. Parameters in a <code>SubmitJob</code> request
    *    override any corresponding parameter defaults from the job definition.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>A list of container overrides in the JSON format that specify the name of a container in the specified job
@@ -4165,7 +4165,7 @@ export interface SubmitJobRequest {
    *    of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
    *     Reference</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SubmitJobRequest {
@@ -4218,7 +4218,7 @@ export interface TagResourceRequest {
    *    a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
    *     Reference</i>.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4478,7 +4478,7 @@ export interface ComputeResourceUpdate {
    *    specified.</p>
    *          </note>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel

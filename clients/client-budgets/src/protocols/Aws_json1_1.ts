@@ -1895,7 +1895,7 @@ const serializeAws_json1_1CalculatedSpend = (input: CalculatedSpend, context: __
   };
 };
 
-const serializeAws_json1_1CostFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1CostFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2271,7 +2271,7 @@ const serializeAws_json1_1NotificationWithSubscribersList = (
     });
 };
 
-const serializeAws_json1_1PlannedBudgetLimits = (input: { [key: string]: Spend }, context: __SerdeContext): any => {
+const serializeAws_json1_1PlannedBudgetLimits = (input: Record<string, Spend>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2680,8 +2680,8 @@ const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3065,8 +3065,8 @@ const deserializeAws_json1_1Notifications = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __SerdeContext): { [key: string]: Spend } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Spend }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __SerdeContext): Record<string, Spend> => {
+  return Object.entries(output).reduce((acc: Record<string, Spend>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

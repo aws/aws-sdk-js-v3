@@ -1019,7 +1019,7 @@ export interface KafkaAction {
   /**
    * <p>Properties of the Apache Kafka producer client.</p>
    */
-  clientProperties: { [key: string]: string } | undefined;
+  clientProperties: Record<string, string> | undefined;
 }
 
 export namespace KafkaAction {
@@ -2424,7 +2424,7 @@ export interface AttributePayload {
    * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
    * 		       </p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
@@ -2633,7 +2633,7 @@ export interface NonCompliantResource {
   /**
    * <p>Other information about the noncompliant resource.</p>
    */
-  additionalInfo?: { [key: string]: string };
+  additionalInfo?: Record<string, string>;
 }
 
 export namespace NonCompliantResource {
@@ -2662,7 +2662,7 @@ export interface RelatedResource {
   /**
    * <p>Other information about the resource.</p>
    */
-  additionalInfo?: { [key: string]: string };
+  additionalInfo?: Record<string, string>;
 }
 
 export namespace RelatedResource {
@@ -2921,7 +2921,7 @@ export interface AuditMitigationActionsTaskTarget {
   /**
    * <p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>
    */
-  auditCheckToReasonCodeFilter?: { [key: string]: string[] };
+  auditCheckToReasonCodeFilter?: Record<string, string[]>;
 }
 
 export namespace AuditMitigationActionsTaskTarget {
@@ -3144,7 +3144,7 @@ export interface AuthorizerDescription {
    * <p>The public keys used to validate the token signature returned by your custom
    *          authentication service.</p>
    */
-  tokenSigningPublicKeys?: { [key: string]: string };
+  tokenSigningPublicKeys?: Record<string, string>;
 
   /**
    * <p>The status of the authorizer.</p>
@@ -3522,7 +3522,7 @@ export interface CancelJobExecutionRequest {
    * <p>A collection of name/value pairs that describe the status of the job execution. If not
    *           specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
    */
-  statusDetails?: { [key: string]: string };
+  statusDetails?: Record<string, string>;
 }
 
 export namespace CancelJobExecutionRequest {
@@ -3782,7 +3782,7 @@ export interface CreateAuthorizerRequest {
    * <p>The public keys used to verify the digital signature returned by your custom
    *          authentication service.</p>
    */
-  tokenSigningPublicKeys?: { [key: string]: string };
+  tokenSigningPublicKeys?: Record<string, string>;
 
   /**
    * <p>The status of the create authorizer request.</p>
@@ -4808,7 +4808,7 @@ export interface CreateJobRequest {
    *                 create jobs from them.</p>
    *         </note>
    */
-  documentParameters?: { [key: string]: string };
+  documentParameters?: Record<string, string>;
 }
 
 export namespace CreateJobRequest {
@@ -5775,7 +5775,7 @@ export interface OTAUpdateFile {
   /**
    * <p>A list of name/attribute pairs.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace OTAUpdateFile {
@@ -5860,7 +5860,7 @@ export interface CreateOTAUpdateRequest {
   /**
    * <p>A list of additional OTA update parameters which are name-value pairs.</p>
    */
-  additionalParameters?: { [key: string]: string };
+  additionalParameters?: Record<string, string>;
 
   /**
    * <p>Metadata which can be used to manage updates.</p>
@@ -6478,7 +6478,7 @@ export interface CreateSecurityProfileRequest {
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
    *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  alertTargets?: Record<string, AlertTarget>;
 
   /**
    * @deprecated

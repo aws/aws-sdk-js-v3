@@ -747,7 +747,7 @@ export const deserializeAws_restJson1CreateComponentCommand = async (
     $metadata: deserializeMetadata(output),
     entity: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Component(data, context);
   return Promise.resolve(contents);
 };
@@ -798,7 +798,7 @@ export const deserializeAws_restJson1CreateThemeCommand = async (
     $metadata: deserializeMetadata(output),
     entity: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Theme(data, context);
   return Promise.resolve(contents);
 };
@@ -1095,7 +1095,7 @@ export const deserializeAws_restJson1GetComponentCommand = async (
     $metadata: deserializeMetadata(output),
     component: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.component = deserializeAws_restJson1Component(data, context);
   return Promise.resolve(contents);
 };
@@ -1143,7 +1143,7 @@ export const deserializeAws_restJson1GetThemeCommand = async (
     $metadata: deserializeMetadata(output),
     theme: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.theme = deserializeAws_restJson1Theme(data, context);
   return Promise.resolve(contents);
 };
@@ -1341,7 +1341,7 @@ export const deserializeAws_restJson1UpdateComponentCommand = async (
     $metadata: deserializeMetadata(output),
     entity: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Component(data, context);
   return Promise.resolve(contents);
 };
@@ -1389,7 +1389,7 @@ export const deserializeAws_restJson1UpdateThemeCommand = async (
     $metadata: deserializeMetadata(output),
     entity: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Theme(data, context);
   return Promise.resolve(contents);
 };
@@ -1529,7 +1529,7 @@ const serializeAws_restJson1ActionParameters = (input: ActionParameters, context
 };
 
 const serializeAws_restJson1ComponentBindingProperties = (
-  input: { [key: string]: ComponentBindingPropertiesValue },
+  input: Record<string, ComponentBindingPropertiesValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1604,7 +1604,7 @@ const serializeAws_restJson1ComponentChildList = (input: ComponentChild[], conte
 };
 
 const serializeAws_restJson1ComponentCollectionProperties = (
-  input: { [key: string]: ComponentDataConfiguration },
+  input: Record<string, ComponentDataConfiguration>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1659,10 +1659,7 @@ const serializeAws_restJson1ComponentEvent = (input: ComponentEvent, context: __
   };
 };
 
-const serializeAws_restJson1ComponentEvents = (
-  input: { [key: string]: ComponentEvent },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ComponentEvents = (input: Record<string, ComponentEvent>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1675,7 +1672,7 @@ const serializeAws_restJson1ComponentEvents = (
 };
 
 const serializeAws_restJson1ComponentOverrides = (
-  input: { [key: string]: { [key: string]: string } },
+  input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1689,10 +1686,7 @@ const serializeAws_restJson1ComponentOverrides = (
   }, {});
 };
 
-const serializeAws_restJson1ComponentOverridesValue = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ComponentOverridesValue = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1705,7 +1699,7 @@ const serializeAws_restJson1ComponentOverridesValue = (
 };
 
 const serializeAws_restJson1ComponentProperties = (
-  input: { [key: string]: ComponentProperty },
+  input: Record<string, ComponentProperty>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1796,10 +1790,7 @@ const serializeAws_restJson1ComponentVariants = (input: ComponentVariant[], cont
     });
 };
 
-const serializeAws_restJson1ComponentVariantValues = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ComponentVariantValues = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1870,7 +1861,7 @@ const serializeAws_restJson1FormBindingElement = (input: FormBindingElement, con
 };
 
 const serializeAws_restJson1FormBindings = (
-  input: { [key: string]: FormBindingElement },
+  input: Record<string, FormBindingElement>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1956,7 +1947,7 @@ const serializeAws_restJson1SortPropertyList = (input: SortProperty[], context: 
     });
 };
 
-const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2129,9 +2120,9 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1ComponentBindingProperties = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentBindingPropertiesValue } => {
+): Record<string, ComponentBindingPropertiesValue> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: ComponentBindingPropertiesValue }, [key, value]: [string, any]) => {
+    (acc: Record<string, ComponentBindingPropertiesValue>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2211,9 +2202,9 @@ const deserializeAws_restJson1ComponentChildList = (output: any, context: __Serd
 const deserializeAws_restJson1ComponentCollectionProperties = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentDataConfiguration } => {
+): Record<string, ComponentDataConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: ComponentDataConfiguration }, [key, value]: [string, any]) => {
+    (acc: Record<string, ComponentDataConfiguration>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2282,8 +2273,8 @@ const deserializeAws_restJson1ComponentEvent = (output: any, context: __SerdeCon
 const deserializeAws_restJson1ComponentEvents = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentEvent } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ComponentEvent }, [key, value]: [string, any]) => {
+): Record<string, ComponentEvent> => {
+  return Object.entries(output).reduce((acc: Record<string, ComponentEvent>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2309,26 +2300,23 @@ const deserializeAws_restJson1ComponentList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ComponentOverrides = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ComponentOverridesValue(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, Record<string, string>> => {
+  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1ComponentOverridesValue(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ComponentOverridesValue = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2342,8 +2330,8 @@ const deserializeAws_restJson1ComponentOverridesValue = (
 const deserializeAws_restJson1ComponentProperties = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentProperty } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ComponentProperty }, [key, value]: [string, any]) => {
+): Record<string, ComponentProperty> => {
+  return Object.entries(output).reduce((acc: Record<string, ComponentProperty>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2461,8 +2449,8 @@ const deserializeAws_restJson1ComponentVariants = (output: any, context: __Serde
 const deserializeAws_restJson1ComponentVariantValues = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2483,8 +2471,8 @@ const deserializeAws_restJson1FormBindingElement = (output: any, context: __Serd
 const deserializeAws_restJson1FormBindings = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FormBindingElement } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FormBindingElement }, [key, value]: [string, any]) => {
+): Record<string, FormBindingElement> => {
+  return Object.entries(output).reduce((acc: Record<string, FormBindingElement>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2568,8 +2556,8 @@ const deserializeAws_restJson1SortPropertyList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

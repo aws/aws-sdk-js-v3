@@ -11432,10 +11432,7 @@ const serializeAws_json1_1AutomationExecutionFilterValueList = (input: string[],
     });
 };
 
-const serializeAws_json1_1AutomationParameterMap = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AutomationParameterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -11561,7 +11558,7 @@ const serializeAws_json1_1ComplianceExecutionSummary = (
   };
 };
 
-const serializeAws_json1_1ComplianceItemDetails = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1ComplianceItemDetails = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13091,7 +13088,7 @@ const serializeAws_json1_1InventoryItem = (input: InventoryItem, context: __Serd
 };
 
 const serializeAws_json1_1InventoryItemContentContext = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -13105,7 +13102,7 @@ const serializeAws_json1_1InventoryItemContentContext = (
   }, {});
 };
 
-const serializeAws_json1_1InventoryItemEntry = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1InventoryItemEntry = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13117,10 +13114,7 @@ const serializeAws_json1_1InventoryItemEntry = (input: { [key: string]: string }
   }, {});
 };
 
-const serializeAws_json1_1InventoryItemEntryList = (
-  input: { [key: string]: string }[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InventoryItemEntryList = (input: Record<string, string>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -13498,7 +13492,7 @@ const serializeAws_json1_1MaintenanceWindowTaskInvocationParameters = (
 };
 
 const serializeAws_json1_1MaintenanceWindowTaskParameters = (
-  input: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
+  input: Record<string, MaintenanceWindowTaskParameterValueExpression>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -13546,7 +13540,7 @@ const serializeAws_json1_1MetadataKeysToDeleteList = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_1MetadataMap = (input: { [key: string]: MetadataValue }, context: __SerdeContext): any => {
+const serializeAws_json1_1MetadataMap = (input: Record<string, MetadataValue>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13638,7 +13632,7 @@ const serializeAws_json1_1OpsAggregatorList = (input: OpsAggregator[], context: 
     });
 };
 
-const serializeAws_json1_1OpsAggregatorValueMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1OpsAggregatorValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13768,7 +13762,7 @@ const serializeAws_json1_1OpsItemNotifications = (input: OpsItemNotification[], 
 };
 
 const serializeAws_json1_1OpsItemOperationalData = (
-  input: { [key: string]: OpsItemDataValue },
+  input: Record<string, OpsItemDataValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -13899,7 +13893,7 @@ const serializeAws_json1_1ParameterNameList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_json1_1Parameters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1Parameters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14571,7 +14565,7 @@ const serializeAws_json1_1SessionFilterList = (input: SessionFilter[], context: 
 };
 
 const serializeAws_json1_1SessionManagerParameters = (
-  input: { [key: string]: string[] },
+  input: Record<string, string[]>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -14784,7 +14778,7 @@ const serializeAws_json1_1TargetLocations = (input: TargetLocation[], context: _
     });
 };
 
-const serializeAws_json1_1TargetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1TargetMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14796,7 +14790,7 @@ const serializeAws_json1_1TargetMap = (input: { [key: string]: string[] }, conte
   }, {});
 };
 
-const serializeAws_json1_1TargetMaps = (input: { [key: string]: string[] }[], context: __SerdeContext): any => {
+const serializeAws_json1_1TargetMaps = (input: Record<string, string[]>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -15533,8 +15527,8 @@ const deserializeAws_json1_1AssociationStatus = (output: any, context: __SerdeCo
 const deserializeAws_json1_1AssociationStatusAggregatedCount = (
   output: any,
   context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15852,8 +15846,8 @@ const deserializeAws_json1_1AutomationExecutionNotFoundException = (
 const deserializeAws_json1_1AutomationParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16117,11 +16111,8 @@ const deserializeAws_json1_1ComplianceItem = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1ComplianceItemDetails = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ComplianceItemDetails = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17792,8 +17783,8 @@ const deserializeAws_json1_1InstanceAssociationOutputUrl = (
 const deserializeAws_json1_1InstanceAssociationStatusAggregatedCount = (
   output: any,
   context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18413,8 +18404,8 @@ const deserializeAws_json1_1InventoryItemAttributeList = (
   return retVal;
 };
 
-const deserializeAws_json1_1InventoryItemEntry = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1InventoryItemEntry = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18428,7 +18419,7 @@ const deserializeAws_json1_1InventoryItemEntry = (output: any, context: __SerdeC
 const deserializeAws_json1_1InventoryItemEntryList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string }[] => {
+): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -18508,8 +18499,8 @@ const deserializeAws_json1_1InventoryResultItem = (output: any, context: __Serde
 const deserializeAws_json1_1InventoryResultItemMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: InventoryResultItem } => {
-  return Object.entries(output).reduce((acc: { [key: string]: InventoryResultItem }, [key, value]: [string, any]) => {
+): Record<string, InventoryResultItem> => {
+  return Object.entries(output).reduce((acc: Record<string, InventoryResultItem>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19118,9 +19109,9 @@ const deserializeAws_json1_1MaintenanceWindowTaskList = (
 const deserializeAws_json1_1MaintenanceWindowTaskParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MaintenanceWindowTaskParameterValueExpression } => {
+): Record<string, MaintenanceWindowTaskParameterValueExpression> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: MaintenanceWindowTaskParameterValueExpression }, [key, value]: [string, any]) => {
+    (acc: Record<string, MaintenanceWindowTaskParameterValueExpression>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -19136,7 +19127,7 @@ const deserializeAws_json1_1MaintenanceWindowTaskParameters = (
 const deserializeAws_json1_1MaintenanceWindowTaskParametersList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MaintenanceWindowTaskParameterValueExpression }[] => {
+): Record<string, MaintenanceWindowTaskParameterValueExpression>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -19184,8 +19175,8 @@ const deserializeAws_json1_1MaxDocumentSizeExceeded = (
   } as any;
 };
 
-const deserializeAws_json1_1MetadataMap = (output: any, context: __SerdeContext): { [key: string]: MetadataValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MetadataValue }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1MetadataMap = (output: any, context: __SerdeContext): Record<string, MetadataValue> => {
+  return Object.entries(output).reduce((acc: Record<string, MetadataValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19219,8 +19210,8 @@ const deserializeAws_json1_1NonCompliantSummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1NormalStringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1NormalStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19277,8 +19268,8 @@ const deserializeAws_json1_1OpsEntityItem = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1OpsEntityItemEntry = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1OpsEntityItemEntry = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19292,7 +19283,7 @@ const deserializeAws_json1_1OpsEntityItemEntry = (output: any, context: __SerdeC
 const deserializeAws_json1_1OpsEntityItemEntryList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string }[] => {
+): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -19307,8 +19298,8 @@ const deserializeAws_json1_1OpsEntityItemEntryList = (
 const deserializeAws_json1_1OpsEntityItemMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: OpsEntityItem } => {
-  return Object.entries(output).reduce((acc: { [key: string]: OpsEntityItem }, [key, value]: [string, any]) => {
+): Record<string, OpsEntityItem> => {
+  return Object.entries(output).reduce((acc: Record<string, OpsEntityItem>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19495,8 +19486,8 @@ const deserializeAws_json1_1OpsItemNotifications = (output: any, context: __Serd
 const deserializeAws_json1_1OpsItemOperationalData = (
   output: any,
   context: __SerdeContext
-): { [key: string]: OpsItemDataValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: OpsItemDataValue }, [key, value]: [string, any]) => {
+): Record<string, OpsItemDataValue> => {
+  return Object.entries(output).reduce((acc: Record<string, OpsItemDataValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19909,8 +19900,8 @@ const deserializeAws_json1_1ParameterPolicyList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -20186,10 +20177,7 @@ const deserializeAws_json1_1PatchList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_1PatchPropertiesList = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string }[] => {
+const deserializeAws_json1_1PatchPropertiesList = (output: any, context: __SerdeContext): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -20201,8 +20189,8 @@ const deserializeAws_json1_1PatchPropertiesList = (
   return retVal;
 };
 
-const deserializeAws_json1_1PatchPropertyEntry = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1PatchPropertyEntry = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -21070,8 +21058,8 @@ const deserializeAws_json1_1TargetLocations = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1TargetMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1TargetMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -21082,7 +21070,7 @@ const deserializeAws_json1_1TargetMap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
-const deserializeAws_json1_1TargetMaps = (output: any, context: __SerdeContext): { [key: string]: string[] }[] => {
+const deserializeAws_json1_1TargetMaps = (output: any, context: __SerdeContext): Record<string, string[]>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

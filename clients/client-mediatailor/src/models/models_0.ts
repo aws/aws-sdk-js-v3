@@ -305,7 +305,7 @@ export interface Channel {
   /**
    * <p>The tags to assign to the channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The tier for this channel. STANDARD tier channels can contain live programs.</p>
@@ -393,7 +393,7 @@ export interface LiveSource {
   /**
    * <p>The tags assigned to the live source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace LiveSource {
@@ -643,7 +643,7 @@ export interface PlaybackConfiguration {
   /**
    * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
    */
-  ConfigurationAliases?: { [key: string]: { [key: string]: string } };
+  ConfigurationAliases?: Record<string, Record<string, string>>;
 
   /**
    * <p>The configuration for a DASH source.</p>
@@ -703,7 +703,7 @@ export interface PlaybackConfiguration {
   /**
    * <p>The tags to assign to the playback configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -761,7 +761,7 @@ export interface PrefetchRetrieval {
   /**
    * <p>The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).</p> <p>You intially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic variables</a> for the ADS URL when you set up your playback configuration. When you specify DynamicVariables for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.</p>
    */
-  DynamicVariables?: { [key: string]: string };
+  DynamicVariables?: Record<string, string>;
 
   /**
    * <p>The time when prefetch retrieval ends for the ad break. Prefetching will be attempted for manifest requests that occur at or before this time.</p>
@@ -1097,7 +1097,7 @@ export interface SourceLocation {
   /**
    * <p>The tags assigned to the source location.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace SourceLocation {
@@ -1141,7 +1141,7 @@ export interface VodSource {
   /**
    * <p>The tags assigned to the VOD source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the VOD source.</p>
@@ -1297,7 +1297,7 @@ export interface CreateChannelRequest {
   /**
    * <p>The tags to assign to the channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The tier of the channel.</p>
@@ -1358,7 +1358,7 @@ export interface CreateChannelResponse {
   /**
    * <p>The tags assigned to the channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The channel's tier.</p>
@@ -1394,7 +1394,7 @@ export interface CreateLiveSourceRequest {
   /**
    * <p>The tags to assign to the live source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateLiveSourceRequest {
@@ -1440,7 +1440,7 @@ export interface CreateLiveSourceResponse {
   /**
    * <p>The tags assigned to the live source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateLiveSourceResponse {
@@ -1723,7 +1723,7 @@ export interface CreateSourceLocationRequest {
   /**
    * <p>The tags to assign to the source location.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateSourceLocationRequest {
@@ -1779,7 +1779,7 @@ export interface CreateSourceLocationResponse {
   /**
    * <p>The tags assigned to the source location.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateSourceLocationResponse {
@@ -1805,7 +1805,7 @@ export interface CreateVodSourceRequest {
   /**
    * <p>The tags to assign to the VOD source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The identifier for the VOD source you are working on.</p>
@@ -1851,7 +1851,7 @@ export interface CreateVodSourceResponse {
   /**
    * <p>The tags assigned to the VOD source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the VOD source.</p>
@@ -2188,7 +2188,7 @@ export interface DescribeChannelResponse {
   /**
    * <p>The tags assigned to the channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The channel's tier.</p>
@@ -2260,7 +2260,7 @@ export interface DescribeLiveSourceResponse {
   /**
    * <p>The tags assigned to the live source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeLiveSourceResponse {
@@ -2409,7 +2409,7 @@ export interface DescribeSourceLocationResponse {
   /**
    * <p>The tags assigned to the source location.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeSourceLocationResponse {
@@ -2471,7 +2471,7 @@ export interface DescribeVodSourceResponse {
   /**
    * <p>The tags assigned to the VOD source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the VOD source.</p>
@@ -2612,7 +2612,7 @@ export interface GetPlaybackConfigurationResponse {
   /**
    * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
    */
-  ConfigurationAliases?: { [key: string]: { [key: string]: string } };
+  ConfigurationAliases?: Record<string, Record<string, string>>;
 
   /**
    * <p>The configuration for DASH content.</p>
@@ -2672,7 +2672,7 @@ export interface GetPlaybackConfigurationResponse {
   /**
    * <p>The tags assigned to the playback configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -3048,7 +3048,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A comma-separated list of tag key:value pairs.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3163,7 +3163,7 @@ export interface PutPlaybackConfigurationRequest {
   /**
    * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
    */
-  ConfigurationAliases?: { [key: string]: { [key: string]: string } };
+  ConfigurationAliases?: Record<string, Record<string, string>>;
 
   /**
    * <p>The configuration for DASH content.</p>
@@ -3198,7 +3198,7 @@ export interface PutPlaybackConfigurationRequest {
   /**
    * <p>The tags to assign to the playback configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -3244,7 +3244,7 @@ export interface PutPlaybackConfigurationResponse {
   /**
    * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
    */
-  ConfigurationAliases?: { [key: string]: { [key: string]: string } };
+  ConfigurationAliases?: Record<string, Record<string, string>>;
 
   /**
    * <p>The configuration for DASH content.</p>
@@ -3304,7 +3304,7 @@ export interface PutPlaybackConfigurationResponse {
   /**
    * <p>The tags assigned to the playback configuration.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -3389,7 +3389,7 @@ export interface TagResourceRequest {
   /**
    * <p>A comma-separated list of tag key:value pairs.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3492,7 +3492,7 @@ export interface UpdateChannelResponse {
   /**
    * <p>The tags assigned to the channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The channel's tier.</p>
@@ -3569,7 +3569,7 @@ export interface UpdateLiveSourceResponse {
   /**
    * <p>The tags assigned to the live source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateLiveSourceResponse {
@@ -3661,7 +3661,7 @@ export interface UpdateSourceLocationResponse {
   /**
    * <p>The tags assigned to the source location.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateSourceLocationResponse {
@@ -3728,7 +3728,7 @@ export interface UpdateVodSourceResponse {
   /**
    * <p>The tags assigned to the VOD source.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the VOD source.</p>

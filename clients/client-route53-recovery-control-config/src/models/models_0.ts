@@ -395,7 +395,7 @@ export interface CreateClusterRequest {
   /**
    * <p>The tags associated with the cluster.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateClusterRequest {
@@ -550,7 +550,7 @@ export interface CreateControlPanelRequest {
   /**
    * <p>The tags associated with the control panel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateControlPanelRequest {
@@ -733,7 +733,7 @@ export interface CreateSafetyRuleRequest {
   /**
    * <p>The tags associated with the safety rule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateSafetyRuleRequest {
@@ -1286,7 +1286,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1310,7 +1310,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

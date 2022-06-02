@@ -2268,10 +2268,7 @@ const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context:
     });
 };
 
-const serializeAws_json1_1CustomerPolicyScopeMap = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CustomerPolicyScopeMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
@@ -2540,7 +2537,7 @@ const serializeAws_json1_1PolicyOption = (input: PolicyOption, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1PreviousAppsList = (input: { [key: string]: App[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1PreviousAppsList = (input: Record<string, App[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2552,10 +2549,7 @@ const serializeAws_json1_1PreviousAppsList = (input: { [key: string]: App[] }, c
   }, {});
 };
 
-const serializeAws_json1_1PreviousProtocolsList = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PreviousProtocolsList = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2894,8 +2888,8 @@ const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeC
 const deserializeAws_json1_1ComplianceViolatorMetadata = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2933,9 +2927,9 @@ const deserializeAws_json1_1CustomerPolicyScopeIdList = (output: any, context: _
 const deserializeAws_json1_1CustomerPolicyScopeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string[] } => {
+): Record<string, string[]> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+    (acc: Record<string, string[]>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3335,9 +3329,9 @@ const deserializeAws_json1_1InvalidTypeException = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DependentServiceName | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [DependentServiceName | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3909,8 +3903,8 @@ const deserializeAws_json1_1PossibleRemediationActions = (
   } as any;
 };
 
-const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeContext): { [key: string]: App[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: App[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeContext): Record<string, App[]> => {
+  return Object.entries(output).reduce((acc: Record<string, App[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3924,8 +3918,8 @@ const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1PreviousProtocolsList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

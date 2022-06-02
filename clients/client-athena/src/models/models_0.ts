@@ -800,7 +800,7 @@ export interface CreateDataCatalogInput {
    *             </li>
    *          </ul>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>A list of comma separated tags to add to the data catalog that is created.</p>
@@ -1230,7 +1230,7 @@ export interface Database {
   /**
    * <p>A set of custom key/value pairs.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace Database {
@@ -1388,7 +1388,7 @@ export interface DataCatalog {
    *             </li>
    *          </ul>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace DataCatalog {
@@ -1864,7 +1864,7 @@ export interface TableMetadata {
   /**
    * <p>A set of custom key/value pairs for table properties.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace TableMetadata {
@@ -2780,7 +2780,7 @@ export interface UpdateDataCatalogInput {
    *             </li>
    *          </ul>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace UpdateDataCatalogInput {

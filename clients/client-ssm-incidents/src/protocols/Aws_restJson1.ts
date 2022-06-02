@@ -2811,7 +2811,7 @@ const serializeAws_restJson1DeleteRegionAction = (input: DeleteRegionAction, con
 };
 
 const serializeAws_restJson1DynamicSsmParameters = (
-  input: { [key: string]: DynamicSsmParameterValue },
+  input: Record<string, DynamicSsmParameterValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2929,7 +2929,7 @@ const serializeAws_restJson1NotificationTargetSet = (input: NotificationTargetIt
 };
 
 const serializeAws_restJson1RegionMapInput = (
-  input: { [key: string]: RegionMapInputValue },
+  input: Record<string, RegionMapInputValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2992,7 +2992,7 @@ const serializeAws_restJson1SsmAutomation = (input: SsmAutomation, context: __Se
   };
 };
 
-const serializeAws_restJson1SsmParameters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_restJson1SsmParameters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3026,7 +3026,7 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3142,19 +3142,16 @@ const deserializeAws_restJson1ChatChannel = (output: any, context: __SerdeContex
 const deserializeAws_restJson1DynamicSsmParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: DynamicSsmParameterValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: DynamicSsmParameterValue }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context),
-      };
-    },
-    {}
-  );
+): Record<string, DynamicSsmParameterValue> => {
+  return Object.entries(output).reduce((acc: Record<string, DynamicSsmParameterValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DynamicSsmParameterValue = (
@@ -3369,8 +3366,8 @@ const deserializeAws_restJson1RegionInfo = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1RegionInfoMap = (output: any, context: __SerdeContext): { [key: string]: RegionInfo } => {
-  return Object.entries(output).reduce((acc: { [key: string]: RegionInfo }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1RegionInfoMap = (output: any, context: __SerdeContext): Record<string, RegionInfo> => {
+  return Object.entries(output).reduce((acc: Record<string, RegionInfo>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3497,8 +3494,8 @@ const deserializeAws_restJson1SsmAutomation = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1SsmParameters = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1SsmParameters = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3521,8 +3518,8 @@ const deserializeAws_restJson1SsmParameterValues = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

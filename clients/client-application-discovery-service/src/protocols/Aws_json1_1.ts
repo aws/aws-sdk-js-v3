@@ -2651,8 +2651,8 @@ const deserializeAws_json1_1BatchDeleteImportDataResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2663,7 +2663,7 @@ const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_json1_1Configurations = (output: any, context: __SerdeContext): { [key: string]: string }[] => {
+const deserializeAws_json1_1Configurations = (output: any, context: __SerdeContext): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2822,8 +2822,8 @@ const deserializeAws_json1_1DescribeAgentsResponse = (output: any, context: __Se
 const deserializeAws_json1_1DescribeConfigurationsAttribute = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2837,7 +2837,7 @@ const deserializeAws_json1_1DescribeConfigurationsAttribute = (
 const deserializeAws_json1_1DescribeConfigurationsAttributes = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string }[] => {
+): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3142,8 +3142,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1SchemaStorageConfig = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1SchemaStorageConfig = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

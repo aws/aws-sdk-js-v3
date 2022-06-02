@@ -4210,7 +4210,7 @@ const serializeAws_json1_1CustomResponse = (input: CustomResponse, context: __Se
 };
 
 const serializeAws_json1_1CustomResponseBodies = (
-  input: { [key: string]: CustomResponseBody },
+  input: Record<string, CustomResponseBody>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -5383,7 +5383,7 @@ const serializeAws_json1_1UsernameField = (input: UsernameField, context: __Serd
 };
 
 const serializeAws_json1_1VersionsToPublish = (
-  input: { [key: string]: VersionToPublish },
+  input: Record<string, VersionToPublish>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -5698,8 +5698,8 @@ const deserializeAws_json1_1CustomResponse = (output: any, context: __SerdeConte
 const deserializeAws_json1_1CustomResponseBodies = (
   output: any,
   context: __SerdeContext
-): { [key: string]: CustomResponseBody } => {
-  return Object.entries(output).reduce((acc: { [key: string]: CustomResponseBody }, [key, value]: [string, any]) => {
+): Record<string, CustomResponseBody> => {
+  return Object.entries(output).reduce((acc: Record<string, CustomResponseBody>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6754,8 +6754,8 @@ const deserializeAws_json1_1PasswordField = (output: any, context: __SerdeContex
 const deserializeAws_json1_1PublishedVersions = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ManagedRuleSetVersion } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ManagedRuleSetVersion }, [key, value]: [string, any]) => {
+): Record<string, ManagedRuleSetVersion> => {
+  return Object.entries(output).reduce((acc: Record<string, ManagedRuleSetVersion>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

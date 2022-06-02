@@ -46,13 +46,13 @@ export interface AccountSettings {
   /**
    * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
    */
-  unmeteredDevices?: { [key: string]: number };
+  unmeteredDevices?: Record<string, number>;
 
   /**
    * <p>Returns the unmetered remote access devices you have purchased or want to
    *             purchase.</p>
    */
-  unmeteredRemoteAccessDevices?: { [key: string]: number };
+  unmeteredRemoteAccessDevices?: Record<string, number>;
 
   /**
    * <p>The maximum number of minutes a test run executes before it times out.</p>
@@ -70,7 +70,7 @@ export interface AccountSettings {
    *                 <code>offering-id</code> represents one of the IDs returned by the
    *                 <code>ListOfferings</code> command.</p>
    */
-  maxSlots?: { [key: string]: number };
+  maxSlots?: Record<string, number>;
 
   /**
    * <p>The default number of minutes (at the account level) a test run executes before it times out. The
@@ -3279,7 +3279,7 @@ export interface ScheduleRunTest {
    *             </li>
    *          </ul>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace ScheduleRunTest {
@@ -3952,12 +3952,12 @@ export interface GetOfferingStatusResult {
   /**
    * <p>When specified, gets the offering status for the current period.</p>
    */
-  current?: { [key: string]: OfferingStatus };
+  current?: Record<string, OfferingStatus>;
 
   /**
    * <p>When specified, gets the offering status for the next period.</p>
    */
-  nextPeriod?: { [key: string]: OfferingStatus };
+  nextPeriod?: Record<string, OfferingStatus>;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -6939,7 +6939,7 @@ export interface ListUniqueProblemsResult {
    *             </li>
    *          </ul>
    */
-  uniqueProblems?: { [key: string]: UniqueProblem[] };
+  uniqueProblems?: Record<string, UniqueProblem[]>;
 
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also

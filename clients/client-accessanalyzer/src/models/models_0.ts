@@ -104,7 +104,7 @@ export interface CreateArchiveRuleRequest {
   /**
    * <p>The criteria for the rule.</p>
    */
-  filter: { [key: string]: Criterion } | undefined;
+  filter: Record<string, Criterion> | undefined;
 
   /**
    * <p>A client token.</p>
@@ -364,7 +364,7 @@ export interface ArchiveRuleSummary {
   /**
    * <p>A filter used to define the archive rule.</p>
    */
-  filter: { [key: string]: Criterion } | undefined;
+  filter: Record<string, Criterion> | undefined;
 
   /**
    * <p>The time at which the archive rule was created.</p>
@@ -476,7 +476,7 @@ export interface UpdateArchiveRuleRequest {
    * <p>A filter to match for the rules to update. Only rules that match the filter are
    *          updated.</p>
    */
-  filter: { [key: string]: Criterion } | undefined;
+  filter: Record<string, Criterion> | undefined;
 
   /**
    * <p>A client token.</p>
@@ -506,7 +506,7 @@ export interface InlineArchiveRule {
   /**
    * <p>The condition and values for a criterion.</p>
    */
-  filter: { [key: string]: Criterion } | undefined;
+  filter: Record<string, Criterion> | undefined;
 }
 
 export namespace InlineArchiveRule {
@@ -545,7 +545,7 @@ export interface CreateAnalyzerRequest {
   /**
    * <p>The tags to apply to the analyzer.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A client token.</p>
@@ -692,7 +692,7 @@ export interface AnalyzerSummary {
   /**
    * <p>The tags added to the analyzer.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors
@@ -895,7 +895,7 @@ export interface KmsGrantConstraints {
    *          context in the request is the same as the encryption context specified in this
    *          constraint.</p>
    */
-  encryptionContextEquals?: { [key: string]: string };
+  encryptionContextEquals?: Record<string, string>;
 
   /**
    * <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
@@ -903,7 +903,7 @@ export interface KmsGrantConstraints {
    *          encryption context in the request includes the key-value pairs specified in this
    *          constraint, although it can include additional key-value pairs.</p>
    */
-  encryptionContextSubset?: { [key: string]: string };
+  encryptionContextSubset?: Record<string, string>;
 }
 
 export namespace KmsGrantConstraints {
@@ -994,7 +994,7 @@ export interface KmsKeyConfiguration {
    *          the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
    *             policy</a>.</p>
    */
-  keyPolicies?: { [key: string]: string };
+  keyPolicies?: Record<string, string>;
 
   /**
    * <p>A list of proposed grant configurations for the KMS key. If the proposed grant
@@ -1314,7 +1314,7 @@ export interface S3BucketConfiguration {
    * <p>The configuration of Amazon S3 access points or multi-region access points for the bucket.
    *          You can propose up to 10 new access points per bucket.</p>
    */
-  accessPoints?: { [key: string]: S3AccessPointConfiguration };
+  accessPoints?: Record<string, S3AccessPointConfiguration>;
 }
 
 export namespace S3BucketConfiguration {
@@ -1529,7 +1529,7 @@ export interface CreateAccessPreviewRequest {
    *          with the proposed access control configuration. The configuration must contain exactly one
    *          element.</p>
    */
-  configurations: { [key: string]: Configuration } | undefined;
+  configurations: Record<string, Configuration> | undefined;
 
   /**
    * <p>A client token.</p>
@@ -1643,7 +1643,7 @@ export interface AccessPreview {
   /**
    * <p>A map of resource ARNs for the proposed resource configuration.</p>
    */
-  configurations: { [key: string]: Configuration } | undefined;
+  configurations: Record<string, Configuration> | undefined;
 
   /**
    * <p>The time at which the access preview was created.</p>
@@ -1928,7 +1928,7 @@ export interface Finding {
   /**
    * <p>The external principal that access to a resource within the zone of trust.</p>
    */
-  principal?: { [key: string]: string };
+  principal?: Record<string, string>;
 
   /**
    * <p>The action in the analyzed policy statement that an external principal has permission to
@@ -1955,7 +1955,7 @@ export interface Finding {
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
-  condition: { [key: string]: string } | undefined;
+  condition: Record<string, string> | undefined;
 
   /**
    * <p>The time at which the finding was generated.</p>
@@ -2319,7 +2319,7 @@ export interface ListAccessPreviewFindingsRequest {
   /**
    * <p>Criteria to filter the returned findings.</p>
    */
-  filter?: { [key: string]: Criterion };
+  filter?: Record<string, Criterion>;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -2372,7 +2372,7 @@ export interface AccessPreviewFinding {
   /**
    * <p>The external principal that has access to a resource within the zone of trust.</p>
    */
-  principal?: { [key: string]: string };
+  principal?: Record<string, string>;
 
   /**
    * <p>The action in the analyzed policy statement that an external principal has permission to
@@ -2383,7 +2383,7 @@ export interface AccessPreviewFinding {
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
-  condition?: { [key: string]: string };
+  condition?: Record<string, string>;
 
   /**
    * <p>The resource that an external principal has access to. This is the resource associated
@@ -2721,7 +2721,7 @@ export interface ListFindingsRequest {
   /**
    * <p>A filter to match for the findings to return.</p>
    */
-  filter?: { [key: string]: Criterion };
+  filter?: Record<string, Criterion>;
 
   /**
    * <p>The sort order for the findings returned.</p>
@@ -2760,7 +2760,7 @@ export interface FindingSummary {
   /**
    * <p>The external principal that has access to a resource within the zone of trust.</p>
    */
-  principal?: { [key: string]: string };
+  principal?: Record<string, string>;
 
   /**
    * <p>The action in the analyzed policy statement that an external principal has permission to
@@ -2787,7 +2787,7 @@ export interface FindingSummary {
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
-  condition: { [key: string]: string } | undefined;
+  condition: Record<string, string> | undefined;
 
   /**
    * <p>The time at which the finding was created.</p>
@@ -2979,7 +2979,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are applied to the specified resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3172,7 +3172,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

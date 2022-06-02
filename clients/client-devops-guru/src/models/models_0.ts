@@ -893,7 +893,7 @@ export interface PerformanceInsightsMetricQuery {
    * 			         </li>
    *          </ul>
    */
-  Filter?: { [key: string]: string };
+  Filter?: Record<string, string>;
 }
 
 export namespace PerformanceInsightsMetricQuery {

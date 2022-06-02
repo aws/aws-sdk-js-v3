@@ -40,7 +40,7 @@ export interface DiscovererSummary {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DiscovererSummary {
@@ -66,7 +66,7 @@ export interface RegistrySummary {
   /**
    * <p>Tags associated with the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace RegistrySummary {
@@ -100,7 +100,7 @@ export interface SchemaSummary {
   /**
    * <p>Tags associated with the schema.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The number of versions available for the schema.</p>
@@ -289,7 +289,7 @@ export interface CreateDiscovererRequest {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDiscovererRequest {
@@ -335,7 +335,7 @@ export interface CreateDiscovererResponse {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDiscovererResponse {
@@ -469,7 +469,7 @@ export interface CreateRegistryRequest {
   /**
    * <p>Tags to associate with the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRegistryRequest {
@@ -500,7 +500,7 @@ export interface CreateRegistryResponse {
   /**
    * <p>Tags associated with the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRegistryResponse {
@@ -536,7 +536,7 @@ export interface CreateSchemaRequest {
   /**
    * <p>Tags associated with the schema.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of schema.</p>
@@ -582,7 +582,7 @@ export interface CreateSchemaResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of the schema.</p>
@@ -865,7 +865,7 @@ export interface DescribeDiscovererResponse {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeDiscovererResponse {
@@ -912,7 +912,7 @@ export interface DescribeRegistryResponse {
   /**
    * <p>Tags associated with the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeRegistryResponse {
@@ -984,7 +984,7 @@ export interface DescribeSchemaResponse {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of the schema.</p>
@@ -1408,7 +1408,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1693,7 +1693,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1786,7 +1786,7 @@ export interface UpdateDiscovererResponse {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateDiscovererResponse {
@@ -1841,7 +1841,7 @@ export interface UpdateRegistryResponse {
   /**
    * <p>Tags associated with the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateRegistryResponse {
@@ -1923,7 +1923,7 @@ export interface UpdateSchemaResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of the schema.</p>

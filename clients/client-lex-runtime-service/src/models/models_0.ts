@@ -61,7 +61,7 @@ export interface ActiveContext {
    * <p>State variables for the current context. You can use these values as
    *       default values for slots in subsequent events.</p>
    */
-  parameters: { [key: string]: string } | undefined;
+  parameters: Record<string, string> | undefined;
 }
 
 export namespace ActiveContext {
@@ -340,7 +340,7 @@ export interface DialogAction {
   /**
    * <p>Map of the slots that have been gathered and their values. </p>
    */
-  slots?: { [key: string]: string };
+  slots?: Record<string, string>;
 
   /**
    * <p>The name of the slot that should be elicited from the user.</p>
@@ -445,7 +445,7 @@ export interface IntentSummary {
   /**
    * <p>Map of the slots that have been gathered and their values. </p>
    */
-  slots?: { [key: string]: string };
+  slots?: Record<string, string>;
 
   /**
    * <p>The status of the intent after the user responds to the confirmation
@@ -561,7 +561,7 @@ export interface GetSessionResponse {
    *       information. It contains application information passed between Amazon Lex and
    *       a client application.</p>
    */
-  sessionAttributes?: { [key: string]: string };
+  sessionAttributes?: Record<string, string>;
 
   /**
    * <p>A unique identifier for the session.</p>
@@ -1262,7 +1262,7 @@ export interface PostTextRequest {
    *       application.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
    */
-  sessionAttributes?: { [key: string]: string };
+  sessionAttributes?: Record<string, string>;
 
   /**
    * <p>Request-specific information passed between Amazon Lex and a client
@@ -1272,7 +1272,7 @@ export interface PostTextRequest {
    *         <code>x-amz-lex:</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 
   /**
    * <p>The text that the user entered (Amazon Lex interprets this text).</p>
@@ -1346,7 +1346,7 @@ export interface PredictedIntent {
   /**
    * <p>The slot and slot values associated with the predicted intent.</p>
    */
-  slots?: { [key: string]: string };
+  slots?: Record<string, string>;
 }
 
 export namespace PredictedIntent {
@@ -1530,13 +1530,13 @@ export interface PostTextResponse {
    *       specify a <code>valueSelectionStrategy</code>, the default is
    *         <code>ORIGINAL_VALUE</code>.</p>
    */
-  slots?: { [key: string]: string };
+  slots?: Record<string, string>;
 
   /**
    * <p>A map of key-value pairs representing the session-specific context
    *       information.</p>
    */
-  sessionAttributes?: { [key: string]: string };
+  sessionAttributes?: Record<string, string>;
 
   /**
    * <p>The message to convey to the user. The message can come from the bot's
@@ -1728,7 +1728,7 @@ export interface PutSessionRequest {
    *       information. It contains application information passed between Amazon Lex and
    *       a client application.</p>
    */
-  sessionAttributes?: { [key: string]: string };
+  sessionAttributes?: Record<string, string>;
 
   /**
    * <p>Sets the next action that the bot should take to fulfill the

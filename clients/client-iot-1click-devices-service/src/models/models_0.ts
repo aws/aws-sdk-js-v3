@@ -13,7 +13,7 @@ export interface DeviceDescription {
    * <p>An array of zero or more elements of DeviceAttribute objects providing
    *  user specified device attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The unique identifier of the device.</p>
@@ -39,7 +39,7 @@ export interface DeviceDescription {
   /**
    * <p>The tags currently associated with the AWS IoT 1-Click device.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DeviceDescription {
@@ -321,7 +321,7 @@ export interface FinalizeDeviceClaimRequest {
    *
    *  </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace FinalizeDeviceClaimRequest {
@@ -672,7 +672,7 @@ export interface ListTagsForResourceResponse {
    *
    *  </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -697,7 +697,7 @@ export interface TagResourceRequest {
    *
    *  </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

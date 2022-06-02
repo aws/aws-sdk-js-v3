@@ -52,7 +52,7 @@ export interface AutoBranchCreationConfig {
   /**
    * <p> The environment variables for the autocreated branch. </p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p> The basic authorization credentials for the autocreated branch. You must
@@ -227,7 +227,7 @@ export interface CreateAppRequest {
   /**
    * <p> The environment variables map for an Amplify app. </p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p> Enables the auto building of branches for an Amplify app. </p>
@@ -261,7 +261,7 @@ export interface CreateAppRequest {
   /**
    * <p> The tag for an Amplify app. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The build specification (build spec) for an Amplify app. </p>
@@ -368,7 +368,7 @@ export interface App {
   /**
    * <p> The tag for the Amplify app. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The description for the Amplify app. </p>
@@ -404,7 +404,7 @@ export interface App {
   /**
    * <p> The environment variables for the Amplify app. </p>
    */
-  environmentVariables: { [key: string]: string } | undefined;
+  environmentVariables: Record<string, string> | undefined;
 
   /**
    * <p> The default domain for the Amplify app. </p>
@@ -751,7 +751,7 @@ export interface CreateBranchRequest {
   /**
    * <p> The environment variables for the branch. </p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p> The basic authorization credentials for the branch. You must base64-encode the
@@ -776,7 +776,7 @@ export interface CreateBranchRequest {
   /**
    * <p> The tag for the branch. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The build specification (build spec) for the branch. </p>
@@ -843,7 +843,7 @@ export interface Branch {
   /**
    * <p> The tag for the branch of an Amplify app. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The current stage for the branch that is part of an Amplify app. </p>
@@ -873,7 +873,7 @@ export interface Branch {
   /**
    * <p> The environment variables specific to a branch of an Amplify app. </p>
    */
-  environmentVariables: { [key: string]: string } | undefined;
+  environmentVariables: Record<string, string> | undefined;
 
   /**
    * <p> Enables auto-building on push for a branch of an Amplify app. </p>
@@ -1020,7 +1020,7 @@ export interface CreateDeploymentRequest {
    *             upload URL per file. Otherwise, the service will only generate a single upload URL for
    *             the zipped files. </p>
    */
-  fileMap?: { [key: string]: string };
+  fileMap?: Record<string, string>;
 }
 
 export namespace CreateDeploymentRequest {
@@ -1045,7 +1045,7 @@ export interface CreateDeploymentResult {
    * <p> When the <code>fileMap</code> argument is provided in the request,
    *                 <code>fileUploadUrls</code> will contain a map of file names to upload URLs. </p>
    */
-  fileUploadUrls: { [key: string]: string } | undefined;
+  fileUploadUrls: Record<string, string> | undefined;
 
   /**
    * <p> When the <code>fileMap</code> argument is not provided in the request, this
@@ -2023,7 +2023,7 @@ export interface Step {
   /**
    * <p> The list of screenshot URLs for the execution step, if relevant. </p>
    */
-  screenshots?: { [key: string]: string };
+  screenshots?: Record<string, string>;
 
   /**
    * <p> The reason for the current step status. </p>
@@ -2527,7 +2527,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p> A list of tags for the specified The Amazon Resource Name (ARN). </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2809,7 +2809,7 @@ export interface TagResourceRequest {
   /**
    * <p> The tags used to tag the resource. </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2905,7 +2905,7 @@ export interface UpdateAppRequest {
   /**
    * <p> The environment variables for an Amplify app. </p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p> Enables branch auto-building for an Amplify app. </p>
@@ -3076,7 +3076,7 @@ export interface UpdateBranchRequest {
   /**
    * <p> The environment variables for the branch. </p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p> The basic authorization credentials for the branch. You must base64-encode the

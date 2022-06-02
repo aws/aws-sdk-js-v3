@@ -431,7 +431,7 @@ export interface AwsApiCallAction {
   /**
    * <p>Identifies the resources that were affected by the API call.</p>
    */
-  AffectedResources?: { [key: string]: string };
+  AffectedResources?: Record<string, string>;
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the API call was first
@@ -896,7 +896,7 @@ export interface AwsApiGatewayCanarySettings {
    *          <p>Each variable is represented as a string-to-string map between the stage variable name
    *          and the variable value.</p>
    */
-  StageVariableOverrides?: { [key: string]: string };
+  StageVariableOverrides?: Record<string, string>;
 
   /**
    * <p>Indicates whether the canary deployment uses the stage cache.</p>
@@ -1158,7 +1158,7 @@ export interface AwsApiGatewayStageDetails {
    *             </li>
    *          </ul>
    */
-  Variables?: { [key: string]: string };
+  Variables?: Record<string, string>;
 
   /**
    * <p>The version of the API documentation that is associated with the stage.</p>
@@ -1448,7 +1448,7 @@ export interface AwsApiGatewayV2StageDetails {
    *             </li>
    *          </ul>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>Information about settings for logging access for the stage.</p>
@@ -6133,7 +6133,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
    *             </li>
    *          </ul>
    */
-  Options?: { [key: string]: string };
+  Options?: Record<string, string>;
 
   /**
    * <p>The log router to use. </p>
@@ -6368,7 +6368,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
   /**
    * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
    */
-  Options?: { [key: string]: string };
+  Options?: Record<string, string>;
 
   /**
    * <p>The secrets to pass to the log configuration.</p>
@@ -6633,7 +6633,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   /**
    * <p>A key-value map of labels to add to the container.</p>
    */
-  DockerLabels?: { [key: string]: string };
+  DockerLabels?: Record<string, string>;
 
   /**
    * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
@@ -6982,12 +6982,12 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
   /**
    * <p>A map of Docker driver-specific options that are passed through.</p>
    */
-  DriverOpts?: { [key: string]: string };
+  DriverOpts?: Record<string, string>;
 
   /**
    * <p>Custom metadata to add to the Docker volume.</p>
    */
-  Labels?: { [key: string]: string };
+  Labels?: Record<string, string>;
 
   /**
    * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops.</p>
@@ -7843,7 +7843,7 @@ export interface AwsElasticsearchDomainDetails {
   /**
    * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
    */
-  Endpoints?: { [key: string]: string };
+  Endpoints?: Record<string, string>;
 
   /**
    * <p>OpenSearch version.</p>
@@ -9368,7 +9368,7 @@ export interface AwsLambdaFunctionEnvironment {
   /**
    * <p>Environment variable key-value pairs.</p>
    */
-  Variables?: { [key: string]: string };
+  Variables?: Record<string, string>;
 
   /**
    * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
@@ -10811,7 +10811,7 @@ export interface AwsOpenSearchServiceDomainDetails {
    * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
    *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
    */
-  DomainEndpoints?: { [key: string]: string };
+  DomainEndpoints?: Record<string, string>;
 }
 
 export namespace AwsOpenSearchServiceDomainDetails {

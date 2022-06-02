@@ -88,7 +88,7 @@ export interface JobExecution {
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
-  statusDetails?: { [key: string]: string };
+  statusDetails?: Record<string, string>;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
@@ -368,7 +368,7 @@ export interface StartNextPendingJobExecutionRequest {
    * <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the
    *          statusDetails are unchanged.</p>
    */
-  statusDetails?: { [key: string]: string };
+  statusDetails?: Record<string, string>;
 
   /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
@@ -428,7 +428,7 @@ export interface UpdateJobExecutionRequest {
    * <p> Optional. A collection of name/value pairs that describe the status of the job execution. If not
    *          specified, the statusDetails are unchanged.</p>
    */
-  statusDetails?: { [key: string]: string };
+  statusDetails?: Record<string, string>;
 
   /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
@@ -489,7 +489,7 @@ export interface JobExecutionState {
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
-  statusDetails?: { [key: string]: string };
+  statusDetails?: Record<string, string>;
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a

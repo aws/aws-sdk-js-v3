@@ -63,7 +63,7 @@ export interface Action {
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
@@ -343,7 +343,7 @@ export interface Column {
   /**
    * <p>These key-value pairs define properties associated with the column.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace Column {
@@ -432,7 +432,7 @@ export interface SerDeInfo {
   /**
    * <p>These key-value pairs define initialization parameters for the SerDe.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace SerDeInfo {
@@ -463,7 +463,7 @@ export interface SkewedInfo {
   /**
    * <p>A mapping of skewed values to the columns that contain them.</p>
    */
-  SkewedColumnValueLocationMaps?: { [key: string]: string };
+  SkewedColumnValueLocationMaps?: Record<string, string>;
 }
 
 export namespace SkewedInfo {
@@ -560,7 +560,7 @@ export interface StorageDescriptor {
   /**
    * <p>The user-supplied properties in key-value form.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The information about values that appear frequently in a column (skewed values).</p>
@@ -616,7 +616,7 @@ export interface PartitionInput {
   /**
    * <p>These key-value pairs define partition parameters.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The last time at which column statistics were computed for this partition.</p>
@@ -908,7 +908,7 @@ export interface BatchDeleteConnectionResponse {
    * <p>A map of the names of connections that were not successfully
    *        deleted to error details.</p>
    */
-  Errors?: { [key: string]: ErrorDetail };
+  Errors?: Record<string, ErrorDetail>;
 }
 
 export namespace BatchDeleteConnectionResponse {
@@ -2227,7 +2227,7 @@ export interface DevEndpoint {
    *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 }
 
 export namespace DevEndpoint {
@@ -3358,7 +3358,7 @@ export interface JDBCConnectorOptions {
   /**
    * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":{"FLOAT":"STRING"}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
    */
-  DataTypeMapping?: { [key: string]: GlueRecordType | string };
+  DataTypeMapping?: Record<string, GlueRecordType | string>;
 }
 
 export namespace JDBCConnectorOptions {
@@ -3461,7 +3461,7 @@ export interface JDBCConnectorTarget {
   /**
    * <p>Additional connection options for the connector.</p>
    */
-  AdditionalOptions?: { [key: string]: string };
+  AdditionalOptions?: Record<string, string>;
 
   /**
    * <p>Specifies the data schema for the JDBC target.</p>
@@ -4700,7 +4700,7 @@ export interface SparkConnectorSource {
   /**
    * <p>Additional connection options for the connector.</p>
    */
-  AdditionalOptions?: { [key: string]: string };
+  AdditionalOptions?: Record<string, string>;
 
   /**
    * <p>Specifies data schema for the custom spark source.</p>
@@ -4749,7 +4749,7 @@ export interface SparkConnectorTarget {
   /**
    * <p>Additional connection options for the connector.</p>
    */
-  AdditionalOptions?: { [key: string]: string };
+  AdditionalOptions?: Record<string, string>;
 
   /**
    * <p>Specifies the data schema for the custom spark target.</p>
@@ -5084,7 +5084,7 @@ export interface Partition {
   /**
    * <p>These key-value pairs define partition parameters.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The last time at which column statistics were computed for this
@@ -5608,7 +5608,7 @@ export interface JobRun {
    *          <p>For information about how to specify and consume your own job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 
   /**
    * <p>An error message associated with this job run.</p>
@@ -5948,7 +5948,7 @@ export interface WorkflowRun {
   /**
    * <p>The workflow run properties which were set during the run.</p>
    */
-  WorkflowRunProperties?: { [key: string]: string };
+  WorkflowRunProperties?: Record<string, string>;
 
   /**
    * <p>The date and time when the workflow run was started.</p>
@@ -6017,7 +6017,7 @@ export interface Workflow {
    *     The run properties are made available to each job in the workflow. A job can modify
    *     the properties for the next jobs in the flow.</p>
    */
-  DefaultRunProperties?: { [key: string]: string };
+  DefaultRunProperties?: Record<string, string>;
 
   /**
    * <p>The date and time when the workflow was created.</p>
@@ -6462,7 +6462,7 @@ export interface CreateBlueprintRequest {
   /**
    * <p>The tags to be applied to this blueprint.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateBlueprintRequest {
@@ -6813,7 +6813,7 @@ export interface ConnectionInput {
   /**
    * <p>These key-value pairs define parameters for the connection.</p>
    */
-  ConnectionProperties: { [key: string]: string } | undefined;
+  ConnectionProperties: Record<string, string> | undefined;
 
   /**
    * <p>A map of physical connection requirements, such as virtual private cloud (VPC) and
@@ -6847,7 +6847,7 @@ export interface CreateConnectionRequest {
   /**
    * <p>The tags you assign to the connection.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateConnectionRequest {
@@ -6955,7 +6955,7 @@ export interface CreateCrawlerRequest {
    *             crawler. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer
    *             guide.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateCrawlerRequest {
@@ -7174,7 +7174,7 @@ export interface DatabaseInput {
    *       of the database.</p>
    *          <p>These key-value pairs define parameters and properties of the database.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>Creates a set of default permissions on the table for principals. </p>
@@ -7341,12 +7341,12 @@ export interface CreateDevEndpointRequest {
   /**
    * <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 }
 
 export namespace CreateDevEndpointRequest {
@@ -7469,7 +7469,7 @@ export interface CreateDevEndpointResponse {
    *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 }
 
 export namespace CreateDevEndpointResponse {
@@ -7828,7 +7828,7 @@ export interface CreateMLTransformRequest {
   /**
    * <p>The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
@@ -7985,7 +7985,7 @@ export interface CreateRegistryInput {
   /**
    * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRegistryInput {
@@ -8016,7 +8016,7 @@ export interface CreateRegistryResponse {
   /**
    * <p>The tags for the registry.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRegistryResponse {
@@ -8127,7 +8127,7 @@ export interface CreateSchemaInput {
   /**
    * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
@@ -8216,7 +8216,7 @@ export interface CreateSchemaResponse {
   /**
    * <p>The tags for the schema.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The unique identifier of the first schema version.</p>
@@ -8602,7 +8602,7 @@ export interface CreateSessionRequest {
   /**
    * <p>A map array of key-value pairs. Max is 75 pairs. </p>
    */
-  DefaultArguments?: { [key: string]: string };
+  DefaultArguments?: Record<string, string>;
 
   /**
    * <p>The number of connections to use for the session. </p>
@@ -8639,7 +8639,7 @@ export interface CreateSessionRequest {
   /**
    * <p>The map of key value pairs (tags) belonging to the session.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The origin of the request. </p>
@@ -8707,7 +8707,7 @@ export interface Session {
   /**
    * <p>A map array of key-value pairs. Max is 75 pairs. </p>
    */
-  DefaultArguments?: { [key: string]: string };
+  DefaultArguments?: Record<string, string>;
 
   /**
    * <p>The number of connections used for the session.</p>
@@ -8862,7 +8862,7 @@ export interface TableInput {
   /**
    * <p>These key-value pairs define properties associated with the table.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
@@ -8980,7 +8980,7 @@ export interface CreateTriggerRequest {
    *       For more information about tags in Glue, see
    *       <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Batch condition that must be met (specified number of events received or batch time window expired)
@@ -9142,12 +9142,12 @@ export interface CreateWorkflowRequest {
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.</p>
    */
-  DefaultRunProperties?: { [key: string]: string };
+  DefaultRunProperties?: Record<string, string>;
 
   /**
    * <p>The tags to be used with this workflow.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>

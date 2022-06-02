@@ -81,7 +81,7 @@ export interface ActiveContext {
    *          list of contexts for the session. If you specify an empty list, all
    *          contexts for the session are cleared. </p>
    */
-  contextAttributes: { [key: string]: string } | undefined;
+  contextAttributes: Record<string, string> | undefined;
 }
 
 export namespace ActiveContext {
@@ -772,7 +772,7 @@ export interface RuntimeHints {
    *             accuracy</a>.</p>
    *          <p>The intent name and slot name must exist.</p>
    */
-  slotHints?: { [key: string]: { [key: string]: RuntimeHintDetails } };
+  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
 }
 
 export namespace RuntimeHints {
@@ -1431,7 +1431,7 @@ export interface Intent {
    *          to the value of the slot. If a slot has not been filled, the value is
    *          null.</p>
    */
-  slots?: { [key: string]: Slot };
+  slots?: Record<string, Slot>;
 
   /**
    * <p>Contains fulfillment information for the intent. </p>
@@ -1520,7 +1520,7 @@ export interface SessionState {
    *          information. It contains application information passed between Amazon Lex V2
    *          and a client application.</p>
    */
-  sessionAttributes?: { [key: string]: string };
+  sessionAttributes?: Record<string, string>;
 
   /**
    * <p>A unique identifier for a specific request.</p>
@@ -1560,7 +1560,7 @@ export interface ConfigurationEvent {
    *          attributes. Don't create any request attributes for prefix
    *             <code>x-amz-lex:</code>.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 
   /**
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
@@ -1696,7 +1696,7 @@ export interface PutSessionRequest {
    *          attributes. Don't create any request attributes with the prefix
    *             <code>x-amz-lex:</code>.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 
   /**
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
@@ -1761,7 +1761,7 @@ export interface RecognizeTextRequest {
    *          attributes. Don't create any request attributes with the prefix
    *             <code>x-amz-lex:</code>.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 }
 
 export namespace RecognizeTextRequest {
@@ -2061,7 +2061,7 @@ export interface IntentResultEvent {
   /**
    * <p>The attributes sent in the request.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 
   /**
    * <p>The identifier of the session in use.</p>
@@ -2115,7 +2115,7 @@ export interface RecognizeTextResponse {
   /**
    * <p>The attributes sent in the request.</p>
    */
-  requestAttributes?: { [key: string]: string };
+  requestAttributes?: Record<string, string>;
 
   /**
    * <p>The identifier of the session in use.</p>

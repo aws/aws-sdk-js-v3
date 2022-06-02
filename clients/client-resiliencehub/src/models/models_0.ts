@@ -525,7 +525,7 @@ export interface App {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>
@@ -757,7 +757,7 @@ export interface ResiliencyPolicy {
   /**
    * <p>The resiliency policy.</p>
    */
-  policy?: { [key: string]: FailurePolicy };
+  policy?: Record<string, FailurePolicy>;
 
   /**
    * <p>The timestamp for when the resiliency policy was created.</p>
@@ -768,7 +768,7 @@ export interface ResiliencyPolicy {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ResiliencyPolicy {
@@ -794,7 +794,7 @@ export interface ResiliencyScore {
   /**
    * <p>The disruption score for a valid key.</p>
    */
-  disruptionScore: { [key: string]: number } | undefined;
+  disruptionScore: Record<string, number> | undefined;
 }
 
 export namespace ResiliencyScore {
@@ -909,7 +909,7 @@ export interface AppAssessment {
   /**
    * <p>The application compliance against the resiliency policy.</p>
    */
-  compliance?: { [key: string]: DisruptionCompliance };
+  compliance?: Record<string, DisruptionCompliance>;
 
   /**
    * <p>The current status of the compliance for the resiliency policy.</p>
@@ -959,7 +959,7 @@ export interface AppAssessment {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>
@@ -1103,7 +1103,7 @@ export interface AppComponentCompliance {
   /**
    * <p>The compliance of the application component against the resiliency policy.</p>
    */
-  compliance?: { [key: string]: DisruptionCompliance };
+  compliance?: Record<string, DisruptionCompliance>;
 
   /**
    * <p>The compliance message.</p>
@@ -1228,7 +1228,7 @@ export interface CreateAppRequest {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
@@ -1367,7 +1367,7 @@ export interface CreateRecommendationTemplateRequest {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The name of the Amazon S3 bucket that will contain the recommendation template.</p>
@@ -1516,7 +1516,7 @@ export interface RecommendationTemplate {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Indicates if replacements are needed.</p>
@@ -1581,7 +1581,7 @@ export interface CreateResiliencyPolicyRequest {
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy: { [key: string]: FailurePolicy } | undefined;
+  policy: Record<string, FailurePolicy> | undefined;
 
   /**
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
@@ -1593,7 +1593,7 @@ export interface CreateResiliencyPolicyRequest {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateResiliencyPolicyRequest {
@@ -2522,13 +2522,13 @@ export interface ConfigRecommendation {
    * <p>The current compliance against the resiliency policy before applying the configuration
    *       change.</p>
    */
-  compliance?: { [key: string]: DisruptionCompliance };
+  compliance?: Record<string, DisruptionCompliance>;
 
   /**
    * <p>The expected compliance against the resiliency policy after applying the configuration
    *       change.</p>
    */
-  recommendationCompliance?: { [key: string]: RecommendationDisruptionCompliance };
+  recommendationCompliance?: Record<string, RecommendationDisruptionCompliance>;
 
   /**
    * <p>The type of optimization.</p>
@@ -3252,7 +3252,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3754,7 +3754,7 @@ export interface StartAppAssessmentRequest {
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartAppAssessmentRequest {
@@ -3793,7 +3793,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to assign to the resource. Each tag consists of a key/value pair.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3950,7 +3950,7 @@ export interface UpdateResiliencyPolicyRequest {
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy?: { [key: string]: FailurePolicy };
+  policy?: Record<string, FailurePolicy>;
 }
 
 export namespace UpdateResiliencyPolicyRequest {

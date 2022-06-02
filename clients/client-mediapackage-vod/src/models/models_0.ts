@@ -49,7 +49,7 @@ export interface AssetShallow {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AssetShallow {
@@ -598,7 +598,7 @@ export interface PackagingConfiguration {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PackagingConfiguration {
@@ -685,7 +685,7 @@ export interface PackagingGroup {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PackagingGroup {
@@ -750,7 +750,7 @@ export interface ConfigureLogsResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ConfigureLogsResponse {
@@ -920,7 +920,7 @@ export interface CreateAssetRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAssetRequest {
@@ -976,7 +976,7 @@ export interface CreateAssetResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAssetResponse {
@@ -1025,7 +1025,7 @@ export interface CreatePackagingConfigurationRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePackagingConfigurationRequest {
@@ -1076,7 +1076,7 @@ export interface CreatePackagingConfigurationResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePackagingConfigurationResponse {
@@ -1110,7 +1110,7 @@ export interface CreatePackagingGroupRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePackagingGroupRequest {
@@ -1151,7 +1151,7 @@ export interface CreatePackagingGroupResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePackagingGroupResponse {
@@ -1304,7 +1304,7 @@ export interface DescribeAssetResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeAssetResponse {
@@ -1371,7 +1371,7 @@ export interface DescribePackagingConfigurationResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribePackagingConfigurationResponse {
@@ -1428,7 +1428,7 @@ export interface DescribePackagingGroupResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribePackagingGroupResponse {
@@ -1596,7 +1596,7 @@ export interface ListTagsForResourceResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1617,7 +1617,7 @@ export interface TagResourceRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1703,7 +1703,7 @@ export interface UpdatePackagingGroupResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdatePackagingGroupResponse {

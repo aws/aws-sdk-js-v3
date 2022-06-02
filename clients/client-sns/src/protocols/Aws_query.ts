@@ -3879,7 +3879,7 @@ const serializeAws_queryListTopicsInput = (input: ListTopicsInput, context: __Se
   return entries;
 };
 
-const serializeAws_queryMapStringToString = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryMapStringToString = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -3893,7 +3893,7 @@ const serializeAws_queryMapStringToString = (input: { [key: string]: string }, c
 };
 
 const serializeAws_queryMessageAttributeMap = (
-  input: { [key: string]: MessageAttributeValue },
+  input: Record<string, MessageAttributeValue>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4147,10 +4147,7 @@ const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __Serd
   return entries;
 };
 
-const serializeAws_querySubscriptionAttributesMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_querySubscriptionAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -4218,7 +4215,7 @@ const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context
   return entries;
 };
 
-const serializeAws_queryTopicAttributesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryTopicAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -4945,7 +4942,7 @@ const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryMapStringToString = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryMapStringToString = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5263,7 +5260,7 @@ const deserializeAws_querySubscription = (output: any, context: __SerdeContext):
 const deserializeAws_querySubscriptionAttributesMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5385,7 +5382,7 @@ const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic 
   return contents;
 };
 
-const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

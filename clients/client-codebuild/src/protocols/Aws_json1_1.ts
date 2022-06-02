@@ -5633,8 +5633,8 @@ const deserializeAws_json1_1Reports = (output: any, context: __SerdeContext): Re
   return retVal;
 };
 
-const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

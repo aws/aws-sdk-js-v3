@@ -1715,7 +1715,7 @@ export interface ImageScanFindingsSummary {
   /**
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: { [key: string]: number };
+  findingSeverityCounts?: Record<string, number>;
 }
 
 export namespace ImageScanFindingsSummary {
@@ -2213,7 +2213,7 @@ export interface Resource {
   /**
    * <p>The tags attached to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The type of resource.</p>
@@ -2482,7 +2482,7 @@ export interface ImageScanFindings {
   /**
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: { [key: string]: number };
+  findingSeverityCounts?: Record<string, number>;
 
   /**
    * <p>The findings from the image scan.</p>

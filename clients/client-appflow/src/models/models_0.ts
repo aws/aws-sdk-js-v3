@@ -1548,7 +1548,7 @@ export interface ConnectorEntityField {
   /**
    * <p>A map that has specific properties related to the ConnectorEntityField.</p>
    */
-  customProperties?: { [key: string]: string };
+  customProperties?: Record<string, string>;
 }
 
 export namespace ConnectorEntityField {
@@ -1970,7 +1970,7 @@ export interface OAuth2Properties {
    *       provide any additional details that the connector requires to authenticate your
    *       request.</p>
    */
-  tokenUrlCustomProperties?: { [key: string]: string };
+  tokenUrlCustomProperties?: Record<string, string>;
 }
 
 export namespace OAuth2Properties {
@@ -1989,7 +1989,7 @@ export interface CustomConnectorProfileProperties {
   /**
    * <p>A map of properties that are required to create a profile for the custom connector.</p>
    */
-  profileProperties?: { [key: string]: string };
+  profileProperties?: Record<string, string>;
 
   /**
    * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
@@ -2633,7 +2633,7 @@ export interface CustomAuthCredentials {
   /**
    * <p>A map that holds custom authentication credentials.</p>
    */
-  credentialsMap?: { [key: string]: string };
+  credentialsMap?: Record<string, string>;
 }
 
 export namespace CustomAuthCredentials {
@@ -3619,7 +3619,7 @@ export interface CustomConnectorDestinationProperties {
    * <p>The custom properties that are specific to the connector when it's used as a destination
    *       in the flow.</p>
    */
-  customProperties?: { [key: string]: string };
+  customProperties?: Record<string, string>;
 }
 
 export namespace CustomConnectorDestinationProperties {
@@ -4334,7 +4334,7 @@ export interface CustomConnectorSourceProperties {
   /**
    * <p>Custom properties that are required to use the custom connector as a source.</p>
    */
-  customProperties?: { [key: string]: string };
+  customProperties?: Record<string, string>;
 }
 
 export namespace CustomConnectorSourceProperties {
@@ -4880,7 +4880,7 @@ export interface Task {
    * <p> A map used to store task-related information. The execution service looks for particular
    *       information based on the <code>TaskType</code>. </p>
    */
-  taskProperties?: { [key: string]: string };
+  taskProperties?: Record<string, string>;
 }
 
 export namespace Task {
@@ -5057,7 +5057,7 @@ export interface CreateFlowRequest {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFlowRequest {
@@ -5370,7 +5370,7 @@ export interface DescribeConnectorsResponse {
   /**
    * <p> The configuration that is applied to the connectors used in the flow. </p>
    */
-  connectorConfigurations?: { [key: string]: ConnectorConfiguration };
+  connectorConfigurations?: Record<string, ConnectorConfiguration>;
 
   /**
    * <p>Information about the connectors supported in Amazon AppFlow.</p>
@@ -5531,7 +5531,7 @@ export interface DescribeFlowResponse {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeFlowResponse {
@@ -5780,7 +5780,7 @@ export interface FlowDefinition {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> Describes the details of the most recent flow run. </p>
@@ -5840,7 +5840,7 @@ export interface ListConnectorEntitiesResponse {
    *       This map's key represents the group name, and its value contains the list of entities
    *       belonging to that group. </p>
    */
-  connectorEntityMap: { [key: string]: ConnectorEntity[] } | undefined;
+  connectorEntityMap: Record<string, ConnectorEntity[]> | undefined;
 }
 
 export namespace ListConnectorEntitiesResponse {
@@ -5958,7 +5958,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -6150,7 +6150,7 @@ export interface TagResourceRequest {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

@@ -3443,7 +3443,7 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
   return contents;
 };
 
-const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

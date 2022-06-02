@@ -4487,7 +4487,7 @@ const serializeAws_json1_1FailoverConfig = (input: FailoverConfig, context: __Se
   };
 };
 
-const serializeAws_json1_1HeaderParametersMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1HeaderParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4836,10 +4836,7 @@ const serializeAws_json1_1PutTargetsRequest = (input: PutTargetsRequest, context
   };
 };
 
-const serializeAws_json1_1QueryStringParametersMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1QueryStringParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5160,7 +5157,7 @@ const serializeAws_json1_1TestEventPatternRequest = (input: TestEventPatternRequ
   };
 };
 
-const serializeAws_json1_1TransformerPaths = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1TransformerPaths = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6177,8 +6174,8 @@ const deserializeAws_json1_1FailoverConfig = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1HeaderParametersMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1HeaderParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6663,8 +6660,8 @@ const deserializeAws_json1_1PutTargetsResultEntryList = (
 const deserializeAws_json1_1QueryStringParametersMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7077,8 +7074,8 @@ const deserializeAws_json1_1TestEventPatternResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1TransformerPaths = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1TransformerPaths = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

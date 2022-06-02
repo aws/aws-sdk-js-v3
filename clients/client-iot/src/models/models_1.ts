@@ -395,12 +395,12 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>Information about the targets to which audit notifications are sent for
    *             this account.</p>
    */
-  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
 
   /**
    * <p>Which audit checks are enabled and disabled for this account.</p>
    */
-  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 
 export namespace DescribeAccountAuditConfigurationResponse {
@@ -513,7 +513,7 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   /**
    * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
    */
-  taskStatistics?: { [key: string]: TaskStatisticsForAuditCheck };
+  taskStatistics?: Record<string, TaskStatisticsForAuditCheck>;
 
   /**
    * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
@@ -523,7 +523,7 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   /**
    * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
    */
-  auditCheckToActionsMapping?: { [key: string]: string[] };
+  auditCheckToActionsMapping?: Record<string, string[]>;
 
   /**
    * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
@@ -704,7 +704,7 @@ export interface DescribeAuditTaskResponse {
   /**
    * <p>Detailed information about each check performed during this audit.</p>
    */
-  auditDetails?: { [key: string]: AuditCheckDetails };
+  auditDetails?: Record<string, AuditCheckDetails>;
 }
 
 export namespace DescribeAuditTaskResponse {
@@ -1790,7 +1790,7 @@ export interface DescribeEventConfigurationsResponse {
   /**
    * <p>The event configurations.</p>
    */
-  eventConfigurations?: { [key: string]: Configuration };
+  eventConfigurations?: Record<string, Configuration>;
 
   /**
    * <p>The creation date of the event configuration.</p>
@@ -2194,7 +2194,7 @@ export interface Job {
    *                 create jobs from them.</p>
    *         </note>
    */
-  documentParameters?: { [key: string]: string };
+  documentParameters?: Record<string, string>;
 
   isConcurrent?: boolean;
 }
@@ -2274,7 +2274,7 @@ export interface JobExecutionStatusDetails {
   /**
    * <p>The job execution status.</p>
    */
-  detailsMap?: { [key: string]: string };
+  detailsMap?: Record<string, string>;
 }
 
 export namespace JobExecutionStatusDetails {
@@ -3014,7 +3014,7 @@ export interface DescribeSecurityProfileResponse {
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  alertTargets?: Record<string, AlertTarget>;
 
   /**
    * @deprecated
@@ -3206,7 +3206,7 @@ export interface DescribeThingResponse {
   /**
    * <p>The thing attributes.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p>The current version of the thing record in the registry.</p>
@@ -4484,7 +4484,7 @@ export interface OTAUpdateInfo {
   /**
    * <p>A collection of name/value pairs</p>
    */
-  additionalParameters?: { [key: string]: string };
+  additionalParameters?: Record<string, string>;
 }
 
 export namespace OTAUpdateInfo {

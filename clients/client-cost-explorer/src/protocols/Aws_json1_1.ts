@@ -3445,8 +3445,8 @@ const deserializeAws_json1_1AnomalySubscriptions = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4547,8 +4547,8 @@ const deserializeAws_json1_1MatchOptions = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { [key: string]: MetricValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MetricValue }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Record<string, MetricValue> => {
+  return Object.entries(output).reduce((acc: Record<string, MetricValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

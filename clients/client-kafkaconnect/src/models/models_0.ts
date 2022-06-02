@@ -1406,7 +1406,7 @@ export interface CreateConnectorRequest {
   /**
    * <p>A map of keys to values that represent the configuration for the connector.</p>
    */
-  connectorConfiguration: { [key: string]: string } | undefined;
+  connectorConfiguration: Record<string, string> | undefined;
 
   /**
    * <p>A summary description of the connector.</p>
@@ -1921,7 +1921,7 @@ export interface DescribeConnectorResponse {
   /**
    * <p>A map of keys to values that represent the configuration for the connector.</p>
    */
-  connectorConfiguration?: { [key: string]: string };
+  connectorConfiguration?: Record<string, string>;
 
   /**
    * <p>A summary description of the connector.</p>

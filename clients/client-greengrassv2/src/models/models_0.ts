@@ -515,7 +515,7 @@ export interface CloudComponentStatus {
    *         <code>errors</code> contains the artifact's URI as a key, and the error message as the value
    *       for that key.</p>
    */
-  errors?: { [key: string]: string };
+  errors?: Record<string, string>;
 
   /**
    * <p>The vendor guidance state for the component version. This state indicates whether
@@ -573,7 +573,7 @@ export interface ComponentPlatform {
    *       see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass nucleus
    *         component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace ComponentPlatform {
@@ -678,7 +678,7 @@ export interface ComponentCandidate {
    *       version requirements from component recipes.</p>
    *          <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
    */
-  versionRequirements?: { [key: string]: string };
+  versionRequirements?: Record<string, string>;
 }
 
 export namespace ComponentCandidate {
@@ -1281,7 +1281,7 @@ export interface LambdaExecutionParameters {
   /**
    * <p>The map of environment variables that are available to the Lambda function when it runs.</p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p>The parameters for the Linux process that contains the Lambda function.</p>
@@ -1329,7 +1329,7 @@ export interface LambdaFunctionRecipeSource {
   /**
    * <p>The component versions on which this Lambda function component depends.</p>
    */
-  componentDependencies?: { [key: string]: ComponentDependencyRequirement };
+  componentDependencies?: Record<string, ComponentDependencyRequirement>;
 
   /**
    * <p>The system and runtime parameters for the Lambda function as it runs on the Greengrass core
@@ -1366,7 +1366,7 @@ export interface CreateComponentVersionRequest {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent.
@@ -1844,7 +1844,7 @@ export interface CreateDeploymentRequest {
    * <p>The components to deploy. This is a dictionary, where each key is the name of a component,
    *         and each key's value is the version and configuration to deploy for that component.</p>
    */
-  components?: { [key: string]: ComponentDeploymentSpecification };
+  components?: Record<string, ComponentDeploymentSpecification>;
 
   /**
    * <p>The job configuration for the deployment configuration. The job configuration specifies
@@ -1863,7 +1863,7 @@ export interface CreateDeploymentRequest {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent.
@@ -2083,7 +2083,7 @@ export interface DescribeComponentResponse {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeComponentResponse {
@@ -2240,7 +2240,7 @@ export interface GetComponentResponse {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetComponentResponse {
@@ -2398,7 +2398,7 @@ export interface GetCoreDeviceResponse {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetCoreDeviceResponse {
@@ -2466,7 +2466,7 @@ export interface GetDeploymentResponse {
    * <p>The components to deploy. This is a dictionary, where each key is the name of a component,
    *         and each key's value is the version and configuration to deploy for that component.</p>
    */
-  components?: { [key: string]: ComponentDeploymentSpecification };
+  components?: Record<string, ComponentDeploymentSpecification>;
 
   /**
    * <p>The deployment policies for the deployment. These policies define how the deployment
@@ -2495,7 +2495,7 @@ export interface GetDeploymentResponse {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetDeploymentResponse {
@@ -2982,7 +2982,7 @@ export interface ListTagsForResourceResponse {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3106,7 +3106,7 @@ export interface TagResourceRequest {
    *       information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html">Tag your
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

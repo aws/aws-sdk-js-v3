@@ -3567,7 +3567,7 @@ const serializeAws_json1_1CategoricalParameterRanges = (
     });
 };
 
-const serializeAws_json1_1Configuration = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1Configuration = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4126,7 +4126,7 @@ const serializeAws_json1_1FeaturizationMethod = (input: FeaturizationMethod, con
 };
 
 const serializeAws_json1_1FeaturizationMethodParameters = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -4537,7 +4537,7 @@ const serializeAws_json1_1TimeSeriesSelector = (input: TimeSeriesSelector, conte
   };
 };
 
-const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4549,7 +4549,7 @@ const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }
   }, {});
 };
 
-const serializeAws_json1_1Transformations = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Transformations = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4704,8 +4704,8 @@ const deserializeAws_json1_1CategoricalParameterRanges = (
   return retVal;
 };
 
-const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5522,8 +5522,8 @@ const deserializeAws_json1_1FeaturizationMethod = (output: any, context: __Serde
 const deserializeAws_json1_1FeaturizationMethodParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5558,8 +5558,8 @@ const deserializeAws_json1_1Featurizations = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1FieldStatistics = (output: any, context: __SerdeContext): { [key: string]: Statistics } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Statistics }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1FieldStatistics = (output: any, context: __SerdeContext): Record<string, Statistics> => {
+  return Object.entries(output).reduce((acc: Record<string, Statistics>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6371,8 +6371,8 @@ const deserializeAws_json1_1TimeSeriesSelector = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6383,8 +6383,8 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
   }, {});
 };
 
-const deserializeAws_json1_1Transformations = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Transformations = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

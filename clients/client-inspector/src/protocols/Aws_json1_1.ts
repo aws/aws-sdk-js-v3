@@ -3742,8 +3742,8 @@ const deserializeAws_json1_1AssessmentRunAgentList = (output: any, context: __Se
 const deserializeAws_json1_1AssessmentRunFindingCounts = (
   output: any,
   context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [Severity | string, any]) => {
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Severity | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4171,8 +4171,8 @@ const deserializeAws_json1_1Exclusion = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1ExclusionMap = (output: any, context: __SerdeContext): { [key: string]: Exclusion } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Exclusion }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ExclusionMap = (output: any, context: __SerdeContext): Record<string, Exclusion> => {
+  return Object.entries(output).reduce((acc: Record<string, Exclusion>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4218,11 +4218,8 @@ const deserializeAws_json1_1FailedItemDetails = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1FailedItems = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: FailedItemDetails } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FailedItemDetails }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1FailedItems = (output: any, context: __SerdeContext): Record<string, FailedItemDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, FailedItemDetails>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -456,7 +456,7 @@ export interface DevicePositionUpdate {
    *         <p>Format: <code>"key" : "value"</code>
    *          </p>
    */
-  PositionProperties?: { [key: string]: string };
+  PositionProperties?: Record<string, string>;
 }
 
 export namespace DevicePositionUpdate {
@@ -607,7 +607,7 @@ export interface DevicePosition {
   /**
    * <p>The properties associated with the position.</p>
    */
-  PositionProperties?: { [key: string]: string };
+  PositionProperties?: Record<string, string>;
 }
 
 export namespace DevicePosition {
@@ -1970,7 +1970,7 @@ export interface CreateGeofenceCollectionRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
@@ -2169,7 +2169,7 @@ export interface CreateMapRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateMapRequest {
@@ -2362,7 +2362,7 @@ export interface CreatePlaceIndexRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePlaceIndexRequest {
@@ -2499,7 +2499,7 @@ export interface CreateRouteCalculatorRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRouteCalculatorRequest {
@@ -2630,7 +2630,7 @@ export interface CreateTrackerRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Specifies the position filtering for the tracker resource.</p>
@@ -2909,7 +2909,7 @@ export interface DescribeGeofenceCollectionResponse {
   /**
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The timestamp for when the geofence resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -2995,7 +2995,7 @@ export interface DescribeMapResponse {
   /**
    * <p>Tags associated with the map resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -3104,7 +3104,7 @@ export interface DescribePlaceIndexResponse {
   /**
    * <p>Tags associated with place index resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribePlaceIndexResponse {
@@ -3209,7 +3209,7 @@ export interface DescribeRouteCalculatorResponse {
   /**
    * <p>Tags associated with route calculator resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeRouteCalculatorResponse {
@@ -3278,7 +3278,7 @@ export interface DescribeTrackerResponse {
   /**
    * <p>The tags associated with the tracker resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -3384,7 +3384,7 @@ export interface ListTagsForResourceResponse {
    *             </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3436,7 +3436,7 @@ export interface TagResourceRequest {
    *             </li>
    *          </ul>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3991,7 +3991,7 @@ export interface GetDevicePositionResponse {
   /**
    * <p>The properties associated with the position.</p>
    */
-  PositionProperties?: { [key: string]: string };
+  PositionProperties?: Record<string, string>;
 }
 
 export namespace GetDevicePositionResponse {
@@ -4406,7 +4406,7 @@ export interface ListDevicePositionsResponseEntry {
   /**
    * <p>The properties associated with the position.</p>
    */
-  PositionProperties?: { [key: string]: string };
+  PositionProperties?: Record<string, string>;
 }
 
 export namespace ListDevicePositionsResponseEntry {

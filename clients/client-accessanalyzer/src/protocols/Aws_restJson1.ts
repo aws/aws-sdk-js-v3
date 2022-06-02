@@ -2761,7 +2761,7 @@ const serializeAws_restJson1Configuration = (input: Configuration, context: __Se
 };
 
 const serializeAws_restJson1ConfigurationsMap = (
-  input: { [key: string]: Configuration },
+  input: Record<string, Configuration>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2785,7 +2785,7 @@ const serializeAws_restJson1Criterion = (input: Criterion, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1FilterCriteriaMap = (input: { [key: string]: Criterion }, context: __SerdeContext): any => {
+const serializeAws_restJson1FilterCriteriaMap = (input: Record<string, Criterion>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2837,7 +2837,7 @@ const serializeAws_restJson1InternetConfiguration = (input: InternetConfiguratio
   return {};
 };
 
-const serializeAws_restJson1KmsConstraintsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1KmsConstraintsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2920,7 +2920,7 @@ const serializeAws_restJson1KmsKeyConfiguration = (input: KmsKeyConfiguration, c
   };
 };
 
-const serializeAws_restJson1KmsKeyPoliciesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1KmsKeyPoliciesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2984,7 +2984,7 @@ const serializeAws_restJson1S3AccessPointConfiguration = (
 };
 
 const serializeAws_restJson1S3AccessPointConfigurationsMap = (
-  input: { [key: string]: S3AccessPointConfiguration },
+  input: Record<string, S3AccessPointConfiguration>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3079,7 +3079,7 @@ const serializeAws_restJson1SqsQueueConfiguration = (input: SqsQueueConfiguratio
   };
 };
 
-const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3399,8 +3399,8 @@ const deserializeAws_restJson1CloudTrailProperties = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1ConditionKeyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ConditionKeyMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3446,8 +3446,8 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ConfigurationsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Configuration } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Configuration }, [key, value]: [string, any]) => {
+): Record<string, Configuration> => {
+  return Object.entries(output).reduce((acc: Record<string, Configuration>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3474,11 +3474,8 @@ const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1FilterCriteriaMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: Criterion } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Criterion }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1FilterCriteriaMap = (output: any, context: __SerdeContext): Record<string, Criterion> => {
+  return Object.entries(output).reduce((acc: Record<string, Criterion>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3690,8 +3687,8 @@ const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1KmsConstraintsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1KmsConstraintsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3774,8 +3771,8 @@ const deserializeAws_restJson1KmsKeyConfiguration = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1KmsKeyPoliciesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1KmsKeyPoliciesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3894,8 +3891,8 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1PrincipalMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1PrincipalMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3938,9 +3935,9 @@ const deserializeAws_restJson1S3AccessPointConfiguration = (
 const deserializeAws_restJson1S3AccessPointConfigurationsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: S3AccessPointConfiguration } => {
+): Record<string, S3AccessPointConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: S3AccessPointConfiguration }, [key, value]: [string, any]) => {
+    (acc: Record<string, S3AccessPointConfiguration>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4063,8 +4060,8 @@ const deserializeAws_restJson1Substring = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

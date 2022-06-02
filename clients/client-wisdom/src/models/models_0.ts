@@ -151,7 +151,7 @@ export interface CreateAssistantAssociationRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAssistantAssociationRequest {
@@ -269,7 +269,7 @@ export interface AssistantAssociationData {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace AssistantAssociationData {
@@ -503,7 +503,7 @@ export interface AssistantAssociationSummary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace AssistantAssociationSummary {
@@ -592,7 +592,7 @@ export interface CreateAssistantRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The KMS key used for encryption.</p>
@@ -655,7 +655,7 @@ export interface AssistantData {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The KMS key used for encryption.</p>
@@ -1151,7 +1151,7 @@ export interface AssistantSummary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The KMS key used for encryption.</p>
@@ -1513,7 +1513,7 @@ export interface CreateSessionRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSessionRequest {
@@ -1552,7 +1552,7 @@ export interface SessionData {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SessionData {
@@ -1645,7 +1645,7 @@ export interface CreateContentRequest {
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Wisdom, you can store an external version identifier as metadata to utilize for determining drift.</p>
    */
-  metadata?: { [key: string]: string };
+  metadata?: Record<string, string>;
 
   /**
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
@@ -1661,7 +1661,7 @@ export interface CreateContentRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateContentRequest {
@@ -1736,12 +1736,12 @@ export interface ContentData {
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Wisdom, you can store an external version identifier as metadata to utilize for determining drift.</p>
    */
-  metadata: { [key: string]: string } | undefined;
+  metadata: Record<string, string> | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The URI of the content.</p>
@@ -1930,12 +1930,12 @@ export interface ContentSummary {
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Wisdom, you can store an external version identifier as metadata to utilize for determining drift.</p>
    */
-  metadata: { [key: string]: string } | undefined;
+  metadata: Record<string, string> | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ContentSummary {
@@ -2073,7 +2073,7 @@ export interface UpdateContentRequest {
    *       example, when synchronizing data between an external system and Wisdom, you can store an
    *       external version identifier as metadata to utilize for determining drift.</p>
    */
-  metadata?: { [key: string]: string };
+  metadata?: Record<string, string>;
 
   /**
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.
@@ -2230,7 +2230,7 @@ export interface CreateKnowledgeBaseRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateKnowledgeBaseRequest {
@@ -2312,7 +2312,7 @@ export interface KnowledgeBaseData {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace KnowledgeBaseData {
@@ -2478,7 +2478,7 @@ export interface KnowledgeBaseSummary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace KnowledgeBaseSummary {
@@ -2637,7 +2637,7 @@ export interface StartContentUploadResponse {
   /**
    * <p>The headers to include in the upload.</p>
    */
-  headersToInclude: { [key: string]: string } | undefined;
+  headersToInclude: Record<string, string> | undefined;
 }
 
 export namespace StartContentUploadResponse {
@@ -2708,7 +2708,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2729,7 +2729,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

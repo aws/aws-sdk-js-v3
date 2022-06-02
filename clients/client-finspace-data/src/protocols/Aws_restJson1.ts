@@ -2800,7 +2800,7 @@ const serializeAws_restJson1DataViewDestinationTypeParams = (
   };
 };
 
-const serializeAws_restJson1FormatParams = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1FormatParams = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2852,7 +2852,7 @@ const serializeAws_restJson1ResourcePermissionsList = (input: ResourcePermission
 };
 
 const serializeAws_restJson1S3DestinationFormatOptions = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2897,7 +2897,7 @@ const serializeAws_restJson1SortColumnList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1SourceParams = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1SourceParams = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3113,8 +3113,8 @@ const deserializeAws_restJson1DataViewSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1FormatParams = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1FormatParams = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3166,8 +3166,8 @@ const deserializeAws_restJson1PermissionGroupList = (output: any, context: __Ser
 const deserializeAws_restJson1S3DestinationFormatOptions = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3212,8 +3212,8 @@ const deserializeAws_restJson1SortColumnList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1SourceParams = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1SourceParams = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

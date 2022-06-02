@@ -2393,7 +2393,7 @@ export const deserializeAws_restJson1GetVaultAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.policy = deserializeAws_restJson1VaultAccessPolicy(data, context);
   return Promise.resolve(contents);
 };
@@ -2509,7 +2509,7 @@ export const deserializeAws_restJson1GetVaultNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
     vaultNotificationConfig: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.vaultNotificationConfig = deserializeAws_restJson1VaultNotificationConfig(data, context);
   return Promise.resolve(contents);
 };
@@ -3715,7 +3715,7 @@ const serializeAws_restJson1Grantee = (input: Grantee, context: __SerdeContext):
   };
 };
 
-const serializeAws_restJson1hashmap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1hashmap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3842,7 +3842,7 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4012,8 +4012,8 @@ const deserializeAws_restJson1Grantee = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4173,8 +4173,8 @@ const deserializeAws_restJson1SelectParameters = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -48,7 +48,7 @@ export namespace BadRequestDetails {
    * <p>One or more specified parameters are not valid for the call.</p>
    */
   export interface InvalidParametersMember {
-    InvalidParameters: { [key: string]: InvalidParameterDetail };
+    InvalidParameters: Record<string, InvalidParameterDetail>;
     $unknown?: never;
   }
 
@@ -58,7 +58,7 @@ export namespace BadRequestDetails {
   }
 
   export interface Visitor<T> {
-    InvalidParameters: (value: { [key: string]: InvalidParameterDetail }) => T;
+    InvalidParameters: (value: Record<string, InvalidParameterDetail>) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -184,7 +184,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>A map indicating which parameters in the request reference the resource that was not found.</p>
    */
-  ReferencedBy?: { [key: string]: string };
+  ReferencedBy?: Record<string, string>;
   /**
    * @internal
    */

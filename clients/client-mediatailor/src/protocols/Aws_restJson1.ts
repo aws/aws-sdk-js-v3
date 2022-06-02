@@ -4128,7 +4128,7 @@ const serializeAws_restJson1__listOfSegmentDeliveryConfiguration = (
     });
 };
 
-const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4204,7 +4204,7 @@ const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context
 };
 
 const serializeAws_restJson1ConfigurationAliasesRequest = (
-  input: { [key: string]: { [key: string]: string } },
+  input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -4597,8 +4597,8 @@ const deserializeAws_restJson1__listOfVodSource = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4721,19 +4721,16 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1ConfigurationAliasesResponse = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1__mapOf__string(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, Record<string, string>> => {
+  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1__mapOf__string(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DashConfiguration = (output: any, context: __SerdeContext): DashConfiguration => {

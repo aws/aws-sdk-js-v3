@@ -1926,7 +1926,7 @@ export interface PropertyGroup {
   /**
    * <p>Describes the value of an application execution property key-value pair.</p>
    */
-  PropertyMap: { [key: string]: string } | undefined;
+  PropertyMap: Record<string, string> | undefined;
 }
 
 export namespace PropertyGroup {

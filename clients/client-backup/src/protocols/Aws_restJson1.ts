@@ -6653,7 +6653,7 @@ const serializeAws_restJson1AdvancedBackupSettings = (input: AdvancedBackupSetti
     });
 };
 
-const serializeAws_restJson1BackupOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1BackupOptions = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6890,7 +6890,7 @@ const serializeAws_restJson1FrameworkControls = (input: FrameworkControl[], cont
     });
 };
 
-const serializeAws_restJson1GlobalSettings = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1GlobalSettings = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6922,7 +6922,7 @@ const serializeAws_restJson1ListOfTags = (input: Condition[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1Metadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Metadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6979,7 +6979,7 @@ const serializeAws_restJson1ResourceTypeList = (input: string[], context: __Serd
 };
 
 const serializeAws_restJson1ResourceTypeManagementPreference = (
-  input: { [key: string]: boolean },
+  input: Record<string, boolean>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -6994,7 +6994,7 @@ const serializeAws_restJson1ResourceTypeManagementPreference = (
 };
 
 const serializeAws_restJson1ResourceTypeOptInPreference = (
-  input: { [key: string]: boolean },
+  input: Record<string, boolean>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -7019,7 +7019,7 @@ const serializeAws_restJson1stringList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1stringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1stringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7042,7 +7042,7 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7134,8 +7134,8 @@ const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7616,8 +7616,8 @@ const deserializeAws_restJson1FrameworkList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7647,8 +7647,8 @@ const deserializeAws_restJson1ListOfTags = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7917,8 +7917,8 @@ const deserializeAws_restJson1ResourceTypeList = (output: any, context: __SerdeC
 const deserializeAws_restJson1ResourceTypeManagementPreference = (
   output: any,
   context: __SerdeContext
-): { [key: string]: boolean } => {
-  return Object.entries(output).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+): Record<string, boolean> => {
+  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7932,8 +7932,8 @@ const deserializeAws_restJson1ResourceTypeManagementPreference = (
 const deserializeAws_restJson1ResourceTypeOptInPreference = (
   output: any,
   context: __SerdeContext
-): { [key: string]: boolean } => {
-  return Object.entries(output).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+): Record<string, boolean> => {
+  return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8004,8 +8004,8 @@ const deserializeAws_restJson1stringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8016,8 +8016,8 @@ const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext)
   }, {});
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

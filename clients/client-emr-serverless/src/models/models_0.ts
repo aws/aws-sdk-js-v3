@@ -206,7 +206,7 @@ export interface Application {
   /**
    * <p>The initial capacity of the application.</p>
    */
-  initialCapacity?: { [key: string]: InitialCapacityConfig };
+  initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
    * <p>The maximum capacity of the application. This is cumulative across all workers at any
@@ -228,7 +228,7 @@ export interface Application {
   /**
    * <p>The tags assigned to the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The configuration for an application to automatically start on job submission.</p>
@@ -359,7 +359,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The capacity to initialize when the application is created.</p>
    */
-  initialCapacity?: { [key: string]: InitialCapacityConfig };
+  initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
    * <p>The maximum capacity to allocate when the application is created. This is cumulative
@@ -371,7 +371,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The tags assigned to the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The configuration for an application to automatically start on job submission.</p>
@@ -676,7 +676,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>The capacity to initialize when the application is updated.</p>
    */
-  initialCapacity?: { [key: string]: InitialCapacityConfig };
+  initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
    * <p>The maximum capacity to allocate when the application is updated. This is cumulative
@@ -1202,7 +1202,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1223,7 +1223,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1293,7 +1293,7 @@ export interface Configuration {
   /**
    * <p>A set of properties specified within a configuration classification.</p>
    */
-  properties?: { [key: string]: string };
+  properties?: Record<string, string>;
 
   /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
@@ -1414,7 +1414,7 @@ export interface JobRun {
   /**
    * <p>The tags assigned to the job run.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated,
@@ -1476,7 +1476,7 @@ export interface StartJobRunRequest {
   /**
    * <p>The tags assigned to the job run.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.</p>

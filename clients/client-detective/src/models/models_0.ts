@@ -170,7 +170,7 @@ export interface CreateGraphRequest {
    *          you provide the tag key and the tag value. Each tag key can contain up to 128 characters.
    *          Each tag value can contain up to 256 characters.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateGraphRequest {
@@ -948,7 +948,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tag values that are assigned to the behavior graph. The request returns up to 50 tag
    *          values.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1012,7 +1012,7 @@ export interface TagResourceRequest {
    *          provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each
    *          tag value can contain up to 256 characters.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

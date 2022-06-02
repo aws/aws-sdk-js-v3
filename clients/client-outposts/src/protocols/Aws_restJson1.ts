@@ -2316,7 +2316,7 @@ const serializeAws_restJson1RackPhysicalProperties = (input: RackPhysicalPropert
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2469,22 +2469,16 @@ const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __
   return retVal;
 };
 
-const deserializeAws_restJson1LineItemStatusCounts = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [LineItemStatus | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __expectInt32(value) as any,
-      };
-    },
-    {}
-  );
+const deserializeAws_restJson1LineItemStatusCounts = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [LineItemStatus | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectInt32(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Order => {
@@ -2651,8 +2645,8 @@ const deserializeAws_restJson1SupportedUplinkGbpsListDefinition = (output: any, 
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

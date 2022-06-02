@@ -160,7 +160,7 @@ export interface CreateApplicationRequest {
    *          resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateApplicationRequest {
@@ -345,7 +345,7 @@ export interface CreateConfigurationProfileRequest {
    *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
@@ -478,7 +478,7 @@ export interface CreateDeploymentStrategyRequest {
    *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDeploymentStrategyRequest {
@@ -593,7 +593,7 @@ export interface CreateEnvironmentRequest {
    *          resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateEnvironmentRequest {
@@ -1801,7 +1801,7 @@ export interface ResourceTags {
    *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ResourceTags {
@@ -1849,7 +1849,7 @@ export interface StartDeploymentRequest {
    *          resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace StartDeploymentRequest {
@@ -1898,7 +1898,7 @@ export interface TagResourceRequest {
    *          up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to
    *          256 characters.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

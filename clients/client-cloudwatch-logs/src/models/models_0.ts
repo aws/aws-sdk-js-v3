@@ -262,7 +262,7 @@ export interface CreateLogGroupRequest {
    *       For more information about using tags to control access, see
    *       <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateLogGroupRequest {
@@ -1115,7 +1115,7 @@ export interface MetricTransformation {
    *        </p>
    *          </important>
    */
-  dimensions?: { [key: string]: string };
+  dimensions?: Record<string, string>;
 
   /**
    * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
@@ -1958,7 +1958,7 @@ export interface GetLogRecordResponse {
   /**
    * <p>The requested log event, as a JSON string.</p>
    */
-  logRecord?: { [key: string]: string };
+  logRecord?: Record<string, string>;
 }
 
 export namespace GetLogRecordResponse {
@@ -2147,7 +2147,7 @@ export interface ListTagsLogGroupResponse {
   /**
    * <p>The tags for the log group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsLogGroupResponse {
@@ -2786,7 +2786,7 @@ export interface TagLogGroupRequest {
   /**
    * <p>The key-value pairs to use for the tags.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagLogGroupRequest {
@@ -2838,7 +2838,7 @@ export interface MetricFilterMatchRecord {
   /**
    * <p>The values extracted from the event data by the filter.</p>
    */
-  extractedValues?: { [key: string]: string };
+  extractedValues?: Record<string, string>;
 }
 
 export namespace MetricFilterMatchRecord {

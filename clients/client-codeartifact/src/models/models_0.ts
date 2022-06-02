@@ -57,7 +57,7 @@ export interface AssetSummary {
    *       The hashes of the asset.
    *     </p>
    */
-  hashes?: { [key: string]: string };
+  hashes?: Record<string, string>;
 }
 
 export namespace AssetSummary {
@@ -620,7 +620,7 @@ export interface CopyPackageVersionsRequest {
    *       </p>
    *          </note>
    */
-  versionRevisions?: { [key: string]: string };
+  versionRevisions?: Record<string, string>;
 
   /**
    * <p>
@@ -764,7 +764,7 @@ export interface CopyPackageVersionsResult {
    *       A list of the package versions that were successfully copied to your repository.
    *     </p>
    */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
    * <p>
@@ -804,7 +804,7 @@ export interface CopyPackageVersionsResult {
    *             </li>
    *          </ul>
    */
-  failedVersions?: { [key: string]: PackageVersionError };
+  failedVersions?: Record<string, PackageVersionError>;
 }
 
 export namespace CopyPackageVersionsResult {
@@ -1292,7 +1292,7 @@ export interface DeletePackageVersionsResult {
    *        status of every successful version will be <code>Deleted</code>.
    *      </p>
    */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
    * <p>
@@ -1332,7 +1332,7 @@ export interface DeletePackageVersionsResult {
    *             </li>
    *          </ul>
    */
-  failedVersions?: { [key: string]: PackageVersionError };
+  failedVersions?: Record<string, PackageVersionError>;
 }
 
 export namespace DeletePackageVersionsResult {
@@ -1924,7 +1924,7 @@ export interface DisposePackageVersionsRequest {
    *       The revisions of the package versions you want to dispose.
    *     </p>
    */
-  versionRevisions?: { [key: string]: string };
+  versionRevisions?: Record<string, string>;
 
   /**
    * <p>
@@ -1949,7 +1949,7 @@ export interface DisposePackageVersionsResult {
    *       A list of the package versions that were successfully disposed.
    *     </p>
    */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
    * <p>
@@ -1989,7 +1989,7 @@ export interface DisposePackageVersionsResult {
    *             </li>
    *          </ul>
    */
-  failedVersions?: { [key: string]: PackageVersionError };
+  failedVersions?: Record<string, PackageVersionError>;
 }
 
 export namespace DisposePackageVersionsResult {
@@ -3900,7 +3900,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *       package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the
    *       package version revision. </p>
    */
-  versionRevisions?: { [key: string]: string };
+  versionRevisions?: Record<string, string>;
 
   /**
    * <p> The package version’s expected status before it is updated. If
@@ -3934,13 +3934,13 @@ export interface UpdatePackageVersionsStatusResult {
    *       a status that failed to update.
    *     </p>
    */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
    * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
    *       with a status that successfully updated. </p>
    */
-  failedVersions?: { [key: string]: PackageVersionError };
+  failedVersions?: Record<string, PackageVersionError>;
 }
 
 export namespace UpdatePackageVersionsStatusResult {

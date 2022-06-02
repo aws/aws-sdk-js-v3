@@ -3888,7 +3888,7 @@ export interface FirelensConfiguration {
    * 				type.</p>
    * 		       </note>
    */
-  options?: { [key: string]: string };
+  options?: Record<string, string>;
 }
 
 export namespace FirelensConfiguration {
@@ -4389,7 +4389,7 @@ export interface LogConfiguration {
    * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
    *          </p>
    */
-  options?: { [key: string]: string };
+  options?: Record<string, string>;
 
   /**
    * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
@@ -5303,7 +5303,7 @@ export interface ContainerDefinition {
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--label</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
    *          </p>
    */
-  dockerLabels?: { [key: string]: string };
+  dockerLabels?: Record<string, string>;
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a ulimit value is specified
@@ -5695,7 +5695,7 @@ export interface DockerVolumeConfiguration {
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>xxopt</code> option to <a href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
    * 				volume create</a>.</p>
    */
-  driverOpts?: { [key: string]: string };
+  driverOpts?: Record<string, string>;
 
   /**
    * <p>Custom metadata to add to your Docker volume. This parameter maps to
@@ -5703,7 +5703,7 @@ export interface DockerVolumeConfiguration {
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>xxlabel</code> option to <a href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
    * 				volume create</a>.</p>
    */
-  labels?: { [key: string]: string };
+  labels?: Record<string, string>;
 }
 
 export namespace DockerVolumeConfiguration {

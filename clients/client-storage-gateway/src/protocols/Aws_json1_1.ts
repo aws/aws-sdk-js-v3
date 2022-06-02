@@ -7945,8 +7945,8 @@ const deserializeAws_json1_1EndpointNetworkConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

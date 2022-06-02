@@ -446,7 +446,7 @@ export interface AliasRoutingConfiguration {
   /**
    * <p>The second version, and the percentage of traffic that's routed to it.</p>
    */
-  AdditionalVersionWeights?: { [key: string]: number };
+  AdditionalVersionWeights?: Record<string, number>;
 }
 
 export namespace AliasRoutingConfiguration {
@@ -825,7 +825,7 @@ export interface SelfManagedEventSource {
    * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS":
    *         ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
    */
-  Endpoints?: { [key: string]: string[] };
+  Endpoints?: Record<string, string[]>;
 }
 
 export namespace SelfManagedEventSource {
@@ -1384,7 +1384,7 @@ export interface Environment {
    * <p>Environment variable key-value pairs. For more information, see
    *     <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
    */
-  Variables?: { [key: string]: string };
+  Variables?: Record<string, string>;
 }
 
 export namespace Environment {
@@ -1666,7 +1666,7 @@ export interface CreateFunctionRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
    *       function.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
@@ -1747,7 +1747,7 @@ export interface EnvironmentResponse {
   /**
    * <p>Environment variable key-value pairs.</p>
    */
-  Variables?: { [key: string]: string };
+  Variables?: Record<string, string>;
 
   /**
    * <p>Error messages for environment variables that couldn't be applied.</p>
@@ -2882,7 +2882,7 @@ export interface GetFunctionResponse {
   /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved
@@ -5109,7 +5109,7 @@ export interface ListTagsResponse {
   /**
    * <p>The function's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsResponse {
@@ -5768,7 +5768,7 @@ export interface TagResourceRequest {
   /**
    * <p>A list of tags to apply to the function.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

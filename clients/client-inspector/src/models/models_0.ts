@@ -130,7 +130,7 @@ export interface AddAttributesToFindingsResponse {
    * <p>Attribute details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace AddAttributesToFindingsResponse {
@@ -681,7 +681,7 @@ export interface AssessmentRun {
   /**
    * <p>Provides a total count of generated findings per severity.</p>
    */
-  findingCounts: { [key: string]: number } | undefined;
+  findingCounts: Record<string, number> | undefined;
 }
 
 export namespace AssessmentRun {
@@ -1667,7 +1667,7 @@ export interface DescribeAssessmentRunsResponse {
    * <p>Assessment run details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeAssessmentRunsResponse {
@@ -1705,7 +1705,7 @@ export interface DescribeAssessmentTargetsResponse {
    * <p>Assessment target details that cannot be described. An error code is provided for
    *          each failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeAssessmentTargetsResponse {
@@ -1740,7 +1740,7 @@ export interface DescribeAssessmentTemplatesResponse {
    * <p>Assessment template details that cannot be described. An error code is provided for
    *          each failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeAssessmentTemplatesResponse {
@@ -1884,13 +1884,13 @@ export interface DescribeExclusionsResponse {
   /**
    * <p>Information about the exclusions.</p>
    */
-  exclusions: { [key: string]: Exclusion } | undefined;
+  exclusions: Record<string, Exclusion> | undefined;
 
   /**
    * <p>Exclusion details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeExclusionsResponse {
@@ -2069,7 +2069,7 @@ export interface DescribeFindingsResponse {
    * <p>Finding details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeFindingsResponse {
@@ -2140,7 +2140,7 @@ export interface DescribeResourceGroupsResponse {
    * <p>Resource group details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeResourceGroupsResponse {
@@ -2223,7 +2223,7 @@ export interface DescribeRulesPackagesResponse {
    * <p>Rules package details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace DescribeRulesPackagesResponse {
@@ -3203,7 +3203,7 @@ export interface RemoveAttributesFromFindingsResponse {
    * <p>Attributes details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
-  failedItems: { [key: string]: FailedItemDetails } | undefined;
+  failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 export namespace RemoveAttributesFromFindingsResponse {

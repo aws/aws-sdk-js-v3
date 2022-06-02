@@ -1342,7 +1342,7 @@ const serializeAws_json1_1serviceList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1tagFilter = (input: { [key: string]: string }[], context: __SerdeContext): any => {
+const serializeAws_json1_1tagFilter = (input: Record<string, string>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1353,7 +1353,7 @@ const serializeAws_json1_1tagFilter = (input: { [key: string]: string }[], conte
     });
 };
 
-const serializeAws_json1_1tagSet = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1tagSet = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1744,8 +1744,8 @@ const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1863,8 +1863,8 @@ const deserializeAws_json1_1OrganizationEventList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -4838,7 +4838,7 @@ const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1MessageAttributeMap = (
-  input: { [key: string]: MessageAttributeValue },
+  input: Record<string, MessageAttributeValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -5463,8 +5463,8 @@ const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1MessageAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MessageAttributeValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: MessageAttributeValue }, [key, value]: [string, any]) => {
+): Record<string, MessageAttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, MessageAttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

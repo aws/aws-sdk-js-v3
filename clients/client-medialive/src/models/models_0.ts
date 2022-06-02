@@ -2962,7 +2962,7 @@ export interface ChannelSummary {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for any VPC outputs.
@@ -3223,7 +3223,7 @@ export interface Input {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
@@ -3598,7 +3598,7 @@ export interface InputSecurityGroup {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Whitelist rules and their sync status
@@ -3847,7 +3847,7 @@ export interface MultiplexSummary {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace MultiplexSummary {

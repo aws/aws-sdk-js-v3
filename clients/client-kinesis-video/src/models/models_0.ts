@@ -424,7 +424,7 @@ export interface CreateStreamInput {
    * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
    *             (the value is optional).</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateStreamInput {
@@ -728,7 +728,7 @@ export interface ImageGenerationConfiguration {
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code>
    *             key will be set to 80.</p>
    */
-  FormatConfig?: { [key: string]: string };
+  FormatConfig?: Record<string, string>;
 
   /**
    * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and
@@ -1317,7 +1317,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>A map of tag keys and values associated with the specified signaling channel.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -1369,7 +1369,7 @@ export interface ListTagsForStreamOutput {
   /**
    * <p>A map of tag keys and values associated with the specified stream.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForStreamOutput {
@@ -1431,7 +1431,7 @@ export interface TagStreamInput {
    * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
    *             (the value is optional).</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagStreamInput {

@@ -219,7 +219,7 @@ export interface ResourceTags {
   /**
    * The tags for the resource.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ResourceTags {
@@ -288,7 +288,7 @@ export interface TagResourceRequest {
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

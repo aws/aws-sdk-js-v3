@@ -201,7 +201,7 @@ export interface ActionConfiguration {
   /**
    * <p>The configuration data for the action.</p>
    */
-  configuration?: { [key: string]: string };
+  configuration?: Record<string, string>;
 }
 
 export namespace ActionConfiguration {
@@ -457,7 +457,7 @@ export interface ActionDeclaration {
    *             <code>"Configuration" : { Key : Value },</code>
    *         </p>
    */
-  configuration?: { [key: string]: string };
+  configuration?: Record<string, string>;
 
   /**
    * <p>The name or ID of the result of the action declaration, such as a test or build
@@ -663,13 +663,13 @@ export interface ActionExecutionInput {
   /**
    * <p>Configuration data for an action execution.</p>
    */
-  configuration?: { [key: string]: string };
+  configuration?: Record<string, string>;
 
   /**
    * <p>Configuration data for an action execution with all variable references replaced with
    *             their real values for the execution.</p>
    */
-  resolvedConfiguration?: { [key: string]: string };
+  resolvedConfiguration?: Record<string, string>;
 
   /**
    * <p>The ARN of the IAM service role that performs the declared action. This is assumed
@@ -755,7 +755,7 @@ export interface ActionExecutionOutput {
    * <p>The outputVariables field shows the key-value pairs that were output as part of that
    *             execution.</p>
    */
-  outputVariables?: { [key: string]: string };
+  outputVariables?: Record<string, string>;
 }
 
 export namespace ActionExecutionOutput {
@@ -2047,7 +2047,7 @@ export interface PipelineDeclaration {
    *                     <code>artifactStores</code>.</p>
    *         </note>
    */
-  artifactStores?: { [key: string]: ArtifactStore };
+  artifactStores?: Record<string, ArtifactStore>;
 
   /**
    * <p>The stage in which to perform the action.</p>
@@ -4146,7 +4146,7 @@ export interface PollForJobsInput {
    *             property, you must supply that property as a key in the map. Only jobs whose action
    *             configuration matches the mapped value are returned.</p>
    */
-  queryParam?: { [key: string]: string };
+  queryParam?: Record<string, string>;
 }
 
 export namespace PollForJobsInput {
@@ -4627,7 +4627,7 @@ export interface PutJobSuccessResultInput {
    *             downstream action configuration. <code>outputVariables</code> can be included only when
    *             there is no continuation token on the request.</p>
    */
-  outputVariables?: { [key: string]: string };
+  outputVariables?: Record<string, string>;
 }
 
 export namespace PutJobSuccessResultInput {

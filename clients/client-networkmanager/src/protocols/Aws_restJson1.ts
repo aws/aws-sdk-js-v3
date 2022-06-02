@@ -7981,7 +7981,7 @@ const serializeAws_restJson1CoreNetworkSegmentEdgeIdentifier = (
   };
 };
 
-const serializeAws_restJson1FilterMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_restJson1FilterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8013,7 +8013,7 @@ const serializeAws_restJson1Location = (input: Location, context: __SerdeContext
 };
 
 const serializeAws_restJson1NetworkResourceMetadataMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8707,11 +8707,8 @@ const deserializeAws_restJson1DeviceList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ExceptionContextMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ExceptionContextMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8891,8 +8888,8 @@ const deserializeAws_restJson1NetworkResourceList = (output: any, context: __Ser
 const deserializeAws_restJson1NetworkResourceMetadataMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9046,8 +9043,8 @@ const deserializeAws_restJson1ProposedSegmentChange = (output: any, context: __S
   } as any;
 };
 
-const deserializeAws_restJson1ReasonContextMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ReasonContextMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -8273,7 +8273,7 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
 };
 
 const serializeAws_restJson1AdditionalVersionWeights = (
-  input: { [key: string]: number },
+  input: Record<string, number>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8429,7 +8429,7 @@ const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1Endpoints = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_restJson1Endpoints = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [EndPointType | string, any]) => {
     if (value === null) {
       return acc;
@@ -8448,7 +8448,7 @@ const serializeAws_restJson1Environment = (input: Environment, context: __SerdeC
   };
 };
 
-const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1EnvironmentVariables = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8678,7 +8678,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8738,8 +8738,8 @@ const deserializeAws_restJson1AccountUsage = (output: any, context: __SerdeConte
 const deserializeAws_restJson1AdditionalVersionWeights = (
   output: any,
   context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8955,19 +8955,16 @@ const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [EndPointType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1EndpointLists(value, context),
-      };
-    },
-    {}
-  );
+const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [EndPointType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1EndpointLists(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
@@ -8990,11 +8987,8 @@ const deserializeAws_restJson1EnvironmentResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1EnvironmentVariables = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9575,8 +9569,8 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

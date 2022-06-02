@@ -898,7 +898,7 @@ export interface TagResourcesInput {
    * <p>Specifies a list of tags that you want to add to the specified resources. A tag
    *             consists of a key and a value that you define.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourcesInput {
@@ -917,7 +917,7 @@ export interface TagResourcesOutput {
    *             that contains an error code, a status code, and an error message. If there are no
    *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    */
-  FailedResourcesMap?: { [key: string]: FailureInfo };
+  FailedResourcesMap?: Record<string, FailureInfo>;
 }
 
 export namespace TagResourcesOutput {
@@ -962,7 +962,7 @@ export interface UntagResourcesOutput {
    *             that contains an error code, a status code, and an error message. If there are no
    *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    */
-  FailedResourcesMap?: { [key: string]: FailureInfo };
+  FailedResourcesMap?: Record<string, FailureInfo>;
 }
 
 export namespace UntagResourcesOutput {

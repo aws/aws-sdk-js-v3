@@ -2287,7 +2287,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  ConnectionProperties?: { [key: string]: string };
+  ConnectionProperties?: Record<string, string>;
 
   /**
    * <p>A map of physical connection requirements, such as virtual private cloud (VPC) and
@@ -2692,7 +2692,7 @@ export interface Database {
    * <p>These key-value pairs define parameters and properties
    *       of the database.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The time at which the metadata database was created in the catalog.</p>
@@ -4955,7 +4955,7 @@ export interface GetPlanRequest {
    * 	           </li>
    *          </ul>
    */
-  AdditionalPlanOptionsMap?: { [key: string]: string };
+  AdditionalPlanOptionsMap?: Record<string, string>;
 }
 
 export namespace GetPlanRequest {
@@ -5930,7 +5930,7 @@ export interface Table {
   /**
    * <p>These key-value pairs define properties associated with the table.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The person or entity who created the table.</p>
@@ -6207,7 +6207,7 @@ export interface GetTagsResponse {
   /**
    * <p>The requested tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetTagsResponse {
@@ -6745,7 +6745,7 @@ export interface GetWorkflowRunPropertiesResponse {
   /**
    * <p>The workflow run properties which were set during the specified run.</p>
    */
-  RunProperties?: { [key: string]: string };
+  RunProperties?: Record<string, string>;
 }
 
 export namespace GetWorkflowRunPropertiesResponse {
@@ -6850,7 +6850,7 @@ export interface ListBlueprintsRequest {
   /**
    * <p>Filters the list by an Amazon Web Services resource tag.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListBlueprintsRequest {
@@ -6897,7 +6897,7 @@ export interface ListCrawlersRequest {
   /**
    * <p>Specifies to return only these tagged resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListCrawlersRequest {
@@ -6987,7 +6987,7 @@ export interface ListDevEndpointsRequest {
   /**
    * <p>Specifies to return only these tagged resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListDevEndpointsRequest {
@@ -7036,7 +7036,7 @@ export interface ListJobsRequest {
   /**
    * <p>Specifies to return only these tagged resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListJobsRequest {
@@ -7094,7 +7094,7 @@ export interface ListMLTransformsRequest {
   /**
    * <p>Specifies to return only these tagged resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListMLTransformsRequest {
@@ -7419,7 +7419,7 @@ export interface ListSessionsRequest {
   /**
    * <p>Tags belonging to the session. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The origin of the request. </p>
@@ -7523,7 +7523,7 @@ export interface ListTriggersRequest {
   /**
    * <p>Specifies to return only these tagged resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTriggersRequest {
@@ -7833,7 +7833,7 @@ export interface PutWorkflowRunPropertiesRequest {
   /**
    * <p>The properties to put for the specified run.</p>
    */
-  RunProperties: { [key: string]: string } | undefined;
+  RunProperties: Record<string, string> | undefined;
 }
 
 export namespace PutWorkflowRunPropertiesRequest {
@@ -7954,7 +7954,7 @@ export interface QuerySchemaVersionMetadataResponse {
   /**
    * <p>A map of a metadata key and associated values.</p>
    */
-  MetadataInfoMap?: { [key: string]: MetadataInfo };
+  MetadataInfoMap?: Record<string, MetadataInfo>;
 
   /**
    * <p>The unique version ID of the schema version.</p>

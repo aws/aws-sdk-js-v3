@@ -2787,12 +2787,12 @@ export interface CreateDataSetRequest {
   /**
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
-  PhysicalTableMap: { [key: string]: PhysicalTable } | undefined;
+  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
 
   /**
    * <p>Configures the combination and transformation of the data from the physical tables.</p>
    */
-  LogicalTableMap?: { [key: string]: LogicalTable };
+  LogicalTableMap?: Record<string, LogicalTable>;
 
   /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
@@ -2807,7 +2807,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    */
-  FieldFolders?: { [key: string]: FieldFolder };
+  FieldFolders?: Record<string, FieldFolder>;
 
   /**
    * <p>A list of resource permissions on the dataset.</p>
@@ -4872,7 +4872,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   /**
    * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
-  Identities?: { [key: string]: string[] };
+  Identities?: Record<string, string[]>;
 
   /**
    * <p>The namespace that contains the assignment.</p>
@@ -4929,7 +4929,7 @@ export interface CreateIAMPolicyAssignmentResponse {
   /**
    * <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
-  Identities?: { [key: string]: string[] };
+  Identities?: Record<string, string[]>;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -6193,13 +6193,13 @@ export interface DataSet {
   /**
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
-  PhysicalTableMap?: { [key: string]: PhysicalTable };
+  PhysicalTableMap?: Record<string, PhysicalTable>;
 
   /**
    * <p>Configures the combination and transformation of the data from the physical
    *             tables.</p>
    */
-  LogicalTableMap?: { [key: string]: LogicalTable };
+  LogicalTableMap?: Record<string, LogicalTable>;
 
   /**
    * <p>The list of columns after all transforms. These columns are available in templates,
@@ -6227,7 +6227,7 @@ export interface DataSet {
   /**
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    */
-  FieldFolders?: { [key: string]: FieldFolder };
+  FieldFolders?: Record<string, FieldFolder>;
 
   /**
    * <p>The row-level security configuration for the dataset.</p>
@@ -8404,7 +8404,7 @@ export interface IAMPolicyAssignment {
   /**
    * <p>Identities.</p>
    */
-  Identities?: { [key: string]: string[] };
+  Identities?: Record<string, string[]>;
 
   /**
    * <p>Assignment status.</p>
@@ -8756,7 +8756,7 @@ export interface DescribeIpRestrictionResponse {
   /**
    * <p>A map that describes the IP rules with CIDR range and description.</p>
    */
-  IpRestrictionRuleMap?: { [key: string]: string };
+  IpRestrictionRuleMap?: Record<string, string>;
 
   /**
    * <p>A value that specifies whether IP rules are turned on.</p>

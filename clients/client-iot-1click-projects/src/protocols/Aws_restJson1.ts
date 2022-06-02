@@ -1517,7 +1517,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1DefaultPlacementAttributeMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1532,7 +1532,7 @@ const serializeAws_restJson1DefaultPlacementAttributeMap = (
 };
 
 const serializeAws_restJson1DeviceCallbackOverrideMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1557,7 +1557,7 @@ const serializeAws_restJson1DeviceTemplate = (input: DeviceTemplate, context: __
 };
 
 const serializeAws_restJson1DeviceTemplateMap = (
-  input: { [key: string]: DeviceTemplate },
+  input: Record<string, DeviceTemplate>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1571,10 +1571,7 @@ const serializeAws_restJson1DeviceTemplateMap = (
   }, {});
 };
 
-const serializeAws_restJson1PlacementAttributeMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1PlacementAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1599,7 +1596,7 @@ const serializeAws_restJson1PlacementTemplate = (input: PlacementTemplate, conte
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1614,8 +1611,8 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 const deserializeAws_restJson1DefaultPlacementAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1629,8 +1626,8 @@ const deserializeAws_restJson1DefaultPlacementAttributeMap = (
 const deserializeAws_restJson1DeviceCallbackOverrideMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1641,8 +1638,8 @@ const deserializeAws_restJson1DeviceCallbackOverrideMap = (
   }, {});
 };
 
-const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1666,8 +1663,8 @@ const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeCon
 const deserializeAws_restJson1DeviceTemplateMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: DeviceTemplate } => {
-  return Object.entries(output).reduce((acc: { [key: string]: DeviceTemplate }, [key, value]: [string, any]) => {
+): Record<string, DeviceTemplate> => {
+  return Object.entries(output).reduce((acc: Record<string, DeviceTemplate>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1681,8 +1678,8 @@ const deserializeAws_restJson1DeviceTemplateMap = (
 const deserializeAws_restJson1PlacementAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1807,8 +1804,8 @@ const deserializeAws_restJson1ProjectSummaryList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

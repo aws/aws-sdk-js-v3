@@ -808,7 +808,7 @@ export interface ChannelMessageCallback {
   /**
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
 export namespace ChannelMessageCallback {
@@ -1212,7 +1212,7 @@ export interface ChannelMessage {
   /**
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
 export namespace ChannelMessage {
@@ -1294,7 +1294,7 @@ export interface ChannelMessageSummary {
   /**
    * <p>The message attribues listed in a the summary of a channel message.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
 export namespace ChannelMessageSummary {
@@ -3117,7 +3117,7 @@ export interface SendChannelMessageRequest {
   /**
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
 export namespace SendChannelMessageRequest {

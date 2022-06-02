@@ -2993,7 +2993,7 @@ export interface ModelBiasAppSpecification {
   /**
    * <p>Sets the environment variables in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace ModelBiasAppSpecification {
@@ -3171,7 +3171,7 @@ export interface ModelExplainabilityAppSpecification {
   /**
    * <p>Sets the environment variables in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace ModelExplainabilityAppSpecification {
@@ -3779,7 +3779,7 @@ export interface CreateModelPackageInput {
   /**
    * <p>The metadata properties associated with the model package versions.</p>
    */
-  CustomerMetadataProperties?: { [key: string]: string };
+  CustomerMetadataProperties?: Record<string, string>;
 
   /**
    * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
@@ -3935,7 +3935,7 @@ export interface ModelQualityAppSpecification {
   /**
    * <p>Sets the environment variables in the container that the monitoring job runs.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace ModelQualityAppSpecification {
@@ -4250,7 +4250,7 @@ export interface MonitoringJobDefinition {
   /**
    * <p>Sets the environment variables in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Specifies networking options for an monitoring job.</p>
@@ -5524,7 +5524,7 @@ export interface CreateProcessingJobRequest {
    * <p>The environment variables to set in the Docker container. Up to
    *             100 key and values entries in the map are supported.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Networking options for a processing job, such as whether to allow inbound and
@@ -5785,7 +5785,7 @@ export interface DebugHookConfig {
   /**
    * <p>Configuration information for the Debugger hook parameters.</p>
    */
-  HookParameters?: { [key: string]: string };
+  HookParameters?: Record<string, string>;
 
   /**
    * <p>Configuration information for Debugger tensor collections. To learn more about
@@ -5846,7 +5846,7 @@ export interface DebugRuleConfiguration {
   /**
    * <p>Runtime configuration for rule container.</p>
    */
-  RuleParameters?: { [key: string]: string };
+  RuleParameters?: Record<string, string>;
 }
 
 export namespace DebugRuleConfiguration {
@@ -5882,7 +5882,7 @@ export interface ProfilerConfig {
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
    *         </p>
    */
-  ProfilingParameters?: { [key: string]: string };
+  ProfilingParameters?: Record<string, string>;
 }
 
 export namespace ProfilerConfig {
@@ -5931,7 +5931,7 @@ export interface ProfilerRuleConfiguration {
   /**
    * <p>Runtime configuration for rule container.</p>
    */
-  RuleParameters?: { [key: string]: string };
+  RuleParameters?: Record<string, string>;
 }
 
 export namespace ProfilerRuleConfiguration {
@@ -5983,7 +5983,7 @@ export interface CreateTrainingJobRequest {
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
    */
-  HyperParameters?: { [key: string]: string };
+  HyperParameters?: Record<string, string>;
 
   /**
    * <p>The registry path of the Docker image that contains the training algorithm and
@@ -6162,7 +6162,7 @@ export interface CreateTrainingJobRequest {
   /**
    * <p>The environment variables to set in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
@@ -6360,7 +6360,7 @@ export interface CreateTransformJobRequest {
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *             values entries in the map.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Describes the input source and
@@ -6672,19 +6672,19 @@ export interface CreateTrialComponentRequest {
   /**
    * <p>The hyperparameters for the component.</p>
    */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
+  Parameters?: Record<string, TrialComponentParameterValue>;
 
   /**
    * <p>The input artifacts for the component. Examples of input artifacts are datasets,
    *       algorithms, hyperparameters, source code, and instance types.</p>
    */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The output artifacts for the component. Examples of output artifacts are metrics,
    *       snapshots, logs, and images.</p>
    */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
@@ -8194,7 +8194,7 @@ export interface DescribeActionResponse {
   /**
    * <p>A list of the action's properties.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>When the action was created.</p>
@@ -8510,7 +8510,7 @@ export interface DescribeArtifactResponse {
   /**
    * <p>A list of the artifact's properties.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>When the artifact was created.</p>
@@ -9020,7 +9020,7 @@ export interface DescribeContextResponse {
   /**
    * <p>A list of the context's properties.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>When the context was created.</p>
@@ -10652,7 +10652,7 @@ export interface HyperParameterTrainingJobSummary {
    *             list of the hyperparameters for which you specified ranges to
    *             search.</p>
    */
-  TunedHyperParameters: { [key: string]: string } | undefined;
+  TunedHyperParameters: Record<string, string> | undefined;
 
   /**
    * <p>The

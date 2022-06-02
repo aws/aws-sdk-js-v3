@@ -146,7 +146,7 @@ export interface Channel {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Channel {
@@ -1077,7 +1077,7 @@ export interface OriginEndpoint {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
@@ -1208,7 +1208,7 @@ export interface ConfigureLogsResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ConfigureLogsResponse {
@@ -1364,7 +1364,7 @@ export interface CreateChannelRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateChannelRequest {
@@ -1410,7 +1410,7 @@ export interface CreateChannelResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateChannelResponse {
@@ -1590,7 +1590,7 @@ export interface CreateOriginEndpointRequest {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
@@ -1680,7 +1680,7 @@ export interface CreateOriginEndpointResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
@@ -1812,7 +1812,7 @@ export interface DescribeChannelResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeChannelResponse {
@@ -1983,7 +1983,7 @@ export interface DescribeOriginEndpointResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
@@ -2166,7 +2166,7 @@ export namespace ListTagsForResourceRequest {
 }
 
 export interface ListTagsForResourceResponse {
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2228,7 +2228,7 @@ export interface RotateChannelCredentialsResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace RotateChannelCredentialsResponse {
@@ -2295,7 +2295,7 @@ export interface RotateIngestEndpointCredentialsResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace RotateIngestEndpointCredentialsResponse {
@@ -2309,7 +2309,7 @@ export namespace RotateIngestEndpointCredentialsResponse {
 
 export interface TagResourceRequest {
   ResourceArn: string | undefined;
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2396,7 +2396,7 @@ export interface UpdateChannelResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateChannelResponse {
@@ -2553,7 +2553,7 @@ export interface UpdateOriginEndpointResponse {
   /**
    * A collection of tags associated with a resource
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.

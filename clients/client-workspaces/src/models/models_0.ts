@@ -1514,7 +1514,7 @@ export interface DefaultClientBrandingAttributes {
    *          value is the localized message for that locale. The only key supported is
    *             <code>en_US</code>. </p>
    */
-  LoginMessage?: { [key: string]: string };
+  LoginMessage?: Record<string, string>;
 }
 
 export namespace DefaultClientBrandingAttributes {
@@ -1587,7 +1587,7 @@ export interface DefaultImportClientBrandingAttributes {
    *          value is the localized message for that locale. The only key supported is
    *             <code>en_US</code>. </p>
    */
-  LoginMessage?: { [key: string]: string };
+  LoginMessage?: Record<string, string>;
 }
 
 export namespace DefaultImportClientBrandingAttributes {
@@ -2067,7 +2067,7 @@ export interface IosClientBrandingAttributes {
    *          value is the localized message for that locale. The only key supported is
    *             <code>en_US</code>. </p>
    */
-  LoginMessage?: { [key: string]: string };
+  LoginMessage?: Record<string, string>;
 }
 
 export namespace IosClientBrandingAttributes {
@@ -3402,7 +3402,7 @@ export interface IosImportClientBrandingAttributes {
    *          value is the localized message for that locale. The only key supported is
    *             <code>en_US</code>. </p>
    */
-  LoginMessage?: { [key: string]: string };
+  LoginMessage?: Record<string, string>;
 }
 
 export namespace IosImportClientBrandingAttributes {

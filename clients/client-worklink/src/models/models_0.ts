@@ -280,7 +280,7 @@ export interface CreateFleetRequest {
   /**
    * <p> The tags to add to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateFleetRequest {
@@ -656,7 +656,7 @@ export interface DescribeFleetMetadataResponse {
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeFleetMetadataResponse {
@@ -957,7 +957,7 @@ export interface FleetSummary {
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace FleetSummary {
@@ -1131,7 +1131,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1408,7 +1408,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource. A tag is a key-value pair.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

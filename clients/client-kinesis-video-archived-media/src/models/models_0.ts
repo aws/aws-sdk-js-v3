@@ -1029,7 +1029,7 @@ export interface GetImagesInput {
    *             The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression.
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
    */
-  FormatConfig?: { [key: string]: string };
+  FormatConfig?: Record<string, string>;
 
   /**
    * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided,

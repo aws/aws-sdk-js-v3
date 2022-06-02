@@ -15,7 +15,7 @@ export interface AddTagsToStreamInput {
   /**
    * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace AddTagsToStreamInput {

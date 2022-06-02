@@ -4209,7 +4209,7 @@ export interface Job {
   /**
    * User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 }
 
 export namespace Job {
@@ -4843,12 +4843,12 @@ export interface CreateJobRequest {
   /**
    * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 }
 
 export namespace CreateJobRequest {
@@ -4925,7 +4925,7 @@ export interface CreateJobTemplateRequest {
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateJobTemplateRequest {
@@ -4977,7 +4977,7 @@ export interface CreatePresetRequest {
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePresetRequest {
@@ -5063,7 +5063,7 @@ export interface CreateQueueRequest {
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateQueueRequest {

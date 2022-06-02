@@ -4660,7 +4660,7 @@ const serializeAws_json1_1DescribeSolutionVersionRequest = (
 };
 
 const serializeAws_json1_1FeatureTransformationParameters = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -4745,7 +4745,7 @@ const serializeAws_json1_1HyperParameterRanges = (input: HyperParameterRanges, c
   };
 };
 
-const serializeAws_json1_1HyperParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1HyperParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6194,8 +6194,8 @@ const deserializeAws_json1_1FeatureTransformation = (output: any, context: __Ser
 const deserializeAws_json1_1FeatureTransformationParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6209,8 +6209,8 @@ const deserializeAws_json1_1FeatureTransformationParameters = (
 const deserializeAws_json1_1FeaturizationParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6332,8 +6332,8 @@ const deserializeAws_json1_1HyperParameterRanges = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6565,8 +6565,8 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6739,8 +6739,8 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

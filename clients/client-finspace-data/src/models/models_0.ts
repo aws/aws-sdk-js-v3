@@ -115,7 +115,7 @@ export interface CreateChangesetRequest {
    *          </p>
    *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a> section.</p>
    */
-  sourceParams: { [key: string]: string } | undefined;
+  sourceParams: Record<string, string> | undefined;
 
   /**
    * <p>Options that define the structure of the source file(s) including the format type (<code>formatType</code>), header row (<code>withHeader</code>), data separation character (<code>separator</code>) and the type of compression (<code>compression</code>).
@@ -165,7 +165,7 @@ export interface CreateChangesetRequest {
    *          </p>
    *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
    */
-  formatParams: { [key: string]: string } | undefined;
+  formatParams: Record<string, string> | undefined;
 }
 
 export namespace CreateChangesetRequest {
@@ -680,7 +680,7 @@ export interface DataViewDestinationTypeParams {
    *         }</code>
    *          </p>
    */
-  s3DestinationExportFileFormatOptions?: { [key: string]: string };
+  s3DestinationExportFileFormatOptions?: Record<string, string>;
 }
 
 export namespace DataViewDestinationTypeParams {
@@ -1235,12 +1235,12 @@ export interface GetChangesetResponse {
   /**
    * <p>Options that define the location of the data being ingested.</p>
    */
-  sourceParams?: { [key: string]: string };
+  sourceParams?: Record<string, string>;
 
   /**
    * <p>Structure of the source file(s).</p>
    */
-  formatParams?: { [key: string]: string };
+  formatParams?: Record<string, string>;
 
   /**
    * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
@@ -1957,12 +1957,12 @@ export interface ChangesetSummary {
   /**
    * <p>Options that define the location of the data being ingested.</p>
    */
-  sourceParams?: { [key: string]: string };
+  sourceParams?: Record<string, string>;
 
   /**
    * <p>Options that define the structure of the source file(s).</p>
    */
-  formatParams?: { [key: string]: string };
+  formatParams?: Record<string, string>;
 
   /**
    * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
@@ -2699,7 +2699,7 @@ export interface UpdateChangesetRequest {
    *          </p>
    *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
    */
-  sourceParams: { [key: string]: string } | undefined;
+  sourceParams: Record<string, string> | undefined;
 
   /**
    * <p>Options that define the structure of the source file(s) including the format type (<code>formatType</code>), header row (<code>withHeader</code>), data separation character (<code>separator</code>) and the type of compression (<code>compression</code>).
@@ -2749,7 +2749,7 @@ export interface UpdateChangesetRequest {
    *          </p>
    *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
    */
-  formatParams: { [key: string]: string } | undefined;
+  formatParams: Record<string, string> | undefined;
 }
 
 export namespace UpdateChangesetRequest {

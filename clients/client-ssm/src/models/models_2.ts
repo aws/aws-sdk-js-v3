@@ -402,7 +402,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <p>Key: string, between 1 and 255 characters</p>
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
 
   /**
    * <p>The parameters that the task should use during execution. Populate only the fields that
@@ -566,7 +566,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
 
   /**
    * <p>The updated parameter values.</p>
@@ -694,7 +694,7 @@ export interface UpdateOpsItemRequest {
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
    *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  OperationalData?: { [key: string]: OpsItemDataValue };
+  OperationalData?: Record<string, OpsItemDataValue>;
 
   /**
    * <p>Keys that you want to remove from the OperationalData map.</p>
@@ -819,7 +819,7 @@ export interface UpdateOpsMetadataRequest {
   /**
    * <p>Metadata to add to an OpsMetadata object.</p>
    */
-  MetadataToUpdate?: { [key: string]: MetadataValue };
+  MetadataToUpdate?: Record<string, MetadataValue>;
 
   /**
    * <p>The metadata keys to delete from the OpsMetadata object. </p>
@@ -1274,7 +1274,7 @@ export interface OpsAggregator {
   /**
    * <p>The aggregator value.</p>
    */
-  Values?: { [key: string]: string };
+  Values?: Record<string, string>;
 
   /**
    * <p>The aggregator filters.</p>

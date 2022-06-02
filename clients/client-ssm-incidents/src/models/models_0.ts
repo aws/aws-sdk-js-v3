@@ -102,12 +102,12 @@ export interface SsmAutomation {
   /**
    * <p>The key-value pair parameters to use when running the automation document.</p>
    */
-  parameters?: { [key: string]: string[] };
+  parameters?: Record<string, string[]>;
 
   /**
    * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.</p>
    */
-  dynamicParameters?: { [key: string]: DynamicSsmParameterValue };
+  dynamicParameters?: Record<string, DynamicSsmParameterValue>;
 }
 
 export namespace SsmAutomation {
@@ -501,7 +501,7 @@ export interface CreateReplicationSetInput {
    * <p>The Regions that Incident Manager replicates your data to. You can have up to three Regions
    *             in your replication set.</p>
    */
-  regions: { [key: string]: RegionMapInputValue } | undefined;
+  regions: Record<string, RegionMapInputValue> | undefined;
 
   /**
    * <p>A token ensuring that the operation is called only once with the specified
@@ -779,7 +779,7 @@ export interface CreateResponsePlanInput {
   /**
    * <p>A list of tags that you are adding to the response plan.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateResponsePlanInput {
@@ -1408,7 +1408,7 @@ export interface ReplicationSet {
   /**
    * <p>The map between each Amazon Web Services Region in your replication set and the KMS key that's used to encrypt the data in that Region.</p>
    */
-  regionMap: { [key: string]: RegionInfo } | undefined;
+  regionMap: Record<string, RegionInfo> | undefined;
 
   /**
    * <p>The status of the replication set. If the replication set is still pending, you can't
@@ -2149,7 +2149,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags for the response plan.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2494,7 +2494,7 @@ export interface TagResourceRequest {
   /**
    * <p>A list of tags that you are adding to the response plan.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

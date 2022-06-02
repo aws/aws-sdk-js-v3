@@ -2381,7 +2381,7 @@ export interface ListDomainNamesResponse {
   /**
    * <p>The names of the search domains owned by an account.</p>
    */
-  DomainNames?: { [key: string]: string };
+  DomainNames?: Record<string, string>;
 }
 
 export namespace ListDomainNamesResponse {

@@ -2256,7 +2256,7 @@ const serializeAws_restJson1ChannelNameCondition = (input: ChannelNameCondition,
   };
 };
 
-const serializeAws_restJson1FormatConfig = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [FormatConfigKey | string, any]) => {
     if (value === null) {
       return acc;
@@ -2334,7 +2334,7 @@ const serializeAws_restJson1NotificationDestinationConfig = (
   };
 };
 
-const serializeAws_restJson1ResourceTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ResourceTags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2446,19 +2446,16 @@ const deserializeAws_restJson1ChannelInfoList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1FormatConfig = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [FormatConfigKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
-    },
-    {}
-  );
+const deserializeAws_restJson1FormatConfig = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [FormatConfigKey | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ImageGenerationConfiguration = (
@@ -2540,8 +2537,8 @@ const deserializeAws_restJson1ResourceEndpointListItem = (
   } as any;
 };
 
-const deserializeAws_restJson1ResourceTags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ResourceTags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

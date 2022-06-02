@@ -3981,7 +3981,7 @@ export interface CreateRepositoryInput {
   /**
    * <p>One or more tag key-value pairs to use when tagging this repository.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRepositoryInput {
@@ -4711,7 +4711,7 @@ export interface Comment {
   /**
    * <p>A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.</p>
    */
-  reactionCounts?: { [key: string]: number };
+  reactionCounts?: Record<string, number>;
 }
 
 export namespace Comment {

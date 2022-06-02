@@ -12121,7 +12121,7 @@ const serializeAws_json1_1AttachDiskRequest = (input: AttachDiskRequest, context
   };
 };
 
-const serializeAws_json1_1AttachedDiskMap = (input: { [key: string]: DiskMap[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1AttachedDiskMap = (input: Record<string, DiskMap[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -12283,7 +12283,7 @@ const serializeAws_json1_1Container = (input: Container, context: __SerdeContext
   };
 };
 
-const serializeAws_json1_1ContainerMap = (input: { [key: string]: Container }, context: __SerdeContext): any => {
+const serializeAws_json1_1ContainerMap = (input: Record<string, Container>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -12337,7 +12337,7 @@ const serializeAws_json1_1ContainerServiceHealthCheckConfig = (
 };
 
 const serializeAws_json1_1ContainerServicePublicDomains = (
-  input: { [key: string]: string[] },
+  input: Record<string, string[]>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -13049,7 +13049,7 @@ const serializeAws_json1_1DomainEntry = (input: DomainEntry, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1DomainEntryOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1DomainEntryOptions = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13098,7 +13098,7 @@ const serializeAws_json1_1EndpointRequest = (input: EndpointRequest, context: __
   };
 };
 
-const serializeAws_json1_1Environment = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Environment = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -13857,7 +13857,7 @@ const serializeAws_json1_1PortInfoList = (input: PortInfo[], context: __SerdeCon
 };
 
 const serializeAws_json1_1PortMap = (
-  input: { [key: string]: ContainerServiceProtocol | string },
+  input: Record<string, ContainerServiceProtocol | string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -15057,8 +15057,8 @@ const deserializeAws_json1_1ContainerImageList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_json1_1ContainerMap = (output: any, context: __SerdeContext): { [key: string]: Container } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Container }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ContainerMap = (output: any, context: __SerdeContext): Record<string, Container> => {
+  return Object.entries(output).reduce((acc: Record<string, Container>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15235,8 +15235,8 @@ const deserializeAws_json1_1ContainerServiceLogEventList = (
 const deserializeAws_json1_1ContainerServiceMetadataEntry = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15250,7 +15250,7 @@ const deserializeAws_json1_1ContainerServiceMetadataEntry = (
 const deserializeAws_json1_1ContainerServiceMetadataEntryList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string }[] => {
+): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -15291,8 +15291,8 @@ const deserializeAws_json1_1ContainerServicePowerList = (
 const deserializeAws_json1_1ContainerServicePublicDomains = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16135,8 +16135,8 @@ const deserializeAws_json1_1DomainEntryList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1DomainEntryOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1DomainEntryOptions = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16207,8 +16207,8 @@ const deserializeAws_json1_1EnableAddOnResult = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17496,9 +17496,9 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
 const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [LoadBalancerAttributeName | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [LoadBalancerAttributeName | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -17970,9 +17970,9 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
 const deserializeAws_json1_1PortMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ContainerServiceProtocol | string } => {
+): Record<string, ContainerServiceProtocol | string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: ContainerServiceProtocol | string }, [key, value]: [string, any]) => {
+    (acc: Record<string, ContainerServiceProtocol | string>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

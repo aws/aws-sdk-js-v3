@@ -1402,7 +1402,7 @@ const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __Se
 };
 
 const serializeAws_restJson1ActiveContextParametersMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1635,7 +1635,7 @@ const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any =
 };
 
 const serializeAws_restJson1SlotHintsIntentMap = (
-  input: { [key: string]: { [key: string]: RuntimeHintDetails } },
+  input: Record<string, Record<string, RuntimeHintDetails>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1650,7 +1650,7 @@ const serializeAws_restJson1SlotHintsIntentMap = (
 };
 
 const serializeAws_restJson1SlotHintsSlotMap = (
-  input: { [key: string]: RuntimeHintDetails },
+  input: Record<string, RuntimeHintDetails>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1664,7 +1664,7 @@ const serializeAws_restJson1SlotHintsSlotMap = (
   }, {});
 };
 
-const serializeAws_restJson1Slots = (input: { [key: string]: Slot }, context: __SerdeContext): any => {
+const serializeAws_restJson1Slots = (input: Record<string, Slot>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1704,7 +1704,7 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1771,8 +1771,8 @@ const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ActiveContextParametersMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2099,9 +2099,9 @@ const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slo
 const deserializeAws_restJson1SlotHintsIntentMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: RuntimeHintDetails } } => {
+): Record<string, Record<string, RuntimeHintDetails>> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: RuntimeHintDetails } }, [key, value]: [string, any]) => {
+    (acc: Record<string, Record<string, RuntimeHintDetails>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2117,8 +2117,8 @@ const deserializeAws_restJson1SlotHintsIntentMap = (
 const deserializeAws_restJson1SlotHintsSlotMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: RuntimeHintDetails } => {
-  return Object.entries(output).reduce((acc: { [key: string]: RuntimeHintDetails }, [key, value]: [string, any]) => {
+): Record<string, RuntimeHintDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, RuntimeHintDetails>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2129,8 +2129,8 @@ const deserializeAws_restJson1SlotHintsSlotMap = (
   }, {});
 };
 
-const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): { [key: string]: Slot } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Slot }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): Record<string, Slot> => {
+  return Object.entries(output).reduce((acc: Record<string, Slot>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2239,8 +2239,8 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

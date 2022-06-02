@@ -4579,7 +4579,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AppAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1AppAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [AppAttributesKeys | string, any]) => {
       if (value === null) {
@@ -4952,10 +4952,7 @@ const serializeAws_json1_1CreateUserProfileRequest = (
   };
 };
 
-const serializeAws_json1_1DailyAutoScalingSchedule = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DailyAutoScalingSchedule = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5030,10 +5027,7 @@ const serializeAws_json1_1DeploymentCommand = (input: DeploymentCommand, context
   };
 };
 
-const serializeAws_json1_1DeploymentCommandArgs = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeploymentCommandArgs = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5373,7 +5367,7 @@ const serializeAws_json1_1InstanceIdentity = (input: InstanceIdentity, context: 
   };
 };
 
-const serializeAws_json1_1LayerAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1LayerAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [LayerAttributesKeys | string, any]) => {
       if (value === null) {
@@ -5555,7 +5549,7 @@ const serializeAws_json1_1SslConfiguration = (input: SslConfiguration, context: 
   };
 };
 
-const serializeAws_json1_1StackAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1StackAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [StackAttributesKeys | string, any]) => {
       if (value === null) {
@@ -5634,7 +5628,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
-const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5957,9 +5951,9 @@ const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App =>
   } as any;
 };
 
-const deserializeAws_json1_1AppAttributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_json1_1AppAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [AppAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [AppAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6152,8 +6146,8 @@ const deserializeAws_json1_1CreateUserProfileResult = (
 const deserializeAws_json1_1DailyAutoScalingSchedule = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6220,8 +6214,8 @@ const deserializeAws_json1_1DeploymentCommand = (output: any, context: __SerdeCo
 const deserializeAws_json1_1DeploymentCommandArgs = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6770,9 +6764,9 @@ const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Laye
   } as any;
 };
 
-const deserializeAws_json1_1LayerAttributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_json1_1LayerAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [LayerAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [LayerAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6902,8 +6896,8 @@ const deserializeAws_json1_1OperatingSystems = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7164,9 +7158,9 @@ const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stac
   } as any;
 };
 
-const deserializeAws_json1_1StackAttributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_json1_1StackAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [StackAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [StackAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -7227,8 +7221,8 @@ const deserializeAws_json1_1Strings = (output: any, context: __SerdeContext): st
   return retVal;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

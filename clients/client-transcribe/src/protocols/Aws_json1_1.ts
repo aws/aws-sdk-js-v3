@@ -3154,10 +3154,7 @@ const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, c
   };
 };
 
-const serializeAws_json1_1KMSEncryptionContextMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1KMSEncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3181,7 +3178,7 @@ const serializeAws_json1_1LanguageIdSettings = (input: LanguageIdSettings, conte
 };
 
 const serializeAws_json1_1LanguageIdSettingsMap = (
-  input: { [key: string]: LanguageIdSettings },
+  input: Record<string, LanguageIdSettings>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [LanguageCode | string, any]) => {
@@ -4178,9 +4175,9 @@ const deserializeAws_json1_1LanguageIdSettings = (output: any, context: __SerdeC
 const deserializeAws_json1_1LanguageIdSettingsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: LanguageIdSettings } => {
+): Record<string, LanguageIdSettings> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: LanguageIdSettings }, [key, value]: [LanguageCode | string, any]) => {
+    (acc: Record<string, LanguageIdSettings>, [key, value]: [LanguageCode | string, any]) => {
       if (value === null) {
         return acc;
       }

@@ -1131,13 +1131,13 @@ export interface ConsumedCapacity {
    * <p>The amount of throughput consumed on each local index affected by the
    *             operation.</p>
    */
-  LocalSecondaryIndexes?: { [key: string]: Capacity };
+  LocalSecondaryIndexes?: Record<string, Capacity>;
 
   /**
    * <p>The amount of throughput consumed on each global index affected by the
    *             operation.</p>
    */
-  GlobalSecondaryIndexes?: { [key: string]: Capacity };
+  GlobalSecondaryIndexes?: Record<string, Capacity>;
 }
 
 export namespace ConsumedCapacity {
@@ -6471,7 +6471,7 @@ export namespace AttributeValue {
     SS?: never;
     NS?: never;
     BS?: never;
-    M: { [key: string]: AttributeValue };
+    M: Record<string, AttributeValue>;
     L?: never;
     NULL?: never;
     BOOL?: never;
@@ -6559,7 +6559,7 @@ export namespace AttributeValue {
     SS: (value: string[]) => T;
     NS: (value: string[]) => T;
     BS: (value: Uint8Array[]) => T;
-    M: (value: { [key: string]: AttributeValue }) => T;
+    M: (value: Record<string, AttributeValue>) => T;
     L: (value: AttributeValue[]) => T;
     NULL: (value: boolean) => T;
     BOOL: (value: boolean) => T;
@@ -6788,7 +6788,7 @@ export interface BatchStatementResponse {
   /**
    * <p> A DynamoDB item associated with a BatchStatementResponse </p>
    */
-  Item?: { [key: string]: AttributeValue };
+  Item?: Record<string, AttributeValue>;
 }
 
 export namespace BatchStatementResponse {
@@ -6819,7 +6819,7 @@ export interface CancellationReason {
   /**
    * <p>Item in the request which caused the transaction to get cancelled.</p>
    */
-  Item?: { [key: string]: AttributeValue };
+  Item?: Record<string, AttributeValue>;
 
   /**
    * <p>Status code for the result of the cancelled transaction.</p>
@@ -7098,7 +7098,7 @@ export interface DeleteRequest {
    *             to delete. All of the table's primary key attributes must be specified, and their data
    *             types must match those of the table's key schema.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 }
 
 export namespace DeleteRequest {
@@ -7203,7 +7203,7 @@ export interface Get {
    * <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the
    *             primary key of the item to retrieve.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The name of the table from which to retrieve the specified item.</p>
@@ -7222,7 +7222,7 @@ export interface Get {
    * <p>One or more substitution tokens for attribute names in the ProjectionExpression
    *             parameter.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 }
 
 export namespace Get {
@@ -7260,7 +7260,7 @@ export interface GetItemInput {
    *             composite primary key, you must provide values for both the partition key and the sort
    *             key.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
@@ -7369,7 +7369,7 @@ export interface GetItemInput {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 }
 
 export namespace GetItemInput {
@@ -7398,7 +7398,7 @@ export interface GetItemOutput {
    * <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by
    *                 <code>ProjectionExpression</code>.</p>
    */
-  Item?: { [key: string]: AttributeValue };
+  Item?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned
@@ -7440,7 +7440,7 @@ export interface ItemCollectionMetrics {
    * <p>The partition key value of the item collection. This value is the same as the
    *             partition key value of the item.</p>
    */
-  ItemCollectionKey?: { [key: string]: AttributeValue };
+  ItemCollectionKey?: Record<string, AttributeValue>;
 
   /**
    * <p>An estimate of item collection size, in gigabytes. This value is a two-element array
@@ -7479,7 +7479,7 @@ export interface ItemResponse {
   /**
    * <p>Map of attribute data consisting of the data type and attribute value.</p>
    */
-  Item?: { [key: string]: AttributeValue };
+  Item?: Record<string, AttributeValue>;
 }
 
 export namespace ItemResponse {
@@ -7536,7 +7536,7 @@ export interface PutRequest {
    *             attributes are present in the item that are part of an index key schema for the table,
    *             their types must match the index key schema.</p>
    */
-  Item: { [key: string]: AttributeValue } | undefined;
+  Item: Record<string, AttributeValue> | undefined;
 }
 
 export namespace PutRequest {
@@ -7570,7 +7570,7 @@ export interface KeysAndAttributes {
    * <p>The primary key attribute values that define the items and the attributes associated
    *             with the items.</p>
    */
-  Keys: { [key: string]: AttributeValue }[] | undefined;
+  Keys: Record<string, AttributeValue>[] | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
@@ -7650,7 +7650,7 @@ export interface KeysAndAttributes {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 }
 
 export namespace KeysAndAttributes {
@@ -8218,7 +8218,7 @@ export interface BatchGetItemInput {
    *             </li>
    *          </ul>
    */
-  RequestItems: { [key: string]: KeysAndAttributes } | undefined;
+  RequestItems: Record<string, KeysAndAttributes> | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -8602,7 +8602,7 @@ export interface TransactWriteItemsOutput {
    *                 <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code>
    *             operations. </p>
    */
-  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
+  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]>;
 }
 
 export namespace TransactWriteItemsOutput {
@@ -8632,7 +8632,7 @@ export interface ConditionCheck {
    * <p>The primary key of the item to be checked. Each element consists of an attribute name
    *             and a value for that attribute.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Name of the table for the check item request.</p>
@@ -8648,12 +8648,12 @@ export interface ConditionCheck {
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -8699,7 +8699,7 @@ export interface Delete {
    * <p>The primary key of the item to be deleted. Each element consists of an attribute name
    *             and a value for that attribute.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Name of the table in which the item to be deleted resides.</p>
@@ -8715,12 +8715,12 @@ export interface Delete {
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -8769,7 +8769,7 @@ export interface Put {
    *             attributes are present in the item that are part of an index key schema for the table,
    *             their types must match the index key schema. </p>
    */
-  Item: { [key: string]: AttributeValue } | undefined;
+  Item: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Name of the table in which to write the item.</p>
@@ -8785,12 +8785,12 @@ export interface Put {
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -8836,7 +8836,7 @@ export interface Update {
    * <p>The primary key of the item to be updated. Each element consists of an attribute name
    *             and a value for that attribute.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>An expression that defines one or more attributes to be updated, the action to be
@@ -8858,12 +8858,12 @@ export interface Update {
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -8911,7 +8911,7 @@ export interface DeleteItemOutput {
    *             response only if <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the
    *             request.</p>
    */
-  Attributes?: { [key: string]: AttributeValue };
+  Attributes?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data
@@ -8979,7 +8979,7 @@ export interface ExecuteStatementOutput {
    *             operation; a map of attribute names and their values. For the write operations this
    *             value will be empty.</p>
    */
-  Items?: { [key: string]: AttributeValue }[];
+  Items?: Record<string, AttributeValue>[];
 
   /**
    * <p>If the response of a read request exceeds the response payload limit DynamoDB will set
@@ -9006,7 +9006,7 @@ export interface ExecuteStatementOutput {
    *             is more data in the result set. The only way to know when you have reached the end of
    *             the result set is when <code>LastEvaluatedKey</code> is empty. </p>
    */
-  LastEvaluatedKey?: { [key: string]: AttributeValue };
+  LastEvaluatedKey?: Record<string, AttributeValue>;
 }
 
 export namespace ExecuteStatementOutput {
@@ -9047,7 +9047,7 @@ export interface PutItemOutput {
    *             only if <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request.
    *             Each element consists of an attribute name and an attribute value.</p>
    */
-  Attributes?: { [key: string]: AttributeValue };
+  Attributes?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned
@@ -9117,7 +9117,7 @@ export interface QueryOutput {
    * <p>An array of item attributes that match the query criteria. Each element in this array
    *             consists of an attribute name and the value for that attribute.</p>
    */
-  Items?: { [key: string]: AttributeValue }[];
+  Items?: Record<string, AttributeValue>[];
 
   /**
    * <p>The number of items in the response.</p>
@@ -9150,7 +9150,7 @@ export interface QueryOutput {
    *             is more data in the result set. The only way to know when you have reached the end of
    *             the result set is when <code>LastEvaluatedKey</code> is empty.</p>
    */
-  LastEvaluatedKey?: { [key: string]: AttributeValue };
+  LastEvaluatedKey?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>Query</code> operation. The data returned
@@ -9200,7 +9200,7 @@ export interface ScanOutput {
    * <p>An array of item attributes that match the scan criteria. Each element in this array
    *             consists of an attribute name and the value for that attribute.</p>
    */
-  Items?: { [key: string]: AttributeValue }[];
+  Items?: Record<string, AttributeValue>[];
 
   /**
    * <p>The number of items in the response.</p>
@@ -9233,7 +9233,7 @@ export interface ScanOutput {
    *             is more data in the result set. The only way to know when you have reached the end of
    *             the result set is when <code>LastEvaluatedKey</code> is empty.</p>
    */
-  LastEvaluatedKey?: { [key: string]: AttributeValue };
+  LastEvaluatedKey?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>Scan</code> operation. The data returned
@@ -9286,7 +9286,7 @@ export interface UpdateItemOutput {
    *             specified as something other than <code>NONE</code> in the request. Each element
    *             represents one attribute.</p>
    */
-  Attributes?: { [key: string]: AttributeValue };
+  Attributes?: Record<string, AttributeValue>;
 
   /**
    * <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data
@@ -9386,7 +9386,7 @@ export interface BatchGetItemOutput {
    *             of a table name, along with a map of attribute data consisting of the data type and
    *             attribute value.</p>
    */
-  Responses?: { [key: string]: { [key: string]: AttributeValue }[] };
+  Responses?: Record<string, Record<string, AttributeValue>[]>;
 
   /**
    * <p>A map of tables and their respective keys that were not processed with the current
@@ -9417,7 +9417,7 @@ export interface BatchGetItemOutput {
    *         <p>If there are no unprocessed keys remaining, the response contains an empty
    *                 <code>UnprocessedKeys</code> map.</p>
    */
-  UnprocessedKeys?: { [key: string]: KeysAndAttributes };
+  UnprocessedKeys?: Record<string, KeysAndAttributes>;
 
   /**
    * <p>The read capacity units consumed by the entire <code>BatchGetItem</code>
@@ -9446,7 +9446,7 @@ export namespace BatchGetItemOutput {
     ...obj,
     ...(obj.Responses && {
       Responses: Object.entries(obj.Responses).reduce(
-        (acc: any, [key, value]: [string, { [key: string]: AttributeValue }[]]) => ({
+        (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => ({
           ...acc,
           [key]: value.map((item) =>
             Object.entries(item).reduce(
@@ -9572,7 +9572,7 @@ export interface ScanInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  ScanFilter?: { [key: string]: Condition };
+  ScanFilter?: Record<string, Condition>;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -9591,7 +9591,7 @@ export interface ScanInput {
    *                 <code>Scan</code> returned the corresponding value of
    *             <code>LastEvaluatedKey</code>.</p>
    */
-  ExclusiveStartKey?: { [key: string]: AttributeValue };
+  ExclusiveStartKey?: Record<string, AttributeValue>;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -9732,7 +9732,7 @@ export interface ScanInput {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -9755,7 +9755,7 @@ export interface ScanInput {
    *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
    * <p>A Boolean value that determines the read consistency model during the scan:</p>
@@ -9865,7 +9865,7 @@ export interface BatchWriteItemInput {
    *             </li>
    *          </ul>
    */
-  RequestItems: { [key: string]: WriteRequest[] } | undefined;
+  RequestItems: Record<string, WriteRequest[]> | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -9940,14 +9940,14 @@ export interface DeleteItemInput {
    *             composite primary key, you must provide values for both the partition key and the sort
    *             key.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  Expected?: { [key: string]: ExpectedAttributeValue };
+  Expected?: Record<string, ExpectedAttributeValue>;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -10096,7 +10096,7 @@ export interface DeleteItemInput {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10119,7 +10119,7 @@ export interface DeleteItemInput {
    *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 }
 
 export namespace DeleteItemInput {
@@ -10187,14 +10187,14 @@ export interface PutItemInput {
    *         <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code>
    *             object.</p>
    */
-  Item: { [key: string]: AttributeValue } | undefined;
+  Item: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  Expected?: { [key: string]: ExpectedAttributeValue };
+  Expected?: Record<string, ExpectedAttributeValue>;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
@@ -10346,7 +10346,7 @@ export interface PutItemInput {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10369,7 +10369,7 @@ export interface PutItemInput {
    *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 }
 
 export namespace PutItemInput {
@@ -10517,14 +10517,14 @@ export interface QueryInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  KeyConditions?: { [key: string]: Condition };
+  KeyConditions?: Record<string, Condition>;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  QueryFilter?: { [key: string]: Condition };
+  QueryFilter?: Record<string, Condition>;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -10554,7 +10554,7 @@ export interface QueryInput {
    *         <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No
    *             set data types are allowed.</p>
    */
-  ExclusiveStartKey?: { [key: string]: AttributeValue };
+  ExclusiveStartKey?: Record<string, AttributeValue>;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -10791,7 +10791,7 @@ export interface QueryInput {
    *         <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10814,7 +10814,7 @@ export interface QueryInput {
    *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 }
 
 export namespace QueryInput {
@@ -10914,7 +10914,7 @@ export interface BatchWriteItemOutput {
    *         <p>If there are no unprocessed items remaining, the response contains an empty
    *                 <code>UnprocessedItems</code> map.</p>
    */
-  UnprocessedItems?: { [key: string]: WriteRequest[] };
+  UnprocessedItems?: Record<string, WriteRequest[]>;
 
   /**
    * <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each
@@ -10940,7 +10940,7 @@ export interface BatchWriteItemOutput {
    *             </li>
    *          </ul>
    */
-  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
+  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]>;
 
   /**
    * <p>The capacity units consumed by the entire <code>BatchWriteItem</code>
@@ -11005,21 +11005,21 @@ export interface UpdateItemInput {
    *             composite primary key, you must provide values for both the partition key and the sort
    *             key.</p>
    */
-  Key: { [key: string]: AttributeValue } | undefined;
+  Key: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  AttributeUpdates?: { [key: string]: AttributeValueUpdate };
+  AttributeUpdates?: Record<string, AttributeValueUpdate>;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    */
-  Expected?: { [key: string]: ExpectedAttributeValue };
+  Expected?: Record<string, ExpectedAttributeValue>;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -11291,7 +11291,7 @@ export interface UpdateItemInput {
    *         <p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeNames?: { [key: string]: string };
+  ExpressionAttributeNames?: Record<string, string>;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -11314,7 +11314,7 @@ export interface UpdateItemInput {
    *         <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ExpressionAttributeValues?: { [key: string]: AttributeValue };
+  ExpressionAttributeValues?: Record<string, AttributeValue>;
 }
 
 export namespace UpdateItemInput {

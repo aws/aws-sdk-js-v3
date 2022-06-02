@@ -95,7 +95,7 @@ export interface QueryForecastRequest {
    *
    *          <p>To get the full forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html">CreateForecastExportJob</a> operation.</p>
    */
-  Filters: { [key: string]: string } | undefined;
+  Filters: Record<string, string> | undefined;
 
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -159,7 +159,7 @@ export interface Forecast {
    *             </li>
    *          </ul>
    */
-  Predictions?: { [key: string]: DataPoint[] };
+  Predictions?: Record<string, DataPoint[]>;
 }
 
 export namespace Forecast {

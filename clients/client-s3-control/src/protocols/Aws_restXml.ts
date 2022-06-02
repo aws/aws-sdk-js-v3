@@ -4432,7 +4432,7 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
     $metadata: deserializeMetadata(output),
     PublicAccessBlockConfiguration: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicAccessBlockConfiguration = deserializeAws_restXmlPublicAccessBlockConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -4474,7 +4474,7 @@ export const deserializeAws_restXmlGetStorageLensConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     StorageLensConfiguration: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StorageLensConfiguration = deserializeAws_restXmlStorageLensConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -6955,7 +6955,7 @@ const serializeAws_restXmlS3TagSet = (input: S3Tag[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_restXmlS3UserMetadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restXmlS3UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
@@ -7451,7 +7451,7 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   return contents;
 };
 
-const deserializeAws_restXmlEndpoints = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_restXmlEndpoints = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -9090,7 +9090,7 @@ const deserializeAws_restXmlS3TagSet = (output: any, context: __SerdeContext): S
     });
 };
 
-const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

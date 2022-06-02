@@ -53,7 +53,7 @@ export interface AuthenticateCognitoActionConfig {
    * <p>The query parameters (up to 10) to include in the redirect request to the authorization
    *       endpoint.</p>
    */
-  AuthenticationRequestExtraParams?: { [key: string]: string };
+  AuthenticationRequestExtraParams?: Record<string, string>;
 
   /**
    * <p>The behavior if the user is not authenticated. The following are possible values:</p>
@@ -153,7 +153,7 @@ export interface AuthenticateOidcActionConfig {
    * <p>The query parameters (up to 10) to include in the redirect request to the authorization
    *       endpoint.</p>
    */
-  AuthenticationRequestExtraParams?: { [key: string]: string };
+  AuthenticationRequestExtraParams?: Record<string, string>;
 
   /**
    * <p>The behavior if the user is not authenticated. The following are possible values:</p>

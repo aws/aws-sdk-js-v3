@@ -4497,7 +4497,7 @@ const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CustomMetadataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1CustomMetadataMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4634,8 +4634,8 @@ const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4683,12 +4683,9 @@ const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_restJson1DocumentSourceUrlMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1DocumentSourceUrlMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DocumentSourceType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [DocumentSourceType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4704,9 +4701,9 @@ const deserializeAws_restJson1DocumentSourceUrlMap = (
 const deserializeAws_restJson1DocumentThumbnailUrlMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DocumentThumbnailType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [DocumentThumbnailType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4989,8 +4986,8 @@ const deserializeAws_restJson1ShareResultsList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

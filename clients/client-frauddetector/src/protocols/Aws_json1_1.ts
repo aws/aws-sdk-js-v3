@@ -5220,7 +5220,7 @@ const serializeAws_json1_1CreateVariableRequest = (input: CreateVariableRequest,
   };
 };
 
-const serializeAws_json1_1CsvIndexToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1CsvIndexToVariableMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5378,7 +5378,7 @@ const serializeAws_json1_1Entity = (input: Entity, context: __SerdeContext): any
   };
 };
 
-const serializeAws_json1_1EventVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1EventVariableMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5399,7 +5399,7 @@ const serializeAws_json1_1ExternalEventsDetail = (input: ExternalEventsDetail, c
 };
 
 const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
-  input: { [key: string]: ModelEndpointDataBlob },
+  input: Record<string, ModelEndpointDataBlob>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -5617,7 +5617,7 @@ const serializeAws_json1_1IngestedEventsTimeWindow = (
   };
 };
 
-const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1JsonKeyToVariableMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5629,7 +5629,7 @@ const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string
   }, {});
 };
 
-const serializeAws_json1_1labelMapper = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_json1_1labelMapper = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6340,11 +6340,8 @@ const deserializeAws_json1_1CreateVariableResult = (output: any, context: __Serd
   return {} as any;
 };
 
-const deserializeAws_json1_1CsvIndexToVariableMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1CsvIndexToVariableMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6622,8 +6619,8 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
   } as any;
 };
 
-const deserializeAws_json1_1EventAttributeMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1EventAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6747,8 +6744,8 @@ const deserializeAws_json1_1ExternalModelOutputs = (output: any, context: __Serd
 const deserializeAws_json1_1ExternalModelPredictionMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7114,11 +7111,8 @@ const deserializeAws_json1_1InternalServerException = (
   } as any;
 };
 
-const deserializeAws_json1_1JsonKeyToVariableMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1JsonKeyToVariableMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7157,8 +7151,8 @@ const deserializeAws_json1_1labelList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7390,8 +7384,8 @@ const deserializeAws_json1_1LogOddsMetric = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7477,8 +7471,8 @@ const deserializeAws_json1_1ModelOutputConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

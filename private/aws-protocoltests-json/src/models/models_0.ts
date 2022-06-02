@@ -190,7 +190,7 @@ export interface JsonEnumsInputOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 export namespace JsonEnumsInputOutput {
@@ -317,7 +317,7 @@ export namespace MyUnion {
     timestampValue?: never;
     enumValue?: never;
     listValue?: never;
-    mapValue: { [key: string]: string };
+    mapValue: Record<string, string>;
     structureValue?: never;
     $unknown?: never;
   }
@@ -356,7 +356,7 @@ export namespace MyUnion {
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
     listValue: (value: string[]) => T;
-    mapValue: (value: { [key: string]: string }) => T;
+    mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
     _: (name: string, value: any) => T;
   }
@@ -415,7 +415,7 @@ export namespace UnionInputOutput {
 export interface NullOperationInputOutput {
   string?: string;
   sparseStringList?: string[];
-  sparseStringMap?: { [key: string]: string };
+  sparseStringMap?: Record<string, string>;
 }
 
 export namespace NullOperationInputOutput {
@@ -491,16 +491,16 @@ export interface KitchenSink {
   Iso8601Timestamp?: Date;
   JsonValue?: __LazyJsonString | string;
   ListOfLists?: string[][];
-  ListOfMapsOfStrings?: { [key: string]: string }[];
+  ListOfMapsOfStrings?: Record<string, string>[];
   ListOfStrings?: string[];
   ListOfStructs?: SimpleStruct[];
   Long?: number;
-  MapOfListsOfStrings?: { [key: string]: string[] };
-  MapOfMaps?: { [key: string]: { [key: string]: string } };
-  MapOfStrings?: { [key: string]: string };
-  MapOfStructs?: { [key: string]: SimpleStruct };
+  MapOfListsOfStrings?: Record<string, string[]>;
+  MapOfMaps?: Record<string, Record<string, string>>;
+  MapOfStrings?: Record<string, string>;
+  MapOfStructs?: Record<string, SimpleStruct>;
   RecursiveList?: KitchenSink[];
-  RecursiveMap?: { [key: string]: KitchenSink };
+  RecursiveMap?: Record<string, KitchenSink>;
   RecursiveStruct?: KitchenSink;
   SimpleStruct?: SimpleStruct;
   String?: string;
@@ -525,7 +525,7 @@ export class ErrorWithMembers extends __BaseException {
   ComplexData?: KitchenSink;
   IntegerField?: number;
   ListField?: string[];
-  MapField?: { [key: string]: string };
+  MapField?: Record<string, string>;
   Message?: string;
   /**
    * abc

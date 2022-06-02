@@ -3053,7 +3053,7 @@ const serializeAws_restJson1ComponentConfigurationUpdate = (
 };
 
 const serializeAws_restJson1ComponentDependencyMap = (
-  input: { [key: string]: ComponentDependencyRequirement },
+  input: Record<string, ComponentDependencyRequirement>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3096,7 +3096,7 @@ const serializeAws_restJson1ComponentDeploymentSpecification = (
 };
 
 const serializeAws_restJson1ComponentDeploymentSpecifications = (
-  input: { [key: string]: ComponentDeploymentSpecification },
+  input: Record<string, ComponentDeploymentSpecification>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3143,7 +3143,7 @@ const serializeAws_restJson1ComponentRunWith = (input: ComponentRunWith, context
 };
 
 const serializeAws_restJson1ComponentVersionRequirementMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3377,7 +3377,7 @@ const serializeAws_restJson1LambdaDeviceMount = (input: LambdaDeviceMount, conte
 };
 
 const serializeAws_restJson1LambdaEnvironmentVariables = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3515,10 +3515,7 @@ const serializeAws_restJson1LambdaVolumeMount = (input: LambdaVolumeMount, conte
   };
 };
 
-const serializeAws_restJson1PlatformAttributesMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1PlatformAttributesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3537,7 +3534,7 @@ const serializeAws_restJson1SystemResourceLimits = (input: SystemResourceLimits,
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3672,9 +3669,9 @@ const deserializeAws_restJson1ComponentDeploymentSpecification = (
 const deserializeAws_restJson1ComponentDeploymentSpecifications = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ComponentDeploymentSpecification } => {
+): Record<string, ComponentDeploymentSpecification> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: ComponentDeploymentSpecification }, [key, value]: [string, any]) => {
+    (acc: Record<string, ComponentDeploymentSpecification>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4065,8 +4062,8 @@ const deserializeAws_restJson1IoTJobTimeoutConfig = (output: any, context: __Ser
 const deserializeAws_restJson1PlatformAttributesMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4106,8 +4103,8 @@ const deserializeAws_restJson1ResolvedComponentVersionsList = (
   return retVal;
 };
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4125,8 +4122,8 @@ const deserializeAws_restJson1SystemResourceLimits = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

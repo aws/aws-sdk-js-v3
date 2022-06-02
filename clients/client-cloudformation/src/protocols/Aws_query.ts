@@ -6042,7 +6042,7 @@ const serializeAws_queryRegisterTypeInput = (input: RegisterTypeInput, context: 
 };
 
 const serializeAws_queryResourceIdentifierProperties = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};

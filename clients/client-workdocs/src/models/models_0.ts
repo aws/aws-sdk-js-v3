@@ -1035,7 +1035,7 @@ export interface CreateCustomMetadataRequest {
   /**
    * <p>Custom metadata in the form of name-value pairs.</p>
    */
-  CustomMetadata: { [key: string]: string } | undefined;
+  CustomMetadata: Record<string, string> | undefined;
 }
 
 export namespace CreateCustomMetadataRequest {
@@ -2081,12 +2081,12 @@ export interface DocumentVersionMetadata {
   /**
    * <p>The thumbnail of the document.</p>
    */
-  Thumbnail?: { [key: string]: string };
+  Thumbnail?: Record<string, string>;
 
   /**
    * <p>The source of the document.</p>
    */
-  Source?: { [key: string]: string };
+  Source?: Record<string, string>;
 }
 
 export namespace DocumentVersionMetadata {
@@ -2754,7 +2754,7 @@ export interface GetDocumentResponse {
   /**
    * <p>The custom metadata on the document.</p>
    */
-  CustomMetadata?: { [key: string]: string };
+  CustomMetadata?: Record<string, string>;
 }
 
 export namespace GetDocumentResponse {
@@ -2932,7 +2932,7 @@ export interface GetDocumentVersionResponse {
   /**
    * <p>The custom metadata on the document version.</p>
    */
-  CustomMetadata?: { [key: string]: string };
+  CustomMetadata?: Record<string, string>;
 }
 
 export namespace GetDocumentVersionResponse {
@@ -2981,7 +2981,7 @@ export interface GetFolderResponse {
   /**
    * <p>The custom metadata on the folder.</p>
    */
-  CustomMetadata?: { [key: string]: string };
+  CustomMetadata?: Record<string, string>;
 }
 
 export namespace GetFolderResponse {
@@ -3202,7 +3202,7 @@ export interface UploadMetadata {
   /**
    * <p>The signed headers.</p>
    */
-  SignedHeaders?: { [key: string]: string };
+  SignedHeaders?: Record<string, string>;
 }
 
 export namespace UploadMetadata {

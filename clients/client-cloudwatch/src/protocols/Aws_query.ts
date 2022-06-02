@@ -4504,7 +4504,7 @@ const deserializeAws_queryDatapoints = (output: any, context: __SerdeContext): D
     });
 };
 
-const deserializeAws_queryDatapointValueMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
+const deserializeAws_queryDatapointValueMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

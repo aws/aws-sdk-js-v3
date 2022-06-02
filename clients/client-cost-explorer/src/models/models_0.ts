@@ -1317,7 +1317,7 @@ export interface DimensionValuesWithAttributes {
   /**
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace DimensionValuesWithAttributes {
@@ -1365,7 +1365,7 @@ export interface Group {
   /**
    * <p>The metrics that are included in this group.</p>
    */
-  Metrics?: { [key: string]: MetricValue };
+  Metrics?: Record<string, MetricValue>;
 }
 
 export namespace Group {
@@ -1389,7 +1389,7 @@ export interface ResultByTime {
   /**
    * <p>The total amount of cost or usage accrued during the time period.</p>
    */
-  Total?: { [key: string]: MetricValue };
+  Total?: Record<string, MetricValue>;
 
   /**
    * <p>The groups that this time period includes.</p>
@@ -1907,7 +1907,7 @@ export interface ReservationCoverageGroup {
   /**
    * <p>The attributes for this group of reservations.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>How much instance usage this group of reservations covered.</p>
@@ -2722,7 +2722,7 @@ export interface ReservationUtilizationGroup {
   /**
    * <p>The attributes for this group of reservations.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>How much you used this group of reservations.</p>
@@ -3483,7 +3483,7 @@ export interface SavingsPlansCoverage {
   /**
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The amount of Savings Plans eligible usage that the Savings Plans covered.</p>
@@ -4070,7 +4070,7 @@ export interface SavingsPlansUtilizationDetail {
   /**
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>A ratio of your effectiveness of using existing Savings Plans to apply to workloads

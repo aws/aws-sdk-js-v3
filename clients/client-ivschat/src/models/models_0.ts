@@ -58,7 +58,7 @@ export interface CreateChatTokenRequest {
    *          Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1
    *          KB total.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace CreateChatTokenRequest {
@@ -305,7 +305,7 @@ export interface CreateRoomRequest {
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRoomRequest {
@@ -365,7 +365,7 @@ export interface CreateRoomResponse {
   /**
    * <p>Tags attached to the resource, from the request.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRoomResponse {
@@ -618,7 +618,7 @@ export interface GetRoomResponse {
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetRoomResponse {
@@ -702,7 +702,7 @@ export interface RoomSummary {
   /**
    * <p>Tags attached to the resource. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace RoomSummary {
@@ -776,7 +776,7 @@ export interface ListTagsForResourceResponse {
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -804,7 +804,7 @@ export interface SendEventRequest {
    * <p>Application-defined metadata to attach to the event sent to clients. The maximum length
    *          of the metadata is 1 KB total.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace SendEventRequest {
@@ -842,7 +842,7 @@ export interface TagResourceRequest {
   /**
    * <p>Array of tags to be added or updated.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -985,7 +985,7 @@ export interface UpdateRoomResponse {
   /**
    * <p>Tags attached to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace UpdateRoomResponse {

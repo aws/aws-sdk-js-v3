@@ -814,7 +814,7 @@ export interface Cluster {
   /**
    * <p>Tags attached to the cluster.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Information about the provisioned cluster.</p>
@@ -991,7 +991,7 @@ export interface ClusterInfo {
   /**
    * <p>Tags attached to the cluster.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
@@ -1909,7 +1909,7 @@ export interface CreateClusterRequest {
   /**
    * <p>Create tags when creating the cluster.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateClusterRequest {
@@ -2039,7 +2039,7 @@ export interface CreateClusterV2Request {
   /**
    * <p>A map of tags that you want the cluster to have.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Information about the provisioned cluster.</p>
@@ -2943,7 +2943,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3009,7 +3009,7 @@ export interface TagResourceRequest {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

@@ -8024,7 +8024,7 @@ const serializeAws_json1_1IpPermissionsList = (input: IpPermission[], context: _
     });
 };
 
-const serializeAws_json1_1LatencyMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
+const serializeAws_json1_1LatencyMap = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8201,7 +8201,7 @@ const serializeAws_json1_1Player = (input: Player, context: __SerdeContext): any
 };
 
 const serializeAws_json1_1PlayerAttributeMap = (
-  input: { [key: string]: AttributeValue },
+  input: Record<string, AttributeValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8215,7 +8215,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
   }, {});
 };
 
-const serializeAws_json1_1PlayerDataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1PlayerDataMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8555,7 +8555,7 @@ const serializeAws_json1_1StopMatchmakingInput = (input: StopMatchmakingInput, c
   };
 };
 
-const serializeAws_json1_1StringDoubleMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
+const serializeAws_json1_1StringDoubleMap = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -10268,8 +10268,8 @@ const deserializeAws_json1_1IpPermissionsList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10614,8 +10614,8 @@ const deserializeAws_json1_1Player = (output: any, context: __SerdeContext): Pla
 const deserializeAws_json1_1PlayerAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+): Record<string, AttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -11003,8 +11003,8 @@ const deserializeAws_json1_1StopMatchmakingOutput = (output: any, context: __Ser
   return {} as any;
 };
 
-const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

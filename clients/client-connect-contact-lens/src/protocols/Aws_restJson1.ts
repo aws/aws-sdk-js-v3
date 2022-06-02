@@ -267,8 +267,8 @@ const deserializeAws_restJson1MatchedCategories = (output: any, context: __Serde
 const deserializeAws_restJson1MatchedDetails = (
   output: any,
   context: __SerdeContext
-): { [key: string]: CategoryDetails } => {
-  return Object.entries(output).reduce((acc: { [key: string]: CategoryDetails }, [key, value]: [string, any]) => {
+): Record<string, CategoryDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, CategoryDetails>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

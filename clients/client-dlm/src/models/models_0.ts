@@ -706,7 +706,7 @@ export interface CreateLifecyclePolicyRequest {
   /**
    * <p>The tags to apply to the lifecycle policy during creation.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateLifecyclePolicyRequest {
@@ -948,7 +948,7 @@ export interface LifecyclePolicySummary {
   /**
    * <p>The tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy
@@ -1047,7 +1047,7 @@ export interface LifecyclePolicy {
   /**
    * <p>The tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
@@ -1100,7 +1100,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1121,7 +1121,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

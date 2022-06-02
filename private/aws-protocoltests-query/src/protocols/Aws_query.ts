@@ -1750,7 +1750,7 @@ const deserializeAws_queryInvalidGreetingResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryComplexMap = (input: { [key: string]: GreetingStruct }, context: __SerdeContext): any => {
+const serializeAws_queryComplexMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -1795,7 +1795,7 @@ const serializeAws_queryListWithXmlName = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryMapOfLists = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_queryMapOfLists = (input: Record<string, string[]>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -1811,7 +1811,7 @@ const serializeAws_queryMapOfLists = (input: { [key: string]: string[] }, contex
   return entries;
 };
 
-const serializeAws_queryMapWithXmlName = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryMapWithXmlName = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -2085,7 +2085,7 @@ const serializeAws_queryStringList = (input: string[], context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -2175,7 +2175,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
 const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["V"] === null) {
       return acc;
@@ -2209,7 +2209,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput = (
 const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["V"] === null) {
       return acc;
@@ -2617,10 +2617,7 @@ const deserializeAws_queryXmlMapsOutput = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryXmlMapsOutputMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: GreetingStruct } => {
+const deserializeAws_queryXmlMapsOutputMap = (output: any, context: __SerdeContext): Record<string, GreetingStruct> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -2651,7 +2648,7 @@ const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeC
 const deserializeAws_queryXmlMapsXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: GreetingStruct } => {
+): Record<string, GreetingStruct> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Setting"] === null) {
       return acc;
@@ -2748,7 +2745,7 @@ const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): 
     });
 };
 
-const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): { [key: string]: FooEnum | string } => {
+const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

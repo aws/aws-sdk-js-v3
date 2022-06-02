@@ -299,7 +299,7 @@ export interface AddTagsToVaultInput {
    * <p>The tags to add to the vault. Each tag is composed of a key and a value. The value
    *          can be an empty string.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AddTagsToVaultInput {
@@ -940,12 +940,12 @@ export interface S3Location {
   /**
    * <p>The tag-set that is applied to the job results.</p>
    */
-  Tagging?: { [key: string]: string };
+  Tagging?: Record<string, string>;
 
   /**
    * <p>A map of metadata to store with the job results in Amazon S3.</p>
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 
   /**
    * <p>The storage class used to store the job results.</p>
@@ -2518,7 +2518,7 @@ export interface ListTagsForVaultOutput {
   /**
    * <p>The tags attached to the vault. Each tag is composed of a key and a value.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForVaultOutput {

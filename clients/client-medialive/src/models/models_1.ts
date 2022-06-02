@@ -917,7 +917,7 @@ export interface Reservation {
   /**
    * A collection of key-value pairs
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
@@ -4104,7 +4104,7 @@ export interface Channel {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for VPC output
@@ -4285,7 +4285,7 @@ export interface CreateChannelRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for the VPC outputs
@@ -4402,7 +4402,7 @@ export interface CreateInputRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
@@ -4453,7 +4453,7 @@ export interface CreateInputSecurityGroupRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * List of IPv4 CIDR addresses to whitelist
@@ -4551,7 +4551,7 @@ export interface CreateMultiplexRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateMultiplexRequest {
@@ -4615,7 +4615,7 @@ export interface Multiplex {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Multiplex {
@@ -4955,7 +4955,7 @@ export interface CreatePartnerInputRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePartnerInputRequest {
@@ -4998,7 +4998,7 @@ export interface CreateTagsRequest {
   /**
    * Placeholder documentation for Tags
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateTagsRequest {
@@ -5118,7 +5118,7 @@ export interface DeleteChannelResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for VPC output
@@ -5272,7 +5272,7 @@ export interface DeleteMultiplexResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DeleteMultiplexResponse {
@@ -5453,7 +5453,7 @@ export interface DeleteReservationResponse {
   /**
    * A collection of key-value pairs
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
@@ -5635,7 +5635,7 @@ export interface DescribeChannelResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for VPC output
@@ -5750,7 +5750,7 @@ export interface DescribeInputResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
@@ -5969,7 +5969,7 @@ export interface DescribeInputSecurityGroupResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Whitelist rules and their sync status
@@ -6057,7 +6057,7 @@ export interface DescribeMultiplexResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeMultiplexResponse {
@@ -6326,7 +6326,7 @@ export interface DescribeReservationResponse {
   /**
    * A collection of key-value pairs
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
@@ -6978,7 +6978,7 @@ export interface ListTagsForResourceResponse {
   /**
    * Placeholder documentation for Tags
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -7051,7 +7051,7 @@ export interface PurchaseOfferingRequest {
   /**
    * A collection of key-value pairs
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PurchaseOfferingRequest {
@@ -7223,7 +7223,7 @@ export interface StartChannelResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for VPC output
@@ -7311,7 +7311,7 @@ export interface StartMultiplexResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace StartMultiplexResponse {
@@ -7431,7 +7431,7 @@ export interface StopChannelResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * Settings for VPC output
@@ -7519,7 +7519,7 @@ export interface StopMultiplexResponse {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace StopMultiplexResponse {
@@ -7907,7 +7907,7 @@ export interface UpdateInputSecurityGroupRequest {
   /**
    * A collection of key-value pairs.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * List of IPv4 CIDR addresses to whitelist

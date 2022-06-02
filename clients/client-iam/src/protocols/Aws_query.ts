@@ -14379,7 +14379,7 @@ const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext):
 const deserializeAws_queryEvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PolicyEvaluationDecisionType | string } => {
+): Record<string, PolicyEvaluationDecisionType | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -17469,7 +17469,7 @@ const deserializeAws_queryStatementListType = (output: any, context: __SerdeCont
     });
 };
 
-const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext): { [key: string]: number } => {
+const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext): Record<string, number> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

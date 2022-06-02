@@ -4315,7 +4315,7 @@ export interface UpdateSipMediaApplicationCallRequest {
   /**
    * <p>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code> event. Can contain 0-20 key-value pairs.</p>
    */
-  Arguments: { [key: string]: string } | undefined;
+  Arguments: Record<string, string> | undefined;
 }
 
 export namespace UpdateSipMediaApplicationCallRequest {

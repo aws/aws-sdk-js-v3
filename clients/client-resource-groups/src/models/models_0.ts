@@ -311,7 +311,7 @@ export interface CreateGroupInput {
   /**
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A configuration associates the resource group with an AWS service and specifies how
@@ -443,7 +443,7 @@ export interface CreateGroupOutput {
   /**
    * <p>The tags associated with the group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The service configuration associated with the resource group. For details about the
@@ -773,7 +773,7 @@ export interface GetTagsOutput {
   /**
    * <p>The tags associated with the specified resource group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetTagsOutput {
@@ -1474,7 +1474,7 @@ export interface TagInput {
    * <p>The tags to add to the specified resource group. A tag is a string-to-string map of
    *             key-value pairs.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagInput {
@@ -1495,7 +1495,7 @@ export interface TagOutput {
   /**
    * <p>The tags that have been added to the specified resource group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace TagOutput {

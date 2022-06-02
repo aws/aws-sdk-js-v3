@@ -815,7 +815,7 @@ const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, con
   };
 };
 
-const serializeAws_restJson1FormatConfig = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [FormatConfigKey | string, any]) => {
     if (value === null) {
       return acc;

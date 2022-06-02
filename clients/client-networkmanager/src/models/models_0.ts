@@ -296,7 +296,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The specified resource could not be found.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
   /**
    * @internal
    */
@@ -4485,7 +4485,7 @@ export interface NetworkResource {
   /**
    * <p>The resource metadata.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 }
 
 export namespace NetworkResource {
@@ -4601,7 +4601,7 @@ export interface GetNetworkRoutesRequest {
   /**
    * <p>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID, RESOURCE_ID, or RESOURCE_TYPE.</p>
    */
-  DestinationFilters?: { [key: string]: string[] };
+  DestinationFilters?: Record<string, string[]>;
 }
 
 export namespace GetNetworkRoutesRequest {
@@ -5106,7 +5106,7 @@ export interface RouteAnalysisCompletion {
   /**
    * <p>Additional information about the path. Available only if a connection is not found.</p>
    */
-  ReasonContext?: { [key: string]: string };
+  ReasonContext?: Record<string, string>;
 }
 
 export namespace RouteAnalysisCompletion {
@@ -6450,7 +6450,7 @@ export interface UpdateNetworkResourceMetadataRequest {
   /**
    * <p>The resource metadata.</p>
    */
-  Metadata: { [key: string]: string } | undefined;
+  Metadata: Record<string, string> | undefined;
 }
 
 export namespace UpdateNetworkResourceMetadataRequest {
@@ -6471,7 +6471,7 @@ export interface UpdateNetworkResourceMetadataResponse {
   /**
    * <p>The updated resource metadata.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 }
 
 export namespace UpdateNetworkResourceMetadataResponse {

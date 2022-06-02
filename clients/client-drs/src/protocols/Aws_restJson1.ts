@@ -3806,7 +3806,7 @@ const serializeAws_restJson1StartRecoveryRequestSourceServers = (
     });
 };
 
-const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3836,8 +3836,8 @@ const deserializeAws_restJson1Accounts = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1ConversionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ConversionMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4640,8 +4640,8 @@ const deserializeAws_restJson1StagingSourceServersList = (
   return retVal;
 };
 
-const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4680,23 +4680,20 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
 const deserializeAws_restJson1VolumeToConversionMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ConversionMap(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, Record<string, string>> => {
+  return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1ConversionMap(value, context),
+    };
+  }, {});
 };
 
-const deserializeAws_restJson1VolumeToSizeMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1VolumeToSizeMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

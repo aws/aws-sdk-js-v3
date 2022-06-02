@@ -1131,7 +1131,7 @@ export interface CreateAssociationRequest {
   /**
    * <p>The parameters for the runtime configuration of the document.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The targets for the association. You can target managed nodes by using tags, Amazon Web Services resource
@@ -1249,7 +1249,7 @@ export interface CreateAssociationRequest {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace CreateAssociationRequest {
@@ -1281,7 +1281,7 @@ export interface AssociationOverview {
    *    association with two managed nodes, and one of them was successful, this would return the count
    *    of managed nodes by status.</p>
    */
-  AssociationStatusAggregatedCount?: { [key: string]: number };
+  AssociationStatusAggregatedCount?: Record<string, number>;
 }
 
 export namespace AssociationOverview {
@@ -1387,7 +1387,7 @@ export interface AssociationDescription {
   /**
    * <p>A description of the parameters for a document. </p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The association ID.</p>
@@ -1500,7 +1500,7 @@ export interface AssociationDescription {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace AssociationDescription {
@@ -1727,7 +1727,7 @@ export interface CreateAssociationBatchRequestEntry {
   /**
    * <p>A description of the parameters for a document. </p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>Specify the target for the association. This target is required for associations that use an
@@ -1836,7 +1836,7 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace CreateAssociationBatchRequestEntry {
@@ -2878,7 +2878,7 @@ export interface CreateOpsItemRequest {
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
    *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  OperationalData?: { [key: string]: OpsItemDataValue };
+  OperationalData?: Record<string, OpsItemDataValue>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
@@ -3039,7 +3039,7 @@ export interface CreateOpsMetadataRequest {
   /**
    * <p>Metadata for a new Application Manager application. </p>
    */
-  Metadata?: { [key: string]: MetadataValue };
+  Metadata?: Record<string, MetadataValue>;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
@@ -5411,7 +5411,7 @@ export interface Runbook {
    * <p>The key-value map of execution parameters, which were supplied when calling
    *     <code>StartChangeRequestExecution</code>.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The name of the parameter used as the target resource for the rate-controlled
@@ -5429,7 +5429,7 @@ export interface Runbook {
    * <p>A key-value mapping of runbook parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 
   /**
    * <p>The <code>MaxConcurrency</code> value specified by the user when the operation started,
@@ -5509,7 +5509,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The list of execution outputs as defined in the Automation runbook.</p>
    */
-  Outputs?: { [key: string]: string[] };
+  Outputs?: Record<string, string[]>;
 
   /**
    * <p>The Automation execution mode.</p>
@@ -5549,7 +5549,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The specified key-value mapping of document parameters to target resources.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 
   /**
    * <p>A list of targets that resolved during the execution.</p>
@@ -5803,7 +5803,7 @@ export interface FailureDetails {
   /**
    * <p>Detailed information about the Automation step failure.</p>
    */
-  Details?: { [key: string]: string[] };
+  Details?: Record<string, string[]>;
 }
 
 export namespace FailureDetails {
@@ -5870,12 +5870,12 @@ export interface StepExecution {
   /**
    * <p>Fully-resolved values passed into the step before execution.</p>
    */
-  Inputs?: { [key: string]: string };
+  Inputs?: Record<string, string>;
 
   /**
    * <p>Returned values from the execution of the step.</p>
    */
-  Outputs?: { [key: string]: string[] };
+  Outputs?: Record<string, string[]>;
 
   /**
    * <p>A message associated with the response code for an execution.</p>
@@ -5900,7 +5900,7 @@ export interface StepExecution {
   /**
    * <p>A user-specified list of parameters to override when running a step.</p>
    */
-  OverriddenParameters?: { [key: string]: string[] };
+  OverriddenParameters?: Record<string, string[]>;
 
   /**
    * <p>The flag which can be used to end automation no matter whether the step succeeds or
@@ -7045,7 +7045,7 @@ export interface InstanceAggregatedAssociationOverview {
   /**
    * <p>The number of associations for the managed node(s).</p>
    */
-  InstanceAssociationStatusAggregatedCount?: { [key: string]: number };
+  InstanceAssociationStatusAggregatedCount?: Record<string, number>;
 }
 
 export namespace InstanceAggregatedAssociationOverview {
@@ -9010,7 +9010,7 @@ export interface MaintenanceWindowTask {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
 
   /**
    * <p>The priority of the task in the maintenance window. The lower the number, the higher the
@@ -9343,7 +9343,7 @@ export interface OpsItemSummary {
    * <p>Operational data is custom data that provides useful reference details about the OpsItem.
    *   </p>
    */
-  OperationalData?: { [key: string]: OpsItemDataValue };
+  OperationalData?: Record<string, OpsItemDataValue>;
 
   /**
    * <p>A list of OpsItems by category.</p>

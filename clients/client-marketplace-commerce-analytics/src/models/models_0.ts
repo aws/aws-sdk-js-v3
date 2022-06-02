@@ -184,7 +184,7 @@ export interface GenerateDataSetRequest {
    *         key-value pairs can be used to correlated responses with tracking
    *         information from other systems.
    */
-  customerDefinedValues?: { [key: string]: string };
+  customerDefinedValues?: Record<string, string>;
 }
 
 export namespace GenerateDataSetRequest {
@@ -292,7 +292,7 @@ export interface StartSupportDataExportRequest {
    * (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file.
    */
-  customerDefinedValues?: { [key: string]: string };
+  customerDefinedValues?: Record<string, string>;
 }
 
 export namespace StartSupportDataExportRequest {

@@ -505,7 +505,7 @@ export interface Job {
   /**
    * <p>Tags associated with specific Job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Job {
@@ -585,7 +585,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>List tags for resource response.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -710,12 +710,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to configure Staging Area tags during Replication Settings template creation.</p>
    */
-  stagingAreaTags: { [key: string]: string } | undefined;
+  stagingAreaTags: Record<string, string> | undefined;
 
   /**
    * <p>Request to configure tags during Replication Settings template creation.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateReplicationConfigurationTemplateRequest {
@@ -798,12 +798,12 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>Replication Configuration template Staging Area Tags.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 
   /**
    * <p>Replication Configuration template Tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ReplicationConfigurationTemplate {
@@ -961,7 +961,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>Update replication configuration template Staging Area Tags request.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 }
 
 export namespace UpdateReplicationConfigurationTemplateRequest {
@@ -1733,7 +1733,7 @@ export interface SourceServer {
   /**
    * <p>Source server Tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Source server launched instance.</p>
@@ -2163,7 +2163,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration Staging Area tags.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 }
 
 export namespace ReplicationConfiguration {
@@ -2217,7 +2217,7 @@ export interface StartCutoverRequest {
   /**
    * <p>Start Cutover by Tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartCutoverRequest {
@@ -2323,7 +2323,7 @@ export interface StartTestRequest {
   /**
    * <p>Start Test by Tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartTestRequest {
@@ -2362,7 +2362,7 @@ export interface TerminateTargetInstancesRequest {
   /**
    * <p>Terminate Target instance by Tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace TerminateTargetInstancesRequest {
@@ -2517,7 +2517,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration Staging Area Tags request.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 }
 
 export namespace UpdateReplicationConfigurationRequest {
@@ -2560,7 +2560,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tag resource by Tags.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2669,12 +2669,12 @@ export interface VcenterClient {
   /**
    * <p>Tags for Source Server of vCenter client.</p>
    */
-  sourceServerTags?: { [key: string]: string };
+  sourceServerTags?: Record<string, string>;
 
   /**
    * <p>Tags for vCenter client.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace VcenterClient {

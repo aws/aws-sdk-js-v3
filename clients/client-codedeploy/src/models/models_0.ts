@@ -6410,7 +6410,7 @@ export interface ListDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetFilters?: { [key: string]: string[] };
+  targetFilters?: Record<string, string[]>;
 }
 
 export namespace ListDeploymentTargetsInput {

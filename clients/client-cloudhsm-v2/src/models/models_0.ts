@@ -582,7 +582,7 @@ export interface Cluster {
   /**
    * <p>A map from availability zone to the cluster’s subnet in that availability zone.</p>
    */
-  SubnetMapping?: { [key: string]: string };
+  SubnetMapping?: Record<string, string>;
 
   /**
    * <p>The identifier (ID) of the virtual private cloud (VPC) that contains the
@@ -814,7 +814,7 @@ export interface DescribeBackupsRequest {
    *       backup retention policy. <code>False</code> returns all backups with a backup retention policy
    *       defined at the cluster.</p>
    */
-  Filters?: { [key: string]: string[] };
+  Filters?: Record<string, string[]>;
 
   /**
    * <p>Designates whether or not to sort the return backups by ascending chronological order
@@ -865,7 +865,7 @@ export interface DescribeClustersRequest {
    *          <p>Use the <code>states</code> filter to return only clusters that match the specified
    *       state.</p>
    */
-  Filters?: { [key: string]: string[] };
+  Filters?: Record<string, string[]>;
 
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this

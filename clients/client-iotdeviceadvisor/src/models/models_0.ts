@@ -94,7 +94,7 @@ export interface CreateSuiteDefinitionRequest {
   /**
    * <p>The tags to be attached to the suite definition.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSuiteDefinitionRequest {
@@ -318,7 +318,7 @@ export interface GetSuiteDefinitionResponse {
   /**
    * <p>Tags attached to the suite definition.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetSuiteDefinitionResponse {
@@ -599,7 +599,7 @@ export interface GetSuiteRunResponse {
   /**
    * <p>The tags attached to the suite run.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetSuiteRunResponse {
@@ -868,7 +868,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the IoT Device Advisor resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -899,7 +899,7 @@ export interface StartSuiteRunRequest {
   /**
    * <p>The tags to be attached to the suite run.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartSuiteRunRequest {
@@ -978,7 +978,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to be attached to the IoT Device Advisor resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

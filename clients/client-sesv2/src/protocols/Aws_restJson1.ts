@@ -8081,8 +8081,8 @@ const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeCon
 const deserializeAws_restJson1BlacklistReport = (
   output: any,
   context: __SerdeContext
-): { [key: string]: BlacklistEntry[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: BlacklistEntry[] }, [key, value]: [string, any]) => {
+): Record<string, BlacklistEntry[]> => {
+  return Object.entries(output).reduce((acc: Record<string, BlacklistEntry[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8765,8 +8765,8 @@ const deserializeAws_restJson1PlacementStatistics = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
