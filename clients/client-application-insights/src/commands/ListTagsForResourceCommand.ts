@@ -30,9 +30,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
  *          application. A <i>tag</i> is a label that you optionally define and associate
  *          with an application. Each tag consists of a required <i>tag key</i> and an
- *          optional associated <i>tag value</i>. A tag key is a general label that
- *          acts as a category for more specific tag values. A tag value acts as a descriptor within
- *          a tag key.</p>
+ *          optional associated <i>tag value</i>. A tag key is a general label that acts
+ *          as a category for more specific tag values. A tag value acts as a descriptor within a tag
+ *          key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

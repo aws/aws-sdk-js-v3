@@ -1952,6 +1952,7 @@ const serializeAws_json1_1CreateApplicationRequest = (
     ...(input.AutoCreate !== undefined && input.AutoCreate !== null && { AutoCreate: input.AutoCreate }),
     ...(input.CWEMonitorEnabled !== undefined &&
       input.CWEMonitorEnabled !== null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
+    ...(input.GroupingType !== undefined && input.GroupingType !== null && { GroupingType: input.GroupingType }),
     ...(input.OpsCenterEnabled !== undefined &&
       input.OpsCenterEnabled !== null && { OpsCenterEnabled: input.OpsCenterEnabled }),
     ...(input.OpsItemSNSTopicArn !== undefined &&

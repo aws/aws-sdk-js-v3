@@ -27,7 +27,8 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified application from monitoring. Does not delete the application.</p>
+ * <p>Removes the specified application from monitoring. Does not delete the
+ *          application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

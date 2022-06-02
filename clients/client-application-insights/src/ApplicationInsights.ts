@@ -136,18 +136,17 @@ import {
 
 /**
  * <fullname>Amazon CloudWatch Application Insights</fullname>
- *          <p> Amazon CloudWatch Application Insights is a service that
- *          helps you detect common problems with your applications. It
- *          enables you to pinpoint the source of issues in your applications (built with technologies
- *          such as Microsoft IIS, .NET, and Microsoft SQL Server), by providing key insights into
- *          detected problems.</p>
+ *          <p> Amazon CloudWatch Application Insights is a service that helps you detect common
+ *          problems with your applications. It enables you to pinpoint the source of issues in your
+ *          applications (built with technologies such as Microsoft IIS, .NET, and Microsoft SQL
+ *          Server), by providing key insights into detected problems.</p>
  *          <p>After you onboard your application, CloudWatch Application Insights identifies,
- *          recommends, and sets up metrics and logs. It continuously analyzes and
- *          correlates your metrics and logs for unusual behavior to surface actionable problems with
- *          your application. For example, if your application is slow and unresponsive and leading to
- *          HTTP 500 errors in your Application Load Balancer (ALB), Application Insights informs you
- *          that a memory pressure problem with your SQL Server database is occurring. It bases this
- *          analysis on impactful metrics and log errors. </p>
+ *          recommends, and sets up metrics and logs. It continuously analyzes and correlates your
+ *          metrics and logs for unusual behavior to surface actionable problems with your application.
+ *          For example, if your application is slow and unresponsive and leading to HTTP 500 errors in
+ *          your Application Load Balancer (ALB), Application Insights informs you that a memory
+ *          pressure problem with your SQL Server database is occurring. It bases this analysis on
+ *          impactful metrics and log errors. </p>
  */
 export class ApplicationInsights extends ApplicationInsightsClient {
   /**
@@ -247,7 +246,8 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>Removes the specified application from monitoring. Does not delete the application.</p>
+   * <p>Removes the specified application from monitoring. Does not delete the
+   *          application.</p>
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -279,8 +279,9 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>Ungroups a custom component. When you ungroup custom components, all applicable
-   *          monitors that are set up for the component are removed and the instances revert to their standalone status.</p>
+   * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
+   *          that are set up for the component are removed and the instances revert to their standalone
+   *          status.</p>
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -376,7 +377,8 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>Describes a component and lists the resources that are grouped together in a component.</p>
+   * <p>Describes a component and lists the resources that are grouped together in a
+   *          component.</p>
    */
   public describeComponent(
     args: DescribeComponentCommandInput,
@@ -666,15 +668,15 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>
-   *          Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:
-   *       </p>
+   * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
+   *          Application Insights. Examples of events represented are: </p>
    *          <ul>
    *             <li>
    *                <p>INFO: creating a new alarm or updating an alarm threshold.</p>
    *             </li>
    *             <li>
-   *                <p>WARN: alarm not created due to insufficient data points used to predict thresholds.</p>
+   *                <p>WARN: alarm not created due to insufficient data points used to predict
+   *                thresholds.</p>
    *             </li>
    *             <li>
    *                <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>
@@ -807,9 +809,9 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
    *          application. A <i>tag</i> is a label that you optionally define and associate
    *          with an application. Each tag consists of a required <i>tag key</i> and an
-   *          optional associated <i>tag value</i>. A tag key is a general label that
-   *          acts as a category for more specific tag values. A tag value acts as a descriptor within
-   *          a tag key.</p>
+   *          optional associated <i>tag value</i>. A tag key is a general label that acts
+   *          as a category for more specific tag values. A tag value acts as a descriptor within a tag
+   *          key.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -842,13 +844,13 @@ export class ApplicationInsights extends ApplicationInsightsClient {
 
   /**
    * <p>Add one or more tags (keys and values) to a specified application. A
-   *          <i>tag</i> is a label that you optionally define and associate with an
+   *             <i>tag</i> is a label that you optionally define and associate with an
    *          application. Tags can help you categorize and manage application in different ways, such as
    *          by purpose, owner, environment, or other criteria. </p>
-   *          <p>Each tag consists of a required <i>tag key</i> and an
-   *          associated <i>tag value</i>, both of which you define. A tag key is a
-   *          general label that acts as a category for more specific tag values. A tag value acts as
-   *          a descriptor within a tag key.</p>
+   *          <p>Each tag consists of a required <i>tag key</i> and an associated
+   *             <i>tag value</i>, both of which you define. A tag key is a general label
+   *          that acts as a category for more specific tag values. A tag value acts as a descriptor
+   *          within a tag key.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -971,9 +973,9 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   * <p>Updates the monitoring configurations for the component. The configuration input parameter
-   *          is an escaped JSON of the configuration and should match the schema of what is returned
-   *          by <code>DescribeComponentConfigurationRecommendation</code>. </p>
+   * <p>Updates the monitoring configurations for the component. The configuration input
+   *          parameter is an escaped JSON of the configuration and should match the schema of what is
+   *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
    */
   public updateComponentConfiguration(
     args: UpdateComponentConfigurationCommandInput,

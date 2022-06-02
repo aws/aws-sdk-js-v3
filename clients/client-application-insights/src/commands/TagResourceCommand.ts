@@ -28,13 +28,13 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>Add one or more tags (keys and values) to a specified application. A
- *          <i>tag</i> is a label that you optionally define and associate with an
+ *             <i>tag</i> is a label that you optionally define and associate with an
  *          application. Tags can help you categorize and manage application in different ways, such as
  *          by purpose, owner, environment, or other criteria. </p>
- *          <p>Each tag consists of a required <i>tag key</i> and an
- *          associated <i>tag value</i>, both of which you define. A tag key is a
- *          general label that acts as a category for more specific tag values. A tag value acts as
- *          a descriptor within a tag key.</p>
+ *          <p>Each tag consists of a required <i>tag key</i> and an associated
+ *             <i>tag value</i>, both of which you define. A tag key is a general label
+ *          that acts as a category for more specific tag values. A tag value acts as a descriptor
+ *          within a tag key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

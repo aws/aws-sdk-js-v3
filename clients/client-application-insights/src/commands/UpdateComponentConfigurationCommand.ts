@@ -29,9 +29,9 @@ export interface UpdateComponentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the monitoring configurations for the component. The configuration input parameter
- *          is an escaped JSON of the configuration and should match the schema of what is returned
- *          by <code>DescribeComponentConfigurationRecommendation</code>. </p>
+ * <p>Updates the monitoring configurations for the component. The configuration input
+ *          parameter is an escaped JSON of the configuration and should match the schema of what is
+ *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

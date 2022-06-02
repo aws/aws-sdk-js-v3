@@ -4,9 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ApplicationInsightsServiceException as __BaseException } from "./ApplicationInsightsServiceException";
 
 /**
- * <p>
- *             User does not have permissions to perform this action.
- *          </p>
+ * <p> User does not have permissions to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -49,8 +47,8 @@ export type Tier =
 export type OsType = "LINUX" | "WINDOWS";
 
 /**
- * <p>Describes a standalone resource or similarly grouped resources that the application is made
- *          up of.</p>
+ * <p>Describes a standalone resource or similarly grouped resources that the application is
+ *          made up of.</p>
  */
 export interface ApplicationComponent {
   /**
@@ -59,21 +57,19 @@ export interface ApplicationComponent {
   ComponentName?: string;
 
   /**
-   * <p>
-   *          If logging is supported for the resource type, indicates whether the component has configured logs to be monitored.
-   *       </p>
+   * <p> If logging is supported for the resource type, indicates whether the component has
+   *          configured logs to be monitored. </p>
    */
   ComponentRemarks?: string;
 
   /**
-   * <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>
+   * <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group,
+   *          Classic ELB, Application ELB, and SQS Queue.</p>
    */
   ResourceType?: string;
 
   /**
-   * <p>
-   *          The operating system of the component.
-   *       </p>
+   * <p> The operating system of the component. </p>
    */
   OsType?: OsType | string;
 
@@ -88,9 +84,7 @@ export interface ApplicationComponent {
   Monitor?: boolean;
 
   /**
-   * <p>
-   *          Workloads detected in the application component.
-   *       </p>
+   * <p> Workloads detected in the application component. </p>
    */
   DetectedWorkload?: { [key: string]: { [key: string]: string } };
 }
@@ -124,25 +118,21 @@ export interface ApplicationInfo {
   LifeCycle?: string;
 
   /**
-   * <p>
-   *          The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications
-   *          for opsItem updates.
-   *       </p>
+   * <p> The SNS topic provided to Application Insights that is associated to the created
+   *          opsItems to receive SNS notifications for opsItem updates. </p>
    */
   OpsItemSNSTopicArn?: string;
 
   /**
-   * <p>
-   *          Indicates whether Application Insights will create opsItems for any problem detected by Application
-   *          Insights for an application.
-   *       </p>
+   * <p> Indicates whether Application Insights will create opsItems for any problem detected by
+   *          Application Insights for an application. </p>
    */
   OpsCenterEnabled?: boolean;
 
   /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
+   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
+   *          application resources, such as <code>instance terminated</code>, <code>failed
+   *             deployment</code>, and others. </p>
    */
   CWEMonitorEnabled?: boolean;
 
@@ -160,7 +150,16 @@ export interface ApplicationInfo {
    */
   Remarks?: string;
 
+  /**
+   * <p> Indicates whether auto-configuration is turned on for this application. </p>
+   */
   AutoConfigEnabled?: boolean;
+
+  /**
+   * <p>
+   *          The method used by Application Insights to onboard your resources.
+   *       </p>
+   */
   DiscoveryType?: DiscoveryType | string;
 }
 
@@ -205,50 +204,38 @@ export type ConfigurationEventResourceType =
 export type ConfigurationEventStatus = "ERROR" | "INFO" | "WARN";
 
 /**
- * <p>
- *          The event information.
- *       </p>
+ * <p> The event information. </p>
  */
 export interface ConfigurationEvent {
   /**
-   * <p>
-   *          The resource monitored by Application Insights.
-   *       </p>
+   * <p> The resource monitored by Application Insights. </p>
    */
   MonitoredResourceARN?: string;
 
   /**
-   * <p>
-   *          The status of the configuration update event. Possible values include INFO, WARN, and ERROR.
-   *       </p>
+   * <p> The status of the configuration update event. Possible values include INFO, WARN, and
+   *          ERROR. </p>
    */
   EventStatus?: ConfigurationEventStatus | string;
 
   /**
-   * <p>
-   *          The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM.
-   *       </p>
+   * <p> The resource type that Application Insights attempted to configure, for example,
+   *          CLOUDWATCH_ALARM. </p>
    */
   EventResourceType?: ConfigurationEventResourceType | string;
 
   /**
-   * <p>
-   *          The timestamp of the event.
-   *       </p>
+   * <p> The timestamp of the event. </p>
    */
   EventTime?: Date;
 
   /**
-   * <p>
-   *          The details of the event in plain text.
-   *       </p>
+   * <p> The details of the event in plain text. </p>
    */
   EventDetail?: string;
 
   /**
-   * <p>
-   *          The name of the resource Application Insights attempted to configure.
-   *       </p>
+   * <p> The name of the resource Application Insights attempted to configure. </p>
    */
   EventResourceName?: string;
 }
@@ -262,37 +249,41 @@ export namespace ConfigurationEvent {
   });
 }
 
+export enum GroupingType {
+  ACCOUNT_BASED = "ACCOUNT_BASED",
+}
+
 /**
- * <p>An object that defines the tags associated with an application.
- *          A <i>tag</i> is a label that you optionally define and associate with
- *          an application. Tags can help you categorize and manage resources in different ways, such as
+ * <p>An object that defines the tags associated with an application. A
+ *             <i>tag</i> is a label that you optionally define and associate with an
+ *          application. Tags can help you categorize and manage resources in different ways, such as
  *          by purpose, owner, environment, or other criteria.</p>
- *          <p>Each tag consists of a required <i>tag key</i> and an
- *          associated <i>tag value</i>, both of which you define. A tag key is a
- *          general label that acts as a category for a more specific tag value. A tag value acts as
- *          a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
- *          value can contain as many as 256 characters. The characters can be Unicode letters,
- *          digits, white space, or one of the following symbols: _ . : / = + -. The following
- *          additional restrictions apply to tags:</p>
+ *          <p>Each tag consists of a required <i>tag key</i> and an associated
+ *             <i>tag value</i>, both of which you define. A tag key is a general label
+ *          that acts as a category for a more specific tag value. A tag value acts as a descriptor
+ *          within a tag key. A tag key can contain as many as 128 characters. A tag value can contain
+ *          as many as 256 characters. The characters can be Unicode letters, digits, white space, or
+ *          one of the following symbols: _ . : / = + -. The following additional restrictions apply to
+ *          tags:</p>
  *          <ul>
  *             <li>
  *                <p>Tag keys and values are case sensitive.</p>
  *             </li>
  *             <li>
- *                <p>For each associated resource, each tag key must be unique and it can have only
- *                one value.</p>
+ *                <p>For each associated resource, each tag key must be unique and it can have only one
+ *                value.</p>
  *             </li>
  *             <li>
- *                <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
- *                any tag keys or values that you define. In addition, you can't edit or remove
- *                tag keys or values that use this prefix. </p>
+ *                <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in any
+ *                tag keys or values that you define. In addition, you can't edit or remove tag keys or
+ *                values that use this prefix. </p>
  *             </li>
  *          </ul>
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *          128 characters. The minimum length is 1 character.</p>
+   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is 128
+   *          characters. The minimum length is 1 character.</p>
    */
   Key: string | undefined;
 
@@ -320,37 +311,49 @@ export interface CreateApplicationRequest {
   ResourceGroupName?: string;
 
   /**
-   * <p>
-   *          When set to <code>true</code>, creates opsItems for any problems detected on an application.
-   *       </p>
+   * <p> When set to <code>true</code>, creates opsItems for any problems detected on an
+   *          application. </p>
    */
   OpsCenterEnabled?: boolean;
 
   /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
+   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
+   *          application resources, such as <code>instance terminated</code>, <code>failed
+   *             deployment</code>, and others. </p>
    */
   CWEMonitorEnabled?: boolean;
 
   /**
-   * <p>
-   *          The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to
-   *          receive notifications for updates to the opsItem.
-   *       </p>
+   * <p> The SNS topic provided to Application Insights that is associated to the created
+   *          opsItem. Allows you to receive notifications for updates to the opsItem. </p>
    */
   OpsItemSNSTopicArn?: string;
 
   /**
-   * <p>List of tags to add to the application.
-   *          tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
-   *          length of a tag key is 128 characters. The maximum length of a tag value is 256
-   *          characters.</p>
+   * <p>List of tags to add to the application. tag key (<code>Key</code>) and an associated tag
+   *          value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum
+   *          length of a tag value is 256 characters.</p>
    */
   Tags?: Tag[];
 
+  /**
+   * <p> Indicates whether Application Insights automatically configures unmonitored resources
+   *          in the resource group. </p>
+   */
   AutoConfigEnabled?: boolean;
+
+  /**
+   * <p> Configures all of the resources in the resource group by applying the recommended
+   *          configurations. </p>
+   */
   AutoCreate?: boolean;
+
+  /**
+   * <p>Application Insights can create applications based on a resource group or on an account.
+   *       To create an account-based application using all of the resources in the account, set this parameter to <code>ACCOUNT_BASED</code>.
+   *       </p>
+   */
+  GroupingType?: GroupingType | string;
 }
 
 export namespace CreateApplicationRequest {
@@ -537,14 +540,22 @@ export interface CreateLogPatternRequest {
   PatternName: string | undefined;
 
   /**
-   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
+   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward
+   *          lookahead or backreference constructions are not supported.</p>
    */
   Pattern: string | undefined;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
-   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
-   *       </p>
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
+   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
+   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
+   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
+   *          last to get matched. When you configure custom log patterns from the console, a
+   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
+   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
+   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
+   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
+   *          AWS-provided patterns. </p>
    */
   Rank: number | undefined;
 }
@@ -559,31 +570,42 @@ export namespace CreateLogPatternRequest {
 }
 
 /**
- * <p>An object that defines the log patterns that belongs to a <code>LogPatternSet</code>.</p>
+ * <p>An object that defines the log patterns that belongs to a
+ *          <code>LogPatternSet</code>.</p>
  */
 export interface LogPattern {
   /**
-   * <p>The name of the log pattern. A log pattern name can contain as many as 30 characters, and it cannot
-   *          be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
+   * <p>The name of the log pattern. A log pattern name can contain as many as 30 characters,
+   *          and it cannot be empty. The characters can be Unicode letters, digits, or one of the
+   *          following symbols: period, dash, underscore.</p>
    */
   PatternSetName?: string;
 
   /**
-   * <p>The name of the log pattern. A log pattern name can contain as many as 50 characters, and it cannot
-   *          be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
+   * <p>The name of the log pattern. A log pattern name can contain as many as 50 characters,
+   *          and it cannot be empty. The characters can be Unicode letters, digits, or one of the
+   *          following symbols: period, dash, underscore.</p>
    */
   PatternName?: string;
 
   /**
-   * <p>A regular expression that defines the log pattern. A log pattern can contain as many as 50 characters, and it cannot
-   *          be empty. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
+   * <p>A regular expression that defines the log pattern. A log pattern can contain as many as
+   *          50 characters, and it cannot be empty. The pattern must be DFA compatible. Patterns that
+   *          utilize forward lookahead or backreference constructions are not supported.</p>
    */
   Pattern?: string;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
-   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
-   *       </p>
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
+   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
+   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
+   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
+   *          last to get matched. When you configure custom log patterns from the console, a
+   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
+   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
+   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
+   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
+   *          AWS-provided patterns. </p>
    */
   Rank?: number;
 }
@@ -769,8 +791,8 @@ export namespace DescribeComponentRequest {
 
 export interface DescribeComponentResponse {
   /**
-   * <p>Describes a standalone resource or similarly grouped resources that the application is made
-   *          up of.</p>
+   * <p>Describes a standalone resource or similarly grouped resources that the application is
+   *          made up of.</p>
    */
   ApplicationComponent?: ApplicationComponent;
 
@@ -819,13 +841,14 @@ export interface DescribeComponentConfigurationResponse {
   /**
    * <p>The tier of the application component. Supported tiers include
    *          <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>,
-   *          <code>SQL_SERVER</code>, and <code>DEFAULT</code>
+   *             <code>SQL_SERVER</code>, and <code>DEFAULT</code>
    *          </p>
    */
   Tier?: Tier | string;
 
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>
+   * <p>The configuration settings of the component. The value is the escaped JSON of the
+   *          configuration.</p>
    */
   ComponentConfiguration?: string;
 }
@@ -851,9 +874,7 @@ export interface DescribeComponentConfigurationRecommendationRequest {
   ComponentName: string | undefined;
 
   /**
-   * <p>The tier of the application component. Supported tiers include
-   *          <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,
-   *          and <code>DEFAULT</code>.</p>
+   * <p>The tier of the application component.</p>
    */
   Tier: Tier | string | undefined;
 }
@@ -869,7 +890,8 @@ export namespace DescribeComponentConfigurationRecommendationRequest {
 
 export interface DescribeComponentConfigurationRecommendationResponse {
   /**
-   * <p>The recommended configuration settings of the component. The value is the escaped JSON of the configuration.</p>
+   * <p>The recommended configuration settings of the component. The value is the escaped JSON
+   *          of the configuration.</p>
    */
   ComponentConfiguration?: string;
 }
@@ -958,7 +980,7 @@ export interface Observation {
   Id?: string;
 
   /**
-   * <p>The time when the observation was  first detected, in epoch seconds.</p>
+   * <p>The time when the observation was first detected, in epoch seconds.</p>
    */
   StartTime?: Date;
 
@@ -983,7 +1005,8 @@ export interface Observation {
   LogGroup?: string;
 
   /**
-   * <p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>
+   * <p>The timestamp in the CloudWatch Logs that specifies when the matched line
+   *          occurred.</p>
    */
   LineTime?: Date;
 
@@ -1018,7 +1041,8 @@ export interface Observation {
   Value?: number;
 
   /**
-   * <p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>
+   * <p> The ID of the CloudWatch Event-based observation related to the detected problem.
+   *       </p>
    */
   CloudWatchEventId?: string;
 
@@ -1055,172 +1079,134 @@ export interface Observation {
   HealthEventTypeCategory?: string;
 
   /**
-   * <p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>
+   * <p> The description of the AWS Health event provided by the service, such as Amazon EC2.
+   *       </p>
    */
   HealthEventDescription?: string;
 
   /**
-   * <p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>
+   * <p> The deployment ID of the CodeDeploy-based observation related to the detected problem.
+   *       </p>
    */
   CodeDeployDeploymentId?: string;
 
   /**
-   * <p>
-   *          The deployment group to which the CodeDeploy deployment belongs.
-   *       </p>
+   * <p> The deployment group to which the CodeDeploy deployment belongs. </p>
    */
   CodeDeployDeploymentGroup?: string;
 
   /**
-   * <p>
-   *          The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code> FAILURE</code>.
-   *       </p>
+   * <p> The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code>
+   *             FAILURE</code>. </p>
    */
   CodeDeployState?: string;
 
   /**
-   * <p>
-   *          The CodeDeploy application to which the deployment belongs.
-   *       </p>
+   * <p> The CodeDeploy application to which the deployment belongs. </p>
    */
   CodeDeployApplication?: string;
 
   /**
-   * <p>
-   *          The instance group to which the CodeDeploy instance belongs.
-   *       </p>
+   * <p> The instance group to which the CodeDeploy instance belongs. </p>
    */
   CodeDeployInstanceGroupId?: string;
 
   /**
-   * <p>
-   *          The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.
+   * <p> The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.
    *       </p>
    */
   Ec2State?: string;
 
   /**
-   * <p>
-   *          The category of an RDS event.
-   *       </p>
+   * <p> The category of an RDS event. </p>
    */
   RdsEventCategories?: string;
 
   /**
-   * <p>
-   *          The message of an RDS event.
-   *       </p>
+   * <p> The message of an RDS event. </p>
    */
   RdsEventMessage?: string;
 
   /**
-   * <p>
-   *          The name of the S3 CloudWatch Event-based observation.
-   *       </p>
+   * <p> The name of the S3 CloudWatch Event-based observation. </p>
    */
   S3EventName?: string;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the step function execution-based observation.
+   * <p> The Amazon Resource Name (ARN) of the step function execution-based observation.
    *       </p>
    */
   StatesExecutionArn?: string;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN)  of the step function-based observation.
-   *       </p>
+   * <p> The Amazon Resource Name (ARN) of the step function-based observation. </p>
    */
   StatesArn?: string;
 
   /**
-   * <p>
-   *          The status of the step function-related observation.
-   *       </p>
+   * <p> The status of the step function-related observation. </p>
    */
   StatesStatus?: string;
 
   /**
-   * <p>
-   *          The input to the step function-based observation.
-   *       </p>
+   * <p> The input to the step function-based observation. </p>
    */
   StatesInput?: string;
 
   /**
-   * <p>
-   *          The type of EBS CloudWatch event, such as <code>createVolume</code>, <code>deleteVolume</code> or <code>attachVolume</code>.
-   *       </p>
+   * <p> The type of EBS CloudWatch event, such as <code>createVolume</code>,
+   *             <code>deleteVolume</code> or <code>attachVolume</code>. </p>
    */
   EbsEvent?: string;
 
   /**
-   * <p>
-   *          The result of an EBS CloudWatch event, such as <code>failed</code> or <code>succeeded</code>.
-   *       </p>
+   * <p> The result of an EBS CloudWatch event, such as <code>failed</code> or
+   *             <code>succeeded</code>. </p>
    */
   EbsResult?: string;
 
   /**
-   * <p>
-   *          The cause of an EBS CloudWatch event.
-   *       </p>
+   * <p> The cause of an EBS CloudWatch event. </p>
    */
   EbsCause?: string;
 
   /**
-   * <p>
-   *             The request ID of an EBS CloudWatch event.
-   *          </p>
+   * <p> The request ID of an EBS CloudWatch event. </p>
    */
   EbsRequestId?: string;
 
   /**
-   * <p>
-   *          The X-Ray request fault percentage for this node.
-   *       </p>
+   * <p> The X-Ray request fault percentage for this node. </p>
    */
   XRayFaultPercent?: number;
 
   /**
-   * <p>
-   *          The X-Ray request throttle percentage for this node.
-   *       </p>
+   * <p> The X-Ray request throttle percentage for this node. </p>
    */
   XRayThrottlePercent?: number;
 
   /**
-   * <p>
-   *          The X-Ray request error percentage for this node.
-   *       </p>
+   * <p> The X-Ray request error percentage for this node. </p>
    */
   XRayErrorPercent?: number;
 
   /**
-   * <p>
-   *          The X-Ray request count for this node.
-   *       </p>
+   * <p> The X-Ray request count for this node. </p>
    */
   XRayRequestCount?: number;
 
   /**
-   * <p>
-   *          The X-Ray node request average latency for this node.
-   *       </p>
+   * <p> The X-Ray node request average latency for this node. </p>
    */
   XRayRequestAverageLatency?: number;
 
   /**
-   * <p>
-   *          The name of the X-Ray node.
-   *       </p>
+   * <p> The name of the X-Ray node. </p>
    */
   XRayNodeName?: string;
 
   /**
-   * <p>
-   *          The type of the  X-Ray node.      </p>
+   * <p> The type of the X-Ray node. </p>
    */
   XRayNodeType?: string;
 }
@@ -1270,7 +1256,7 @@ export type FeedbackKey = "INSIGHTS_FEEDBACK";
 
 export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 
-export type SeverityLevel = "High" | "Low" | "Medium";
+export type SeverityLevel = "High" | "Informative" | "Low" | "Medium";
 
 export type Status = "IGNORE" | "PENDING" | "RECURRING" | "RESOLVED";
 
@@ -1328,7 +1314,15 @@ export interface Problem {
    */
   Feedback?: { [key: string]: FeedbackValue | string };
 
+  /**
+   * <p> The number of times that the same problem reoccurred after the first time it was
+   *          resolved. </p>
+   */
   RecurringCount?: number;
+
+  /**
+   * <p> The last time that the problem reoccurred after its last resolution. </p>
+   */
   LastRecurrenceTime?: Date;
 }
 
@@ -1517,7 +1511,8 @@ export interface ListConfigurationHistoryRequest {
   EndTime?: Date;
 
   /**
-   * <p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>
+   * <p>The status of the configuration update event. Possible values include INFO, WARN, and
+   *          ERROR.</p>
    */
   EventStatus?: ConfigurationEventStatus | string;
 
@@ -1533,10 +1528,11 @@ export interface ListConfigurationHistoryRequest {
   MaxResults?: number;
 
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where
-   *          <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination
-   *          continues from the end of the previous results that returned the <code>NextToken</code> value. This
-   *          value is <code>null</code> when there are no more results to return.</p>
+   * <p>The <code>NextToken</code> value returned from a previous paginated
+   *             <code>ListConfigurationHistory</code> request where <code>MaxResults</code> was used and
+   *          the results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>NextToken</code> value. This value is
+   *             <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -1695,8 +1691,8 @@ export interface ListProblemsRequest {
   ResourceGroupName?: string;
 
   /**
-   * <p>The time when the problem was detected, in epoch
-   *          seconds. If you don't specify a time frame for the request, problems within the past seven days are returned.</p>
+   * <p>The time when the problem was detected, in epoch seconds. If you don't specify a time
+   *          frame for the request, problems within the past seven days are returned.</p>
    */
   StartTime?: Date;
 
@@ -1717,6 +1713,9 @@ export interface ListProblemsRequest {
    */
   NextToken?: string;
 
+  /**
+   * <p> The name of the component. </p>
+   */
   ComponentName?: string;
 }
 
@@ -1741,6 +1740,9 @@ export interface ListProblemsResponse {
    */
   NextToken?: string;
 
+  /**
+   * <p> The name of the resource group. </p>
+   */
   ResourceGroupName?: string;
 }
 
@@ -1774,7 +1776,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>An array that lists all the tags that are associated with the application. Each tag
    *          consists of a required tag key (<code>Key</code>) and an associated tag value
-   *          (<code>Value</code>).</p>
+   *             (<code>Value</code>).</p>
    */
   Tags?: Tag[];
 }
@@ -1790,15 +1792,15 @@ export namespace ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>
+   * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags
+   *          to.</p>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tags that to add to the application. A tag consists of a required
-   *          tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
-   *          length of a tag key is 128 characters. The maximum length of a tag value is 256
-   *          characters.</p>
+   * <p>A list of tags that to add to the application. A tag consists of a required tag key
+   *             (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length
+   *          of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -1824,8 +1826,8 @@ export namespace TagResourceResponse {
 }
 
 /**
- * <p>The number of the provided tags is beyond the limit, or
- *          the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>
+ * <p>The number of the provided tags is beyond the limit, or the number of total tags you are
+ *          trying to attach to the specified resource exceeds the limit.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -1852,7 +1854,8 @@ export class TooManyTagsException extends __BaseException {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>
+   * <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more
+   *          tags from.</p>
    */
   ResourceARN: string | undefined;
 
@@ -1893,32 +1896,32 @@ export interface UpdateApplicationRequest {
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>
-   *          When set to <code>true</code>, creates opsItems for any problems detected on an application.
-   *       </p>
+   * <p> When set to <code>true</code>, creates opsItems for any problems detected on an
+   *          application. </p>
    */
   OpsCenterEnabled?: boolean;
 
   /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
+   * <p> Indicates whether Application Insights can listen to CloudWatch events for the
+   *          application resources, such as <code>instance terminated</code>, <code>failed
+   *             deployment</code>, and others. </p>
    */
   CWEMonitorEnabled?: boolean;
 
   /**
-   * <p>
-   *          The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to
-   *          receive notifications for updates to the opsItem.</p>
+   * <p> The SNS topic provided to Application Insights that is associated to the created
+   *          opsItem. Allows you to receive notifications for updates to the opsItem.</p>
    */
   OpsItemSNSTopicArn?: string;
 
   /**
-   * <p>
-   *          Disassociates the SNS topic from the opsItem created for detected problems.</p>
+   * <p> Disassociates the SNS topic from the opsItem created for detected problems.</p>
    */
   RemoveSNSTopic?: boolean;
 
+  /**
+   * <p> Turns auto-configuration on or off. </p>
+   */
   AutoConfigEnabled?: boolean;
 }
 
@@ -2006,19 +2009,23 @@ export interface UpdateComponentConfigurationRequest {
   Monitor?: boolean;
 
   /**
-   * <p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,
-   *          <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>
+   * <p>The tier of the application component.</p>
    */
   Tier?: Tier | string;
 
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For
-   *          more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>.
-   *          You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete
-   *          format of the component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
+   * <p>The configuration settings of the component. The value is the escaped JSON of the
+   *          configuration. For more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>. You can send a request to
+   *             <code>DescribeComponentConfigurationRecommendation</code> to see the recommended
+   *          configuration for a component. For the complete format of the component configuration file,
+   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
    */
   ComponentConfiguration?: string;
 
+  /**
+   * <p> Automatically configures the component by applying the recommended configurations.
+   *       </p>
+   */
   AutoConfigEnabled?: boolean;
 }
 
@@ -2059,14 +2066,22 @@ export interface UpdateLogPatternRequest {
   PatternName: string | undefined;
 
   /**
-   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
+   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward
+   *          lookahead or backreference constructions are not supported.</p>
    */
   Pattern?: string;
 
   /**
-   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
-   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
-   *       </p>
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and
+   *             <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set
+   *          your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will
+   *          be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be
+   *          last to get matched. When you configure custom log patterns from the console, a
+   *             <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A
+   *             <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a
+   *             <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank
+   *          values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for
+   *          AWS-provided patterns. </p>
    */
   Rank?: number;
 }

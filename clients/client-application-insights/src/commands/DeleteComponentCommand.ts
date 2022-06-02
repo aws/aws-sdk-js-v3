@@ -27,8 +27,9 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Ungroups a custom component. When you ungroup custom components, all applicable
- *          monitors that are set up for the component are removed and the instances revert to their standalone status.</p>
+ * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
+ *          that are set up for the component are removed and the instances revert to their standalone
+ *          status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,8 @@ export interface DescribeComponentCommandInput extends DescribeComponentRequest 
 export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a component and lists the resources that are grouped together in a component.</p>
+ * <p>Describes a component and lists the resources that are grouped together in a
+ *          component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
