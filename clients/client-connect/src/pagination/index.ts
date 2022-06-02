@@ -28,6 +28,7 @@ export * from "./ListRoutingProfilesPaginator";
 export * from "./ListSecurityKeysPaginator";
 export * from "./ListSecurityProfilePermissionsPaginator";
 export * from "./ListSecurityProfilesPaginator";
+export * from "./ListTaskTemplatesPaginator";
 export * from "./ListUseCasesPaginator";
 export * from "./ListUserHierarchyGroupsPaginator";
 export * from "./ListUsersPaginator";

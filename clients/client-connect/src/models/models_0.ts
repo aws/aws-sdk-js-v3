@@ -946,7 +946,8 @@ export interface ClaimPhoneNumberRequest {
   TargetArn: string | undefined;
 
   /**
-   * <p>The phone number you want to claim. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   * <p>The phone number you want to claim. Phone numbers are formatted <code>[+] [country code]
+   *     [subscriber number including area code]</code>.</p>
    */
   PhoneNumber: string | undefined;
 
@@ -1999,6 +2000,349 @@ export namespace CreateSecurityProfileResponse {
   });
 }
 
+/**
+ * <p>The identifier of the task template field.</p>
+ */
+export interface TaskTemplateFieldIdentifier {
+  /**
+   * <p>The name of the task template field.</p>
+   */
+  Name?: string;
+}
+
+export namespace TaskTemplateFieldIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateFieldIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A field that is invisible to an agent.</p>
+ */
+export interface InvisibleFieldInfo {
+  /**
+   * <p>Identifier of the invisible field.</p>
+   */
+  Id?: TaskTemplateFieldIdentifier;
+}
+
+export namespace InvisibleFieldInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvisibleFieldInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates a field that is read-only to an agent.</p>
+ */
+export interface ReadOnlyFieldInfo {
+  /**
+   * <p>Identifier of the read-only field.</p>
+   */
+  Id?: TaskTemplateFieldIdentifier;
+}
+
+export namespace ReadOnlyFieldInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReadOnlyFieldInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a required field.</p>
+ */
+export interface RequiredFieldInfo {
+  /**
+   * <p>The unique identifier for the field.</p>
+   */
+  Id?: TaskTemplateFieldIdentifier;
+}
+
+export namespace RequiredFieldInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequiredFieldInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes constraints that apply to the template fields.</p>
+ */
+export interface TaskTemplateConstraints {
+  /**
+   * <p>Lists the fields that are required to be filled by agents.</p>
+   */
+  RequiredFields?: RequiredFieldInfo[];
+
+  /**
+   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
+   */
+  ReadOnlyFields?: ReadOnlyFieldInfo[];
+
+  /**
+   * <p>Lists the fields that are invisible to agents.</p>
+   */
+  InvisibleFields?: InvisibleFieldInfo[];
+}
+
+export namespace TaskTemplateConstraints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateConstraints): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a default field and its corresponding value.</p>
+ */
+export interface TaskTemplateDefaultFieldValue {
+  /**
+   * <p>Identifier of a field. </p>
+   */
+  Id?: TaskTemplateFieldIdentifier;
+
+  /**
+   * <p>Default value for the field.</p>
+   */
+  DefaultValue?: string;
+}
+
+export namespace TaskTemplateDefaultFieldValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateDefaultFieldValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes default values for fields on a template.</p>
+ */
+export interface TaskTemplateDefaults {
+  /**
+   * <p>Default value for the field.</p>
+   */
+  DefaultFieldValues?: TaskTemplateDefaultFieldValue[];
+}
+
+export namespace TaskTemplateDefaults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateDefaults): any => ({
+    ...obj,
+  });
+}
+
+export enum TaskTemplateFieldType {
+  BOOLEAN = "BOOLEAN",
+  DATE_TIME = "DATE_TIME",
+  DESCRIPTION = "DESCRIPTION",
+  EMAIL = "EMAIL",
+  NAME = "NAME",
+  NUMBER = "NUMBER",
+  QUICK_CONNECT = "QUICK_CONNECT",
+  SCHEDULED_TIME = "SCHEDULED_TIME",
+  SINGLE_SELECT = "SINGLE_SELECT",
+  TEXT = "TEXT",
+  TEXT_AREA = "TEXT_AREA",
+  URL = "URL",
+}
+
+/**
+ * <p>Describes a single task template field.</p>
+ */
+export interface TaskTemplateField {
+  /**
+   * <p>The unique identifier for the field.</p>
+   */
+  Id: TaskTemplateFieldIdentifier | undefined;
+
+  /**
+   * <p>The description of the field.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates the type of field.</p>
+   */
+  Type?: TaskTemplateFieldType | string;
+
+  /**
+   * <p>A list of options for a single select field.</p>
+   */
+  SingleSelectOptions?: string[];
+}
+
+export namespace TaskTemplateField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateField): any => ({
+    ...obj,
+  });
+}
+
+export enum TaskTemplateStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+export interface CreateTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   */
+  ContactFlowId?: string;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   */
+  Constraints?: TaskTemplateConstraints;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   */
+  Defaults?: TaskTemplateDefaults;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created. </p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   */
+  Fields: TaskTemplateField[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateTaskTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTaskTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTaskTemplateResponse {
+  /**
+   * <p>The identifier of the task template resource.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
+   */
+  Arn: string | undefined;
+}
+
+export namespace CreateTaskTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTaskTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum PropertyValidationExceptionReason {
+  INVALID_FORMAT = "INVALID_FORMAT",
+  NOT_SUPPORTED = "NOT_SUPPORTED",
+  REFERENCED_RESOURCE_NOT_FOUND = "REFERENCED_RESOURCE_NOT_FOUND",
+  REQUIRED_PROPERTY_MISSING = "REQUIRED_PROPERTY_MISSING",
+  RESOURCE_NAME_ALREADY_EXISTS = "RESOURCE_NAME_ALREADY_EXISTS",
+  UNIQUE_CONSTRAINT_VIOLATED = "UNIQUE_CONSTRAINT_VIOLATED",
+}
+
+/**
+ * <p>Contains information about why a property is not valid.</p>
+ */
+export interface PropertyValidationExceptionProperty {
+  /**
+   * <p>The full property path.</p>
+   */
+  PropertyPath: string | undefined;
+
+  /**
+   * <p>Why the property is not valid.</p>
+   */
+  Reason: PropertyValidationExceptionReason | string | undefined;
+
+  /**
+   * <p>A message describing why the property is not valid.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace PropertyValidationExceptionProperty {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PropertyValidationExceptionProperty): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export class PropertyValidationException extends __BaseException {
+  readonly name: "PropertyValidationException" = "PropertyValidationException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  PropertyList?: PropertyValidationExceptionProperty[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PropertyValidationException, __BaseException>) {
+    super({
+      name: "PropertyValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PropertyValidationException.prototype);
+    this.Message = opts.Message;
+    this.PropertyList = opts.PropertyList;
+  }
+}
+
 export enum UseCaseType {
   CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
   RULES_EVALUATION = "RULES_EVALUATION",
@@ -2300,7 +2644,7 @@ export interface CreateVocabularyRequest {
   /**
    * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
    *    in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>,
-   *    <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
+   *     <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
    *    characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom
    *     vocabulary using a table</a>.</p>
    */
@@ -2547,6 +2891,38 @@ export class ResourceInUseException extends __BaseException {
     this.ResourceType = opts.ResourceType;
     this.ResourceId = opts.ResourceId;
   }
+}
+
+export interface DeleteTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  TaskTemplateId: string | undefined;
+}
+
+export namespace DeleteTaskTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTaskTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTaskTemplateResponse {}
+
+export namespace DeleteTaskTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTaskTemplateResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface DeleteUseCaseRequest {
@@ -4566,9 +4942,9 @@ export namespace Vocabulary {
 
 export interface DescribeVocabularyResponse {
   /**
-   * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They
-   *    are generally domain-specific words and phrases, words that Contact Lens is not recognizing, or
-   *    proper nouns.</p>
+   * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They are
+   *    generally domain-specific words and phrases, words that Contact Lens is not recognizing, or proper
+   *    nouns.</p>
    */
   Vocabulary: Vocabulary | undefined;
 }
@@ -5647,6 +6023,111 @@ export namespace GetMetricDataResponse {
   });
 }
 
+export interface GetTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The system generated version of a task template that is associated with a task, when the
+   *    task is created.</p>
+   */
+  SnapshotVersion?: string;
+}
+
+export namespace GetTaskTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTaskTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTaskTemplateResponse {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   */
+  ContactFlowId?: string;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   */
+  Constraints?: TaskTemplateConstraints;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   */
+  Defaults?: TaskTemplateDefaults;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   */
+  Fields?: TaskTemplateField[];
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace GetTaskTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTaskTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -6014,6 +6495,10 @@ export namespace ListContactFlowsResponse {
 
 export enum ReferenceType {
   ATTACHMENT = "ATTACHMENT",
+  DATE = "DATE",
+  EMAIL = "EMAIL",
+  NUMBER = "NUMBER",
+  STRING = "STRING",
   URL = "URL",
 }
 
@@ -6059,8 +6544,8 @@ export enum ReferenceStatus {
 }
 
 /**
- * <p>Information about the attachment reference if the <code>referenceType</code> is
- *     <code>ATTACHMENT</code>. Otherwise, null.</p>
+ * <p>Information about a reference when the <code>referenceType</code> is
+ *    <code>ATTACHMENT</code>. Otherwise, null.</p>
  */
 export interface AttachmentReference {
   /**
@@ -6069,12 +6554,12 @@ export interface AttachmentReference {
   Name?: string;
 
   /**
-   * <p>Contains the location path of the attachment reference.</p>
+   * <p>The location path of the attachment reference.</p>
    */
   Value?: string;
 
   /**
-   * <p>Status of an attachment reference type.</p>
+   * <p>Status of the attachment reference type.</p>
    */
   Status?: ReferenceStatus | string;
 }
@@ -6084,6 +6569,106 @@ export namespace AttachmentReference {
    * @internal
    */
   export const filterSensitiveLog = (obj: AttachmentReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+ *    Otherwise, null.</p>
+ */
+export interface DateReference {
+  /**
+   * <p>Identifier of the date reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid date.</p>
+   */
+  Value?: string;
+}
+
+export namespace DateReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DateReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+ *    Otherwise, null.</p>
+ */
+export interface EmailReference {
+  /**
+   * <p>Identifier of the email reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid email address.</p>
+   */
+  Value?: string;
+}
+
+export namespace EmailReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EmailReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+ *    Otherwise, null.</p>
+ */
+export interface NumberReference {
+  /**
+   * <p>Identifier of the number reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid number.</p>
+   */
+  Value?: string;
+}
+
+export namespace NumberReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NumberReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+ *    Otherwise, null.</p>
+ */
+export interface StringReference {
+  /**
+   * <p>Identifier of the string reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid string.</p>
+   */
+  Value?: string;
+}
+
+export namespace StringReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StringReference): any => ({
     ...obj,
   });
 }
@@ -6118,45 +6703,125 @@ export namespace UrlReference {
  */
 export type ReferenceSummary =
   | ReferenceSummary.AttachmentMember
+  | ReferenceSummary.DateMember
+  | ReferenceSummary.EmailMember
+  | ReferenceSummary.NumberMember
+  | ReferenceSummary.StringMember
   | ReferenceSummary.UrlMember
   | ReferenceSummary.$UnknownMember;
 
 export namespace ReferenceSummary {
   /**
-   * <p>Information about the URL reference if the <code>referenceType</code> is <code>URL</code>.
+   * <p>Information about the reference when the <code>referenceType</code> is <code>URL</code>.
    *    Otherwise, null.</p>
    */
   export interface UrlMember {
     Url: UrlReference;
     Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Information about the attachment reference if the <code>referenceType</code> is
+   * <p>Information about the reference when the <code>referenceType</code> is
    *     <code>ATTACHMENT</code>. Otherwise, null.</p>
    */
   export interface AttachmentMember {
     Url?: never;
     Attachment: AttachmentReference;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface StringMember {
+    Url?: never;
+    Attachment?: never;
+    String: StringReference;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface NumberMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number: NumberReference;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface DateMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date: DateReference;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface EmailMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email: EmailReference;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     Url?: never;
     Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Url: (value: UrlReference) => T;
     Attachment: (value: AttachmentReference) => T;
+    String: (value: StringReference) => T;
+    Number: (value: NumberReference) => T;
+    Date: (value: DateReference) => T;
+    Email: (value: EmailReference) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ReferenceSummary, visitor: Visitor<T>): T => {
     if (value.Url !== undefined) return visitor.Url(value.Url);
     if (value.Attachment !== undefined) return visitor.Attachment(value.Attachment);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.Number !== undefined) return visitor.Number(value.Number);
+    if (value.Date !== undefined) return visitor.Date(value.Date);
+    if (value.Email !== undefined) return visitor.Email(value.Email);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -6166,6 +6831,10 @@ export namespace ReferenceSummary {
   export const filterSensitiveLog = (obj: ReferenceSummary): any => {
     if (obj.Url !== undefined) return { Url: UrlReference.filterSensitiveLog(obj.Url) };
     if (obj.Attachment !== undefined) return { Attachment: AttachmentReference.filterSensitiveLog(obj.Attachment) };
+    if (obj.String !== undefined) return { String: StringReference.filterSensitiveLog(obj.String) };
+    if (obj.Number !== undefined) return { Number: NumberReference.filterSensitiveLog(obj.Number) };
+    if (obj.Date !== undefined) return { Date: DateReference.filterSensitiveLog(obj.Date) };
+    if (obj.Email !== undefined) return { Email: EmailReference.filterSensitiveLog(obj.Email) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -6875,7 +7544,8 @@ export namespace ListPhoneNumbersResponse {
 
 export interface ListPhoneNumbersV2Request {
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed
+   *    to all the Amazon Connect instances belonging to your account.</p>
    */
   TargetArn?: string;
 
@@ -7465,556 +8135,6 @@ export namespace ListRoutingProfilesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityKeysRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListSecurityKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityKeysRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration information of the security key.</p>
- */
-export interface SecurityKey {
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The key of the security key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>When the security key was created.</p>
-   */
-  CreationTime?: Date;
-}
-
-export namespace SecurityKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityKey): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityKeysResponse {
-  /**
-   * <p>The security keys.</p>
-   */
-  SecurityKeys?: SecurityKey[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListSecurityKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityKeysResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityProfilePermissionsRequest {
-  /**
-   * <p>The identifier for the security profle.</p>
-   */
-  SecurityProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListSecurityProfilePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityProfilePermissionsResponse {
-  /**
-   * <p>The permissions granted to the security profile.</p>
-   */
-  Permissions?: string[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListSecurityProfilePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListSecurityProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about a security profile.</p>
- */
-export interface SecurityProfileSummary {
-  /**
-   * <p>The identifier of the security profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the security profile.</p>
-   */
-  Name?: string;
-}
-
-export namespace SecurityProfileSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityProfileSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSecurityProfilesResponse {
-  /**
-   * <p>Information about the security profiles.</p>
-   */
-  SecurityProfileSummaryList?: SecurityProfileSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListSecurityProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityProfilesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Information about the tags.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides summary information about the use cases for the specified integration
- *    association.</p>
- */
-export interface ListUseCasesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   */
-  IntegrationAssociationId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListUseCasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUseCasesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the
- *    use
- *    case.</p>
- */
-export interface UseCase {
-  /**
-   * <p>The identifier for the use case.</p>
-   */
-  UseCaseId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the use case.</p>
-   */
-  UseCaseArn?: string;
-
-  /**
-   * <p>The type of use case to associate to the integration association. Each integration
-   *    association can have only one of each use case type.</p>
-   */
-  UseCaseType?: UseCaseType | string;
-}
-
-export namespace UseCase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UseCase): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUseCasesResponse {
-  /**
-   * <p>The use cases.</p>
-   */
-  UseCaseSummaryList?: UseCase[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListUseCasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUseCasesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUserHierarchyGroupsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListUserHierarchyGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserHierarchyGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUserHierarchyGroupsResponse {
-  /**
-   * <p>Information about the hierarchy groups.</p>
-   */
-  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListUserHierarchyGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserHierarchyGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUsersRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains summary information about a user.</p>
- */
-export interface UserSummary {
-  /**
-   * <p>The identifier of the user account.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Connect user name of the user account.</p>
-   */
-  Username?: string;
-}
-
-export namespace UserSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUsersResponse {
-  /**
-   * <p>Information about the users.</p>
-   */
-  UserSummaryList?: UserSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutUserStatusRequest {
-  /**
-   * <p>The identifier of the user.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the agent status.</p>
-   */
-  AgentStatusId: string | undefined;
-}
-
-export namespace PutUserStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutUserStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutUserStatusResponse {}
-
-export namespace PutUserStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutUserStatusResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleasePhoneNumberRequest {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
-}
-
-export namespace ReleasePhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleasePhoneNumberRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResumeContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  InitialContactId: string | undefined;
-}
-
-export namespace ResumeContactRecordingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeContactRecordingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResumeContactRecordingResponse {}
-
-export namespace ResumeContactRecordingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeContactRecordingResponse): any => ({
     ...obj,
   });
 }

@@ -6,6 +6,7 @@ import {
   AgentStatusState,
   ContactFlowModuleState,
   ContactFlowState,
+  HierarchyGroupSummary,
   HoursOfOperationConfig,
   InstanceAttributeType,
   InstanceStorageConfig,
@@ -18,11 +19,687 @@ import {
   QuickConnectConfig,
   ReferenceType,
   RoutingProfileQueueConfig,
+  TaskTemplateConstraints,
+  TaskTemplateDefaults,
+  TaskTemplateField,
+  TaskTemplateStatus,
+  UseCaseType,
   UserIdentityInfo,
   UserPhoneConfig,
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+export interface ListSecurityKeysRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSecurityKeysRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityKeysRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of the security key.</p>
+ */
+export interface SecurityKey {
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The key of the security key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>When the security key was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace SecurityKey {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityKey): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityKeysResponse {
+  /**
+   * <p>The security keys.</p>
+   */
+  SecurityKeys?: SecurityKey[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityKeysResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityKeysResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityProfilePermissionsRequest {
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSecurityProfilePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityProfilePermissionsResponse {
+  /**
+   * <p>The permissions granted to the security profile.</p>
+   */
+  Permissions?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityProfilePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSecurityProfilesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a security profile.</p>
+ */
+export interface SecurityProfileSummary {
+  /**
+   * <p>The identifier of the security profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the security profile.</p>
+   */
+  Name?: string;
+}
+
+export namespace SecurityProfileSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityProfileSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityProfilesResponse {
+  /**
+   * <p>Information about the security profiles.</p>
+   */
+  SecurityProfileSummaryList?: SecurityProfileSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityProfilesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Information about the tags.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTaskTemplatesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>It is not expected that you set this because the value returned in the previous response is
+   *     always null.</p>
+   *          </important>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   *          <important>
+   *             <p>It is not expected that you set this.</p>
+   *          </important>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name?: string;
+}
+
+export namespace ListTaskTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTaskTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about the task template.</p>
+ */
+export interface TaskTemplateMetadata {
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the task template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   */
+  CreatedTime?: Date;
+}
+
+export namespace TaskTemplateMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskTemplateMetadata): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTaskTemplatesResponse {
+  /**
+   * <p>Provides details about a list of task templates belonging to an instance.</p>
+   */
+  TaskTemplates?: TaskTemplateMetadata[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <important>
+   *             <p>This is always returned as a null in the response.</p>
+   *          </important>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTaskTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTaskTemplatesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about the use cases for the specified integration
+ *    association.</p>
+ */
+export interface ListUseCasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListUseCasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUseCasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the
+ *    use
+ *    case.</p>
+ */
+export interface UseCase {
+  /**
+   * <p>The identifier for the use case.</p>
+   */
+  UseCaseId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   */
+  UseCaseArn?: string;
+
+  /**
+   * <p>The type of use case to associate to the integration association. Each integration
+   *    association can have only one of each use case type.</p>
+   */
+  UseCaseType?: UseCaseType | string;
+}
+
+export namespace UseCase {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UseCase): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   */
+  UseCaseSummaryList?: UseCase[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListUseCasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUseCasesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListUserHierarchyGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserHierarchyGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserHierarchyGroupsResponse {
+  /**
+   * <p>Information about the hierarchy groups.</p>
+   */
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListUserHierarchyGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserHierarchyGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUsersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListUsersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a user.</p>
+ */
+export interface UserSummary {
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Connect user name of the user account.</p>
+   */
+  Username?: string;
+}
+
+export namespace UserSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUsersResponse {
+  /**
+   * <p>Information about the users.</p>
+   */
+  UserSummaryList?: UserSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListUsersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutUserStatusRequest {
+  /**
+   * <p>The identifier of the user.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   */
+  AgentStatusId: string | undefined;
+}
+
+export namespace PutUserStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutUserStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutUserStatusResponse {}
+
+export namespace PutUserStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutUserStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleasePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace ReleasePhoneNumberRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleasePhoneNumberRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResumeContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  InitialContactId: string | undefined;
+}
+
+export namespace ResumeContactRecordingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResumeContactRecordingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResumeContactRecordingResponse {}
+
+export namespace ResumeContactRecordingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResumeContactRecordingResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface SearchAvailablePhoneNumbersRequest {
   /**
@@ -153,7 +830,7 @@ export enum StringComparisonType {
 
 /**
  * <p>A leaf node condition which can be used to specify a string condition, for example,
- *    <code>username = 'abc'</code>. </p>
+ *     <code>username = 'abc'</code>. </p>
  */
 export interface StringCondition {
   /**
@@ -183,7 +860,7 @@ export namespace StringCondition {
 
 /**
  * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
- *    BPO = 123</code>. </p>
+ *     BPO = 123</code>. </p>
  */
 export interface TagCondition {
   /**
@@ -207,27 +884,29 @@ export namespace TagCondition {
 }
 
 /**
- * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
- *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+ *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
  *          <ul>
  *             <li>
- *                <p>Top level list specifies conditions that need to be applied
- *     with <code>OR</code> operator</p>
+ *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+ *      operator</p>
  *             </li>
  *             <li>
  *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
- *     operator.</p>
+ *      operator.</p>
  *             </li>
  *          </ul>
  */
 export interface ControlPlaneTagFilter {
   /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.
+   *   </p>
    */
   OrConditions?: TagCondition[][];
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
    */
   AndConditions?: TagCondition[];
 
@@ -251,16 +930,16 @@ export namespace ControlPlaneTagFilter {
  */
 export interface UserSearchFilter {
   /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
    *          <ul>
    *             <li>
-   *                <p>Top level list specifies conditions that need to be applied
-   *     with <code>OR</code> operator</p>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
    *             </li>
    *             <li>
    *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *     operator.</p>
+   *      operator.</p>
    *             </li>
    *          </ul>
    */
@@ -591,13 +1270,15 @@ export interface StartChatContactRequest {
   ClientToken?: string;
 
   /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25 hour.
-   *    The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
+   * <p>The total duration of the newly started chat session. If not specified, the chat session
+   *    duration defaults to 25 hour. The minumum configurable time is 60 minutes. The maximum
+   *    configurable time is 10,080 minutes (7 days).</p>
    */
   ChatDurationInMinutes?: number;
 
   /**
-   * <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+   * <p>The supported chat message content types. Content types can be text/plain or both text/plain
+   *    and text/markdown.</p>
    */
   SupportedMessagingContentTypes?: string[];
 }
@@ -953,8 +1634,8 @@ export namespace StartOutboundVoiceContactResponse {
 }
 
 /**
- * <p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes
- *    across all references for a contact.</p>
+ * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
+ *    to 4,096 UTF-8 bytes across all references for a contact.</p>
  */
 export interface Reference {
   /**
@@ -964,8 +1645,7 @@ export interface Reference {
   Value: string | undefined;
 
   /**
-   * <p>The type of the reference. Only <code>URL</code> type can be added or updated on a
-   *    contact.</p>
+   * <p>The type of the reference.</p>
    */
   Type: ReferenceType | string | undefined;
 }
@@ -999,7 +1679,7 @@ export interface StartTaskContactRequest {
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
-  ContactFlowId: string | undefined;
+  ContactFlowId?: string;
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
@@ -1035,6 +1715,16 @@ export interface StartTaskContactRequest {
    * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
    */
   ScheduledTime?: Date;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  TaskTemplateId?: string;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId?: string;
 }
 
 export namespace StartTaskContactRequest {
@@ -1253,6 +1943,69 @@ export namespace TagResourceRequest {
   });
 }
 
+export interface TransferContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId?: string;
+
+  /**
+   * <p>The identifier for the user.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace TransferContactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransferContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TransferContactResponse {
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect </p>
+   */
+  ContactId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact.</p>
+   */
+  ContactArn?: string;
+}
+
+export namespace TransferContactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransferContactResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1343,7 +2096,7 @@ export interface UpdateContactRequest {
   Description?: string;
 
   /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+   * <p>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</p>
    */
   References?: { [key: string]: Reference };
 }
@@ -2109,6 +2862,137 @@ export namespace UpdateSecurityProfileRequest {
   });
 }
 
+export interface UpdateTaskTemplateRequest {
+  /**
+   * <p>A unique identifier for the task template.</p>
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the task template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   */
+  ContactFlowId?: string;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   */
+  Constraints?: TaskTemplateConstraints;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   */
+  Defaults?: TaskTemplateDefaults;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   */
+  Fields?: TaskTemplateField[];
+}
+
+export namespace UpdateTaskTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTaskTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTaskTemplateResponse {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The identifier of the task template resource.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the task template.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the task template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   */
+  ContactFlowId?: string;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   */
+  Constraints?: TaskTemplateConstraints;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   */
+  Defaults?: TaskTemplateDefaults;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   */
+  Fields?: TaskTemplateField[];
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   */
+  Status?: TaskTemplateStatus | string;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   */
+  CreatedTime?: Date;
+}
+
+export namespace UpdateTaskTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTaskTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateUserHierarchyRequest {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -2351,12 +3235,14 @@ export namespace UpdateUserSecurityProfilesRequest {
  */
 export interface UserSearchCriteria {
   /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
    */
   OrConditions?: UserSearchCriteria[];
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.
+   *   </p>
    */
   AndConditions?: UserSearchCriteria[];
 

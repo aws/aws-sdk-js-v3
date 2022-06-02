@@ -112,6 +112,7 @@ import {
   CreateSecurityProfileCommandInput,
   CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
+import { CreateTaskTemplateCommandInput, CreateTaskTemplateCommandOutput } from "./commands/CreateTaskTemplateCommand";
 import { CreateUseCaseCommandInput, CreateUseCaseCommandOutput } from "./commands/CreateUseCaseCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
@@ -138,6 +139,7 @@ import {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
+import { DeleteTaskTemplateCommandInput, DeleteTaskTemplateCommandOutput } from "./commands/DeleteTaskTemplateCommand";
 import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
@@ -238,6 +240,7 @@ import {
 } from "./commands/GetCurrentMetricDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "./commands/ListAgentStatusesCommand";
 import {
   ListApprovedOriginsCommandInput,
@@ -309,6 +312,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput } from "./commands/ListTaskTemplatesCommand";
 import { ListUseCasesCommandInput, ListUseCasesCommandOutput } from "./commands/ListUseCasesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
@@ -355,6 +359,7 @@ import {
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TransferContactCommandInput, TransferContactCommandOutput } from "./commands/TransferContactCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
 import {
@@ -441,6 +446,7 @@ import {
   UpdateSecurityProfileCommandInput,
   UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand";
+import { UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput } from "./commands/UpdateTaskTemplateCommand";
 import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
@@ -493,6 +499,7 @@ export type ServiceInputTypes =
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
   | CreateSecurityProfileCommandInput
+  | CreateTaskTemplateCommandInput
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
@@ -504,6 +511,7 @@ export type ServiceInputTypes =
   | DeleteIntegrationAssociationCommandInput
   | DeleteQuickConnectCommandInput
   | DeleteSecurityProfileCommandInput
+  | DeleteTaskTemplateCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
@@ -538,6 +546,7 @@ export type ServiceInputTypes =
   | GetCurrentMetricDataCommandInput
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
+  | GetTaskTemplateCommandInput
   | ListAgentStatusesCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
@@ -564,6 +573,7 @@ export type ServiceInputTypes =
   | ListSecurityProfilePermissionsCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
+  | ListTaskTemplatesCommandInput
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
@@ -583,6 +593,7 @@ export type ServiceInputTypes =
   | StopContactStreamingCommandInput
   | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
+  | TransferContactCommandInput
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
   | UpdateContactAttributesCommandInput
@@ -609,6 +620,7 @@ export type ServiceInputTypes =
   | UpdateRoutingProfileNameCommandInput
   | UpdateRoutingProfileQueuesCommandInput
   | UpdateSecurityProfileCommandInput
+  | UpdateTaskTemplateCommandInput
   | UpdateUserHierarchyCommandInput
   | UpdateUserHierarchyGroupNameCommandInput
   | UpdateUserHierarchyStructureCommandInput
@@ -639,6 +651,7 @@ export type ServiceOutputTypes =
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
   | CreateSecurityProfileCommandOutput
+  | CreateTaskTemplateCommandOutput
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
@@ -650,6 +663,7 @@ export type ServiceOutputTypes =
   | DeleteIntegrationAssociationCommandOutput
   | DeleteQuickConnectCommandOutput
   | DeleteSecurityProfileCommandOutput
+  | DeleteTaskTemplateCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
@@ -684,6 +698,7 @@ export type ServiceOutputTypes =
   | GetCurrentMetricDataCommandOutput
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
+  | GetTaskTemplateCommandOutput
   | ListAgentStatusesCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
@@ -710,6 +725,7 @@ export type ServiceOutputTypes =
   | ListSecurityProfilePermissionsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTaskTemplatesCommandOutput
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
@@ -729,6 +745,7 @@ export type ServiceOutputTypes =
   | StopContactStreamingCommandOutput
   | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
+  | TransferContactCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
   | UpdateContactAttributesCommandOutput
@@ -755,6 +772,7 @@ export type ServiceOutputTypes =
   | UpdateRoutingProfileNameCommandOutput
   | UpdateRoutingProfileQueuesCommandOutput
   | UpdateSecurityProfileCommandOutput
+  | UpdateTaskTemplateCommandOutput
   | UpdateUserHierarchyCommandOutput
   | UpdateUserHierarchyGroupNameCommandOutput
   | UpdateUserHierarchyStructureCommandOutput

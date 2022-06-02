@@ -13,46 +13,41 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { TagResourceRequest } from "../models/models_1";
+import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
+  deserializeAws_restJson1ListTaskTemplatesCommand,
+  serializeAws_restJson1ListTaskTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface TagResourceCommandInput extends TagResourceRequest {}
-export interface TagResourceCommandOutput extends __MetadataBearer {}
+export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest {}
+export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource.</p>
- *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
- *    flows, agent status, hours of operation, phone number, security profiles, and task
- *    templates.</p>
- *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
- *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Lists task templates for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, TagResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, TagResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListTaskTemplatesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListTaskTemplatesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new TagResourceCommand(input);
+ * const command = new ListTaskTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link ListTaskTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListTaskTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class ListTaskTemplatesCommand extends $Command<
+  ListTaskTemplatesCommandInput,
+  ListTaskTemplatesCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: ListTaskTemplatesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +60,20 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "ListTaskTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: ListTaskTemplatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTaskTemplatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +83,12 @@ export class TagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+  private serialize(input: ListTaskTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListTaskTemplatesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskTemplatesCommandOutput> {
+    return deserializeAws_restJson1ListTaskTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

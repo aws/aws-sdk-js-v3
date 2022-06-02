@@ -13,46 +13,43 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { TagResourceRequest } from "../models/models_1";
+import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
+  deserializeAws_restJson1UpdateTaskTemplateCommand,
+  serializeAws_restJson1UpdateTaskTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface TagResourceCommandInput extends TagResourceRequest {}
-export interface TagResourceCommandOutput extends __MetadataBearer {}
+export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateRequest {}
+export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource.</p>
- *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
- *    flows, agent status, hours of operation, phone number, security profiles, and task
- *    templates.</p>
- *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
- *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Updates details about a specific task template in the specified Amazon Connect instance. This
+ *    operation does not support partial updates. Instead it does a full update of template
+ *    content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, TagResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, TagResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new TagResourceCommand(input);
+ * const command = new UpdateTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link UpdateTaskTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class UpdateTaskTemplateCommand extends $Command<
+  UpdateTaskTemplateCommandInput,
+  UpdateTaskTemplateCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: UpdateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +62,20 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "UpdateTaskTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: UpdateTaskTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTaskTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +85,12 @@ export class TagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+  private serialize(input: UpdateTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateTaskTemplateCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskTemplateCommandOutput> {
+    return deserializeAws_restJson1UpdateTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

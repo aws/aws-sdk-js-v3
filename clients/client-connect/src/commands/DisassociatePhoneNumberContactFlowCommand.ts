@@ -23,7 +23,8 @@ export interface DisassociatePhoneNumberContactFlowCommandInput extends Disassoc
 export interface DisassociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>
+ * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if
+ *    a contact flow association exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

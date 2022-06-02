@@ -25,7 +25,7 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
 /**
  * <p>Lists phone numbers claimed to your Amazon Connect instance. </p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
- *    Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

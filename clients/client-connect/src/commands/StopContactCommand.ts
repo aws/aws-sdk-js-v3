@@ -23,7 +23,9 @@ export interface StopContactCommandInput extends StopContactRequest {}
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
- * <p>Ends the specified contact. This call does not work for the following initiation methods:</p>
+ * <p>Ends the specified contact. This call does not work for the following initiation
+ *    methods:</p>
+ *
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>

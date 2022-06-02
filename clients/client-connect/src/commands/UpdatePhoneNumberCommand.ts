@@ -23,7 +23,8 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+ * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance
+ *    in the same Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

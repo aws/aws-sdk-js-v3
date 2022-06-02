@@ -103,6 +103,11 @@ import {
   CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
 import {
+  CreateTaskTemplateCommand,
+  CreateTaskTemplateCommandInput,
+  CreateTaskTemplateCommandOutput,
+} from "./commands/CreateTaskTemplateCommand";
+import {
   CreateUseCaseCommand,
   CreateUseCaseCommandInput,
   CreateUseCaseCommandOutput,
@@ -153,6 +158,11 @@ import {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
+import {
+  DeleteTaskTemplateCommand,
+  DeleteTaskTemplateCommandInput,
+  DeleteTaskTemplateCommandOutput,
+} from "./commands/DeleteTaskTemplateCommand";
 import {
   DeleteUseCaseCommand,
   DeleteUseCaseCommandInput,
@@ -320,6 +330,11 @@ import {
   GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
+  GetTaskTemplateCommand,
+  GetTaskTemplateCommandInput,
+  GetTaskTemplateCommandOutput,
+} from "./commands/GetTaskTemplateCommand";
+import {
   ListAgentStatusesCommand,
   ListAgentStatusesCommandInput,
   ListAgentStatusesCommandOutput,
@@ -434,6 +449,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTaskTemplatesCommand,
+  ListTaskTemplatesCommandInput,
+  ListTaskTemplatesCommandOutput,
+} from "./commands/ListTaskTemplatesCommand";
+import {
   ListUseCasesCommand,
   ListUseCasesCommandInput,
   ListUseCasesCommandOutput,
@@ -512,6 +532,11 @@ import {
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TransferContactCommand,
+  TransferContactCommandInput,
+  TransferContactCommandOutput,
+} from "./commands/TransferContactCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -643,6 +668,11 @@ import {
   UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand";
 import {
+  UpdateTaskTemplateCommand,
+  UpdateTaskTemplateCommandInput,
+  UpdateTaskTemplateCommandOutput,
+} from "./commands/UpdateTaskTemplateCommand";
+import {
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
@@ -759,7 +789,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time analysis sessions for the given language.</p>
+   * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
+   *    and real-time analysis sessions for the given language.</p>
    */
   public associateDefaultVocabulary(
     args: AssociateDefaultVocabularyCommandInput,
@@ -1383,6 +1414,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Creates a new task template in the specified Amazon Connect instance.</p>
+   */
+  public createTaskTemplate(
+    args: CreateTaskTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTaskTemplateCommandOutput>;
+  public createTaskTemplate(
+    args: CreateTaskTemplateCommandInput,
+    cb: (err: any, data?: CreateTaskTemplateCommandOutput) => void
+  ): void;
+  public createTaskTemplate(
+    args: CreateTaskTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTaskTemplateCommandOutput) => void
+  ): void;
+  public createTaskTemplate(
+    args: CreateTaskTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateTaskTemplateCommandOutput) => void
+  ): Promise<CreateTaskTemplateCommandOutput> | void {
+    const command = new CreateTaskTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a use case for an integration association.</p>
    */
   public createUseCase(
@@ -1729,6 +1792,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
   ): Promise<DeleteSecurityProfileCommandOutput> | void {
     const command = new DeleteSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the task template.</p>
+   */
+  public deleteTaskTemplate(
+    args: DeleteTaskTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTaskTemplateCommandOutput>;
+  public deleteTaskTemplate(
+    args: DeleteTaskTemplateCommandInput,
+    cb: (err: any, data?: DeleteTaskTemplateCommandOutput) => void
+  ): void;
+  public deleteTaskTemplate(
+    args: DeleteTaskTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTaskTemplateCommandOutput) => void
+  ): void;
+  public deleteTaskTemplate(
+    args: DeleteTaskTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTaskTemplateCommandOutput) => void
+  ): Promise<DeleteTaskTemplateCommandOutput> | void {
+    const command = new DeleteTaskTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2596,7 +2691,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>
+   * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if
+   *    a contact flow association exists.</p>
    */
   public disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
@@ -2856,6 +2952,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
+   */
+  public getTaskTemplate(
+    args: GetTaskTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTaskTemplateCommandOutput>;
+  public getTaskTemplate(
+    args: GetTaskTemplateCommandInput,
+    cb: (err: any, data?: GetTaskTemplateCommandOutput) => void
+  ): void;
+  public getTaskTemplate(
+    args: GetTaskTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTaskTemplateCommandOutput) => void
+  ): void;
+  public getTaskTemplate(
+    args: GetTaskTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTaskTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetTaskTemplateCommandOutput) => void
+  ): Promise<GetTaskTemplateCommandOutput> | void {
+    const command = new GetTaskTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3363,7 +3491,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Lists phone numbers claimed to your Amazon Connect instance. </p>
    *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
-   *    Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
@@ -3720,6 +3848,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Lists task templates for the specified Amazon Connect instance.</p>
+   */
+  public listTaskTemplates(
+    args: ListTaskTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTaskTemplatesCommandOutput>;
+  public listTaskTemplates(
+    args: ListTaskTemplatesCommandInput,
+    cb: (err: any, data?: ListTaskTemplatesCommandOutput) => void
+  ): void;
+  public listTaskTemplates(
+    args: ListTaskTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTaskTemplatesCommandOutput) => void
+  ): void;
+  public listTaskTemplates(
+    args: ListTaskTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTaskTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListTaskTemplatesCommandOutput) => void
+  ): Promise<ListTaskTemplatesCommandOutput> | void {
+    const command = new ListTaskTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the use cases for the integration association. </p>
    */
   public listUseCases(
@@ -3810,11 +3970,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Changes the current status of a user or agent in Amazon Connect.
-   *    If the agent is currently handling a contact, this sets the agent's next status.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a>
-   *    and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next status</a>
-   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a
+   *    contact, this sets the agent's next status.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
+   *     status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public putUserStatus(
     args: PutUserStatusCommandInput,
@@ -3971,7 +4130,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+   * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
+   *     <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
    */
   public searchVocabularies(
     args: SearchVocabulariesCommandInput,
@@ -4021,9 +4181,9 @@ export class Connect extends ConnectClient {
    *       <code>LimitExceededException</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may
-   *    not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.
-   *   </p>
+   *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
+   *    account may not support the ability to configure custom chat durations. For more information,
+   *    contact Amazon Web Services Support. </p>
    *
    *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
    *     Guide</i>.</p>
@@ -4061,18 +4221,20 @@ export class Connect extends ConnectClient {
    * <p>Starts recording the contact: </p>
    *          <ul>
    *             <li>
-   *                <p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p>
+   *                <p>If the API is called <i>before</i> the agent joins the call, recording
+   *      starts when the agent joins the call.</p>
    *             </li>
    *             <li>
-   *                <p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p>
+   *                <p>If the API is called <i>after</i> the agent joins the call, recording starts
+   *      at the time of the API call.</p>
    *             </li>
    *          </ul>
    *
-   *          <p>StartContactRecording is a
-   *    one-time action. For example, if you use StopContactRecording to stop recording an ongoing call,
-   *    you can't use StartContactRecording to restart it. For scenarios where the recording has started
-   *    and you want to suspend and resume it, such as when collecting sensitive information (for
-   *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
+   *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to
+   *    stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios
+   *    where the recording has started and you want to suspend and resume it, such as when collecting
+   *    sensitive information (for example, a credit card number), use SuspendContactRecording and
+   *    ResumeContactRecording.</p>
    *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
    *     behavior</a> block.</p>
    *          <p>Only voice recordings are supported at this time.</p>
@@ -4224,7 +4386,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Ends the specified contact. This call does not work for the following initiation methods:</p>
+   * <p>Ends the specified contact. This call does not work for the following initiation
+   *    methods:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>DISCONNECT</p>
@@ -4372,7 +4536,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Adds the specified tags to the specified resource.</p>
    *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
-   *    flows, agent status, hours of operation, and phone number.</p>
+   *    flows, agent status, hours of operation, phone number, security profiles, and task
+   *    templates.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -4389,6 +4554,61 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
+   *    contact is created. You can transfer a contact to another queue by providing the contact flow
+   *    which orchestrates the contact to the destination queue. This gives you more control over contact
+   *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
+   *    customers.</p>
+   *          <p>Note the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Transfer is supported for only <code>TASK</code> contacts.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
+   *             </li>
+   *             <li>
+   *                <p>The following contact flow types are supported: Inbound contact flow, Transfer to agent
+   *      flow, and Transfer to queue flow.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>
+   *             </li>
+   *             <li>
+   *                <p>A contact cannot be transferred more than 11 times.</p>
+   *             </li>
+   *          </ul>
+   */
+  public transferContact(
+    args: TransferContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TransferContactCommandOutput>;
+  public transferContact(
+    args: TransferContactCommandInput,
+    cb: (err: any, data?: TransferContactCommandOutput) => void
+  ): void;
+  public transferContact(
+    args: TransferContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TransferContactCommandOutput) => void
+  ): void;
+  public transferContact(
+    args: TransferContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferContactCommandOutput) => void),
+    cb?: (err: any, data?: TransferContactCommandOutput) => void
+  ): Promise<TransferContactCommandOutput> | void {
+    const command = new TransferContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4849,7 +5069,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+   * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance
+   *    in the same Region.</p>
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -5266,6 +5487,40 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
   ): Promise<UpdateSecurityProfileCommandOutput> | void {
     const command = new UpdateSecurityProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates details about a specific task template in the specified Amazon Connect instance. This
+   *    operation does not support partial updates. Instead it does a full update of template
+   *    content.</p>
+   */
+  public updateTaskTemplate(
+    args: UpdateTaskTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskTemplateCommandOutput>;
+  public updateTaskTemplate(
+    args: UpdateTaskTemplateCommandInput,
+    cb: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
+  ): void;
+  public updateTaskTemplate(
+    args: UpdateTaskTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
+  ): void;
+  public updateTaskTemplate(
+    args: UpdateTaskTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
+  ): Promise<UpdateTaskTemplateCommandOutput> | void {
+    const command = new UpdateTaskTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
