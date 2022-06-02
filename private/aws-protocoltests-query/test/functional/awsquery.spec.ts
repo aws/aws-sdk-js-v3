@@ -3082,8 +3082,8 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
  * discrepancies between the components.
  */
 const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBody: string): Object => {
-  const fromEntries = (components: string[][]): { [key: string]: string } => {
-    const parts: { [key: string]: string } = {};
+  const fromEntries = (components: string[][]): Record<string, string> => {
+    const parts: Record<string, string> = {};
 
     components.forEach((component) => {
       parts[component[0]] = component[1];
