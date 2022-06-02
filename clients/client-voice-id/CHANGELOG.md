@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.103.0...v3.104.0) (2022-06-02)
+
+
+### Features
+
+* **client-voice-id:** Added a new attribute ServerSideEncryptionUpdateDetails to Domain and DomainSummary. ([4edcad0](https://github.com/aws/aws-sdk-js-v3/commit/4edcad07a6f026e448f572cf98aef01881f97695))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-voice-id

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.103.0...v3.104.0) (2022-06-02)
+
+
+### Features
+
+* **client-kendra:** Amazon Kendra now provides a data source connector for GitHub. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html ([66f927c](https://github.com/aws/aws-sdk-js-v3/commit/66f927cd5665d2cef62f1d3d250ddfc02f9844cf))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

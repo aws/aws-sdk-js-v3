@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.103.0...v3.104.0) (2022-06-02)
+
+
+### Features
+
+* **client-application-insights:** Provide Account Level onboarding support through CFN/CLI ([b70eff4](https://github.com/aws/aws-sdk-js-v3/commit/b70eff4007513c6a8dc126e52ff7173328c44b02))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-application-insights

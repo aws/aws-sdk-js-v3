@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.103.0...v3.104.0) (2022-06-02)
+
+
+### Features
+
+* **client-application-insights:** Provide Account Level onboarding support through CFN/CLI ([b70eff4](https://github.com/aws/aws-sdk-js-v3/commit/b70eff4007513c6a8dc126e52ff7173328c44b02))
+* **client-connect:** This release adds the following features: 1) New APIs to manage (create, list, update) task template resources, 2) Updates to startTaskContact API to support task templates, and 3) new TransferContact API to programmatically transfer in-progress tasks via a contact flow. ([e10c8ed](https://github.com/aws/aws-sdk-js-v3/commit/e10c8edbdff1c5c94d95951ed3bd175123f0bd0d))
+* **client-kendra:** Amazon Kendra now provides a data source connector for GitHub. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-github.html ([66f927c](https://github.com/aws/aws-sdk-js-v3/commit/66f927cd5665d2cef62f1d3d250ddfc02f9844cf))
+* **client-proton:** Add new "Components" API to enable users to Create, Delete and Update AWS Proton components. ([fd798b0](https://github.com/aws/aws-sdk-js-v3/commit/fd798b01265985c19da3e985703df5d1edc83320))
+* **client-voice-id:** Added a new attribute ServerSideEncryptionUpdateDetails to Domain and DomainSummary. ([4edcad0](https://github.com/aws/aws-sdk-js-v3/commit/4edcad07a6f026e448f572cf98aef01881f97695))
+
+
+
+
+
 # [3.103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.102.0...v3.103.0) (2022-06-01)
 
 
