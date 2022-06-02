@@ -347,7 +347,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             }
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
-            writer.openBlock("{ [key: string]: ", "}", () -> {
+            writer.openBlock("Record<string, ", ">", () -> {
                 writeMemberOmitType(mapMember);
             });
         } else if (memberTarget instanceof CollectionShape) {
