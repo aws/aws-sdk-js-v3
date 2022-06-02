@@ -23,7 +23,7 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified domain from the Amazon Connect Voice ID system.</p>
+ * <p>Deletes the specified domain from Voice ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

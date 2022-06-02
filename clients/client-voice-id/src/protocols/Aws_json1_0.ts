@@ -112,6 +112,7 @@ import {
   RegistrationConfig,
   ResourceNotFoundException,
   ServerSideEncryptionConfiguration,
+  ServerSideEncryptionUpdateDetails,
   ServiceQuotaExceededException,
   Speaker,
   SpeakerEnrollmentJob,
@@ -551,6 +552,9 @@ const deserializeAws_json1_0DeleteFraudsterCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
       throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -936,6 +940,9 @@ const deserializeAws_json1_0EvaluateSessionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
       throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
@@ -2110,6 +2117,10 @@ const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Dom
       output.ServerSideEncryptionConfiguration !== undefined && output.ServerSideEncryptionConfiguration !== null
         ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
         : undefined,
+    ServerSideEncryptionUpdateDetails:
+      output.ServerSideEncryptionUpdateDetails !== undefined && output.ServerSideEncryptionUpdateDetails !== null
+        ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
+        : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
@@ -2143,6 +2154,10 @@ const deserializeAws_json1_0DomainSummary = (output: any, context: __SerdeContex
     ServerSideEncryptionConfiguration:
       output.ServerSideEncryptionConfiguration !== undefined && output.ServerSideEncryptionConfiguration !== null
         ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
+        : undefined,
+    ServerSideEncryptionUpdateDetails:
+      output.ServerSideEncryptionUpdateDetails !== undefined && output.ServerSideEncryptionUpdateDetails !== null
+        ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
@@ -2478,6 +2493,17 @@ const deserializeAws_json1_0ServerSideEncryptionConfiguration = (
 ): ServerSideEncryptionConfiguration => {
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
+const deserializeAws_json1_0ServerSideEncryptionUpdateDetails = (
+  output: any,
+  context: __SerdeContext
+): ServerSideEncryptionUpdateDetails => {
+  return {
+    Message: __expectString(output.Message),
+    OldKmsKeyId: __expectString(output.OldKmsKeyId),
+    UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
 

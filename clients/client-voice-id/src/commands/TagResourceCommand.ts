@@ -23,7 +23,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Tags an Amazon Connect Voice ID resource with the provided list of tags.</p>
+ * <p>Tags a Voice ID resource with the provided list of tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

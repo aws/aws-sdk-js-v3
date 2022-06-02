@@ -23,7 +23,7 @@ export interface DeleteFraudsterCommandInput extends DeleteFraudsterRequest {}
 export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified fraudster from the Amazon Connect Voice ID system.</p>
+ * <p>Deletes the specified fraudster from Voice ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

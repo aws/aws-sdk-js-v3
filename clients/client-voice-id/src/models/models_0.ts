@@ -121,6 +121,7 @@ export enum ConflictType {
   ANOTHER_ACTIVE_STREAM = "ANOTHER_ACTIVE_STREAM",
   CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
   CONCURRENT_CHANGES = "CONCURRENT_CHANGES",
+  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
   DOMAIN_NOT_ACTIVE = "DOMAIN_NOT_ACTIVE",
   ENROLLMENT_ALREADY_EXISTS = "ENROLLMENT_ALREADY_EXISTS",
   SPEAKER_NOT_SET = "SPEAKER_NOT_SET",
@@ -182,12 +183,12 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The configuration containing information about the customer-managed KMS Key used for encrypting
+ * <p>The configuration containing information about the customer managed key used for encrypting
  *             customer data.</p>
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The identifier of the KMS Key you want Voice ID to use to encrypt your data.</p>
+   * <p>The identifier of the KMS key you want Voice ID to use to encrypt your data.</p>
    */
   KmsKeyId: string | undefined;
 }
@@ -243,9 +244,9 @@ export interface CreateDomainRequest {
   Description?: string;
 
   /**
-   * <p>The configuration, containing the KMS Key Identifier, to be used by Voice ID for
+   * <p>The configuration, containing the KMS key identifier, to be used by Voice ID for
    *             the server-side encryption of your data. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/encryption-at-rest.html#encryption-at-rest-voiceid">
-   *                 Amazon Connect VoiceID encryption at rest</a> for more details on how the KMS Key is used.
+   *                 Amazon Connect Voice ID encryption at rest</a> for more details on how the KMS key is used.
    *         </p>
    */
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
@@ -280,6 +281,49 @@ export enum DomainStatus {
   SUSPENDED = "SUSPENDED",
 }
 
+export enum ServerSideEncryptionUpdateStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>Details about the most recent server-side encryption configuration update. When the server-side
+ *             encryption configuration is changed, dependency on the old KMS key is removed through an
+ *             asynchronous process. When this update is complete, the domain’s data can only be accessed using the
+ *             new KMS key.</p>
+ */
+export interface ServerSideEncryptionUpdateDetails {
+  /**
+   * <p>The previous KMS key ID the domain was encrypted with, before
+   *             ServerSideEncryptionConfiguration was updated to a new KMS key ID.</p>
+   */
+  OldKmsKeyId?: string;
+
+  /**
+   * <p>Status of the server-side encryption update. During an update, if there is an issue with the domain's
+   *             current or old KMS key ID, such as an inaccessible or disabled key, then the status
+   *             is FAILED. In order to resolve this, the key needs to be made accessible, and then an UpdateDomain call
+   *             with the existing server-side encryption configuration will re-attempt this update process.</p>
+   */
+  UpdateStatus?: ServerSideEncryptionUpdateStatus | string;
+
+  /**
+   * <p>Message explaining the current UpdateStatus. When the UpdateStatus is FAILED, this message explains
+   *             the cause of the failure.</p>
+   */
+  Message?: string;
+}
+
+export namespace ServerSideEncryptionUpdateDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerSideEncryptionUpdateDetails): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains all the information about a domain.</p>
  */
@@ -310,7 +354,7 @@ export interface Domain {
   DomainStatus?: DomainStatus | string;
 
   /**
-   * <p>The server-side encryption configuration containing the KMS Key Identifier you want Voice ID to use
+   * <p>The server-side encryption configuration containing the KMS key identifier you want Voice ID to use
    *             to encrypt your data.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
@@ -324,6 +368,14 @@ export interface Domain {
    * <p>The timestamp showing the domain's last update.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>Details about the most recent server-side encryption configuration update. When the server-side
+   *             encryption configuration is changed, dependency on the old KMS key is removed through an
+   *             asynchronous process. When this update is complete, the domain's data can only be accessed using the
+   *             new KMS key.</p>
+   */
+  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
 }
 
 export namespace Domain {
@@ -736,7 +788,7 @@ export enum FraudsterRegistrationJobStatus {
  */
 export interface OutputDataConfig {
   /**
-   * <p>The S3 path of the folder to which Voice ID writes the job output file, which has a
+   * <p>The S3 path of the folder where Voice ID writes the job output file. It has a
    *             <code>*.out</code> extension. For example, if the input file name is <code>input-file.json</code> and
    *             the output folder path is <code>s3://output-bucket/output-folder</code>, the full output file path is
    *             <code>s3://output-bucket/output-folder/job-Id/input-file.json.out</code>.</p>
@@ -765,7 +817,7 @@ export enum DuplicateRegistrationAction {
 }
 
 /**
- * <p>The configuration definining the action to take when a duplicate fraudster is detected, and the
+ * <p>The configuration defining the action to take when a duplicate fraudster is detected, and the
  *             similarity threshold to use for detecting a duplicate fraudster during a batch fraudster registration job.</p>
  */
 export interface RegistrationConfig {
@@ -797,7 +849,7 @@ export namespace RegistrationConfig {
  */
 export interface FraudsterRegistrationJob {
   /**
-   * <p>The client-provied name for the fraudster registration job.</p>
+   * <p>The client-provided name for the fraudster registration job.</p>
    */
   JobName?: string;
 
@@ -836,7 +888,7 @@ export interface FraudsterRegistrationJob {
 
   /**
    * <p>The output data config containing the S3 location where you want Voice ID to write your job output
-   *             file; you must also include a KMS Key ID in order to encrypt the file.</p>
+   *             file; you must also include a KMS key iD in order to encrypt the file.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
@@ -1125,7 +1177,7 @@ export interface SpeakerEnrollmentJob {
 
   /**
    * <p>The output data config containing the S3 location where Voice ID writes the job output file; you must
-   *             also include a KMS Key ID to encrypt the file.</p>
+   *             also include a KMS key ID to encrypt the file.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
@@ -1211,8 +1263,8 @@ export interface DomainSummary {
   DomainStatus?: DomainStatus | string;
 
   /**
-   * <p>The server-side encryption configuration containing the KMS Key Identifier you want Voice ID to use
-   *             to encrypt your data..</p>
+   * <p>The server-side encryption configuration containing the KMS key identifier you want Voice ID to use
+   *             to encrypt your data.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -1225,6 +1277,14 @@ export interface DomainSummary {
    * <p>The timestamp showing the domain's last update.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>Details about the most recent server-side encryption configuration update. When the server-side
+   *             encryption configuration is changed, dependency on the old KMS key is removed through an
+   *             asynchronous process. When this update is complete, the domain’s data can only be accessed using the
+   *             new KMS key.</p>
+   */
+  ServerSideEncryptionUpdateDetails?: ServerSideEncryptionUpdateDetails;
 }
 
 export namespace DomainSummary {
@@ -1418,7 +1478,7 @@ export interface EvaluateSessionResponse {
    * <p>The current status of audio streaming for this session. This field is useful to infer next steps when
    *             the Authentication or Fraud Detection results are empty or the decision is <code>NOT_ENOUGH_SPEECH</code>.
    *             In this situation, if the <code>StreamingStatus</code> is <code>ONGOING/PENDING_CONFIGURATION</code>, it can
-   *             mean that the client should call the API again later, once Voice ID has enough audio to produce a result.
+   *             mean that the client should call the API again later, after Voice ID has enough audio to produce a result.
    *             If the decision remains <code>NOT_ENOUGH_SPEECH</code> even after <code>StreamingStatus</code> is <code>ENDED</code>,
    *             it means that the previously streamed session did not have enough speech to perform evaluation, and a new
    *             streaming session is needed to try again.</p>
@@ -1966,7 +2026,7 @@ export interface StartFraudsterRegistrationJobRequest {
 
   /**
    * <p>The output data config containing the S3 location where Voice ID writes the job output file; you must
-   *             also include a KMS Key ID to encrypt the file.</p>
+   *             also include a KMS key ID to encrypt the file.</p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 }
@@ -2026,7 +2086,7 @@ export interface StartSpeakerEnrollmentJobRequest {
 
   /**
    * <p>The enrollment config that contains details such as the action to take when a speaker is already
-   *             enrolled in the Voice ID system or when a speaker is identified as a fraudster.</p>
+   *             enrolled in Voice ID or when a speaker is identified as a fraudster.</p>
    */
   EnrollmentConfig?: EnrollmentConfig;
 
@@ -2038,7 +2098,7 @@ export interface StartSpeakerEnrollmentJobRequest {
 
   /**
    * <p>The output data config containing the S3 location where Voice ID writes the job output file; you must
-   *             also include a KMS Key ID to encrypt the file.</p>
+   *             also include a KMS key ID to encrypt the file.</p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 }
@@ -2153,7 +2213,7 @@ export interface UpdateDomainRequest {
   Description?: string;
 
   /**
-   * <p>The configuration, containing the KMS Key Identifier, to be used by Voice ID for the server-side
+   * <p>The configuration, containing the KMS key identifier, to be used by Voice ID for the server-side
    *             encryption of your data. Note that all the existing data in the domain are still encrypted using the
    *             existing key, only the data added to domain after updating the key is encrypted using the new key. </p>
    */
