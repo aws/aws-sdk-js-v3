@@ -20,8 +20,11 @@ import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.Prope
 import java.util.List;
 import java.util.Set;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.codegen.core.SymbolReference;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.knowledge.HttpBinding.Location;
 import software.amazon.smithy.model.shapes.MemberShape;
@@ -36,6 +39,7 @@ import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 
@@ -153,6 +157,26 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             List<HttpBinding> documentBindings
     ) {
         serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void serializeInputEventDocumentPayload(
+            GenerationContext context,
+            Shape payloadShape
+    ) {
+        TypeScriptWriter writer = context.getWriter();
+        Model model = context.getModel();
+
+        if (payloadShape instanceof StructureShape || payloadShape instanceof UnionShape) {
+            SymbolProvider symbolProvider = context.getSymbolProvider();
+            Symbol symbol = symbolProvider.toSymbol(payloadShape);
+            String serFunctionName = ProtocolGenerator.getSerFunctionName(symbol, context.getProtocolName());
+            writer.write("const bodyNode = $L(input, context);", serFunctionName);
+            writer.write("message.body = context.utf8Decoder(bodyNode.toString());");
+        } else {
+            throw new CodegenException(String.format("Unexpected shape type bound to document event payload: `%s`",
+                    payloadShape.getType()));
+        }
     }
 
     @Override
