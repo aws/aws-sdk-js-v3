@@ -205,7 +205,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -1714,7 +1714,7 @@ export interface TagResourceInput {
   /**
    * <p>The key-value pair to use when tagging this repository.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceInput {

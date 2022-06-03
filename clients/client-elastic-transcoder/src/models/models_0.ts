@@ -1740,7 +1740,7 @@ export interface CreateJobRequest {
    *             Elastic Transcoder does not guarantee that <code>key/value</code> pairs are returned in the same
    *             order in which you specify them.</p>
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 }
 
 export namespace CreateJobRequest {
@@ -2270,7 +2270,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 
   /**
    * <p>Details about the timing of a job.</p>
@@ -3715,7 +3715,7 @@ export interface VideoParameters {
    *          <p>The number of times you want the output gif to loop. Valid values include <code>Infinite</code> and
    *              integers between <code>0</code> and <code>100</code>, inclusive.</p>
    */
-  CodecOptions?: { [key: string]: string };
+  CodecOptions?: Record<string, string>;
 
   /**
    * <p>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,

@@ -1662,7 +1662,7 @@ export interface CreateCollectionRequest {
    *       A set of tags (key-value pairs) that you want to attach to the collection.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateCollectionRequest {
@@ -2083,7 +2083,7 @@ export interface CreateProjectVersionRequest {
    *       A set of tags (key-value pairs) that you want to attach to the model.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The identifier for your AWS Key Management Service key (AWS KMS key).
@@ -2465,7 +2465,7 @@ export interface CreateStreamProcessorRequest {
    *       A set of tags (key-value pairs) that you want to attach to the stream processor.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
@@ -6384,7 +6384,7 @@ export interface ListTagsForResourceResponse {
    *       A list of key-value tags assigned to the resource.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -7487,7 +7487,7 @@ export interface TagResourceRequest {
    *       The key-value tags to assign to the resource.
    *     </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

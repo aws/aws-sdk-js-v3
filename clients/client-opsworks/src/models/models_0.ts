@@ -281,7 +281,7 @@ export interface App {
   /**
    * <p>The stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>When the app was created.</p>
@@ -658,7 +658,7 @@ export interface CloneStackRequest {
   /**
    * <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS
@@ -1344,7 +1344,7 @@ export interface CreateAppRequest {
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be
@@ -1492,7 +1492,7 @@ export interface DeploymentCommand {
    *             <code> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </code>
    *          </p>
    */
-  Args?: { [key: string]: string[] };
+  Args?: Record<string, string[]>;
 }
 
 export namespace DeploymentCommand {
@@ -2002,7 +2002,7 @@ export interface CreateLayerRequest {
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    *          <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Specifies CloudWatch Logs configuration options for the layer. For more information, see <a>CloudWatchLogsLogStream</a>.</p>
@@ -2183,7 +2183,7 @@ export interface CreateStackRequest {
   /**
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS
@@ -3687,7 +3687,7 @@ export interface Layer {
    *       instead of the actual value</p>
    *          <p>For an ECS Cluster layer, AWS OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The Amazon CloudWatch Logs configuration settings for the layer.</p>
@@ -4512,7 +4512,7 @@ export interface DescribeStackProvisioningParametersResult {
   /**
    * <p>An embedded object that contains the provisioning parameters.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace DescribeStackProvisioningParametersResult {
@@ -4573,7 +4573,7 @@ export interface Stack {
   /**
    * <p>The stack's attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The stack AWS Identity and Access Management (IAM) role.</p>
@@ -4925,37 +4925,37 @@ export interface WeeklyAutoScalingSchedule {
   /**
    * <p>The schedule for Monday.</p>
    */
-  Monday?: { [key: string]: string };
+  Monday?: Record<string, string>;
 
   /**
    * <p>The schedule for Tuesday.</p>
    */
-  Tuesday?: { [key: string]: string };
+  Tuesday?: Record<string, string>;
 
   /**
    * <p>The schedule for Wednesday.</p>
    */
-  Wednesday?: { [key: string]: string };
+  Wednesday?: Record<string, string>;
 
   /**
    * <p>The schedule for Thursday.</p>
    */
-  Thursday?: { [key: string]: string };
+  Thursday?: Record<string, string>;
 
   /**
    * <p>The schedule for Friday.</p>
    */
-  Friday?: { [key: string]: string };
+  Friday?: Record<string, string>;
 
   /**
    * <p>The schedule for Saturday.</p>
    */
-  Saturday?: { [key: string]: string };
+  Saturday?: Record<string, string>;
 
   /**
    * <p>The schedule for Sunday.</p>
    */
-  Sunday?: { [key: string]: string };
+  Sunday?: Record<string, string>;
 }
 
 export namespace WeeklyAutoScalingSchedule {
@@ -5461,7 +5461,7 @@ export interface ListTagsResult {
   /**
    * <p>A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that
@@ -5933,7 +5933,7 @@ export interface TagResourceRequest {
    *             </li>
    *          </ul>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -6049,7 +6049,7 @@ export interface UpdateAppRequest {
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>An array of <code>EnvironmentVariable</code> objects that specify environment variables to be
@@ -6253,7 +6253,7 @@ export interface UpdateLayerRequest {
   /**
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Specifies CloudWatch Logs configuration options for the layer. For more information, see <a>CloudWatchLogsLogStream</a>.</p>
@@ -6405,7 +6405,7 @@ export interface UpdateStackRequest {
   /**
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Do not use this parameter. You cannot update a stack's service role.</p>

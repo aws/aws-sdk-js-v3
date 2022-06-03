@@ -86,14 +86,14 @@ export interface ComponentVariant {
    * <p>The combination of variants that comprise this variant. You can't specify
    *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
    */
-  variantValues?: { [key: string]: string };
+  variantValues?: Record<string, string>;
 
   /**
    * <p>The properties of the component variant that can be overriden when customizing an instance
    *       of the component. You can't specify <code>tags</code> as a valid property for
    *         <code>overrides</code>.</p>
    */
-  overrides?: { [key: string]: { [key: string]: string } };
+  overrides?: Record<string, Record<string, string>>;
 }
 
 export namespace ComponentVariant {
@@ -901,7 +901,7 @@ export interface ComponentProperty {
   /**
    * <p>The information to bind the component property to form data.</p>
    */
-  bindings?: { [key: string]: FormBindingElement };
+  bindings?: Record<string, FormBindingElement>;
 
   /**
    * <p>An event that occurs in your app. Use this for workflow data binding.</p>
@@ -1016,7 +1016,7 @@ export interface CreateThemeData {
   /**
    * <p>One or more key-value pairs to use when tagging the theme data.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateThemeData {
@@ -1077,7 +1077,7 @@ export interface Theme {
   /**
    * <p>One or more key-value pairs to use when tagging the theme.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Theme {
@@ -1392,7 +1392,7 @@ export interface ActionParameters {
    *       in a data model. Use when the action performs an operation on an Amplify
    *       DataStore model.</p>
    */
-  fields?: { [key: string]: ComponentProperty };
+  fields?: Record<string, ComponentProperty>;
 
   /**
    * <p>A key-value pair that specifies the state property name and its initial value.</p>
@@ -1458,7 +1458,7 @@ export interface ComponentChild {
    * <p>Describes the properties of the child component. You can't specify <code>tags</code> as a
    *       valid property for <code>properties</code>.</p>
    */
-  properties: { [key: string]: ComponentProperty } | undefined;
+  properties: Record<string, ComponentProperty> | undefined;
 
   /**
    * <p>The list of <code>ComponentChild</code> instances for this component.</p>
@@ -1470,7 +1470,7 @@ export interface ComponentChild {
    *       feature in Amplify Studio that allows you to bind events and actions to
    *       components.</p>
    */
-  events?: { [key: string]: ComponentEvent };
+  events?: Record<string, ComponentEvent>;
 
   /**
    * <p>The unique ID of the child component in its original source system, such as Figma.</p>
@@ -1530,7 +1530,7 @@ export interface Component {
    * <p>Describes the component's properties. You can't specify <code>tags</code> as a valid
    *       property for <code>properties</code>.</p>
    */
-  properties: { [key: string]: ComponentProperty } | undefined;
+  properties: Record<string, ComponentProperty> | undefined;
 
   /**
    * <p>A list of the component's <code>ComponentChild</code> instances.</p>
@@ -1548,21 +1548,21 @@ export interface Component {
    *       component. You can't specify <code>tags</code> as a valid property for
    *       <code>overrides</code>.</p>
    */
-  overrides: { [key: string]: { [key: string]: string } } | undefined;
+  overrides: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The information to connect a component's properties to data at runtime. You can't specify
    *         <code>tags</code> as a valid property for <code>bindingProperties</code>.</p>
    *          <p/>
    */
-  bindingProperties: { [key: string]: ComponentBindingPropertiesValue } | undefined;
+  bindingProperties: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
    * <p>The data binding configuration for the component's properties. Use this for a collection
    *       component. You can't specify <code>tags</code> as a valid property for
    *         <code>collectionProperties</code>.</p>
    */
-  collectionProperties?: { [key: string]: ComponentDataConfiguration };
+  collectionProperties?: Record<string, ComponentDataConfiguration>;
 
   /**
    * <p>The time that the component was created.</p>
@@ -1577,14 +1577,14 @@ export interface Component {
   /**
    * <p>One or more key-value pairs to use when tagging the component.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Describes the events that can be raised on the component. Use for the workflow feature in
    *         Amplify Studio that allows you to bind events and actions to
    *       components.</p>
    */
-  events?: { [key: string]: ComponentEvent };
+  events?: Record<string, ComponentEvent>;
 
   /**
    * <p>The schema version of the component when it was imported.</p>
@@ -1624,7 +1624,7 @@ export interface CreateComponentData {
   /**
    * <p>Describes the component's properties.</p>
    */
-  properties: { [key: string]: ComponentProperty } | undefined;
+  properties: Record<string, ComponentProperty> | undefined;
 
   /**
    * <p>A list of child components that are instances of the main component.</p>
@@ -1640,28 +1640,28 @@ export interface CreateComponentData {
    * <p>Describes the component properties that can be overriden to customize an instance of the
    *       component.</p>
    */
-  overrides: { [key: string]: { [key: string]: string } } | undefined;
+  overrides: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The data binding information for the component's properties.</p>
    */
-  bindingProperties: { [key: string]: ComponentBindingPropertiesValue } | undefined;
+  bindingProperties: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
    * <p>The data binding configuration for customizing a component's properties. Use this for a
    *       collection component.</p>
    */
-  collectionProperties?: { [key: string]: ComponentDataConfiguration };
+  collectionProperties?: Record<string, ComponentDataConfiguration>;
 
   /**
    * <p>One or more key-value pairs to use when tagging the component data.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
    */
-  events?: { [key: string]: ComponentEvent };
+  events?: Record<string, ComponentEvent>;
 
   /**
    * <p>The schema version of the component when it was imported.</p>
@@ -1706,7 +1706,7 @@ export interface UpdateComponentData {
   /**
    * <p>Describes the component's properties.</p>
    */
-  properties?: { [key: string]: ComponentProperty };
+  properties?: Record<string, ComponentProperty>;
 
   /**
    * <p>The components that are instances of the main component.</p>
@@ -1721,23 +1721,23 @@ export interface UpdateComponentData {
   /**
    * <p>Describes the properties that can be overriden to customize the component.</p>
    */
-  overrides?: { [key: string]: { [key: string]: string } };
+  overrides?: Record<string, Record<string, string>>;
 
   /**
    * <p>The data binding information for the component's properties.</p>
    */
-  bindingProperties?: { [key: string]: ComponentBindingPropertiesValue };
+  bindingProperties?: Record<string, ComponentBindingPropertiesValue>;
 
   /**
    * <p>The configuration for binding a component's properties to a data model. Use this for a
    *       collection component.</p>
    */
-  collectionProperties?: { [key: string]: ComponentDataConfiguration };
+  collectionProperties?: Record<string, ComponentDataConfiguration>;
 
   /**
    * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
    */
-  events?: { [key: string]: ComponentEvent };
+  events?: Record<string, ComponentEvent>;
 
   /**
    * <p>The schema version of the component when it was imported.</p>

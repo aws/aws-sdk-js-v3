@@ -63,7 +63,7 @@ export interface FederationParameters {
    *          value <code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code>.
    *          Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.</p>
    */
-  attributeMap?: { [key: string]: string };
+  attributeMap?: Record<string, string>;
 }
 
 export namespace FederationParameters {
@@ -124,7 +124,7 @@ export interface CreateEnvironmentRequest {
   /**
    * <p>Add tags to your FinSpace environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Authentication mode for the environment.</p>
@@ -552,7 +552,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of all tags for a resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -573,7 +573,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags to be assigned to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

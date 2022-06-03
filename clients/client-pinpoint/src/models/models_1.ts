@@ -396,7 +396,7 @@ export interface InAppMessage {
   /**
    * <p>Custom config to be sent to SDK.</p>
    */
-  CustomConfig?: { [key: string]: string };
+  CustomConfig?: Record<string, string>;
 
   /**
    * <p>The layout of the message.</p>
@@ -574,7 +574,7 @@ export interface InAppTemplateResponse {
   /**
    * <p>Custom config to be sent to client.</p>
    */
-  CustomConfig?: { [key: string]: string };
+  CustomConfig?: Record<string, string>;
 
   /**
    * <p>The last modified date of the template.</p>
@@ -589,7 +589,7 @@ export interface InAppTemplateResponse {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The description of the template.</p>
@@ -853,7 +853,7 @@ export interface JourneyExecutionActivityMetricsResponse {
   /**
    * <p>A JSON object that contains the results of the query. The results vary depending on the type of activity (ActivityType). For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
-  Metrics: { [key: string]: string } | undefined;
+  Metrics: Record<string, string> | undefined;
 }
 
 export namespace JourneyExecutionActivityMetricsResponse {
@@ -934,7 +934,7 @@ export interface JourneyExecutionMetricsResponse {
   /**
    * <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
-  Metrics: { [key: string]: string } | undefined;
+  Metrics: Record<string, string> | undefined;
 }
 
 export namespace JourneyExecutionMetricsResponse {
@@ -1040,7 +1040,7 @@ export interface PushNotificationTemplateResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The custom description of the message template.</p>
@@ -1557,7 +1557,7 @@ export interface SMSTemplateResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The custom description of the message template.</p>
@@ -1732,7 +1732,7 @@ export interface VoiceTemplateResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The custom description of the message template.</p>
@@ -1897,7 +1897,7 @@ export interface TemplateResponse {
   /**
    * <p>A map of key-value pairs that identifies the tags that are associated with the message template. This object isn't included in a TemplateResponse object. To retrieve this object for a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the object for.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The custom description of the message template. This value isn't included in a TemplateResponse object. To retrieve the description of a template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate operation, depending on the type of template that you want to retrieve the description for.</p>
@@ -2001,7 +2001,7 @@ export interface TagsModel {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.</p> <p>Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagsModel {
@@ -2227,17 +2227,17 @@ export interface MessageRequest {
   /**
    * <p>A map of key-value pairs, where each key is an address and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object. An address can be a push notification token, a phone number, or an email address. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object to tailor the message for an address by specifying settings such as content overrides and message variables.</p>
    */
-  Addresses?: { [key: string]: AddressConfiguration };
+  Addresses?: Record<string, AddressConfiguration>;
 
   /**
    * <p>A map of custom attributes to attach to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>A map of key-value pairs, where each key is an endpoint ID and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.</p>
    */
-  Endpoints?: { [key: string]: EndpointSendConfiguration };
+  Endpoints?: Record<string, EndpointSendConfiguration>;
 
   /**
    * <p>The settings and content for the default message and any default messages that you defined for specific channels.</p>
@@ -2276,7 +2276,7 @@ export interface MessageResponse {
   /**
    * <p>A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.</p>
    */
-  EndpointResult?: { [key: string]: EndpointMessageResult };
+  EndpointResult?: Record<string, EndpointMessageResult>;
 
   /**
    * <p>The identifier for the original request that the message was delivered for.</p>
@@ -2286,7 +2286,7 @@ export interface MessageResponse {
   /**
    * <p>A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.</p>
    */
-  Result?: { [key: string]: MessageResult };
+  Result?: Record<string, MessageResult>;
 }
 
 export namespace MessageResponse {
@@ -2750,7 +2750,7 @@ export interface SendUsersMessageRequest {
   /**
    * <p>A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>The settings and content for the default message and any default messages that you defined for specific channels.</p>
@@ -2770,7 +2770,7 @@ export interface SendUsersMessageRequest {
   /**
    * <p>A map that associates user IDs with <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> objects. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for a user by specifying settings such as content overrides and message variables.</p>
    */
-  Users: { [key: string]: EndpointSendConfiguration } | undefined;
+  Users: Record<string, EndpointSendConfiguration> | undefined;
 }
 
 export namespace SendUsersMessageRequest {
@@ -2820,7 +2820,7 @@ export interface SendUsersMessageResponse {
   /**
    * <p>An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.</p>
    */
-  Result?: { [key: string]: { [key: string]: EndpointMessageResult } };
+  Result?: Record<string, Record<string, EndpointMessageResult>>;
 }
 
 export namespace SendUsersMessageResponse {
@@ -3611,7 +3611,7 @@ export interface UpdateRecommenderConfigurationShape {
   /**
    * <p>A map of key-value pairs that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>In the map, the key is the name of a custom attribute and the value is a custom display name for that attribute. The display name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The following restrictions apply to these names:</p> <ul><li><p>An attribute name must start with a letter or number and it can contain up to 50 characters. The characters can be letters, numbers, underscores (_), or hyphens (-). Attribute names are case sensitive and must be unique.</p></li> <li><p>An attribute display name must start with a letter or number and it can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p></li></ul> <p>This object is required if the configuration invokes an AWS Lambda function (RecommendationTransformerUri) to process recommendation data. Otherwise, don't include this object in your request.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>A custom description of the configuration for the recommender model. The description can contain up to 128 characters. The characters can be letters, numbers, spaces, or the following symbols: _ ; () , ‐.</p>

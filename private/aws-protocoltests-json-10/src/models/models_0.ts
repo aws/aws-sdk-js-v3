@@ -277,7 +277,7 @@ export namespace MyUnion {
     timestampValue?: never;
     enumValue?: never;
     listValue?: never;
-    mapValue: { [key: string]: string };
+    mapValue: Record<string, string>;
     structureValue?: never;
     $unknown?: never;
   }
@@ -316,7 +316,7 @@ export namespace MyUnion {
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
     listValue: (value: string[]) => T;
-    mapValue: (value: { [key: string]: string }) => T;
+    mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
     _: (name: string, value: any) => T;
   }

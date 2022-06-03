@@ -143,10 +143,7 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1GetEntitlementFilters = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetEntitlementFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [GetEntitlementFilterName | string, any]) => {
       if (value === null) {

@@ -1850,7 +1850,7 @@ const serializeAws_restJson1Clip = (input: Clip, context: __SerdeContext): any =
   };
 };
 
-const serializeAws_restJson1CodecOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1CodecOptions = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2166,7 +2166,7 @@ const serializeAws_restJson1TimeSpan = (input: TimeSpan, context: __SerdeContext
   };
 };
 
-const serializeAws_restJson1UserMetadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2335,8 +2335,8 @@ const deserializeAws_restJson1Clip = (output: any, context: __SerdeContext): Cli
   } as any;
 };
 
-const deserializeAws_restJson1CodecOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1CodecOptions = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2815,8 +2815,8 @@ const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): T
   } as any;
 };
 
-const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

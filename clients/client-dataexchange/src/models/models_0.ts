@@ -587,7 +587,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDataSetRequest {
@@ -672,7 +672,7 @@ export interface CreateDataSetResponse {
   /**
    * <p>The tags for the data set.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
@@ -1735,7 +1735,7 @@ export interface CreateRevisionRequest {
   /**
    * <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRevisionRequest {
@@ -1786,7 +1786,7 @@ export interface CreateRevisionResponse {
   /**
    * <p>The tags for the revision.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
@@ -2049,7 +2049,7 @@ export interface GetDataSetResponse {
   /**
    * <p>The tags for the data set.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
@@ -2250,7 +2250,7 @@ export interface GetRevisionResponse {
   /**
    * <p>The tags for the revision.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
@@ -2778,7 +2778,7 @@ export interface ListTagsForResourceResponse {
   /**
    * A label that consists of a customer-defined key and an optional value.
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2897,7 +2897,7 @@ export interface SendApiAssetRequest {
   /**
    * <p>Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).</p>
    */
-  QueryStringParameters?: { [key: string]: string };
+  QueryStringParameters?: Record<string, string>;
 
   /**
    * <p>Asset ID value for the API request.</p>
@@ -2912,7 +2912,7 @@ export interface SendApiAssetRequest {
   /**
    * <p>Any header value prefixed with x-amzn-dataexchange-header- will have that stripped before sending the Asset API request. Use this when you want to override a header that AWS Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP request.</p>
    */
-  RequestHeaders?: { [key: string]: string };
+  RequestHeaders?: Record<string, string>;
 
   /**
    * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.</p>
@@ -2948,7 +2948,7 @@ export interface SendApiAssetResponse {
   /**
    * <p>The response headers from the underlying API tracked by the API asset.</p>
    */
-  ResponseHeaders?: { [key: string]: string };
+  ResponseHeaders?: Record<string, string>;
 }
 
 export namespace SendApiAssetResponse {
@@ -2999,7 +2999,7 @@ export interface TagResourceRequest {
   /**
    * A label that consists of a customer-defined key and an optional value.
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

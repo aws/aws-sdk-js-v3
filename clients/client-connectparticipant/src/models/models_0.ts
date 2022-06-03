@@ -763,7 +763,7 @@ export interface UploadMetadata {
   /**
    * <p>The headers to be provided while uploading the file to the URL.</p>
    */
-  HeadersToInclude?: { [key: string]: string };
+  HeadersToInclude?: Record<string, string>;
 }
 
 export namespace UploadMetadata {

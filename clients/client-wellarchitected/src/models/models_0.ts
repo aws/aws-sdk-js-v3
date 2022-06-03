@@ -1074,7 +1074,7 @@ export interface CreateWorkloadInput {
   /**
    * <p>The tags to be associated with the workload.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateWorkloadInput {
@@ -1621,7 +1621,7 @@ export interface PillarReviewSummary {
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
-  RiskCounts?: { [key: string]: number };
+  RiskCounts?: Record<string, number>;
 }
 
 export namespace PillarReviewSummary {
@@ -1681,7 +1681,7 @@ export interface LensReview {
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
-  RiskCounts?: { [key: string]: number };
+  RiskCounts?: Record<string, number>;
 
   /**
    * <p>The token to use to retrieve the next set of results.</p>
@@ -2243,7 +2243,7 @@ export interface Workload {
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
-  RiskCounts?: { [key: string]: number };
+  RiskCounts?: Record<string, number>;
 
   /**
    * <p>The priorities of the pillars, which are used to order items in the improvement plan.
@@ -2269,7 +2269,7 @@ export interface Workload {
   /**
    * <p>The tags associated with the workload.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Workload {
@@ -2408,7 +2408,7 @@ export interface ImportLensInput {
   /**
    * <p>Tags to associate to a lens.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ImportLensInput {
@@ -2531,7 +2531,7 @@ export interface LensReviewSummary {
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
-  RiskCounts?: { [key: string]: number };
+  RiskCounts?: Record<string, number>;
 }
 
 export namespace LensReviewSummary {
@@ -3138,7 +3138,7 @@ export interface WorkloadSummary {
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
-  RiskCounts?: { [key: string]: number };
+  RiskCounts?: Record<string, number>;
 
   /**
    * <p>The improvement status for a workload.</p>
@@ -3446,7 +3446,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -3663,7 +3663,7 @@ export interface TagResourceInput {
   /**
    * <p>The tags for the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceInput {
@@ -3749,7 +3749,7 @@ export interface UpdateAnswerInput {
    * <p>A list of choices to update on a question in your workload.  The String key
    *             corresponds to the choice ID to be updated.</p>
    */
-  ChoiceUpdates?: { [key: string]: ChoiceUpdate };
+  ChoiceUpdates?: Record<string, ChoiceUpdate>;
 
   /**
    * <p>The notes associated with the workload.</p>
@@ -3834,7 +3834,7 @@ export interface UpdateLensReviewInput {
   /**
    * <p>List of pillar notes of a lens review in a workload.</p>
    */
-  PillarNotes?: { [key: string]: string };
+  PillarNotes?: Record<string, string>;
 }
 
 export namespace UpdateLensReviewInput {

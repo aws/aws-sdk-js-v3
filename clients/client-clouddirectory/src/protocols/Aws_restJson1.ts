@@ -8238,7 +8238,7 @@ const serializeAws_restJson1Rule = (input: Rule, context: __SerdeContext): any =
   };
 };
 
-const serializeAws_restJson1RuleMap = (input: { [key: string]: Rule }, context: __SerdeContext): any => {
+const serializeAws_restJson1RuleMap = (input: Record<string, Rule>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8250,7 +8250,7 @@ const serializeAws_restJson1RuleMap = (input: { [key: string]: Rule }, context: 
   }, {});
 };
 
-const serializeAws_restJson1RuleParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1RuleParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -9167,8 +9167,8 @@ const deserializeAws_restJson1IndexAttachmentList = (output: any, context: __Ser
 const deserializeAws_restJson1LinkNameToObjectIdentifierMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9219,8 +9219,8 @@ const deserializeAws_restJson1ObjectIdentifierList = (output: any, context: __Se
 const deserializeAws_restJson1ObjectIdentifierToLinkNameMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9317,8 +9317,8 @@ const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rul
   } as any;
 };
 
-const deserializeAws_restJson1RuleMap = (output: any, context: __SerdeContext): { [key: string]: Rule } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Rule }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1RuleMap = (output: any, context: __SerdeContext): Record<string, Rule> => {
+  return Object.entries(output).reduce((acc: Record<string, Rule>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9329,8 +9329,8 @@ const deserializeAws_restJson1RuleMap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
-const deserializeAws_restJson1RuleParameterMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1RuleParameterMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

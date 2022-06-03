@@ -857,7 +857,7 @@ export interface DescribeSecretResponse {
    *          </ul>
    *          <p>For more information about rotation and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation works</a>.</p>
    */
-  VersionIdsToStages?: { [key: string]: string[] };
+  VersionIdsToStages?: Record<string, string[]>;
 
   /**
    * <p>The name of the service that created this secret.</p>
@@ -1331,7 +1331,7 @@ export interface SecretListEntry {
    *         deprecated and subject to deletion. Such versions are not included in this list.</p>
    *          </note>
    */
-  SecretVersionsToStages?: { [key: string]: string[] };
+  SecretVersionsToStages?: Record<string, string[]>;
 
   /**
    * <p>Returns the name of the service that created the secret.</p>

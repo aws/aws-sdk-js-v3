@@ -3768,12 +3768,12 @@ export interface UpdateDataSetRequest {
   /**
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
-  PhysicalTableMap: { [key: string]: PhysicalTable } | undefined;
+  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
 
   /**
    * <p>Configures the combination and transformation of the data from the physical tables.</p>
    */
-  LogicalTableMap?: { [key: string]: LogicalTable };
+  LogicalTableMap?: Record<string, LogicalTable>;
 
   /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
@@ -3788,7 +3788,7 @@ export interface UpdateDataSetRequest {
   /**
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    */
-  FieldFolders?: { [key: string]: FieldFolder };
+  FieldFolders?: Record<string, FieldFolder>;
 
   /**
    * <p>The row-level security configuration for the data you want to create.</p>
@@ -4331,7 +4331,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
   /**
    * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
-  Identities?: { [key: string]: string[] };
+  Identities?: Record<string, string[]>;
 }
 
 export namespace UpdateIAMPolicyAssignmentRequest {
@@ -4363,7 +4363,7 @@ export interface UpdateIAMPolicyAssignmentResponse {
   /**
    * <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
-  Identities?: { [key: string]: string[] };
+  Identities?: Record<string, string[]>;
 
   /**
    * <p>The status of the assignment. Possible values are as follows:</p>
@@ -4415,7 +4415,7 @@ export interface UpdateIpRestrictionRequest {
   /**
    * <p>A map that describes the updated IP rules with CIDR ranges and descriptions.</p>
    */
-  IpRestrictionRuleMap?: { [key: string]: string };
+  IpRestrictionRuleMap?: Record<string, string>;
 
   /**
    * <p>A value that specifies whether IP rules are turned on.</p>

@@ -3837,10 +3837,7 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_restJson1DisruptionPolicy = (
-  input: { [key: string]: FailurePolicy },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DisruptionPolicy = (input: Record<string, FailurePolicy>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [DisruptionType | string, any]) => {
     if (value === null) {
       return acc;
@@ -3945,7 +3942,7 @@ const serializeAws_restJson1String255List = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4235,9 +4232,9 @@ const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1AssessmentCompliance = (
   output: any,
   context: __SerdeContext
-): { [key: string]: DisruptionCompliance } => {
+): Record<string, DisruptionCompliance> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: DisruptionCompliance }, [key, value]: [DisruptionType | string, any]) => {
+    (acc: Record<string, DisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4362,9 +4359,9 @@ const deserializeAws_restJson1DisruptionCompliance = (output: any, context: __Se
 const deserializeAws_restJson1DisruptionPolicy = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FailurePolicy } => {
+): Record<string, FailurePolicy> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: FailurePolicy }, [key, value]: [DisruptionType | string, any]) => {
+    (acc: Record<string, FailurePolicy>, [key, value]: [DisruptionType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4380,19 +4377,16 @@ const deserializeAws_restJson1DisruptionPolicy = (
 const deserializeAws_restJson1DisruptionResiliencyScore = (
   output: any,
   context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [DisruptionType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __limitedParseDouble(value) as any,
-      };
-    },
-    {}
-  );
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DisruptionType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __limitedParseDouble(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1FailurePolicy = (output: any, context: __SerdeContext): FailurePolicy => {
@@ -4454,9 +4448,9 @@ const deserializeAws_restJson1PhysicalResourceList = (output: any, context: __Se
 const deserializeAws_restJson1RecommendationCompliance = (
   output: any,
   context: __SerdeContext
-): { [key: string]: RecommendationDisruptionCompliance } => {
+): Record<string, RecommendationDisruptionCompliance> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: RecommendationDisruptionCompliance }, [key, value]: [DisruptionType | string, any]) => {
+    (acc: Record<string, RecommendationDisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4734,8 +4728,8 @@ const deserializeAws_restJson1SuggestedChangesList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

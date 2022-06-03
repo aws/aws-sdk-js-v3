@@ -4698,7 +4698,7 @@ export interface ResourceDetails {
    *             </li>
    *          </ul>
    */
-  Other?: { [key: string]: string };
+  Other?: Record<string, string>;
 
   /**
    * <p>Details about an RDS event notification subscription.</p>
@@ -4833,7 +4833,7 @@ export interface Resource {
    * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
    *          processed.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Contains information about sensitive data that was detected on the resource.</p>
@@ -5452,13 +5452,13 @@ export interface AwsSecurityFinding {
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
    *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
    */
-  ProductFields?: { [key: string]: string };
+  ProductFields?: Record<string, string>;
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
    *          user-defined fields added to a finding. </p>
    */
-  UserDefinedFields?: { [key: string]: string };
+  UserDefinedFields?: Record<string, string>;
 
   /**
    * <p>A list of malware related to a finding.</p>
@@ -6575,7 +6575,7 @@ export interface StandardsSubscription {
   /**
    * <p>A key-value pair of input for the standard.</p>
    */
-  StandardsInput: { [key: string]: string } | undefined;
+  StandardsInput: Record<string, string> | undefined;
 
   /**
    * <p>The status of the standard subscription.</p>
@@ -6649,7 +6649,7 @@ export interface StandardsSubscriptionRequest {
   /**
    * <p>A key-value pair of input for the standard.</p>
    */
-  StandardsInput?: { [key: string]: string };
+  StandardsInput?: Record<string, string>;
 }
 
 export namespace StandardsSubscriptionRequest {
@@ -7013,7 +7013,7 @@ export interface BatchUpdateFindingsRequest {
    * <p>A list of name/value string pairs associated with the finding. These are custom,
    *          user-defined fields added to a finding.</p>
    */
-  UserDefinedFields?: { [key: string]: string };
+  UserDefinedFields?: Record<string, string>;
 
   /**
    * <p>Used to update the workflow status of a finding.</p>
@@ -8227,7 +8227,7 @@ export interface EnableSecurityHubRequest {
   /**
    * <p>The tags to add to the hub resource when you enable Security Hub.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Whether to enable the security standards that Security Hub has designated as automatically
@@ -9184,7 +9184,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -9205,7 +9205,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

@@ -5038,7 +5038,7 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   };
 };
 
-const serializeAws_json1_1LoginMessage = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1LoginMessage = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6440,8 +6440,8 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1LoginMessage = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1LoginMessage = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

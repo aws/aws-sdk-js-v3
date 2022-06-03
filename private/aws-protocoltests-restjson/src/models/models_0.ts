@@ -48,7 +48,7 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
-  queryParamsMapOfStringList?: { [key: string]: string[] };
+  queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
 export namespace AllQueryStringTypesInput {
@@ -328,7 +328,7 @@ export namespace HttpPayloadWithStructureInputOutput {
 
 export interface HttpPrefixHeadersInput {
   foo?: string;
-  fooMap?: { [key: string]: string };
+  fooMap?: Record<string, string>;
 }
 
 export namespace HttpPrefixHeadersInput {
@@ -342,7 +342,7 @@ export namespace HttpPrefixHeadersInput {
 
 export interface HttpPrefixHeadersOutput {
   foo?: string;
-  fooMap?: { [key: string]: string };
+  fooMap?: Record<string, string>;
 }
 
 export namespace HttpPrefixHeadersOutput {
@@ -366,7 +366,7 @@ export namespace HttpPrefixHeadersInResponseInput {
 }
 
 export interface HttpPrefixHeadersInResponseOutput {
-  prefixHeaders?: { [key: string]: string };
+  prefixHeaders?: Record<string, string>;
 }
 
 export namespace HttpPrefixHeadersInResponseOutput {
@@ -551,7 +551,7 @@ export interface JsonEnumsInputOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 export namespace JsonEnumsInputOutput {
@@ -603,16 +603,16 @@ export namespace JsonListsInputOutput {
 }
 
 export interface JsonMapsInputOutput {
-  denseStructMap?: { [key: string]: GreetingStruct };
-  sparseStructMap?: { [key: string]: GreetingStruct };
-  denseNumberMap?: { [key: string]: number };
-  denseBooleanMap?: { [key: string]: boolean };
-  denseStringMap?: { [key: string]: string };
-  sparseNumberMap?: { [key: string]: number };
-  sparseBooleanMap?: { [key: string]: boolean };
-  sparseStringMap?: { [key: string]: string };
-  denseSetMap?: { [key: string]: string[] };
-  sparseSetMap?: { [key: string]: string[] };
+  denseStructMap?: Record<string, GreetingStruct>;
+  sparseStructMap?: Record<string, GreetingStruct>;
+  denseNumberMap?: Record<string, number>;
+  denseBooleanMap?: Record<string, boolean>;
+  denseStringMap?: Record<string, string>;
+  sparseNumberMap?: Record<string, number>;
+  sparseBooleanMap?: Record<string, boolean>;
+  sparseStringMap?: Record<string, string>;
+  denseSetMap?: Record<string, string[]>;
+  sparseSetMap?: Record<string, string[]>;
 }
 
 export namespace JsonMapsInputOutput {
@@ -776,7 +776,7 @@ export namespace MyUnion {
     timestampValue?: never;
     enumValue?: never;
     listValue?: never;
-    mapValue: { [key: string]: string };
+    mapValue: Record<string, string>;
     structureValue?: never;
     renamedStructureValue?: never;
     $unknown?: never;
@@ -832,7 +832,7 @@ export namespace MyUnion {
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
     listValue: (value: string[]) => T;
-    mapValue: (value: { [key: string]: string }) => T;
+    mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
     renamedStructureValue: (value: RenamedGreeting) => T;
     _: (name: string, value: any) => T;
@@ -1067,7 +1067,7 @@ export namespace MalformedLongInput {
 }
 
 export interface MalformedMapInput {
-  bodyMap?: { [key: string]: string };
+  bodyMap?: Record<string, string>;
 }
 
 export namespace MalformedMapInput {
@@ -1517,7 +1517,7 @@ export namespace QueryIdempotencyTokenAutoFillInput {
 
 export interface QueryParamsAsStringListMapInput {
   qux?: string;
-  foo?: { [key: string]: string[] };
+  foo?: Record<string, string[]>;
 }
 
 export namespace QueryParamsAsStringListMapInput {
@@ -1531,7 +1531,7 @@ export namespace QueryParamsAsStringListMapInput {
 
 export interface QueryPrecedenceInput {
   foo?: string;
-  baz?: { [key: string]: string };
+  baz?: Record<string, string>;
 }
 
 export namespace QueryPrecedenceInput {

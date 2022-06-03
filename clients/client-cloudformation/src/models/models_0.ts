@@ -1416,7 +1416,7 @@ export interface ResourceToImport {
    *          (for example, <code>BucketName</code> for <code>AWS::S3::Bucket</code> resources) and the
    *          value is the actual property value (for example, <code>MyS3Bucket</code>).</p>
    */
-  ResourceIdentifier: { [key: string]: string } | undefined;
+  ResourceIdentifier: Record<string, string> | undefined;
 }
 
 export namespace ResourceToImport {

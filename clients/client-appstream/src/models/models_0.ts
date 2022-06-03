@@ -193,7 +193,7 @@ export interface Application {
   /**
    * <p>Additional attributes that describe the application.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>The working directory for the application.</p>
@@ -967,7 +967,7 @@ export interface CreateAppBlockRequest {
   /**
    * <p>The tags assigned to the app block.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAppBlockRequest {
@@ -1049,7 +1049,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The tags assigned to the application.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateApplicationRequest {
@@ -1656,7 +1656,7 @@ export interface CreateFleetRequest {
    *
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
@@ -2263,7 +2263,7 @@ export interface CreateImageBuilderRequest {
    *
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
@@ -2757,7 +2757,7 @@ export interface CreateStackRequest {
    *
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
@@ -2995,7 +2995,7 @@ export interface CreateUpdatedImageRequest {
    *         <p>If you do not specify a value, the value is set to an empty string.</p>
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  newImageTags?: { [key: string]: string };
+  newImageTags?: Record<string, string>;
 
   /**
    * <p>Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to <code>true</code>, AppStream 2.0 displays whether image updates are available. If this value is set to <code>false</code>, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available.</p>
@@ -5008,7 +5008,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The information about the tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5157,7 +5157,7 @@ export interface TagResourceRequest {
    *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *         <p>_ . : / = + \ - @</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

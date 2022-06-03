@@ -628,7 +628,7 @@ export interface SamplingRule {
   /**
    * <p>Matches attributes derived from the request.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace SamplingRule {
@@ -2956,7 +2956,7 @@ export interface TraceSummary {
   /**
    * <p>Annotations from the trace's segment documents.</p>
    */
-  Annotations?: { [key: string]: ValueWithServiceIds[] };
+  Annotations?: Record<string, ValueWithServiceIds[]>;
 
   /**
    * <p>Users from the trace's segment documents.</p>
@@ -3622,7 +3622,7 @@ export interface SamplingRuleUpdate {
   /**
    * <p>Matches attributes derived from the request.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace SamplingRuleUpdate {

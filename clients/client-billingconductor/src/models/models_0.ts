@@ -596,7 +596,7 @@ export interface CreateBillingGroupInput {
    * <p> A map that contains tag keys and tag values that are attached to a billing group. This
    *       feature isn't available during the beta. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateBillingGroupInput {
@@ -1291,7 +1291,7 @@ export interface CreateCustomLineItemInput {
   /**
    * <p> A map that contains tag keys and tag values that are attached to a custom line item. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>
@@ -2229,7 +2229,7 @@ export interface ListTagsForResourceResponse {
    *       The tags for the resource.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2271,7 +2271,7 @@ export interface CreatePricingPlanInput {
    *       A map that contains tag keys and tag values that are attached to a pricing plan.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePricingPlanInput {
@@ -2730,7 +2730,7 @@ export interface CreatePricingRuleInput {
    *       A map that contains tag keys and tag values that are attached to a pricing rule.
    *     </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreatePricingRuleInput {
@@ -3179,7 +3179,7 @@ export interface TagResourceRequest {
    *       The tags to add to the resource as a list of key-value pairs.
    *     </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

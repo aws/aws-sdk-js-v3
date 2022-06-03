@@ -5171,7 +5171,7 @@ const serializeAws_restJson1Condition = (input: Condition, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1Criterion = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
+const serializeAws_restJson1Criterion = (input: Record<string, Condition>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5394,7 +5394,7 @@ const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __Serd
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -5616,8 +5616,8 @@ const deserializeAws_restJson1Containers = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5635,8 +5635,8 @@ const deserializeAws_restJson1Country = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext): { [key: string]: Condition } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext): Record<string, Condition> => {
+  return Object.entries(output).reduce((acc: Record<string, Condition>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6585,8 +6585,8 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

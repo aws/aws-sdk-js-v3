@@ -25,7 +25,7 @@ export interface GetEntitlementsRequest {
    *         <i>unioned</i> for each value in the value list, and then
    *         <i>intersected</i> for each filter key.</p>
    */
-  Filter?: { [key: string]: string[] };
+  Filter?: Record<string, string[]>;
 
   /**
    * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous

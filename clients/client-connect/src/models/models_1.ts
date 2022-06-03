@@ -257,7 +257,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1026,7 +1026,7 @@ export interface UserSearchSummary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the user.</p>
@@ -1251,7 +1251,7 @@ export interface StartChatContactRequest {
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Information identifying the participant.</p>
@@ -1587,7 +1587,7 @@ export interface StartOutboundVoiceContactRequest {
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>Configuration of the answering machine detection for this outbound call. </p>
@@ -1687,7 +1687,7 @@ export interface StartTaskContactRequest {
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
@@ -1697,7 +1697,7 @@ export interface StartTaskContactRequest {
   /**
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
    */
-  References?: { [key: string]: Reference };
+  References?: Record<string, Reference>;
 
   /**
    * <p>A description of the task that is shown to an agent in the Contact Control Panel
@@ -1931,7 +1931,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2098,7 +2098,7 @@ export interface UpdateContactRequest {
   /**
    * <p>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</p>
    */
-  References?: { [key: string]: Reference };
+  References?: Record<string, Reference>;
 }
 
 export namespace UpdateContactRequest {
@@ -2139,7 +2139,7 @@ export interface UpdateContactAttributesRequest {
    *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace UpdateContactAttributesRequest {

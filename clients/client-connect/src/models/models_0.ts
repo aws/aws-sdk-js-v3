@@ -101,7 +101,7 @@ export interface AgentStatus {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AgentStatus {
@@ -959,7 +959,7 @@ export interface ClaimPhoneNumberRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1048,7 +1048,7 @@ export interface CreateAgentStatusRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAgentStatusRequest {
@@ -1144,7 +1144,7 @@ export interface CreateContactFlowRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateContactFlowRequest {
@@ -1244,7 +1244,7 @@ export interface CreateContactFlowModuleRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1396,7 +1396,7 @@ export interface CreateHoursOfOperationRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateHoursOfOperationRequest {
@@ -1545,7 +1545,7 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateIntegrationAssociationRequest {
@@ -1646,7 +1646,7 @@ export interface CreateQueueRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateQueueRequest {
@@ -1813,7 +1813,7 @@ export interface CreateQuickConnectRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateQuickConnectRequest {
@@ -1910,7 +1910,7 @@ export interface CreateRoutingProfileRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRoutingProfileRequest {
@@ -1967,7 +1967,7 @@ export interface CreateSecurityProfileRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateSecurityProfileRequest {
@@ -2368,7 +2368,7 @@ export interface CreateUseCaseRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateUseCaseRequest {
@@ -2530,7 +2530,7 @@ export interface CreateUserRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateUserRequest {
@@ -2583,7 +2583,7 @@ export interface CreateUserHierarchyGroupRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateUserHierarchyGroupRequest {
@@ -2653,7 +2653,7 @@ export interface CreateVocabularyRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateVocabularyRequest {
@@ -3326,7 +3326,7 @@ export interface ContactFlow {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ContactFlow {
@@ -3427,7 +3427,7 @@ export interface ContactFlowModule {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ContactFlowModule {
@@ -3513,7 +3513,7 @@ export interface HoursOfOperation {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace HoursOfOperation {
@@ -4115,7 +4115,7 @@ export interface ClaimedPhoneNumberSummary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The status of the phone number.</p>
@@ -4221,7 +4221,7 @@ export interface Queue {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Queue {
@@ -4302,7 +4302,7 @@ export interface QuickConnect {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace QuickConnect {
@@ -4394,7 +4394,7 @@ export interface RoutingProfile {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace RoutingProfile {
@@ -4475,7 +4475,7 @@ export interface SecurityProfile {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace SecurityProfile {
@@ -4577,7 +4577,7 @@ export interface User {
    * <p>The
    *    tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace User {
@@ -4726,7 +4726,7 @@ export interface HierarchyGroup {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace HierarchyGroup {
@@ -4928,7 +4928,7 @@ export interface Vocabulary {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Vocabulary {
@@ -5197,7 +5197,7 @@ export interface GetContactAttributesResponse {
   /**
    * <p>Information about the attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetContactAttributesResponse {
@@ -6116,7 +6116,7 @@ export interface GetTaskTemplateResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetTaskTemplateResponse {

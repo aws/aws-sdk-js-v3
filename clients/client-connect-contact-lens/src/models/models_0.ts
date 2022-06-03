@@ -154,7 +154,7 @@ export interface Categories {
   /**
    * <p>The category rule that was matched and when it occurred in the transcript.</p>
    */
-  MatchedDetails: { [key: string]: CategoryDetails } | undefined;
+  MatchedDetails: Record<string, CategoryDetails> | undefined;
 }
 
 export namespace Categories {

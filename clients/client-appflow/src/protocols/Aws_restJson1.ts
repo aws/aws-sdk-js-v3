@@ -2585,7 +2585,7 @@ const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)
     });
 };
 
-const serializeAws_restJson1CredentialsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1CredentialsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2689,7 +2689,7 @@ const serializeAws_restJson1CustomerProfilesDestinationProperties = (
   };
 };
 
-const serializeAws_restJson1CustomProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1CustomProperties = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3112,7 +3112,7 @@ const serializeAws_restJson1PrefixConfig = (input: PrefixConfig, context: __Serd
   };
 };
 
-const serializeAws_restJson1ProfilePropertiesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1ProfilePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3587,7 +3587,7 @@ const serializeAws_restJson1SuccessResponseHandlingConfig = (
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3617,7 +3617,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
   };
 };
 
-const serializeAws_restJson1TaskPropertiesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: any }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
@@ -3644,7 +3644,7 @@ const serializeAws_restJson1Tasks = (input: Task[], context: __SerdeContext): an
 };
 
 const serializeAws_restJson1TokenUrlCustomProperties = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3969,9 +3969,9 @@ const deserializeAws_restJson1ConnectorConfiguration = (
 const deserializeAws_restJson1ConnectorConfigurationsMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ConnectorConfiguration } => {
+): Record<string, ConnectorConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: ConnectorConfiguration }, [key, value]: [ConnectorType | string, any]) => {
+    (acc: Record<string, ConnectorConfiguration>, [key, value]: [ConnectorType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4072,8 +4072,8 @@ const deserializeAws_restJson1ConnectorEntityList = (output: any, context: __Ser
 const deserializeAws_restJson1ConnectorEntityMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ConnectorEntity[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ConnectorEntity[] }, [key, value]: [string, any]) => {
+): Record<string, ConnectorEntity[]> => {
+  return Object.entries(output).reduce((acc: Record<string, ConnectorEntity[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4514,8 +4514,8 @@ const deserializeAws_restJson1CustomerProfilesMetadata = (
   return {} as any;
 };
 
-const deserializeAws_restJson1CustomProperties = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1CustomProperties = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5118,11 +5118,8 @@ const deserializeAws_restJson1PrivateConnectionProvisioningState = (
   } as any;
 };
 
-const deserializeAws_restJson1ProfilePropertiesMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1ProfilePropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5663,8 +5660,8 @@ const deserializeAws_restJson1SupportedWriteOperationList = (
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5694,9 +5691,9 @@ const deserializeAws_restJson1Task = (output: any, context: __SerdeContext): Tas
   } as any;
 };
 
-const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -5724,8 +5721,8 @@ const deserializeAws_restJson1Tasks = (output: any, context: __SerdeContext): Ta
 const deserializeAws_restJson1TokenUrlCustomProperties = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

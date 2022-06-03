@@ -682,14 +682,14 @@ export interface GrantConstraints {
    *       context in the request includes the key-value pairs specified in this constraint, although it
    *       can include additional key-value pairs.</p>
    */
-  EncryptionContextSubset?: { [key: string]: string };
+  EncryptionContextSubset?: Record<string, string>;
 
   /**
    * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a>
    *       request. The grant allows the operation only when the encryption context in the request is the
    *       same as the encryption context specified in this constraint.</p>
    */
-  EncryptionContextEquals?: { [key: string]: string };
+  EncryptionContextEquals?: Record<string, string>;
 }
 
 export namespace GrantConstraints {
@@ -1823,7 +1823,7 @@ export interface DecryptRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>A list of grant tokens. </p>
@@ -2439,7 +2439,7 @@ export interface EncryptRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -2552,7 +2552,7 @@ export interface GenerateDataKeyRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a
@@ -2626,7 +2626,7 @@ export interface GenerateDataKeyPairRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
@@ -2727,7 +2727,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
@@ -2850,7 +2850,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  EncryptionContext?: Record<string, string>;
 
   /**
    * <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key,
@@ -4091,7 +4091,7 @@ export interface ReEncryptRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  SourceEncryptionContext?: { [key: string]: string };
+  SourceEncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is
@@ -4165,7 +4165,7 @@ export interface ReEncryptRequest {
    *          <p>For more information, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  DestinationEncryptionContext?: { [key: string]: string };
+  DestinationEncryptionContext?: Record<string, string>;
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it

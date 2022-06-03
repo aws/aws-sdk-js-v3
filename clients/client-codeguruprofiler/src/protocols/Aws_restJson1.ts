@@ -1080,7 +1080,7 @@ export const deserializeAws_restJson1ConfigureAgentCommand = async (
     $metadata: deserializeMetadata(output),
     configuration: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.configuration = deserializeAws_restJson1AgentConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -1131,7 +1131,7 @@ export const deserializeAws_restJson1CreateProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
@@ -1237,7 +1237,7 @@ export const deserializeAws_restJson1DescribeProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
@@ -2168,7 +2168,7 @@ export const deserializeAws_restJson1UpdateProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
@@ -2370,7 +2370,7 @@ const serializeAws_restJson1FrameMetrics = (input: FrameMetric[], context: __Ser
     });
 };
 
-const serializeAws_restJson1Metadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Metadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [MetadataField | string, any]) => {
     if (value === null) {
       return acc;
@@ -2393,7 +2393,7 @@ const serializeAws_restJson1Principals = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2436,9 +2436,9 @@ const deserializeAws_restJson1AgentOrchestrationConfig = (
   } as any;
 };
 
-const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [AgentParameterField | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [AgentParameterField | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2847,8 +2847,8 @@ const deserializeAws_restJson1Strings = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2907,8 +2907,8 @@ const deserializeAws_restJson1TimestampStructure = (output: any, context: __Serd
 const deserializeAws_restJson1UnprocessedEndTimeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: TimestampStructure[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: TimestampStructure[] }, [key, value]: [string, any]) => {
+): Record<string, TimestampStructure[]> => {
+  return Object.entries(output).reduce((acc: Record<string, TimestampStructure[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

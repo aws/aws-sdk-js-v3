@@ -150,7 +150,7 @@ export interface CreateNotificationRuleRequest {
   /**
    * <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The status of the notification rule. The default value is ENABLED. If the status is
@@ -466,7 +466,7 @@ export interface DescribeNotificationRuleResult {
   /**
    * <p>The tags associated with the notification rule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeNotificationRuleResult {
@@ -733,7 +733,7 @@ export interface ListTagsForResourceResult {
   /**
    * <p>The tags associated with the notification rule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResult {
@@ -889,7 +889,7 @@ export interface TagResourceRequest {
   /**
    * <p>The list of tags to associate with the resource. Tag key names cannot start with "aws".</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -905,7 +905,7 @@ export interface TagResourceResult {
   /**
    * <p>The list of tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace TagResourceResult {

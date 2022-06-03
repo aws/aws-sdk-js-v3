@@ -6504,7 +6504,7 @@ const serializeAws_json1_1TestGridVpcConfig = (input: TestGridVpcConfig, context
   };
 };
 
-const serializeAws_json1_1TestParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1TestParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7739,8 +7739,8 @@ const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): L
   } as any;
 };
 
-const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7861,8 +7861,8 @@ const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeConte
 const deserializeAws_json1_1OfferingStatusMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: OfferingStatus } => {
-  return Object.entries(output).reduce((acc: { [key: string]: OfferingStatus }, [key, value]: [string, any]) => {
+): Record<string, OfferingStatus> => {
+  return Object.entries(output).reduce((acc: Record<string, OfferingStatus>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7986,19 +7986,16 @@ const deserializeAws_json1_1Projects = (output: any, context: __SerdeContext): P
   return retVal;
 };
 
-const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [DevicePlatform | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __expectInt32(value) as any,
-      };
-    },
-    {}
-  );
+const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DevicePlatform | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectInt32(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1PurchaseOfferingResult = (output: any, context: __SerdeContext): PurchaseOfferingResult => {
@@ -8578,9 +8575,9 @@ const deserializeAws_json1_1UniqueProblems = (output: any, context: __SerdeConte
 const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: UniqueProblem[] } => {
+): Record<string, UniqueProblem[]> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: UniqueProblem[] }, [key, value]: [ExecutionResult | string, any]) => {
+    (acc: Record<string, UniqueProblem[]>, [key, value]: [ExecutionResult | string, any]) => {
       if (value === null) {
         return acc;
       }

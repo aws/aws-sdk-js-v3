@@ -3354,7 +3354,7 @@ const serializeAws_restJson1CloudWatchLogsDestinationConfig = (
   };
 };
 
-const serializeAws_restJson1EntityOverrideMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1EntityOverrideMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3434,7 +3434,7 @@ const serializeAws_restJson1ExperimentResultRequestTypeList = (
     });
 };
 
-const serializeAws_restJson1GroupToWeightMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
+const serializeAws_restJson1GroupToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3598,7 +3598,7 @@ const serializeAws_restJson1ScheduledSplitsLaunchConfig = (
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3641,7 +3641,7 @@ const serializeAws_restJson1TreatmentNameList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1TreatmentToWeightMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
+const serializeAws_restJson1TreatmentToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3714,8 +3714,8 @@ const deserializeAws_restJson1DoubleValueList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1EntityOverrideMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1EntityOverrideMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3979,8 +3979,8 @@ const deserializeAws_restJson1FeatureSummary = (output: any, context: __SerdeCon
 const deserializeAws_restJson1FeatureToVariationMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3991,8 +3991,8 @@ const deserializeAws_restJson1FeatureToVariationMap = (
   }, {});
 };
 
-const deserializeAws_restJson1GroupToWeightMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1GroupToWeightMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4309,8 +4309,8 @@ const deserializeAws_restJson1ScheduledStepList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4356,11 +4356,8 @@ const deserializeAws_restJson1TreatmentList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_restJson1TreatmentToWeightMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TreatmentToWeightMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -132,7 +132,7 @@ export interface Resource {
    *             Key-value attribute pairs.
    *         </p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace Resource {

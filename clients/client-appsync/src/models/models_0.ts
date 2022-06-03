@@ -1910,7 +1910,7 @@ export interface CreateGraphqlApiRequest {
   /**
    * <p>A <code>TagMap</code> object.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
@@ -1981,12 +1981,12 @@ export interface GraphqlApi {
   /**
    * <p>The URIs.</p>
    */
-  uris?: { [key: string]: string };
+  uris?: Record<string, string>;
 
   /**
    * <p>The tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
@@ -3442,7 +3442,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A <code>TagMap</code> object.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3555,7 +3555,7 @@ export interface TagResourceRequest {
   /**
    * <p>A <code>TagMap</code> object.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

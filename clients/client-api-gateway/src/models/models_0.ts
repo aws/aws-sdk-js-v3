@@ -137,7 +137,7 @@ export interface ApiKey {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ApiKey {
@@ -228,7 +228,7 @@ export interface ApiStage {
   /**
    * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    */
-  throttle?: { [key: string]: ThrottleSettings };
+  throttle?: Record<string, ThrottleSettings>;
 }
 
 export namespace ApiStage {
@@ -452,7 +452,7 @@ export interface CreateApiKeyRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateApiKeyRequest {
@@ -710,7 +710,7 @@ export interface DeploymentCanarySettings {
   /**
    * <p>A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
-  stageVariableOverrides?: { [key: string]: string };
+  stageVariableOverrides?: Record<string, string>;
 
   /**
    * <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
@@ -766,7 +766,7 @@ export interface CreateDeploymentRequest {
    *           with the new deployment. Variable names can have alphanumeric and underscore characters, and the values
    *           must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    */
-  variables?: { [key: string]: string };
+  variables?: Record<string, string>;
 
   /**
    * <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
@@ -834,7 +834,7 @@ export interface Deployment {
   /**
    * <p>A summary of the RestApi at the date and time that the deployment resource was created.</p>
    */
-  apiSummary?: { [key: string]: { [key: string]: MethodSnapshot } };
+  apiSummary?: Record<string, Record<string, MethodSnapshot>>;
 }
 
 export namespace Deployment {
@@ -1152,7 +1152,7 @@ export interface CreateDomainNameRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
@@ -1306,7 +1306,7 @@ export interface DomainName {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1535,12 +1535,12 @@ export interface IntegrationResponse {
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
    */
-  responseParameters?: { [key: string]: string };
+  responseParameters?: Record<string, string>;
 
   /**
    * <p>Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  responseTemplates?: { [key: string]: string };
+  responseTemplates?: Record<string, string>;
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
@@ -1647,12 +1647,12 @@ export interface Integration {
   /**
    * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
-  requestParameters?: { [key: string]: string };
+  requestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    */
-  requestTemplates?: { [key: string]: string };
+  requestTemplates?: Record<string, string>;
 
   /**
    * <p>Specifies how the method request body of an unmapped content type will be passed through
@@ -1698,7 +1698,7 @@ export interface Integration {
   /**
    * <p>Specifies the integration's responses.</p>
    */
-  integrationResponses?: { [key: string]: IntegrationResponse };
+  integrationResponses?: Record<string, IntegrationResponse>;
 
   /**
    * <p>Specifies the TLS configuration for an integration.</p>
@@ -1727,12 +1727,12 @@ export interface MethodResponse {
   /**
    * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
-  responseParameters?: { [key: string]: boolean };
+  responseParameters?: Record<string, boolean>;
 
   /**
    * <p>Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.</p>
    */
-  responseModels?: { [key: string]: string };
+  responseModels?: Record<string, string>;
 }
 
 export namespace MethodResponse {
@@ -1788,17 +1788,17 @@ export interface Method {
   /**
    * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.</p>
    */
-  requestParameters?: { [key: string]: boolean };
+  requestParameters?: Record<string, boolean>;
 
   /**
    * <p>A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).</p>
    */
-  requestModels?: { [key: string]: string };
+  requestModels?: Record<string, string>;
 
   /**
    * <p>Gets a method response associated with a given HTTP status code. </p>
    */
-  methodResponses?: { [key: string]: MethodResponse };
+  methodResponses?: Record<string, MethodResponse>;
 
   /**
    * <p>Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.</p>
@@ -1847,7 +1847,7 @@ export interface Resource {
   /**
    * <p>Gets an API resource's method of a given HTTP verb.</p>
    */
-  resourceMethods?: { [key: string]: Method };
+  resourceMethods?: Record<string, Method>;
 }
 
 export namespace Resource {
@@ -1914,7 +1914,7 @@ export interface CreateRestApiRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
@@ -1999,7 +1999,7 @@ export interface RestApi {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
@@ -2036,7 +2036,7 @@ export interface CanarySettings {
   /**
    * <p>Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
-  stageVariableOverrides?: { [key: string]: string };
+  stageVariableOverrides?: Record<string, string>;
 
   /**
    * <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
@@ -2092,7 +2092,7 @@ export interface CreateStageRequest {
    *           can have alphanumeric and underscore characters, and the values must match
    *           <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    */
-  variables?: { [key: string]: string };
+  variables?: Record<string, string>;
 
   /**
    * <p>The version of the associated API documentation.</p>
@@ -2112,7 +2112,7 @@ export interface CreateStageRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateStageRequest {
@@ -2244,13 +2244,13 @@ export interface Stage {
   /**
    * <p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  </p>
    */
-  methodSettings?: { [key: string]: MethodSetting };
+  methodSettings?: Record<string, MethodSetting>;
 
   /**
    * <p>A map that defines the stage variables for a Stage resource. Variable names can
    *           have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    */
-  variables?: { [key: string]: string };
+  variables?: Record<string, string>;
 
   /**
    * <p>The version of the associated API documentation.</p>
@@ -2280,7 +2280,7 @@ export interface Stage {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The timestamp when the stage was created.</p>
@@ -2369,7 +2369,7 @@ export interface CreateUsagePlanRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateUsagePlanRequest {
@@ -2426,7 +2426,7 @@ export interface UsagePlan {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace UsagePlan {
@@ -2523,7 +2523,7 @@ export interface CreateVpcLinkRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateVpcLinkRequest {
@@ -2579,7 +2579,7 @@ export interface VpcLink {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace VpcLink {
@@ -3200,7 +3200,7 @@ export interface ClientCertificate {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ClientCertificate {
@@ -3224,7 +3224,7 @@ export interface GenerateClientCertificateRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GenerateClientCertificateRequest {
@@ -3890,7 +3890,7 @@ export interface GetExportRequest {
    * <p>A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code>
    *             <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
@@ -3925,12 +3925,12 @@ export interface GatewayResponse {
    * <p>Response parameters (paths, query strings and headers) of the GatewayResponse as a
    *       string-to-string map of key-value pairs.</p>
    */
-  responseParameters?: { [key: string]: string };
+  responseParameters?: Record<string, string>;
 
   /**
    * <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
    */
-  responseTemplates?: { [key: string]: string };
+  responseTemplates?: Record<string, string>;
 
   /**
    * <p>A Boolean flag to indicate whether this GatewayResponse is the default gateway response (<code>true</code>) or not (<code>false</code>). A default gateway response is one generated by API Gateway without any customization by an API developer. </p>
@@ -4528,7 +4528,7 @@ export interface GetSdkRequest {
   /**
    * <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace GetSdkRequest {
@@ -4807,7 +4807,7 @@ export interface Tags {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Tags {
@@ -4885,7 +4885,7 @@ export interface Usage {
   /**
    * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    */
-  items?: { [key: string]: number[][] };
+  items?: Record<string, number[][]>;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -5233,7 +5233,7 @@ export interface ImportRestApiRequest {
    *         <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p>
    *         <p>The AWS CLI command to set the regional endpoint on the imported API is:</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
@@ -5272,12 +5272,12 @@ export interface PutGatewayResponseRequest {
   /**
    * <p>Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value  pairs.</p>
    */
-  responseParameters?: { [key: string]: string };
+  responseParameters?: Record<string, string>;
 
   /**
    * <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
    */
-  responseTemplates?: { [key: string]: string };
+  responseTemplates?: Record<string, string>;
 }
 
 export namespace PutGatewayResponseRequest {
@@ -5356,12 +5356,12 @@ export interface PutIntegrationRequest {
   /**
    * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
-  requestParameters?: { [key: string]: string };
+  requestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    */
-  requestTemplates?: { [key: string]: string };
+  requestTemplates?: Record<string, string>;
 
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the <code>requestTemplates</code> property on the Integration resource. There are three valid values:  <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>.
@@ -5439,12 +5439,12 @@ export interface PutIntegrationResponseRequest {
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
    */
-  responseParameters?: { [key: string]: string };
+  responseParameters?: Record<string, string>;
 
   /**
    * <p>Specifies a put integration response's templates.</p>
    */
-  responseTemplates?: { [key: string]: string };
+  responseTemplates?: Record<string, string>;
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
@@ -5505,12 +5505,12 @@ export interface PutMethodRequest {
   /**
    * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or body-mapping templates.</p>
    */
-  requestParameters?: { [key: string]: boolean };
+  requestParameters?: Record<string, boolean>;
 
   /**
    * <p>Specifies the Model resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
    */
-  requestModels?: { [key: string]: string };
+  requestModels?: Record<string, string>;
 
   /**
    * <p>The identifier of a RequestValidator for validating the method request.</p>
@@ -5559,12 +5559,12 @@ export interface PutMethodResponseRequest {
   /**
    * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
-  responseParameters?: { [key: string]: boolean };
+  responseParameters?: Record<string, boolean>;
 
   /**
    * <p>Specifies the Model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
    */
-  responseModels?: { [key: string]: string };
+  responseModels?: Record<string, string>;
 }
 
 export namespace PutMethodResponseRequest {
@@ -5600,7 +5600,7 @@ export interface PutRestApiRequest {
   /**
    * <p>Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
@@ -5629,7 +5629,7 @@ export interface TagResourceRequest {
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -5658,12 +5658,12 @@ export interface TestInvokeAuthorizerRequest {
   /**
    * <p>A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.</p>
    */
-  headers?: { [key: string]: string };
+  headers?: Record<string, string>;
 
   /**
    * <p>The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
    */
-  multiValueHeaders?: { [key: string]: string[] };
+  multiValueHeaders?: Record<string, string[]>;
 
   /**
    * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
@@ -5678,12 +5678,12 @@ export interface TestInvokeAuthorizerRequest {
   /**
    * <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
    */
-  stageVariables?: { [key: string]: string };
+  stageVariables?: Record<string, string>;
 
   /**
    * <p>A key-value map of additional context variables.</p>
    */
-  additionalContext?: { [key: string]: string };
+  additionalContext?: Record<string, string>;
 }
 
 export namespace TestInvokeAuthorizerRequest {
@@ -5727,12 +5727,12 @@ export interface TestInvokeAuthorizerResponse {
   /**
    * <p>The authorization response.</p>
    */
-  authorization?: { [key: string]: string[] };
+  authorization?: Record<string, string[]>;
 
   /**
    * <p>The open identity claims, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
    */
-  claims?: { [key: string]: string };
+  claims?: Record<string, string>;
 }
 
 export namespace TestInvokeAuthorizerResponse {
@@ -5776,12 +5776,12 @@ export interface TestInvokeMethodRequest {
   /**
    * <p>A key-value map of headers to simulate an incoming invocation request.</p>
    */
-  headers?: { [key: string]: string };
+  headers?: Record<string, string>;
 
   /**
    * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
    */
-  multiValueHeaders?: { [key: string]: string[] };
+  multiValueHeaders?: Record<string, string[]>;
 
   /**
    * <p>A ClientCertificate identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.</p>
@@ -5791,7 +5791,7 @@ export interface TestInvokeMethodRequest {
   /**
    * <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
    */
-  stageVariables?: { [key: string]: string };
+  stageVariables?: Record<string, string>;
 }
 
 export namespace TestInvokeMethodRequest {
@@ -5820,12 +5820,12 @@ export interface TestInvokeMethodResponse {
   /**
    * <p>The headers of the HTTP response.</p>
    */
-  headers?: { [key: string]: string };
+  headers?: Record<string, string>;
 
   /**
    * <p>The headers of the HTTP response as a map from string to list of values.</p>
    */
-  multiValueHeaders?: { [key: string]: string[] };
+  multiValueHeaders?: Record<string, string[]>;
 
   /**
    * <p>The API Gateway execution log for the test invoke request.</p>

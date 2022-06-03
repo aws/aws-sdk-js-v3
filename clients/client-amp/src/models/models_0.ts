@@ -516,7 +516,7 @@ export interface ListTagsForResourceResponse {
   /**
    * The list of tags assigned to the resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -537,7 +537,7 @@ export interface TagResourceRequest {
   /**
    * The list of tags assigned to the resource.
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -609,7 +609,7 @@ export interface CreateWorkspaceRequest {
   /**
    * Optional, user-provided tags for this workspace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorkspaceRequest {
@@ -685,7 +685,7 @@ export interface CreateWorkspaceResponse {
   /**
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorkspaceResponse {
@@ -777,7 +777,7 @@ export interface WorkspaceDescription {
   /**
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace WorkspaceDescription {
@@ -869,7 +869,7 @@ export interface WorkspaceSummary {
   /**
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace WorkspaceSummary {
@@ -932,7 +932,7 @@ export interface CreateRuleGroupsNamespaceRequest {
   /**
    * Optional, user-provided tags for this rule groups namespace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRuleGroupsNamespaceRequest {
@@ -1017,7 +1017,7 @@ export interface CreateRuleGroupsNamespaceResponse {
   /**
    * The tags of this rule groups namespace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRuleGroupsNamespaceResponse {
@@ -1119,7 +1119,7 @@ export interface RuleGroupsNamespaceDescription {
   /**
    * The tags of this rule groups namespace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace RuleGroupsNamespaceDescription {
@@ -1216,7 +1216,7 @@ export interface RuleGroupsNamespaceSummary {
   /**
    * The tags of this rule groups namespace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace RuleGroupsNamespaceSummary {
@@ -1308,7 +1308,7 @@ export interface PutRuleGroupsNamespaceResponse {
   /**
    * The tags of this rule groups namespace.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace PutRuleGroupsNamespaceResponse {

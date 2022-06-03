@@ -159,7 +159,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1Filters = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Filters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -219,8 +219,8 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext): { [key: string]: DataPoint[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: DataPoint[] }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext): Record<string, DataPoint[]> => {
+  return Object.entries(output).reduce((acc: Record<string, DataPoint[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -1435,7 +1435,7 @@ const serializeAws_restJson1CreateExperimentTemplateActionInput = (
 };
 
 const serializeAws_restJson1CreateExperimentTemplateActionInputMap = (
-  input: { [key: string]: CreateExperimentTemplateActionInput },
+  input: Record<string, CreateExperimentTemplateActionInput>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1522,7 +1522,7 @@ const serializeAws_restJson1CreateExperimentTemplateTargetInput = (
 };
 
 const serializeAws_restJson1CreateExperimentTemplateTargetInputMap = (
-  input: { [key: string]: CreateExperimentTemplateTargetInput },
+  input: Record<string, CreateExperimentTemplateTargetInput>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1537,7 +1537,7 @@ const serializeAws_restJson1CreateExperimentTemplateTargetInputMap = (
 };
 
 const serializeAws_restJson1ExperimentTemplateActionParameterMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1566,7 +1566,7 @@ const serializeAws_restJson1ExperimentTemplateActionStartAfterList = (
 };
 
 const serializeAws_restJson1ExperimentTemplateActionTargetMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1638,7 +1638,7 @@ const serializeAws_restJson1ExperimentTemplateTargetInputFilter = (
 };
 
 const serializeAws_restJson1ExperimentTemplateTargetParameterMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1663,7 +1663,7 @@ const serializeAws_restJson1ResourceArnList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1698,7 +1698,7 @@ const serializeAws_restJson1UpdateExperimentTemplateActionInputItem = (
 };
 
 const serializeAws_restJson1UpdateExperimentTemplateActionInputMap = (
-  input: { [key: string]: UpdateExperimentTemplateActionInputItem },
+  input: Record<string, UpdateExperimentTemplateActionInputItem>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1785,7 +1785,7 @@ const serializeAws_restJson1UpdateExperimentTemplateTargetInput = (
 };
 
 const serializeAws_restJson1UpdateExperimentTemplateTargetInputMap = (
-  input: { [key: string]: UpdateExperimentTemplateTargetInput },
+  input: Record<string, UpdateExperimentTemplateTargetInput>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1828,8 +1828,8 @@ const deserializeAws_restJson1ActionParameter = (output: any, context: __SerdeCo
 const deserializeAws_restJson1ActionParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ActionParameter } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ActionParameter }, [key, value]: [string, any]) => {
+): Record<string, ActionParameter> => {
+  return Object.entries(output).reduce((acc: Record<string, ActionParameter>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1876,8 +1876,8 @@ const deserializeAws_restJson1ActionTarget = (output: any, context: __SerdeConte
 const deserializeAws_restJson1ActionTargetMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ActionTarget } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ActionTarget }, [key, value]: [string, any]) => {
+): Record<string, ActionTarget> => {
+  return Object.entries(output).reduce((acc: Record<string, ActionTarget>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1966,8 +1966,8 @@ const deserializeAws_restJson1ExperimentAction = (output: any, context: __SerdeC
 const deserializeAws_restJson1ExperimentActionMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ExperimentAction } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ExperimentAction }, [key, value]: [string, any]) => {
+): Record<string, ExperimentAction> => {
+  return Object.entries(output).reduce((acc: Record<string, ExperimentAction>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1981,8 +1981,8 @@ const deserializeAws_restJson1ExperimentActionMap = (
 const deserializeAws_restJson1ExperimentActionParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2015,8 +2015,8 @@ const deserializeAws_restJson1ExperimentActionState = (output: any, context: __S
 const deserializeAws_restJson1ExperimentActionTargetMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2192,8 +2192,8 @@ const deserializeAws_restJson1ExperimentTargetFilterValues = (output: any, conte
 const deserializeAws_restJson1ExperimentTargetMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ExperimentTarget } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ExperimentTarget }, [key, value]: [string, any]) => {
+): Record<string, ExperimentTarget> => {
+  return Object.entries(output).reduce((acc: Record<string, ExperimentTarget>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2207,8 +2207,8 @@ const deserializeAws_restJson1ExperimentTargetMap = (
 const deserializeAws_restJson1ExperimentTargetParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2280,26 +2280,23 @@ const deserializeAws_restJson1ExperimentTemplateAction = (
 const deserializeAws_restJson1ExperimentTemplateActionMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ExperimentTemplateAction } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: ExperimentTemplateAction }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ExperimentTemplateAction(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, ExperimentTemplateAction> => {
+  return Object.entries(output).reduce((acc: Record<string, ExperimentTemplateAction>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1ExperimentTemplateAction(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ExperimentTemplateActionParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2328,8 +2325,8 @@ const deserializeAws_restJson1ExperimentTemplateActionStartAfterList = (
 const deserializeAws_restJson1ExperimentTemplateActionTargetMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2513,26 +2510,23 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilterValues = (
 const deserializeAws_restJson1ExperimentTemplateTargetMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: ExperimentTemplateTarget } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: ExperimentTemplateTarget }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ExperimentTemplateTarget(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, ExperimentTemplateTarget> => {
+  return Object.entries(output).reduce((acc: Record<string, ExperimentTemplateTarget>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1ExperimentTemplateTarget(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ExperimentTemplateTargetParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2555,8 +2549,8 @@ const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2591,9 +2585,9 @@ const deserializeAws_restJson1TargetResourceTypeParameter = (
 const deserializeAws_restJson1TargetResourceTypeParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: TargetResourceTypeParameter } => {
+): Record<string, TargetResourceTypeParameter> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: TargetResourceTypeParameter }, [key, value]: [string, any]) => {
+    (acc: Record<string, TargetResourceTypeParameter>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

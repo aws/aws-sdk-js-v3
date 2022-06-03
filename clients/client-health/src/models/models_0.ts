@@ -64,7 +64,7 @@ export interface AffectedEntity {
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace AffectedEntity {
@@ -245,7 +245,7 @@ export interface EntityFilter {
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
    */
-  tags?: { [key: string]: string }[];
+  tags?: Record<string, string>[];
 
   /**
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
@@ -634,7 +634,7 @@ export interface EventFilter {
    *             <p>Currently, the <code>tags</code> property isn't supported.</p>
    *          </note>
    */
-  tags?: { [key: string]: string }[];
+  tags?: Record<string, string>[];
 
   /**
    * <p>A list of event status codes.</p>
@@ -946,7 +946,7 @@ export interface EventDetails {
   /**
    * <p>Additional metadata about the event.</p>
    */
-  eventMetadata?: { [key: string]: string };
+  eventMetadata?: Record<string, string>;
 }
 
 export namespace EventDetails {
@@ -1100,7 +1100,7 @@ export interface OrganizationEventDetails {
   /**
    * <p>Additional metadata about the event.</p>
    */
-  eventMetadata?: { [key: string]: string };
+  eventMetadata?: Record<string, string>;
 }
 
 export namespace OrganizationEventDetails {

@@ -318,7 +318,7 @@ export interface XmlEnumsOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 export namespace XmlEnumsOutput {

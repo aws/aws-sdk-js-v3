@@ -3995,7 +3995,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AdvancedOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1AdvancedOptions = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4260,7 +4260,7 @@ const serializeAws_restJson1LogPublishingOption = (input: LogPublishingOption, c
 };
 
 const serializeAws_restJson1LogPublishingOptions = (
-  input: { [key: string]: LogPublishingOption },
+  input: Record<string, LogPublishingOption>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [LogType | string, any]) => {
@@ -4420,8 +4420,8 @@ const deserializeAws_restJson1AdditionalLimitList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5054,8 +5054,8 @@ const deserializeAws_restJson1EncryptionAtRestOptionsStatus = (
   } as any;
 };
 
-const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5200,8 +5200,8 @@ const deserializeAws_restJson1Limits = (output: any, context: __SerdeContext): L
   } as any;
 };
 
-const deserializeAws_restJson1LimitsByRole = (output: any, context: __SerdeContext): { [key: string]: Limits } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Limits }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1LimitsByRole = (output: any, context: __SerdeContext): Record<string, Limits> => {
+  return Object.entries(output).reduce((acc: Record<string, Limits>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5234,9 +5234,9 @@ const deserializeAws_restJson1LogPublishingOption = (output: any, context: __Ser
 const deserializeAws_restJson1LogPublishingOptions = (
   output: any,
   context: __SerdeContext
-): { [key: string]: LogPublishingOption } => {
+): Record<string, LogPublishingOption> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => {
+    (acc: Record<string, LogPublishingOption>, [key, value]: [LogType | string, any]) => {
       if (value === null) {
         return acc;
       }

@@ -1248,7 +1248,7 @@ export interface ModelPackage {
   /**
    * <p>The metadata properties for the model package. </p>
    */
-  CustomerMetadataProperties?: { [key: string]: string };
+  CustomerMetadataProperties?: Record<string, string>;
 
   /**
    * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
@@ -1617,7 +1617,7 @@ export interface ProcessingJob {
   /**
    * <p>Sets the environment variables in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Networking options for a job, such as network traffic encryption between containers,
@@ -1752,7 +1752,7 @@ export interface ProfilerConfigForUpdate {
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
    *         </p>
    */
-  ProfilingParameters?: { [key: string]: string };
+  ProfilingParameters?: Record<string, string>;
 
   /**
    * <p>To disable Debugger monitoring and profiling, set to <code>True</code>.</p>
@@ -1928,7 +1928,7 @@ export interface QueryFilters {
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs.
    *          If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 }
 
 export namespace QueryFilters {
@@ -2421,7 +2421,7 @@ export interface TrainingJob {
   /**
    * <p>Algorithm-specific parameters.</p>
    */
-  HyperParameters?: { [key: string]: string };
+  HyperParameters?: Record<string, string>;
 
   /**
    * <p>Information about the algorithm used for training, and algorithm metadata.</p>
@@ -2594,7 +2594,7 @@ export interface TrainingJob {
   /**
    * <p>The environment variables to set in the Docker container.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
@@ -2831,7 +2831,7 @@ export interface TransformJob {
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *       values entries in the map.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>Describes the input source of a transform job and the way the transform job consumes
@@ -3027,17 +3027,17 @@ export interface TrialComponent {
   /**
    * <p>The hyperparameters of the component.</p>
    */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
+  Parameters?: Record<string, TrialComponentParameterValue>;
 
   /**
    * <p>The input artifacts of the component.</p>
    */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The output artifacts of the component.</p>
    */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The metrics for the component.</p>
@@ -3596,7 +3596,7 @@ export interface UpdateActionRequest {
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>A list of properties to remove.</p>
@@ -3680,7 +3680,7 @@ export interface UpdateArtifactRequest {
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>A list of properties to remove.</p>
@@ -3771,7 +3771,7 @@ export interface UpdateContextRequest {
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>A list of properties to remove.</p>
@@ -4172,7 +4172,7 @@ export interface UpdateModelPackageInput {
   /**
    * <p>The metadata properties associated with the model package versions.</p>
    */
-  CustomerMetadataProperties?: { [key: string]: string };
+  CustomerMetadataProperties?: Record<string, string>;
 
   /**
    * <p>The metadata properties associated with the model package versions to remove.</p>
@@ -4730,7 +4730,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
    */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
+  Parameters?: Record<string, TrialComponentParameterValue>;
 
   /**
    * <p>The hyperparameters to remove from the component.</p>
@@ -4740,7 +4740,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
    */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The input artifacts to remove from the component.</p>
@@ -4750,7 +4750,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
    */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
    * <p>The output artifacts to remove from the component.</p>

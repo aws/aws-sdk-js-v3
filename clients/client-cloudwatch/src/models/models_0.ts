@@ -788,7 +788,7 @@ export interface Datapoint {
   /**
    * <p>The percentile statistic for the data point.</p>
    */
-  ExtendedStatistics?: { [key: string]: number };
+  ExtendedStatistics?: Record<string, number>;
 }
 
 export namespace Datapoint {

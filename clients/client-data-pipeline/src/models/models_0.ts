@@ -862,7 +862,7 @@ export interface TaskObject {
   /**
    * <p>Connection information for the location where the task runner will publish the output of the task.</p>
    */
-  objects?: { [key: string]: PipelineObject };
+  objects?: Record<string, PipelineObject>;
 }
 
 export namespace TaskObject {

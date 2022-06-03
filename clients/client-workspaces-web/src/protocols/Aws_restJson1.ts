@@ -4442,7 +4442,7 @@ const serializeAws_restJson1CertificateThumbprintList = (input: string[], contex
     });
 };
 
-const serializeAws_restJson1EncryptionContextMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1EncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4454,10 +4454,7 @@ const serializeAws_restJson1EncryptionContextMap = (input: { [key: string]: stri
   }, {});
 };
 
-const serializeAws_restJson1IdentityProviderDetails = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1IdentityProviderDetails = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4616,8 +4613,8 @@ const deserializeAws_restJson1IdentityProvider = (output: any, context: __SerdeC
 const deserializeAws_restJson1IdentityProviderDetails = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

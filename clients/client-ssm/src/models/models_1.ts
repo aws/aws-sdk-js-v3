@@ -569,7 +569,7 @@ export interface DescribePatchPropertiesResult {
   /**
    * <p>A list of the properties for patches matching the filter request parameters.</p>
    */
-  Properties?: { [key: string]: string }[];
+  Properties?: Record<string, string>[];
 
   /**
    * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
@@ -995,12 +995,12 @@ export interface AutomationExecution {
   /**
    * <p>The key-value map of execution parameters, which were supplied when calling <a>StartAutomationExecution</a>.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The list of execution outputs as defined in the Automation runbook.</p>
    */
-  Outputs?: { [key: string]: string[] };
+  Outputs?: Record<string, string[]>;
 
   /**
    * <p>A message describing why an execution has failed, if the status is set to Failed.</p>
@@ -1045,7 +1045,7 @@ export interface AutomationExecution {
   /**
    * <p>The specified key-value mapping of document parameters to target resources.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 
   /**
    * <p>A list of resolved targets in the rate control execution.</p>
@@ -2057,7 +2057,7 @@ export interface InventoryResultItem {
    * <p>Contains all the inventory data of the item type. Results include attribute names and
    *    values. </p>
    */
-  Content: { [key: string]: string }[] | undefined;
+  Content: Record<string, string>[] | undefined;
 }
 
 export namespace InventoryResultItem {
@@ -2082,7 +2082,7 @@ export interface InventoryResultEntity {
   /**
    * <p>The data section in the inventory result entity JSON.</p>
    */
-  Data?: { [key: string]: InventoryResultItem };
+  Data?: Record<string, InventoryResultItem>;
 }
 
 export namespace InventoryResultEntity {
@@ -2552,7 +2552,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    *             </li>
    *          </ul>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression }[];
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>[];
 
   /**
    * <p>The priority of the task.</p>
@@ -2751,7 +2751,7 @@ export interface MaintenanceWindowAutomationParameters {
    *     parameters.</p>
    *          </note>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 }
 
 export namespace MaintenanceWindowAutomationParameters {
@@ -2950,7 +2950,7 @@ export interface MaintenanceWindowRunCommandParameters {
   /**
    * <p>The parameters for the <code>RUN_COMMAND</code> task execution.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service
@@ -3100,7 +3100,7 @@ export interface GetMaintenanceWindowTaskResult {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
 
   /**
    * <p>The parameters to pass to the task when it runs.</p>
@@ -3313,7 +3313,7 @@ export interface OpsItem {
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
    *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  OperationalData?: { [key: string]: OpsItemDataValue };
+  OperationalData?: Record<string, OpsItemDataValue>;
 
   /**
    * <p>An OpsItem category. Category options include: Availability, Cost, Performance, Recovery,
@@ -3412,7 +3412,7 @@ export interface GetOpsMetadataResult {
   /**
    * <p>OpsMetadata for an Application Manager application.</p>
    */
-  Metadata?: { [key: string]: MetadataValue };
+  Metadata?: Record<string, MetadataValue>;
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -3501,7 +3501,7 @@ export interface OpsEntityItem {
   /**
    * <p>The details of an OpsData summary.</p>
    */
-  Content?: { [key: string]: string }[];
+  Content?: Record<string, string>[];
 }
 
 export namespace OpsEntityItem {
@@ -3525,7 +3525,7 @@ export interface OpsEntity {
   /**
    * <p>The data returned by the query.</p>
    */
-  Data?: { [key: string]: OpsEntityItem };
+  Data?: Record<string, OpsEntityItem>;
 }
 
 export namespace OpsEntity {
@@ -4533,7 +4533,7 @@ export interface Association {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace Association {
@@ -4627,7 +4627,7 @@ export interface AssociationVersionInfo {
   /**
    * <p>Parameters specified when the association version was created.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The targets specified for the association when the association version was created. </p>
@@ -4728,7 +4728,7 @@ export interface AssociationVersionInfo {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace AssociationVersionInfo {
@@ -5456,7 +5456,7 @@ export interface Command {
   /**
    * <p>The parameter values to be inserted in the document when running the command.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The managed node IDs against which this command was requested.</p>
@@ -5825,7 +5825,7 @@ export interface ComplianceItem {
   /**
    * <p>A "Key": "Value" tag combination for the compliance item.</p>
    */
-  Details?: { [key: string]: string };
+  Details?: Record<string, string>;
 }
 
 export namespace ComplianceItem {
@@ -6734,7 +6734,7 @@ export interface ListInventoryEntriesResult {
   /**
    * <p>A list of inventory items on the managed node(s).</p>
    */
-  Entries?: { [key: string]: string }[];
+  Entries?: Record<string, string>[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -7696,7 +7696,7 @@ export interface ComplianceItemEntry {
   /**
    * <p>A "Key": "Value" tag combination for the compliance item.</p>
    */
-  Details?: { [key: string]: string };
+  Details?: Record<string, string>;
 }
 
 export namespace ComplianceItemEntry {
@@ -7908,14 +7908,14 @@ export interface InventoryItem {
   /**
    * <p>The inventory data of the inventory type.</p>
    */
-  Content?: { [key: string]: string }[];
+  Content?: Record<string, string>[];
 
   /**
    * <p>A map of associated properties for a specified inventory type. For example, with this
    *    attribute, you can specify the <code>ExecutionId</code>, <code>ExecutionType</code>,
    *     <code>ComplianceType</code> properties of the <code>AWS:ComplianceItem</code> type.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 }
 
 export namespace InventoryItem {
@@ -8849,7 +8849,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
 
   /**
    * <p>The parameters that the task should use during execution. Populate only the fields that
@@ -9249,7 +9249,7 @@ export interface SendAutomationSignalRequest {
    *             <code>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</code>
    *          </p>
    */
-  Payload?: { [key: string]: string[] };
+  Payload?: Record<string, string[]>;
 }
 
 export namespace SendAutomationSignalRequest {
@@ -9417,7 +9417,7 @@ export interface SendCommandRequest {
   /**
    * <p>The required and optional parameters specified in the document being run.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
@@ -9651,7 +9651,7 @@ export interface StartAutomationExecutionRequest {
    * <p>A key-value map of execution parameters, which match the declared parameters in the
    *    Automation runbook.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>User-provided idempotency token. The token must be unique, is case insensitive, enforces the
@@ -9680,7 +9680,7 @@ export interface StartAutomationExecutionRequest {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 
   /**
    * <p>The maximum number of targets allowed to run this task in parallel. You can specify a
@@ -9808,7 +9808,7 @@ export interface StartChangeRequestExecutionRequest {
    * <p>A key-value map of parameters that match the declared parameters in the change template
    *    document.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The name of the change request associated with the runbook workflow to be run.</p>
@@ -9929,7 +9929,7 @@ export interface StartSessionRequest {
    * <p>The values you want to specify for the parameters defined in the Session
    *    document.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 }
 
 export namespace StartSessionRequest {
@@ -10196,7 +10196,7 @@ export interface UpdateAssociationRequest {
    *    Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using
    *     <code>{{ssm:parameter-name}}</code>.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 
   /**
    * <p>The document version you want update for the association. </p>
@@ -10362,7 +10362,7 @@ export interface UpdateAssociationRequest {
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
-  TargetMaps?: { [key: string]: string[] }[];
+  TargetMaps?: Record<string, string[]>[];
 }
 
 export namespace UpdateAssociationRequest {

@@ -1490,7 +1490,7 @@ export interface GetBlacklistReportsResponse {
    * <p>An object that contains information about a blacklist that one of your dedicated IP
    *             addresses appears on.</p>
    */
-  BlacklistReport: { [key: string]: BlacklistEntry[] } | undefined;
+  BlacklistReport: Record<string, BlacklistEntry[]> | undefined;
 }
 
 export namespace GetBlacklistReportsResponse {

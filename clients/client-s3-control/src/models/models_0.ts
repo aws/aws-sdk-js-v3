@@ -1675,7 +1675,7 @@ export interface S3ObjectMetadata {
   /**
    * <p></p>
    */
-  UserMetadata?: { [key: string]: string };
+  UserMetadata?: Record<string, string>;
 
   /**
    * <p></p>
@@ -3103,7 +3103,7 @@ export interface GetAccessPointResult {
   /**
    * <p>The VPC endpoint for the access point.</p>
    */
-  Endpoints?: { [key: string]: string };
+  Endpoints?: Record<string, string>;
 }
 
 export namespace GetAccessPointResult {

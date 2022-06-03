@@ -790,7 +790,7 @@ export namespace AttributeValue {
     SS?: never;
     NS?: never;
     BS?: never;
-    M: { [key: string]: AttributeValue };
+    M: Record<string, AttributeValue>;
     L?: never;
     NULL?: never;
     BOOL?: never;
@@ -878,7 +878,7 @@ export namespace AttributeValue {
     SS: (value: string[]) => T;
     NS: (value: string[]) => T;
     BS: (value: Uint8Array[]) => T;
-    M: (value: { [key: string]: AttributeValue }) => T;
+    M: (value: Record<string, AttributeValue>) => T;
     L: (value: AttributeValue[]) => T;
     NULL: (value: boolean) => T;
     BOOL: (value: boolean) => T;
@@ -938,17 +938,17 @@ export interface StreamRecord {
   /**
    * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
    */
-  Keys?: { [key: string]: AttributeValue };
+  Keys?: Record<string, AttributeValue>;
 
   /**
    * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
    */
-  NewImage?: { [key: string]: AttributeValue };
+  NewImage?: Record<string, AttributeValue>;
 
   /**
    * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
    */
-  OldImage?: { [key: string]: AttributeValue };
+  OldImage?: Record<string, AttributeValue>;
 
   /**
    * <p>The sequence number of the stream record.</p>

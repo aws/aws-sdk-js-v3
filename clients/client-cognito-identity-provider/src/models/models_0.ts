@@ -606,7 +606,7 @@ export interface AdminConfirmSignUpRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace AdminConfirmSignUpRequest {
@@ -913,7 +913,7 @@ export interface AdminCreateUserRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace AdminCreateUserRequest {
@@ -1969,7 +1969,7 @@ export interface AdminInitiateAuthRequest {
    *             </li>
    *          </ul>
    */
-  AuthParameters?: { [key: string]: string };
+  AuthParameters?: Record<string, string>;
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for certain custom
@@ -2041,7 +2041,7 @@ export interface AdminInitiateAuthRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 
   /**
    * <p>The analytics metadata for collecting Amazon Pinpoint metrics for
@@ -2266,7 +2266,7 @@ export interface AdminInitiateAuthResponse {
    *                 <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the
    *                 <code>USERNAME</code> attribute can't be an alias.</p>
    */
-  ChallengeParameters?: { [key: string]: string };
+  ChallengeParameters?: Record<string, string>;
 
   /**
    * <p>The result of the authentication response. This is only returned if the caller doesn't
@@ -2961,7 +2961,7 @@ export interface AdminResetUserPasswordRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace AdminResetUserPasswordRequest {
@@ -3087,7 +3087,7 @@ export interface AdminRespondToAuthChallengeRequest {
    *                 <code>USERNAMEUSER_ID_FOR_SRP</code> attribute. This happens even if you specified
    *             an alias in your call to <code>AdminInitiateAuth</code>.</p>
    */
-  ChallengeResponses?: { [key: string]: string };
+  ChallengeResponses?: Record<string, string>;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -3173,7 +3173,7 @@ export interface AdminRespondToAuthChallengeRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace AdminRespondToAuthChallengeRequest {
@@ -3206,7 +3206,7 @@ export interface AdminRespondToAuthChallengeResponse {
   /**
    * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
    */
-  ChallengeParameters?: { [key: string]: string };
+  ChallengeParameters?: Record<string, string>;
 
   /**
    * <p>The result returned by the server in response to the authentication request.</p>
@@ -3647,7 +3647,7 @@ export interface AdminUpdateUserAttributesRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace AdminUpdateUserAttributesRequest {
@@ -4085,7 +4085,7 @@ export interface ConfirmForgotPasswordRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace ConfirmForgotPasswordRequest {
@@ -4199,7 +4199,7 @@ export interface ConfirmSignUpRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace ConfirmSignUpRequest {
@@ -4455,12 +4455,12 @@ export interface CreateIdentityProviderRequest {
    *             </li>
    *          </ul>
    */
-  ProviderDetails: { [key: string]: string } | undefined;
+  ProviderDetails: Record<string, string> | undefined;
 
   /**
    * <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
    */
-  AttributeMapping?: { [key: string]: string };
+  AttributeMapping?: Record<string, string>;
 
   /**
    * <p>A list of IdP identifiers.</p>
@@ -4616,12 +4616,12 @@ export interface IdentityProviderType {
    *             </li>
    *          </ul>
    */
-  ProviderDetails?: { [key: string]: string };
+  ProviderDetails?: Record<string, string>;
 
   /**
    * <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
    */
-  AttributeMapping?: { [key: string]: string };
+  AttributeMapping?: Record<string, string>;
 
   /**
    * <p>A list of IdP identifiers.</p>
@@ -5671,7 +5671,7 @@ export interface CreateUserPoolRequest {
    *             to categorize and manage user pools in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
    */
-  UserPoolTags?: { [key: string]: string };
+  UserPoolTags?: Record<string, string>;
 
   /**
    * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
@@ -5868,7 +5868,7 @@ export interface UserPoolType {
    *             user pools to categorize and manage them in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
    */
-  UserPoolTags?: { [key: string]: string };
+  UserPoolTags?: Record<string, string>;
 
   /**
    * <p>The reason why the SMS configuration can't send the messages to your users.</p>
@@ -7564,7 +7564,7 @@ export interface ForgotPasswordRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace ForgotPasswordRequest {
@@ -8045,7 +8045,7 @@ export interface GetUserAttributeVerificationCodeRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace GetUserAttributeVerificationCodeRequest {
@@ -8297,7 +8297,7 @@ export interface InitiateAuthRequest {
    *             </li>
    *          </ul>
    */
-  AuthParameters?: { [key: string]: string };
+  AuthParameters?: Record<string, string>;
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for certain custom
@@ -8369,7 +8369,7 @@ export interface InitiateAuthRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 
   /**
    * <p>The app client ID.</p>
@@ -8494,7 +8494,7 @@ export interface InitiateAuthResponse {
    *         <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if
    *             applicable).</p>
    */
-  ChallengeParameters?: { [key: string]: string };
+  ChallengeParameters?: Record<string, string>;
 
   /**
    * <p>The result of the authentication response. This result is only returned if the caller
@@ -8769,7 +8769,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the user pool.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -9304,7 +9304,7 @@ export interface ResendConfirmationCodeRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace ResendConfirmationCodeRequest {
@@ -9432,7 +9432,7 @@ export interface RespondToAuthChallengeRequest {
    *             </li>
    *          </ul>
    */
-  ChallengeResponses?: { [key: string]: string };
+  ChallengeResponses?: Record<string, string>;
 
   /**
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
@@ -9486,7 +9486,7 @@ export interface RespondToAuthChallengeRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace RespondToAuthChallengeRequest {
@@ -9519,7 +9519,7 @@ export interface RespondToAuthChallengeResponse {
   /**
    * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    */
-  ChallengeParameters?: { [key: string]: string };
+  ChallengeParameters?: Record<string, string>;
 
   /**
    * <p>The result returned by the server in response to the request to respond to the
@@ -10005,7 +10005,7 @@ export interface SignUpRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace SignUpRequest {

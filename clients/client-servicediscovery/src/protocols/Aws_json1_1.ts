@@ -1996,7 +1996,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2583,8 +2583,8 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
   };
 };
 
-const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2826,8 +2826,8 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
 const deserializeAws_json1_1InstanceHealthStatusMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: HealthStatus | string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: HealthStatus | string }, [key, value]: [string, any]) => {
+): Record<string, HealthStatus | string> => {
+  return Object.entries(output).reduce((acc: Record<string, HealthStatus | string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3049,9 +3049,9 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1OperationTargetsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_json1_1OperationTargetsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [OperationTargetType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [OperationTargetType | string, any]) => {
       if (value === null) {
         return acc;
       }

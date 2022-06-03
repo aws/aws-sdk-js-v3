@@ -92,7 +92,7 @@ export interface CreateGameRequest {
   /**
    * <p>The list of tags to apply to the game.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateGameRequest {
@@ -151,7 +151,7 @@ export interface GameDetails {
   /**
    * <p>The tags associated with the game.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GameDetails {
@@ -330,7 +330,7 @@ export interface SnapshotDetails {
   /**
    * <p>The sections in the snapshot.</p>
    */
-  Sections?: { [key: string]: Section };
+  Sections?: Record<string, Section>;
 
   /**
    * <p>The timestamp of when the snapshot was created.</p>
@@ -424,7 +424,7 @@ export interface CreateStageRequest {
   /**
    * <p>The list of tags to apply to the stage.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateStageRequest {
@@ -491,7 +491,7 @@ export interface StageDetails {
   /**
    * <p>The tags associated with the stage.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon CloudWatch log group for game runtimes deployed to the stage.</p>
@@ -788,7 +788,7 @@ export interface GameConfigurationDetails {
   /**
    * <p>Configuration data, organized by section name.</p>
    */
-  Sections?: { [key: string]: Section };
+  Sections?: Record<string, Section>;
 
   /**
    * <p>The date when the game was created.</p>
@@ -1484,7 +1484,7 @@ export interface GameSummary {
   /**
    * <p>The tags associated with the game.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GameSummary {
@@ -1848,7 +1848,7 @@ export interface StageSummary {
   /**
    * <p>The tags associated with the stage.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace StageSummary {
@@ -1907,7 +1907,7 @@ export interface ListTagsForResourceResult {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResult {
@@ -2057,7 +2057,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

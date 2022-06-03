@@ -236,7 +236,7 @@ export interface AssociateRepositoryRequest {
    * 			         </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
@@ -524,7 +524,7 @@ export interface AssociateRepositoryResponse {
    * 			         </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AssociateRepositoryResponse {
@@ -1486,7 +1486,7 @@ export interface DescribeRepositoryAssociationResponse {
    * 			         </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeRepositoryAssociationResponse {
@@ -1568,7 +1568,7 @@ export interface DisassociateRepositoryResponse {
    * 			         </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DisassociateRepositoryResponse {
@@ -2481,7 +2481,7 @@ export interface ListTagsForResourceResponse {
    * 			         </li>
    *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2570,7 +2570,7 @@ export interface TagResourceRequest {
    * 			         </li>
    *          </ul>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

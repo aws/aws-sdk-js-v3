@@ -1043,7 +1043,7 @@ export interface Ec2InstanceAggregationResponse {
   /**
    * <p>The tags attached to the instance.</p>
    */
-  instanceTags?: { [key: string]: string };
+  instanceTags?: Record<string, string>;
 
   /**
    * <p>The Amazon Web Services account the Amazon EC2 instance belongs to.</p>
@@ -2251,7 +2251,7 @@ export interface Ec2Metadata {
   /**
    * <p>The tags attached to the instance.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) used to launch the instance.</p>
@@ -2761,7 +2761,7 @@ export interface CreateFilterRequest {
   /**
    * <p>A list of tags for the filter.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFilterRequest {
@@ -3387,7 +3387,7 @@ export interface Filter {
   /**
    * <p>The tags attached to the filter.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Filter {
@@ -3757,7 +3757,7 @@ export interface Resource {
   /**
    * <p>The tags attached to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>An object that contains details about the resource involved in a finding.</p>
@@ -4596,7 +4596,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -4731,7 +4731,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to be added to a resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

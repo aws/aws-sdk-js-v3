@@ -661,7 +661,7 @@ export interface GetCognitoEventsResponse {
   /**
    * <p>The Cognito Events returned from the GetCognitoEvents request</p>
    */
-  Events?: { [key: string]: string };
+  Events?: Record<string, string>;
 }
 
 export namespace GetCognitoEventsResponse {
@@ -1174,7 +1174,7 @@ export interface SetCognitoEventsRequest {
   /**
    * <p>The events to configure</p>
    */
-  Events: { [key: string]: string } | undefined;
+  Events: Record<string, string> | undefined;
 }
 
 export namespace SetCognitoEventsRequest {

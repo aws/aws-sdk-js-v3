@@ -4875,8 +4875,8 @@ const deserializeAws_json1_1QueryIdNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1QueryResultColumn = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1QueryResultColumn = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4887,7 +4887,7 @@ const deserializeAws_json1_1QueryResultColumn = (output: any, context: __SerdeCo
   }, {});
 };
 
-const deserializeAws_json1_1QueryResultRow = (output: any, context: __SerdeContext): { [key: string]: string }[] => {
+const deserializeAws_json1_1QueryResultRow = (output: any, context: __SerdeContext): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4899,7 +4899,7 @@ const deserializeAws_json1_1QueryResultRow = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1QueryResultRows = (output: any, context: __SerdeContext): { [key: string]: string }[][] => {
+const deserializeAws_json1_1QueryResultRows = (output: any, context: __SerdeContext): Record<string, string>[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

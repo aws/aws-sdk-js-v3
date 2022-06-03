@@ -30,7 +30,7 @@ export interface CellOutput {
   /**
    * <p>Tags on the resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CellOutput {
@@ -112,7 +112,7 @@ export interface ReadinessCheckOutput {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ReadinessCheckOutput {
@@ -196,7 +196,7 @@ export interface RecoveryGroupOutput {
   /**
    * <p>The tags associated with the recovery group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace RecoveryGroupOutput {
@@ -409,7 +409,7 @@ export interface ResourceSetOutput {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ResourceSetOutput {
@@ -511,7 +511,7 @@ export interface CreateCellRequest {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateCellRequest {
@@ -547,7 +547,7 @@ export interface CreateCellResponse {
   /**
    * <p>Tags on the resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateCellResponse {
@@ -668,7 +668,7 @@ export interface CreateReadinessCheckRequest {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateReadinessCheckRequest {
@@ -699,7 +699,7 @@ export interface CreateReadinessCheckResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateReadinessCheckResponse {
@@ -725,7 +725,7 @@ export interface CreateRecoveryGroupRequest {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRecoveryGroupRequest {
@@ -756,7 +756,7 @@ export interface CreateRecoveryGroupResponse {
   /**
    * <p>The tags associated with the recovery group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRecoveryGroupResponse {
@@ -787,7 +787,7 @@ export interface CreateResourceSetRequest {
   /**
    * <p>A tag to associate with the parameters for a resource set.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateResourceSetRequest {
@@ -823,7 +823,7 @@ export interface CreateResourceSetResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateResourceSetResponse {
@@ -1039,7 +1039,7 @@ export interface GetCellResponse {
   /**
    * <p>Tags on the resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetCellResponse {
@@ -1138,7 +1138,7 @@ export interface GetReadinessCheckResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetReadinessCheckResponse {
@@ -1299,7 +1299,7 @@ export interface GetRecoveryGroupResponse {
   /**
    * <p>The tags associated with the recovery group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetRecoveryGroupResponse {
@@ -1403,7 +1403,7 @@ export interface GetResourceSetResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetResourceSetResponse {
@@ -1692,7 +1692,7 @@ export interface ListTagsForResourcesResponse {
   /**
    * <p></p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourcesResponse {
@@ -1713,7 +1713,7 @@ export interface TagResourceRequest {
   /**
    * <p></p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1802,7 +1802,7 @@ export interface UpdateCellResponse {
   /**
    * <p>Tags on the resources.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateCellResponse {
@@ -1857,7 +1857,7 @@ export interface UpdateReadinessCheckResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateReadinessCheckResponse {
@@ -1912,7 +1912,7 @@ export interface UpdateRecoveryGroupResponse {
   /**
    * <p>The tags associated with the recovery group.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateRecoveryGroupResponse {
@@ -1977,7 +1977,7 @@ export interface UpdateResourceSetResponse {
   /**
    * <p>A collection of tags associated with a resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateResourceSetResponse {

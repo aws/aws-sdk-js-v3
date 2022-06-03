@@ -245,7 +245,7 @@ export interface AdditionalDataset {
    *             </li>
    *          </ul>
    */
-  Configuration?: { [key: string]: string[] };
+  Configuration?: Record<string, string[]>;
 }
 
 export namespace AdditionalDataset {
@@ -348,7 +348,7 @@ export interface AttributeConfig {
    *             parameter. For example, to set backfilling to a value of 2, include the following:
    *                 <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>. </p>
    */
-  Transformations: { [key: string]: string } | undefined;
+  Transformations: Record<string, string> | undefined;
 }
 
 export namespace AttributeConfig {
@@ -2030,7 +2030,7 @@ export interface FeaturizationMethod {
    *       backfilling to a value of 2, include the following: <code>"backfill": "value"</code> and
    *         <code>"backfill_value":"2"</code>. </p>
    */
-  FeaturizationMethodParameters?: { [key: string]: string };
+  FeaturizationMethodParameters?: Record<string, string>;
 }
 
 export namespace FeaturizationMethod {
@@ -2779,7 +2779,7 @@ export interface CreatePredictorRequest {
    *       override are listed in the individual algorithms. For the list of supported algorithms, see
    *         <a>aws-forecast-choosing-recipes</a>.</p>
    */
-  TrainingParameters?: { [key: string]: string };
+  TrainingParameters?: Record<string, string>;
 
   /**
    * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
@@ -3839,7 +3839,7 @@ export interface DescribeDatasetImportJobResponse {
   /**
    * <p>Statistical information about each field in the input data.</p>
    */
-  FieldStatistics?: { [key: string]: Statistics };
+  FieldStatistics?: Record<string, Statistics>;
 
   /**
    * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
@@ -4781,7 +4781,7 @@ export interface DescribePredictorResponse {
    *       AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen
    *       hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
    */
-  TrainingParameters?: { [key: string]: string };
+  TrainingParameters?: Record<string, string>;
 
   /**
    * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast

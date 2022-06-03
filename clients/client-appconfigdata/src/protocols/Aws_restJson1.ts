@@ -304,23 +304,20 @@ const deserializeAws_restJson1InvalidParameterDetail = (
 const deserializeAws_restJson1InvalidParameterMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: InvalidParameterDetail } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: InvalidParameterDetail }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1InvalidParameterDetail(value, context),
-      };
-    },
-    {}
-  );
+): Record<string, InvalidParameterDetail> => {
+  return Object.entries(output).reduce((acc: Record<string, InvalidParameterDetail>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1InvalidParameterDetail(value, context),
+    };
+  }, {});
 };
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -608,7 +608,7 @@ export interface Assessment {
   /**
    * <p> The tags that are associated with the assessment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Assessment {
@@ -1676,7 +1676,7 @@ export interface CreateAssessmentRequest {
   /**
    * <p> The tags that are associated with the assessment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAssessmentRequest {
@@ -1776,7 +1776,7 @@ export interface CreateAssessmentFrameworkRequest {
   /**
    * <p> The tags that are associated with the framework. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateAssessmentFrameworkRequest {
@@ -2040,7 +2040,7 @@ export interface Control {
   /**
    * <p> The tags associated with the control. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Control {
@@ -2156,7 +2156,7 @@ export interface Framework {
   /**
    * <p> The tags that are associated with the framework. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Framework {
@@ -2315,7 +2315,7 @@ export interface CreateControlRequest {
   /**
    * <p> The tags that are associated with the control. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateControlRequest {
@@ -3072,7 +3072,7 @@ export interface Evidence {
    *          name (such as <code>allowUsersToChangePassword</code>) and value (such as <code>true</code>
    *          or <code>false</code>). </p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p> The unique identifier for the IAM user or role that's associated with
@@ -4557,7 +4557,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -4700,7 +4700,7 @@ export interface TagResourceRequest {
   /**
    * <p> The tags that are associated with the resource. </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

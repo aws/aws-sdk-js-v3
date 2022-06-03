@@ -600,7 +600,7 @@ export interface StartJobRunRequest {
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  Arguments?: { [key: string]: string };
+  Arguments?: Record<string, string>;
 
   /**
    * @deprecated
@@ -839,7 +839,7 @@ export interface StartWorkflowRunRequest {
   /**
    * <p>The workflow run properties for the new workflow run.</p>
    */
-  RunProperties?: { [key: string]: string };
+  RunProperties?: Record<string, string>;
 }
 
 export namespace StartWorkflowRunRequest {
@@ -1104,7 +1104,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags to add to this resource.</p>
    */
-  TagsToAdd: { [key: string]: string } | undefined;
+  TagsToAdd: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1840,7 +1840,7 @@ export interface UpdateDevEndpointRequest {
    *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
-  AddArguments?: { [key: string]: string };
+  AddArguments?: Record<string, string>;
 }
 
 export namespace UpdateDevEndpointRequest {
@@ -2336,7 +2336,7 @@ export interface UpdateWorkflowRequest {
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.</p>
    */
-  DefaultRunProperties?: { [key: string]: string };
+  DefaultRunProperties?: Record<string, string>;
 
   /**
    * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
@@ -2781,12 +2781,12 @@ export interface CreateJobRequest {
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  DefaultArguments?: { [key: string]: string };
+  DefaultArguments?: Record<string, string>;
 
   /**
    * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
    */
-  NonOverridableArguments?: { [key: string]: string };
+  NonOverridableArguments?: Record<string, string>;
 
   /**
    * <p>The connections used for this job.</p>
@@ -2852,7 +2852,7 @@ export interface CreateJobRequest {
   /**
    * <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Specifies configuration properties of a job notification.</p>
@@ -2894,7 +2894,7 @@ export interface CreateJobRequest {
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
-  CodeGenConfigurationNodes?: { [key: string]: CodeGenConfigurationNode };
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
 }
 
 export namespace CreateJobRequest {
@@ -2959,12 +2959,12 @@ export interface Job {
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  DefaultArguments?: { [key: string]: string };
+  DefaultArguments?: Record<string, string>;
 
   /**
    * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
    */
-  NonOverridableArguments?: { [key: string]: string };
+  NonOverridableArguments?: Record<string, string>;
 
   /**
    * <p>The connections used for this job.</p>
@@ -3069,7 +3069,7 @@ export interface Job {
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
-  CodeGenConfigurationNodes?: { [key: string]: CodeGenConfigurationNode };
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
 }
 
 export namespace Job {
@@ -3121,12 +3121,12 @@ export interface JobUpdate {
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
-  DefaultArguments?: { [key: string]: string };
+  DefaultArguments?: Record<string, string>;
 
   /**
    * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
    */
-  NonOverridableArguments?: { [key: string]: string };
+  NonOverridableArguments?: Record<string, string>;
 
   /**
    * <p>The connections used for this job.</p>
@@ -3226,7 +3226,7 @@ export interface JobUpdate {
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
-  CodeGenConfigurationNodes?: { [key: string]: CodeGenConfigurationNode };
+  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
 }
 
 export namespace JobUpdate {

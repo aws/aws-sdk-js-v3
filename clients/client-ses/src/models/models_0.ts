@@ -3295,7 +3295,7 @@ export interface GetIdentityDkimAttributesResponse {
   /**
    * <p>The DKIM attributes for an email address or a domain.</p>
    */
-  DkimAttributes: { [key: string]: IdentityDkimAttributes } | undefined;
+  DkimAttributes: Record<string, IdentityDkimAttributes> | undefined;
 }
 
 export namespace GetIdentityDkimAttributesResponse {
@@ -3376,7 +3376,7 @@ export interface GetIdentityMailFromDomainAttributesResponse {
   /**
    * <p>A map of identities to custom MAIL FROM attributes.</p>
    */
-  MailFromDomainAttributes: { [key: string]: IdentityMailFromDomainAttributes } | undefined;
+  MailFromDomainAttributes: Record<string, IdentityMailFromDomainAttributes> | undefined;
 }
 
 export namespace GetIdentityMailFromDomainAttributesResponse {
@@ -3487,7 +3487,7 @@ export interface GetIdentityNotificationAttributesResponse {
   /**
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
    */
-  NotificationAttributes: { [key: string]: IdentityNotificationAttributes } | undefined;
+  NotificationAttributes: Record<string, IdentityNotificationAttributes> | undefined;
 }
 
 export namespace GetIdentityNotificationAttributesResponse {
@@ -3539,7 +3539,7 @@ export interface GetIdentityPoliciesResponse {
   /**
    * <p>A map of policy names to policies.</p>
    */
-  Policies: { [key: string]: string } | undefined;
+  Policies: Record<string, string> | undefined;
 }
 
 export namespace GetIdentityPoliciesResponse {
@@ -3607,7 +3607,7 @@ export interface GetIdentityVerificationAttributesResponse {
   /**
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
    */
-  VerificationAttributes: { [key: string]: IdentityVerificationAttributes } | undefined;
+  VerificationAttributes: Record<string, IdentityVerificationAttributes> | undefined;
 }
 
 export namespace GetIdentityVerificationAttributesResponse {

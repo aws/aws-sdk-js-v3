@@ -904,7 +904,7 @@ export interface BaseConfigurationItem {
    * 			resource types to supplement the information returned for the
    * 			configuration parameter.</p>
    */
-  supplementaryConfiguration?: { [key: string]: string };
+  supplementaryConfiguration?: Record<string, string>;
 }
 
 export namespace BaseConfigurationItem {
@@ -2161,7 +2161,7 @@ export interface ConfigurationItem {
    * <p>A mapping of key value tags associated with the
    * 			resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A list of CloudTrail event IDs.</p>
@@ -2189,7 +2189,7 @@ export interface ConfigurationItem {
    * 			resource types to supplement the information returned for the
    * 				<code>configuration</code> parameter.</p>
    */
-  supplementaryConfiguration?: { [key: string]: string };
+  supplementaryConfiguration?: Record<string, string>;
 }
 
 export namespace ConfigurationItem {
@@ -5524,7 +5524,7 @@ export interface RemediationConfiguration {
   /**
    * <p>An object of the RemediationParameterValue.</p>
    */
-  Parameters?: { [key: string]: RemediationParameterValue };
+  Parameters?: Record<string, RemediationParameterValue>;
 
   /**
    * <p>The type of a resource. </p>

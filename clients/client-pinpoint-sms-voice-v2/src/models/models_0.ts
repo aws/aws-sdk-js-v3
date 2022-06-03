@@ -3419,7 +3419,7 @@ export interface SendTextMessageRequest {
    * <p>You can specify custom data in this field. If you do, that data is logged to the event
    *             destination.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>This field is used for any country-specific registration requirements. Currently, this
@@ -3427,7 +3427,7 @@ export interface SendTextMessageRequest {
    *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
    *         </p>
    */
-  DestinationCountryParameters?: { [key: string]: string };
+  DestinationCountryParameters?: Record<string, string>;
 
   /**
    * <p>When set to true, the message is checked and validated, but isn't sent to the end
@@ -3587,7 +3587,7 @@ export interface SendVoiceMessageRequest {
    * <p>You can specify custom data in this field. If you do, that data is logged to the event
    *             destination.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>When set to true, the message is checked and validated, but isn't sent to the end

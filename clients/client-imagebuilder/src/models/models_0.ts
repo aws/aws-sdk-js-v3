@@ -211,7 +211,7 @@ export interface AmiDistributionConfiguration {
   /**
    * <p>The tags to apply to AMIs distributed to this Region.</p>
    */
-  amiTags?: { [key: string]: string };
+  amiTags?: Record<string, string>;
 
   /**
    * <p>The KMS key identifier used to encrypt the distributed image.</p>
@@ -604,7 +604,7 @@ export interface Component {
   /**
    * <p>The tags associated with the component.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Component {
@@ -733,7 +733,7 @@ export interface ComponentSummary {
   /**
    * <p>The tags associated with the component.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ComponentSummary {
@@ -1161,7 +1161,7 @@ export interface ContainerRecipe {
   /**
    * <p>Tags that are attached to the container recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The working directory for use during build and test workflows.</p>
@@ -1225,7 +1225,7 @@ export interface ContainerRecipeSummary {
   /**
    * <p>Tags that are attached to the container recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ContainerRecipeSummary {
@@ -1308,7 +1308,7 @@ export interface CreateComponentRequest {
   /**
    * <p>The tags of the component.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The idempotency token of the component.</p>
@@ -1480,7 +1480,7 @@ export interface CreateContainerRecipeRequest {
   /**
    * <p>Tags that are attached to the container recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The working directory for use during build and test workflows.</p>
@@ -1818,7 +1818,7 @@ export interface CreateDistributionConfigurationRequest {
   /**
    * <p> The tags of the distribution configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The idempotency token of the distribution configuration.</p>
@@ -1928,7 +1928,7 @@ export interface CreateImageRequest {
   /**
    * <p> The tags of the image.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The idempotency token used to make this request idempotent.</p>
@@ -2082,7 +2082,7 @@ export interface CreateImagePipelineRequest {
   /**
    * <p> The tags of the image pipeline.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p> The idempotency token used to make this request idempotent.</p>
@@ -2176,7 +2176,7 @@ export interface CreateImageRecipeRequest {
   /**
    * <p> The tags of the image recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The working directory used during build and test workflows.</p>
@@ -2387,7 +2387,7 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p>The tags attached to the resource created by Image Builder.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The instance metadata options that you can set for the HTTP requests that
@@ -2398,7 +2398,7 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p>The tags of the infrastructure configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The idempotency token used to make this request idempotent.</p>
@@ -2764,7 +2764,7 @@ export interface DistributionConfiguration {
   /**
    * <p>The tags of the distribution configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DistributionConfiguration {
@@ -2808,7 +2808,7 @@ export interface DistributionConfigurationSummary {
   /**
    * <p>The tags associated with the distribution configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A list of Regions where the container image is distributed to.</p>
@@ -3141,7 +3141,7 @@ export interface ImageRecipe {
   /**
    * <p>The tags of the image recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The working directory to be used during build and test workflows.</p>
@@ -3244,7 +3244,7 @@ export interface InfrastructureConfiguration {
   /**
    * <p>The tags attached to the resource created by Image Builder.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The instance metadata option settings for the infrastructure configuration.</p>
@@ -3254,7 +3254,7 @@ export interface InfrastructureConfiguration {
   /**
    * <p>The tags of the infrastructure configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace InfrastructureConfiguration {
@@ -3420,7 +3420,7 @@ export interface Image {
   /**
    * <p>The tags of the image.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Indicates the type of build that created this image. The build can be initiated
@@ -3584,7 +3584,7 @@ export interface ImagePipeline {
   /**
    * <p>The tags of this image pipeline.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ImagePipeline {
@@ -3841,7 +3841,7 @@ export interface ImportComponentRequest {
   /**
    * <p>The tags of the component.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The idempotency token of the component.</p>
@@ -3933,7 +3933,7 @@ export interface ImportVmImageRequest {
   /**
    * <p>Tags that are attached to the import resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure
@@ -4415,7 +4415,7 @@ export interface ImageSummary {
   /**
    * <p>The tags of the image.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Indicates the type of build that created this image. The build can be initiated
@@ -4802,7 +4802,7 @@ export interface ImageRecipeSummary {
   /**
    * <p>The tags of the image recipe.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ImageRecipeSummary {
@@ -5121,12 +5121,12 @@ export interface InfrastructureConfigurationSummary {
   /**
    * <p>The tags attached to the image created by Image Builder.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The tags of the infrastructure configuration.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The instance types of the infrastructure configuration.</p>
@@ -5216,7 +5216,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5471,7 +5471,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to apply to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -5751,7 +5751,7 @@ export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p>The tags attached to the resource created by Image Builder.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The instance metadata options that you can set for the HTTP requests that pipeline builds

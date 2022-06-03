@@ -3387,7 +3387,7 @@ const serializeAws_json1_0ConfigurationSetNameList = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_0ContextMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_0ContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3691,7 +3691,7 @@ const serializeAws_json1_0DescribeSpendLimitsRequest = (
 };
 
 const serializeAws_json1_0DestinationCountryParameters = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(

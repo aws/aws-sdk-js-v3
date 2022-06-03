@@ -3313,17 +3313,17 @@ export interface Input {
   /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
-  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
+  AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
 
   /**
    * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
    */
-  AudioSelectors?: { [key: string]: AudioSelector };
+  AudioSelectors?: Record<string, AudioSelector>;
 
   /**
    * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
    */
-  CaptionSelectors?: { [key: string]: CaptionSelector };
+  CaptionSelectors?: Record<string, CaptionSelector>;
 
   /**
    * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).
@@ -3437,17 +3437,17 @@ export interface InputTemplate {
   /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
-  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
+  AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
 
   /**
    * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
    */
-  AudioSelectors?: { [key: string]: AudioSelector };
+  AudioSelectors?: Record<string, AudioSelector>;
 
   /**
    * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
    */
-  CaptionSelectors?: { [key: string]: CaptionSelector };
+  CaptionSelectors?: Record<string, CaptionSelector>;
 
   /**
    * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).

@@ -34,7 +34,7 @@ export interface CreateSavingsPlanRequest {
   /**
    * <p>One or more tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSavingsPlanRequest {
@@ -559,7 +559,7 @@ export interface SavingsPlan {
   /**
    * <p>One or more tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SavingsPlan {
@@ -1078,7 +1078,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1099,7 +1099,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

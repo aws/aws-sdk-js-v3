@@ -414,7 +414,7 @@ export interface Toolchain {
    * <p>The list of parameter overrides to be passed into the toolchain template during stack
    *       provisioning, if any.</p>
    */
-  stackParameters?: { [key: string]: string };
+  stackParameters?: Record<string, string>;
 }
 
 export namespace Toolchain {
@@ -464,7 +464,7 @@ export interface CreateProjectRequest {
   /**
    * <p>The tags created for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateProjectRequest {
@@ -1147,7 +1147,7 @@ export interface ListTagsForProjectResult {
   /**
    * <p>The tags for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Reserved for future use.</p>
@@ -1346,7 +1346,7 @@ export interface TagProjectRequest {
   /**
    * <p>The tags you want to add to the project.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagProjectRequest {
@@ -1362,7 +1362,7 @@ export interface TagProjectResult {
   /**
    * <p>The tags for the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace TagProjectResult {

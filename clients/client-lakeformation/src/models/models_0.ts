@@ -3020,7 +3020,7 @@ export interface StorageOptimizer {
   /**
    * <p>A map of the storage optimizer configuration. Currently contains only one key-value pair: <code>is_enabled</code> indicates true or false for acceleration.</p>
    */
-  Config?: { [key: string]: string };
+  Config?: Record<string, string>;
 
   /**
    * <p>A message that contains information about any error (if present).</p>
@@ -3476,7 +3476,7 @@ export interface QueryPlanningContext {
   /**
    * <p>A map consisting of key-value pairs.</p>
    */
-  QueryParameters?: { [key: string]: string };
+  QueryParameters?: Record<string, string>;
 
   /**
    * <p>The transaction ID at which to read the table contents. If this transaction is not committed, the read will be treated as part of that transaction and will see its writes. If this transaction has aborted, an error will be returned. If not set, defaults to the most recent committed transaction. Cannot be specified along with <code>QueryAsOfTime</code>.</p>
@@ -3764,7 +3764,7 @@ export interface UpdateTableStorageOptimizerRequest {
   /**
    * <p>Name of the table for which to enable the storage optimizer.</p>
    */
-  StorageOptimizerConfig: { [key: string]: { [key: string]: string } } | undefined;
+  StorageOptimizerConfig: Record<string, Record<string, string>> | undefined;
 }
 
 export namespace UpdateTableStorageOptimizerRequest {

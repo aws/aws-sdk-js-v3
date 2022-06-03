@@ -3253,12 +3253,12 @@ export interface Container {
   /**
    * <p>The environment variables of the container.</p>
    */
-  environment?: { [key: string]: string };
+  environment?: Record<string, string>;
 
   /**
    * <p>The open firewall ports of the container.</p>
    */
-  ports?: { [key: string]: ContainerServiceProtocol | string };
+  ports?: Record<string, ContainerServiceProtocol | string>;
 }
 
 export namespace Container {
@@ -3436,7 +3436,7 @@ export interface ContainerServiceDeployment {
   /**
    * <p>An object that describes the configuration for the containers of the deployment.</p>
    */
-  containers?: { [key: string]: Container };
+  containers?: Record<string, Container>;
 
   /**
    * <p>An object that describes the endpoint of the deployment.</p>
@@ -3794,7 +3794,7 @@ export interface ContainerService {
    *       information about how to specify public domain names for your Lightsail container
    *       service.</p>
    */
-  publicDomainNames?: { [key: string]: string[] };
+  publicDomainNames?: Record<string, string[]>;
 
   /**
    * <p>The publicly accessible URL of the container service.</p>
@@ -3864,7 +3864,7 @@ export interface ContainerServiceDeploymentRequest {
   /**
    * <p>An object that describes the configuration for the containers of the deployment.</p>
    */
-  containers?: { [key: string]: Container };
+  containers?: Record<string, Container>;
 
   /**
    * <p>An object that describes the endpoint of the deployment.</p>
@@ -4622,7 +4622,7 @@ export interface CreateContainerServiceRequest {
    *          <p>You can specify public domain names using a string to array map as shown in the example
    *       later on this page.</p>
    */
-  publicDomainNames?: { [key: string]: string[] };
+  publicDomainNames?: Record<string, string[]>;
 
   /**
    * <p>An object that describes a deployment for the container service.</p>
@@ -4680,7 +4680,7 @@ export interface CreateContainerServiceDeploymentRequest {
    * <p>An object that describes the settings of the containers that will be launched on the
    *       container service.</p>
    */
-  containers?: { [key: string]: Container };
+  containers?: Record<string, Container>;
 
   /**
    * <p>An object that describes the settings of the public endpoint for the container
@@ -5426,7 +5426,7 @@ export interface DomainEntry {
    *         response. It is now deprecated.</p>
    *          </note>
    */
-  options?: { [key: string]: string };
+  options?: Record<string, string>;
 }
 
 export namespace DomainEntry {
@@ -5600,7 +5600,7 @@ export interface CreateInstancesFromSnapshotRequest {
   /**
    * <p>An object containing information about one or more disk mappings.</p>
    */
-  attachedDiskMapping?: { [key: string]: DiskMap[] };
+  attachedDiskMapping?: Record<string, DiskMap[]>;
 
   /**
    * <p>The Availability Zone where you want to create your instances. Use the following
@@ -8833,7 +8833,7 @@ export interface GetContainerAPIMetadataResult {
    * <p>Metadata about Lightsail containers, such as the current version of the Lightsail
    *       Control (lightsailctl) plugin.</p>
    */
-  metadata?: { [key: string]: string }[];
+  metadata?: Record<string, string>[];
 }
 
 export namespace GetContainerAPIMetadataResult {

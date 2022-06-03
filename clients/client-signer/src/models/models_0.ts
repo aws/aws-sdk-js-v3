@@ -519,7 +519,7 @@ export interface DescribeSigningJobResponse {
    * <p>Map of user-assigned key-value pairs used during signing. These values contain any
    * 			information that you specified for use in your signing job. </p>
    */
-  signingParameters?: { [key: string]: string };
+  signingParameters?: Record<string, string>;
 
   /**
    * <p>Date and time that the signing job was created.</p>
@@ -928,7 +928,7 @@ export interface GetSigningProfileResponse {
    * <p>A map of key-value pairs for signing operations that is attached to the target signing
    * 			profile.</p>
    */
-  signingParameters?: { [key: string]: string };
+  signingParameters?: Record<string, string>;
 
   /**
    * <p>The status of the target signing profile.</p>
@@ -948,7 +948,7 @@ export interface GetSigningProfileResponse {
   /**
    * <p>A list of tags associated with the signing profile.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetSigningProfileResponse {
@@ -1424,7 +1424,7 @@ export interface SigningProfile {
   /**
    * <p>The parameters that are available for use by a code signing user.</p>
    */
-  signingParameters?: { [key: string]: string };
+  signingParameters?: Record<string, string>;
 
   /**
    * <p>The status of a code signing profile.</p>
@@ -1439,7 +1439,7 @@ export interface SigningProfile {
   /**
    * <p>A list of tags associated with the signing profile.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SigningProfile {
@@ -1494,7 +1494,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the signing profile.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1561,12 +1561,12 @@ export interface PutSigningProfileRequest {
    * <p>Map of key-value pairs for signing. These can include any information that you want to
    * 			use during signing.</p>
    */
-  signingParameters?: { [key: string]: string };
+  signingParameters?: Record<string, string>;
 
   /**
    * <p>Tags to be associated with the signing profile that is being created.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace PutSigningProfileRequest {
@@ -1798,7 +1798,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags to be associated with the signing profile.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

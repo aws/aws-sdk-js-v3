@@ -222,7 +222,7 @@ export interface EventDimensions {
   /**
    * <p>One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.</p>
    */
-  Attributes?: { [key: string]: AttributeDimension };
+  Attributes?: Record<string, AttributeDimension>;
 
   /**
    * <p>The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html">Streaming Amazon Pinpoint Events</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
@@ -232,7 +232,7 @@ export interface EventDimensions {
   /**
    * <p>One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.</p>
    */
-  Metrics?: { [key: string]: MetricDimension };
+  Metrics?: Record<string, MetricDimension>;
 }
 
 export namespace EventDimensions {
@@ -465,7 +465,7 @@ export interface SegmentDimensions {
   /**
    * <p>One or more custom attributes to use as criteria for the segment.</p>
    */
-  Attributes?: { [key: string]: AttributeDimension };
+  Attributes?: Record<string, AttributeDimension>;
 
   /**
    * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
@@ -485,12 +485,12 @@ export interface SegmentDimensions {
   /**
    * <p>One or more custom metrics to use as criteria for the segment.</p>
    */
-  Metrics?: { [key: string]: MetricDimension };
+  Metrics?: Record<string, MetricDimension>;
 
   /**
    * <p>One or more custom user attributes to use as criteria for the segment.</p>
    */
-  UserAttributes?: { [key: string]: AttributeDimension };
+  UserAttributes?: Record<string, AttributeDimension>;
 }
 
 export namespace SegmentDimensions {
@@ -1127,7 +1127,7 @@ export interface AddressConfiguration {
   /**
    * <p>An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.</p> <p>For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
@@ -1137,7 +1137,7 @@ export interface AddressConfiguration {
   /**
    * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
@@ -1269,7 +1269,7 @@ export interface ADMMessage {
   /**
    * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Data?: { [key: string]: string };
+  Data?: Record<string, string>;
 
   /**
    * <p>The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.</p>
@@ -1319,7 +1319,7 @@ export interface ADMMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The title to display above the notification message on the recipient's device.</p>
@@ -1571,7 +1571,7 @@ export interface APNSMessage {
   /**
    * <p>The JSON payload to use for a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Data?: { [key: string]: string };
+  Data?: Record<string, string>;
 
   /**
    * <p>The URL of an image or video to display in the push notification.</p>
@@ -1606,7 +1606,7 @@ export interface APNSMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override these default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The key that represents your app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</p>
@@ -2209,7 +2209,7 @@ export interface ApplicationResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The date and time when the Application was created.</p>
@@ -2560,7 +2560,7 @@ export interface BaiduMessage {
   /**
    * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Data?: { [key: string]: string };
+  Data?: Record<string, string>;
 
   /**
    * <p>The icon image name of the asset saved in your app.</p>
@@ -2600,7 +2600,7 @@ export interface BaiduMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).</p>
@@ -2994,7 +2994,7 @@ export interface CampaignInAppMessage {
   /**
    * <p>Custom config to be sent to client.</p>
    */
-  CustomConfig?: { [key: string]: string };
+  CustomConfig?: Record<string, string>;
 
   /**
    * <p>In-app message layout.</p>
@@ -3522,7 +3522,7 @@ export interface CampaignResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The message template that’s used for the campaign.</p>
@@ -3649,7 +3649,7 @@ export interface ChannelsResponse {
   /**
    * <p>A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.</p>
    */
-  Channels: { [key: string]: ChannelResponse } | undefined;
+  Channels: Record<string, ChannelResponse> | undefined;
 }
 
 export namespace ChannelsResponse {
@@ -3703,7 +3703,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateApplicationRequest {
@@ -4043,7 +4043,7 @@ export interface WriteCampaignRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The message template to use for the campaign.</p>
@@ -4139,7 +4139,7 @@ export interface EmailTemplateRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A custom description of the message template.</p>
@@ -4664,7 +4664,7 @@ export interface InAppTemplateRequest {
   /**
    * <p>Custom config to be sent to client.</p>
    */
-  CustomConfig?: { [key: string]: string };
+  CustomConfig?: Record<string, string>;
 
   /**
    * <p>The layout of the message.</p>
@@ -4674,7 +4674,7 @@ export interface InAppTemplateRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The description of the template.</p>
@@ -4939,7 +4939,7 @@ export interface WriteJourneyRequest {
   /**
    * <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.</p>
    */
-  Activities?: { [key: string]: Activity };
+  Activities?: Record<string, Activity>;
 
   /**
    * <p>The date, in ISO 8601 format, when the journey was created.</p>
@@ -5049,7 +5049,7 @@ export interface JourneyResponse {
   /**
    * <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>
    */
-  Activities?: { [key: string]: Activity };
+  Activities?: Record<string, Activity>;
 
   /**
    * <p>The unique identifier for the application that the journey applies to.</p>
@@ -5119,7 +5119,7 @@ export interface JourneyResponse {
   /**
    * <p>This object is not used or supported.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
@@ -5243,7 +5243,7 @@ export interface PushNotificationTemplateRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A custom description of the message template.</p>
@@ -5304,7 +5304,7 @@ export interface CreateRecommenderConfigurationShape {
   /**
    * <p>A map of key-value pairs that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>In the map, the key is the name of a custom attribute and the value is a custom display name for that attribute. The display name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The following restrictions apply to these names:</p> <ul><li><p>An attribute name must start with a letter or number and it can contain up to 50 characters. The characters can be letters, numbers, underscores (_), or hyphens (-). Attribute names are case sensitive and must be unique.</p></li> <li><p>An attribute display name must start with a letter or number and it can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p></li></ul> <p>This object is required if the configuration invokes an AWS Lambda function (RecommendationTransformerUri) to process recommendation data. Otherwise, don't include this object in your request.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>A custom description of the configuration for the recommender model. The description can contain up to 128 characters. The characters can be letters, numbers, spaces, or the following symbols: _ ; () , ‐.</p>
@@ -5379,7 +5379,7 @@ export interface RecommenderConfigurationResponse {
   /**
    * <p>A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The date, in extended ISO 8601 format, when the configuration was created for the recommender model.</p>
@@ -5584,7 +5584,7 @@ export interface WriteSegmentRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace WriteSegmentRequest {
@@ -5624,7 +5624,7 @@ export interface SegmentImportResource {
   /**
    * <p>The number of channel types in the endpoint definitions that were imported to create the segment.</p>
    */
-  ChannelCounts?: { [key: string]: number };
+  ChannelCounts?: Record<string, number>;
 
   /**
    * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
@@ -5723,7 +5723,7 @@ export interface SegmentResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The version number of the segment.</p>
@@ -5778,7 +5778,7 @@ export interface SMSTemplateRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A custom description of the message template.</p>
@@ -5854,7 +5854,7 @@ export interface VoiceTemplateRequest {
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A custom description of the message template.</p>
@@ -5925,7 +5925,7 @@ export interface DefaultMessage {
   /**
    * <p>The default message variables to use in the message. You can override these default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 }
 
 export namespace DefaultMessage {
@@ -5954,7 +5954,7 @@ export interface DefaultPushNotificationMessage {
   /**
    * <p>The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Data?: { [key: string]: string };
+  Data?: Record<string, string>;
 
   /**
    * <p>Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.</p>
@@ -5964,7 +5964,7 @@ export interface DefaultPushNotificationMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The default title to display above the notification message on a recipient's device.</p>
@@ -6555,7 +6555,7 @@ export interface EndpointUser {
   /**
    * <p>One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
    */
-  UserAttributes?: { [key: string]: string[] };
+  UserAttributes?: Record<string, string[]>;
 
   /**
    * <p>The unique identifier for the user.</p>
@@ -6589,7 +6589,7 @@ export interface EndpointResponse {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.</p>
    */
-  Attributes?: { [key: string]: string[] };
+  Attributes?: Record<string, string[]>;
 
   /**
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
@@ -6634,7 +6634,7 @@ export interface EndpointResponse {
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
-  Metrics?: { [key: string]: number };
+  Metrics?: Record<string, number>;
 
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
@@ -7497,7 +7497,7 @@ export interface EmailMessage {
   /**
    * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 }
 
 export namespace EmailMessage {
@@ -7531,7 +7531,7 @@ export interface GCMMessage {
   /**
    * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Data?: { [key: string]: string };
+  Data?: Record<string, string>;
 
   /**
    * <p>The icon image name of the asset saved in your app.</p>
@@ -7581,7 +7581,7 @@ export interface GCMMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days).</p> <p>Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.</p>
@@ -7645,7 +7645,7 @@ export interface SMSMessage {
   /**
    * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
@@ -7689,7 +7689,7 @@ export interface VoiceMessage {
   /**
    * <p>The default message variables to use in the voice message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The name of the voice to use when delivering the message. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
@@ -7854,7 +7854,7 @@ export interface EmailTemplateResponse {
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The custom description of the message template.</p>
@@ -7903,7 +7903,7 @@ export interface EndpointBatchItem {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
    */
-  Attributes?: { [key: string]: string[] };
+  Attributes?: Record<string, string[]>;
 
   /**
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
@@ -7938,7 +7938,7 @@ export interface EndpointBatchItem {
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
-  Metrics?: { [key: string]: number };
+  Metrics?: Record<string, number>;
 
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
@@ -8064,7 +8064,7 @@ export interface EndpointRequest {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
    */
-  Attributes?: { [key: string]: string[] };
+  Attributes?: Record<string, string[]>;
 
   /**
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
@@ -8094,7 +8094,7 @@ export interface EndpointRequest {
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
-  Metrics?: { [key: string]: number };
+  Metrics?: Record<string, number>;
 
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
@@ -8133,7 +8133,7 @@ export interface EndpointSendConfiguration {
   /**
    * <p>A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.</p> <p>For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    */
-  Context?: { [key: string]: string };
+  Context?: Record<string, string>;
 
   /**
    * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
@@ -8143,7 +8143,7 @@ export interface EndpointSendConfiguration {
   /**
    * <p>A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Substitutions?: Record<string, string[]>;
 
   /**
    * <p>The title or subject line of the message. If specified, this value overrides the default message title or subject line.</p>
@@ -8216,7 +8216,7 @@ export interface Event {
   /**
    * <p>One or more custom attributes that are associated with the event.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>The version of the SDK that's running on the client device.</p>
@@ -8231,7 +8231,7 @@ export interface Event {
   /**
    * <p>One or more custom metrics that are associated with the event.</p>
    */
-  Metrics?: { [key: string]: number };
+  Metrics?: Record<string, number>;
 
   /**
    * <p>The name of the SDK that's being used to record the event.</p>
@@ -8294,7 +8294,7 @@ export interface PublicEndpoint {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.</p>
    */
-  Attributes?: { [key: string]: string[] };
+  Attributes?: Record<string, string[]>;
 
   /**
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
@@ -8324,7 +8324,7 @@ export interface PublicEndpoint {
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
-  Metrics?: { [key: string]: number };
+  Metrics?: Record<string, number>;
 
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
@@ -8363,7 +8363,7 @@ export interface EventsBatch {
   /**
    * <p>A set of properties that are associated with the event.</p>
    */
-  Events: { [key: string]: Event } | undefined;
+  Events: Record<string, Event> | undefined;
 }
 
 export namespace EventsBatch {
@@ -8382,7 +8382,7 @@ export interface EventsRequest {
   /**
    * <p>The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.</p>
    */
-  BatchItem: { [key: string]: EventsBatch } | undefined;
+  BatchItem: Record<string, EventsBatch> | undefined;
 }
 
 export namespace EventsRequest {
@@ -8406,7 +8406,7 @@ export interface ItemResponse {
   /**
    * <p>A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.</p>
    */
-  EventsItemResponse?: { [key: string]: EventItemResponse };
+  EventsItemResponse?: Record<string, EventItemResponse>;
 }
 
 export namespace ItemResponse {
@@ -8425,7 +8425,7 @@ export interface EventsResponse {
   /**
    * <p>A map that contains a multipart response for each endpoint. For each item in this object, the endpoint ID is the key and the item response is the value. If no item response exists, the value can also be one of the following: 202, the request was processed successfully; or 400, the payload wasn't valid or required fields were missing.</p>
    */
-  Results?: { [key: string]: ItemResponse };
+  Results?: Record<string, ItemResponse>;
 }
 
 export namespace EventsResponse {

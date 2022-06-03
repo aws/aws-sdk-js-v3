@@ -259,7 +259,7 @@ export interface PutResourceConfigRequest {
   /**
    * <p>Tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PutResourceConfigRequest {

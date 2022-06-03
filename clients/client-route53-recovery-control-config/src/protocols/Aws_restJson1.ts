@@ -2177,7 +2177,7 @@ const serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
 };
 
 const serializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -2342,8 +2342,8 @@ const deserializeAws_restJson1__listOfRule = (output: any, context: __SerdeConte
 const deserializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

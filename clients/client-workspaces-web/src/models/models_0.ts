@@ -416,7 +416,7 @@ export interface CreateBrowserSettingsRequest {
   /**
    * <p>Additional encryption context of the browser settings.</p>
    */
-  additionalEncryptionContext?: { [key: string]: string };
+  additionalEncryptionContext?: Record<string, string>;
 
   /**
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
@@ -684,7 +684,7 @@ export interface CreateIdentityProviderRequest {
    *             </li>
    *          </ul>
    */
-  identityProviderDetails: { [key: string]: string } | undefined;
+  identityProviderDetails: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -801,7 +801,7 @@ export interface CreatePortalRequest {
   /**
    * <p>The additional encryption context of the portal.</p>
    */
-  additionalEncryptionContext?: { [key: string]: string };
+  additionalEncryptionContext?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1507,7 +1507,7 @@ export interface IdentityProvider {
    *             </li>
    *          </ul>
    */
-  identityProviderDetails?: { [key: string]: string };
+  identityProviderDetails?: Record<string, string>;
 }
 
 export namespace IdentityProvider {
@@ -2942,7 +2942,7 @@ export interface UpdateIdentityProviderRequest {
    *             </li>
    *          </ul>
    */
-  identityProviderDetails?: { [key: string]: string };
+  identityProviderDetails?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the

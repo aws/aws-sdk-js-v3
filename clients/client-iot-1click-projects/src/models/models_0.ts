@@ -146,7 +146,7 @@ export interface CreatePlacementRequest {
    * <p>Optional user-defined key/value pairs providing contextual data (such as location or
    *       function) for the placement.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace CreatePlacementRequest {
@@ -182,7 +182,7 @@ export interface DeviceTemplate {
    * <p>An optional Lambda function to invoke instead of the default Lambda function provided by
    *       the placement template.</p>
    */
-  callbackOverrides?: { [key: string]: string };
+  callbackOverrides?: Record<string, string>;
 }
 
 export namespace DeviceTemplate {
@@ -202,13 +202,13 @@ export interface PlacementTemplate {
    * <p>The default attributes (key/value pairs) to be applied to all placements using this
    *       template.</p>
    */
-  defaultAttributes?: { [key: string]: string };
+  defaultAttributes?: Record<string, string>;
 
   /**
    * <p>An object specifying the <a>DeviceTemplate</a> for all placements using this
    *         (<a>PlacementTemplate</a>) template.</p>
    */
-  deviceTemplates?: { [key: string]: DeviceTemplate };
+  deviceTemplates?: Record<string, DeviceTemplate>;
 }
 
 export namespace PlacementTemplate {
@@ -244,7 +244,7 @@ export interface CreateProjectRequest {
    *         <code>{ {"key1": "value1", "key2": "value2"} }</code>. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
    *         Strategies</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateProjectRequest {
@@ -385,7 +385,7 @@ export interface PlacementDescription {
   /**
    * <p>The user-defined attributes associated with the placement.</p>
    */
-  attributes: { [key: string]: string } | undefined;
+  attributes: Record<string, string> | undefined;
 
   /**
    * <p>The date when the placement was initially created, in UNIX epoch time format.</p>
@@ -480,7 +480,7 @@ export interface ProjectDescription {
   /**
    * <p>The tags (metadata key/value pairs) associated with the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ProjectDescription {
@@ -570,7 +570,7 @@ export interface GetDevicesInPlacementResponse {
   /**
    * <p>An object containing the devices (zero or more) within the placement.</p>
    */
-  devices: { [key: string]: string } | undefined;
+  devices: Record<string, string> | undefined;
 }
 
 export namespace GetDevicesInPlacementResponse {
@@ -718,7 +718,7 @@ export interface ProjectSummary {
   /**
    * <p>The tags (metadata key/value pairs) associated with the project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ProjectSummary {
@@ -772,7 +772,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -794,7 +794,7 @@ export interface TagResourceRequest {
    * <p>The new or modifying tag(s) for the resource. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per
    *       resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -864,7 +864,7 @@ export interface UpdatePlacementRequest {
    * <p>The user-defined object of attributes used to update the placement. The maximum number of
    *       key/value pairs is 50.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 }
 
 export namespace UpdatePlacementRequest {

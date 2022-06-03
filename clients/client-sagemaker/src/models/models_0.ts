@@ -277,7 +277,7 @@ export interface ModelPackageContainerDefinition {
    *             <code>Environment</code> string to string map can have length of up to 1024. We
    *             support up to 16 entries in the map.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>A structure with Model Input details.</p>
@@ -1483,7 +1483,7 @@ export interface TrainingJobDefinition {
   /**
    * <p>The hyperparameters used for the training job.</p>
    */
-  HyperParameters?: { [key: string]: string };
+  HyperParameters?: Record<string, string>;
 
   /**
    * <p>An array of <code>Channel</code> objects, each of which specifies an input
@@ -1903,7 +1903,7 @@ export interface TransformJobDefinition {
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *             values entries in the map.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>A description of the input source and the way the transform job consumes it.</p>
@@ -4417,7 +4417,7 @@ export interface AutoMLContainerDefinition {
   /**
    * <p>The environment variables to set in the container. For more information, see .</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace AutoMLContainerDefinition {
@@ -5239,13 +5239,13 @@ export interface BatchDescribeModelPackageOutput {
   /**
    * <p>The summaries for the model package versions</p>
    */
-  ModelPackageSummaries?: { [key: string]: BatchDescribeModelPackageSummary };
+  ModelPackageSummaries?: Record<string, BatchDescribeModelPackageSummary>;
 
   /**
    * <p>A map of the resource and BatchDescribeModelPackageError objects
    *             reporting the error associated with describing the model package.</p>
    */
-  BatchDescribeModelPackageErrorMap?: { [key: string]: BatchDescribeModelPackageError };
+  BatchDescribeModelPackageErrorMap?: Record<string, BatchDescribeModelPackageError>;
 }
 
 export namespace BatchDescribeModelPackageOutput {
@@ -5965,7 +5965,7 @@ export interface CollectionConfiguration {
    *                 <code>"save_config"</code>, <code>"tensor_names"</code>, and
    *                 <code>"save_histogram"</code>.</p>
    */
-  CollectionParameters?: { [key: string]: string };
+  CollectionParameters?: Record<string, string>;
 }
 
 export namespace CollectionConfiguration {
@@ -6342,7 +6342,7 @@ export interface ContainerDefinition {
    *                 <code>Environment</code> string to string map can have length of up to 1024. We
    *             support up to 16 entries in the map. </p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to use to create the
@@ -6608,7 +6608,7 @@ export interface CreateActionRequest {
   /**
    * <p>A list of properties to add to the action.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
@@ -7150,7 +7150,7 @@ export interface CreateArtifactRequest {
   /**
    * <p>A list of properties to add to the artifact.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
@@ -8279,7 +8279,7 @@ export interface CreateContextRequest {
   /**
    * <p>A list of properties to add to the context.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>A list of tags to apply to the context.</p>
@@ -8348,7 +8348,7 @@ export interface DataQualityAppSpecification {
   /**
    * <p>Sets the environment variables in the container that the monitoring job runs.</p>
    */
-  Environment?: { [key: string]: string };
+  Environment?: Record<string, string>;
 }
 
 export namespace DataQualityAppSpecification {
@@ -11681,7 +11681,7 @@ export interface HyperParameterTrainingJobDefinition {
    *             that
    *             do not change for the tuning job.</p>
    */
-  StaticHyperParameters?: { [key: string]: string };
+  StaticHyperParameters?: Record<string, string>;
 
   /**
    * <p>The <a>HyperParameterAlgorithmSpecification</a> object that

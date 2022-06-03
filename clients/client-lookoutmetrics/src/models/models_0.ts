@@ -431,7 +431,7 @@ export interface AlertSummary {
   /**
    * <p>The alert's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AlertSummary {
@@ -554,7 +554,7 @@ export interface AnomalyDetectorSummary {
   /**
    * <p>The detector's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace AnomalyDetectorSummary {
@@ -1116,7 +1116,7 @@ export interface CreateAlertRequest {
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the alert.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAlertRequest {
@@ -1212,7 +1212,7 @@ export interface CreateAnomalyDetectorRequest {
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the anomaly detector.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateAnomalyDetectorRequest {
@@ -1659,7 +1659,7 @@ export interface CreateMetricSetRequest {
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the dataset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateMetricSetRequest {
@@ -2904,7 +2904,7 @@ export interface MetricSetSummary {
   /**
    * <p>The dataset's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace MetricSetSummary {
@@ -2958,7 +2958,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The resource's tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3013,7 +3013,7 @@ export interface TagResourceRequest {
    *       symbols: <code>_.:/=+@-</code>
    *          </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

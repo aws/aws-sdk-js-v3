@@ -6144,7 +6144,7 @@ export interface Relevance {
    *             document. When those terms appear they are given the specified
    *             importance instead of the regular importance for the boost.</p>
    */
-  ValueImportanceMap?: { [key: string]: number };
+  ValueImportanceMap?: Record<string, number>;
 }
 
 export namespace Relevance {

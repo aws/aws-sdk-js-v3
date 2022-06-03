@@ -907,7 +907,7 @@ export interface CodeConfigurationValues {
    * <p>The environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of
    *         <code>AWSAPPRUNNER</code> are reserved for system use and aren't valid.</p>
    */
-  RuntimeEnvironmentVariables?: { [key: string]: string };
+  RuntimeEnvironmentVariables?: Record<string, string>;
 }
 
 export namespace CodeConfigurationValues {
@@ -1039,7 +1039,7 @@ export interface ImageConfiguration {
    * <p>Environment variables that are available to your running App Runner service. An array of key-value pairs. Keys with a prefix of <code>AWSAPPRUNNER</code>
    *       are reserved for system use and aren't valid.</p>
    */
-  RuntimeEnvironmentVariables?: { [key: string]: string };
+  RuntimeEnvironmentVariables?: Record<string, string>;
 
   /**
    * <p>An optional command that App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start

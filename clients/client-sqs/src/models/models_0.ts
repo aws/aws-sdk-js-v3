@@ -444,7 +444,7 @@ export interface CreateQueueRequest {
    * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    *          </note>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
@@ -611,7 +611,7 @@ export interface CreateQueueRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace CreateQueueRequest {
@@ -1053,7 +1053,7 @@ export interface GetQueueAttributesResult {
   /**
    * <p>A map of attributes to their respective values.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace GetQueueAttributesResult {
@@ -1279,7 +1279,7 @@ export interface ListQueueTagsResult {
   /**
    * <p>The list of all tags added to the specified queue.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListQueueTagsResult {
@@ -1635,7 +1635,7 @@ export interface Message {
    *             <code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the
    *         <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -1648,7 +1648,7 @@ export interface Message {
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
    * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
 export namespace Message {
@@ -1810,7 +1810,7 @@ export interface SendMessageRequest {
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
    * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
@@ -1827,7 +1827,7 @@ export interface SendMessageRequest {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+  MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -2036,7 +2036,7 @@ export interface SendMessageBatchRequestEntry {
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
    * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
@@ -2053,7 +2053,7 @@ export interface SendMessageBatchRequestEntry {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+  MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -2422,7 +2422,7 @@ export interface SetQueueAttributesRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace SetQueueAttributesRequest {
@@ -2443,7 +2443,7 @@ export interface TagQueueRequest {
   /**
    * <p>The list of tags to be added to the specified queue.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagQueueRequest {

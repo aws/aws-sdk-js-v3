@@ -3375,13 +3375,13 @@ export interface HttpParameters {
    * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
    *       EventBridge ApiDestination.</p>
    */
-  HeaderParameters?: { [key: string]: string };
+  HeaderParameters?: Record<string, string>;
 
   /**
    * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
    *       REST API or EventBridge ApiDestination.</p>
    */
-  QueryStringParameters?: { [key: string]: string };
+  QueryStringParameters?: Record<string, string>;
 }
 
 export namespace HttpParameters {
@@ -3408,7 +3408,7 @@ export interface InputTransformer {
    *       notation.</p>
    *          <p>The keys cannot start with "Amazon Web Services." </p>
    */
-  InputPathsMap?: { [key: string]: string };
+  InputPathsMap?: Record<string, string>;
 
   /**
    * <p>Input template where you specify placeholders that will be filled with the values of the

@@ -416,7 +416,7 @@ export interface LaunchConfig {
   /**
    * <p>The environment variables for the application launch.</p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 
   /**
    * <p>The port forwarding configuration.</p>
@@ -861,7 +861,7 @@ export interface SimulationJob {
    * <p>A map that contains tag keys and tag values that are attached to the simulation
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>VPC configuration information.</p>
@@ -1180,7 +1180,7 @@ export interface DeploymentLaunchConfig {
    * <p>An array of key/value pairs specifying environment variables for the robot
    *          application</p>
    */
-  environmentVariables?: { [key: string]: string };
+  environmentVariables?: Record<string, string>;
 }
 
 export namespace DeploymentLaunchConfig {
@@ -1311,7 +1311,7 @@ export interface CreateDeploymentJobRequest {
    * <p>A map that contains tag keys and tag values that are attached to the deployment
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateDeploymentJobRequest {
@@ -1463,7 +1463,7 @@ export interface CreateDeploymentJobResponse {
   /**
    * <p>The list of all tags added to the deployment job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateDeploymentJobResponse {
@@ -1524,7 +1524,7 @@ export interface CreateFleetRequest {
   /**
    * <p>A map that contains tag keys and tag values that are attached to the fleet.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFleetRequest {
@@ -1555,7 +1555,7 @@ export interface CreateFleetResponse {
   /**
    * <p>The list of all tags added to the fleet.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFleetResponse {
@@ -1586,7 +1586,7 @@ export interface CreateRobotRequest {
   /**
    * <p>A map that contains tag keys and tag values that are attached to the robot.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRobotRequest {
@@ -1627,7 +1627,7 @@ export interface CreateRobotResponse {
   /**
    * <p>The list of all tags added to the robot.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateRobotResponse {
@@ -1764,7 +1764,7 @@ export interface CreateRobotApplicationRequest {
    * <p>A map that contains tag keys and tag values that are attached to the robot
    *          application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The object that contains that URI of the Docker image that you use for your robot
@@ -1856,7 +1856,7 @@ export interface CreateRobotApplicationResponse {
   /**
    * <p>The list of all tags added to the robot application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>An object that contains the Docker image URI used to a create your robot
@@ -2048,7 +2048,7 @@ export interface CreateSimulationApplicationRequest {
    * <p>A map that contains tag keys and tag values that are attached to the simulation
    *          application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The object that contains the Docker image URI used to create your simulation
@@ -2116,7 +2116,7 @@ export interface CreateSimulationApplicationResponse {
   /**
    * <p>The list of all tags added to the simulation application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The object that contains the Docker image URI that you used to create your simulation
@@ -2383,7 +2383,7 @@ export interface CreateSimulationJobRequest {
    * <p>A map that contains tag keys and tag values that are attached to the simulation
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>If your simulation job accesses resources in a VPC, you provide this parameter
@@ -2551,7 +2551,7 @@ export interface CreateSimulationJobResponse {
   /**
    * <p>The list of all tags added to the simulation job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Information about the vpc configuration.</p>
@@ -2677,7 +2677,7 @@ export interface SimulationJobRequest {
    * <p>A map that contains tag keys and tag values that are attached to the simulation job
    *          request.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace SimulationJobRequest {
@@ -2716,7 +2716,7 @@ export interface CreateWorldExportJobRequest {
    * <p>A map that contains tag keys and tag values that are attached to the world export
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorldExportJobRequest {
@@ -2844,7 +2844,7 @@ export interface CreateWorldExportJobResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world export
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorldExportJobResponse {
@@ -2908,13 +2908,13 @@ export interface CreateWorldGenerationJobRequest {
    * <p>A map that contains tag keys and tag values that are attached to the world generator
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the generated
    *          worlds.</p>
    */
-  worldTags?: { [key: string]: string };
+  worldTags?: Record<string, string>;
 }
 
 export namespace CreateWorldGenerationJobRequest {
@@ -3041,13 +3041,13 @@ export interface CreateWorldGenerationJobResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world generator
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the generated
    *          worlds.</p>
    */
-  worldTags?: { [key: string]: string };
+  worldTags?: Record<string, string>;
 }
 
 export namespace CreateWorldGenerationJobResponse {
@@ -3109,7 +3109,7 @@ export interface CreateWorldTemplateRequest {
    * <p>A map that contains tag keys and tag values that are attached to the world
    *          template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorldTemplateRequest {
@@ -3147,7 +3147,7 @@ export interface CreateWorldTemplateResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world
    *          template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorldTemplateResponse {
@@ -3598,7 +3598,7 @@ export interface DescribeDeploymentJobResponse {
   /**
    * <p>The list of all tags added to the specified deployment job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeDeploymentJobResponse {
@@ -3724,7 +3724,7 @@ export interface DescribeFleetResponse {
   /**
    * <p>The list of all tags added to the specified fleet.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeFleetResponse {
@@ -3801,7 +3801,7 @@ export interface DescribeRobotResponse {
   /**
    * <p>The list of all tags added to the specified robot.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeRobotResponse {
@@ -3874,7 +3874,7 @@ export interface DescribeRobotApplicationResponse {
   /**
    * <p>The list of all tags added to the specified robot application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The object that contains the Docker image URI used to create the robot
@@ -3968,7 +3968,7 @@ export interface DescribeSimulationApplicationResponse {
   /**
    * <p>The list of all tags added to the specified simulation application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The object that contains the Docker image URI used to create the simulation
@@ -4164,7 +4164,7 @@ export interface DescribeSimulationJobResponse {
   /**
    * <p>The list of all tags added to the specified simulation job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The VPC configuration.</p>
@@ -4426,7 +4426,7 @@ export interface DescribeSimulationJobBatchResponse {
    * <p>A map that contains tag keys and tag values that are attached to the simulation job
    *          batch.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeSimulationJobBatchResponse {
@@ -4479,7 +4479,7 @@ export interface DescribeWorldResponse {
   /**
    * <p>A map that contains tag keys and tag values that are attached to the world.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Returns the JSON formatted string that describes the contents of your world.</p>
@@ -4614,7 +4614,7 @@ export interface DescribeWorldExportJobResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world export
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeWorldExportJobResponse {
@@ -4854,13 +4854,13 @@ export interface DescribeWorldGenerationJobResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world generation
    *          job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the generated
    *          worlds.</p>
    */
-  worldTags?: { [key: string]: string };
+  worldTags?: Record<string, string>;
 }
 
 export namespace DescribeWorldGenerationJobResponse {
@@ -4920,7 +4920,7 @@ export interface DescribeWorldTemplateResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world
    *          template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The version of the world template that you're using.</p>
@@ -5705,7 +5705,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of all tags added to the specified resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -6268,7 +6268,7 @@ export interface StartSimulationJobBatchRequest {
    * <p>A map that contains tag keys and tag values that are attached to the deployment job
    *          batch.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartSimulationJobBatchRequest {
@@ -6388,7 +6388,7 @@ export interface StartSimulationJobBatchResponse {
    * <p>A map that contains tag keys and tag values that are attached to the deployment job
    *          batch.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartSimulationJobBatchResponse {
@@ -6543,7 +6543,7 @@ export interface TagResourceRequest {
   /**
    * <p>A map that contains tag keys and tag values that are attached to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

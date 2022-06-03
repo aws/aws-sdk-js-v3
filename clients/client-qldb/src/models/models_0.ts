@@ -149,7 +149,7 @@ export interface CreateLedgerRequest {
    * <p>The key-value pairs to add as tags to the ledger that you want to create. Tag keys are
    *          case sensitive. Tag values are case sensitive and can be null.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The permissions mode to assign to the ledger that you want to create. This parameter can
@@ -1507,7 +1507,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1538,7 +1538,7 @@ export interface StreamJournalToKinesisRequest {
    * <p>The key-value pairs to add as tags to the stream that you want to create. Tag keys are
    *          case sensitive. Tag values are case sensitive and can be null.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The inclusive start date and time from which to start streaming journal data. This
@@ -1617,7 +1617,7 @@ export interface TagResourceRequest {
    *          sensitive. If you specify a key that already exists for the resource, your request fails
    *          and returns an error. Tag values are case sensitive and can be null.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

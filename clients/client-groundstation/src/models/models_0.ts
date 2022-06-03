@@ -755,7 +755,7 @@ export interface CreateConfigRequest {
   /**
    * <p>Tags assigned to a <code>Config</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateConfigRequest {
@@ -874,7 +874,7 @@ export interface GetConfigResponse {
   /**
    * <p>Tags assigned to a <code>Config</code>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetConfigResponse {
@@ -1445,7 +1445,7 @@ export interface DescribeContactResponse {
   /**
    * <p>Tags assigned to a contact.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Region of a contact.</p>
@@ -1589,7 +1589,7 @@ export interface ContactData {
   /**
    * <p>Tags assigned to a contact.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ContactData {
@@ -1657,7 +1657,7 @@ export interface ReserveContactRequest {
   /**
    * <p>Tags assigned to a contact.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ReserveContactRequest {
@@ -1681,7 +1681,7 @@ export interface CreateDataflowEndpointGroupRequest {
   /**
    * <p>Tags of a dataflow endpoint group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateDataflowEndpointGroupRequest {
@@ -1751,7 +1751,7 @@ export interface CreateMissionProfileRequest {
   /**
    * <p>Tags assigned to a mission profile.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateMissionProfileRequest {
@@ -1842,7 +1842,7 @@ export interface GetDataflowEndpointGroupResponse {
   /**
    * <p>Tags assigned to a dataflow endpoint group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetDataflowEndpointGroupResponse {
@@ -2081,7 +2081,7 @@ export interface GetMissionProfileResponse {
   /**
    * <p>Tags assigned to a mission profile.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetMissionProfileResponse {
@@ -2254,7 +2254,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Tags assigned to a resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2493,7 +2493,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags assigned to a resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

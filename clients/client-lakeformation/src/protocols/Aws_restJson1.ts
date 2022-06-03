@@ -4582,7 +4582,7 @@ const serializeAws_restJson1PrincipalPermissionsList = (
     });
 };
 
-const serializeAws_restJson1QueryParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1QueryParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4648,10 +4648,7 @@ const serializeAws_restJson1RowFilter = (input: RowFilter, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1StorageOptimizerConfig = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1StorageOptimizerConfig = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4664,7 +4661,7 @@ const serializeAws_restJson1StorageOptimizerConfig = (
 };
 
 const serializeAws_restJson1StorageOptimizerConfigMap = (
-  input: { [key: string]: { [key: string]: string } },
+  input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [OptimizerType | string, any]) => {
@@ -5379,8 +5376,8 @@ const deserializeAws_restJson1StorageOptimizer = (output: any, context: __SerdeC
 const deserializeAws_restJson1StorageOptimizerConfig = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

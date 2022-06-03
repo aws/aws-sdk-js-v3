@@ -521,7 +521,7 @@ export interface FilterExpression {
   /**
    * <p>The map of substitution variable names to their values used in this filter expression.</p>
    */
-  ValuesMap: { [key: string]: string } | undefined;
+  ValuesMap: Record<string, string> | undefined;
 }
 
 export namespace FilterExpression {
@@ -633,7 +633,7 @@ export interface PathOptions {
   /**
    * <p>A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.</p>
    */
-  Parameters?: { [key: string]: DatasetParameter };
+  Parameters?: Record<string, DatasetParameter>;
 }
 
 export namespace PathOptions {
@@ -677,7 +677,7 @@ export interface CreateDatasetRequest {
   /**
    * <p>Metadata tags to apply to this dataset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDatasetRequest {
@@ -763,7 +763,7 @@ export interface StatisticOverride {
   /**
    * <p>A map that includes overrides of an evaluation’s parameters.</p>
    */
-  Parameters: { [key: string]: string } | undefined;
+  Parameters: Record<string, string> | undefined;
 }
 
 export namespace StatisticOverride {
@@ -1131,7 +1131,7 @@ export interface CreateProfileJobRequest {
   /**
    * <p>Metadata tags to apply to this job.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
@@ -1236,7 +1236,7 @@ export interface CreateProjectRequest {
   /**
    * <p>Metadata tags to apply to this project.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateProjectRequest {
@@ -1299,7 +1299,7 @@ export interface RecipeAction {
   /**
    * <p>Contextual parameters for the transformation.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace RecipeAction {
@@ -1396,7 +1396,7 @@ export interface CreateRecipeRequest {
   /**
    * <p>Metadata tags to apply to this recipe.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRecipeRequest {
@@ -1781,7 +1781,7 @@ export interface CreateRecipeJobRequest {
   /**
    * <p>Metadata tags to apply to this job.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
@@ -1900,7 +1900,7 @@ export interface Rule {
    *             should be enclosed in backticks, for example, <code>":col1": "`Column A`".</code>
    *          </p>
    */
-  SubstitutionMap?: { [key: string]: string };
+  SubstitutionMap?: Record<string, string>;
 
   /**
    * <p>The threshold used with a non-aggregate check expression. Non-aggregate check expressions
@@ -1952,7 +1952,7 @@ export interface CreateRulesetRequest {
   /**
    * <p>Metadata tags to apply to the ruleset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateRulesetRequest {
@@ -1997,7 +1997,7 @@ export interface CreateScheduleRequest {
   /**
    * <p>Metadata tags to apply to this schedule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique name for the schedule. Valid characters are alphanumeric (A-Z, a-z, 0-9),
@@ -2316,7 +2316,7 @@ export interface DescribeDatasetResponse {
   /**
    * <p>Metadata tags associated with this dataset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2492,7 +2492,7 @@ export interface DescribeJobResponse {
   /**
    * <p>Metadata tags associated with this job.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
@@ -2745,7 +2745,7 @@ export interface DescribeProjectResponse {
   /**
    * <p>Metadata tags associated with this project.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Describes the current state of the session:</p>
@@ -2863,7 +2863,7 @@ export interface DescribeRecipeResponse {
   /**
    * <p>Metadata tags associated with this project.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The ARN of the recipe.</p>
@@ -2952,7 +2952,7 @@ export interface DescribeRulesetResponse {
   /**
    * <p>Metadata tags that have been applied to the ruleset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DescribeRulesetResponse {
@@ -3021,7 +3021,7 @@ export interface DescribeScheduleResponse {
   /**
    * <p>Metadata tags associated with this schedule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the schedule.</p>
@@ -3123,7 +3123,7 @@ export interface Dataset {
   /**
    * <p>Metadata tags that have been applied to the dataset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The unique Amazon Resource Name (ARN) for the dataset.</p>
@@ -3495,7 +3495,7 @@ export interface Job {
   /**
    * <p>Metadata tags that have been applied to the job.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
@@ -3621,7 +3621,7 @@ export interface Project {
   /**
    * <p>Metadata tags that have been applied to the project.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that will be assumed for this
@@ -3764,7 +3764,7 @@ export interface Recipe {
   /**
    * <p>Metadata tags that have been applied to the recipe.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The identifier for the version for the recipe. Must be one of the following:</p>
@@ -3949,7 +3949,7 @@ export interface RulesetItem {
   /**
    * <p>Metadata tags that have been applied to the ruleset.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is
@@ -4064,7 +4064,7 @@ export interface Schedule {
   /**
    * <p>Metadata tags that have been applied to the schedule.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The name of the schedule.</p>
@@ -4124,7 +4124,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the DataBrew resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -4415,7 +4415,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags to be assigned to the resource.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

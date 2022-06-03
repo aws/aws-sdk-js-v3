@@ -15397,7 +15397,7 @@ const serializeAws_restJson1AnswerMachineDetectionConfig = (
   };
 };
 
-const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15437,7 +15437,7 @@ const serializeAws_restJson1ChatStreamingConfiguration = (
   };
 };
 
-const serializeAws_restJson1ContactReferences = (input: { [key: string]: Reference }, context: __SerdeContext): any => {
+const serializeAws_restJson1ContactReferences = (input: Record<string, Reference>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15986,7 +15986,7 @@ const serializeAws_restJson1TagCondition = (input: TagCondition, context: __Serd
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -16241,8 +16241,8 @@ const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17631,8 +17631,8 @@ const deserializeAws_restJson1StringReference = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

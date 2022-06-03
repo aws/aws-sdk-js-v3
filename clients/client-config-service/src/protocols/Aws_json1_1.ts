@@ -8527,7 +8527,7 @@ const serializeAws_json1_1RemediationExceptionResourceKeys = (
 };
 
 const serializeAws_json1_1RemediationParameters = (
-  input: { [key: string]: RemediationParameterValue },
+  input: Record<string, RemediationParameterValue>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -8866,7 +8866,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
-const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -11970,9 +11970,9 @@ const deserializeAws_json1_1RemediationInProgressException = (
 const deserializeAws_json1_1RemediationParameters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: RemediationParameterValue } => {
+): Record<string, RemediationParameterValue> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: RemediationParameterValue }, [key, value]: [string, any]) => {
+    (acc: Record<string, RemediationParameterValue>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -12323,8 +12323,8 @@ const deserializeAws_json1_1StoredQueryMetadataList = (output: any, context: __S
 const deserializeAws_json1_1SupplementaryConfiguration = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -12354,8 +12354,8 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
   return retVal;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

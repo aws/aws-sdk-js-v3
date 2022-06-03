@@ -7480,7 +7480,7 @@ const serializeAws_json1_1UserTokenConfigurationList = (
     });
 };
 
-const serializeAws_json1_1ValueImportanceMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
+const serializeAws_json1_1ValueImportanceMap = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -10951,8 +10951,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -539,7 +539,7 @@ export interface AdvancedOptionsStatus {
   /**
    * <p>The status of advanced options for the specified domain.</p>
    */
-  Options: { [key: string]: string } | undefined;
+  Options: Record<string, string> | undefined;
 
   /**
    * <p>The <code>OptionStatus</code> for advanced options for the specified domain.
@@ -1753,14 +1753,14 @@ export interface CreateDomainRequest {
    *       </a> for more information.
    *     </p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type
    *       of OpenSearch log.
    *     </p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>Options to specify configurations that will be applied to the domain endpoint.</p>
@@ -1944,7 +1944,7 @@ export interface DomainStatus {
    *       value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.
    *     </p>
    */
-  Endpoints?: { [key: string]: string };
+  Endpoints?: Record<string, string>;
 
   /**
    * <p>The status of the domain configuration. <code>True</code> if Amazon OpenSearch Service is
@@ -2014,12 +2014,12 @@ export interface DomainStatus {
    *       <code>AdvancedOptions</code>.
    *     </p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>Log publishing options for the given domain.</p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>The current status of the domain's service software.</p>
@@ -3314,7 +3314,7 @@ export interface LogPublishingOptionsStatus {
   /**
    * <p>The log publishing options configured for the domain.</p>
    */
-  Options?: { [key: string]: LogPublishingOption };
+  Options?: Record<string, LogPublishingOption>;
 
   /**
    * <p>The status of the log publishing options for the domain. See <code>OptionStatus</code> for the
@@ -3998,7 +3998,7 @@ export interface DescribeInstanceTypeLimitsResponse {
    *       </ul>
    *     </p>
    */
-  LimitsByRole?: { [key: string]: Limits };
+  LimitsByRole?: Record<string, Limits>;
 }
 
 export namespace DescribeInstanceTypeLimitsResponse {
@@ -5643,7 +5643,7 @@ export interface UpdateDomainConfigRequest {
    *       </a> for more information.
    *     </p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>IAM access policy as a JSON-formatted string.</p>
@@ -5655,7 +5655,7 @@ export interface UpdateDomainConfigRequest {
    *       of OpenSearch log.
    *     </p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>Specifies encryption of data at rest options.</p>
@@ -5868,7 +5868,7 @@ export interface UpgradeDomainRequest {
    *       Advanced cluster parameters</a>.
    *     </p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 }
 
 export namespace UpgradeDomainRequest {
@@ -5930,7 +5930,7 @@ export interface UpgradeDomainResponse {
    *       Advanced cluster parameters</a>.
    *     </p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>Specifies change details of the domain configuration change.</p>

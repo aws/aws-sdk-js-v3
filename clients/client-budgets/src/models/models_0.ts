@@ -708,7 +708,7 @@ export interface Budget {
    * 				<code>BudgetLimit</code>. They don't contain
    * 			<code>PlannedBudgetLimits</code>.</p>
    */
-  PlannedBudgetLimits?: { [key: string]: Spend };
+  PlannedBudgetLimits?: Record<string, Spend>;
 
   /**
    * <p>The cost filters, such as <code>Region</code>, <code>Service</code>, <code>member account</code>, <code>Tag</code>, or <code>Cost Category</code>, that are applied to a budget.</p>
@@ -731,7 +731,7 @@ export interface Budget {
    * 			         </li>
    *          </ul>
    */
-  CostFilters?: { [key: string]: string[] };
+  CostFilters?: Record<string, string[]>;
 
   /**
    * <p>The types of costs that are included in this <code>COST</code> budget.</p>
@@ -1933,7 +1933,7 @@ export interface BudgetPerformanceHistory {
   /**
    * <p>The history of the cost filters for a budget during the specified time period.</p>
    */
-  CostFilters?: { [key: string]: string[] };
+  CostFilters?: Record<string, string[]>;
 
   /**
    * <p>The history of the cost types for a budget during the specified time period.</p>

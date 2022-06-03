@@ -4654,22 +4654,16 @@ const deserializeAws_json1_1EnhancedImageScanFindingList = (
   return retVal;
 };
 
-const deserializeAws_json1_1FindingSeverityCounts = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [FindingSeverity | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __expectInt32(value) as any,
-      };
-    },
-    {}
-  );
+const deserializeAws_json1_1FindingSeverityCounts = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [FindingSeverity | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectInt32(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1GetAuthorizationTokenResponse = (
@@ -5884,8 +5878,8 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
   return {} as any;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

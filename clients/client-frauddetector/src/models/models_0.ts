@@ -836,7 +836,7 @@ export interface LabelSchema {
    * <p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if "<code>FRAUD</code>" and "<code>LEGIT</code>" are Amazon Fraud Detector supported labels, this mapper could be: <code>{"FRAUD" => ["0"]</code>, <code>"LEGIT" => ["1"]}</code> or <code>{"FRAUD" => ["false"]</code>, <code>"LEGIT" => ["true"]}</code> or <code>{"FRAUD" => ["fraud", "abuse"]</code>, <code>"LEGIT" => ["legit", "safe"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.
    *         </p>
    */
-  labelMapper: { [key: string]: string[] } | undefined;
+  labelMapper: Record<string, string[]> | undefined;
 
   /**
    * <p>The action to take for unlabeled events.</p>
@@ -2634,7 +2634,7 @@ export interface Event {
   /**
    * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
    */
-  eventVariables?: { [key: string]: string };
+  eventVariables?: Record<string, string>;
 
   /**
    * <p>The label associated with the event.</p>
@@ -2756,12 +2756,12 @@ export interface GetEventPredictionRequest {
    *          <p>If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules
    *          will use the default value that is provided for the variable. </p>
    */
-  eventVariables: { [key: string]: string } | undefined;
+  eventVariables: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon SageMaker model endpoint input data blobs.</p>
    */
-  externalModelEndpointDataBlobs?: { [key: string]: ModelEndpointDataBlob };
+  externalModelEndpointDataBlobs?: Record<string, ModelEndpointDataBlob>;
 }
 
 export namespace GetEventPredictionRequest {
@@ -2816,7 +2816,7 @@ export interface ExternalModelOutputs {
   /**
    * <p>The fraud prediction scores from Amazon SageMaker model.</p>
    */
-  outputs?: { [key: string]: string };
+  outputs?: Record<string, string>;
 }
 
 export namespace ExternalModelOutputs {
@@ -2840,7 +2840,7 @@ export interface ModelScores {
   /**
    * <p>The model's fraud prediction scores.</p>
    */
-  scores?: { [key: string]: number };
+  scores?: Record<string, number>;
 }
 
 export namespace ModelScores {
@@ -2992,14 +2992,14 @@ export interface EvaluatedExternalModel {
    * Input variables use for generating predictions.
    * </p>
    */
-  inputVariables?: { [key: string]: string };
+  inputVariables?: Record<string, string>;
 
   /**
    * <p>
    * Output variables.
    * </p>
    */
-  outputVariables?: { [key: string]: string };
+  outputVariables?: Record<string, string>;
 }
 
 export namespace EvaluatedExternalModel {
@@ -3647,12 +3647,12 @@ export interface ModelOutputConfiguration {
   /**
    * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
    */
-  jsonKeyToVariableMap?: { [key: string]: string };
+  jsonKeyToVariableMap?: Record<string, string>;
 
   /**
    * <p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>
    */
-  csvIndexToVariableMap?: { [key: string]: string };
+  csvIndexToVariableMap?: Record<string, string>;
 }
 
 export namespace ModelOutputConfiguration {
@@ -4911,7 +4911,7 @@ export interface SendEventRequest {
   /**
    * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
    */
-  eventVariables: { [key: string]: string } | undefined;
+  eventVariables: Record<string, string> | undefined;
 
   /**
    * <p>The label to associate with the event. Required if specifying <code>labelTimestamp</code>.</p>

@@ -3845,7 +3845,7 @@ const serializeAws_restJson1CustomRules = (input: CustomRule[], context: __Serde
     });
 };
 
-const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1EnvironmentVariables = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3857,7 +3857,7 @@ const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: stri
   }, {});
 };
 
-const serializeAws_restJson1FileMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1FileMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3887,7 +3887,7 @@ const serializeAws_restJson1SubDomainSettings = (input: SubDomainSetting[], cont
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4196,11 +4196,8 @@ const deserializeAws_restJson1DomainAssociations = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_restJson1EnvironmentVariables = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4211,8 +4208,8 @@ const deserializeAws_restJson1EnvironmentVariables = (
   }, {});
 };
 
-const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4283,8 +4280,8 @@ const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1Screenshots = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1Screenshots = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4362,8 +4359,8 @@ const deserializeAws_restJson1SubDomainSetting = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -839,7 +839,7 @@ const serializeAws_json1_1TagKeyListForUntag = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -941,8 +941,8 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
 const deserializeAws_json1_1FailedResourcesMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FailureInfo } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FailureInfo }, [key, value]: [string, any]) => {
+): Record<string, FailureInfo> => {
+  return Object.entries(output).reduce((acc: Record<string, FailureInfo>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

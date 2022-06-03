@@ -1835,7 +1835,7 @@ export interface LoadBalancer {
    * <p>A string to string map of the configuration options for your load balancer. Valid values
    *       are listed below.</p>
    */
-  configurationOptions?: { [key: string]: string };
+  configurationOptions?: Record<string, string>;
 
   /**
    * <p>The IP address type of the load balancer.</p>
@@ -5750,7 +5750,7 @@ export interface UpdateContainerServiceRequest {
    *          <p>You can specify public domain names using a string to array map as shown in the example
    *       later on this page.</p>
    */
-  publicDomainNames?: { [key: string]: string[] };
+  publicDomainNames?: Record<string, string[]>;
 
   /**
    * <p>An object to describe the configuration for the container service to access private

@@ -235,7 +235,7 @@ export interface ErrorResponse {
   /**
    * <p>Additional details about the error. </p>
    */
-  AdditionalDetails?: { [key: string]: string };
+  AdditionalDetails?: Record<string, string>;
 }
 
 export namespace ErrorResponse {
@@ -309,7 +309,7 @@ export interface ApplicationSummary {
   /**
    * <p>The tags assigned to the application. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the application resource. </p>
@@ -399,7 +399,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The tags to assign to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -479,7 +479,7 @@ export interface CreateApplicationResponse {
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A timestamp that indicates when the application was last updated. </p>
@@ -686,7 +686,7 @@ export interface CreateEnvironmentRequest {
   /**
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -751,7 +751,7 @@ export interface CreateEnvironmentResponse {
   /**
    * <p>The tags assigned to the created environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair..</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
@@ -865,7 +865,7 @@ export interface CreateRouteRequest {
   /**
    * <p>The tags to assign to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -948,7 +948,7 @@ export interface CreateRouteResponse {
   /**
    * <p>The tags assigned to the created route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
@@ -1068,7 +1068,7 @@ export interface CreateServiceRequest {
   /**
    * <p>The tags to assign to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1163,7 +1163,7 @@ export interface CreateServiceResponse {
   /**
    * <p>The tags assigned to the created service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
@@ -1519,7 +1519,7 @@ export interface EnvironmentSummary {
   /**
    * <p>The tags assigned to the environment. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the environment resource. </p>
@@ -1673,7 +1673,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the application resource. </p>
@@ -1761,7 +1761,7 @@ export interface GetEnvironmentResponse {
   /**
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the environment resource. </p>
@@ -1916,7 +1916,7 @@ export interface GetRouteResponse {
   /**
    * <p>A mapping of Amazon API Gateway path resources to resource IDs. </p>
    */
-  PathResourceToId?: { [key: string]: string };
+  PathResourceToId?: Record<string, string>;
 
   /**
    * <p>The current state of the route. </p>
@@ -1926,7 +1926,7 @@ export interface GetRouteResponse {
   /**
    * <p>The tags assigned to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the route resource. </p>
@@ -2096,7 +2096,7 @@ export interface GetServiceResponse {
   /**
    * <p>The tags assigned to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the service resource. </p>
@@ -2407,7 +2407,7 @@ export interface RouteSummary {
   /**
    * <p>A mapping of Amazon API Gateway path resources to resource IDs. </p>
    */
-  PathResourceToId?: { [key: string]: string };
+  PathResourceToId?: Record<string, string>;
 
   /**
    * <p>The current state of the route. </p>
@@ -2417,7 +2417,7 @@ export interface RouteSummary {
   /**
    * <p>The tags assigned to the route. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the route resource. </p>
@@ -2602,7 +2602,7 @@ export interface ServiceSummary {
   /**
    * <p>The tags assigned to the service. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>Any error associated with the service resource. </p>
@@ -2674,7 +2674,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource. </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2729,7 +2729,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource. </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

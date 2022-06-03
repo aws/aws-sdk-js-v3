@@ -1113,7 +1113,7 @@ export interface OpenXJsonSerDe {
    *             <code>timestamp</code>, set this parameter to <code>{"ts": "timestamp"}</code> to map
    *          this key to a column named <code>ts</code>.</p>
    */
-  ColumnToJsonKeyMappings?: { [key: string]: string };
+  ColumnToJsonKeyMappings?: Record<string, string>;
 }
 
 export namespace OpenXJsonSerDe {

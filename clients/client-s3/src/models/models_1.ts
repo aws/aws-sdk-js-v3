@@ -2044,7 +2044,7 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more

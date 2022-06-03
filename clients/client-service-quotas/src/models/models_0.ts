@@ -477,7 +477,7 @@ export interface MetricInfo {
    * <p>The metric dimension. This is a name/value pair that is part of the identity of a
    *       metric.</p>
    */
-  MetricDimensions?: { [key: string]: string };
+  MetricDimensions?: Record<string, string>;
 
   /**
    * <p>The metric statistic that we recommend you use when determining quota usage.</p>

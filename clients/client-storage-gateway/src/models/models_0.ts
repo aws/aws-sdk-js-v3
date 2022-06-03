@@ -276,7 +276,7 @@ export interface StorageGatewayError {
   /**
    * <p>Human-readable text that provides detail about the error that occurred.</p>
    */
-  errorDetails?: { [key: string]: string };
+  errorDetails?: Record<string, string>;
 }
 
 export namespace StorageGatewayError {

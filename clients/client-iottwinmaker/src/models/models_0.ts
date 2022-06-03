@@ -34,7 +34,7 @@ export interface EntityPropertyReference {
   /**
    * <p>A mapping of external IDs to property names. External IDs uniquely identify properties from external data stores.</p>
    */
-  externalIdProperty?: { [key: string]: string };
+  externalIdProperty?: Record<string, string>;
 
   /**
    * <p>The ID of the entity.</p>
@@ -406,7 +406,7 @@ export interface CreateSceneRequest {
   /**
    * <p>Metadata that you can use to manage the scene.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateSceneRequest {
@@ -463,7 +463,7 @@ export interface CreateWorkspaceRequest {
   /**
    * <p>Metadata that you can use to manage the workspace</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateWorkspaceRequest {
@@ -1494,7 +1494,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Metadata that you can use to manage a resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The string that specifies the next page of results.</p>
@@ -1601,7 +1601,7 @@ export interface TagResourceRequest {
   /**
    * <p>Metadata to add to this resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1893,7 +1893,7 @@ export interface DataValue {
   /**
    * <p>An object that maps strings to multiple <code>DataValue</code> objects.</p>
    */
-  mapValue?: { [key: string]: DataValue };
+  mapValue?: Record<string, DataValue>;
 
   /**
    * <p>A value that relates a component to another component.</p>
@@ -2172,7 +2172,7 @@ export interface GetPropertyValueResponse {
    * <p>An object that maps strings to the properties and latest property values in the response. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  propertyValues: { [key: string]: PropertyLatestValue } | undefined;
+  propertyValues: Record<string, PropertyLatestValue> | undefined;
 }
 
 export namespace GetPropertyValueResponse {
@@ -2363,7 +2363,7 @@ export interface PropertyDefinitionRequest {
    * <p>A mapping that specifies configuration information about the property. Use this field to
    *          specify information that you read from and write to an external source.</p>
    */
-  configuration?: { [key: string]: string };
+  configuration?: Record<string, string>;
 }
 
 export namespace PropertyDefinitionRequest {
@@ -2427,7 +2427,7 @@ export interface PropertyDefinitionResponse {
   /**
    * <p>A mapping that specifies configuration information about the property.</p>
    */
-  configuration?: { [key: string]: string };
+  configuration?: Record<string, string>;
 }
 
 export namespace PropertyDefinitionResponse {
@@ -2481,7 +2481,7 @@ export interface CreateComponentTypeRequest {
    * <p>An object that maps strings to the property definitions in the component type. Each string
    *       in the mapping must be unique to this object.</p>
    */
-  propertyDefinitions?: { [key: string]: PropertyDefinitionRequest };
+  propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
   /**
    * <p>Specifies the parent component type to extend.</p>
@@ -2492,12 +2492,12 @@ export interface CreateComponentTypeRequest {
    * <p>An object that maps strings to the functions in the component type. Each string in the
    *          mapping must be unique to this object.</p>
    */
-  functions?: { [key: string]: FunctionRequest };
+  functions?: Record<string, FunctionRequest>;
 
   /**
    * <p>Metadata that you can use to manage the component type.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateComponentTypeRequest {
@@ -2535,7 +2535,7 @@ export interface GetComponentTypeResponse {
    * <p>An object that maps strings to the property definitions in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  propertyDefinitions?: { [key: string]: PropertyDefinitionResponse };
+  propertyDefinitions?: Record<string, PropertyDefinitionResponse>;
 
   /**
    * <p>The name of the parent component type that this component type extends.</p>
@@ -2546,7 +2546,7 @@ export interface GetComponentTypeResponse {
    * <p>An object that maps strings to the functions in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  functions?: { [key: string]: FunctionResponse };
+  functions?: Record<string, FunctionResponse>;
 
   /**
    * <p>The date and time when the component type was created.</p>
@@ -2615,7 +2615,7 @@ export interface UpdateComponentTypeRequest {
    * <p>An object that maps strings to the property definitions in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  propertyDefinitions?: { [key: string]: PropertyDefinitionRequest };
+  propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
   /**
    * <p>Specifies the component type that this component type extends.</p>
@@ -2626,7 +2626,7 @@ export interface UpdateComponentTypeRequest {
    * <p>An object that maps strings to the functions in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  functions?: { [key: string]: FunctionRequest };
+  functions?: Record<string, FunctionRequest>;
 }
 
 export namespace UpdateComponentTypeRequest {
@@ -2709,7 +2709,7 @@ export interface ComponentRequest {
    * <p>An object that maps strings to the properties to set in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  properties?: { [key: string]: PropertyRequest };
+  properties?: Record<string, PropertyRequest>;
 }
 
 export namespace ComponentRequest {
@@ -2754,7 +2754,7 @@ export interface ComponentResponse {
    * <p>An object that maps strings to the properties to set in the component type. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  properties?: { [key: string]: PropertyResponse };
+  properties?: Record<string, PropertyResponse>;
 }
 
 export namespace ComponentResponse {
@@ -2789,7 +2789,7 @@ export interface ComponentUpdateRequest {
    * <p>An object that maps strings to the properties to set in the component type update. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  propertyUpdates?: { [key: string]: PropertyRequest };
+  propertyUpdates?: Record<string, PropertyRequest>;
 }
 
 export namespace ComponentUpdateRequest {
@@ -2826,7 +2826,7 @@ export interface CreateEntityRequest {
    * <p>An object that maps strings to the components in the entity. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  components?: { [key: string]: ComponentRequest };
+  components?: Record<string, ComponentRequest>;
 
   /**
    * <p>The ID of the entity's parent entity.</p>
@@ -2836,7 +2836,7 @@ export interface CreateEntityRequest {
   /**
    * <p>Metadata that you can use to manage the entity.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateEntityRequest {
@@ -2883,7 +2883,7 @@ export interface GetEntityResponse {
    * <p>An object that maps strings to the components in the entity. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  components?: { [key: string]: ComponentResponse };
+  components?: Record<string, ComponentResponse>;
 
   /**
    * <p>The ID of the parent entity for this entity.</p>
@@ -2940,7 +2940,7 @@ export interface UpdateEntityRequest {
    * <p>An object that maps strings to the component updates in the request. Each string
    *        in the mapping must be unique to this object.</p>
    */
-  componentUpdates?: { [key: string]: ComponentUpdateRequest };
+  componentUpdates?: Record<string, ComponentUpdateRequest>;
 
   /**
    * <p>An object that describes the update request for a parent entity.</p>

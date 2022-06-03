@@ -4119,7 +4119,7 @@ const serializeAws_restJson1ChoiceUpdate = (input: ChoiceUpdate, context: __Serd
   };
 };
 
-const serializeAws_restJson1ChoiceUpdates = (input: { [key: string]: ChoiceUpdate }, context: __SerdeContext): any => {
+const serializeAws_restJson1ChoiceUpdates = (input: Record<string, ChoiceUpdate>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4142,7 +4142,7 @@ const serializeAws_restJson1LensAliases = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_restJson1PillarNotes = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1PillarNotes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4165,7 +4165,7 @@ const serializeAws_restJson1SelectedChoices = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4689,8 +4689,8 @@ const deserializeAws_restJson1QuestionDifferences = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [Risk | string, any]) => {
+const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Risk | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4755,8 +4755,8 @@ const deserializeAws_restJson1ShareInvitationSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

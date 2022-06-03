@@ -2808,7 +2808,7 @@ export const deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlName(data, context);
   return Promise.resolve(contents);
 };
@@ -2847,7 +2847,7 @@ export const deserializeAws_restXmlHttpPayloadWithStructureCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlNestedPayload(data, context);
   return Promise.resolve(contents);
 };
@@ -2886,7 +2886,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlName(data, context);
   return Promise.resolve(contents);
 };
@@ -2925,7 +2925,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlNamespace(data, context);
   return Promise.resolve(contents);
 };
@@ -2964,7 +2964,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand =
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(data, context);
   return Promise.resolve(contents);
 };
@@ -3989,7 +3989,7 @@ export const deserializeAws_restXmlXmlAttributesOnPayloadCommand = async (
     $metadata: deserializeMetadata(output),
     payload: undefined,
   };
-  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payload = deserializeAws_restXmlXmlAttributesInputOutput(data, context);
   return Promise.resolve(contents);
 };
@@ -4876,7 +4876,7 @@ const deserializeAws_restXmlInvalidGreetingResponse = async (
 };
 
 const serializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.keys(input)
@@ -4918,7 +4918,7 @@ const serializeAws_restXmlListWithNamespace = (input: string[], context: __Serde
 };
 
 const serializeAws_restXmlNestedMap = (
-  input: { [key: string]: { [key: string]: FooEnum | string } },
+  input: Record<string, Record<string, FooEnum | string>>,
   context: __SerdeContext
 ): any => {
   return Object.keys(input)
@@ -5068,7 +5068,7 @@ const serializeAws_restXmlXmlAttributesInputOutput = (
 };
 
 const serializeAws_restXmlXmlMapsInputOutputMap = (
-  input: { [key: string]: GreetingStruct },
+  input: Record<string, GreetingStruct>,
   context: __SerdeContext
 ): any => {
   return Object.keys(input)
@@ -5085,7 +5085,7 @@ const serializeAws_restXmlXmlMapsInputOutputMap = (
 };
 
 const serializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
-  input: { [key: string]: GreetingStruct },
+  input: Record<string, GreetingStruct>,
   context: __SerdeContext
 ): any => {
   return Object.keys(input)
@@ -5251,7 +5251,7 @@ const serializeAws_restXmlFooEnumList = (input: (FooEnum | string)[], context: _
     });
 };
 
-const serializeAws_restXmlFooEnumMap = (input: { [key: string]: FooEnum | string }, context: __SerdeContext): any => {
+const serializeAws_restXmlFooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
@@ -5361,7 +5361,7 @@ const deserializeAws_restXmlComplexNestedErrorData = (output: any, context: __Se
 const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["V"] === null) {
       return acc;
@@ -5376,7 +5376,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
 const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["V"] === null) {
       return acc;
@@ -5413,7 +5413,7 @@ const deserializeAws_restXmlListWithNamespace = (output: any, context: __SerdeCo
 const deserializeAws_restXmlNestedMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: FooEnum | string } } => {
+): Record<string, Record<string, FooEnum | string>> => {
   return output.reduce((acc: any, pair: any) => {
     if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
       return acc;
@@ -5568,7 +5568,7 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
 const deserializeAws_restXmlXmlMapsInputOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: GreetingStruct } => {
+): Record<string, GreetingStruct> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5583,7 +5583,7 @@ const deserializeAws_restXmlXmlMapsInputOutputMap = (
 const deserializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: GreetingStruct } => {
+): Record<string, GreetingStruct> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Setting"] === null) {
       return acc;
@@ -5740,10 +5740,7 @@ const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext)
     });
 };
 
-const deserializeAws_restXmlFooEnumMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: FooEnum | string } => {
+const deserializeAws_restXmlFooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

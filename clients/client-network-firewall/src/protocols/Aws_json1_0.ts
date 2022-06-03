@@ -2842,7 +2842,7 @@ const serializeAws_json1_0IPSet = (input: IPSet, context: __SerdeContext): any =
   };
 };
 
-const serializeAws_json1_0IPSets = (input: { [key: string]: IPSet }, context: __SerdeContext): any => {
+const serializeAws_json1_0IPSets = (input: Record<string, IPSet>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2917,7 +2917,7 @@ const serializeAws_json1_0LogDestinationConfigs = (input: LogDestinationConfig[]
     });
 };
 
-const serializeAws_json1_0LogDestinationMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_0LogDestinationMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2984,7 +2984,7 @@ const serializeAws_json1_0PortSet = (input: PortSet, context: __SerdeContext): a
   };
 };
 
-const serializeAws_json1_0PortSets = (input: { [key: string]: PortSet }, context: __SerdeContext): any => {
+const serializeAws_json1_0PortSets = (input: Record<string, PortSet>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4049,8 +4049,8 @@ const deserializeAws_json1_0IPSet = (output: any, context: __SerdeContext): IPSe
   } as any;
 };
 
-const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): { [key: string]: IPSet } => {
-  return Object.entries(output).reduce((acc: { [key: string]: IPSet }, [key, value]: [string, any]) => {
+const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): Record<string, IPSet> => {
+  return Object.entries(output).reduce((acc: Record<string, IPSet>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4136,8 +4136,8 @@ const deserializeAws_json1_0LogDestinationConfigs = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_0LogDestinationMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_0LogDestinationMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4230,8 +4230,8 @@ const deserializeAws_json1_0PortSet = (output: any, context: __SerdeContext): Po
   } as any;
 };
 
-const deserializeAws_json1_0PortSets = (output: any, context: __SerdeContext): { [key: string]: PortSet } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PortSet }, [key, value]: [string, any]) => {
+const deserializeAws_json1_0PortSets = (output: any, context: __SerdeContext): Record<string, PortSet> => {
+  return Object.entries(output).reduce((acc: Record<string, PortSet>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4663,8 +4663,8 @@ const deserializeAws_json1_0SyncState = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_0SyncStateConfig = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PerObjectStatus } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PerObjectStatus }, [key, value]: [string, any]) => {
+): Record<string, PerObjectStatus> => {
+  return Object.entries(output).reduce((acc: Record<string, PerObjectStatus>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4675,8 +4675,8 @@ const deserializeAws_json1_0SyncStateConfig = (
   }, {});
 };
 
-const deserializeAws_json1_0SyncStates = (output: any, context: __SerdeContext): { [key: string]: SyncState } => {
-  return Object.entries(output).reduce((acc: { [key: string]: SyncState }, [key, value]: [string, any]) => {
+const deserializeAws_json1_0SyncStates = (output: any, context: __SerdeContext): Record<string, SyncState> => {
+  return Object.entries(output).reduce((acc: Record<string, SyncState>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

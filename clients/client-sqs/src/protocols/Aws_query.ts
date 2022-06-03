@@ -1849,7 +1849,7 @@ const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, c
 };
 
 const serializeAws_queryMessageBodyAttributeMap = (
-  input: { [key: string]: MessageAttributeValue },
+  input: Record<string, MessageAttributeValue>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1868,7 +1868,7 @@ const serializeAws_queryMessageBodyAttributeMap = (
 };
 
 const serializeAws_queryMessageBodySystemAttributeMap = (
-  input: { [key: string]: MessageSystemAttributeValue },
+  input: Record<string, MessageSystemAttributeValue>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1925,7 +1925,7 @@ const serializeAws_queryPurgeQueueRequest = (input: PurgeQueueRequest, context: 
   return entries;
 };
 
-const serializeAws_queryQueueAttributeMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryQueueAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -2132,7 +2132,7 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryTagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_queryTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -2545,7 +2545,7 @@ const deserializeAws_queryMessageAttributeValue = (output: any, context: __Serde
 const deserializeAws_queryMessageBodyAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: MessageAttributeValue } => {
+): Record<string, MessageAttributeValue> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;
@@ -2576,7 +2576,7 @@ const deserializeAws_queryMessageNotInflight = (output: any, context: __SerdeCon
 const deserializeAws_queryMessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;
@@ -2598,7 +2598,7 @@ const deserializeAws_queryPurgeQueueInProgress = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryQueueAttributeMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryQueueAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;
@@ -2764,7 +2764,7 @@ const deserializeAws_queryStringList = (output: any, context: __SerdeContext): s
     });
 };
 
-const deserializeAws_queryTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;

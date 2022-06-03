@@ -2035,8 +2035,8 @@ const deserializeAws_json1_1PipelineObjectList = (output: any, context: __SerdeC
 const deserializeAws_json1_1PipelineObjectMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PipelineObject } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PipelineObject }, [key, value]: [string, any]) => {
+): Record<string, PipelineObject> => {
+  return Object.entries(output).reduce((acc: Record<string, PipelineObject>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

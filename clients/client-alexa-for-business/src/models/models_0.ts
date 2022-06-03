@@ -4107,7 +4107,7 @@ export interface SkillDetails {
    *          </p>
    *          <p>The list of reviews for the skill, including Key and Value pair.</p>
    */
-  Reviews?: { [key: string]: string };
+  Reviews?: Record<string, string>;
 
   /**
    * <p>The details about the developer that published the skill.</p>
@@ -4430,7 +4430,7 @@ export interface PutSkillAuthorizationRequest {
    * <p>The authorization result specific to OAUTH code grant output. "Code” must be
    *          populated in the AuthorizationResult map to establish the authorization.</p>
    */
-  AuthorizationResult: { [key: string]: string } | undefined;
+  AuthorizationResult: Record<string, string> | undefined;
 
   /**
    * <p>The unique identifier of a skill.</p>

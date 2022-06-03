@@ -1057,7 +1057,7 @@ export interface Application {
    * <p>This option is for advanced users only. This is meta information about third-party
    *          applications that third-party vendors use for testing purposes.</p>
    */
-  AdditionalInfo?: { [key: string]: string };
+  AdditionalInfo?: Record<string, string>;
 }
 
 export namespace Application {
@@ -3088,7 +3088,7 @@ export interface HadoopStepConfig {
    * <p>The list of Java properties that are set when the step runs. You can use these
    *          properties to pass key-value pairs to your main function.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 
   /**
    * <p>The name of the main class in the specified Java file. If not specified, the JAR file
@@ -5756,7 +5756,7 @@ export interface Configuration {
   /**
    * <p>A set of properties specified within a configuration classification.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 }
 
 export namespace Configuration {
@@ -5808,7 +5808,7 @@ export interface BlockPublicAccessConfiguration {
   /**
    * <p>A set of properties specified within a configuration classification.</p>
    */
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 }
 
 export namespace BlockPublicAccessConfiguration {

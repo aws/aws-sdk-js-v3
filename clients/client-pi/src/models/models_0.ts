@@ -447,7 +447,7 @@ export interface DescribeDimensionKeysRequest {
    *             </li>
    *          </ul>
    */
-  Filter?: { [key: string]: string };
+  Filter?: Record<string, string>;
 
   /**
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
@@ -479,7 +479,7 @@ export interface DimensionKeyDescription {
   /**
    * <p>A map of name-value pairs for the dimensions in the group.</p>
    */
-  Dimensions?: { [key: string]: string };
+  Dimensions?: Record<string, string>;
 
   /**
    * <p>The aggregated metric value for the dimensions, over the requested time range.</p>
@@ -489,7 +489,7 @@ export interface DimensionKeyDescription {
   /**
    * <p>A map that contains the value for each additional metric.</p>
    */
-  AdditionalMetrics?: { [key: string]: number };
+  AdditionalMetrics?: Record<string, number>;
 
   /**
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
@@ -515,7 +515,7 @@ export interface ResponsePartitionKey {
   /**
    * <p>A dimension map that contains the dimensions for this partition.</p>
    */
-  Dimensions: { [key: string]: string } | undefined;
+  Dimensions: Record<string, string> | undefined;
 }
 
 export namespace ResponsePartitionKey {
@@ -927,7 +927,7 @@ export interface GetResourceMetadataResponse {
    * <p>The metadata for different features. For example, the metadata might indicate that a feature is
    *             turned on or off on a specific DB instance.</p>
    */
-  Features?: { [key: string]: FeatureMetadata };
+  Features?: Record<string, FeatureMetadata>;
 }
 
 export namespace GetResourceMetadataResponse {
@@ -990,7 +990,7 @@ export interface MetricQuery {
    *             </li>
    *          </ul>
    */
-  Filter?: { [key: string]: string };
+  Filter?: Record<string, string>;
 }
 
 export namespace MetricQuery {
@@ -1138,7 +1138,7 @@ export interface ResponseResourceMetricKey {
   /**
    * <p>The valid dimensions for the metric.</p>
    */
-  Dimensions?: { [key: string]: string };
+  Dimensions?: Record<string, string>;
 }
 
 export namespace ResponseResourceMetricKey {

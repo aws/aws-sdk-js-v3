@@ -3188,7 +3188,7 @@ const serializeAws_queryAlpnPolicyName = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraParams = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3243,7 +3243,7 @@ const serializeAws_queryAuthenticateCognitoActionConfig = (
 };
 
 const serializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4780,7 +4780,7 @@ const deserializeAws_queryALPNPolicyNotSupportedException = (
 const deserializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraParams = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -4846,7 +4846,7 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
 const deserializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
+): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

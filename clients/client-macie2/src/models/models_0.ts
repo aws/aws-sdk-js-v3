@@ -2159,7 +2159,7 @@ export interface FindingsFilterListItem {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace FindingsFilterListItem {
@@ -2757,7 +2757,7 @@ export interface Member {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the account in Amazon Macie.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.</p>
@@ -3818,7 +3818,7 @@ export interface CreateClassificationJobRequest {
   /**
    * <p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateClassificationJobRequest {
@@ -3925,7 +3925,7 @@ export interface CreateCustomDataIdentifierRequest {
   /**
    * <p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateCustomDataIdentifierRequest {
@@ -4009,7 +4009,7 @@ export interface FindingCriteria {
   /**
    * <p>A condition that specifies the property, operator, and one or more values to use to filter the results.</p>
    */
-  criterion?: { [key: string]: CriterionAdditionalProperties };
+  criterion?: Record<string, CriterionAdditionalProperties>;
 }
 
 export namespace FindingCriteria {
@@ -4055,7 +4055,7 @@ export interface CreateFindingsFilterRequest {
   /**
    * <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateFindingsFilterRequest {
@@ -4139,7 +4139,7 @@ export interface CreateMemberRequest {
   /**
    * <p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateMemberRequest {
@@ -4343,7 +4343,7 @@ export interface DescribeBucketsRequest {
   /**
    * <p>The criteria to use to filter the query results.</p>
    */
-  criteria?: { [key: string]: BucketCriteriaAdditionalProperties };
+  criteria?: Record<string, BucketCriteriaAdditionalProperties>;
 
   /**
    * <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
@@ -4525,7 +4525,7 @@ export interface DescribeClassificationJobResponse {
   /**
    * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the classification job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>If the current status of the job is USER_PAUSED, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for jobStatus is USER_PAUSED.</p>
@@ -5024,7 +5024,7 @@ export interface GetCustomDataIdentifierResponse {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetCustomDataIdentifierResponse {
@@ -5152,7 +5152,7 @@ export interface GetFindingsFilterResponse {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetFindingsFilterResponse {
@@ -5425,7 +5425,7 @@ export interface GetMemberResponse {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the member account in Amazon Macie.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.</p>
@@ -6008,7 +6008,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -6219,7 +6219,7 @@ export interface TagResourceRequest {
   /**
    * <p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

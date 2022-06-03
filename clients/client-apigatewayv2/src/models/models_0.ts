@@ -124,7 +124,7 @@ export interface Api {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -464,7 +464,7 @@ export interface DomainName {
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace DomainName {
@@ -601,17 +601,17 @@ export interface Integration {
    *             <replaceable>{name}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
@@ -660,12 +660,12 @@ export interface IntegrationResponse {
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expressions for the integration response.</p>
@@ -789,12 +789,12 @@ export interface Route {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -838,12 +838,12 @@ export interface RouteResponse {
   /**
    * <p>Represents the response models of a route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>Represents the response parameters of a route response.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>Represents the identifier of a route response.</p>
@@ -991,7 +991,7 @@ export interface Stage {
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The name of the stage.</p>
@@ -1001,12 +1001,12 @@ export interface Stage {
   /**
    * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace Stage {
@@ -1057,7 +1057,7 @@ export interface VpcLink {
   /**
    * <p>Tags for the VPC link.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The ID of the VPC link.</p>
@@ -1212,7 +1212,7 @@ export interface CreateApiRequest {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.</p>
@@ -1303,7 +1303,7 @@ export interface CreateApiResponse {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -1700,7 +1700,7 @@ export interface CreateDomainNameRequest {
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDomainNameRequest {
@@ -1736,7 +1736,7 @@ export interface CreateDomainNameResponse {
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDomainNameResponse {
@@ -1839,17 +1839,17 @@ export interface CreateIntegrationRequest {
    *                   <replaceable>{name}</replaceable>
    *                 must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration.</p>
@@ -1955,17 +1955,17 @@ export interface CreateIntegrationResult {
    *             <replaceable>{name}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
@@ -2019,12 +2019,12 @@ export interface CreateIntegrationResponseRequest {
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where {name} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where {name} is a valid and unique response header name and {JSON-expression} is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
@@ -2060,12 +2060,12 @@ export interface CreateIntegrationResponseResponse {
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expressions for the integration response.</p>
@@ -2199,12 +2199,12 @@ export interface CreateRouteRequest {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route key for the route.</p>
@@ -2270,12 +2270,12 @@ export interface CreateRouteResult {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -2324,12 +2324,12 @@ export interface CreateRouteResponseRequest {
   /**
    * <p>The response models for the route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>The route response parameters.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -2360,12 +2360,12 @@ export interface CreateRouteResponseResponse {
   /**
    * <p>Represents the response models of a route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>Represents the response parameters of a route response.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>Represents the identifier of a route response.</p>
@@ -2429,7 +2429,7 @@ export interface CreateStageRequest {
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The name of the stage.</p>
@@ -2439,12 +2439,12 @@ export interface CreateStageRequest {
   /**
    * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateStageRequest {
@@ -2510,7 +2510,7 @@ export interface CreateStageResponse {
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The name of the stage.</p>
@@ -2520,12 +2520,12 @@ export interface CreateStageResponse {
   /**
    * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateStageResponse {
@@ -2559,7 +2559,7 @@ export interface CreateVpcLinkRequest {
   /**
    * <p>A list of tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateVpcLinkRequest {
@@ -2595,7 +2595,7 @@ export interface CreateVpcLinkResponse {
   /**
    * <p>Tags for the VPC link.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The ID of the VPC link.</p>
@@ -3116,7 +3116,7 @@ export interface GetApiResponse {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -3563,7 +3563,7 @@ export interface GetDomainNameResponse {
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetDomainNameResponse {
@@ -3717,17 +3717,17 @@ export interface GetIntegrationResult {
    *             <replaceable>{name}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
@@ -3799,12 +3799,12 @@ export interface GetIntegrationResponseResponse {
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expressions for the integration response.</p>
@@ -4121,12 +4121,12 @@ export interface GetRouteResult {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -4193,12 +4193,12 @@ export interface GetRouteResponseResponse {
   /**
    * <p>Represents the response models of a route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>Represents the response parameters of a route response.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>Represents the identifier of a route response.</p>
@@ -4394,7 +4394,7 @@ export interface GetStageResponse {
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The name of the stage.</p>
@@ -4404,12 +4404,12 @@ export interface GetStageResponse {
   /**
    * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetStageResponse {
@@ -4488,7 +4488,7 @@ export interface GetTagsResponse {
   /**
    * <p>Represents a collection of tags associated with the resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetTagsResponse {
@@ -4540,7 +4540,7 @@ export interface GetVpcLinkResponse {
   /**
    * <p>Tags for the VPC link.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The ID of the VPC link.</p>
@@ -4712,7 +4712,7 @@ export interface ImportApiResponse {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -4837,7 +4837,7 @@ export interface ReimportApiResponse {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -4892,7 +4892,7 @@ export interface TagResourceRequest {
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace TagResourceRequest {
@@ -5079,7 +5079,7 @@ export interface UpdateApiResponse {
   /**
    * <p>A collection of tags associated with the API.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -5436,7 +5436,7 @@ export interface UpdateDomainNameResponse {
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateDomainNameResponse {
@@ -5525,17 +5525,17 @@ export interface UpdateIntegrationRequest {
    *             <replaceable>{name}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API integrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt; where action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration.</p>
@@ -5641,17 +5641,17 @@ export interface UpdateIntegrationResult {
    *             <replaceable>{name}</replaceable>
    *            must be a valid and unique method request parameter name.</p> <p>For HTTP API integrations with a specified integrationSubtype, request parameters are a key-value map specifying parameters that are passed to AWS_PROXY integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working with AWS service integrations for HTTP APIs</a>.</p> <p>For HTTP API itegrations, without a specified integrationSubtype request parameters are a key-value map specifying how to transform HTTP requests before sending them to backend integrations. The key should follow the pattern &lt;action&gt;:&lt;header|querystring|path&gt;.&lt;location&gt;. The action can be append, overwrite or remove. For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  RequestParameters?: { [key: string]: string };
+  RequestParameters?: Record<string, string>;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.</p>
    */
-  RequestTemplates?: { [key: string]: string };
+  RequestTemplates?: Record<string, string>;
 
   /**
    * <p>Supported only for HTTP APIs. You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match pattern &lt;action&gt;:&lt;header&gt;.&lt;location&gt; or overwrite.statuscode. The action can be append, overwrite or remove. The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html">Transforming API requests and responses</a>.</p>
    */
-  ResponseParameters?: { [key: string]: { [key: string]: string } };
+  ResponseParameters?: Record<string, Record<string, string>>;
 
   /**
    * <p>The template selection expression for the integration. Supported only for WebSocket APIs.</p>
@@ -5717,12 +5717,12 @@ export interface UpdateIntegrationResponseRequest {
    *                   <replaceable>{JSON-expression}</replaceable>
    *                 is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
@@ -5758,12 +5758,12 @@ export interface UpdateIntegrationResponseResponse {
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where name is a valid and unique response header name and JSON-expression is a valid JSON expression without the $ prefix.</p>
    */
-  ResponseParameters?: { [key: string]: string };
+  ResponseParameters?: Record<string, string>;
 
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
-  ResponseTemplates?: { [key: string]: string };
+  ResponseTemplates?: Record<string, string>;
 
   /**
    * <p>The template selection expressions for the integration response.</p>
@@ -5902,12 +5902,12 @@ export interface UpdateRouteRequest {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -5978,12 +5978,12 @@ export interface UpdateRouteResult {
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestModels?: { [key: string]: string };
+  RequestModels?: Record<string, string>;
 
   /**
    * <p>The request parameters for the route. Supported only for WebSocket APIs.</p>
    */
-  RequestParameters?: { [key: string]: ParameterConstraints };
+  RequestParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -6032,12 +6032,12 @@ export interface UpdateRouteResponseRequest {
   /**
    * <p>The response models for the route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>The route response parameters.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>The route ID.</p>
@@ -6073,12 +6073,12 @@ export interface UpdateRouteResponseResponse {
   /**
    * <p>Represents the response models of a route response.</p>
    */
-  ResponseModels?: { [key: string]: string };
+  ResponseModels?: Record<string, string>;
 
   /**
    * <p>Represents the response parameters of a route response.</p>
    */
-  ResponseParameters?: { [key: string]: ParameterConstraints };
+  ResponseParameters?: Record<string, ParameterConstraints>;
 
   /**
    * <p>Represents the identifier of a route response.</p>
@@ -6142,7 +6142,7 @@ export interface UpdateStageRequest {
   /**
    * <p>Route settings for the stage.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
@@ -6152,7 +6152,7 @@ export interface UpdateStageRequest {
   /**
    * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 }
 
 export namespace UpdateStageRequest {
@@ -6218,7 +6218,7 @@ export interface UpdateStageResponse {
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
-  RouteSettings?: { [key: string]: RouteSettings };
+  RouteSettings?: Record<string, RouteSettings>;
 
   /**
    * <p>The name of the stage.</p>
@@ -6228,12 +6228,12 @@ export interface UpdateStageResponse {
   /**
    * <p>A map that defines the stage variables for a stage resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
-  StageVariables?: { [key: string]: string };
+  StageVariables?: Record<string, string>;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateStageResponse {
@@ -6293,7 +6293,7 @@ export interface UpdateVpcLinkResponse {
   /**
    * <p>Tags for the VPC link.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The ID of the VPC link.</p>

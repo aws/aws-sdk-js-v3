@@ -904,7 +904,7 @@ export interface CopyObjectRequest {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>Specifies whether the metadata is copied from the source object or replaced with
@@ -1441,7 +1441,7 @@ export interface CreateMultipartUploadRequest {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -7665,7 +7665,7 @@ export interface GetObjectOutput {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -9042,7 +9042,7 @@ export interface HeadObjectOutput {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -12073,7 +12073,7 @@ export interface PutObjectRequest {
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,

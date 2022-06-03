@@ -60,7 +60,7 @@ export namespace HostLabelInput {
 }
 
 export interface FlattenedXmlMapOutput {
-  myMap?: { [key: string]: FooEnum | string };
+  myMap?: Record<string, FooEnum | string>;
 }
 
 export namespace FlattenedXmlMapOutput {
@@ -73,7 +73,7 @@ export namespace FlattenedXmlMapOutput {
 }
 
 export interface FlattenedXmlMapWithXmlNameOutput {
-  myMap?: { [key: string]: string };
+  myMap?: Record<string, string>;
 }
 
 export namespace FlattenedXmlMapWithXmlNameOutput {
@@ -86,7 +86,7 @@ export namespace FlattenedXmlMapWithXmlNameOutput {
 }
 
 export interface FlattenedXmlMapWithXmlNamespaceOutput {
-  myMap?: { [key: string]: string };
+  myMap?: Record<string, string>;
 }
 
 export namespace FlattenedXmlMapWithXmlNamespaceOutput {
@@ -266,7 +266,7 @@ export namespace QueryListsInput {
 }
 
 export interface NestedStructWithMap {
-  MapArg?: { [key: string]: string };
+  MapArg?: Record<string, string>;
 }
 
 export namespace NestedStructWithMap {
@@ -279,13 +279,13 @@ export namespace NestedStructWithMap {
 }
 
 export interface QueryMapsInput {
-  MapArg?: { [key: string]: string };
-  RenamedMapArg?: { [key: string]: string };
-  ComplexMapArg?: { [key: string]: GreetingStruct };
-  MapWithXmlMemberName?: { [key: string]: string };
-  FlattenedMap?: { [key: string]: string };
-  FlattenedMapWithXmlName?: { [key: string]: string };
-  MapOfLists?: { [key: string]: string[] };
+  MapArg?: Record<string, string>;
+  RenamedMapArg?: Record<string, string>;
+  ComplexMapArg?: Record<string, GreetingStruct>;
+  MapWithXmlMemberName?: Record<string, string>;
+  FlattenedMap?: Record<string, string>;
+  FlattenedMapWithXmlName?: Record<string, string>;
+  MapOfLists?: Record<string, string[]>;
   NestedStructWithMap?: NestedStructWithMap;
 }
 
@@ -412,7 +412,7 @@ export namespace XmlListsOutput {
 }
 
 export interface XmlMapsOutput {
-  myMap?: { [key: string]: GreetingStruct };
+  myMap?: Record<string, GreetingStruct>;
 }
 
 export namespace XmlMapsOutput {
@@ -430,7 +430,7 @@ export interface XmlEnumsOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 export namespace XmlEnumsOutput {
@@ -443,7 +443,7 @@ export namespace XmlEnumsOutput {
 }
 
 export interface XmlMapsXmlNameOutput {
-  myMap?: { [key: string]: GreetingStruct };
+  myMap?: Record<string, GreetingStruct>;
 }
 
 export namespace XmlMapsXmlNameOutput {

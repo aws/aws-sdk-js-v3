@@ -451,7 +451,7 @@ export interface Canary {
   /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A structure that contains the configuration for canary artifacts, including
@@ -698,7 +698,7 @@ export interface CanaryRunConfigInput {
    *          more information about reserved keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
    *             Runtime environment variables</a>.</p>
    */
-  EnvironmentVariables?: { [key: string]: string };
+  EnvironmentVariables?: Record<string, string>;
 }
 
 export namespace CanaryRunConfigInput {
@@ -916,7 +916,7 @@ export interface CreateCanaryRequest {
    *          granting a user permission to access or change only the resources that have
    *          certain tag values.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A structure that contains the configuration for canary artifacts, including
@@ -1385,7 +1385,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the canary that you specified.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1465,7 +1465,7 @@ export interface TagResourceRequest {
   /**
    * <p>The list of key-value pairs to associate with the canary.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

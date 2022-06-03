@@ -719,7 +719,7 @@ export interface CreateJobRequest {
    *          the training job. The values are set with a string of JSON key:value pairs, where the key
    *          is the name of the hyperparameter and the value is the value of th hyperparameter.</p>
    */
-  hyperParameters?: { [key: string]: string };
+  hyperParameters?: Record<string, string>;
 
   /**
    * <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket
@@ -731,7 +731,7 @@ export interface CreateJobRequest {
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateJobRequest {
@@ -898,7 +898,7 @@ export interface GetJobResponse {
    *          the traiing job. The values are set with a string of JSON key:value pairs, where the key is
    *          the name of the hyperparameter and the value is the value of th hyperparameter.</p>
    */
-  hyperParameters?: { [key: string]: string };
+  hyperParameters?: Record<string, string>;
 
   /**
    * <p>A list of parameters that specify the name and type of input data and where it is
@@ -968,7 +968,7 @@ export interface GetJobResponse {
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetJobResponse {
@@ -1090,7 +1090,7 @@ export interface JobSummary {
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace JobSummary {
@@ -1146,7 +1146,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1239,7 +1239,7 @@ export interface CreateQuantumTaskRequest {
   /**
    * <p>Tags to be added to the quantum task you're creating.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The token for an Amazon Braket job that associates it with the quantum task.</p>
@@ -1371,7 +1371,7 @@ export interface GetQuantumTaskResponse {
   /**
    * <p>The tags that belong to this task.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The ARN of the Amazon Braket job associated with the quantum task.</p>
@@ -1500,7 +1500,7 @@ export interface QuantumTaskSummary {
   /**
    * <p>Displays the key, value pairs of tags associated with this quantum task.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace QuantumTaskSummary {
@@ -1546,7 +1546,7 @@ export interface TagResourceRequest {
   /**
    * <p>Specify the tags to add to the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

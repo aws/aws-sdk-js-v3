@@ -2811,7 +2811,7 @@ export interface GetQueryResultsResponse {
   /**
    * <p>Contains the individual event results of the query.</p>
    */
-  QueryResultRows?: { [key: string]: string }[][];
+  QueryResultRows?: Record<string, string>[][];
 
   /**
    * <p>A token you can use to get the next page of query results.</p>

@@ -83,7 +83,7 @@ export interface ConversionProperties {
   /**
    * <p>A mapping between the volumes being converted and the converted snapshot ids</p>
    */
-  volumeToConversionMap?: { [key: string]: { [key: string]: string } };
+  volumeToConversionMap?: Record<string, Record<string, string>>;
 
   /**
    * <p>The root volume name of a conversion job</p>
@@ -103,7 +103,7 @@ export interface ConversionProperties {
   /**
    * <p>A mapping between the volumes and their sizes</p>
    */
-  volumeToVolumeSize?: { [key: string]: number };
+  volumeToVolumeSize?: Record<string, number>;
 }
 
 export namespace ConversionProperties {
@@ -148,7 +148,7 @@ export interface CreateExtendedSourceServerRequest {
   /**
    * <p>A list of tags associated with the extended source server.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateExtendedSourceServerRequest {
@@ -689,7 +689,7 @@ export interface SourceServer {
   /**
    * <p>The tags associated with the Source Server.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The ID of the Recovery Instance associated with this Source Server.</p>
@@ -1094,7 +1094,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
    */
-  stagingAreaTags: { [key: string]: string } | undefined;
+  stagingAreaTags: Record<string, string> | undefined;
 
   /**
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
@@ -1104,7 +1104,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateReplicationConfigurationTemplateRequest {
@@ -1187,12 +1187,12 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 
   /**
    * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
@@ -1603,7 +1603,7 @@ export interface Job {
   /**
    * <p>A list of tags associated with the Job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Job {
@@ -2078,7 +2078,7 @@ export interface RecoveryInstance {
   /**
    * <p>An array of tags that are associated with the Recovery Instance.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>An object representing failback related information of the Recovery Instance.</p>
@@ -2485,7 +2485,7 @@ export interface StagingSourceServer {
   /**
    * <p>A list of tags associated with the staging source server.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StagingSourceServer {
@@ -2582,7 +2582,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags of the requested resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2651,7 +2651,7 @@ export interface StartFailbackLaunchRequest {
   /**
    * <p>The tags to be associated with the failback launch Job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartFailbackLaunchRequest {
@@ -2830,7 +2830,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 
   /**
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
@@ -3083,7 +3083,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 
   /**
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
@@ -3155,7 +3155,7 @@ export interface StartRecoveryRequest {
   /**
    * <p>The tags to be associated with the Recovery Job.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartRecoveryRequest {
@@ -3305,7 +3305,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
    */
-  stagingAreaTags?: { [key: string]: string };
+  stagingAreaTags?: Record<string, string>;
 
   /**
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
@@ -3332,7 +3332,7 @@ export interface TagResourceRequest {
   /**
    * <p>Array of tags to be added or updated.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

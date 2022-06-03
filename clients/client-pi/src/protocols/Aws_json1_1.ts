@@ -626,7 +626,7 @@ const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1MetricQueryFilterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_json1_1MetricQueryFilterMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -682,11 +682,8 @@ const serializeAws_json1_1RequestStringList = (input: string[], context: __Serde
     });
 };
 
-const deserializeAws_json1_1AdditionalMetricsMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1AdditionalMetricsMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -843,8 +840,8 @@ const deserializeAws_json1_1DimensionKeyDetailList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -864,8 +861,8 @@ const deserializeAws_json1_1FeatureMetadata = (output: any, context: __SerdeCont
 const deserializeAws_json1_1FeatureMetadataMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FeatureMetadata } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FeatureMetadata }, [key, value]: [string, any]) => {
+): Record<string, FeatureMetadata> => {
+  return Object.entries(output).reduce((acc: Record<string, FeatureMetadata>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

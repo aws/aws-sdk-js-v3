@@ -2535,9 +2535,9 @@ const deserializeAws_json1_1DescribeProblemResponse = (
 const deserializeAws_json1_1DetectedWorkload = (
   output: any,
   context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
+): Record<string, Record<string, string>> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [Tier | string, any]) => {
+    (acc: Record<string, Record<string, string>>, [key, value]: [Tier | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2553,9 +2553,9 @@ const deserializeAws_json1_1DetectedWorkload = (
 const deserializeAws_json1_1Feedback = (
   output: any,
   context: __SerdeContext
-): { [key: string]: FeedbackValue | string } => {
+): Record<string, FeedbackValue | string> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: FeedbackValue | string }, [key, value]: [FeedbackKey | string, any]) => {
+    (acc: Record<string, FeedbackValue | string>, [key, value]: [FeedbackKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2933,8 +2933,8 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

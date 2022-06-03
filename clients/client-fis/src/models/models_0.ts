@@ -64,17 +64,17 @@ export interface Action {
   /**
    * <p>The action parameters, if applicable.</p>
    */
-  parameters?: { [key: string]: ActionParameter };
+  parameters?: Record<string, ActionParameter>;
 
   /**
    * <p>The supported targets for the action.</p>
    */
-  targets?: { [key: string]: ActionTarget };
+  targets?: Record<string, ActionTarget>;
 
   /**
    * <p>The tags for the action.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Action {
@@ -103,12 +103,12 @@ export interface ActionSummary {
   /**
    * <p>The targets for the action.</p>
    */
-  targets?: { [key: string]: ActionTarget };
+  targets?: Record<string, ActionTarget>;
 
   /**
    * <p>The tags for the action.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ActionSummary {
@@ -158,12 +158,12 @@ export interface CreateExperimentTemplateActionInput {
   /**
    * <p>The parameters for the action, if applicable.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The targets for the action.</p>
    */
-  targets?: { [key: string]: string };
+  targets?: Record<string, string>;
 
   /**
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
@@ -325,7 +325,7 @@ export interface CreateExperimentTemplateTargetInput {
   /**
    * <p>The tags for the target resources.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
@@ -353,7 +353,7 @@ export interface CreateExperimentTemplateTargetInput {
   /**
    * <p>The resource type parameters.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace CreateExperimentTemplateTargetInput {
@@ -384,12 +384,12 @@ export interface CreateExperimentTemplateRequest {
   /**
    * <p>The targets for the experiment.</p>
    */
-  targets?: { [key: string]: CreateExperimentTemplateTargetInput };
+  targets?: Record<string, CreateExperimentTemplateTargetInput>;
 
   /**
    * <p>The actions for the experiment.</p>
    */
-  actions: { [key: string]: CreateExperimentTemplateActionInput } | undefined;
+  actions: Record<string, CreateExperimentTemplateActionInput> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
@@ -399,7 +399,7 @@ export interface CreateExperimentTemplateRequest {
   /**
    * <p>The tags to apply to the experiment template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The configuration for experiment logging.</p>
@@ -433,12 +433,12 @@ export interface ExperimentTemplateAction {
   /**
    * <p>The parameters for the action.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The targets for the action.</p>
    */
-  targets?: { [key: string]: string };
+  targets?: Record<string, string>;
 
   /**
    * <p>The name of the action that must be completed before the current action starts.</p>
@@ -592,7 +592,7 @@ export interface ExperimentTemplateTarget {
   /**
    * <p>The tags for the target resources.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
@@ -607,7 +607,7 @@ export interface ExperimentTemplateTarget {
   /**
    * <p>The resource type parameters.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace ExperimentTemplateTarget {
@@ -636,12 +636,12 @@ export interface ExperimentTemplate {
   /**
    * <p>The targets for the experiment.</p>
    */
-  targets?: { [key: string]: ExperimentTemplateTarget };
+  targets?: Record<string, ExperimentTemplateTarget>;
 
   /**
    * <p>The actions for the experiment.</p>
    */
-  actions?: { [key: string]: ExperimentTemplateAction };
+  actions?: Record<string, ExperimentTemplateAction>;
 
   /**
    * <p>The stop conditions for the experiment.</p>
@@ -666,7 +666,7 @@ export interface ExperimentTemplate {
   /**
    * <p>The tags for the experiment template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The configuration for experiment logging.</p>
@@ -840,12 +840,12 @@ export interface ExperimentAction {
   /**
    * <p>The parameters for the action.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The targets for the action.</p>
    */
-  targets?: { [key: string]: string };
+  targets?: Record<string, string>;
 
   /**
    * <p>The name of the action that must be completed before this action starts.</p>
@@ -1048,7 +1048,7 @@ export interface ExperimentTarget {
   /**
    * <p>The tags for the target resources.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
@@ -1063,7 +1063,7 @@ export interface ExperimentTarget {
   /**
    * <p>The resource type parameters.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace ExperimentTarget {
@@ -1102,12 +1102,12 @@ export interface Experiment {
   /**
    * <p>The targets for the experiment.</p>
    */
-  targets?: { [key: string]: ExperimentTarget };
+  targets?: Record<string, ExperimentTarget>;
 
   /**
    * <p>The actions for the experiment.</p>
    */
-  actions?: { [key: string]: ExperimentAction };
+  actions?: Record<string, ExperimentAction>;
 
   /**
    * <p>The stop conditions for the experiment.</p>
@@ -1132,7 +1132,7 @@ export interface Experiment {
   /**
    * <p>The tags for the experiment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The configuration for experiment logging.</p>
@@ -1176,7 +1176,7 @@ export interface ExperimentSummary {
   /**
    * <p>The tags for the experiment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ExperimentSummary {
@@ -1215,7 +1215,7 @@ export interface ExperimentTemplateSummary {
   /**
    * <p>The tags for the experiment template.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ExperimentTemplateSummary {
@@ -1381,7 +1381,7 @@ export interface TargetResourceType {
   /**
    * <p>The parameters for the resource type.</p>
    */
-  parameters?: { [key: string]: TargetResourceTypeParameter };
+  parameters?: Record<string, TargetResourceTypeParameter>;
 }
 
 export namespace TargetResourceType {
@@ -1555,7 +1555,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1647,7 +1647,7 @@ export interface StartExperimentRequest {
   /**
    * <p>The tags to apply to the experiment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StartExperimentRequest {
@@ -1716,7 +1716,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1788,12 +1788,12 @@ export interface UpdateExperimentTemplateActionInputItem {
   /**
    * <p>The parameters for the action, if applicable.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 
   /**
    * <p>The targets for the action.</p>
    */
-  targets?: { [key: string]: string };
+  targets?: Record<string, string>;
 
   /**
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
@@ -1882,7 +1882,7 @@ export interface UpdateExperimentTemplateTargetInput {
   /**
    * <p>The tags for the target resources.</p>
    */
-  resourceTags?: { [key: string]: string };
+  resourceTags?: Record<string, string>;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
@@ -1897,7 +1897,7 @@ export interface UpdateExperimentTemplateTargetInput {
   /**
    * <p>The resource type parameters.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace UpdateExperimentTemplateTargetInput {
@@ -1928,12 +1928,12 @@ export interface UpdateExperimentTemplateRequest {
   /**
    * <p>The targets for the experiment.</p>
    */
-  targets?: { [key: string]: UpdateExperimentTemplateTargetInput };
+  targets?: Record<string, UpdateExperimentTemplateTargetInput>;
 
   /**
    * <p>The actions for the experiment.</p>
    */
-  actions?: { [key: string]: UpdateExperimentTemplateActionInputItem };
+  actions?: Record<string, UpdateExperimentTemplateActionInputItem>;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>

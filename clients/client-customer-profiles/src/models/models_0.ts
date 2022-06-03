@@ -666,7 +666,7 @@ export interface Task {
    * <p>A map used to store task-related information. The service looks for particular
    *          information based on the TaskType.</p>
    */
-  TaskProperties?: { [key: string]: string };
+  TaskProperties?: Record<string, string>;
 
   /**
    * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
@@ -1244,7 +1244,7 @@ export interface CreateDomainRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDomainRequest {
@@ -1339,7 +1339,7 @@ export interface CreateDomainResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDomainResponse {
@@ -1403,7 +1403,7 @@ export interface CreateIntegrationWorkflowRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateIntegrationWorkflowRequest {
@@ -1560,7 +1560,7 @@ export interface CreateProfileRequest {
   /**
    * <p>A key value pair of attributes of a customer profile.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace CreateProfileRequest {
@@ -2020,7 +2020,7 @@ export interface GetDomainResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetDomainResponse {
@@ -2286,14 +2286,14 @@ export interface GetIntegrationResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
    * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
-  ObjectTypeNames?: { [key: string]: string };
+  ObjectTypeNames?: Record<string, string>;
 
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -2546,12 +2546,12 @@ export interface GetProfileObjectTypeResponse {
   /**
    * <p>A map of the name and ObjectType field.</p>
    */
-  Fields?: { [key: string]: ObjectTypeField };
+  Fields?: Record<string, ObjectTypeField>;
 
   /**
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
-  Keys?: { [key: string]: ObjectTypeKey[] };
+  Keys?: Record<string, ObjectTypeKey[]>;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -2566,7 +2566,7 @@ export interface GetProfileObjectTypeResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetProfileObjectTypeResponse {
@@ -2628,12 +2628,12 @@ export interface GetProfileObjectTypeTemplateResponse {
   /**
    * <p>A map of the name and ObjectType field.</p>
    */
-  Fields?: { [key: string]: ObjectTypeField };
+  Fields?: Record<string, ObjectTypeField>;
 
   /**
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
-  Keys?: { [key: string]: ObjectTypeKey[] };
+  Keys?: Record<string, ObjectTypeKey[]>;
 }
 
 export namespace GetProfileObjectTypeTemplateResponse {
@@ -2900,14 +2900,14 @@ export interface ListIntegrationItem {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
    * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
-  ObjectTypeNames?: { [key: string]: string };
+  ObjectTypeNames?: Record<string, string>;
 
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -2988,7 +2988,7 @@ export interface ListDomainItem {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListDomainItem {
@@ -3385,7 +3385,7 @@ export interface ListProfileObjectTypeItem {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListProfileObjectTypeItem {
@@ -3509,7 +3509,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3740,7 +3740,7 @@ export interface FieldSourceProfileIds {
   /**
    * <p>A unique identifier for the attributes field to be merged.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace FieldSourceProfileIds {
@@ -3820,7 +3820,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>The configuration that controls how Customer Profiles retrieves data from the
@@ -3833,7 +3833,7 @@ export interface PutIntegrationRequest {
    * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
-  ObjectTypeNames?: { [key: string]: string };
+  ObjectTypeNames?: Record<string, string>;
 }
 
 export namespace PutIntegrationRequest {
@@ -3874,14 +3874,14 @@ export interface PutIntegrationResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
    * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
-  ObjectTypeNames?: { [key: string]: string };
+  ObjectTypeNames?: Record<string, string>;
 
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -3990,17 +3990,17 @@ export interface PutProfileObjectTypeRequest {
   /**
    * <p>A map of the name and ObjectType field.</p>
    */
-  Fields?: { [key: string]: ObjectTypeField };
+  Fields?: Record<string, ObjectTypeField>;
 
   /**
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
-  Keys?: { [key: string]: ObjectTypeKey[] };
+  Keys?: Record<string, ObjectTypeKey[]>;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PutProfileObjectTypeRequest {
@@ -4058,12 +4058,12 @@ export interface PutProfileObjectTypeResponse {
   /**
    * <p>A map of the name and ObjectType field.</p>
    */
-  Fields?: { [key: string]: ObjectTypeField };
+  Fields?: Record<string, ObjectTypeField>;
 
   /**
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
-  Keys?: { [key: string]: ObjectTypeKey[] };
+  Keys?: Record<string, ObjectTypeKey[]>;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -4078,7 +4078,7 @@ export interface PutProfileObjectTypeResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace PutProfileObjectTypeResponse {
@@ -4246,7 +4246,7 @@ export interface Profile {
   /**
    * <p>A key value pair of attributes of a customer profile.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace Profile {
@@ -4288,7 +4288,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4385,7 +4385,7 @@ export interface UpdateDomainRequest {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateDomainRequest {
@@ -4445,7 +4445,7 @@ export interface UpdateDomainResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace UpdateDomainResponse {
@@ -4638,7 +4638,7 @@ export interface UpdateProfileRequest {
   /**
    * <p>A key value pair of attributes of a customer profile.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace UpdateProfileRequest {

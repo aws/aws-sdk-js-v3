@@ -4160,7 +4160,7 @@ export interface CreateSipMediaApplicationCallRequest {
   /**
    * <p>The SIP headers added to an outbound call leg.</p>
    */
-  SipHeaders?: { [key: string]: string };
+  SipHeaders?: Record<string, string>;
 }
 
 export namespace CreateSipMediaApplicationCallRequest {

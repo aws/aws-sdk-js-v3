@@ -540,7 +540,7 @@ export interface OnlineAbConfig {
    *       thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment
    *       traffic to that variation.</p>
    */
-  treatmentWeights?: { [key: string]: number };
+  treatmentWeights?: Record<string, number>;
 }
 
 export namespace OnlineAbConfig {
@@ -647,7 +647,7 @@ export interface CreateExperimentRequest {
    *          <p>You can associate as many as 50 tags with an experiment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateExperimentRequest {
@@ -773,7 +773,7 @@ export interface OnlineAbDefinition {
    *       thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment
    *       traffic to that variation.</p>
    */
-  treatmentWeights?: { [key: string]: number };
+  treatmentWeights?: Record<string, number>;
 }
 
 export namespace OnlineAbDefinition {
@@ -831,7 +831,7 @@ export interface Treatment {
    * <p>The feature variation used for this treatment. This is a key-value pair. The key is the
    *       feature name, and the value is the variation name.</p>
    */
-  featureVariations?: { [key: string]: string };
+  featureVariations?: Record<string, string>;
 }
 
 export namespace Treatment {
@@ -944,7 +944,7 @@ export interface Experiment {
   /**
    * <p>The list of tag keys and values associated with this experiment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Experiment {
@@ -1094,7 +1094,7 @@ export interface CreateFeatureRequest {
    *          <p>You can associate as many as 50 tags with a feature.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>Specify users that should always be served a specific variation of a feature. Each user
@@ -1102,7 +1102,7 @@ export interface CreateFeatureRequest {
    *       account ID, or some other identifier. For the value, specify the name of the variation that
    *       they are to be served.</p>
    */
-  entityOverrides?: { [key: string]: string };
+  entityOverrides?: Record<string, string>;
 }
 
 export namespace CreateFeatureRequest {
@@ -1254,7 +1254,7 @@ export interface Feature {
   /**
    * <p>The list of tag keys and values associated with this feature.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A set of key-value pairs  that specify users who should always be served a specific
@@ -1264,7 +1264,7 @@ export interface Feature {
    *          <p>For the override to be successful, the value of the key must match the <code>entityId</code> used
    *       in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation.</p>
    */
-  entityOverrides?: { [key: string]: string };
+  entityOverrides?: Record<string, string>;
 }
 
 export namespace Feature {
@@ -1363,7 +1363,7 @@ export interface ScheduledSplitConfig {
    *       launch. This is a set of key-value pairs. The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
    */
-  groupWeights: { [key: string]: number } | undefined;
+  groupWeights: Record<string, number> | undefined;
 }
 
 export namespace ScheduledSplitConfig {
@@ -1448,7 +1448,7 @@ export interface CreateLaunchRequest {
    *          <p>You can associate as many as 50 tags with a launch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateLaunchRequest {
@@ -1502,7 +1502,7 @@ export interface LaunchGroup {
   /**
    * <p>The feature variation for this launch group. This is a key-value pair.</p>
    */
-  featureVariations: { [key: string]: string } | undefined;
+  featureVariations: Record<string, string> | undefined;
 }
 
 export namespace LaunchGroup {
@@ -1548,7 +1548,7 @@ export interface ScheduledSplit {
    *       launch. This is a set of key-value pairs.   The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
    */
-  groupWeights?: { [key: string]: number };
+  groupWeights?: Record<string, number>;
 }
 
 export namespace ScheduledSplit {
@@ -1675,7 +1675,7 @@ export interface Launch {
   /**
    * <p>The list of tag keys and values associated with this launch.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Launch {
@@ -1784,7 +1784,7 @@ export interface CreateProjectRequest {
    *          <p>You can associate as many as 50 tags with a project.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateProjectRequest {
@@ -1924,7 +1924,7 @@ export interface Project {
   /**
    * <p>The list of tag keys and values associated with this project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Project {
@@ -2243,7 +2243,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2858,7 +2858,7 @@ export interface FeatureSummary {
   /**
    * <p>The list of tag keys and values associated with this feature.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace FeatureSummary {
@@ -2945,7 +2945,7 @@ export interface UpdateFeatureRequest {
    *       account ID, or some other identifier. For the value, specify the name of the variation that
    *       they are to be served.</p>
    */
-  entityOverrides?: { [key: string]: string };
+  entityOverrides?: Record<string, string>;
 }
 
 export namespace UpdateFeatureRequest {
@@ -3343,7 +3343,7 @@ export interface ProjectSummary {
   /**
    * <p>The list of tag keys and values associated with this project.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ProjectSummary {
@@ -3541,7 +3541,7 @@ export interface TagResourceRequest {
   /**
    * <p>The list of key-value pairs to associate with the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

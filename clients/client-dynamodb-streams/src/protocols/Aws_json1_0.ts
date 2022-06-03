@@ -396,11 +396,8 @@ const serializeAws_json1_0ListStreamsInput = (input: ListStreamsInput, context: 
   };
 };
 
-const deserializeAws_json1_0AttributeMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+const deserializeAws_json1_0AttributeMap = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -566,8 +563,8 @@ const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeCo
 const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
-): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+): Record<string, AttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

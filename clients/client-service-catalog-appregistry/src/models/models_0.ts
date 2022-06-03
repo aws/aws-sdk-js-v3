@@ -41,7 +41,7 @@ export interface Application {
   /**
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace Application {
@@ -323,7 +323,7 @@ export interface AttributeGroup {
   /**
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace AttributeGroup {
@@ -393,7 +393,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
@@ -448,7 +448,7 @@ export interface CreateAttributeGroupRequest {
   /**
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
@@ -761,7 +761,7 @@ export interface GetApplicationResponse {
   /**
    * <p>Key-value pairs associated with the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The information about the integration of the application with other services, such as Resource Groups.</p>
@@ -929,7 +929,7 @@ export interface GetAttributeGroupResponse {
   /**
    * <p>Key-value pairs associated with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace GetAttributeGroupResponse {
@@ -1163,7 +1163,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags on the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1236,7 +1236,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

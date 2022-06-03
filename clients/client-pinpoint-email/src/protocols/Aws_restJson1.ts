@@ -4238,8 +4238,8 @@ const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeCon
 const deserializeAws_restJson1BlacklistReport = (
   output: any,
   context: __SerdeContext
-): { [key: string]: BlacklistEntry[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: BlacklistEntry[] }, [key, value]: [string, any]) => {
+): Record<string, BlacklistEntry[]> => {
+  return Object.entries(output).reduce((acc: Record<string, BlacklistEntry[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

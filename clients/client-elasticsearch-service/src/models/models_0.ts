@@ -457,7 +457,7 @@ export interface AdvancedOptionsStatus {
   /**
    * <p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>
    */
-  Options: { [key: string]: string } | undefined;
+  Options: Record<string, string> | undefined;
 
   /**
    * <p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>
@@ -1517,12 +1517,12 @@ export interface CreateElasticsearchDomainRequest {
    * <p> Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
    *           See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>Options to specify configuration that will be applied to the domain endpoint.</p>
@@ -1688,7 +1688,7 @@ export interface ElasticsearchDomainStatus {
   /**
    * <p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
    */
-  Endpoints?: { [key: string]: string };
+  Endpoints?: Record<string, string>;
 
   /**
    * <p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>
@@ -1744,12 +1744,12 @@ export interface ElasticsearchDomainStatus {
   /**
    * <p>Specifies the status of the <code>AdvancedOptions</code></p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>Log publishing options for the given domain.</p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>The current status of the Elasticsearch domain's service software.</p>
@@ -2904,7 +2904,7 @@ export interface LogPublishingOptionsStatus {
   /**
    * <p>The log publishing options configured for the Elasticsearch domain.</p>
    */
-  Options?: { [key: string]: LogPublishingOption };
+  Options?: Record<string, LogPublishingOption>;
 
   /**
    * <p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
@@ -3420,7 +3420,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
    *       </ul>
    *     </p>
    */
-  LimitsByRole?: { [key: string]: Limits };
+  LimitsByRole?: Record<string, Limits>;
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
@@ -5063,7 +5063,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * <p>Modifies the advanced option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
    *        See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
    */
-  AdvancedOptions?: { [key: string]: string };
+  AdvancedOptions?: Record<string, string>;
 
   /**
    * <p>IAM access policy as a JSON-formatted string.</p>
@@ -5073,7 +5073,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
   /**
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: { [key: string]: LogPublishingOption };
+  LogPublishingOptions?: Record<string, LogPublishingOption>;
 
   /**
    * <p>Options to specify configuration that will be applied to the domain endpoint.</p>

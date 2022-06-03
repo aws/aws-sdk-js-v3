@@ -3410,7 +3410,7 @@ const serializeAws_restJson1PackageVersionList = (input: string[], context: __Se
 };
 
 const serializeAws_restJson1PackageVersionRevisionMap = (
-  input: { [key: string]: string },
+  input: Record<string, string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -3471,19 +3471,16 @@ const serializeAws_restJson1UpstreamRepositoryList = (input: UpstreamRepository[
     });
 };
 
-const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [HashAlgorithm | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
-    },
-    {}
-  );
+const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [HashAlgorithm | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
@@ -3648,8 +3645,8 @@ const deserializeAws_restJson1PackageVersionError = (output: any, context: __Ser
 const deserializeAws_restJson1PackageVersionErrorMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PackageVersionError } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PackageVersionError }, [key, value]: [string, any]) => {
+): Record<string, PackageVersionError> => {
+  return Object.entries(output).reduce((acc: Record<string, PackageVersionError>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3772,9 +3769,9 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfo = (
 const deserializeAws_restJson1SuccessfulPackageVersionInfoMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: SuccessfulPackageVersionInfo } => {
+): Record<string, SuccessfulPackageVersionInfo> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: SuccessfulPackageVersionInfo }, [key, value]: [string, any]) => {
+    (acc: Record<string, SuccessfulPackageVersionInfo>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

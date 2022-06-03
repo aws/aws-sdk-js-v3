@@ -614,7 +614,7 @@ export interface BotImportSpecification {
    *          update tags. To update tags, use the <code>TagResource</code>
    *          operation.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
    * <p>A list of tags to add to the test alias for a bot. You can only add
@@ -622,7 +622,7 @@ export interface BotImportSpecification {
    *          operation to update tags. To update tags on the test alias, use the
    *             <code>TagResource</code> operation.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
+  testBotAliasTags?: Record<string, string>;
 }
 
 export namespace BotImportSpecification {
@@ -1734,7 +1734,7 @@ export interface CreateBotRequest {
    *          update tags. To update tags, use the <code>TagResource</code>
    *          operation.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
    * <p>A list of tags to add to the test alias for a bot. You can only add
@@ -1742,7 +1742,7 @@ export interface CreateBotRequest {
    *          operation to update tags. To update tags on the test alias, use the
    *             <code>TagResource</code> operation.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
+  testBotAliasTags?: Record<string, string>;
 }
 
 export namespace CreateBotRequest {
@@ -1803,12 +1803,12 @@ export interface CreateBotResponse {
   /**
    * <p>A list of tags associated with the bot.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
    * <p>A list of tags associated with the test alias for the bot.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
+  testBotAliasTags?: Record<string, string>;
 }
 
 export namespace CreateBotResponse {
@@ -1865,7 +1865,7 @@ export interface CreateBotAliasRequest {
    *          this parameter to specify a specific Lambda function to run different
    *          functions in different locales.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
    * <p>Specifies whether Amazon Lex logs text and audio for a conversation with
@@ -1892,7 +1892,7 @@ export interface CreateBotAliasRequest {
    *          operation to update the tags on a bot alias. To update tags, use the
    *             <code>TagResource</code> operation.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateBotAliasRequest {
@@ -1928,7 +1928,7 @@ export interface CreateBotAliasResponse {
   /**
    * <p>Configuration information for a specific locale.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
    * <p>The conversation log settings specified for the alias.</p>
@@ -1964,7 +1964,7 @@ export interface CreateBotAliasResponse {
   /**
    * <p>A list of tags associated with the bot alias.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateBotAliasResponse {
@@ -2135,7 +2135,7 @@ export interface CreateBotVersionRequest {
    *          version for each locale. When you specify a source version, the locale
    *          data is copied from the source version to the new version.</p>
    */
-  botVersionLocaleSpecification: { [key: string]: BotVersionLocaleDetails } | undefined;
+  botVersionLocaleSpecification: Record<string, BotVersionLocaleDetails> | undefined;
 }
 
 export namespace CreateBotVersionRequest {
@@ -2166,7 +2166,7 @@ export interface CreateBotVersionResponse {
   /**
    * <p>The source versions used for each locale in the new version.</p>
    */
-  botVersionLocaleSpecification?: { [key: string]: BotVersionLocaleDetails };
+  botVersionLocaleSpecification?: Record<string, BotVersionLocaleDetails>;
 
   /**
    * <p>When you send a request to create or update a bot, Amazon Lex sets the
@@ -3320,7 +3320,7 @@ export interface CreateResourcePolicyStatementRequest {
    *          SourceArn global condition key.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM JSON policy elements: Condition </a>.</p>
    */
-  condition?: { [key: string]: { [key: string]: string } };
+  condition?: Record<string, Record<string, string>>;
 
   /**
    * <p>The identifier of the revision of the policy to edit. If this
@@ -4972,7 +4972,7 @@ export interface DescribeBotAliasResponse {
   /**
    * <p>The locale settings that are unique to the alias.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
    * <p>Specifics of how Amazon Lex logs text and audio conversations with the
@@ -8391,7 +8391,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -8726,7 +8726,7 @@ export interface TagResourceRequest {
    * <p>A list of tag keys to add to the resource. If a tag key already
    *          exists, the existing value is replaced with the new value.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -8921,7 +8921,7 @@ export interface UpdateBotAliasRequest {
    * <p>The new Lambda functions to use in each locale for the bot
    *          alias.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
    * <p>The new settings for storing conversation logs in Amazon CloudWatch Logs and
@@ -8975,7 +8975,7 @@ export interface UpdateBotAliasResponse {
    * <p>The updated Lambda functions to use in each locale for the bot
    *          alias.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
    * <p>The updated settings for storing conversation logs in Amazon CloudWatch Logs and

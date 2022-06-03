@@ -5333,8 +5333,8 @@ const deserializeAws_restJson1BuiltinSlotTypeMetadataList = (
 const deserializeAws_restJson1ChannelConfigurationMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -20,7 +20,7 @@ export interface AddAttributesActivity {
    *         use <code>RemoveAttributeActivity</code>.</p>
    *          </note>
    */
-  attributes: { [key: string]: string } | undefined;
+  attributes: Record<string, string> | undefined;
 
   /**
    * <p>The next activity in the pipeline.</p>

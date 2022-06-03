@@ -1839,7 +1839,7 @@ export interface BatchListObjectChildrenResponse {
    * <p>The children structure, which is a map with the key as the <code>LinkName</code> and
    *         <code>ObjectIdentifier</code> as the value.</p>
    */
-  Children?: { [key: string]: string };
+  Children?: Record<string, string>;
 
   /**
    * <p>The pagination token.</p>
@@ -3429,7 +3429,7 @@ export interface Rule {
   /**
    * <p>The minimum and maximum parameters that are associated with the rule.</p>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 }
 
 export namespace Rule {
@@ -3472,7 +3472,7 @@ export interface FacetAttributeDefinition {
   /**
    * <p>Validation rules attached to the attribute definition.</p>
    */
-  Rules?: { [key: string]: Rule };
+  Rules?: Record<string, Rule>;
 }
 
 export namespace FacetAttributeDefinition {
@@ -3871,7 +3871,7 @@ export interface TypedLinkAttributeDefinition {
   /**
    * <p>Validation rules that are attached to the attribute definition.</p>
    */
-  Rules?: { [key: string]: Rule };
+  Rules?: Record<string, Rule>;
 
   /**
    * <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
@@ -5535,7 +5535,7 @@ export interface ListObjectChildrenResponse {
    * <p>Children structure, which is a map with key as the <code>LinkName</code> and
    *         <code>ObjectIdentifier</code> as the value.</p>
    */
-  Children?: { [key: string]: string };
+  Children?: Record<string, string>;
 
   /**
    * <p>The pagination token.</p>
@@ -5677,7 +5677,7 @@ export interface ListObjectParentsResponse {
    * <p>The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and
    *       LinkName as the value.</p>
    */
-  Parents?: { [key: string]: string };
+  Parents?: Record<string, string>;
 
   /**
    * <p>The pagination token.</p>

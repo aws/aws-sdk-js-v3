@@ -101,7 +101,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -132,7 +132,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -164,7 +164,7 @@ export class InternalServerErrorException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -195,7 +195,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -228,7 +228,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -260,7 +260,7 @@ export class ThrottlingException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -291,7 +291,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The exception context.</p>
    */
-  context?: { [key: string]: string };
+  context?: Record<string, string>;
 
   /**
    * @internal
@@ -578,7 +578,7 @@ export interface CreateLaunchProfileRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateLaunchProfileRequest {
@@ -829,7 +829,7 @@ export interface LaunchProfile {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
@@ -910,7 +910,7 @@ export interface CreateStreamingImageRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateStreamingImageRequest {
@@ -1050,7 +1050,7 @@ export interface StreamingImage {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace StreamingImage {
@@ -1120,7 +1120,7 @@ export interface CreateStreamingSessionRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateStreamingSessionRequest {
@@ -1231,7 +1231,7 @@ export interface StreamingSession {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The time the streaming session will automatically terminate if not terminated by the
@@ -1492,7 +1492,7 @@ export interface CreateStudioRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
@@ -1631,7 +1631,7 @@ export interface Studio {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
@@ -1926,7 +1926,7 @@ export interface CreateStudioComponentRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The type of the studio component.</p>
@@ -2062,7 +2062,7 @@ export interface StudioComponent {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
    * <p>The type of the studio component.</p>
@@ -3916,7 +3916,7 @@ export interface ListTagsForResourceResponse {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -4352,7 +4352,7 @@ export interface TagResourceRequest {
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace TagResourceRequest {

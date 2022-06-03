@@ -82,7 +82,7 @@ export interface CreateDataIntegrationRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -139,7 +139,7 @@ export interface CreateDataIntegrationResponse {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -311,7 +311,7 @@ export interface CreateEventIntegrationRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateEventIntegrationRequest {
@@ -469,7 +469,7 @@ export interface GetDataIntegrationResponse {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetDataIntegrationResponse {
@@ -526,7 +526,7 @@ export interface GetEventIntegrationResponse {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace GetEventIntegrationResponse {
@@ -747,7 +747,7 @@ export interface EventIntegrationAssociation {
   /**
    * <p>The metadata associated with the client.</p>
    */
-  ClientAssociationMetadata?: { [key: string]: string };
+  ClientAssociationMetadata?: Record<string, string>;
 }
 
 export namespace EventIntegrationAssociation {
@@ -834,7 +834,7 @@ export interface EventIntegration {
   /**
    * <p>The tags.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace EventIntegration {
@@ -887,7 +887,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -908,7 +908,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags. </p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

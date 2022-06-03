@@ -298,7 +298,7 @@ export interface ThingAttribute {
   /**
    * <p>A list of thing attributes which are name-value pairs.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p>The version of the thing record in the registry.</p>
@@ -1334,7 +1334,7 @@ export interface RegisterThingRequest {
   /**
    * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
    */
-  parameters?: { [key: string]: string };
+  parameters?: Record<string, string>;
 }
 
 export namespace RegisterThingRequest {
@@ -1355,7 +1355,7 @@ export interface RegisterThingResponse {
   /**
    * <p>ARNs for the generated resources.</p>
    */
-  resourceArns?: { [key: string]: string };
+  resourceArns?: Record<string, string>;
 }
 
 export namespace RegisterThingResponse {
@@ -1578,7 +1578,7 @@ export interface ThingGroupDocument {
   /**
    * <p>The thing group attributes.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p>Parent group names.</p>
@@ -1653,7 +1653,7 @@ export interface ThingDocument {
   /**
    * <p>The attributes.</p>
    */
-  attributes?: { [key: string]: string };
+  attributes?: Record<string, string>;
 
   /**
    * <p>The unnamed shadow and named shadow.</p>
@@ -1878,7 +1878,7 @@ export interface StartAuditMitigationActionsTaskRequest {
   /**
    * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your Amazon Web Services accounts.</p>
    */
-  auditCheckToActionsMapping: { [key: string]: string[] } | undefined;
+  auditCheckToActionsMapping: Record<string, string[]> | undefined;
 
   /**
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
@@ -2239,7 +2239,7 @@ export interface HttpContext {
   /**
    * <p>The header keys and values in an HTTP authorization request.</p>
    */
-  headers?: { [key: string]: string };
+  headers?: Record<string, string>;
 
   /**
    * <p>The query string keys and values in an HTTP authorization request.</p>
@@ -2499,7 +2499,7 @@ export interface UpdateAccountAuditConfigurationRequest {
   /**
    * <p>Information about the targets to which audit notifications are sent.</p>
    */
-  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
 
   /**
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
@@ -2516,7 +2516,7 @@ export interface UpdateAccountAuditConfigurationRequest {
    *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
    *             this parameter is required and must specify at least one enabled check.</p>
    */
-  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 
 export namespace UpdateAccountAuditConfigurationRequest {
@@ -2614,7 +2614,7 @@ export interface UpdateAuthorizerRequest {
   /**
    * <p>The public keys used to verify the token signature.</p>
    */
-  tokenSigningPublicKeys?: { [key: string]: string };
+  tokenSigningPublicKeys?: Record<string, string>;
 
   /**
    * <p>The status of the update authorizer request.</p>
@@ -3046,7 +3046,7 @@ export interface UpdateEventConfigurationsRequest {
   /**
    * <p>The new event configuration values.</p>
    */
-  eventConfigurations?: { [key: string]: Configuration };
+  eventConfigurations?: Record<string, Configuration>;
 }
 
 export namespace UpdateEventConfigurationsRequest {
@@ -3467,7 +3467,7 @@ export interface UpdateSecurityProfileRequest {
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  alertTargets?: Record<string, AlertTarget>;
 
   /**
    * @deprecated
@@ -3550,7 +3550,7 @@ export interface UpdateSecurityProfileResponse {
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  alertTargets?: Record<string, AlertTarget>;
 
   /**
    * @deprecated

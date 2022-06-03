@@ -15476,7 +15476,7 @@ const serializeAws_restJson1FieldFolder = (input: FieldFolder, context: __SerdeC
   };
 };
 
-const serializeAws_restJson1FieldFolderMap = (input: { [key: string]: FieldFolder }, context: __SerdeContext): any => {
+const serializeAws_restJson1FieldFolderMap = (input: Record<string, FieldFolder>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15559,7 +15559,7 @@ const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeC
   };
 };
 
-const serializeAws_restJson1IdentityMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+const serializeAws_restJson1IdentityMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15619,7 +15619,7 @@ const serializeAws_restJson1IntegerParameterList = (input: IntegerParameter[], c
     });
 };
 
-const serializeAws_restJson1IpRestrictionRuleMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1IpRestrictionRuleMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15672,10 +15672,7 @@ const serializeAws_restJson1LogicalTable = (input: LogicalTable, context: __Serd
   };
 };
 
-const serializeAws_restJson1LogicalTableMap = (
-  input: { [key: string]: LogicalTable },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1LogicalTableMap = (input: Record<string, LogicalTable>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -15777,10 +15774,7 @@ const serializeAws_restJson1PhysicalTable = (input: PhysicalTable, context: __Se
   });
 };
 
-const serializeAws_restJson1PhysicalTableMap = (
-  input: { [key: string]: PhysicalTable },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1PhysicalTableMap = (input: Record<string, PhysicalTable>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -17310,11 +17304,8 @@ const deserializeAws_restJson1FieldFolder = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1FieldFolderMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: FieldFolder } => {
-  return Object.entries(output).reduce((acc: { [key: string]: FieldFolder }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1FieldFolderMap = (output: any, context: __SerdeContext): Record<string, FieldFolder> => {
+  return Object.entries(output).reduce((acc: Record<string, FieldFolder>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17508,8 +17499,8 @@ const deserializeAws_restJson1IAMPolicyAssignmentSummaryList = (
   return retVal;
 };
 
-const deserializeAws_restJson1IdentityMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1IdentityMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17591,11 +17582,8 @@ const deserializeAws_restJson1InputColumnList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1IpRestrictionRuleMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1IpRestrictionRuleMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17664,8 +17652,8 @@ const deserializeAws_restJson1LogicalTable = (output: any, context: __SerdeConte
 const deserializeAws_restJson1LogicalTableMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: LogicalTable } => {
-  return Object.entries(output).reduce((acc: { [key: string]: LogicalTable }, [key, value]: [string, any]) => {
+): Record<string, LogicalTable> => {
+  return Object.entries(output).reduce((acc: Record<string, LogicalTable>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17818,8 +17806,8 @@ const deserializeAws_restJson1PhysicalTable = (output: any, context: __SerdeCont
 const deserializeAws_restJson1PhysicalTableMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: PhysicalTable } => {
-  return Object.entries(output).reduce((acc: { [key: string]: PhysicalTable }, [key, value]: [string, any]) => {
+): Record<string, PhysicalTable> => {
+  return Object.entries(output).reduce((acc: Record<string, PhysicalTable>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

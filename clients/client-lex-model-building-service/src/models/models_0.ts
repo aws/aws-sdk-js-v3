@@ -1970,7 +1970,7 @@ export interface GetBotChannelAssociationResponse {
    * <p>Provides information that the messaging platform needs to
    *       communicate with the Amazon Lex bot.</p>
    */
-  botConfiguration?: { [key: string]: string };
+  botConfiguration?: Record<string, string>;
 
   /**
    * <p>The status of the bot channel. </p>
@@ -2106,7 +2106,7 @@ export interface BotChannelAssociation {
    * <p>Provides information necessary to communicate with the messaging
    *       platform. </p>
    */
-  botConfiguration?: { [key: string]: string };
+  botConfiguration?: Record<string, string>;
 
   /**
    * <p>The status of the bot channel. </p>

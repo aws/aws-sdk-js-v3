@@ -29,7 +29,7 @@ export interface AdvancedBackupSetting {
    *          <p>For more information about Windows VSS backups, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html">Creating a VSS-Enabled Windows
    *             Backup</a>.</p>
    */
-  BackupOptions?: { [key: string]: string };
+  BackupOptions?: Record<string, string>;
 }
 
 export namespace AdvancedBackupSetting {
@@ -266,7 +266,7 @@ export interface BackupJob {
    *             <code>"WindowsVSS":"disabled"</code> to create a regular backup. If you specify an
    *          invalid option, you get an <code>InvalidParameterValueException</code> exception.</p>
    */
-  BackupOptions?: { [key: string]: string };
+  BackupOptions?: Record<string, string>;
 
   /**
    * <p>Represents the type of backup for a backup job.</p>
@@ -415,7 +415,7 @@ export interface BackupRule {
    * <p>An array of key-value pair strings that are assigned to resources that are associated
    *          with this rule when restored from backup.</p>
    */
-  RecoveryPointTags?: { [key: string]: string };
+  RecoveryPointTags?: Record<string, string>;
 
   /**
    * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of
@@ -537,7 +537,7 @@ export interface BackupRuleInput {
    * <p>To help organize your resources, you can assign your own metadata to the resources that
    *          you create. Each tag is a key-value pair.</p>
    */
-  RecoveryPointTags?: { [key: string]: string };
+  RecoveryPointTags?: Record<string, string>;
 
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy
@@ -1197,7 +1197,7 @@ export interface ControlScope {
    *          value is optional, but it cannot be an empty string. The structure to assign a tag is:
    *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ControlScope {
@@ -1329,7 +1329,7 @@ export interface CreateBackupPlanInput {
    *          you create. Each tag is a key-value pair. The specified tags are assigned to all backups
    *          created with this plan.</p>
    */
-  BackupPlanTags?: { [key: string]: string };
+  BackupPlanTags?: Record<string, string>;
 
   /**
    * <p>Identifies the request and allows failed requests to be retried without the risk of
@@ -1602,7 +1602,7 @@ export interface CreateBackupVaultInput {
    * <p>Metadata that you can assign to help organize the resources that you create. Each tag is
    *          a key-value pair.</p>
    */
-  BackupVaultTags?: { [key: string]: string };
+  BackupVaultTags?: Record<string, string>;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
@@ -1724,7 +1724,7 @@ export interface CreateFrameworkInput {
    * <p>Metadata that you can assign to help organize the frameworks that you create. Each tag
    *          is a key-value pair.</p>
    */
-  FrameworkTags?: { [key: string]: string };
+  FrameworkTags?: Record<string, string>;
 }
 
 export namespace CreateFrameworkInput {
@@ -1865,7 +1865,7 @@ export interface CreateReportPlanInput {
    * <p>Metadata that you can assign to help organize the report plans that you create. Each tag
    *          is a key-value pair.</p>
    */
-  ReportPlanTags?: { [key: string]: string };
+  ReportPlanTags?: Record<string, string>;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -2390,7 +2390,7 @@ export interface DescribeBackupJobOutput {
   /**
    * <p>Represents the options specified as part of backup plan or on-demand backup job.</p>
    */
-  BackupOptions?: { [key: string]: string };
+  BackupOptions?: Record<string, string>;
 
   /**
    * <p>Represents the actual backup type selected for a backup job. For example, if a
@@ -2673,7 +2673,7 @@ export interface DescribeGlobalSettingsOutput {
   /**
    * <p>The status of the flag <code>isCrossAccountBackupEnabled</code>.</p>
    */
-  GlobalSettings?: { [key: string]: string };
+  GlobalSettings?: Record<string, string>;
 
   /**
    * <p>The date and time that the flag <code>isCrossAccountBackupEnabled</code> was last
@@ -2948,7 +2948,7 @@ export interface DescribeRegionSettingsOutput {
   /**
    * <p>Returns a list of all services along with the opt-in preferences in the Region.</p>
    */
-  ResourceTypeOptInPreference?: { [key: string]: boolean };
+  ResourceTypeOptInPreference?: Record<string, boolean>;
 
   /**
    * <p>Returns whether Backup fully manages the backups for a resource type.</p>
@@ -2960,7 +2960,7 @@ export interface DescribeRegionSettingsOutput {
    *          DynamoDB backup by enabling <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli">
    *             Backup's advanced DynamoDB backup features</a>.</p>
    */
-  ResourceTypeManagementPreference?: { [key: string]: boolean };
+  ResourceTypeManagementPreference?: Record<string, boolean>;
 }
 
 export namespace DescribeRegionSettingsOutput {
@@ -3768,7 +3768,7 @@ export interface GetRecoveryPointRestoreMetadataOutput {
    *          backed-up resource. These values vary depending on the service that is being
    *          restored.</p>
    */
-  RestoreMetadata?: { [key: string]: string };
+  RestoreMetadata?: Record<string, string>;
 }
 
 export namespace GetRecoveryPointRestoreMetadataOutput {
@@ -5272,7 +5272,7 @@ export interface ListTagsOutput {
    * <p>To help organize your resources, you can assign your own metadata to the resources you
    *          create. Each tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
 export namespace ListTagsOutput {
@@ -5503,7 +5503,7 @@ export interface StartBackupJobInput {
    * <p>To help organize your resources, you can assign your own metadata to the resources that
    *          you create. Each tag is a key-value pair.</p>
    */
-  RecoveryPointTags?: { [key: string]: string };
+  RecoveryPointTags?: Record<string, string>;
 
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
@@ -5513,7 +5513,7 @@ export interface StartBackupJobInput {
    *             <code>"WindowsVSS""disabled"</code> to create a regular backup. The
    *             <code>WindowsVSS</code> option is not enabled by default.</p>
    */
-  BackupOptions?: { [key: string]: string };
+  BackupOptions?: Record<string, string>;
 }
 
 export namespace StartBackupJobInput {
@@ -5738,7 +5738,7 @@ export interface StartRestoreJobInput {
    *             </li>
    *          </ul>
    */
-  Metadata: { [key: string]: string } | undefined;
+  Metadata: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create
@@ -5864,7 +5864,7 @@ export interface TagResourceInput {
    *          metadata to the resources you create. For clarity, this is the structure to assign tags:
    *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceInput {
@@ -6036,7 +6036,7 @@ export interface UpdateGlobalSettingsInput {
    *             <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false
    *             --region us-west-2</code>.</p>
    */
-  GlobalSettings?: { [key: string]: string };
+  GlobalSettings?: Record<string, string>;
 }
 
 export namespace UpdateGlobalSettingsInput {
@@ -6133,7 +6133,7 @@ export interface UpdateRegionSettingsInput {
   /**
    * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
    */
-  ResourceTypeOptInPreference?: { [key: string]: boolean };
+  ResourceTypeOptInPreference?: Record<string, boolean>;
 
   /**
    * <p>Enables or disables full Backup management of backups for a resource type.
@@ -6141,7 +6141,7 @@ export interface UpdateRegionSettingsInput {
    *             Backup's advanced DynamoDB backup features</a>, follow the
    *          procedure to <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli"> enable advanced DynamoDB backup programmatically</a>.</p>
    */
-  ResourceTypeManagementPreference?: { [key: string]: boolean };
+  ResourceTypeManagementPreference?: Record<string, boolean>;
 }
 
 export namespace UpdateRegionSettingsInput {

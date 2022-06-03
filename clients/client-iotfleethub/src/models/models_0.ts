@@ -92,7 +92,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace CreateApplicationRequest {
@@ -328,7 +328,7 @@ export interface DescribeApplicationResponse {
   /**
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace DescribeApplicationResponse {
@@ -397,7 +397,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -418,7 +418,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {

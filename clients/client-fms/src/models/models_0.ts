@@ -103,7 +103,7 @@ export interface AppsListData {
   /**
    * <p>A map of previous version numbers to their corresponding <code>App</code> object arrays.</p>
    */
-  PreviousAppsList?: { [key: string]: App[] };
+  PreviousAppsList?: Record<string, App[]>;
 }
 
 export namespace AppsListData {
@@ -694,7 +694,7 @@ export interface ComplianceViolator {
   /**
    * <p>Metadata about the resource that doesn't comply with the policy scope.</p>
    */
-  Metadata?: { [key: string]: string };
+  Metadata?: Record<string, string>;
 }
 
 export namespace ComplianceViolator {
@@ -749,7 +749,7 @@ export interface PolicyComplianceDetail {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: { [key: string]: string };
+  IssueInfoMap?: Record<string, string>;
 }
 
 export namespace PolicyComplianceDetail {
@@ -1316,7 +1316,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  IncludeMap?: { [key: string]: string[] };
+  IncludeMap?: Record<string, string[]>;
 
   /**
    * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to exclude from the policy.
@@ -1341,7 +1341,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  ExcludeMap?: { [key: string]: string[] };
+  ExcludeMap?: Record<string, string[]>;
 }
 
 export namespace Policy {
@@ -1563,7 +1563,7 @@ export interface ProtocolsListData {
   /**
    * <p>A map of previous version numbers to their corresponding protocol arrays.</p>
    */
-  PreviousProtocolsList?: { [key: string]: string[] };
+  PreviousProtocolsList?: Record<string, string[]>;
 }
 
 export namespace ProtocolsListData {
@@ -3661,7 +3661,7 @@ export interface PolicyComplianceStatus {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: { [key: string]: string };
+  IssueInfoMap?: Record<string, string>;
 }
 
 export namespace PolicyComplianceStatus {

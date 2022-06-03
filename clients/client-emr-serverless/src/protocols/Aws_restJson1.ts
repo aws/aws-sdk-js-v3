@@ -1442,7 +1442,7 @@ const serializeAws_restJson1InitialCapacityConfig = (input: InitialCapacityConfi
 };
 
 const serializeAws_restJson1InitialCapacityConfigMap = (
-  input: { [key: string]: InitialCapacityConfig },
+  input: Record<string, InitialCapacityConfig>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -1541,10 +1541,7 @@ const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1SensitivePropertiesMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1579,7 +1576,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1763,8 +1760,8 @@ const deserializeAws_restJson1InitialCapacityConfig = (output: any, context: __S
 const deserializeAws_restJson1InitialCapacityConfigMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: InitialCapacityConfig } => {
-  return Object.entries(output).reduce((acc: { [key: string]: InitialCapacityConfig }, [key, value]: [string, any]) => {
+): Record<string, InitialCapacityConfig> => {
+  return Object.entries(output).reduce((acc: Record<string, InitialCapacityConfig>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1946,8 +1943,8 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
 const deserializeAws_restJson1SensitivePropertiesMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1981,8 +1978,8 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

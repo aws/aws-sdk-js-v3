@@ -5892,7 +5892,7 @@ const serializeAws_restJson1AccountDetail = (input: AccountDetail, context: __Se
 };
 
 const serializeAws_restJson1BucketCriteria = (
-  input: { [key: string]: BucketCriteriaAdditionalProperties },
+  input: Record<string, BucketCriteriaAdditionalProperties>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -5963,7 +5963,7 @@ const serializeAws_restJson1CriteriaForJob = (input: CriteriaForJob, context: __
 };
 
 const serializeAws_restJson1Criterion = (
-  input: { [key: string]: CriterionAdditionalProperties },
+  input: Record<string, CriterionAdditionalProperties>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
@@ -6302,7 +6302,7 @@ const serializeAws_restJson1TagCriterionPairForJob = (input: TagCriterionPairFor
   };
 };
 
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7013,9 +7013,9 @@ const deserializeAws_restJson1CriteriaForJob = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Criterion = (
   output: any,
   context: __SerdeContext
-): { [key: string]: CriterionAdditionalProperties } => {
+): Record<string, CriterionAdditionalProperties> => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: CriterionAdditionalProperties }, [key, value]: [string, any]) => {
+    (acc: Record<string, CriterionAdditionalProperties>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -7938,8 +7938,8 @@ const deserializeAws_restJson1TagCriterionPairForJob = (
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

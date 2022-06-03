@@ -43,7 +43,7 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
-  queryParamsMapOfStrings?: { [key: string]: string };
+  queryParamsMapOfStrings?: Record<string, string>;
 }
 
 export namespace AllQueryStringTypesInput {
@@ -195,7 +195,7 @@ export namespace HostLabelInput {
 }
 
 export interface FlattenedXmlMapInputOutput {
-  myMap?: { [key: string]: FooEnum | string };
+  myMap?: Record<string, FooEnum | string>;
 }
 
 export namespace FlattenedXmlMapInputOutput {
@@ -208,7 +208,7 @@ export namespace FlattenedXmlMapInputOutput {
 }
 
 export interface FlattenedXmlMapWithXmlNameInputOutput {
-  myMap?: { [key: string]: string };
+  myMap?: Record<string, string>;
 }
 
 export namespace FlattenedXmlMapWithXmlNameInputOutput {
@@ -221,7 +221,7 @@ export namespace FlattenedXmlMapWithXmlNameInputOutput {
 }
 
 export interface FlattenedXmlMapWithXmlNamespaceOutput {
-  myMap?: { [key: string]: string };
+  myMap?: Record<string, string>;
 }
 
 export namespace FlattenedXmlMapWithXmlNamespaceOutput {
@@ -402,7 +402,7 @@ export namespace HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
 
 export interface HttpPrefixHeadersInputOutput {
   foo?: string;
-  fooMap?: { [key: string]: string };
+  fooMap?: Record<string, string>;
 }
 
 export namespace HttpPrefixHeadersInputOutput {
@@ -543,8 +543,8 @@ export namespace InputAndOutputWithHeadersIO {
 }
 
 export interface NestedXmlMapsInputOutput {
-  nestedMap?: { [key: string]: { [key: string]: FooEnum | string } };
-  flatNestedMap?: { [key: string]: { [key: string]: FooEnum | string } };
+  nestedMap?: Record<string, Record<string, FooEnum | string>>;
+  flatNestedMap?: Record<string, Record<string, FooEnum | string>>;
 }
 
 export namespace NestedXmlMapsInputOutput {
@@ -611,7 +611,7 @@ export namespace QueryIdempotencyTokenAutoFillInput {
 
 export interface QueryParamsAsStringListMapInput {
   qux?: string;
-  foo?: { [key: string]: string[] };
+  foo?: Record<string, string[]>;
 }
 
 export namespace QueryParamsAsStringListMapInput {
@@ -625,7 +625,7 @@ export namespace QueryParamsAsStringListMapInput {
 
 export interface QueryPrecedenceInput {
   foo?: string;
-  baz?: { [key: string]: string };
+  baz?: Record<string, string>;
 }
 
 export namespace QueryPrecedenceInput {
@@ -763,7 +763,7 @@ export namespace XmlListsInputOutput {
 }
 
 export interface XmlMapsInputOutput {
-  myMap?: { [key: string]: GreetingStruct };
+  myMap?: Record<string, GreetingStruct>;
 }
 
 export namespace XmlMapsInputOutput {
@@ -794,7 +794,7 @@ export interface XmlEnumsInputOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 export namespace XmlEnumsInputOutput {
@@ -807,7 +807,7 @@ export namespace XmlEnumsInputOutput {
 }
 
 export interface XmlMapsXmlNameInputOutput {
-  myMap?: { [key: string]: GreetingStruct };
+  myMap?: Record<string, GreetingStruct>;
 }
 
 export namespace XmlMapsXmlNameInputOutput {

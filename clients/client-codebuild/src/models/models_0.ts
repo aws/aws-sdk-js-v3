@@ -3606,7 +3606,7 @@ export interface TestReportSummary {
    * <p> A map that contains the number of each type of status returned by the test results in
    *             this <code>TestReportSummary</code>. </p>
    */
-  statusCounts: { [key: string]: number } | undefined;
+  statusCounts: Record<string, number> | undefined;
 
   /**
    * <p> The number of nanoseconds it took to run all of the test cases in this report.

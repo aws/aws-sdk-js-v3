@@ -130,7 +130,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to assign to the user pool.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -349,12 +349,12 @@ export interface UpdateIdentityProviderRequest {
    * <p>The IdP details to be updated, such as <code>MetadataURL</code> and
    *                 <code>MetadataFile</code>.</p>
    */
-  ProviderDetails?: { [key: string]: string };
+  ProviderDetails?: Record<string, string>;
 
   /**
    * <p>The IdP attribute mapping to be changed.</p>
    */
-  AttributeMapping?: { [key: string]: string };
+  AttributeMapping?: Record<string, string>;
 
   /**
    * <p>A list of IdP identifiers.</p>
@@ -491,7 +491,7 @@ export interface UpdateUserAttributesRequest {
    *             </ul>
    *         </note>
    */
-  ClientMetadata?: { [key: string]: string };
+  ClientMetadata?: Record<string, string>;
 }
 
 export namespace UpdateUserAttributesRequest {
@@ -635,7 +635,7 @@ export interface UpdateUserPoolRequest {
    *             to categorize and manage user pools in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
    */
-  UserPoolTags?: { [key: string]: string };
+  UserPoolTags?: Record<string, string>;
 
   /**
    * <p>The configuration for <code>AdminCreateUser</code> requests.</p>

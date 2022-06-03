@@ -1379,7 +1379,7 @@ export interface DiscoverInstancesRequest {
    * <p>Filters to scope the results based on custom attributes for the instance (for example, <code>{version=v1,
    *     az=1a}</code>). Only instances that match all the specified key-value pairs are returned.</p>
    */
-  QueryParameters?: { [key: string]: string };
+  QueryParameters?: Record<string, string>;
 
   /**
    * <p>Opportunistic filters to scope the results based on custom attributes. If there are instances that match both
@@ -1387,7 +1387,7 @@ export interface DiscoverInstancesRequest {
    *    are returned. Otherwise, the filters are ignored, and only instances that match the filters that are specified in the
    *     <code>QueryParameters</code> parameter are returned.</p>
    */
-  OptionalParameters?: { [key: string]: string };
+  OptionalParameters?: Record<string, string>;
 
   /**
    * <p>The health status of the instances that you want to discover. This parameter is ignored for services that don't
@@ -1466,7 +1466,7 @@ export interface HttpInstanceSummary {
   /**
    * <p>If you included any attributes when you registered the instance, the values of those attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace HttpInstanceSummary {
@@ -1720,7 +1720,7 @@ export interface Instance {
    *             </dd>
    *          </dl>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace Instance {
@@ -1794,7 +1794,7 @@ export interface GetInstancesHealthStatusResponse {
    * <p>A complex type that contains the IDs and the health status of the instances that you specified in the
    *     <code>GetInstancesHealthStatus</code> request.</p>
    */
-  Status?: { [key: string]: HealthStatus | string };
+  Status?: Record<string, HealthStatus | string>;
 
   /**
    * <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another
@@ -2127,7 +2127,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Targets?: { [key: string]: string };
+  Targets?: Record<string, string>;
 }
 
 export namespace Operation {
@@ -2290,7 +2290,7 @@ export interface InstanceSummary {
    *             </dd>
    *          </dl>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 }
 
 export namespace InstanceSummary {
@@ -3321,7 +3321,7 @@ export interface RegisterInstanceRequest {
    *             </dd>
    *          </dl>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Attributes: Record<string, string> | undefined;
 }
 
 export namespace RegisterInstanceRequest {

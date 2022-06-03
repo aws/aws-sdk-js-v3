@@ -1263,7 +1263,7 @@ export interface CreateMLModelInput {
    *             </li>
    *          </ul>
    */
-  Parameters?: { [key: string]: string };
+  Parameters?: Record<string, string>;
 
   /**
    * <p>The <code>DataSource</code> that points to the training data.</p>
@@ -2471,7 +2471,7 @@ export namespace DescribeEvaluationsInput {
  *         </p>
  */
 export interface PerformanceMetrics {
-  Properties?: { [key: string]: string };
+  Properties?: Record<string, string>;
 }
 
 export namespace PerformanceMetrics {
@@ -2904,7 +2904,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  TrainingParameters?: { [key: string]: string };
+  TrainingParameters?: Record<string, string>;
 
   /**
    * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
@@ -3644,7 +3644,7 @@ export interface GetMLModelOutput {
    *             </li>
    *          </ul>
    */
-  TrainingParameters?: { [key: string]: string };
+  TrainingParameters?: Record<string, string>;
 
   /**
    * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
@@ -3763,7 +3763,7 @@ export interface PredictInput {
   /**
    * <p>A map of variable name-value pairs that represent an observation.</p>
    */
-  Record: { [key: string]: string } | undefined;
+  Record: Record<string, string> | undefined;
 
   PredictEndpoint: string | undefined;
 }
@@ -3847,12 +3847,12 @@ export interface Prediction {
   /**
    * <p>Provides the raw classification score corresponding to each label.</p>
    */
-  predictedScores?: { [key: string]: number };
+  predictedScores?: Record<string, number>;
 
   /**
    * <p>Provides any additional details regarding the prediction.</p>
    */
-  details?: { [key: string]: string };
+  details?: Record<string, string>;
 }
 
 export namespace Prediction {

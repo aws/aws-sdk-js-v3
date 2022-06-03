@@ -7596,7 +7596,7 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
 const deserializeAws_queryDkimAttributes = (
   output: any,
   context: __SerdeContext
-): { [key: string]: IdentityDkimAttributes } => {
+): Record<string, IdentityDkimAttributes> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -8440,7 +8440,7 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
 const deserializeAws_queryMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
-): { [key: string]: IdentityMailFromDomainAttributes } => {
+): Record<string, IdentityMailFromDomainAttributes> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -8495,7 +8495,7 @@ const deserializeAws_queryMissingRenderingAttributeException = (
 const deserializeAws_queryNotificationAttributes = (
   output: any,
   context: __SerdeContext
-): { [key: string]: IdentityNotificationAttributes } => {
+): Record<string, IdentityNotificationAttributes> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -8507,7 +8507,7 @@ const deserializeAws_queryNotificationAttributes = (
   }, {});
 };
 
-const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -9173,7 +9173,7 @@ const deserializeAws_queryUpdateTemplateResponse = (output: any, context: __Serd
 const deserializeAws_queryVerificationAttributes = (
   output: any,
   context: __SerdeContext
-): { [key: string]: IdentityVerificationAttributes } => {
+): Record<string, IdentityVerificationAttributes> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

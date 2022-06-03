@@ -182,7 +182,7 @@ export interface Algorithm {
   /**
    * <p>Specifies the default hyperparameters.</p>
    */
-  defaultHyperParameters?: { [key: string]: string };
+  defaultHyperParameters?: Record<string, string>;
 
   /**
    * <p>Specifies the default hyperparameters, their ranges, and whether they
@@ -194,7 +194,7 @@ export interface Algorithm {
   /**
    * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
    */
-  defaultResourceConfig?: { [key: string]: string };
+  defaultResourceConfig?: Record<string, string>;
 
   /**
    * <p>The training input mode.</p>
@@ -236,7 +236,7 @@ export interface BatchInferenceJobConfig {
    *       recommending items.
    *       See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</p>
    */
-  itemExplorationConfig?: { [key: string]: string };
+  itemExplorationConfig?: Record<string, string>;
 }
 
 export namespace BatchInferenceJobConfig {
@@ -647,7 +647,7 @@ export interface CampaignConfig {
    *       recommending items. Provide <code>itemExplorationConfig</code> data only if your solution uses the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a> recipe.</p>
    */
-  itemExplorationConfig?: { [key: string]: string };
+  itemExplorationConfig?: Record<string, string>;
 }
 
 export namespace CampaignConfig {
@@ -1112,7 +1112,7 @@ export interface RecommenderConfig {
    *       recommending items. Provide <code>itemExplorationConfig</code> data only if your recommenders generate personalized recommendations for a user
    *       (not popular items or similar items).</p>
    */
-  itemExplorationConfig?: { [key: string]: string };
+  itemExplorationConfig?: Record<string, string>;
 
   /**
    * <p>Specifies the requested minimum provisioned recommendation requests per second that
@@ -1516,12 +1516,12 @@ export interface SolutionConfig {
   /**
    * <p>Lists the hyperparameter names and ranges.</p>
    */
-  algorithmHyperParameters?: { [key: string]: string };
+  algorithmHyperParameters?: Record<string, string>;
 
   /**
    * <p>Lists the feature transformation parameters.</p>
    */
-  featureTransformationParameters?: { [key: string]: string };
+  featureTransformationParameters?: Record<string, string>;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html">AutoMLConfig</a> object containing a list of recipes to search
@@ -2858,7 +2858,7 @@ export interface FeatureTransformation {
   /**
    * <p>Provides the default parameters for feature transformation.</p>
    */
-  defaultParameters?: { [key: string]: string };
+  defaultParameters?: Record<string, string>;
 
   /**
    * <p>The creation date and time (in Unix time) of the feature transformation.</p>
@@ -3245,7 +3245,7 @@ export interface Recommender {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html">
    *         Evaluating a recommender</a>.</p>
    */
-  modelMetrics?: { [key: string]: number };
+  modelMetrics?: Record<string, number>;
 }
 
 export namespace Recommender {
@@ -3567,7 +3567,7 @@ export interface TunedHPOParams {
   /**
    * <p>A list of the hyperparameter values of the best performing model.</p>
    */
-  algorithmHyperParameters?: { [key: string]: string };
+  algorithmHyperParameters?: Record<string, string>;
 }
 
 export namespace TunedHPOParams {
@@ -3754,7 +3754,7 @@ export interface GetSolutionMetricsResponse {
    *         Evaluating a solution version with metrics
    *       </a>.</p>
    */
-  metrics?: { [key: string]: number };
+  metrics?: Record<string, number>;
 }
 
 export namespace GetSolutionMetricsResponse {
