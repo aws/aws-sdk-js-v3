@@ -17,16 +17,17 @@ import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 
 export type BatchWriteCommandInput = Omit<__BatchWriteItemCommandInput, "RequestItems"> & {
   RequestItems:
-    | {
-        [key: string]: (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
+    | Record<
+        string,
+        (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
           PutRequest?: Omit<PutRequest, "Item"> & {
-            Item: { [key: string]: NativeAttributeValue } | undefined;
+            Item: Record<string, NativeAttributeValue> | undefined;
           };
           DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-            Key: { [key: string]: NativeAttributeValue } | undefined;
+            Key: Record<string, NativeAttributeValue> | undefined;
           };
-        })[];
-      }
+        })[]
+      >
     | undefined;
 };
 
@@ -34,21 +35,23 @@ export type BatchWriteCommandOutput = Omit<
   __BatchWriteItemCommandOutput,
   "UnprocessedItems" | "ItemCollectionMetrics"
 > & {
-  UnprocessedItems?: {
-    [key: string]: (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
+  UnprocessedItems?: Record<
+    string,
+    (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
       PutRequest?: Omit<PutRequest, "Item"> & {
-        Item: { [key: string]: NativeAttributeValue } | undefined;
+        Item: Record<string, NativeAttributeValue> | undefined;
       };
       DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-        Key: { [key: string]: NativeAttributeValue } | undefined;
+        Key: Record<string, NativeAttributeValue> | undefined;
       };
-    })[];
-  };
-  ItemCollectionMetrics?: {
-    [key: string]: (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-      ItemCollectionKey?: { [key: string]: NativeAttributeValue };
-    })[];
-  };
+    })[]
+  >;
+  ItemCollectionMetrics?: Record<
+    string,
+    (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+      ItemCollectionKey?: Record<string, NativeAttributeValue>;
+    })[]
+  >;
 };
 
 /**

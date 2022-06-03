@@ -3413,7 +3413,7 @@ const serializeAws_restJson1PackageVersionRevisionMap = (
   input: Record<string, string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

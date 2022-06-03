@@ -1631,7 +1631,7 @@ const serializeAws_json1_1TagProjectRequest = (input: TagProjectRequest, context
 };
 
 const serializeAws_json1_1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1643,7 +1643,7 @@ const serializeAws_json1_1Tags = (input: Record<string, string>, context: __Serd
 };
 
 const serializeAws_json1_1TemplateParameterMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

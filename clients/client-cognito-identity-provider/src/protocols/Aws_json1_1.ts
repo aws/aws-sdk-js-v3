@@ -9259,7 +9259,7 @@ const serializeAws_json1_1AttributeListType = (input: AttributeType[], context: 
 };
 
 const serializeAws_json1_1AttributeMappingType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9303,7 +9303,7 @@ const serializeAws_json1_1AttributeType = (input: AttributeType, context: __Serd
 };
 
 const serializeAws_json1_1AuthParametersType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9337,7 +9337,7 @@ const serializeAws_json1_1CallbackURLsListType = (input: string[], context: __Se
 };
 
 const serializeAws_json1_1ChallengeResponsesType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9359,7 +9359,7 @@ const serializeAws_json1_1ChangePasswordRequest = (input: ChangePasswordRequest,
 };
 
 const serializeAws_json1_1ClientMetadataType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10355,7 +10355,7 @@ const serializeAws_json1_1PasswordPolicyType = (input: PasswordPolicyType, conte
 };
 
 const serializeAws_json1_1ProviderDetailsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -11110,7 +11110,7 @@ const serializeAws_json1_1UserPoolTagsListType = (input: string[], context: __Se
 };
 
 const serializeAws_json1_1UserPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

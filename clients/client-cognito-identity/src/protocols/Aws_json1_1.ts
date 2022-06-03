@@ -2113,7 +2113,7 @@ const serializeAws_json1_1IdentityPoolTagsListType = (input: string[], context: 
 };
 
 const serializeAws_json1_1IdentityPoolTagsType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2125,7 +2125,7 @@ const serializeAws_json1_1IdentityPoolTagsType = (input: Record<string, string>,
 };
 
 const serializeAws_json1_1IdentityProviders = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2174,7 +2174,7 @@ const serializeAws_json1_1LoginsList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1LoginsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2248,7 +2248,7 @@ const serializeAws_json1_1OIDCProviderList = (input: string[], context: __SerdeC
 };
 
 const serializeAws_json1_1PrincipalTags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2272,7 +2272,7 @@ const serializeAws_json1_1RoleMapping = (input: RoleMapping, context: __SerdeCon
 };
 
 const serializeAws_json1_1RoleMappingMap = (input: Record<string, RoleMapping>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2284,7 +2284,7 @@ const serializeAws_json1_1RoleMappingMap = (input: Record<string, RoleMapping>, 
 };
 
 const serializeAws_json1_1RolesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -19,7 +19,7 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
     | (Omit<TransactGetItem, "Get"> & {
         Get:
           | (Omit<Get, "Key"> & {
-              Key: { [key: string]: NativeAttributeValue } | undefined;
+              Key: Record<string, NativeAttributeValue> | undefined;
             })
           | undefined;
       })[]
@@ -28,7 +28,7 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
 
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: { [key: string]: NativeAttributeValue };
+    Item?: Record<string, NativeAttributeValue>;
   })[];
 };
 

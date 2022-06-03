@@ -16,8 +16,8 @@ export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, 
 };
 
 export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: { [key: string]: NativeAttributeValue }[];
-  LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
+  Items?: Record<string, NativeAttributeValue>[];
+  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
 };
 
 /**

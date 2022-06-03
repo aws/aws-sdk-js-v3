@@ -2801,7 +2801,7 @@ const serializeAws_restJson1DataViewDestinationTypeParams = (
 };
 
 const serializeAws_restJson1FormatParams = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2855,7 +2855,7 @@ const serializeAws_restJson1S3DestinationFormatOptions = (
   input: Record<string, string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2898,7 +2898,7 @@ const serializeAws_restJson1SortColumnList = (input: string[], context: __SerdeC
 };
 
 const serializeAws_restJson1SourceParams = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

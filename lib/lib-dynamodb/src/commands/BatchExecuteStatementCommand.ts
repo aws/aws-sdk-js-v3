@@ -23,7 +23,7 @@ export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementComm
 
 export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCommandOutput, "Responses"> & {
   Responses?: (Omit<BatchStatementResponse, "Item"> & {
-    Item?: { [key: string]: NativeAttributeValue };
+    Item?: Record<string, NativeAttributeValue>;
   })[];
 };
 

@@ -2843,7 +2843,7 @@ const serializeAws_json1_0IPSet = (input: IPSet, context: __SerdeContext): any =
 };
 
 const serializeAws_json1_0IPSets = (input: Record<string, IPSet>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2918,7 +2918,7 @@ const serializeAws_json1_0LogDestinationConfigs = (input: LogDestinationConfig[]
 };
 
 const serializeAws_json1_0LogDestinationMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2985,7 +2985,7 @@ const serializeAws_json1_0PortSet = (input: PortSet, context: __SerdeContext): a
 };
 
 const serializeAws_json1_0PortSets = (input: Record<string, PortSet>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -8874,7 +8874,7 @@ const serializeAws_restJson1BotAliasLocaleSettingsMap = (
   input: Record<string, BotAliasLocaleSettings>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9007,7 +9007,7 @@ const serializeAws_restJson1BotVersionLocaleSpecification = (
   input: Record<string, BotVersionLocaleDetails>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9078,7 +9078,7 @@ const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecificatio
 };
 
 const serializeAws_restJson1ConditionKeyValueMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9093,7 +9093,7 @@ const serializeAws_restJson1ConditionMap = (
   input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9973,7 +9973,7 @@ const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __Serd
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

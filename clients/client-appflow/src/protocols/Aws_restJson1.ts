@@ -2586,7 +2586,7 @@ const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)
 };
 
 const serializeAws_restJson1CredentialsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2690,7 +2690,7 @@ const serializeAws_restJson1CustomerProfilesDestinationProperties = (
 };
 
 const serializeAws_restJson1CustomProperties = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3113,7 +3113,7 @@ const serializeAws_restJson1PrefixConfig = (input: PrefixConfig, context: __Serd
 };
 
 const serializeAws_restJson1ProfilePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3588,7 +3588,7 @@ const serializeAws_restJson1SuccessResponseHandlingConfig = (
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3619,7 +3619,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
 
 const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3647,7 +3647,7 @@ const serializeAws_restJson1TokenUrlCustomProperties = (
   input: Record<string, string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

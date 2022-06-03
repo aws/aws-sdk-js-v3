@@ -1283,7 +1283,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1ChatTokenAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1309,7 +1309,7 @@ const serializeAws_restJson1ChatTokenCapabilities = (
 };
 
 const serializeAws_restJson1EventAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1329,7 +1329,7 @@ const serializeAws_restJson1MessageReviewHandler = (input: MessageReviewHandler,
 };
 
 const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

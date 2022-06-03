@@ -23,7 +23,7 @@ export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInp
 
 export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: { [key: string]: NativeAttributeValue };
+    Item?: Record<string, NativeAttributeValue>;
   })[];
 };
 

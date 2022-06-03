@@ -3137,7 +3137,7 @@ const serializeAws_restJson1ComponentsMapRequest = (
   input: Record<string, ComponentRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3165,7 +3165,7 @@ const serializeAws_restJson1ComponentUpdatesMapRequest = (
   input: Record<string, ComponentUpdateRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3177,7 +3177,7 @@ const serializeAws_restJson1ComponentUpdatesMapRequest = (
 };
 
 const serializeAws_restJson1Configuration = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3243,7 +3243,7 @@ const serializeAws_restJson1DataValueList = (input: DataValue[], context: __Serd
 };
 
 const serializeAws_restJson1DataValueMap = (input: Record<string, DataValue>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3292,7 +3292,7 @@ const serializeAws_restJson1ExtendsFrom = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_restJson1ExternalIdProperty = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3321,7 +3321,7 @@ const serializeAws_restJson1FunctionsRequest = (
   input: Record<string, FunctionRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3433,7 +3433,7 @@ const serializeAws_restJson1PropertyDefinitionsRequest = (
   input: Record<string, PropertyDefinitionRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3480,7 +3480,7 @@ const serializeAws_restJson1PropertyRequests = (
   input: Record<string, PropertyRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3577,7 +3577,7 @@ const serializeAws_restJson1SelectedPropertyList = (input: string[], context: __
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

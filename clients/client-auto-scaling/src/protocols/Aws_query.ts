@@ -10168,7 +10168,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
+const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");

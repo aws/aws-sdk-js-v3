@@ -13603,7 +13603,7 @@ const serializeAws_json1_1ActionList = (input: Action[], context: __SerdeContext
 };
 
 const serializeAws_json1_1AdditionalOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13615,7 +13615,7 @@ const serializeAws_json1_1AdditionalOptions = (input: Record<string, string>, co
 };
 
 const serializeAws_json1_1AdditionalPlanOptionsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14369,7 +14369,7 @@ const serializeAws_json1_1CodeGenConfigurationNodes = (
   input: Record<string, CodeGenConfigurationNode>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -14573,7 +14573,7 @@ const serializeAws_json1_1ConnectionPasswordEncryption = (
 
 const serializeAws_json1_1ConnectionProperties = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [ConnectionPropertyKey | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [ConnectionPropertyKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -15764,7 +15764,7 @@ const serializeAws_json1_1FindMatchesParameters = (input: FindMatchesParameters,
 };
 
 const serializeAws_json1_1GenericMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16595,7 +16595,7 @@ const serializeAws_json1_1JDBCDataTypeMapping = (
   input: Record<string, GlueRecordType | string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [JDBCDataType | string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [JDBCDataType | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16976,7 +16976,7 @@ const serializeAws_json1_1Location = (input: Location, context: __SerdeContext):
 };
 
 const serializeAws_json1_1LocationMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17069,7 +17069,7 @@ const serializeAws_json1_1Mappings = (input: Mapping[], context: __SerdeContext)
 };
 
 const serializeAws_json1_1MapValue = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17278,7 +17278,7 @@ const serializeAws_json1_1OracleSQLCatalogTarget = (input: OracleSQLCatalogTarge
 };
 
 const serializeAws_json1_1OrchestrationArgumentsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17319,7 +17319,7 @@ const serializeAws_json1_1OrderList = (input: Order[], context: __SerdeContext):
 };
 
 const serializeAws_json1_1ParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18482,7 +18482,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 };
 
 const serializeAws_json1_1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19032,7 +19032,7 @@ const serializeAws_json1_1WorkflowNames = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_json1_1WorkflowRunProperties = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

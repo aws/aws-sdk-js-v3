@@ -13132,7 +13132,7 @@ const serializeAws_restJson1ListOfWriteTreatmentResource = (
 };
 
 const serializeAws_restJson1MapOf__double = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13144,7 +13144,7 @@ const serializeAws_restJson1MapOf__double = (input: Record<string, number>, cont
 };
 
 const serializeAws_restJson1MapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13156,7 +13156,7 @@ const serializeAws_restJson1MapOf__string = (input: Record<string, string>, cont
 };
 
 const serializeAws_restJson1MapOfActivity = (input: Record<string, Activity>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13171,7 +13171,7 @@ const serializeAws_restJson1MapOfAddressConfiguration = (
   input: Record<string, AddressConfiguration>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13186,7 +13186,7 @@ const serializeAws_restJson1MapOfAttributeDimension = (
   input: Record<string, AttributeDimension>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13201,7 +13201,7 @@ const serializeAws_restJson1MapOfEndpointSendConfiguration = (
   input: Record<string, EndpointSendConfiguration>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13213,7 +13213,7 @@ const serializeAws_restJson1MapOfEndpointSendConfiguration = (
 };
 
 const serializeAws_restJson1MapOfEvent = (input: Record<string, Event>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13225,7 +13225,7 @@ const serializeAws_restJson1MapOfEvent = (input: Record<string, Event>, context:
 };
 
 const serializeAws_restJson1MapOfEventsBatch = (input: Record<string, EventsBatch>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13237,7 +13237,7 @@ const serializeAws_restJson1MapOfEventsBatch = (input: Record<string, EventsBatc
 };
 
 const serializeAws_restJson1MapOfListOf__string = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13252,7 +13252,7 @@ const serializeAws_restJson1MapOfMetricDimension = (
   input: Record<string, MetricDimension>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

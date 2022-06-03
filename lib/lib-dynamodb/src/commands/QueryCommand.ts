@@ -16,23 +16,25 @@ export type QueryCommandInput = Omit<
   __QueryCommandInput,
   "KeyConditions" | "QueryFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
 > & {
-  KeyConditions?: {
-    [key: string]: Omit<Condition, "AttributeValueList"> & {
+  KeyConditions?: Record<
+    string,
+    Omit<Condition, "AttributeValueList"> & {
       AttributeValueList?: NativeAttributeValue[];
-    };
-  };
-  QueryFilter?: {
-    [key: string]: Omit<Condition, "AttributeValueList"> & {
+    }
+  >;
+  QueryFilter?: Record<
+    string,
+    Omit<Condition, "AttributeValueList"> & {
       AttributeValueList?: NativeAttributeValue[];
-    };
-  };
-  ExclusiveStartKey?: { [key: string]: NativeAttributeValue };
-  ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+    }
+  >;
+  ExclusiveStartKey?: Record<string, NativeAttributeValue>;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
 };
 
 export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: { [key: string]: NativeAttributeValue }[];
-  LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
+  Items?: Record<string, NativeAttributeValue>[];
+  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
 };
 
 /**

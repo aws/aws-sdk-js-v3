@@ -3838,7 +3838,7 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
 };
 
 const serializeAws_restJson1DisruptionPolicy = (input: Record<string, FailurePolicy>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [DisruptionType | string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DisruptionType | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3943,7 +3943,7 @@ const serializeAws_restJson1String255List = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

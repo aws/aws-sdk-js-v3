@@ -14,20 +14,21 @@ import { marshallInput, unmarshallOutput } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type PutCommandInput = Omit<__PutItemCommandInput, "Item" | "Expected" | "ExpressionAttributeValues"> & {
-  Item: { [key: string]: NativeAttributeValue } | undefined;
-  Expected?: {
-    [key: string]: Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+  Item: Record<string, NativeAttributeValue> | undefined;
+  Expected?: Record<
+    string,
+    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
       Value?: NativeAttributeValue;
       AttributeValueList?: NativeAttributeValue[];
-    };
-  };
-  ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+    }
+  >;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
 };
 
 export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: { [key: string]: NativeAttributeValue };
+  Attributes?: Record<string, NativeAttributeValue>;
   ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: { [key: string]: NativeAttributeValue };
+    ItemCollectionKey?: Record<string, NativeAttributeValue>;
   };
 };
 

@@ -7481,7 +7481,7 @@ const serializeAws_json1_1UserTokenConfigurationList = (
 };
 
 const serializeAws_json1_1ValueImportanceMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

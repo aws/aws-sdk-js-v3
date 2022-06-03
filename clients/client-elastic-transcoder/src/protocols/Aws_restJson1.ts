@@ -1851,7 +1851,7 @@ const serializeAws_restJson1Clip = (input: Clip, context: __SerdeContext): any =
 };
 
 const serializeAws_restJson1CodecOptions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2167,7 +2167,7 @@ const serializeAws_restJson1TimeSpan = (input: TimeSpan, context: __SerdeContext
 };
 
 const serializeAws_restJson1UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

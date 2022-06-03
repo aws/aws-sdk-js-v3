@@ -4234,7 +4234,7 @@ const serializeAws_restJson1AppflowIntegration = (input: AppflowIntegration, con
 };
 
 const serializeAws_restJson1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4246,7 +4246,7 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
 };
 
 const serializeAws_restJson1AttributeSourceIdMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4328,7 +4328,7 @@ const serializeAws_restJson1ExportingConfig = (input: ExportingConfig, context: 
 };
 
 const serializeAws_restJson1FieldMap = (input: Record<string, ObjectTypeField>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4430,7 +4430,7 @@ const serializeAws_restJson1JobSchedule = (input: JobSchedule, context: __SerdeC
 };
 
 const serializeAws_restJson1KeyMap = (input: Record<string, ObjectTypeKey[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4525,7 +4525,7 @@ const serializeAws_restJson1ObjectTypeKeyList = (input: ObjectTypeKey[], context
 };
 
 const serializeAws_restJson1ObjectTypeNames = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4683,7 +4683,7 @@ const serializeAws_restJson1StandardIdentifierList = (
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4714,7 +4714,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
 
 const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4773,7 +4773,7 @@ const serializeAws_restJson1UpdateAddress = (input: UpdateAddress, context: __Se
 };
 
 const serializeAws_restJson1UpdateAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

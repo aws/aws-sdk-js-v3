@@ -107,7 +107,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.openBlock("return Object.entries(input).reduce((acc: {[key: string]: any}, "
+        writer.openBlock("return Object.entries(input).reduce((acc: Record<string, any>, "
                 + "[key, value]: [$1T, any]) => {", "}, {});", symbolProvider.toSymbol(shape.getKey()),
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
