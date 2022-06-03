@@ -38,7 +38,7 @@ describe("endpoint", () => {
   });
 });
 
-describe("Accesspoint ARN", async () => {
+describe("Endpoints from ARN", () => {
   const endpointValidator: BuildMiddleware<any, any> = (next, context) => (args) => {
     // middleware intercept the request and return it early
     const request = args.request as HttpRequest;
@@ -52,51 +52,91 @@ describe("Accesspoint ARN", async () => {
     });
   };
 
-  it("should succeed with access point ARN", async () => {
-    const client = new S3({ region: "us-west-2" });
-    client.middlewareStack.add(endpointValidator, { step: "build", priority: "low" });
-    const result: any = await client.putObject({
-      Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
-      Key: "key",
-      Body: "body",
+  describe("Accesspoint ARN", async () => {
+    it("should succeed with access point ARN", async () => {
+      const client = new S3({ region: "us-west-2" });
+      client.middlewareStack.add(endpointValidator, { step: "build", priority: "low" });
+      const result: any = await client.putObject({
+        Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+        Key: "key",
+        Body: "body",
+      });
+      expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
     });
-    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+
+    it("should sign request with region from ARN is useArnRegion is set", async () => {
+      const client = new S3({
+        region: "us-east-1",
+        useArnRegion: true,
+        credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+      });
+      client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+      const result: any = await client.putObject({
+        Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+        Key: "key",
+        Body: "body",
+      });
+      expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+      // Sign request with us-west-2 region from bucket access point ARN
+      expect(result.request.headers.authorization).to.contain("/us-west-2/s3/aws4_request, SignedHeaders=");
+    });
   });
 
-  it("should sign request with region from ARN is useArnRegion is set", async () => {
-    const client = new S3({
-      region: "us-east-1",
-      useArnRegion: true,
-      credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+  describe("Outposts ARN", () => {
+    it("should succeed with outposts ARN", async () => {
+      const OutpostId = "op-01234567890123456";
+      const AccountId = "123456789012";
+      const region = "us-west-2";
+      const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
+      const client = new S3({ region: "us-east-1", credentials, useArnRegion: true });
+      client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+      const result: any = await client.putObject({
+        Bucket: `arn:aws:s3-outposts:${region}:${AccountId}:outpost/${OutpostId}/accesspoint/abc-111`,
+        Key: "key",
+        Body: "body",
+      });
+      expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
+      const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
+      expect(result.request.headers["authorization"]).contains(
+        `Credential=${credentials.accessKeyId}/${date}/${region}/s3-outposts/aws4_request`
+      );
     });
-    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
-    const result: any = await client.putObject({
-      Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
-      Key: "key",
-      Body: "body",
-    });
-    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
-    // Sign request with us-west-2 region from bucket access point ARN
-    expect(result.request.headers.authorization).to.contain("/us-west-2/s3/aws4_request, SignedHeaders=");
   });
 
-  it("should succeed with outposts ARN", async () => {
-    const OutpostId = "op-01234567890123456";
-    const AccountId = "123456789012";
-    const region = "us-west-2";
-    const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
-    const client = new S3({ region: "us-east-1", credentials, useArnRegion: true });
-    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
-    const result: any = await client.putObject({
-      Bucket: `arn:aws:s3-outposts:${region}:${AccountId}:outpost/${OutpostId}/accesspoint/abc-111`,
-      Key: "key",
-      Body: "body",
+  describe("Object Lambda ARN", () => {
+    it("should succeed with Object Lambda ARN", async () => {
+      const region = "us-east-1";
+      const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
+      const client = new S3({ region, credentials });
+      client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+      const result: any = await client.putObject({
+        Bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+        Key: "key",
+        Body: "body",
+      });
+      const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
+      expect(result.request.hostname).to.eql("mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
+      expect(result.request.headers["authorization"]).contains(
+        `Credential=${credentials.accessKeyId}/${date}/${region}/s3-object-lambda/aws4_request`
+      );
     });
-    expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
-    const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
-    expect(result.request.headers["authorization"]).contains(
-      `Credential=${credentials.accessKeyId}/${date}/${region}/s3-outposts/aws4_request`
-    );
+
+    it("should update endpoint of WriteGetObjectResponse command", async () => {
+      const region = "us-east-1";
+      const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
+      const client = new S3({ region, credentials });
+      client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+      const requestRoute = "route123";
+      const result: any = await client.writeGetObjectResponse({
+        RequestRoute: requestRoute,
+        RequestToken: "token",
+      });
+      const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
+      expect(result.request.hostname).to.eql(`${requestRoute}.s3-object-lambda.us-east-1.amazonaws.com`);
+      expect(result.request.headers["authorization"]).contains(
+        `Credential=${credentials.accessKeyId}/${date}/${region}/s3-object-lambda/aws4_request`
+      );
+    });
   });
 });
 
