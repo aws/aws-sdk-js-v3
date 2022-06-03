@@ -3246,7 +3246,7 @@ const serializeAws_json1_1AcknowledgeThirdPartyJobInput = (
 };
 
 const serializeAws_json1_1ActionConfigurationMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3488,7 +3488,7 @@ const serializeAws_json1_1ArtifactStore = (input: ArtifactStore, context: __Serd
 };
 
 const serializeAws_json1_1ArtifactStoreMap = (input: Record<string, ArtifactStore>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3828,7 +3828,7 @@ const serializeAws_json1_1OutputArtifactList = (input: OutputArtifact[], context
 };
 
 const serializeAws_json1_1OutputVariablesMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4013,7 +4013,7 @@ const serializeAws_json1_1PutWebhookInput = (input: PutWebhookInput, context: __
 };
 
 const serializeAws_json1_1QueryParamMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -3355,7 +3355,7 @@ const serializeAws_restJson1CloudWatchLogsDestinationConfig = (
 };
 
 const serializeAws_restJson1EntityOverrideMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3435,7 +3435,7 @@ const serializeAws_restJson1ExperimentResultRequestTypeList = (
 };
 
 const serializeAws_restJson1GroupToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3599,7 +3599,7 @@ const serializeAws_restJson1ScheduledSplitsLaunchConfig = (
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3642,7 +3642,7 @@ const serializeAws_restJson1TreatmentNameList = (input: string[], context: __Ser
 };
 
 const serializeAws_restJson1TreatmentToWeightMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

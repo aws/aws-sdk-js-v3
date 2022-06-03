@@ -4120,7 +4120,7 @@ const serializeAws_restJson1ChoiceUpdate = (input: ChoiceUpdate, context: __Serd
 };
 
 const serializeAws_restJson1ChoiceUpdates = (input: Record<string, ChoiceUpdate>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4143,7 +4143,7 @@ const serializeAws_restJson1LensAliases = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_restJson1PillarNotes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4166,7 +4166,7 @@ const serializeAws_restJson1SelectedChoices = (input: string[], context: __Serde
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

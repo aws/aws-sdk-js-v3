@@ -15477,7 +15477,7 @@ const serializeAws_restJson1FieldFolder = (input: FieldFolder, context: __SerdeC
 };
 
 const serializeAws_restJson1FieldFolderMap = (input: Record<string, FieldFolder>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15560,7 +15560,7 @@ const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeC
 };
 
 const serializeAws_restJson1IdentityMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15620,7 +15620,7 @@ const serializeAws_restJson1IntegerParameterList = (input: IntegerParameter[], c
 };
 
 const serializeAws_restJson1IpRestrictionRuleMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15673,7 +15673,7 @@ const serializeAws_restJson1LogicalTable = (input: LogicalTable, context: __Serd
 };
 
 const serializeAws_restJson1LogicalTableMap = (input: Record<string, LogicalTable>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15775,7 +15775,7 @@ const serializeAws_restJson1PhysicalTable = (input: PhysicalTable, context: __Se
 };
 
 const serializeAws_restJson1PhysicalTableMap = (input: Record<string, PhysicalTable>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

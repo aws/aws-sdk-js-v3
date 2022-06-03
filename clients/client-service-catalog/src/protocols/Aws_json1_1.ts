@@ -6536,7 +6536,7 @@ const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
 };
 
 const serializeAws_json1_1ExecutionParameterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6883,18 +6883,15 @@ const serializeAws_json1_1OutputKeys = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1ProductViewFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [ProductViewFilterBy | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1ProductViewFilterValues(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ProductViewFilterBy | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1ProductViewFilterValues(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1ProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
@@ -6913,7 +6910,7 @@ const serializeAws_json1_1ProvisionedProductFilters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [ProvisionedProductViewFilterBy | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [ProvisionedProductViewFilterBy | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6930,7 +6927,7 @@ const serializeAws_json1_1ProvisionedProductProperties = (
   input: Record<string, string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [PropertyKey | string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PropertyKey | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6953,7 +6950,7 @@ const serializeAws_json1_1ProvisionedProductViewFilterValues = (input: string[],
 };
 
 const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7167,7 +7164,7 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -7199,7 +7196,7 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [ProvisioningArtifactPropertyName | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [ProvisioningArtifactPropertyName | string, any]) => {
       if (value === null) {
         return acc;
       }

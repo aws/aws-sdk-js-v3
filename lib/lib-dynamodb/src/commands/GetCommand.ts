@@ -12,11 +12,11 @@ import { marshallInput, unmarshallOutput } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
-  Key: { [key: string]: NativeAttributeValue } | undefined;
+  Key: Record<string, NativeAttributeValue> | undefined;
 };
 
 export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
-  Item?: { [key: string]: NativeAttributeValue };
+  Item?: Record<string, NativeAttributeValue>;
 };
 
 /**

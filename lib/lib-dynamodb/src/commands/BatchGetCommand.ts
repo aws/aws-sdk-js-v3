@@ -14,21 +14,23 @@ import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 
 export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItems"> & {
   RequestItems:
-    | {
-        [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-          Keys: { [key: string]: NativeAttributeValue }[] | undefined;
-        };
-      }
+    | Record<
+        string,
+        Omit<KeysAndAttributes, "Keys"> & {
+          Keys: Record<string, NativeAttributeValue>[] | undefined;
+        }
+      >
     | undefined;
 };
 
 export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses" | "UnprocessedKeys"> & {
-  Responses?: { [key: string]: { [key: string]: NativeAttributeValue }[] };
-  UnprocessedKeys?: {
-    [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-      Keys: { [key: string]: NativeAttributeValue }[] | undefined;
-    };
-  };
+  Responses?: Record<string, Record<string, NativeAttributeValue>[]>;
+  UnprocessedKeys?: Record<
+    string,
+    Omit<KeysAndAttributes, "Keys"> & {
+      Keys: Record<string, NativeAttributeValue>[] | undefined;
+    }
+  >;
 };
 
 /**

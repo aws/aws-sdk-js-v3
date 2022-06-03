@@ -3568,7 +3568,7 @@ const serializeAws_json1_1CategoricalParameterRanges = (
 };
 
 const serializeAws_json1_1Configuration = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4129,7 +4129,7 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
   input: Record<string, string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4538,7 +4538,7 @@ const serializeAws_json1_1TimeSeriesSelector = (input: TimeSeriesSelector, conte
 };
 
 const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4550,7 +4550,7 @@ const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, c
 };
 
 const serializeAws_json1_1Transformations = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

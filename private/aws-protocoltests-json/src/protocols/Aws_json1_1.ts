@@ -959,7 +959,7 @@ const serializeAws_json1_1ListOfStructs = (input: SimpleStruct[], context: __Ser
 };
 
 const serializeAws_json1_1MapOfKitchenSinks = (input: Record<string, KitchenSink>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -971,7 +971,7 @@ const serializeAws_json1_1MapOfKitchenSinks = (input: Record<string, KitchenSink
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -986,7 +986,7 @@ const serializeAws_json1_1MapOfMapOfStrings = (
   input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -998,7 +998,7 @@ const serializeAws_json1_1MapOfMapOfStrings = (
 };
 
 const serializeAws_json1_1MapOfStrings = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1010,7 +1010,7 @@ const serializeAws_json1_1MapOfStrings = (input: Record<string, string>, context
 };
 
 const serializeAws_json1_1MapOfStructs = (input: Record<string, SimpleStruct>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1115,7 +1115,7 @@ const serializeAws_json1_1FooEnumList = (input: (FooEnum | string)[], context: _
 };
 
 const serializeAws_json1_1FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1153,7 +1153,7 @@ const serializeAws_json1_1SparseStringList = (input: string[], context: __SerdeC
 };
 
 const serializeAws_json1_1SparseStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -1176,7 +1176,7 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

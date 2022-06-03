@@ -21,31 +21,32 @@ export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "
   TransactItems:
     | (Omit<TransactWriteItem, "ConditionCheck" | "Put" | "Delete" | "Update"> & {
         ConditionCheck?: Omit<ConditionCheck, "Key" | "ExpressionAttributeValues"> & {
-          Key: { [key: string]: NativeAttributeValue } | undefined;
-          ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+          Key: Record<string, NativeAttributeValue> | undefined;
+          ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
         };
         Put?: Omit<Put, "Item" | "ExpressionAttributeValues"> & {
-          Item: { [key: string]: NativeAttributeValue } | undefined;
-          ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+          Item: Record<string, NativeAttributeValue> | undefined;
+          ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
         };
         Delete?: Omit<Delete, "Key" | "ExpressionAttributeValues"> & {
-          Key: { [key: string]: NativeAttributeValue } | undefined;
-          ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+          Key: Record<string, NativeAttributeValue> | undefined;
+          ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
         };
         Update?: Omit<Update, "Key" | "ExpressionAttributeValues"> & {
-          Key: { [key: string]: NativeAttributeValue } | undefined;
-          ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
+          Key: Record<string, NativeAttributeValue> | undefined;
+          ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
         };
       })[]
     | undefined;
 };
 
 export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput, "ItemCollectionMetrics"> & {
-  ItemCollectionMetrics?: {
-    [key: string]: (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-      ItemCollectionKey?: { [key: string]: NativeAttributeValue };
-    })[];
-  };
+  ItemCollectionMetrics?: Record<
+    string,
+    (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+      ItemCollectionKey?: Record<string, NativeAttributeValue>;
+    })[]
+  >;
 };
 
 /**

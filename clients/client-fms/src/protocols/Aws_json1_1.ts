@@ -2270,7 +2270,7 @@ const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context:
 
 const serializeAws_json1_1CustomerPolicyScopeMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: any }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2538,7 +2538,7 @@ const serializeAws_json1_1PolicyOption = (input: PolicyOption, context: __SerdeC
 };
 
 const serializeAws_json1_1PreviousAppsList = (input: Record<string, App[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2550,7 +2550,7 @@ const serializeAws_json1_1PreviousAppsList = (input: Record<string, App[]>, cont
 };
 
 const serializeAws_json1_1PreviousProtocolsList = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
