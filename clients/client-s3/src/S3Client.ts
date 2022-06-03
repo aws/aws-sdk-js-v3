@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
-import { getUseRegionalEndpointPlugin, getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
+import { getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -739,7 +739,6 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
-    this.middlewareStack.use(getUseRegionalEndpointPlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

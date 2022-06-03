@@ -1,6 +1,6 @@
 /// <reference types="mocha" />
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildMiddleware, SerializeMiddleware } from "@aws-sdk/types";
+import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { PassThrough } from "stream";
@@ -169,5 +169,42 @@ describe("Throw 200 response", () => {
     return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
       "We encountered an internal error. Please try again."
     );
+  });
+});
+
+describe("regional endpoints", () => {
+  const endpointValidator: FinalizeRequestMiddleware<any, any> = (next, context) => (args) => {
+    // middleware intercept the request and return it early
+    const request = args.request as HttpRequest;
+    return Promise.resolve({
+      output: {
+        $metadata: { attempts: 0, httpStatusCode: 200 },
+        request,
+        context,
+      } as any,
+      response: {} as any,
+    });
+  };
+
+  it("should use regional endpoints if region is us-east-1", async () => {
+    const client = new S3({ region: "us-east-1" });
+    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const result: any = await client.putObject({
+      Bucket: "bucket",
+      Key: "key",
+      Body: "body",
+    });
+    expect(result.request.hostname).to.eql("bucket.s3.us-east-1.amazonaws.com");
+  });
+
+  it("should use global endpoints if region is aws-global", async () => {
+    const client = new S3({ region: "aws-global" });
+    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const result: any = await client.putObject({
+      Bucket: "bucket",
+      Key: "key",
+      Body: "body",
+    });
+    expect(result.request.hostname).to.eql("bucket.s3.amazonaws.com");
   });
 });
