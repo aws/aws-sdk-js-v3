@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getWriteGetObjectResponseEndpointPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -93,6 +94,7 @@ export class WriteGetObjectResponseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<WriteGetObjectResponseCommandInput, WriteGetObjectResponseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getWriteGetObjectResponseEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

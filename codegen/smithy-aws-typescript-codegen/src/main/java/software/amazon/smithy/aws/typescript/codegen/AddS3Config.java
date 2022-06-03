@@ -173,6 +173,12 @@ public final class AddS3Config implements TypeScriptIntegration {
                                                 && testServiceId(s))
                                 .build(),
                 RuntimeClientPlugin.builder()
+                                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "WriteGetObjectResponseEndpoint",
+                                        HAS_MIDDLEWARE)
+                                .operationPredicate((m, s, o) -> testServiceId(s)
+                                                    && o.getId().getName(s).equals("WriteGetObjectResponse"))
+                                .build(),
+                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s))
