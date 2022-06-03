@@ -15,6 +15,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   UserAgentInputConfig,
@@ -197,6 +198,7 @@ export class EchoServiceClient extends __Client<
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
