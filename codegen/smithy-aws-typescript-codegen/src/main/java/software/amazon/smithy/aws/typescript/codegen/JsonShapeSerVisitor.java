@@ -28,6 +28,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
@@ -138,6 +139,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
+                if (memberShape.hasTrait(EventHeaderTrait.class)) {
+                    return;
+                }
                 String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
                 String inputLocation = "input." + memberName;
@@ -170,12 +174,15 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
-                    String locationName = memberNameStrategy.apply(memberShape, memberName);
-                    Shape target = model.expectShape(memberShape.getTarget());
-                    // Dispatch to the input value provider for any additional handling.
-                    writer.write("$L: value => ({ $S: $L }),", memberName, locationName,
-                            target.accept(getMemberVisitor("value")));
-                });
+                if (memberShape.hasTrait(EventHeaderTrait.class)) {
+                    return;
+                }
+                String locationName = memberNameStrategy.apply(memberShape, memberName);
+                Shape target = model.expectShape(memberShape.getTarget());
+                // Dispatch to the input value provider for any additional handling.
+                writer.write("$L: value => ({ $S: $L }),", memberName, locationName,
+                        target.accept(getMemberVisitor("value")));
+            });
             writer.write("_: (name, value) => ({ name: value } as any)");
         });
     }
