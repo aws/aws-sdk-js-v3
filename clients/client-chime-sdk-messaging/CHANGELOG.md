@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.104.0...v3.105.0) (2022-06-06)
+
+
+### Features
+
+* **client-chime-sdk-messaging:** This release adds support for searching channels by members via the SearchChannels API, removes required restrictions for Name and Mode in UpdateChannel API and enhances CreateChannel API by exposing member and moderator list as well as channel id as optional parameters. ([27f0d81](https://github.com/aws/aws-sdk-js-v3/commit/27f0d81adb822a529077714cd8aa5a28e80c3be4))
+* **clients:** support recursion detection in Lambda ([#3654](https://github.com/aws/aws-sdk-js-v3/issues/3654)) ([ecfe46e](https://github.com/aws/aws-sdk-js-v3/commit/ecfe46ea1fd8b6e3812b75b3dc6c03554fb4b3fa))
+
+
+
+
+
 # [3.100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.99.0...v3.100.0) (2022-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-messaging

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.104.0...v3.105.0) (2022-06-06)
+
+
+### Features
+
+* **client-connect:** This release adds a new API, GetCurrentUserData, which returns real-time details about users' current activity. ([47e52de](https://github.com/aws/aws-sdk-js-v3/commit/47e52de9185916548d1e2b023b8c09e3b160467b))
+* **clients:** support recursion detection in Lambda ([#3654](https://github.com/aws/aws-sdk-js-v3/issues/3654)) ([ecfe46e](https://github.com/aws/aws-sdk-js-v3/commit/ecfe46ea1fd8b6e3812b75b3dc6c03554fb4b3fa))
+
+
+
+
+
 # [3.104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.103.0...v3.104.0) (2022-06-02)
 
 
