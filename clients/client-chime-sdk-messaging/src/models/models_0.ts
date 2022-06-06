@@ -24,7 +24,7 @@ export interface AppInstanceUserMembershipSummary {
   Type?: ChannelMembershipType | string;
 
   /**
-   * <p>The time at which a message was last read.</p>
+   * <p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>
    */
   ReadMarkerTimestamp?: Date;
 }
@@ -1047,7 +1047,7 @@ export interface PushNotificationPreferences {
   AllowNotifications: AllowNotifications | string | undefined;
 
   /**
-   * <p>The simple JSON object used to send a subset of a push notification to the requsted member.</p>
+   * <p>The simple JSON object used to send a subset of a push notification to the requested member.</p>
    */
   FilterRule?: string;
 }
@@ -1464,6 +1464,21 @@ export interface CreateChannelRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the channel in the request.</p>
+   */
+  ChannelId?: string;
+
+  /**
+   * <p>The ARNs of the channel members in the request.</p>
+   */
+  MemberArns?: string[];
+
+  /**
+   * <p>The ARNs of the channel moderators in the request.</p>
+   */
+  ModeratorArns?: string[];
 }
 
 export namespace CreateChannelRequest {
@@ -1476,6 +1491,7 @@ export namespace CreateChannelRequest {
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
     ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+    ...(obj.ChannelId && { ChannelId: SENSITIVE_STRING }),
   });
 }
 
@@ -2587,7 +2603,7 @@ export namespace ListChannelMembershipsForAppInstanceUserRequest {
 
 export interface ListChannelMembershipsForAppInstanceUserResponse {
   /**
-   * <p>The token passed by previous API calls until all requested users are returned.</p>
+   * <p>The information for the requested channel memberships.</p>
    */
   ChannelMemberships?: ChannelMembershipForAppInstanceUserSummary[];
 
@@ -3073,6 +3089,104 @@ export namespace RedactChannelMessageResponse {
   });
 }
 
+export enum SearchFieldKey {
+  MEMBERS = "MEMBERS",
+}
+
+export enum SearchFieldOperator {
+  EQUALS = "EQUALS",
+  INCLUDES = "INCLUDES",
+}
+
+/**
+ * <p>A <code>Field</code> of the channel that you want to search.</p>
+ */
+export interface SearchField {
+  /**
+   * <p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code>
+   *          operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code>  operator to get channels whose memberships include the specified values.</p>
+   */
+  Key: SearchFieldKey | string | undefined;
+
+  /**
+   * <p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p>
+   *          <note>
+   *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with large number of memberships.</p>
+   *          </note>
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>.  Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values.
+   *          Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>
+   */
+  Operator: SearchFieldOperator | string | undefined;
+}
+
+export namespace SearchField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchField): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchChannelsRequest {
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   */
+  ChimeBearer?: string;
+
+  /**
+   * <p>A list of the <code>Field</code> objects in the channel being searched.</p>
+   */
+  Fields: SearchField[] | undefined;
+
+  /**
+   * <p>The maximum number of channels that you want returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from previous API requests until the number of channels is reached.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchChannelsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchChannelsRequest): any => ({
+    ...obj,
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface SearchChannelsResponse {
+  /**
+   * <p>A list of the channels in the request.</p>
+   */
+  Channels?: ChannelSummary[];
+
+  /**
+   * <p>The token returned from previous API responses until the number of channels is reached.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchChannelsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchChannelsResponse): any => ({
+    ...obj,
+    ...(obj.Channels && { Channels: obj.Channels.map((item) => ChannelSummary.filterSensitiveLog(item)) }),
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
 export interface SendChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3223,12 +3337,12 @@ export interface UpdateChannelRequest {
   /**
    * <p>The name of the channel.</p>
    */
-  Name: string | undefined;
+  Name?: string;
 
   /**
    * <p>The mode of the update request.</p>
    */
-  Mode: ChannelMode | string | undefined;
+  Mode?: ChannelMode | string;
 
   /**
    * <p>The metadata for the update request.</p>

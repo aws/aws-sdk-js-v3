@@ -37,6 +37,7 @@ export * from "./ListChannelsModeratedByAppInstanceUserCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutChannelMembershipPreferencesCommand";
 export * from "./RedactChannelMessageCommand";
+export * from "./SearchChannelsCommand";
 export * from "./SendChannelMessageCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

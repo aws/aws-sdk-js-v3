@@ -193,6 +193,11 @@ import {
   RedactChannelMessageCommandOutput,
 } from "./commands/RedactChannelMessageCommand";
 import {
+  SearchChannelsCommand,
+  SearchChannelsCommandInput,
+  SearchChannelsCommandOutput,
+} from "./commands/SearchChannelsCommand";
+import {
   SendChannelMessageCommand,
   SendChannelMessageCommandInput,
   SendChannelMessageCommandOutput,
@@ -228,8 +233,7 @@ import {
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
  *          and receive messages in custom messaging applications. These APIs depend on the frameworks
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging
- *          APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging">Amazon Chime SDK messaging</a>
- *          </p>
+ *          APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
  */
 export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   /**
@@ -1764,6 +1768,39 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: RedactChannelMessageCommandOutput) => void
   ): Promise<RedactChannelMessageCommandOutput> | void {
     const command = new RedactChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows an <code>AppInstanceUser</code> to search the channels that they belong to. The <code>AppInstanceUser</code> can search by membership or external ID.
+   *          An <code>AppInstanceAdmin</code> can search across all channels within the <code>AppInstance</code>.</p>
+   */
+  public searchChannels(
+    args: SearchChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchChannelsCommandOutput>;
+  public searchChannels(
+    args: SearchChannelsCommandInput,
+    cb: (err: any, data?: SearchChannelsCommandOutput) => void
+  ): void;
+  public searchChannels(
+    args: SearchChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchChannelsCommandOutput) => void
+  ): void;
+  public searchChannels(
+    args: SearchChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchChannelsCommandOutput) => void),
+    cb?: (err: any, data?: SearchChannelsCommandOutput) => void
+  ): Promise<SearchChannelsCommandOutput> | void {
+    const command = new SearchChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

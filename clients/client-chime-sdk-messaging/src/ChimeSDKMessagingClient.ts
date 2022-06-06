@@ -169,6 +169,7 @@ import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
 } from "./commands/RedactChannelMessageCommand";
+import { SearchChannelsCommandInput, SearchChannelsCommandOutput } from "./commands/SearchChannelsCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "./commands/SendChannelMessageCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -223,6 +224,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutChannelMembershipPreferencesCommandInput
   | RedactChannelMessageCommandInput
+  | SearchChannelsCommandInput
   | SendChannelMessageCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -270,6 +272,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
   | RedactChannelMessageCommandOutput
+  | SearchChannelsCommandOutput
   | SendChannelMessageCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -435,8 +438,7 @@ export interface ChimeSDKMessagingClientResolvedConfig extends ChimeSDKMessaging
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
  *          and receive messages in custom messaging applications. These APIs depend on the frameworks
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging
- *          APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging">Amazon Chime SDK messaging</a>
- *          </p>
+ *          APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
  */
 export class ChimeSDKMessagingClient extends __Client<
   __HttpHandlerOptions,

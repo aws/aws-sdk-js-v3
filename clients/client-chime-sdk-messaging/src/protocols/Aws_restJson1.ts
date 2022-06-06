@@ -134,6 +134,7 @@ import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
 } from "../commands/RedactChannelMessageCommand";
+import { SearchChannelsCommandInput, SearchChannelsCommandOutput } from "../commands/SearchChannelsCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "../commands/SendChannelMessageCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -183,6 +184,7 @@ import {
   PushNotificationConfiguration,
   PushNotificationPreferences,
   ResourceLimitExceededException,
+  SearchField,
   ServiceFailureException,
   ServiceUnavailableException,
   Tag,
@@ -324,9 +326,16 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   body = JSON.stringify({
     ...(input.AppInstanceArn !== undefined &&
       input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.ChannelId !== undefined && input.ChannelId !== null && { ChannelId: input.ChannelId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.MemberArns !== undefined &&
+      input.MemberArns !== null && { MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context) }),
     ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
     ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.ModeratorArns !== undefined &&
+      input.ModeratorArns !== null && {
+        ModeratorArns: serializeAws_restJson1ChannelModeratorArns(input.ModeratorArns, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Privacy !== undefined && input.Privacy !== null && { Privacy: input.Privacy }),
     ...(input.Tags !== undefined &&
@@ -1535,6 +1544,38 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
     operation: "redact",
   };
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchChannelsCommand = async (
+  input: SearchChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  const query: any = {
+    operation: "search",
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Fields !== undefined &&
+      input.Fields !== null && { Fields: serializeAws_restJson1SearchFields(input.Fields, context) }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4154,6 +4195,72 @@ const deserializeAws_restJson1RedactChannelMessageCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1SearchChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchChannelsCommandError(output, context);
+  }
+  const contents: SearchChannelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Channels: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Channels !== undefined && data.Channels !== null) {
+    contents.Channels = deserializeAws_restJson1ChannelSummaryList(data.Channels, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchChannelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchChannelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
@@ -4790,6 +4897,17 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1ChannelMemberArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ChannelMembershipPreferences = (
   input: ChannelMembershipPreferences,
   context: __SerdeContext
@@ -4816,6 +4934,17 @@ const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallb
         PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
       }),
   };
+};
+
+const serializeAws_restJson1ChannelModeratorArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
@@ -4924,6 +5053,37 @@ const serializeAws_restJson1PushNotificationPreferences = (
       input.AllowNotifications !== null && { AllowNotifications: input.AllowNotifications }),
     ...(input.FilterRule !== undefined && input.FilterRule !== null && { FilterRule: input.FilterRule }),
   };
+};
+
+const serializeAws_restJson1SearchField = (input: SearchField, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1SearchFieldValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1SearchFields = (input: SearchField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SearchField(entry, context);
+    });
+};
+
+const serializeAws_restJson1SearchFieldValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
