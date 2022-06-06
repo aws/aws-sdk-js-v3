@@ -2,7 +2,17 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  fips: {
+    variants: [
+      {
+        hostname: "memory-db-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-west-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -23,6 +33,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
