@@ -1,5 +1,7 @@
 export * from "./GetCurrentMetricDataPaginator";
 
+export * from "./GetCurrentUserDataPaginator";
+
 export * from "./GetMetricDataPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

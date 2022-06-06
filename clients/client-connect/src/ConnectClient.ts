@@ -239,6 +239,7 @@ import {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
+import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "./commands/GetCurrentUserDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
@@ -545,6 +546,7 @@ export type ServiceInputTypes =
   | DisassociateSecurityKeyCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
+  | GetCurrentUserDataCommandInput
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
   | GetTaskTemplateCommandInput
@@ -697,6 +699,7 @@ export type ServiceOutputTypes =
   | DisassociateSecurityKeyCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
+  | GetCurrentUserDataCommandOutput
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
   | GetTaskTemplateCommandOutput

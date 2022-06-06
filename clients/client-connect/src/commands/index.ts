@@ -65,6 +65,7 @@ export * from "./DisassociateRoutingProfileQueuesCommand";
 export * from "./DisassociateSecurityKeyCommand";
 export * from "./GetContactAttributesCommand";
 export * from "./GetCurrentMetricDataCommand";
+export * from "./GetCurrentUserDataCommand";
 export * from "./GetFederationTokenCommand";
 export * from "./GetMetricDataCommand";
 export * from "./GetTaskTemplateCommand";

@@ -320,6 +320,11 @@ import {
   GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
 import {
+  GetCurrentUserDataCommand,
+  GetCurrentUserDataCommandInput,
+  GetCurrentUserDataCommandOutput,
+} from "./commands/GetCurrentUserDataCommand";
+import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
@@ -2877,6 +2882,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
   ): Promise<GetCurrentMetricDataCommandOutput> | void {
     const command = new GetCurrentMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
+   */
+  public getCurrentUserData(
+    args: GetCurrentUserDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCurrentUserDataCommandOutput>;
+  public getCurrentUserData(
+    args: GetCurrentUserDataCommandInput,
+    cb: (err: any, data?: GetCurrentUserDataCommandOutput) => void
+  ): void;
+  public getCurrentUserData(
+    args: GetCurrentUserDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCurrentUserDataCommandOutput) => void
+  ): void;
+  public getCurrentUserData(
+    args: GetCurrentUserDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCurrentUserDataCommandOutput) => void),
+    cb?: (err: any, data?: GetCurrentUserDataCommandOutput) => void
+  ): Promise<GetCurrentUserDataCommandOutput> | void {
+    const command = new GetCurrentUserDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

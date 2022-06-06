@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
   AgentStatusState,
+  Channel,
   ContactFlowModuleState,
   ContactFlowState,
   HierarchyGroupSummary,
@@ -17,6 +18,8 @@ import {
   PhoneNumberType,
   QueueStatus,
   QuickConnectConfig,
+  QuickConnectSummary,
+  QuickConnectType,
   ReferenceType,
   RoutingProfileQueueConfig,
   TaskTemplateConstraints,
@@ -29,6 +32,330 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+export enum QueueType {
+  AGENT = "AGENT",
+  STANDARD = "STANDARD",
+}
+
+export interface ListQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of queue.</p>
+   */
+  QueueTypes?: (QueueType | string)[];
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListQueuesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a queue.</p>
+ */
+export interface QueueSummary {
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the queue.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of queue.</p>
+   */
+  QueueType?: QueueType | string;
+}
+
+export namespace QueueSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueueSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQueuesResponse {
+  /**
+   * <p>Information about the queues.</p>
+   */
+  QueueSummaryList?: QueueSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListQueuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+   */
+  QuickConnectTypes?: (QuickConnectType | string)[];
+}
+
+export namespace ListQuickConnectsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQuickConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQuickConnectsResponse {
+  /**
+   * <p>Information about the quick connects.</p>
+   */
+  QuickConnectSummaryList?: QuickConnectSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListQuickConnectsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQuickConnectsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRoutingProfileQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListRoutingProfileQueuesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingProfileQueuesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a routing profile queue.</p>
+ */
+export interface RoutingProfileQueueConfigSummary {
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  QueueArn: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>The order in which contacts are to be handled for the queue. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a>.</p>
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The delay, in seconds, that a contact should be in the queue before they are routed to an
+   *    available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   */
+  Delay: number | undefined;
+
+  /**
+   * <p>The channels this queue supports.</p>
+   */
+  Channel: Channel | string | undefined;
+}
+
+export namespace RoutingProfileQueueConfigSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutingProfileQueueConfigSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRoutingProfileQueuesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the routing profiles.</p>
+   */
+  RoutingProfileQueueConfigSummaryList?: RoutingProfileQueueConfigSummary[];
+}
+
+export namespace ListRoutingProfileQueuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingProfileQueuesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRoutingProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListRoutingProfilesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a routing profile.</p>
+ */
+export interface RoutingProfileSummary {
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the routing profile.</p>
+   */
+  Name?: string;
+}
+
+export namespace RoutingProfileSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutingProfileSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRoutingProfilesResponse {
+  /**
+   * <p>Information about the routing profiles.</p>
+   */
+  RoutingProfileSummaryList?: RoutingProfileSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRoutingProfilesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface ListSecurityKeysRequest {
   /**
@@ -1950,7 +2277,7 @@ export interface TransferContactRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect </p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    */
   ContactId: string | undefined;
 
@@ -1987,7 +2314,7 @@ export namespace TransferContactRequest {
 
 export interface TransferContactResponse {
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect </p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    */
   ContactId?: string;
 

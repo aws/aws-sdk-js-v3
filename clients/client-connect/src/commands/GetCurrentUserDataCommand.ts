@@ -13,41 +13,41 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_1";
+import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRoutingProfileQueuesCommand,
-  serializeAws_restJson1ListRoutingProfileQueuesCommand,
+  deserializeAws_restJson1GetCurrentUserDataCommand,
+  serializeAws_restJson1GetCurrentUserDataCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListRoutingProfileQueuesCommandInput extends ListRoutingProfileQueuesRequest {}
-export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfileQueuesResponse, __MetadataBearer {}
+export interface GetCurrentUserDataCommandInput extends GetCurrentUserDataRequest {}
+export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the queues associated with a routing profile.</p>
+ * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, GetCurrentUserDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, GetCurrentUserDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new ListRoutingProfileQueuesCommand(input);
+ * const command = new GetCurrentUserDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListRoutingProfileQueuesCommandInput} for command's `input` shape.
- * @see {@link ListRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @see {@link GetCurrentUserDataCommandInput} for command's `input` shape.
+ * @see {@link GetCurrentUserDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class ListRoutingProfileQueuesCommand extends $Command<
-  ListRoutingProfileQueuesCommandInput,
-  ListRoutingProfileQueuesCommandOutput,
+export class GetCurrentUserDataCommand extends $Command<
+  GetCurrentUserDataCommandInput,
+  GetCurrentUserDataCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListRoutingProfileQueuesCommandInput) {
+  constructor(readonly input: GetCurrentUserDataCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class ListRoutingProfileQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListRoutingProfileQueuesCommandInput, ListRoutingProfileQueuesCommandOutput> {
+  ): Handler<GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "ListRoutingProfileQueuesCommand";
+    const commandName = "GetCurrentUserDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutingProfileQueuesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRoutingProfileQueuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCurrentUserDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCurrentUserDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class ListRoutingProfileQueuesCommand extends $Command<
     );
   }
 
-  private serialize(input: ListRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoutingProfileQueuesCommand(input, context);
+  private serialize(input: GetCurrentUserDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetCurrentUserDataCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingProfileQueuesCommandOutput> {
-    return deserializeAws_restJson1ListRoutingProfileQueuesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserDataCommandOutput> {
+    return deserializeAws_restJson1GetCurrentUserDataCommand(output, context);
   }
 
   // Start section: command_body_extra

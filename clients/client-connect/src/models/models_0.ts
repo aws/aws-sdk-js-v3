@@ -24,6 +24,107 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum ContactState {
+  CONNECTED = "CONNECTED",
+  CONNECTED_ONHOLD = "CONNECTED_ONHOLD",
+  CONNECTING = "CONNECTING",
+  ENDED = "ENDED",
+  ERROR = "ERROR",
+  INCOMING = "INCOMING",
+  MISSED = "MISSED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+}
+
+export enum Channel {
+  CHAT = "CHAT",
+  TASK = "TASK",
+  VOICE = "VOICE",
+}
+
+export enum ContactInitiationMethod {
+  API = "API",
+  CALLBACK = "CALLBACK",
+  INBOUND = "INBOUND",
+  OUTBOUND = "OUTBOUND",
+  QUEUE_TRANSFER = "QUEUE_TRANSFER",
+  TRANSFER = "TRANSFER",
+}
+
+/**
+ * <p>Contains information about a queue resource for which metrics are returned.</p>
+ */
+export interface QueueReference {
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  Arn?: string;
+}
+
+export namespace QueueReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueueReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Contact.html">contact</a> associated to the
+ *    user.</p>
+ */
+export interface AgentContactReference {
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId?: string;
+
+  /**
+   * <p>The channel of the contact.</p>
+   */
+  Channel?: Channel | string;
+
+  /**
+   * <p>How the contact was initiated.</p>
+   */
+  InitiationMethod?: ContactInitiationMethod | string;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">state of the contact</a>.</p>
+   */
+  AgentContactState?: ContactState | string;
+
+  /**
+   * <p>The epoch timestamp when the contact state started.</p>
+   */
+  StateStartTimestamp?: Date;
+
+  /**
+   * <p>The time at which the contact was connected to an agent.</p>
+   */
+  ConnectedToAgentTimestamp?: Date;
+
+  /**
+   * <p>Contains information about a queue resource for which metrics are returned.</p>
+   */
+  Queue?: QueueReference;
+}
+
+export namespace AgentContactReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AgentContactReference): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Information about the agent who accepted the contact.</p>
  */
@@ -109,6 +210,30 @@ export namespace AgentStatus {
    * @internal
    */
   export const filterSensitiveLog = (obj: AgentStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the agent's status.</p>
+ */
+export interface AgentStatusReference {
+  /**
+   * <p>The start timestamp of the agent's status.</p>
+   */
+  StatusStartTimestamp?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent's status.</p>
+   */
+  StatusArn?: string;
+}
+
+export namespace AgentStatusReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AgentStatusReference): any => ({
     ...obj,
   });
 }
@@ -809,12 +934,6 @@ export namespace AssociateQueueQuickConnectsRequest {
   export const filterSensitiveLog = (obj: AssociateQueueQuickConnectsRequest): any => ({
     ...obj,
   });
-}
-
-export enum Channel {
-  CHAT = "CHAT",
-  TASK = "TASK",
-  VOICE = "VOICE",
 }
 
 /**
@@ -3096,15 +3215,6 @@ export namespace DescribeContactRequest {
   export const filterSensitiveLog = (obj: DescribeContactRequest): any => ({
     ...obj,
   });
-}
-
-export enum ContactInitiationMethod {
-  API = "API",
-  CALLBACK = "CALLBACK",
-  INBOUND = "INBOUND",
-  OUTBOUND = "OUTBOUND",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
-  TRANSFER = "TRANSFER",
 }
 
 /**
@@ -5457,30 +5567,6 @@ export namespace CurrentMetricData {
 }
 
 /**
- * <p>Contains information about a queue resource for which metrics are returned.</p>
- */
-export interface QueueReference {
-  /**
-   * <p>The identifier of the queue.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   */
-  Arn?: string;
-}
-
-export namespace QueueReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueReference): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Contains information about the dimensions for a set of metrics.</p>
  */
 export interface Dimensions {
@@ -5552,6 +5638,275 @@ export namespace GetCurrentMetricDataResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetCurrentMetricDataResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Filters user data based on the contact information that is associated to
+ *    the users. It contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+ */
+export interface ContactFilter {
+  /**
+   * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+   */
+  ContactStates?: (ContactState | string)[];
+}
+
+export namespace ContactFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContactFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A filter for the user data.</p>
+ */
+export interface UserDataFilters {
+  /**
+   * <p>Contains information about a queue resource for which metrics are returned.</p>
+   */
+  Queues?: string[];
+
+  /**
+   * <p>A filter for the user data based on the contact information that is associated to the user. It
+   *    contains a list of contact states. </p>
+   */
+  ContactFilter?: ContactFilter;
+}
+
+export namespace UserDataFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserDataFilters): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCurrentUserDataRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data is retrieved only for those users who are associated with
+   *    the queues and have contacts that are in the specified <code>ContactState</code>. </p>
+   */
+  Filters: UserDataFilters | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetCurrentUserDataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCurrentUserDataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the hierarchy group.</p>
+ */
+export interface HierarchyGroupSummaryReference {
+  /**
+   * <p>The unique identifier for the hierarchy group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the hierarchy group. </p>
+   */
+  Arn?: string;
+}
+
+export namespace HierarchyGroupSummaryReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HierarchyGroupSummaryReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the levels in the hierarchy group.</p>
+ */
+export interface HierarchyPathReference {
+  /**
+   * <p>Information about level one.</p>
+   */
+  LevelOne?: HierarchyGroupSummaryReference;
+
+  /**
+   * <p>Information about level two.</p>
+   */
+  LevelTwo?: HierarchyGroupSummaryReference;
+
+  /**
+   * <p>Information about level three.</p>
+   */
+  LevelThree?: HierarchyGroupSummaryReference;
+
+  /**
+   * <p>Information about level four.</p>
+   */
+  LevelFour?: HierarchyGroupSummaryReference;
+
+  /**
+   * <p>Information about level five.</p>
+   */
+  LevelFive?: HierarchyGroupSummaryReference;
+}
+
+export namespace HierarchyPathReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HierarchyPathReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the routing profile assigned to the user.</p>
+ */
+export interface RoutingProfileReference {
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+   */
+  Arn?: string;
+}
+
+export namespace RoutingProfileReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutingProfileReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the user.</p>
+ */
+export interface UserReference {
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the user.</p>
+   */
+  Arn?: string;
+}
+
+export namespace UserReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Data for a user.</p>
+ */
+export interface UserData {
+  /**
+   * <p>Information about the user for the data that is returned. It contains resourceId and ARN of
+   *    the user. </p>
+   */
+  User?: UserReference;
+
+  /**
+   * <p>Information about the routing profile that is assigned to the user.</p>
+   */
+  RoutingProfile?: RoutingProfileReference;
+
+  /**
+   * <p>Contains information about the levels of a hierarchy group assigned to a user.</p>
+   */
+  HierarchyPath?: HierarchyPathReference;
+
+  /**
+   * <p>The status of the agent that they manually set in their Contact Control Panel (CCP), or that
+   *    the supervisor manually changes in the real-time metrics report.</p>
+   */
+  Status?: AgentStatusReference;
+
+  /**
+   * <p>A map of available slots by channel. The key is a channel name. The value is an integer: the
+   *    available number of slots. </p>
+   */
+  AvailableSlotsByChannel?: Record<string, number>;
+
+  /**
+   * <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the
+   *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the RoutingProfile assigned to the agent. </p>
+   */
+  MaxSlotsByChannel?: Record<string, number>;
+
+  /**
+   * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the
+   *    number of active slots.  </p>
+   */
+  ActiveSlotsByChannel?: Record<string, number>;
+
+  /**
+   * <p>A list of contact reference information.</p>
+   */
+  Contacts?: AgentContactReference[];
+}
+
+export namespace UserData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserData): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCurrentUserDataResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the user data that is returned.</p>
+   */
+  UserDataList?: UserData[];
+}
+
+export namespace GetCurrentUserDataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCurrentUserDataResponse): any => ({
     ...obj,
   });
 }
@@ -7811,330 +8166,6 @@ export namespace ListQueueQuickConnectsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListQueueQuickConnectsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum QueueType {
-  AGENT = "AGENT",
-  STANDARD = "STANDARD",
-}
-
-export interface ListQueuesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of queue.</p>
-   */
-  QueueTypes?: (QueueType | string)[];
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains summary information about a queue.</p>
- */
-export interface QueueSummary {
-  /**
-   * <p>The identifier of the queue.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the queue.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of queue.</p>
-   */
-  QueueType?: QueueType | string;
-}
-
-export namespace QueueSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListQueuesResponse {
-  /**
-   * <p>Information about the queues.</p>
-   */
-  QueueSummaryList?: QueueSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListQueuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListQuickConnectsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
-   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-   */
-  QuickConnectTypes?: (QuickConnectType | string)[];
-}
-
-export namespace ListQuickConnectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQuickConnectsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListQuickConnectsResponse {
-  /**
-   * <p>Information about the quick connects.</p>
-   */
-  QuickConnectSummaryList?: QuickConnectSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListQuickConnectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQuickConnectsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRoutingProfileQueuesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListRoutingProfileQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingProfileQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains summary information about a routing profile queue.</p>
- */
-export interface RoutingProfileQueueConfigSummary {
-  /**
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   */
-  QueueArn: string | undefined;
-
-  /**
-   * <p>The name of the queue.</p>
-   */
-  QueueName: string | undefined;
-
-  /**
-   * <p>The order in which contacts are to be handled for the queue. For more information, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *     delay</a>.</p>
-   */
-  Priority: number | undefined;
-
-  /**
-   * <p>The delay, in seconds, that a contact should be in the queue before they are routed to an
-   *    available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *     delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-   */
-  Delay: number | undefined;
-
-  /**
-   * <p>The channels this queue supports.</p>
-   */
-  Channel: Channel | string | undefined;
-}
-
-export namespace RoutingProfileQueueConfigSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfileQueueConfigSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRoutingProfileQueuesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the routing profiles.</p>
-   */
-  RoutingProfileQueueConfigSummaryList?: RoutingProfileQueueConfigSummary[];
-}
-
-export namespace ListRoutingProfileQueuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingProfileQueuesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRoutingProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListRoutingProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains summary information about a routing profile.</p>
- */
-export interface RoutingProfileSummary {
-  /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the routing profile.</p>
-   */
-  Name?: string;
-}
-
-export namespace RoutingProfileSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfileSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRoutingProfilesResponse {
-  /**
-   * <p>Information about the routing profiles.</p>
-   */
-  RoutingProfileSummaryList?: RoutingProfileSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListRoutingProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
     ...obj,
   });
 }
