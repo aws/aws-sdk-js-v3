@@ -130,6 +130,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagsCommandInput,
+  ListCostAllocationTagsCommandOutput,
+} from "./commands/ListCostAllocationTagsCommand";
+import {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
@@ -151,6 +155,10 @@ import {
   UpdateAnomalySubscriptionCommandInput,
   UpdateAnomalySubscriptionCommandOutput,
 } from "./commands/UpdateAnomalySubscriptionCommand";
+import {
+  UpdateCostAllocationTagsStatusCommandInput,
+  UpdateCostAllocationTagsStatusCommandOutput,
+} from "./commands/UpdateCostAllocationTagsStatusCommand";
 import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
@@ -183,6 +191,7 @@ export type ServiceInputTypes =
   | GetSavingsPlansUtilizationDetailsCommandInput
   | GetTagsCommandInput
   | GetUsageForecastCommandInput
+  | ListCostAllocationTagsCommandInput
   | ListCostCategoryDefinitionsCommandInput
   | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
@@ -190,6 +199,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAnomalyMonitorCommandInput
   | UpdateAnomalySubscriptionCommandInput
+  | UpdateCostAllocationTagsStatusCommandInput
   | UpdateCostCategoryDefinitionCommandInput;
 
 export type ServiceOutputTypes =
@@ -218,6 +228,7 @@ export type ServiceOutputTypes =
   | GetSavingsPlansUtilizationDetailsCommandOutput
   | GetTagsCommandOutput
   | GetUsageForecastCommandOutput
+  | ListCostAllocationTagsCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput
@@ -225,6 +236,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAnomalyMonitorCommandOutput
   | UpdateAnomalySubscriptionCommandOutput
+  | UpdateCostAllocationTagsStatusCommandOutput
   | UpdateCostCategoryDefinitionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

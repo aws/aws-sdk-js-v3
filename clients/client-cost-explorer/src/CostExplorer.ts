@@ -123,6 +123,11 @@ import {
   GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagsCommand,
+  ListCostAllocationTagsCommandInput,
+  ListCostAllocationTagsCommandOutput,
+} from "./commands/ListCostAllocationTagsCommand";
+import {
   ListCostCategoryDefinitionsCommand,
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
@@ -153,6 +158,11 @@ import {
   UpdateAnomalySubscriptionCommandInput,
   UpdateAnomalySubscriptionCommandOutput,
 } from "./commands/UpdateAnomalySubscriptionCommand";
+import {
+  UpdateCostAllocationTagsStatusCommand,
+  UpdateCostAllocationTagsStatusCommandInput,
+  UpdateCostAllocationTagsStatusCommandOutput,
+} from "./commands/UpdateCostAllocationTagsStatusCommand";
 import {
   UpdateCostCategoryDefinitionCommand,
   UpdateCostCategoryDefinitionCommandInput,
@@ -375,8 +385,12 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.</p>
-   *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that is active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see a Cost Category that is effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. </p>
+   * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
+   *       Cost Category that's defined in the account.</p>
+   *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
+   *       active on a specific date. If there's no <code>EffectiveOn</code> specified, you see a Cost
+   *       Category that's effective on the current date. If Cost Category is still effective,
+   *         <code>EffectiveEnd</code> is omitted in the response. </p>
    */
   public describeCostCategoryDefinition(
     args: DescribeCostCategoryDefinitionCommandInput,
@@ -547,7 +561,9 @@ export class CostExplorer extends CostExplorerClient {
    * 	    such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
    * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts. This API is currently available for the Amazon Elastic Compute Cloud – Compute service only.</p>
    * 	        <note>
-   *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost Explorer</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+   *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings
+   *         page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost
+   *           Explorer</a> in the <i>Billing and Cost Management User Guide</i>.</p>
    *          </note>
    */
   public getCostAndUsageWithResources(
@@ -679,9 +695,12 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the reservation coverage for your account. This enables you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or
-   * 		  Amazon Redshift usage is covered by a reservation. An organization's management account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions.
-   * 			For any time period, you can filter data about reservation usage by the following dimensions:</p>
+   * <p>Retrieves the reservation coverage for your account, which you can use to see how much of
+   *       your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or
+   *       Amazon Redshift usage is covered by a reservation. An organization's management account can
+   *       see the coverage of the associated member accounts. This supports dimensions, Cost Categories,
+   *       and nested expressions. For any time period, you can filter data about reservation usage by
+   *       the following dimensions:</p>
    * 		       <ul>
    *             <li>
    *                <p>AZ</p>
@@ -752,16 +771,22 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Gets recommendations for which reservations to purchase. These recommendations could help you reduce your costs.
-   * 			Reservations provide a discounted hourly rate (up to 75%) compared to On-Demand pricing.</p>
-   * 		       <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage during a specific time period and collecting your usage
-   * 			into categories that are eligible for a reservation. After Amazon Web Services has these categories, it simulates every combination of reservations
-   * 			in each category of usage to identify the best number of each type of RI to purchase to maximize your estimated savings. </p>
-   * 		       <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared tenancy, and c4 family usage in the US West (Oregon) Region
-   * 			and recommends that you buy size-flexible regional reservations to apply to the c4 family usage. Amazon Web Services recommends the smallest size instance
-   * 			in an instance family. This makes it easier to purchase a size-flexible RI. Amazon Web Services also shows the equal number of normalized units
-   * 			so that you can purchase any instance size that you want. For this example, your RI recommendation would be for <code>c4.large</code>
-   * 			because that is the smallest size instance in the c4 instance family.</p>
+   * <p>Gets recommendations for reservation purchases. These recommendations might help you to
+   *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
+   *       On-Demand pricing.</p>
+   * 		       <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
+   *       during a specific time period and collecting your usage into categories that are eligible for
+   *       a reservation. After Amazon Web Services has these categories, it simulates every combination
+   *       of reservations in each category of usage to identify the best number of each type of Reserved
+   *       Instance (RI) to purchase to maximize your estimated savings. </p>
+   * 		       <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
+   *       tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you buy
+   *       size-flexible regional reservations to apply to the c4 family usage. Amazon Web Services
+   *       recommends the smallest size instance in an instance family. This makes it easier to purchase
+   *       a size-flexible Reserved Instance (RI). Amazon Web Services also shows the equal number of
+   *       normalized units. This way, you can purchase any instance size that you want. For this
+   *       example, your RI recommendation is for <code>c4.large</code> because that is the smallest size
+   *       instance in the c4 instance family.</p>
    */
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
@@ -831,12 +856,8 @@ export class CostExplorer extends CostExplorerClient {
    *       help you save cost
    *       by identifying idle and underutilized Amazon EC2 instances.</p>
    *          <p>Recommendations are generated to either downsize or terminate instances, along with
-   *       providing savings detail and metrics. For details on calculation and function, see
-   *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing
-   *         Your Cost with Rightsizing
-   *       Recommendations</a>
-   *       in the <i>Billing and Cost Management User
-   *       Guide</i>.</p>
+   *       providing savings detail and metrics. For more information about calculation and function, see
+   *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management User Guide</i>.</p>
    */
   public getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
@@ -959,7 +980,7 @@ export class CostExplorer extends CostExplorerClient {
   /**
    * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
    * 	        <note>
-   *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
+   *             <p>You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
    *          </note>
    */
   public getSavingsPlansUtilization(
@@ -1086,7 +1107,46 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Returns the name, ARN, <code>NumberOfRules</code> and effective dates of all Cost Categories defined in the account. You have the option to use <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination. The request can have a <code>MaxResults</code> range up to 100.</p>
+   * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
+   *       filters. By default, all cost allocation tags are returned. </p>
+   */
+  public listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCostAllocationTagsCommandOutput>;
+  public listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
+  ): void;
+  public listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
+  ): void;
+  public listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCostAllocationTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
+  ): Promise<ListCostAllocationTagsCommandOutput> | void {
+    const command = new ListCostAllocationTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
+   *       dates of all Cost Categories defined in the account. You have the option to use
+   *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
+   *       date. If there is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are
+   *       effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code>
+   *       is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination. The
+   *       request can have a <code>MaxResults</code> range up to 100.</p>
    */
   public listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
@@ -1185,8 +1245,8 @@ export class CostExplorer extends CostExplorerClient {
   /**
    * <p>An API operation for adding one or more tags (key-value pairs) to a resource.</p>
    *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value you specify replaces the previous value for that tag.</p>
-   *          <p>
-   *       Although the maximum number of array members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use.</p>
+   *          <p>Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
+   *       are reserved for Amazon Web Services use.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1212,9 +1272,8 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>
-   *       Removes one or more tags from a resource. Specify only tag key(s) in your request. Do not specify the value.
-   *     </p>
+   * <p>Removes one or more tags from a resource. Specify only tag keys in your request. Don't
+   *       specify the value. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1300,6 +1359,41 @@ export class CostExplorer extends CostExplorerClient {
     cb?: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
   ): Promise<UpdateAnomalySubscriptionCommandOutput> | void {
     const command = new UpdateAnomalySubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
+   *       status that's updated is the same as the existing tag status, the request doesn't fail.
+   *       Instead, it doesn't have any effect on the tag status (for example, activating the active
+   *       tag). </p>
+   */
+  public updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCostAllocationTagsStatusCommandOutput>;
+  public updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
+  ): void;
+  public updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
+  ): void;
+  public updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
+  ): Promise<UpdateCostAllocationTagsStatusCommandOutput> | void {
+    const command = new UpdateCostAllocationTagsStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -13,42 +13,42 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { ListCostAllocationTagsRequest, ListCostAllocationTagsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UntagResourceCommand,
-  serializeAws_json1_1UntagResourceCommand,
+  deserializeAws_json1_1ListCostAllocationTagsCommand,
+  serializeAws_json1_1ListCostAllocationTagsCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface ListCostAllocationTagsCommandInput extends ListCostAllocationTagsRequest {}
+export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from a resource. Specify only tag keys in your request. Don't
- *       specify the value. </p>
+ * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
+ *       filters. By default, all cost allocation tags are returned. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, UntagResourceCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, UntagResourceCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, ListCostAllocationTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, ListCostAllocationTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const command = new UntagResourceCommand(input);
+ * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link ListCostAllocationTagsCommandInput} for command's `input` shape.
+ * @see {@link ListCostAllocationTagsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
-export class UntagResourceCommand extends $Command<
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+export class ListCostAllocationTagsCommand extends $Command<
+  ListCostAllocationTagsCommandInput,
+  ListCostAllocationTagsCommandOutput,
   CostExplorerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UntagResourceCommandInput) {
+  constructor(readonly input: ListCostAllocationTagsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +61,20 @@ export class UntagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
+  ): Handler<ListCostAllocationTagsCommandInput, ListCostAllocationTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CostExplorerClient";
-    const commandName = "UntagResourceCommand";
+    const commandName = "ListCostAllocationTagsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCostAllocationTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCostAllocationTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +84,12 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagResourceCommand(input, context);
+  private serialize(input: ListCostAllocationTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListCostAllocationTagsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_json1_1UntagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCostAllocationTagsCommandOutput> {
+    return deserializeAws_json1_1ListCostAllocationTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

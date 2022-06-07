@@ -92,6 +92,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "../commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagsCommandInput,
+  ListCostAllocationTagsCommandOutput,
+} from "../commands/ListCostAllocationTagsCommand";
+import {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
@@ -114,6 +118,10 @@ import {
   UpdateAnomalySubscriptionCommandOutput,
 } from "../commands/UpdateAnomalySubscriptionCommand";
 import {
+  UpdateCostAllocationTagsStatusCommandInput,
+  UpdateCostAllocationTagsStatusCommandOutput,
+} from "../commands/UpdateCostAllocationTagsStatusCommand";
+import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
 } from "../commands/UpdateCostCategoryDefinitionCommand";
@@ -125,6 +133,8 @@ import {
   AnomalyScore,
   AnomalySubscription,
   BillExpirationException,
+  CostAllocationTag,
+  CostAllocationTagStatusEntry,
   CostCategory,
   CostCategoryInheritedValueDimension,
   CostCategoryProcessingStatus,
@@ -210,6 +220,8 @@ import {
   InstanceDetails,
   InvalidNextTokenException,
   LimitExceededException,
+  ListCostAllocationTagsRequest,
+  ListCostAllocationTagsResponse,
   ListCostCategoryDefinitionsRequest,
   ListCostCategoryDefinitionsResponse,
   ListTagsForResourceRequest,
@@ -275,6 +287,9 @@ import {
   UpdateAnomalyMonitorResponse,
   UpdateAnomalySubscriptionRequest,
   UpdateAnomalySubscriptionResponse,
+  UpdateCostAllocationTagsStatusError,
+  UpdateCostAllocationTagsStatusRequest,
+  UpdateCostAllocationTagsStatusResponse,
   UpdateCostCategoryDefinitionRequest,
   UpdateCostCategoryDefinitionResponse,
   UtilizationByTime,
@@ -605,6 +620,19 @@ export const serializeAws_json1_1GetUsageForecastCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListCostAllocationTagsCommand = async (
+  input: ListCostAllocationTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.ListCostAllocationTags",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCostAllocationTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   input: ListCostCategoryDefinitionsCommandInput,
   context: __SerdeContext
@@ -693,6 +721,19 @@ export const serializeAws_json1_1UpdateAnomalySubscriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAnomalySubscriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateCostAllocationTagsStatusCommand = async (
+  input: UpdateCostAllocationTagsStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.UpdateCostAllocationTagsStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateCostAllocationTagsStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1925,6 +1966,52 @@ const deserializeAws_json1_1GetUsageForecastCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListCostAllocationTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCostAllocationTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCostAllocationTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCostAllocationTagsResponse(data, context);
+  const response: ListCostAllocationTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCostAllocationTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCostAllocationTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2247,6 +2334,49 @@ const deserializeAws_json1_1UpdateAnomalySubscriptionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCostAllocationTagsStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateCostAllocationTagsStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateCostAllocationTagsStatusResponse(data, context);
+  const response: UpdateCostAllocationTagsStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateCostAllocationTagsStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCostAllocationTagsStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2483,6 +2613,41 @@ const serializeAws_json1_1AnomalySubscription = (input: AnomalySubscription, con
       input.SubscriptionName !== null && { SubscriptionName: input.SubscriptionName }),
     ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
   };
+};
+
+const serializeAws_json1_1CostAllocationTagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1CostAllocationTagStatusEntry = (
+  input: CostAllocationTagStatusEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+  };
+};
+
+const serializeAws_json1_1CostAllocationTagStatusList = (
+  input: CostAllocationTagStatusEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CostAllocationTagStatusEntry(entry, context);
+    });
 };
 
 const serializeAws_json1_1CostCategoryInheritedValueDimension = (
@@ -3081,6 +3246,20 @@ const serializeAws_json1_1GroupDefinitions = (input: GroupDefinition[], context:
     });
 };
 
+const serializeAws_json1_1ListCostAllocationTagsRequest = (
+  input: ListCostAllocationTagsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1CostAllocationTagKeyList(input.TagKeys, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   input: ListCostCategoryDefinitionsRequest,
   context: __SerdeContext
@@ -3315,6 +3494,21 @@ const serializeAws_json1_1UpdateAnomalySubscriptionRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateCostAllocationTagsStatusRequest = (
+  input: UpdateCostAllocationTagsStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CostAllocationTagsStatus !== undefined &&
+      input.CostAllocationTagsStatus !== null && {
+        CostAllocationTagsStatus: serializeAws_json1_1CostAllocationTagStatusList(
+          input.CostAllocationTagsStatus,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   input: UpdateCostCategoryDefinitionRequest,
   context: __SerdeContext
@@ -3464,6 +3658,26 @@ const deserializeAws_json1_1BillExpirationException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1CostAllocationTag = (output: any, context: __SerdeContext): CostAllocationTag => {
+  return {
+    Status: __expectString(output.Status),
+    TagKey: __expectString(output.TagKey),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1CostAllocationTagList = (output: any, context: __SerdeContext): CostAllocationTag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CostAllocationTag(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext): CostCategory => {
@@ -4510,6 +4724,19 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListCostAllocationTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCostAllocationTagsResponse => {
+  return {
+    CostAllocationTags:
+      output.CostAllocationTags !== undefined && output.CostAllocationTags !== null
+        ? deserializeAws_json1_1CostAllocationTagList(output.CostAllocationTags, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
   output: any,
   context: __SerdeContext
@@ -5481,6 +5708,44 @@ const deserializeAws_json1_1UpdateAnomalySubscriptionResponse = (
 ): UpdateAnomalySubscriptionResponse => {
   return {
     SubscriptionArn: __expectString(output.SubscriptionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateCostAllocationTagsStatusError = (
+  output: any,
+  context: __SerdeContext
+): UpdateCostAllocationTagsStatusError => {
+  return {
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
+    TagKey: __expectString(output.TagKey),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateCostAllocationTagsStatusErrors = (
+  output: any,
+  context: __SerdeContext
+): UpdateCostAllocationTagsStatusError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UpdateCostAllocationTagsStatusError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1UpdateCostAllocationTagsStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCostAllocationTagsStatusResponse => {
+  return {
+    Errors:
+      output.Errors !== undefined && output.Errors !== null
+        ? deserializeAws_json1_1UpdateCostAllocationTagsStatusErrors(output.Errors, context)
+        : undefined,
   } as any;
 };
 
