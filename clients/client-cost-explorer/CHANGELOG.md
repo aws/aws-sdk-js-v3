@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.105.0...v3.106.0) (2022-06-07)
+
+
+### Features
+
+* **client-cost-explorer:** Added two new APIs to support cost allocation tags operations: ListCostAllocationTags, UpdateCostAllocationTagsStatus. ([25dcf34](https://github.com/aws/aws-sdk-js-v3/commit/25dcf34b880a3243b6ce58a75d35ec717ff305c7))
+
+
+
+
+
 # [3.105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.104.0...v3.105.0) (2022-06-06)
 
 
