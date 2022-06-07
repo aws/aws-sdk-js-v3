@@ -241,6 +241,7 @@ import {
   ServiceMetadata,
   Settings,
   SourceKeyword,
+  ThrottlingException,
   UpdateAssessmentFrameworkControlSet,
   URL,
   ValidationException,
@@ -4827,6 +4828,9 @@ const deserializeAws_restJson1RegisterAccountCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.auditmanager#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -5587,6 +5591,22 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     contents.resourceType = __expectString(data.resourceType);
   }
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

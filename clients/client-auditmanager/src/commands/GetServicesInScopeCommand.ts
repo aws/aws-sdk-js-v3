@@ -23,7 +23,7 @@ export interface GetServicesInScopeCommandInput extends GetServicesInScopeReques
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of the in-scope Amazon Web Services services for the specified
+ * <p> Returns a list of the in-scope Amazon Web Services for the specified
  *          assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

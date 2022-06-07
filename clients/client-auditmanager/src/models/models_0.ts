@@ -277,12 +277,12 @@ export interface Role {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType?: RoleType | string;
+  roleType: RoleType | string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
    */
-  roleArn?: string;
+  roleArn: string | undefined;
 }
 
 export namespace Role {
@@ -686,7 +686,7 @@ export interface AssessmentEvidenceFolder {
 
   /**
    * <p> The number of evidence that falls under the configuration data category. This
-   *             evidence is collected from configuration snapshots of other Amazon Web Services services such as Amazon EC2, Amazon S3, or IAM. </p>
+   *             evidence is collected from configuration snapshots of other Amazon Web Services such as Amazon EC2, Amazon S3, or IAM. </p>
    */
   evidenceByTypeConfigurationDataCount?: number;
 
@@ -4604,6 +4604,25 @@ export namespace RegisterAccountResponse {
   export const filterSensitiveLog = (obj: RegisterAccountResponse): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 export interface RegisterOrganizationAdminAccountRequest {
