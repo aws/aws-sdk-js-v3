@@ -5374,8 +5374,7 @@ export const deserializeAws_restXmlListCidrBlocksCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrBlocks === "") {
     contents.CidrBlocks = [];
-  }
-  if (data["CidrBlocks"] !== undefined && data["CidrBlocks"]["member"] !== undefined) {
+  } else if (data["CidrBlocks"] !== undefined && data["CidrBlocks"]["member"] !== undefined) {
     contents.CidrBlocks = deserializeAws_restXmlCidrBlockSummaries(
       __getArrayIfSingleItem(data["CidrBlocks"]["member"]),
       context
@@ -5434,8 +5433,7 @@ export const deserializeAws_restXmlListCidrCollectionsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrCollections === "") {
     contents.CidrCollections = [];
-  }
-  if (data["CidrCollections"] !== undefined && data["CidrCollections"]["member"] !== undefined) {
+  } else if (data["CidrCollections"] !== undefined && data["CidrCollections"]["member"] !== undefined) {
     contents.CidrCollections = deserializeAws_restXmlCollectionSummaries(
       __getArrayIfSingleItem(data["CidrCollections"]["member"]),
       context
@@ -5488,8 +5486,7 @@ export const deserializeAws_restXmlListCidrLocationsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrLocations === "") {
     contents.CidrLocations = [];
-  }
-  if (data["CidrLocations"] !== undefined && data["CidrLocations"]["member"] !== undefined) {
+  } else if (data["CidrLocations"] !== undefined && data["CidrLocations"]["member"] !== undefined) {
     contents.CidrLocations = deserializeAws_restXmlLocationSummaries(
       __getArrayIfSingleItem(data["CidrLocations"]["member"]),
       context
