@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.106.0...v3.107.0) (2022-06-08)
+
+
+### Bug Fixes
+
+* **clients:** handle empty xml tags ([#3623](https://github.com/aws/aws-sdk-js-v3/issues/3623)) ([543a0ce](https://github.com/aws/aws-sdk-js-v3/commit/543a0ce13bebc6e8a5f4cc8e1bd4de67692d4034))
+* **middleware-sdk-ec2:** use hostname from regionInfoProvider ([#3673](https://github.com/aws/aws-sdk-js-v3/issues/3673)) ([5103554](https://github.com/aws/aws-sdk-js-v3/commit/5103554ba12de4f9c648db9ea823551769d866d5))
+
+
+### Features
+
+* **client-database-migration-service:** This release adds DMS Fleet Advisor APIs and exposes functionality for DMS Fleet Advisor. It adds functionality to create and modify fleet advisor instances, and to collect and analyze information about the local data infrastructure. ([9d1b69c](https://github.com/aws/aws-sdk-js-v3/commit/9d1b69ce70c444cdade541393c18098cb978eec2))
+* **client-m2:** AWS Mainframe Modernization service is a managed mainframe service and set of tools for planning, migrating, modernizing, and running mainframe workloads on AWS ([18cf697](https://github.com/aws/aws-sdk-js-v3/commit/18cf697710c1027b9a1e18b2dac69e2ed3498568))
+* **client-neptune:** This release adds support for Neptune to be configured as a global database, with a primary DB cluster in one region, and up to five secondary DB clusters in other regions. ([fdf3a33](https://github.com/aws/aws-sdk-js-v3/commit/fdf3a33cc1d8d3da7958a3d851c2b50490226457))
+* **client-redshift:** Adds new API GetClusterCredentialsWithIAM to return temporary credentials. ([3ae95d3](https://github.com/aws/aws-sdk-js-v3/commit/3ae95d39dec2991cf8740143d1976806df5464b9))
+* **client-redshift-serverless:** Add new API operations for Amazon Redshift Serverless, a new way of using Amazon Redshift without needing to manually manage provisioned clusters. The new operations let you interact with Redshift Serverless resources, such as create snapshots, list VPC endpoints, delete resource policies, and more. ([16ec9ec](https://github.com/aws/aws-sdk-js-v3/commit/16ec9ec5712fa59980027b3e537787df9cf1fa84))
+* **clients:** update client endpoints as of 2022-06-08 ([1148250](https://github.com/aws/aws-sdk-js-v3/commit/1148250ad9764dc03d061090a17ada6b52d8f07f))
+
+
+
+
+
 # [3.106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.105.0...v3.106.0) (2022-06-07)
 
 

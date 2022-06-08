@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.106.0...v3.107.0) (2022-06-08)
+
+
+### Bug Fixes
+
+* **middleware-sdk-ec2:** use hostname from regionInfoProvider ([#3673](https://github.com/aws/aws-sdk-js-v3/issues/3673)) ([5103554](https://github.com/aws/aws-sdk-js-v3/commit/5103554ba12de4f9c648db9ea823551769d866d5))
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-ec2
