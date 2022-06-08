@@ -8,6 +8,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -32,6 +33,10 @@ import {
   CreateEventSubscriptionCommandOutput,
 } from "../commands/CreateEventSubscriptionCommand";
 import {
+  CreateFleetAdvisorCollectorCommandInput,
+  CreateFleetAdvisorCollectorCommandOutput,
+} from "../commands/CreateFleetAdvisorCollectorCommand";
+import {
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
 } from "../commands/CreateReplicationInstanceCommand";
@@ -50,6 +55,14 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "../commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteFleetAdvisorCollectorCommandInput,
+  DeleteFleetAdvisorCollectorCommandOutput,
+} from "../commands/DeleteFleetAdvisorCollectorCommand";
+import {
+  DeleteFleetAdvisorDatabasesCommandInput,
+  DeleteFleetAdvisorDatabasesCommandOutput,
+} from "../commands/DeleteFleetAdvisorDatabasesCommand";
 import {
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
@@ -100,6 +113,26 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "../commands/DescribeEventSubscriptionsCommand";
+import {
+  DescribeFleetAdvisorCollectorsCommandInput,
+  DescribeFleetAdvisorCollectorsCommandOutput,
+} from "../commands/DescribeFleetAdvisorCollectorsCommand";
+import {
+  DescribeFleetAdvisorDatabasesCommandInput,
+  DescribeFleetAdvisorDatabasesCommandOutput,
+} from "../commands/DescribeFleetAdvisorDatabasesCommand";
+import {
+  DescribeFleetAdvisorLsaAnalysisCommandInput,
+  DescribeFleetAdvisorLsaAnalysisCommandOutput,
+} from "../commands/DescribeFleetAdvisorLsaAnalysisCommand";
+import {
+  DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+  DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
+} from "../commands/DescribeFleetAdvisorSchemaObjectSummaryCommand";
+import {
+  DescribeFleetAdvisorSchemasCommandInput,
+  DescribeFleetAdvisorSchemasCommandOutput,
+} from "../commands/DescribeFleetAdvisorSchemasCommand";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
@@ -182,6 +215,10 @@ import {
   RemoveTagsFromResourceCommandOutput,
 } from "../commands/RemoveTagsFromResourceCommand";
 import {
+  RunFleetAdvisorLsaAnalysisCommandInput,
+  RunFleetAdvisorLsaAnalysisCommandOutput,
+} from "../commands/RunFleetAdvisorLsaAnalysisCommand";
+import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "../commands/StartReplicationTaskAssessmentCommand";
@@ -210,25 +247,37 @@ import {
   CancelReplicationTaskAssessmentRunMessage,
   CancelReplicationTaskAssessmentRunResponse,
   Certificate,
+  CollectorHealthCheck,
+  CollectorNotFoundFault,
+  CollectorResponse,
+  CollectorShortInfoResponse,
   Connection,
   CreateEndpointMessage,
   CreateEndpointResponse,
   CreateEventSubscriptionMessage,
   CreateEventSubscriptionResponse,
+  CreateFleetAdvisorCollectorRequest,
+  CreateFleetAdvisorCollectorResponse,
   CreateReplicationInstanceMessage,
   CreateReplicationInstanceResponse,
   CreateReplicationSubnetGroupMessage,
   CreateReplicationSubnetGroupResponse,
   CreateReplicationTaskMessage,
   CreateReplicationTaskResponse,
+  DatabaseInstanceSoftwareDetailsResponse,
+  DatabaseResponse,
+  DatabaseShortInfoResponse,
   DeleteCertificateMessage,
   DeleteCertificateResponse,
+  DeleteCollectorRequest,
   DeleteConnectionMessage,
   DeleteConnectionResponse,
   DeleteEndpointMessage,
   DeleteEndpointResponse,
   DeleteEventSubscriptionMessage,
   DeleteEventSubscriptionResponse,
+  DeleteFleetAdvisorDatabasesRequest,
+  DeleteFleetAdvisorDatabasesResponse,
   DeleteReplicationInstanceMessage,
   DeleteReplicationInstanceResponse,
   DeleteReplicationSubnetGroupMessage,
@@ -257,6 +306,16 @@ import {
   DescribeEventsResponse,
   DescribeEventSubscriptionsMessage,
   DescribeEventSubscriptionsResponse,
+  DescribeFleetAdvisorCollectorsRequest,
+  DescribeFleetAdvisorCollectorsResponse,
+  DescribeFleetAdvisorDatabasesRequest,
+  DescribeFleetAdvisorDatabasesResponse,
+  DescribeFleetAdvisorLsaAnalysisRequest,
+  DescribeFleetAdvisorLsaAnalysisResponse,
+  DescribeFleetAdvisorSchemaObjectSummaryRequest,
+  DescribeFleetAdvisorSchemaObjectSummaryResponse,
+  DescribeFleetAdvisorSchemasRequest,
+  DescribeFleetAdvisorSchemasResponse,
   DescribeOrderableReplicationInstancesMessage,
   DescribeOrderableReplicationInstancesResponse,
   DescribePendingMaintenanceActionsMessage,
@@ -291,14 +350,18 @@ import {
   EventCategoryGroup,
   EventSubscription,
   Filter,
+  FleetAdvisorLsaAnalysisResponse,
+  FleetAdvisorSchemaObjectResponse,
   GcpMySQLSettings,
   IBMDb2Settings,
   ImportCertificateMessage,
   ImportCertificateResponse,
   InsufficientResourceCapacityFault,
   InvalidCertificateFault,
+  InvalidOperationFault,
   InvalidResourceStateFault,
   InvalidSubnet,
+  InventoryData,
   KafkaSettings,
   KinesisSettings,
   KMSAccessDeniedFault,
@@ -356,9 +419,13 @@ import {
   ResourceNotFoundFault,
   ResourcePendingMaintenanceActions,
   ResourceQuotaExceededFault,
+  RunFleetAdvisorLsaAnalysisResponse,
   S3AccessDeniedFault,
   S3ResourceNotFoundFault,
   S3Settings,
+  SchemaResponse,
+  SchemaShortInfoResponse,
+  ServerShortInfoResponse,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   StartReplicationTaskAssessmentMessage,
@@ -445,6 +512,19 @@ export const serializeAws_json1_1CreateEventSubscriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEventSubscriptionMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateFleetAdvisorCollectorCommand = async (
+  input: CreateFleetAdvisorCollectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.CreateFleetAdvisorCollector",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFleetAdvisorCollectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -536,6 +616,32 @@ export const serializeAws_json1_1DeleteEventSubscriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventSubscriptionMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteFleetAdvisorCollectorCommand = async (
+  input: DeleteFleetAdvisorCollectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DeleteFleetAdvisorCollector",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCollectorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteFleetAdvisorDatabasesCommand = async (
+  input: DeleteFleetAdvisorDatabasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DeleteFleetAdvisorDatabases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteFleetAdvisorDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -718,6 +824,71 @@ export const serializeAws_json1_1DescribeEventSubscriptionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventSubscriptionsMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetAdvisorCollectorsCommand = async (
+  input: DescribeFleetAdvisorCollectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorCollectors",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetAdvisorCollectorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand = async (
+  input: DescribeFleetAdvisorDatabasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorDatabases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetAdvisorDatabasesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand = async (
+  input: DescribeFleetAdvisorLsaAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
+  input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetAdvisorSchemasCommand = async (
+  input: DescribeFleetAdvisorSchemasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorSchemas",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetAdvisorSchemasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1030,6 +1201,18 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsFromResourceMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand = async (
+  input: RunFleetAdvisorLsaAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis",
+  };
+  const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1353,6 +1536,61 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
       throw await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateFleetAdvisorCollectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetAdvisorCollectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateFleetAdvisorCollectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFleetAdvisorCollectorResponse(data, context);
+  const response: CreateFleetAdvisorCollectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFleetAdvisorCollectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetAdvisorCollectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await deserializeAws_json1_1S3AccessDeniedFaultResponse(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await deserializeAws_json1_1S3ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1723,6 +1961,95 @@ const deserializeAws_json1_1DeleteEventSubscriptionCommandError = async (
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetAdvisorCollectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteFleetAdvisorCollectorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteFleetAdvisorCollectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFleetAdvisorCollectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetAdvisorCollectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CollectorNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#CollectorNotFoundFault":
+      throw await deserializeAws_json1_1CollectorNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetAdvisorDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteFleetAdvisorDatabasesResponse(data, context);
+  const response: DeleteFleetAdvisorDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetAdvisorDatabasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidOperationFault":
+    case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
+      throw await deserializeAws_json1_1InvalidOperationFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
@@ -2334,6 +2661,221 @@ const deserializeAws_json1_1DescribeEventSubscriptionsCommandError = async (
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorCollectorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetAdvisorCollectorsResponse(data, context);
+  const response: DescribeFleetAdvisorCollectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorCollectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetAdvisorDatabasesResponse(data, context);
+  const response: DescribeFleetAdvisorDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorDatabasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisResponse(data, context);
+  const response: DescribeFleetAdvisorLsaAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryResponse(data, context);
+  const response: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFleetAdvisorSchemasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorSchemasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetAdvisorSchemasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetAdvisorSchemasResponse(data, context);
+  const response: DescribeFleetAdvisorSchemasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorSchemasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetAdvisorSchemasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3497,6 +4039,52 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RunFleetAdvisorLsaAnalysisResponse(data, context);
+  const response: RunFleetAdvisorLsaAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1StartReplicationTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3782,6 +4370,19 @@ const deserializeAws_json1_1AccessDeniedFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1CollectorNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CollectorNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CollectorNotFoundFault(body, context);
+  const exception = new CollectorNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InsufficientResourceCapacityFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3802,6 +4403,19 @@ const deserializeAws_json1_1InvalidCertificateFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidCertificateFault(body, context);
   const exception = new InvalidCertificateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1InvalidOperationFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidOperationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidOperationFault(body, context);
+  const exception = new InvalidOperationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4233,6 +4847,19 @@ const serializeAws_json1_1CreateEventSubscriptionMessage = (
   };
 };
 
+const serializeAws_json1_1CreateFleetAdvisorCollectorRequest = (
+  input: CreateFleetAdvisorCollectorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CollectorName !== undefined && input.CollectorName !== null && { CollectorName: input.CollectorName }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.ServiceAccessRoleArn !== undefined &&
+      input.ServiceAccessRoleArn !== null && { ServiceAccessRoleArn: input.ServiceAccessRoleArn }),
+  };
+};
+
 const serializeAws_json1_1CreateReplicationInstanceMessage = (
   input: CreateReplicationInstanceMessage,
   context: __SerdeContext
@@ -4332,6 +4959,13 @@ const serializeAws_json1_1DeleteCertificateMessage = (
   };
 };
 
+const serializeAws_json1_1DeleteCollectorRequest = (input: DeleteCollectorRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CollectorReferencedId !== undefined &&
+      input.CollectorReferencedId !== null && { CollectorReferencedId: input.CollectorReferencedId }),
+  };
+};
+
 const serializeAws_json1_1DeleteConnectionMessage = (input: DeleteConnectionMessage, context: __SerdeContext): any => {
   return {
     ...(input.EndpointArn !== undefined && input.EndpointArn !== null && { EndpointArn: input.EndpointArn }),
@@ -4353,6 +4987,16 @@ const serializeAws_json1_1DeleteEventSubscriptionMessage = (
   return {
     ...(input.SubscriptionName !== undefined &&
       input.SubscriptionName !== null && { SubscriptionName: input.SubscriptionName }),
+  };
+};
+
+const serializeAws_json1_1DeleteFleetAdvisorDatabasesRequest = (
+  input: DeleteFleetAdvisorDatabasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseIds !== undefined &&
+      input.DatabaseIds !== null && { DatabaseIds: serializeAws_json1_1StringList(input.DatabaseIds, context) }),
   };
 };
 
@@ -4528,6 +5172,64 @@ const serializeAws_json1_1DescribeEventSubscriptionsMessage = (
     ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
     ...(input.SubscriptionName !== undefined &&
       input.SubscriptionName !== null && { SubscriptionName: input.SubscriptionName }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetAdvisorCollectorsRequest = (
+  input: DescribeFleetAdvisorCollectorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetAdvisorDatabasesRequest = (
+  input: DescribeFleetAdvisorDatabasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisRequest = (
+  input: DescribeFleetAdvisorLsaAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryRequest = (
+  input: DescribeFleetAdvisorSchemaObjectSummaryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetAdvisorSchemasRequest = (
+  input: DescribeFleetAdvisorSchemasRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords !== undefined && input.MaxRecords !== null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5604,6 +6306,17 @@ const serializeAws_json1_1StopReplicationTaskMessage = (
   };
 };
 
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1SubnetIdentifierList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5799,6 +6512,79 @@ const deserializeAws_json1_1CertificateList = (output: any, context: __SerdeCont
   return retVal;
 };
 
+const deserializeAws_json1_1CollectorHealthCheck = (output: any, context: __SerdeContext): CollectorHealthCheck => {
+  return {
+    CollectorStatus: __expectString(output.CollectorStatus),
+    LocalCollectorS3Access: __expectBoolean(output.LocalCollectorS3Access),
+    WebCollectorGrantedRoleBasedAccess: __expectBoolean(output.WebCollectorGrantedRoleBasedAccess),
+    WebCollectorS3Access: __expectBoolean(output.WebCollectorS3Access),
+  } as any;
+};
+
+const deserializeAws_json1_1CollectorNotFoundFault = (output: any, context: __SerdeContext): CollectorNotFoundFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1CollectorResponse = (output: any, context: __SerdeContext): CollectorResponse => {
+  return {
+    CollectorHealthCheck:
+      output.CollectorHealthCheck !== undefined && output.CollectorHealthCheck !== null
+        ? deserializeAws_json1_1CollectorHealthCheck(output.CollectorHealthCheck, context)
+        : undefined,
+    CollectorName: __expectString(output.CollectorName),
+    CollectorReferencedId: __expectString(output.CollectorReferencedId),
+    CollectorVersion: __expectString(output.CollectorVersion),
+    CreatedDate: __expectString(output.CreatedDate),
+    Description: __expectString(output.Description),
+    InventoryData:
+      output.InventoryData !== undefined && output.InventoryData !== null
+        ? deserializeAws_json1_1InventoryData(output.InventoryData, context)
+        : undefined,
+    LastDataReceived: __expectString(output.LastDataReceived),
+    ModifiedDate: __expectString(output.ModifiedDate),
+    RegisteredDate: __expectString(output.RegisteredDate),
+    S3BucketName: __expectString(output.S3BucketName),
+    ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
+    VersionStatus: __expectString(output.VersionStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1CollectorResponses = (output: any, context: __SerdeContext): CollectorResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CollectorResponse(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1CollectorShortInfoResponse = (
+  output: any,
+  context: __SerdeContext
+): CollectorShortInfoResponse => {
+  return {
+    CollectorName: __expectString(output.CollectorName),
+    CollectorReferencedId: __expectString(output.CollectorReferencedId),
+  } as any;
+};
+
+const deserializeAws_json1_1CollectorsList = (output: any, context: __SerdeContext): CollectorShortInfoResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CollectorShortInfoResponse(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
     EndpointArn: __expectString(output.EndpointArn),
@@ -5843,6 +6629,19 @@ const deserializeAws_json1_1CreateEventSubscriptionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateFleetAdvisorCollectorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateFleetAdvisorCollectorResponse => {
+  return {
+    CollectorName: __expectString(output.CollectorName),
+    CollectorReferencedId: __expectString(output.CollectorReferencedId),
+    Description: __expectString(output.Description),
+    S3BucketName: __expectString(output.S3BucketName),
+    ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateReplicationInstanceResponse = (
   output: any,
   context: __SerdeContext
@@ -5876,6 +6675,66 @@ const deserializeAws_json1_1CreateReplicationTaskResponse = (
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatabaseInstanceSoftwareDetailsResponse = (
+  output: any,
+  context: __SerdeContext
+): DatabaseInstanceSoftwareDetailsResponse => {
+  return {
+    Engine: __expectString(output.Engine),
+    EngineEdition: __expectString(output.EngineEdition),
+    EngineVersion: __expectString(output.EngineVersion),
+    OsArchitecture: __expectInt32(output.OsArchitecture),
+    ServicePack: __expectString(output.ServicePack),
+    SupportLevel: __expectString(output.SupportLevel),
+    Tooltip: __expectString(output.Tooltip),
+  } as any;
+};
+
+const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext): DatabaseResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatabaseResponse(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DatabaseResponse = (output: any, context: __SerdeContext): DatabaseResponse => {
+  return {
+    Collectors:
+      output.Collectors !== undefined && output.Collectors !== null
+        ? deserializeAws_json1_1CollectorsList(output.Collectors, context)
+        : undefined,
+    DatabaseId: __expectString(output.DatabaseId),
+    DatabaseName: __expectString(output.DatabaseName),
+    IpAddress: __expectString(output.IpAddress),
+    NumberOfSchemas: __expectLong(output.NumberOfSchemas),
+    Server:
+      output.Server !== undefined && output.Server !== null
+        ? deserializeAws_json1_1ServerShortInfoResponse(output.Server, context)
+        : undefined,
+    SoftwareDetails:
+      output.SoftwareDetails !== undefined && output.SoftwareDetails !== null
+        ? deserializeAws_json1_1DatabaseInstanceSoftwareDetailsResponse(output.SoftwareDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatabaseShortInfoResponse = (
+  output: any,
+  context: __SerdeContext
+): DatabaseShortInfoResponse => {
+  return {
+    DatabaseEngine: __expectString(output.DatabaseEngine),
+    DatabaseId: __expectString(output.DatabaseId),
+    DatabaseIpAddress: __expectString(output.DatabaseIpAddress),
+    DatabaseName: __expectString(output.DatabaseName),
   } as any;
 };
 
@@ -5920,6 +6779,18 @@ const deserializeAws_json1_1DeleteEventSubscriptionResponse = (
     EventSubscription:
       output.EventSubscription !== undefined && output.EventSubscription !== null
         ? deserializeAws_json1_1EventSubscription(output.EventSubscription, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteFleetAdvisorDatabasesResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteFleetAdvisorDatabasesResponse => {
+  return {
+    DatabaseIds:
+      output.DatabaseIds !== undefined && output.DatabaseIds !== null
+        ? deserializeAws_json1_1StringList(output.DatabaseIds, context)
         : undefined,
   } as any;
 };
@@ -6090,6 +6961,71 @@ const deserializeAws_json1_1DescribeEventSubscriptionsResponse = (
         ? deserializeAws_json1_1EventSubscriptionsList(output.EventSubscriptionsList, context)
         : undefined,
     Marker: __expectString(output.Marker),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorCollectorsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetAdvisorCollectorsResponse => {
+  return {
+    Collectors:
+      output.Collectors !== undefined && output.Collectors !== null
+        ? deserializeAws_json1_1CollectorResponses(output.Collectors, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorDatabasesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetAdvisorDatabasesResponse => {
+  return {
+    Databases:
+      output.Databases !== undefined && output.Databases !== null
+        ? deserializeAws_json1_1DatabaseList(output.Databases, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetAdvisorLsaAnalysisResponse => {
+  return {
+    Analysis:
+      output.Analysis !== undefined && output.Analysis !== null
+        ? deserializeAws_json1_1FleetAdvisorLsaAnalysisResponseList(output.Analysis, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetAdvisorSchemaObjectSummaryResponse => {
+  return {
+    FleetAdvisorSchemaObjects:
+      output.FleetAdvisorSchemaObjects !== undefined && output.FleetAdvisorSchemaObjects !== null
+        ? deserializeAws_json1_1FleetAdvisorSchemaObjectList(output.FleetAdvisorSchemaObjects, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetAdvisorSchemasResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetAdvisorSchemasResponse => {
+  return {
+    FleetAdvisorSchemas:
+      output.FleetAdvisorSchemas !== undefined && output.FleetAdvisorSchemas !== null
+        ? deserializeAws_json1_1FleetAdvisorSchemaList(output.FleetAdvisorSchemas, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6533,6 +7469,71 @@ const deserializeAws_json1_1EventSubscriptionsList = (output: any, context: __Se
   return retVal;
 };
 
+const deserializeAws_json1_1FleetAdvisorLsaAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): FleetAdvisorLsaAnalysisResponse => {
+  return {
+    LsaAnalysisId: __expectString(output.LsaAnalysisId),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1FleetAdvisorLsaAnalysisResponseList = (
+  output: any,
+  context: __SerdeContext
+): FleetAdvisorLsaAnalysisResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FleetAdvisorLsaAnalysisResponse(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FleetAdvisorSchemaList = (output: any, context: __SerdeContext): SchemaResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SchemaResponse(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FleetAdvisorSchemaObjectList = (
+  output: any,
+  context: __SerdeContext
+): FleetAdvisorSchemaObjectResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FleetAdvisorSchemaObjectResponse(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FleetAdvisorSchemaObjectResponse = (
+  output: any,
+  context: __SerdeContext
+): FleetAdvisorSchemaObjectResponse => {
+  return {
+    CodeLineCount: __expectLong(output.CodeLineCount),
+    CodeSize: __expectLong(output.CodeSize),
+    NumberOfObjects: __expectLong(output.NumberOfObjects),
+    ObjectType: __expectString(output.ObjectType),
+    SchemaId: __expectString(output.SchemaId),
+  } as any;
+};
+
 const deserializeAws_json1_1GcpMySQLSettings = (output: any, context: __SerdeContext): GcpMySQLSettings => {
   return {
     AfterConnectScript: __expectString(output.AfterConnectScript),
@@ -6621,6 +7622,12 @@ const deserializeAws_json1_1InvalidCertificateFault = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidOperationFault = (output: any, context: __SerdeContext): InvalidOperationFault => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidResourceStateFault = (
   output: any,
   context: __SerdeContext
@@ -6633,6 +7640,13 @@ const deserializeAws_json1_1InvalidResourceStateFault = (
 const deserializeAws_json1_1InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1InventoryData = (output: any, context: __SerdeContext): InventoryData => {
+  return {
+    NumberOfDatabases: __expectInt32(output.NumberOfDatabases),
+    NumberOfSchemas: __expectInt32(output.NumberOfSchemas),
   } as any;
 };
 
@@ -7529,6 +8543,16 @@ const deserializeAws_json1_1ResourceQuotaExceededFault = (
   } as any;
 };
 
+const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisResponse = (
+  output: any,
+  context: __SerdeContext
+): RunFleetAdvisorLsaAnalysisResponse => {
+  return {
+    LsaAnalysisId: __expectString(output.LsaAnalysisId),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1S3AccessDeniedFault = (output: any, context: __SerdeContext): S3AccessDeniedFault => {
   return {
     message: __expectString(output.message),
@@ -7597,6 +8621,53 @@ const deserializeAws_json1_1SchemaList = (output: any, context: __SerdeContext):
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1SchemaResponse = (output: any, context: __SerdeContext): SchemaResponse => {
+  return {
+    CodeLineCount: __expectLong(output.CodeLineCount),
+    CodeSize: __expectLong(output.CodeSize),
+    Complexity: __expectString(output.Complexity),
+    DatabaseInstance:
+      output.DatabaseInstance !== undefined && output.DatabaseInstance !== null
+        ? deserializeAws_json1_1DatabaseShortInfoResponse(output.DatabaseInstance, context)
+        : undefined,
+    OriginalSchema:
+      output.OriginalSchema !== undefined && output.OriginalSchema !== null
+        ? deserializeAws_json1_1SchemaShortInfoResponse(output.OriginalSchema, context)
+        : undefined,
+    SchemaId: __expectString(output.SchemaId),
+    SchemaName: __expectString(output.SchemaName),
+    Server:
+      output.Server !== undefined && output.Server !== null
+        ? deserializeAws_json1_1ServerShortInfoResponse(output.Server, context)
+        : undefined,
+    Similarity: __limitedParseDouble(output.Similarity),
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaShortInfoResponse = (
+  output: any,
+  context: __SerdeContext
+): SchemaShortInfoResponse => {
+  return {
+    DatabaseId: __expectString(output.DatabaseId),
+    DatabaseIpAddress: __expectString(output.DatabaseIpAddress),
+    DatabaseName: __expectString(output.DatabaseName),
+    SchemaId: __expectString(output.SchemaId),
+    SchemaName: __expectString(output.SchemaName),
+  } as any;
+};
+
+const deserializeAws_json1_1ServerShortInfoResponse = (
+  output: any,
+  context: __SerdeContext
+): ServerShortInfoResponse => {
+  return {
+    IpAddress: __expectString(output.IpAddress),
+    ServerId: __expectString(output.ServerId),
+    ServerName: __expectString(output.ServerName),
+  } as any;
 };
 
 const deserializeAws_json1_1SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
@@ -7681,6 +8752,18 @@ const deserializeAws_json1_1StorageQuotaExceededFault = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Subnet => {

@@ -828,12 +828,12 @@ export interface GcpMySQLSettings {
    *          that allows access to the MySQL endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify
-   *             the values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify clear-text
-   *             values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>, and <code>Port</code>.
-   *             You can't specify both. For more information on creating this <code>SecretsManagerSecret</code>
-   *             and the <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code> required to
-   *             access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service resources</a> in the
-   *             Database Migration Service User Guide.
+   *          the values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify clear-text
+   *          values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>, and <code>Port</code>.
+   *          You can't specify both. For more information on creating this <code>SecretsManagerSecret</code>
+   *          and the <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code> required to
+   *          access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service resources</a> in the
+   *          Database Migration Service User Guide.
    *
    *       </p>
    *          </note>
@@ -1493,7 +1493,9 @@ export interface MySQLSettings {
 
   /**
    * <p>Specifies where to migrate source tables on the target, either
-   *          to a single database or multiple databases.</p>
+   *          to a single database or multiple databases. If you specify
+   *       <code>SPECIFIC_DATABASE</code>, specify the database name using the <code>DatabaseName</code>
+   *       parameter of the <code>Endpoint</code> object.</p>
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
@@ -3136,9 +3138,9 @@ export interface S3Settings {
    *          following example.</p>
    *          <p>
    *             <code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
-   *             "DatePartitionDelimiter": "SLASH",
-   *                "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
-   *             "dms-nattarat-test"}'</code>
+   *          "DatePartitionDelimiter": "SLASH",
+   *          "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
+   *          "dms-nattarat-test"}'</code>
    *          </p>
    */
   DatePartitionTimezone?: string;
@@ -3273,7 +3275,8 @@ export interface CreateEndpointMessage {
   Port?: number;
 
   /**
-   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.
+   *       To migrate to a specific database, use this setting and <code>targetDbType</code>.</p>
    */
   DatabaseName?: string;
 
@@ -4160,6 +4163,95 @@ export class SNSNoAuthorizationFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
+  }
+}
+
+export interface CreateFleetAdvisorCollectorRequest {
+  /**
+   * <p>The name of your Fleet Advisor collector (for example, <code>sample-collector</code>).</p>
+   */
+  CollectorName: string | undefined;
+
+  /**
+   * <p>A summary description of your Fleet Advisor collector.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
+   */
+  ServiceAccessRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket that the Fleet Advisor collector uses to store inventory metadata.</p>
+   */
+  S3BucketName: string | undefined;
+}
+
+export namespace CreateFleetAdvisorCollectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetAdvisorCollectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFleetAdvisorCollectorResponse {
+  /**
+   * <p>The unique ID of the new Fleet Advisor collector, for example:
+   *                 <code>22fda70c-40d5-4acf-b233-a495bd8eb7f5</code>
+   *          </p>
+   */
+  CollectorReferencedId?: string;
+
+  /**
+   * <p>The name of the new Fleet Advisor collector.</p>
+   */
+  CollectorName?: string;
+
+  /**
+   * <p>A summary description of the Fleet Advisor collector.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
+   */
+  ServiceAccessRoleArn?: string;
+
+  /**
+   * <p>The Amazon S3 bucket that the collector uses to store inventory metadata.</p>
+   */
+  S3BucketName?: string;
+}
+
+export namespace CreateFleetAdvisorCollectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetAdvisorCollectorResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
+ *             found.</p>
+ */
+export class S3ResourceNotFoundFault extends __BaseException {
+  readonly name: "S3ResourceNotFoundFault" = "S3ResourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3ResourceNotFoundFault, __BaseException>) {
+    super({
+      name: "S3ResourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3ResourceNotFoundFault.prototype);
   }
 }
 
@@ -5664,6 +5756,92 @@ export namespace DeleteEventSubscriptionResponse {
 }
 
 /**
+ * <p>The specified collector doesn't exist.</p>
+ */
+export class CollectorNotFoundFault extends __BaseException {
+  readonly name: "CollectorNotFoundFault" = "CollectorNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CollectorNotFoundFault, __BaseException>) {
+    super({
+      name: "CollectorNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CollectorNotFoundFault.prototype);
+  }
+}
+
+export interface DeleteCollectorRequest {
+  /**
+   * <p>The reference ID of the Fleet Advisor collector to delete.</p>
+   */
+  CollectorReferencedId: string | undefined;
+}
+
+export namespace DeleteCollectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCollectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFleetAdvisorDatabasesRequest {
+  /**
+   * <p>The IDs of the Fleet Advisor collector databases to delete.</p>
+   */
+  DatabaseIds: string[] | undefined;
+}
+
+export namespace DeleteFleetAdvisorDatabasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetAdvisorDatabasesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFleetAdvisorDatabasesResponse {
+  /**
+   * <p>The IDs of the databases that the operation deleted.</p>
+   */
+  DatabaseIds?: string[];
+}
+
+export namespace DeleteFleetAdvisorDatabasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetAdvisorDatabasesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The action or operation requested isn't valid.</p>
+ */
+export class InvalidOperationFault extends __BaseException {
+  readonly name: "InvalidOperationFault" = "InvalidOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationFault, __BaseException>) {
+    super({
+      name: "InvalidOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationFault.prototype);
+  }
+}
+
+/**
  * <p></p>
  */
 export interface DeleteReplicationInstanceMessage {
@@ -6656,6 +6834,897 @@ export namespace DescribeEventSubscriptionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeEventSubscriptionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorCollectorsRequest {
+  /**
+   * <p> If you specify any of the following filters, the output includes information for only
+   *             those collectors that meet the filter criteria:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>collector-referenced-id</code> – The ID of the collector agent, for example
+   *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>collector-name</code> – The name of the collector agent.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>An example is: <code>describe-fleet-advisor-collectors --filter
+   *                 Name="collector-referenced-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Sets the maximum number of records returned in the response.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorCollectorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorCollectorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum CollectorStatus {
+  ACTIVE = "ACTIVE",
+  UNREGISTERED = "UNREGISTERED",
+}
+
+/**
+ * <p>Describes the last Fleet Advisor collector health check.</p>
+ */
+export interface CollectorHealthCheck {
+  /**
+   * <p>The status of the Fleet Advisor collector.</p>
+   */
+  CollectorStatus?: CollectorStatus | string;
+
+  /**
+   * <p>Whether the local collector can access its Amazon S3 bucket.</p>
+   */
+  LocalCollectorS3Access?: boolean;
+
+  /**
+   * <p>Whether the web collector can access its Amazon S3 bucket.</p>
+   */
+  WebCollectorS3Access?: boolean;
+
+  /**
+   * <p>Whether the role that you provided when creating the Fleet Advisor collector has sufficient permissions
+   *             to access the Fleet Advisor web collector.</p>
+   */
+  WebCollectorGrantedRoleBasedAccess?: boolean;
+}
+
+export namespace CollectorHealthCheck {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CollectorHealthCheck): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Fleet Advisor collector inventory.</p>
+ */
+export interface InventoryData {
+  /**
+   * <p>The number of databases in the Fleet Advisor collector inventory.</p>
+   */
+  NumberOfDatabases?: number;
+
+  /**
+   * <p>The number of schemas in the Fleet Advisor collector inventory.</p>
+   */
+  NumberOfSchemas?: number;
+}
+
+export namespace InventoryData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InventoryData): any => ({
+    ...obj,
+  });
+}
+
+export enum VersionStatus {
+  OUTDATED = "OUTDATED",
+  UNSUPPORTED = "UNSUPPORTED",
+  UP_TO_DATE = "UP_TO_DATE",
+}
+
+/**
+ * <p>Describes a Fleet Advisor collector.</p>
+ */
+export interface CollectorResponse {
+  /**
+   * <p>The reference ID of the Fleet Advisor collector.</p>
+   */
+  CollectorReferencedId?: string;
+
+  /**
+   * <p>The name of the Fleet Advisor collector .</p>
+   */
+  CollectorName?: string;
+
+  /**
+   * <p>The version of your Fleet Advisor collector, in semantic versioning format, for example
+   *                 <code>1.0.2</code>
+   *          </p>
+   */
+  CollectorVersion?: string;
+
+  /**
+   * <p>Whether the collector version is up to date.</p>
+   */
+  VersionStatus?: VersionStatus | string;
+
+  /**
+   * <p>A summary description of the Fleet Advisor collector.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon S3 bucket that the Fleet Advisor collector uses to store inventory metadata.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
+   */
+  ServiceAccessRoleArn?: string;
+
+  /**
+   * <p>Describes the last Fleet Advisor collector health check.</p>
+   */
+  CollectorHealthCheck?: CollectorHealthCheck;
+
+  /**
+   * <p>The timestamp of the last time the collector received data, in the following format:
+   *                 <code>2022-01-24T19:04:02.596113Z</code>
+   *          </p>
+   */
+  LastDataReceived?: string;
+
+  /**
+   * <p>The timestamp when DMS registered the collector, in the following format:
+   *                 <code>2022-01-24T19:04:02.596113Z</code>
+   *          </p>
+   */
+  RegisteredDate?: string;
+
+  /**
+   * <p>The timestamp when you created the collector, in the following format:
+   *                 <code>2022-01-24T19:04:02.596113Z</code>
+   *          </p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>The timestamp when DMS last modified the collector, in the following format:
+   *                 <code>2022-01-24T19:04:02.596113Z</code>
+   *          </p>
+   */
+  ModifiedDate?: string;
+
+  /**
+   * <p>Describes a Fleet Advisor collector inventory.</p>
+   */
+  InventoryData?: InventoryData;
+}
+
+export namespace CollectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CollectorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorCollectorsResponse {
+  /**
+   * <p>Provides descriptions of the Fleet Advisor collectors, including the collectors' name
+   *             and ID, and the latest inventory data. </p>
+   */
+  Collectors?: CollectorResponse[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorCollectorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorCollectorsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorDatabasesRequest {
+  /**
+   * <p> If you specify any of the following filters, the output includes information for only
+   *             those databases that meet the filter criteria: </p>
+   *
+   *             <ul>
+   *             <li>
+   *                <p>
+   *                   <code>database-id</code> – The ID of the database, for example
+   *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-name</code> – The name of the database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-engine</code> – The name of the database engine.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>server-ip-address</code> – The IP address of the database server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-ip-address</code> – The IP address of the database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>collector-name</code> – The name of the associated Fleet Advisor collector.</p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>An example is: <code>describe-fleet-advisor-databases --filter
+   *                 Name="database-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Sets the maximum number of records returned in the response.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorDatabasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorDatabasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Briefly describes a Fleet Advisor collector.</p>
+ */
+export interface CollectorShortInfoResponse {
+  /**
+   * <p>The reference ID of the Fleet Advisor collector.</p>
+   */
+  CollectorReferencedId?: string;
+
+  /**
+   * <p>The name of the Fleet Advisor collector.</p>
+   */
+  CollectorName?: string;
+}
+
+export namespace CollectorShortInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CollectorShortInfoResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a server in a Fleet Advisor collector inventory.</p>
+ */
+export interface ServerShortInfoResponse {
+  /**
+   * <p>The ID of a server in a Fleet Advisor collector inventory.</p>
+   */
+  ServerId?: string;
+
+  /**
+   * <p>The IP address of a server in a Fleet Advisor collector inventory.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The name address of a server in a Fleet Advisor collector inventory.</p>
+   */
+  ServerName?: string;
+}
+
+export namespace ServerShortInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerShortInfoResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an inventory database instance for a Fleet Advisor collector.</p>
+ */
+export interface DatabaseInstanceSoftwareDetailsResponse {
+  /**
+   * <p>The database engine of a database in a Fleet Advisor collector inventory, for example <code>Microsoft
+   *                 SQL Server</code>.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The database engine version of a database in a Fleet Advisor collector inventory, for example
+   *                 <code>2019</code>.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The database engine edition of a database in a Fleet Advisor collector inventory, for example
+   *                 <code>Express</code>.</p>
+   */
+  EngineEdition?: string;
+
+  /**
+   * <p>The service pack level of the database.</p>
+   */
+  ServicePack?: string;
+
+  /**
+   * <p>The support level of the database, for example <code>Mainstream support</code>.</p>
+   */
+  SupportLevel?: string;
+
+  /**
+   * <p>The operating system architecture of the database.</p>
+   */
+  OsArchitecture?: number;
+
+  /**
+   * <p>Information about the database engine software, for example <code>Mainstream support
+   *                 ends on November 14th, 2024</code>.</p>
+   */
+  Tooltip?: string;
+}
+
+export namespace DatabaseInstanceSoftwareDetailsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatabaseInstanceSoftwareDetailsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a database in a Fleet Advisor collector inventory.</p>
+ */
+export interface DatabaseResponse {
+  /**
+   * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The name of a database in a Fleet Advisor collector inventory. </p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The IP address of a database in a Fleet Advisor collector inventory. </p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The number of schemas in a Fleet Advisor collector inventory database. </p>
+   */
+  NumberOfSchemas?: number;
+
+  /**
+   * <p>The server name of a database in a Fleet Advisor collector inventory. </p>
+   */
+  Server?: ServerShortInfoResponse;
+
+  /**
+   * <p>The software details of a database in a Fleet Advisor collector inventory, such as database engine and version.</p>
+   */
+  SoftwareDetails?: DatabaseInstanceSoftwareDetailsResponse;
+
+  /**
+   * <p>A list of collectors associated with the database.</p>
+   */
+  Collectors?: CollectorShortInfoResponse[];
+}
+
+export namespace DatabaseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatabaseResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorDatabasesResponse {
+  /**
+   * <p>Provides descriptions of the Fleet Advisor collector databases, including the database's collector, ID, and name.</p>
+   */
+  Databases?: DatabaseResponse[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorDatabasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorDatabasesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorLsaAnalysisRequest {
+  /**
+   * <p>Sets the maximum number of records returned in the response.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorLsaAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorLsaAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a large-scale assessment (LSA) analysis run by a Fleet Advisor collector.</p>
+ */
+export interface FleetAdvisorLsaAnalysisResponse {
+  /**
+   * <p>The ID of an LSA analysis run by a Fleet Advisor collector.</p>
+   */
+  LsaAnalysisId?: string;
+
+  /**
+   * <p>The status of an LSA analysis run by a Fleet Advisor collector.</p>
+   */
+  Status?: string;
+}
+
+export namespace FleetAdvisorLsaAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetAdvisorLsaAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorLsaAnalysisResponse {
+  /**
+   * <p>A list of <code>FleetAdvisorLsaAnalysisResponse</code> objects.</p>
+   */
+  Analysis?: FleetAdvisorLsaAnalysisResponse[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorLsaAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorLsaAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
+  /**
+   * <p> If you specify any of the following filters, the output includes information for only
+   *             those schema objects that meet the filter criteria:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>schema-id</code> – The ID of the schema, for example
+   *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>Example: <code>describe-fleet-advisor-schema-object-summary --filter Name="schema-id",Values="50"</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Sets the maximum number of records returned in the response.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorSchemaObjectSummaryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorSchemaObjectSummaryRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a schema object in a Fleet Advisor collector inventory.</p>
+ */
+export interface FleetAdvisorSchemaObjectResponse {
+  /**
+   * <p>The ID of a schema object in a Fleet Advisor collector inventory.</p>
+   */
+  SchemaId?: string;
+
+  /**
+   * <p>The type of the schema object, as reported by the database engine. Examples include the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>function</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>trigger</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SYSTEM_TABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ObjectType?: string;
+
+  /**
+   * <p>The number of objects in a schema object in a Fleet Advisor collector inventory.</p>
+   */
+  NumberOfObjects?: number;
+
+  /**
+   * <p>The number of lines of code in a schema object in a Fleet Advisor collector inventory.</p>
+   */
+  CodeLineCount?: number;
+
+  /**
+   * <p>The size level of the code in a schema object in a Fleet Advisor collector inventory.</p>
+   */
+  CodeSize?: number;
+}
+
+export namespace FleetAdvisorSchemaObjectResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetAdvisorSchemaObjectResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
+  /**
+   * <p>A collection of <code>FleetAdvisorSchemaObjectResponse</code> objects.</p>
+   */
+  FleetAdvisorSchemaObjects?: FleetAdvisorSchemaObjectResponse[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorSchemaObjectSummaryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorSchemaObjectSummaryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorSchemasRequest {
+  /**
+   * <p> If you specify any of the following filters, the output includes information for only
+   *             those schemas that meet the filter criteria:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>complexity</code> – The schema's complexity, for example
+   *                     <code>Simple</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-id</code> – The ID of the schema's database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-ip-address</code> – The IP address of the schema's database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-name</code> – The name of the schema's database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>database-engine</code> – The name of the schema database's engine.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-schema-name</code> – The name of the schema's database's main schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>schema-id</code> – The ID of the schema, for example <code>15</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>schema-name</code> – The name of the schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>server-ip-address</code> – The IP address of the schema database's server.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>An example is: <code>describe-fleet-advisor-schemas --filter
+   *                 Name="schema-id",Values="50"</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Sets the maximum number of records returned in the response.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorSchemasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorSchemasRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a database in a Fleet Advisor collector inventory.</p>
+ */
+export interface DatabaseShortInfoResponse {
+  /**
+   * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The name of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The IP address of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseIpAddress?: string;
+
+  /**
+   * <p>The database engine of a database in a Fleet Advisor collector inventory, for example
+   *                 <code>PostgreSQL</code>.</p>
+   */
+  DatabaseEngine?: string;
+}
+
+export namespace DatabaseShortInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatabaseShortInfoResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
+ */
+export interface SchemaShortInfoResponse {
+  /**
+   * <p>The ID of a schema in a Fleet Advisor collector inventory.</p>
+   */
+  SchemaId?: string;
+
+  /**
+   * <p>The name of a schema in a Fleet Advisor collector inventory.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The name of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The IP address of a database in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseIpAddress?: string;
+}
+
+export namespace SchemaShortInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SchemaShortInfoResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
+ */
+export interface SchemaResponse {
+  /**
+   * <p>The number of lines of code in a schema in a Fleet Advisor collector inventory.</p>
+   */
+  CodeLineCount?: number;
+
+  /**
+   * <p>The size level of the code in a schema in a Fleet Advisor collector inventory.</p>
+   */
+  CodeSize?: number;
+
+  /**
+   * <p>The complexity level of the code in a schema in a Fleet Advisor collector inventory.</p>
+   */
+  Complexity?: string;
+
+  /**
+   * <p>The database server for a schema in a Fleet Advisor collector inventory.</p>
+   */
+  Server?: ServerShortInfoResponse;
+
+  /**
+   * <p>The database for a schema in a Fleet Advisor collector inventory.</p>
+   */
+  DatabaseInstance?: DatabaseShortInfoResponse;
+
+  /**
+   * <p>The ID of a schema in a Fleet Advisor collector inventory.</p>
+   */
+  SchemaId?: string;
+
+  /**
+   * <p>The name of a schema in a Fleet Advisor collector inventory.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
+   */
+  OriginalSchema?: SchemaShortInfoResponse;
+
+  /**
+   * <p>The similarity value for a schema in a Fleet Advisor collector inventory. A higher similarity value
+   *             indicates that a schema is likely to be a duplicate.</p>
+   */
+  Similarity?: number;
+}
+
+export namespace SchemaResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SchemaResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetAdvisorSchemasResponse {
+  /**
+   * <p>A collection of <code>SchemaResponse</code> objects.</p>
+   */
+  FleetAdvisorSchemas?: SchemaResponse[];
+
+  /**
+   * <p>If <code>NextToken</code> is returned, there are more results available. The value of
+   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
+   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFleetAdvisorSchemasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetAdvisorSchemasResponse): any => ({
     ...obj,
   });
 }
@@ -8924,6 +9993,27 @@ export namespace RemoveTagsFromResourceResponse {
   });
 }
 
+export interface RunFleetAdvisorLsaAnalysisResponse {
+  /**
+   * <p>The ID of the LSA analysis run.</p>
+   */
+  LsaAnalysisId?: string;
+
+  /**
+   * <p>The status of the LSA analysis, for example <code>COMPLETED</code>.</p>
+   */
+  Status?: string;
+}
+
+export namespace RunFleetAdvisorLsaAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RunFleetAdvisorLsaAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum StartReplicationTaskTypeValue {
   RELOAD_TARGET = "reload-target",
   RESUME_PROCESSING = "resume-processing",
@@ -9068,26 +10158,6 @@ export class KMSFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, KMSFault.prototype);
-  }
-}
-
-/**
- * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
- */
-export class S3ResourceNotFoundFault extends __BaseException {
-  readonly name: "S3ResourceNotFoundFault" = "S3ResourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3ResourceNotFoundFault, __BaseException>) {
-    super({
-      name: "S3ResourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3ResourceNotFoundFault.prototype);
   }
 }
 

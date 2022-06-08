@@ -68,6 +68,10 @@ import {
   CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  CreateFleetAdvisorCollectorCommandInput,
+  CreateFleetAdvisorCollectorCommandOutput,
+} from "./commands/CreateFleetAdvisorCollectorCommand";
+import {
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand";
@@ -86,6 +90,14 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteFleetAdvisorCollectorCommandInput,
+  DeleteFleetAdvisorCollectorCommandOutput,
+} from "./commands/DeleteFleetAdvisorCollectorCommand";
+import {
+  DeleteFleetAdvisorDatabasesCommandInput,
+  DeleteFleetAdvisorDatabasesCommandOutput,
+} from "./commands/DeleteFleetAdvisorDatabasesCommand";
 import {
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
@@ -136,6 +148,26 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
+import {
+  DescribeFleetAdvisorCollectorsCommandInput,
+  DescribeFleetAdvisorCollectorsCommandOutput,
+} from "./commands/DescribeFleetAdvisorCollectorsCommand";
+import {
+  DescribeFleetAdvisorDatabasesCommandInput,
+  DescribeFleetAdvisorDatabasesCommandOutput,
+} from "./commands/DescribeFleetAdvisorDatabasesCommand";
+import {
+  DescribeFleetAdvisorLsaAnalysisCommandInput,
+  DescribeFleetAdvisorLsaAnalysisCommandOutput,
+} from "./commands/DescribeFleetAdvisorLsaAnalysisCommand";
+import {
+  DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+  DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
+} from "./commands/DescribeFleetAdvisorSchemaObjectSummaryCommand";
+import {
+  DescribeFleetAdvisorSchemasCommandInput,
+  DescribeFleetAdvisorSchemasCommandOutput,
+} from "./commands/DescribeFleetAdvisorSchemasCommand";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
@@ -218,6 +250,10 @@ import {
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
+  RunFleetAdvisorLsaAnalysisCommandInput,
+  RunFleetAdvisorLsaAnalysisCommandOutput,
+} from "./commands/RunFleetAdvisorLsaAnalysisCommand";
+import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
@@ -242,6 +278,7 @@ export type ServiceInputTypes =
   | CancelReplicationTaskAssessmentRunCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
+  | CreateFleetAdvisorCollectorCommandInput
   | CreateReplicationInstanceCommandInput
   | CreateReplicationSubnetGroupCommandInput
   | CreateReplicationTaskCommandInput
@@ -249,6 +286,8 @@ export type ServiceInputTypes =
   | DeleteConnectionCommandInput
   | DeleteEndpointCommandInput
   | DeleteEventSubscriptionCommandInput
+  | DeleteFleetAdvisorCollectorCommandInput
+  | DeleteFleetAdvisorDatabasesCommandInput
   | DeleteReplicationInstanceCommandInput
   | DeleteReplicationSubnetGroupCommandInput
   | DeleteReplicationTaskAssessmentRunCommandInput
@@ -263,6 +302,11 @@ export type ServiceInputTypes =
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeFleetAdvisorCollectorsCommandInput
+  | DescribeFleetAdvisorDatabasesCommandInput
+  | DescribeFleetAdvisorLsaAnalysisCommandInput
+  | DescribeFleetAdvisorSchemaObjectSummaryCommandInput
+  | DescribeFleetAdvisorSchemasCommandInput
   | DescribeOrderableReplicationInstancesCommandInput
   | DescribePendingMaintenanceActionsCommandInput
   | DescribeRefreshSchemasStatusCommandInput
@@ -287,6 +331,7 @@ export type ServiceInputTypes =
   | RefreshSchemasCommandInput
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
+  | RunFleetAdvisorLsaAnalysisCommandInput
   | StartReplicationTaskAssessmentCommandInput
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
@@ -299,6 +344,7 @@ export type ServiceOutputTypes =
   | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
+  | CreateFleetAdvisorCollectorCommandOutput
   | CreateReplicationInstanceCommandOutput
   | CreateReplicationSubnetGroupCommandOutput
   | CreateReplicationTaskCommandOutput
@@ -306,6 +352,8 @@ export type ServiceOutputTypes =
   | DeleteConnectionCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEventSubscriptionCommandOutput
+  | DeleteFleetAdvisorCollectorCommandOutput
+  | DeleteFleetAdvisorDatabasesCommandOutput
   | DeleteReplicationInstanceCommandOutput
   | DeleteReplicationSubnetGroupCommandOutput
   | DeleteReplicationTaskAssessmentRunCommandOutput
@@ -320,6 +368,11 @@ export type ServiceOutputTypes =
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeFleetAdvisorCollectorsCommandOutput
+  | DescribeFleetAdvisorDatabasesCommandOutput
+  | DescribeFleetAdvisorLsaAnalysisCommandOutput
+  | DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
+  | DescribeFleetAdvisorSchemasCommandOutput
   | DescribeOrderableReplicationInstancesCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
   | DescribeRefreshSchemasStatusCommandOutput
@@ -344,6 +397,7 @@ export type ServiceOutputTypes =
   | RefreshSchemasCommandOutput
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
+  | RunFleetAdvisorLsaAnalysisCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput

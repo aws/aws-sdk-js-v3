@@ -27,6 +27,11 @@ import {
   CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  CreateFleetAdvisorCollectorCommand,
+  CreateFleetAdvisorCollectorCommandInput,
+  CreateFleetAdvisorCollectorCommandOutput,
+} from "./commands/CreateFleetAdvisorCollectorCommand";
+import {
   CreateReplicationInstanceCommand,
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
@@ -61,6 +66,16 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteFleetAdvisorCollectorCommand,
+  DeleteFleetAdvisorCollectorCommandInput,
+  DeleteFleetAdvisorCollectorCommandOutput,
+} from "./commands/DeleteFleetAdvisorCollectorCommand";
+import {
+  DeleteFleetAdvisorDatabasesCommand,
+  DeleteFleetAdvisorDatabasesCommandInput,
+  DeleteFleetAdvisorDatabasesCommandOutput,
+} from "./commands/DeleteFleetAdvisorDatabasesCommand";
 import {
   DeleteReplicationInstanceCommand,
   DeleteReplicationInstanceCommandInput,
@@ -131,6 +146,31 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
+import {
+  DescribeFleetAdvisorCollectorsCommand,
+  DescribeFleetAdvisorCollectorsCommandInput,
+  DescribeFleetAdvisorCollectorsCommandOutput,
+} from "./commands/DescribeFleetAdvisorCollectorsCommand";
+import {
+  DescribeFleetAdvisorDatabasesCommand,
+  DescribeFleetAdvisorDatabasesCommandInput,
+  DescribeFleetAdvisorDatabasesCommandOutput,
+} from "./commands/DescribeFleetAdvisorDatabasesCommand";
+import {
+  DescribeFleetAdvisorLsaAnalysisCommand,
+  DescribeFleetAdvisorLsaAnalysisCommandInput,
+  DescribeFleetAdvisorLsaAnalysisCommandOutput,
+} from "./commands/DescribeFleetAdvisorLsaAnalysisCommand";
+import {
+  DescribeFleetAdvisorSchemaObjectSummaryCommand,
+  DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+  DescribeFleetAdvisorSchemaObjectSummaryCommandOutput,
+} from "./commands/DescribeFleetAdvisorSchemaObjectSummaryCommand";
+import {
+  DescribeFleetAdvisorSchemasCommand,
+  DescribeFleetAdvisorSchemasCommandInput,
+  DescribeFleetAdvisorSchemasCommandOutput,
+} from "./commands/DescribeFleetAdvisorSchemasCommand";
 import {
   DescribeOrderableReplicationInstancesCommand,
   DescribeOrderableReplicationInstancesCommandInput,
@@ -251,6 +291,11 @@ import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
+import {
+  RunFleetAdvisorLsaAnalysisCommand,
+  RunFleetAdvisorLsaAnalysisCommandInput,
+  RunFleetAdvisorLsaAnalysisCommandOutput,
+} from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentCommandInput,
@@ -471,6 +516,38 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): Promise<CreateEventSubscriptionCommandOutput> | void {
     const command = new CreateEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Fleet Advisor collector using the specified parameters.</p>
+   */
+  public createFleetAdvisorCollector(
+    args: CreateFleetAdvisorCollectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetAdvisorCollectorCommandOutput>;
+  public createFleetAdvisorCollector(
+    args: CreateFleetAdvisorCollectorCommandInput,
+    cb: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+  public createFleetAdvisorCollector(
+    args: CreateFleetAdvisorCollectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+  public createFleetAdvisorCollector(
+    args: CreateFleetAdvisorCollectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void),
+    cb?: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
+  ): Promise<CreateFleetAdvisorCollectorCommandOutput> | void {
+    const command = new CreateFleetAdvisorCollectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -707,6 +784,70 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified Fleet Advisor collector.</p>
+   */
+  public deleteFleetAdvisorCollector(
+    args: DeleteFleetAdvisorCollectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetAdvisorCollectorCommandOutput>;
+  public deleteFleetAdvisorCollector(
+    args: DeleteFleetAdvisorCollectorCommandInput,
+    cb: (err: any, data?: DeleteFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+  public deleteFleetAdvisorCollector(
+    args: DeleteFleetAdvisorCollectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+  public deleteFleetAdvisorCollector(
+    args: DeleteFleetAdvisorCollectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetAdvisorCollectorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFleetAdvisorCollectorCommandOutput) => void
+  ): Promise<DeleteFleetAdvisorCollectorCommandOutput> | void {
+    const command = new DeleteFleetAdvisorCollectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified Fleet Advisor collector databases.</p>
+   */
+  public deleteFleetAdvisorDatabases(
+    args: DeleteFleetAdvisorDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetAdvisorDatabasesCommandOutput>;
+  public deleteFleetAdvisorDatabases(
+    args: DeleteFleetAdvisorDatabasesCommandInput,
+    cb: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+  public deleteFleetAdvisorDatabases(
+    args: DeleteFleetAdvisorDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+  public deleteFleetAdvisorDatabases(
+    args: DeleteFleetAdvisorDatabasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
+  ): Promise<DeleteFleetAdvisorDatabasesCommandOutput> | void {
+    const command = new DeleteFleetAdvisorDatabasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1200,6 +1341,171 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the Fleet Advisor collectors in your account.</p>
+   */
+  public describeFleetAdvisorCollectors(
+    args: DescribeFleetAdvisorCollectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetAdvisorCollectorsCommandOutput>;
+  public describeFleetAdvisorCollectors(
+    args: DescribeFleetAdvisorCollectorsCommandInput,
+    cb: (err: any, data?: DescribeFleetAdvisorCollectorsCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorCollectors(
+    args: DescribeFleetAdvisorCollectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetAdvisorCollectorsCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorCollectors(
+    args: DescribeFleetAdvisorCollectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAdvisorCollectorsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetAdvisorCollectorsCommandOutput) => void
+  ): Promise<DescribeFleetAdvisorCollectorsCommandOutput> | void {
+    const command = new DescribeFleetAdvisorCollectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of Fleet Advisor databases in your account.</p>
+   */
+  public describeFleetAdvisorDatabases(
+    args: DescribeFleetAdvisorDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetAdvisorDatabasesCommandOutput>;
+  public describeFleetAdvisorDatabases(
+    args: DescribeFleetAdvisorDatabasesCommandInput,
+    cb: (err: any, data?: DescribeFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorDatabases(
+    args: DescribeFleetAdvisorDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorDatabases(
+    args: DescribeFleetAdvisorDatabasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAdvisorDatabasesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetAdvisorDatabasesCommandOutput) => void
+  ): Promise<DescribeFleetAdvisorDatabasesCommandOutput> | void {
+    const command = new DescribeFleetAdvisorDatabasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your
+   *             Fleet Advisor collectors.
+   *         </p>
+   */
+  public describeFleetAdvisorLsaAnalysis(
+    args: DescribeFleetAdvisorLsaAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput>;
+  public describeFleetAdvisorLsaAnalysis(
+    args: DescribeFleetAdvisorLsaAnalysisCommandInput,
+    cb: (err: any, data?: DescribeFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorLsaAnalysis(
+    args: DescribeFleetAdvisorLsaAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorLsaAnalysis(
+    args: DescribeFleetAdvisorLsaAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAdvisorLsaAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> | void {
+    const command = new DescribeFleetAdvisorLsaAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides descriptions of the schemas discovered by your Fleet Advisor
+   *             collectors.</p>
+   */
+  public describeFleetAdvisorSchemaObjectSummary(
+    args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput>;
+  public describeFleetAdvisorSchemaObjectSummary(
+    args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+    cb: (err: any, data?: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorSchemaObjectSummary(
+    args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorSchemaObjectSummary(
+    args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput) => void
+  ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> | void {
+    const command = new DescribeFleetAdvisorSchemaObjectSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
+   */
+  public describeFleetAdvisorSchemas(
+    args: DescribeFleetAdvisorSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetAdvisorSchemasCommandOutput>;
+  public describeFleetAdvisorSchemas(
+    args: DescribeFleetAdvisorSchemasCommandInput,
+    cb: (err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorSchemas(
+    args: DescribeFleetAdvisorSchemasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void
+  ): void;
+  public describeFleetAdvisorSchemas(
+    args: DescribeFleetAdvisorSchemasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void
+  ): Promise<DescribeFleetAdvisorSchemasCommandOutput> | void {
+    const command = new DescribeFleetAdvisorSchemasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2028,6 +2334,38 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
+   */
+  public runFleetAdvisorLsaAnalysis(
+    args: RunFleetAdvisorLsaAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput>;
+  public runFleetAdvisorLsaAnalysis(
+    args: RunFleetAdvisorLsaAnalysisCommandInput,
+    cb: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): void;
+  public runFleetAdvisorLsaAnalysis(
+    args: RunFleetAdvisorLsaAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): void;
+  public runFleetAdvisorLsaAnalysis(
+    args: RunFleetAdvisorLsaAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> | void {
+    const command = new RunFleetAdvisorLsaAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
