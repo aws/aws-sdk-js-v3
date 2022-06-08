@@ -13,6 +13,7 @@ import {
   MetadataBearer,
   Pluggable,
   Provider,
+  RegionInfoProvider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
@@ -22,6 +23,7 @@ interface PreviouslyResolved {
   region: Provider<string>;
   sha256: HashConstructor;
   signingEscapePath: boolean;
+  regionInfoProvider?: RegionInfoProvider;
 }
 
 const version = "2016-11-15";
@@ -34,7 +36,14 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
       if (!input.PresignedUrl) {
         const region = await options.region();
         const resolvedEndpoint = await options.endpoint();
-        resolvedEndpoint.hostname = `ec2.${input.SourceRegion}.amazonaws.com`;
+
+        if (typeof options.regionInfoProvider === "function") {
+          const regionInfo = await options.regionInfoProvider(input.SourceRegion);
+          resolvedEndpoint.hostname = regionInfo?.hostname || `ec2.${input.SourceRegion}.amazonaws.com`;
+        } else {
+          resolvedEndpoint.hostname = `ec2.${input.SourceRegion}.amazonaws.com`;
+        }
+
         const request = new HttpRequest({
           ...resolvedEndpoint,
           protocol: "https",
