@@ -307,6 +307,10 @@ import {
   GetClusterCredentialsCommandOutput,
 } from "../commands/GetClusterCredentialsCommand";
 import {
+  GetClusterCredentialsWithIAMCommandInput,
+  GetClusterCredentialsWithIAMCommandOutput,
+} from "../commands/GetClusterCredentialsWithIAMCommand";
+import {
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
 } from "../commands/GetReservedNodeExchangeConfigurationOptionsCommand";
@@ -452,6 +456,7 @@ import {
   ClusterCredentials,
   ClusterDbRevision,
   ClusterDbRevisionsMessage,
+  ClusterExtendedCredentials,
   ClusterIamRole,
   ClusterNode,
   ClusterNotFoundFault,
@@ -566,7 +571,6 @@ import {
   DescribeEventsMessage,
   DescribeEventSubscriptionsMessage,
   DescribeHsmClientCertificatesMessage,
-  DescribeHsmConfigurationsMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -697,6 +701,7 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeHsmConfigurationsMessage,
   DescribeLoggingStatusMessage,
   DescribeNodeConfigurationOptionsMessage,
   DescribeOrderableClusterOptionsMessage,
@@ -723,6 +728,7 @@ import {
   EnableSnapshotCopyResult,
   EndpointAuthorizationNotFoundFault,
   GetClusterCredentialsMessage,
+  GetClusterCredentialsWithIAMMessage,
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
   GetReservedNodeExchangeOfferingsInputMessage,
@@ -2184,6 +2190,22 @@ export const serializeAws_queryGetClusterCredentialsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetClusterCredentialsMessage(input, context),
     Action: "GetClusterCredentials",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryGetClusterCredentialsWithIAMCommand = async (
+  input: GetClusterCredentialsWithIAMCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetClusterCredentialsWithIAMMessage(input, context),
+    Action: "GetClusterCredentialsWithIAM",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6920,6 +6942,52 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClusterCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_queryGetClusterCredentialsWithIAMCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetClusterCredentialsWithIAMCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryClusterExtendedCredentials(data.GetClusterCredentialsWithIAMResult, context);
+  const response: GetClusterCredentialsWithIAMCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetClusterCredentialsWithIAMCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -12312,6 +12380,23 @@ const serializeAws_queryGetClusterCredentialsMessage = (
   return entries;
 };
 
+const serializeAws_queryGetClusterCredentialsWithIAMMessage = (
+  input: GetClusterCredentialsWithIAMMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DbName !== undefined && input.DbName !== null) {
+    entries["DbName"] = input.DbName;
+  }
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    entries["DurationSeconds"] = input.DurationSeconds;
+  }
+  return entries;
+};
+
 const serializeAws_queryGetReservedNodeExchangeConfigurationOptionsInputMessage = (
   input: GetReservedNodeExchangeConfigurationOptionsInputMessage,
   context: __SerdeContext
@@ -14290,6 +14375,31 @@ const deserializeAws_queryClusterDbRevisionsMessage = (
       __getArrayIfSingleItem(output["ClusterDbRevisions"]["ClusterDbRevision"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryClusterExtendedCredentials = (
+  output: any,
+  context: __SerdeContext
+): ClusterExtendedCredentials => {
+  const contents: any = {
+    DbUser: undefined,
+    DbPassword: undefined,
+    Expiration: undefined,
+    NextRefreshTime: undefined,
+  };
+  if (output["DbUser"] !== undefined) {
+    contents.DbUser = __expectString(output["DbUser"]);
+  }
+  if (output["DbPassword"] !== undefined) {
+    contents.DbPassword = __expectString(output["DbPassword"]);
+  }
+  if (output["Expiration"] !== undefined) {
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
+  }
+  if (output["NextRefreshTime"] !== undefined) {
+    contents.NextRefreshTime = __expectNonNull(__parseRfc3339DateTime(output["NextRefreshTime"]));
   }
   return contents;
 };

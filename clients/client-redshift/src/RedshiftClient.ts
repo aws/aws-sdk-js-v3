@@ -338,6 +338,10 @@ import {
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
 import {
+  GetClusterCredentialsWithIAMCommandInput,
+  GetClusterCredentialsWithIAMCommandOutput,
+} from "./commands/GetClusterCredentialsWithIAMCommand";
+import {
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
 } from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
@@ -533,6 +537,7 @@ export type ServiceInputTypes =
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
   | GetClusterCredentialsCommandInput
+  | GetClusterCredentialsWithIAMCommandInput
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | ModifyAquaConfigurationCommandInput
@@ -653,6 +658,7 @@ export type ServiceOutputTypes =
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
   | GetClusterCredentialsCommandOutput
+  | GetClusterCredentialsWithIAMCommandOutput
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | ModifyAquaConfigurationCommandOutput

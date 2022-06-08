@@ -420,6 +420,11 @@ import {
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
 import {
+  GetClusterCredentialsWithIAMCommand,
+  GetClusterCredentialsWithIAMCommandInput,
+  GetClusterCredentialsWithIAMCommandOutput,
+} from "./commands/GetClusterCredentialsWithIAMCommand";
+import {
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
@@ -3699,6 +3704,47 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: GetClusterCredentialsCommandOutput) => void
   ): Promise<GetClusterCredentialsCommandOutput> | void {
     const command = new GetClusterCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a database user name and temporary password with temporary authorization to
+   *             log in to an Amazon Redshift database.
+   *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
+   *             For more information about IAM identities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html">IAM Identities (users, user groups, and roles)</a> in the
+   *             Amazon Web Services Identity and Access Management User Guide.</p>
+   *         <p>The Identity and Access Management (IAM) identity that runs
+   *             this operation must have an IAM policy attached that allows access to all
+   *             necessary actions and resources.
+   *                 For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using identity-based policies (IAM policies)</a> in the
+   *             Amazon Redshift Cluster Management Guide. </p>
+   */
+  public getClusterCredentialsWithIAM(
+    args: GetClusterCredentialsWithIAMCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClusterCredentialsWithIAMCommandOutput>;
+  public getClusterCredentialsWithIAM(
+    args: GetClusterCredentialsWithIAMCommandInput,
+    cb: (err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void
+  ): void;
+  public getClusterCredentialsWithIAM(
+    args: GetClusterCredentialsWithIAMCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void
+  ): void;
+  public getClusterCredentialsWithIAM(
+    args: GetClusterCredentialsWithIAMCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void),
+    cb?: (err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void
+  ): Promise<GetClusterCredentialsWithIAMCommandOutput> | void {
+    const command = new GetClusterCredentialsWithIAMCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

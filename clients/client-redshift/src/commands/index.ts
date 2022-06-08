@@ -85,6 +85,7 @@ export * from "./DisassociateDataShareConsumerCommand";
 export * from "./EnableLoggingCommand";
 export * from "./EnableSnapshotCopyCommand";
 export * from "./GetClusterCredentialsCommand";
+export * from "./GetClusterCredentialsWithIAMCommand";
 export * from "./GetReservedNodeExchangeConfigurationOptionsCommand";
 export * from "./GetReservedNodeExchangeOfferingsCommand";
 export * from "./ModifyAquaConfigurationCommand";
