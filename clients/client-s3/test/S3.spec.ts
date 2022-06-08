@@ -3,7 +3,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { PassThrough } from "stream";
+import { PassThrough, Readable } from "stream";
 
 import { S3 } from "../src/S3";
 
@@ -130,12 +130,14 @@ describe("Endpoints from ARN", () => {
       const result: any = await client.writeGetObjectResponse({
         RequestRoute: requestRoute,
         RequestToken: "token",
+        Body: new Readable(),
       });
       const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
       expect(result.request.hostname).to.eql(`${requestRoute}.s3-object-lambda.us-east-1.amazonaws.com`);
       expect(result.request.headers["authorization"]).contains(
         `Credential=${credentials.accessKeyId}/${date}/${region}/s3-object-lambda/aws4_request`
       );
+      expect(result.request.headers["transfer-encoding"]).to.equal("chunked");
     });
   });
 });
