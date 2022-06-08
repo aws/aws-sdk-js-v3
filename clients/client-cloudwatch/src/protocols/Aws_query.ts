@@ -4160,8 +4160,7 @@ const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContex
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-  }
-  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
     contents.Dimensions = deserializeAws_queryDimensions(
       __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context
@@ -4201,8 +4200,7 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
   };
   if (output.ExcludedTimeRanges === "") {
     contents.ExcludedTimeRanges = [];
-  }
-  if (output["ExcludedTimeRanges"] !== undefined && output["ExcludedTimeRanges"]["member"] !== undefined) {
+  } else if (output["ExcludedTimeRanges"] !== undefined && output["ExcludedTimeRanges"]["member"] !== undefined) {
     contents.ExcludedTimeRanges = deserializeAws_queryAnomalyDetectorExcludedTimeRanges(
       __getArrayIfSingleItem(output["ExcludedTimeRanges"]["member"]),
       context
@@ -4268,8 +4266,7 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
   }
   if (output.AlarmActions === "") {
     contents.AlarmActions = [];
-  }
-  if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
+  } else if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
     contents.AlarmActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["AlarmActions"]["member"]),
       context
@@ -4294,8 +4291,10 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
   }
   if (output.InsufficientDataActions === "") {
     contents.InsufficientDataActions = [];
-  }
-  if (output["InsufficientDataActions"] !== undefined && output["InsufficientDataActions"]["member"] !== undefined) {
+  } else if (
+    output["InsufficientDataActions"] !== undefined &&
+    output["InsufficientDataActions"]["member"] !== undefined
+  ) {
     contents.InsufficientDataActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
       context
@@ -4303,8 +4302,7 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
   }
   if (output.OKActions === "") {
     contents.OKActions = [];
-  }
-  if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
+  } else if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
     contents.OKActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["OKActions"]["member"]),
       context
@@ -4395,8 +4393,7 @@ const deserializeAws_queryDashboardInvalidInputError = (
   }
   if (output.dashboardValidationMessages === "") {
     contents.dashboardValidationMessages = [];
-  }
-  if (
+  } else if (
     output["dashboardValidationMessages"] !== undefined &&
     output["dashboardValidationMessages"]["member"] !== undefined
   ) {
@@ -4483,8 +4480,7 @@ const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Da
   }
   if (output.ExtendedStatistics === "") {
     contents.ExtendedStatistics = {};
-  }
-  if (output["ExtendedStatistics"] !== undefined && output["ExtendedStatistics"]["entry"] !== undefined) {
+  } else if (output["ExtendedStatistics"] !== undefined && output["ExtendedStatistics"]["entry"] !== undefined) {
     contents.ExtendedStatistics = deserializeAws_queryDatapointValueMap(
       __getArrayIfSingleItem(output["ExtendedStatistics"]["entry"]),
       context
@@ -4549,8 +4545,7 @@ const deserializeAws_queryDeleteInsightRulesOutput = (
   };
   if (output.Failures === "") {
     contents.Failures = [];
-  }
-  if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
+  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
     contents.Failures = deserializeAws_queryBatchFailures(
       __getArrayIfSingleItem(output["Failures"]["member"]),
       context
@@ -4577,8 +4572,7 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
   };
   if (output.AlarmHistoryItems === "") {
     contents.AlarmHistoryItems = [];
-  }
-  if (output["AlarmHistoryItems"] !== undefined && output["AlarmHistoryItems"]["member"] !== undefined) {
+  } else if (output["AlarmHistoryItems"] !== undefined && output["AlarmHistoryItems"]["member"] !== undefined) {
     contents.AlarmHistoryItems = deserializeAws_queryAlarmHistoryItems(
       __getArrayIfSingleItem(output["AlarmHistoryItems"]["member"]),
       context
@@ -4599,8 +4593,7 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
   };
   if (output.MetricAlarms === "") {
     contents.MetricAlarms = [];
-  }
-  if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
+  } else if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
     contents.MetricAlarms = deserializeAws_queryMetricAlarms(
       __getArrayIfSingleItem(output["MetricAlarms"]["member"]),
       context
@@ -4617,8 +4610,7 @@ const deserializeAws_queryDescribeAlarmsOutput = (output: any, context: __SerdeC
   };
   if (output.CompositeAlarms === "") {
     contents.CompositeAlarms = [];
-  }
-  if (output["CompositeAlarms"] !== undefined && output["CompositeAlarms"]["member"] !== undefined) {
+  } else if (output["CompositeAlarms"] !== undefined && output["CompositeAlarms"]["member"] !== undefined) {
     contents.CompositeAlarms = deserializeAws_queryCompositeAlarms(
       __getArrayIfSingleItem(output["CompositeAlarms"]["member"]),
       context
@@ -4626,8 +4618,7 @@ const deserializeAws_queryDescribeAlarmsOutput = (output: any, context: __SerdeC
   }
   if (output.MetricAlarms === "") {
     contents.MetricAlarms = [];
-  }
-  if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
+  } else if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
     contents.MetricAlarms = deserializeAws_queryMetricAlarms(
       __getArrayIfSingleItem(output["MetricAlarms"]["member"]),
       context
@@ -4649,8 +4640,7 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
   };
   if (output.AnomalyDetectors === "") {
     contents.AnomalyDetectors = [];
-  }
-  if (output["AnomalyDetectors"] !== undefined && output["AnomalyDetectors"]["member"] !== undefined) {
+  } else if (output["AnomalyDetectors"] !== undefined && output["AnomalyDetectors"]["member"] !== undefined) {
     contents.AnomalyDetectors = deserializeAws_queryAnomalyDetectors(
       __getArrayIfSingleItem(output["AnomalyDetectors"]["member"]),
       context
@@ -4675,8 +4665,7 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
   }
   if (output.InsightRules === "") {
     contents.InsightRules = [];
-  }
-  if (output["InsightRules"] !== undefined && output["InsightRules"]["member"] !== undefined) {
+  } else if (output["InsightRules"] !== undefined && output["InsightRules"]["member"] !== undefined) {
     contents.InsightRules = deserializeAws_queryInsightRules(
       __getArrayIfSingleItem(output["InsightRules"]["member"]),
       context
@@ -4719,8 +4708,7 @@ const deserializeAws_queryDisableInsightRulesOutput = (
   };
   if (output.Failures === "") {
     contents.Failures = [];
-  }
-  if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
+  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
     contents.Failures = deserializeAws_queryBatchFailures(
       __getArrayIfSingleItem(output["Failures"]["member"]),
       context
@@ -4738,8 +4726,7 @@ const deserializeAws_queryEnableInsightRulesOutput = (
   };
   if (output.Failures === "") {
     contents.Failures = [];
-  }
-  if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
+  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
     contents.Failures = deserializeAws_queryBatchFailures(
       __getArrayIfSingleItem(output["Failures"]["member"]),
       context
@@ -4780,8 +4767,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   };
   if (output.KeyLabels === "") {
     contents.KeyLabels = [];
-  }
-  if (output["KeyLabels"] !== undefined && output["KeyLabels"]["member"] !== undefined) {
+  } else if (output["KeyLabels"] !== undefined && output["KeyLabels"]["member"] !== undefined) {
     contents.KeyLabels = deserializeAws_queryInsightRuleContributorKeyLabels(
       __getArrayIfSingleItem(output["KeyLabels"]["member"]),
       context
@@ -4798,8 +4784,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   }
   if (output.Contributors === "") {
     contents.Contributors = [];
-  }
-  if (output["Contributors"] !== undefined && output["Contributors"]["member"] !== undefined) {
+  } else if (output["Contributors"] !== undefined && output["Contributors"]["member"] !== undefined) {
     contents.Contributors = deserializeAws_queryInsightRuleContributors(
       __getArrayIfSingleItem(output["Contributors"]["member"]),
       context
@@ -4807,8 +4792,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   }
   if (output.MetricDatapoints === "") {
     contents.MetricDatapoints = [];
-  }
-  if (output["MetricDatapoints"] !== undefined && output["MetricDatapoints"]["member"] !== undefined) {
+  } else if (output["MetricDatapoints"] !== undefined && output["MetricDatapoints"]["member"] !== undefined) {
     contents.MetricDatapoints = deserializeAws_queryInsightRuleMetricDatapoints(
       __getArrayIfSingleItem(output["MetricDatapoints"]["member"]),
       context
@@ -4825,8 +4809,7 @@ const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeCo
   };
   if (output.MetricDataResults === "") {
     contents.MetricDataResults = [];
-  }
-  if (output["MetricDataResults"] !== undefined && output["MetricDataResults"]["member"] !== undefined) {
+  } else if (output["MetricDataResults"] !== undefined && output["MetricDataResults"]["member"] !== undefined) {
     contents.MetricDataResults = deserializeAws_queryMetricDataResults(
       __getArrayIfSingleItem(output["MetricDataResults"]["member"]),
       context
@@ -4837,8 +4820,7 @@ const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeCo
   }
   if (output.Messages === "") {
     contents.Messages = [];
-  }
-  if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
+  } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
     contents.Messages = deserializeAws_queryMetricDataResultMessages(
       __getArrayIfSingleItem(output["Messages"]["member"]),
       context
@@ -4860,8 +4842,7 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
   }
   if (output.Datapoints === "") {
     contents.Datapoints = [];
-  }
-  if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
+  } else if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
     contents.Datapoints = deserializeAws_queryDatapoints(
       __getArrayIfSingleItem(output["Datapoints"]["member"]),
       context
@@ -4892,8 +4873,7 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
   }
   if (output.IncludeFilters === "") {
     contents.IncludeFilters = [];
-  }
-  if (output["IncludeFilters"] !== undefined && output["IncludeFilters"]["member"] !== undefined) {
+  } else if (output["IncludeFilters"] !== undefined && output["IncludeFilters"]["member"] !== undefined) {
     contents.IncludeFilters = deserializeAws_queryMetricStreamFilters(
       __getArrayIfSingleItem(output["IncludeFilters"]["member"]),
       context
@@ -4901,8 +4881,7 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
   }
   if (output.ExcludeFilters === "") {
     contents.ExcludeFilters = [];
-  }
-  if (output["ExcludeFilters"] !== undefined && output["ExcludeFilters"]["member"] !== undefined) {
+  } else if (output["ExcludeFilters"] !== undefined && output["ExcludeFilters"]["member"] !== undefined) {
     contents.ExcludeFilters = deserializeAws_queryMetricStreamFilters(
       __getArrayIfSingleItem(output["ExcludeFilters"]["member"]),
       context
@@ -4928,8 +4907,10 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
   }
   if (output.StatisticsConfigurations === "") {
     contents.StatisticsConfigurations = [];
-  }
-  if (output["StatisticsConfigurations"] !== undefined && output["StatisticsConfigurations"]["member"] !== undefined) {
+  } else if (
+    output["StatisticsConfigurations"] !== undefined &&
+    output["StatisticsConfigurations"]["member"] !== undefined
+  ) {
     contents.StatisticsConfigurations = deserializeAws_queryMetricStreamStatisticsConfigurations(
       __getArrayIfSingleItem(output["StatisticsConfigurations"]["member"]),
       context
@@ -4981,8 +4962,7 @@ const deserializeAws_queryInsightRuleContributor = (output: any, context: __Serd
   };
   if (output.Keys === "") {
     contents.Keys = [];
-  }
-  if (output["Keys"] !== undefined && output["Keys"]["member"] !== undefined) {
+  } else if (output["Keys"] !== undefined && output["Keys"]["member"] !== undefined) {
     contents.Keys = deserializeAws_queryInsightRuleContributorKeys(
       __getArrayIfSingleItem(output["Keys"]["member"]),
       context
@@ -4993,8 +4973,7 @@ const deserializeAws_queryInsightRuleContributor = (output: any, context: __Serd
   }
   if (output.Datapoints === "") {
     contents.Datapoints = [];
-  }
-  if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
+  } else if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
     contents.Datapoints = deserializeAws_queryInsightRuleContributorDatapoints(
       __getArrayIfSingleItem(output["Datapoints"]["member"]),
       context
@@ -5219,8 +5198,7 @@ const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeC
   };
   if (output.DashboardEntries === "") {
     contents.DashboardEntries = [];
-  }
-  if (output["DashboardEntries"] !== undefined && output["DashboardEntries"]["member"] !== undefined) {
+  } else if (output["DashboardEntries"] !== undefined && output["DashboardEntries"]["member"] !== undefined) {
     contents.DashboardEntries = deserializeAws_queryDashboardEntries(
       __getArrayIfSingleItem(output["DashboardEntries"]["member"]),
       context
@@ -5239,8 +5217,7 @@ const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeCont
   };
   if (output.Metrics === "") {
     contents.Metrics = [];
-  }
-  if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
+  } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
     contents.Metrics = deserializeAws_queryMetrics(__getArrayIfSingleItem(output["Metrics"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
@@ -5259,8 +5236,7 @@ const deserializeAws_queryListMetricStreamsOutput = (output: any, context: __Ser
   }
   if (output.Entries === "") {
     contents.Entries = [];
-  }
-  if (output["Entries"] !== undefined && output["Entries"]["member"] !== undefined) {
+  } else if (output["Entries"] !== undefined && output["Entries"]["member"] !== undefined) {
     contents.Entries = deserializeAws_queryMetricStreamEntries(
       __getArrayIfSingleItem(output["Entries"]["member"]),
       context
@@ -5278,8 +5254,7 @@ const deserializeAws_queryListTagsForResourceOutput = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_queryTagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -5313,8 +5288,7 @@ const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metri
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-  }
-  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
     contents.Dimensions = deserializeAws_queryDimensions(
       __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context
@@ -5372,8 +5346,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output.OKActions === "") {
     contents.OKActions = [];
-  }
-  if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
+  } else if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
     contents.OKActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["OKActions"]["member"]),
       context
@@ -5381,8 +5354,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output.AlarmActions === "") {
     contents.AlarmActions = [];
-  }
-  if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
+  } else if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
     contents.AlarmActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["AlarmActions"]["member"]),
       context
@@ -5390,8 +5362,10 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output.InsufficientDataActions === "") {
     contents.InsufficientDataActions = [];
-  }
-  if (output["InsufficientDataActions"] !== undefined && output["InsufficientDataActions"]["member"] !== undefined) {
+  } else if (
+    output["InsufficientDataActions"] !== undefined &&
+    output["InsufficientDataActions"]["member"] !== undefined
+  ) {
     contents.InsufficientDataActions = deserializeAws_queryResourceList(
       __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
       context
@@ -5423,8 +5397,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-  }
-  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
     contents.Dimensions = deserializeAws_queryDimensions(
       __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context
@@ -5456,8 +5429,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output.Metrics === "") {
     contents.Metrics = [];
-  }
-  if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
+  } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
     contents.Metrics = deserializeAws_queryMetricDataQueries(
       __getArrayIfSingleItem(output["Metrics"]["member"]),
       context
@@ -5542,8 +5514,7 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
   }
   if (output.Timestamps === "") {
     contents.Timestamps = [];
-  }
-  if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
+  } else if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
     contents.Timestamps = deserializeAws_queryTimestamps(
       __getArrayIfSingleItem(output["Timestamps"]["member"]),
       context
@@ -5551,8 +5522,7 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
   }
   if (output.Values === "") {
     contents.Values = [];
-  }
-  if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
+  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
     contents.Values = deserializeAws_queryDatapointValues(__getArrayIfSingleItem(output["Values"]["member"]), context);
   }
   if (output["StatusCode"] !== undefined) {
@@ -5560,8 +5530,7 @@ const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeConte
   }
   if (output.Messages === "") {
     contents.Messages = [];
-  }
-  if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
+  } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
     contents.Messages = deserializeAws_queryMetricDataResultMessages(
       __getArrayIfSingleItem(output["Messages"]["member"]),
       context
@@ -5601,8 +5570,7 @@ const deserializeAws_queryMetricMathAnomalyDetector = (
   };
   if (output.MetricDataQueries === "") {
     contents.MetricDataQueries = [];
-  }
-  if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
+  } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
     contents.MetricDataQueries = deserializeAws_queryMetricDataQueries(
       __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
       context
@@ -5734,8 +5702,7 @@ const deserializeAws_queryMetricStreamStatisticsConfiguration = (
   };
   if (output.IncludeMetrics === "") {
     contents.IncludeMetrics = [];
-  }
-  if (output["IncludeMetrics"] !== undefined && output["IncludeMetrics"]["member"] !== undefined) {
+  } else if (output["IncludeMetrics"] !== undefined && output["IncludeMetrics"]["member"] !== undefined) {
     contents.IncludeMetrics = deserializeAws_queryMetricStreamStatisticsIncludeMetrics(
       __getArrayIfSingleItem(output["IncludeMetrics"]["member"]),
       context
@@ -5743,8 +5710,7 @@ const deserializeAws_queryMetricStreamStatisticsConfiguration = (
   }
   if (output.AdditionalStatistics === "") {
     contents.AdditionalStatistics = [];
-  }
-  if (output["AdditionalStatistics"] !== undefined && output["AdditionalStatistics"]["member"] !== undefined) {
+  } else if (output["AdditionalStatistics"] !== undefined && output["AdditionalStatistics"]["member"] !== undefined) {
     contents.AdditionalStatistics = deserializeAws_queryMetricStreamStatisticsAdditionalStatistics(
       __getArrayIfSingleItem(output["AdditionalStatistics"]["member"]),
       context
@@ -5847,8 +5813,7 @@ const deserializeAws_queryPutDashboardOutput = (output: any, context: __SerdeCon
   };
   if (output.DashboardValidationMessages === "") {
     contents.DashboardValidationMessages = [];
-  }
-  if (
+  } else if (
     output["DashboardValidationMessages"] !== undefined &&
     output["DashboardValidationMessages"]["member"] !== undefined
   ) {
@@ -5949,8 +5914,7 @@ const deserializeAws_querySingleMetricAnomalyDetector = (
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-  }
-  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
     contents.Dimensions = deserializeAws_queryDimensions(
       __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context

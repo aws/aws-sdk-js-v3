@@ -14062,8 +14062,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -14115,8 +14114,7 @@ const deserializeAws_queryCreateSAMLProviderResponse = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -14249,8 +14247,7 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
   }
   if (output.RoleUsageList === "") {
     contents.RoleUsageList = [];
-  }
-  if (output["RoleUsageList"] !== undefined && output["RoleUsageList"]["member"] !== undefined) {
+  } else if (output["RoleUsageList"] !== undefined && output["RoleUsageList"]["member"] !== undefined) {
     contents.RoleUsageList = deserializeAws_queryRoleUsageListType(
       __getArrayIfSingleItem(output["RoleUsageList"]["member"]),
       context
@@ -14414,8 +14411,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   }
   if (output.MatchedStatements === "") {
     contents.MatchedStatements = [];
-  }
-  if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
+  } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
     contents.MatchedStatements = deserializeAws_queryStatementListType(
       __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
       context
@@ -14423,8 +14419,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   }
   if (output.MissingContextValues === "") {
     contents.MissingContextValues = [];
-  }
-  if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
+  } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
     contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
       context
@@ -14444,8 +14439,7 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   }
   if (output.EvalDecisionDetails === "") {
     contents.EvalDecisionDetails = {};
-  }
-  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
+  } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
     contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
       __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
       context
@@ -14453,8 +14447,10 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
   }
   if (output.ResourceSpecificResults === "") {
     contents.ResourceSpecificResults = [];
-  }
-  if (output["ResourceSpecificResults"] !== undefined && output["ResourceSpecificResults"]["member"] !== undefined) {
+  } else if (
+    output["ResourceSpecificResults"] !== undefined &&
+    output["ResourceSpecificResults"]["member"] !== undefined
+  ) {
     contents.ResourceSpecificResults = deserializeAws_queryResourceSpecificResultListType(
       __getArrayIfSingleItem(output["ResourceSpecificResults"]["member"]),
       context
@@ -14548,8 +14544,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   };
   if (output.UserDetailList === "") {
     contents.UserDetailList = [];
-  }
-  if (output["UserDetailList"] !== undefined && output["UserDetailList"]["member"] !== undefined) {
+  } else if (output["UserDetailList"] !== undefined && output["UserDetailList"]["member"] !== undefined) {
     contents.UserDetailList = deserializeAws_queryuserDetailListType(
       __getArrayIfSingleItem(output["UserDetailList"]["member"]),
       context
@@ -14557,8 +14552,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   }
   if (output.GroupDetailList === "") {
     contents.GroupDetailList = [];
-  }
-  if (output["GroupDetailList"] !== undefined && output["GroupDetailList"]["member"] !== undefined) {
+  } else if (output["GroupDetailList"] !== undefined && output["GroupDetailList"]["member"] !== undefined) {
     contents.GroupDetailList = deserializeAws_querygroupDetailListType(
       __getArrayIfSingleItem(output["GroupDetailList"]["member"]),
       context
@@ -14566,8 +14560,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   }
   if (output.RoleDetailList === "") {
     contents.RoleDetailList = [];
-  }
-  if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
+  } else if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
     contents.RoleDetailList = deserializeAws_queryroleDetailListType(
       __getArrayIfSingleItem(output["RoleDetailList"]["member"]),
       context
@@ -14575,8 +14568,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   }
   if (output.Policies === "") {
     contents.Policies = [];
-  }
-  if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
+  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
     contents.Policies = deserializeAws_queryManagedPolicyDetailListType(
       __getArrayIfSingleItem(output["Policies"]["member"]),
       context
@@ -14613,8 +14605,7 @@ const deserializeAws_queryGetAccountSummaryResponse = (
   };
   if (output.SummaryMap === "") {
     contents.SummaryMap = {};
-  }
-  if (output["SummaryMap"] !== undefined && output["SummaryMap"]["entry"] !== undefined) {
+  } else if (output["SummaryMap"] !== undefined && output["SummaryMap"]["entry"] !== undefined) {
     contents.SummaryMap = deserializeAws_querysummaryMapType(
       __getArrayIfSingleItem(output["SummaryMap"]["entry"]),
       context
@@ -14632,8 +14623,7 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
   };
   if (output.ContextKeyNames === "") {
     contents.ContextKeyNames = [];
-  }
-  if (output["ContextKeyNames"] !== undefined && output["ContextKeyNames"]["member"] !== undefined) {
+  } else if (output["ContextKeyNames"] !== undefined && output["ContextKeyNames"]["member"] !== undefined) {
     contents.ContextKeyNames = deserializeAws_queryContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["ContextKeyNames"]["member"]),
       context
@@ -14693,8 +14683,7 @@ const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeConte
   }
   if (output.Users === "") {
     contents.Users = [];
-  }
-  if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
+  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
     contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -14745,8 +14734,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   }
   if (output.ClientIDList === "") {
     contents.ClientIDList = [];
-  }
-  if (output["ClientIDList"] !== undefined && output["ClientIDList"]["member"] !== undefined) {
+  } else if (output["ClientIDList"] !== undefined && output["ClientIDList"]["member"] !== undefined) {
     contents.ClientIDList = deserializeAws_queryclientIDListType(
       __getArrayIfSingleItem(output["ClientIDList"]["member"]),
       context
@@ -14754,8 +14742,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   }
   if (output.ThumbprintList === "") {
     contents.ThumbprintList = [];
-  }
-  if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
+  } else if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
     contents.ThumbprintList = deserializeAws_querythumbprintListType(
       __getArrayIfSingleItem(output["ThumbprintList"]["member"]),
       context
@@ -14766,8 +14753,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -14805,8 +14791,7 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
   }
   if (output.AccessDetails === "") {
     contents.AccessDetails = [];
-  }
-  if (output["AccessDetails"] !== undefined && output["AccessDetails"]["member"] !== undefined) {
+  } else if (output["AccessDetails"] !== undefined && output["AccessDetails"]["member"] !== undefined) {
     contents.AccessDetails = deserializeAws_queryAccessDetails(
       __getArrayIfSingleItem(output["AccessDetails"]["member"]),
       context
@@ -14893,8 +14878,7 @@ const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __Ser
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -14938,8 +14922,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   }
   if (output.ServicesLastAccessed === "") {
     contents.ServicesLastAccessed = [];
-  }
-  if (output["ServicesLastAccessed"] !== undefined && output["ServicesLastAccessed"]["member"] !== undefined) {
+  } else if (output["ServicesLastAccessed"] !== undefined && output["ServicesLastAccessed"]["member"] !== undefined) {
     contents.ServicesLastAccessed = deserializeAws_queryServicesLastAccessed(
       __getArrayIfSingleItem(output["ServicesLastAccessed"]["member"]),
       context
@@ -14984,8 +14967,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
   }
   if (output.EntityDetailsList === "") {
     contents.EntityDetailsList = [];
-  }
-  if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
+  } else if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
     contents.EntityDetailsList = deserializeAws_queryentityDetailsListType(
       __getArrayIfSingleItem(output["EntityDetailsList"]["member"]),
       context
@@ -15111,8 +15093,7 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
   }
   if (output.GroupPolicyList === "") {
     contents.GroupPolicyList = [];
-  }
-  if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
+  } else if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
     contents.GroupPolicyList = deserializeAws_querypolicyDetailListType(
       __getArrayIfSingleItem(output["GroupPolicyList"]["member"]),
       context
@@ -15120,8 +15101,10 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
-  }
-  if (output["AttachedManagedPolicies"] !== undefined && output["AttachedManagedPolicies"]["member"] !== undefined) {
+  } else if (
+    output["AttachedManagedPolicies"] !== undefined &&
+    output["AttachedManagedPolicies"]["member"] !== undefined
+  ) {
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
@@ -15190,14 +15173,12 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
   }
   if (output.Roles === "") {
     contents.Roles = [];
-  }
-  if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
+  } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -15307,8 +15288,7 @@ const deserializeAws_queryListAccessKeysResponse = (output: any, context: __Serd
   };
   if (output.AccessKeyMetadata === "") {
     contents.AccessKeyMetadata = [];
-  }
-  if (output["AccessKeyMetadata"] !== undefined && output["AccessKeyMetadata"]["member"] !== undefined) {
+  } else if (output["AccessKeyMetadata"] !== undefined && output["AccessKeyMetadata"]["member"] !== undefined) {
     contents.AccessKeyMetadata = deserializeAws_queryaccessKeyMetadataListType(
       __getArrayIfSingleItem(output["AccessKeyMetadata"]["member"]),
       context
@@ -15334,8 +15314,7 @@ const deserializeAws_queryListAccountAliasesResponse = (
   };
   if (output.AccountAliases === "") {
     contents.AccountAliases = [];
-  }
-  if (output["AccountAliases"] !== undefined && output["AccountAliases"]["member"] !== undefined) {
+  } else if (output["AccountAliases"] !== undefined && output["AccountAliases"]["member"] !== undefined) {
     contents.AccountAliases = deserializeAws_queryaccountAliasListType(
       __getArrayIfSingleItem(output["AccountAliases"]["member"]),
       context
@@ -15361,8 +15340,7 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
   };
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
-  }
-  if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
+  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
@@ -15388,8 +15366,7 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
   };
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
-  }
-  if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
+  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
@@ -15415,8 +15392,7 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
   };
   if (output.AttachedPolicies === "") {
     contents.AttachedPolicies = [];
-  }
-  if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
+  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
@@ -15444,8 +15420,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   };
   if (output.PolicyGroups === "") {
     contents.PolicyGroups = [];
-  }
-  if (output["PolicyGroups"] !== undefined && output["PolicyGroups"]["member"] !== undefined) {
+  } else if (output["PolicyGroups"] !== undefined && output["PolicyGroups"]["member"] !== undefined) {
     contents.PolicyGroups = deserializeAws_queryPolicyGroupListType(
       __getArrayIfSingleItem(output["PolicyGroups"]["member"]),
       context
@@ -15453,8 +15428,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   }
   if (output.PolicyUsers === "") {
     contents.PolicyUsers = [];
-  }
-  if (output["PolicyUsers"] !== undefined && output["PolicyUsers"]["member"] !== undefined) {
+  } else if (output["PolicyUsers"] !== undefined && output["PolicyUsers"]["member"] !== undefined) {
     contents.PolicyUsers = deserializeAws_queryPolicyUserListType(
       __getArrayIfSingleItem(output["PolicyUsers"]["member"]),
       context
@@ -15462,8 +15436,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   }
   if (output.PolicyRoles === "") {
     contents.PolicyRoles = [];
-  }
-  if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
+  } else if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
     contents.PolicyRoles = deserializeAws_queryPolicyRoleListType(
       __getArrayIfSingleItem(output["PolicyRoles"]["member"]),
       context
@@ -15489,8 +15462,7 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   };
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       __getArrayIfSingleItem(output["PolicyNames"]["member"]),
       context
@@ -15516,8 +15488,7 @@ const deserializeAws_queryListGroupsForUserResponse = (
   };
   if (output.Groups === "") {
     contents.Groups = [];
-  }
-  if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
+  } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15537,8 +15508,7 @@ const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeCon
   };
   if (output.Groups === "") {
     contents.Groups = [];
-  }
-  if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
+  } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15561,8 +15531,7 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   };
   if (output.InstanceProfiles === "") {
     contents.InstanceProfiles = [];
-  }
-  if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
+  } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
     contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
       context
@@ -15588,8 +15557,7 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   };
   if (output.InstanceProfiles === "") {
     contents.InstanceProfiles = [];
-  }
-  if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
+  } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
     contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
       context
@@ -15615,8 +15583,7 @@ const deserializeAws_queryListInstanceProfileTagsResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15636,8 +15603,7 @@ const deserializeAws_queryListMFADevicesResponse = (output: any, context: __Serd
   };
   if (output.MFADevices === "") {
     contents.MFADevices = [];
-  }
-  if (output["MFADevices"] !== undefined && output["MFADevices"]["member"] !== undefined) {
+  } else if (output["MFADevices"] !== undefined && output["MFADevices"]["member"] !== undefined) {
     contents.MFADevices = deserializeAws_querymfaDeviceListType(
       __getArrayIfSingleItem(output["MFADevices"]["member"]),
       context
@@ -15663,8 +15629,7 @@ const deserializeAws_queryListMFADeviceTagsResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15685,8 +15650,7 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
   };
   if (output.OpenIDConnectProviderList === "") {
     contents.OpenIDConnectProviderList = [];
-  }
-  if (
+  } else if (
     output["OpenIDConnectProviderList"] !== undefined &&
     output["OpenIDConnectProviderList"]["member"] !== undefined
   ) {
@@ -15709,8 +15673,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15735,8 +15698,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
   }
   if (output.Policies === "") {
     contents.Policies = [];
-  }
-  if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
+  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
     contents.Policies = deserializeAws_querypolicyGrantingServiceAccessListType(
       __getArrayIfSingleItem(output["Policies"]["member"]),
       context
@@ -15756,8 +15718,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
   };
   if (output.PoliciesGrantingServiceAccess === "") {
     contents.PoliciesGrantingServiceAccess = [];
-  }
-  if (
+  } else if (
     output["PoliciesGrantingServiceAccess"] !== undefined &&
     output["PoliciesGrantingServiceAccess"]["member"] !== undefined
   ) {
@@ -15783,8 +15744,7 @@ const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeC
   };
   if (output.Policies === "") {
     contents.Policies = [];
-  }
-  if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
+  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
     contents.Policies = deserializeAws_querypolicyListType(
       __getArrayIfSingleItem(output["Policies"]["member"]),
       context
@@ -15821,8 +15781,7 @@ const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __Serd
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15845,8 +15804,7 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   };
   if (output.Versions === "") {
     contents.Versions = [];
-  }
-  if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
+  } else if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
     contents.Versions = deserializeAws_querypolicyDocumentVersionListType(
       __getArrayIfSingleItem(output["Versions"]["member"]),
       context
@@ -15872,8 +15830,7 @@ const deserializeAws_queryListRolePoliciesResponse = (
   };
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       __getArrayIfSingleItem(output["PolicyNames"]["member"]),
       context
@@ -15896,8 +15853,7 @@ const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeCont
   };
   if (output.Roles === "") {
     contents.Roles = [];
-  }
-  if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
+  } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15917,8 +15873,7 @@ const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeC
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15939,8 +15894,7 @@ const deserializeAws_queryListSAMLProvidersResponse = (
   };
   if (output.SAMLProviderList === "") {
     contents.SAMLProviderList = [];
-  }
-  if (output["SAMLProviderList"] !== undefined && output["SAMLProviderList"]["member"] !== undefined) {
+  } else if (output["SAMLProviderList"] !== undefined && output["SAMLProviderList"]["member"] !== undefined) {
     contents.SAMLProviderList = deserializeAws_querySAMLProviderListType(
       __getArrayIfSingleItem(output["SAMLProviderList"]["member"]),
       context
@@ -15960,8 +15914,7 @@ const deserializeAws_queryListSAMLProviderTagsResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -15984,8 +15937,7 @@ const deserializeAws_queryListServerCertificatesResponse = (
   };
   if (output.ServerCertificateMetadataList === "") {
     contents.ServerCertificateMetadataList = [];
-  }
-  if (
+  } else if (
     output["ServerCertificateMetadataList"] !== undefined &&
     output["ServerCertificateMetadataList"]["member"] !== undefined
   ) {
@@ -16014,8 +15966,7 @@ const deserializeAws_queryListServerCertificateTagsResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -16036,8 +15987,7 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
   };
   if (output.ServiceSpecificCredentials === "") {
     contents.ServiceSpecificCredentials = [];
-  }
-  if (
+  } else if (
     output["ServiceSpecificCredentials"] !== undefined &&
     output["ServiceSpecificCredentials"]["member"] !== undefined
   ) {
@@ -16060,8 +16010,7 @@ const deserializeAws_queryListSigningCertificatesResponse = (
   };
   if (output.Certificates === "") {
     contents.Certificates = [];
-  }
-  if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
+  } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
     contents.Certificates = deserializeAws_querycertificateListType(
       __getArrayIfSingleItem(output["Certificates"]["member"]),
       context
@@ -16087,8 +16036,7 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
   };
   if (output.SSHPublicKeys === "") {
     contents.SSHPublicKeys = [];
-  }
-  if (output["SSHPublicKeys"] !== undefined && output["SSHPublicKeys"]["member"] !== undefined) {
+  } else if (output["SSHPublicKeys"] !== undefined && output["SSHPublicKeys"]["member"] !== undefined) {
     contents.SSHPublicKeys = deserializeAws_querySSHPublicKeyListType(
       __getArrayIfSingleItem(output["SSHPublicKeys"]["member"]),
       context
@@ -16114,8 +16062,7 @@ const deserializeAws_queryListUserPoliciesResponse = (
   };
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       __getArrayIfSingleItem(output["PolicyNames"]["member"]),
       context
@@ -16138,8 +16085,7 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
   };
   if (output.Users === "") {
     contents.Users = [];
-  }
-  if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
+  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
     contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -16159,8 +16105,7 @@ const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeC
   };
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -16183,8 +16128,7 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   };
   if (output.VirtualMFADevices === "") {
     contents.VirtualMFADevices = [];
-  }
-  if (output["VirtualMFADevices"] !== undefined && output["VirtualMFADevices"]["member"] !== undefined) {
+  } else if (output["VirtualMFADevices"] !== undefined && output["VirtualMFADevices"]["member"] !== undefined) {
     contents.VirtualMFADevices = deserializeAws_queryvirtualMFADeviceListType(
       __getArrayIfSingleItem(output["VirtualMFADevices"]["member"]),
       context
@@ -16293,8 +16237,7 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
   }
   if (output.PolicyVersionList === "") {
     contents.PolicyVersionList = [];
-  }
-  if (output["PolicyVersionList"] !== undefined && output["PolicyVersionList"]["member"] !== undefined) {
+  } else if (output["PolicyVersionList"] !== undefined && output["PolicyVersionList"]["member"] !== undefined) {
     contents.PolicyVersionList = deserializeAws_querypolicyDocumentVersionListType(
       __getArrayIfSingleItem(output["PolicyVersionList"]["member"]),
       context
@@ -16518,8 +16461,7 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -16809,8 +16751,7 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   }
   if (output.MatchedStatements === "") {
     contents.MatchedStatements = [];
-  }
-  if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
+  } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
     contents.MatchedStatements = deserializeAws_queryStatementListType(
       __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
       context
@@ -16818,8 +16759,7 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   }
   if (output.MissingContextValues === "") {
     contents.MissingContextValues = [];
-  }
-  if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
+  } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
     contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
       __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
       context
@@ -16827,8 +16767,7 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   }
   if (output.EvalDecisionDetails === "") {
     contents.EvalDecisionDetails = {};
-  }
-  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
+  } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
     contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
       __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
       context
@@ -16903,8 +16842,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["RoleLastUsed"] !== undefined) {
@@ -16948,8 +16886,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   }
   if (output.InstanceProfileList === "") {
     contents.InstanceProfileList = [];
-  }
-  if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
+  } else if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
     contents.InstanceProfileList = deserializeAws_queryinstanceProfileListType(
       __getArrayIfSingleItem(output["InstanceProfileList"]["member"]),
       context
@@ -16957,8 +16894,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   }
   if (output.RolePolicyList === "") {
     contents.RolePolicyList = [];
-  }
-  if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
+  } else if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
     contents.RolePolicyList = deserializeAws_querypolicyDetailListType(
       __getArrayIfSingleItem(output["RolePolicyList"]["member"]),
       context
@@ -16966,8 +16902,10 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
-  }
-  if (output["AttachedManagedPolicies"] !== undefined && output["AttachedManagedPolicies"]["member"] !== undefined) {
+  } else if (
+    output["AttachedManagedPolicies"] !== undefined &&
+    output["AttachedManagedPolicies"]["member"] !== undefined
+  ) {
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
@@ -16981,8 +16919,7 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["RoleLastUsed"] !== undefined) {
@@ -17048,8 +16985,7 @@ const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext)
   }
   if (output.Resources === "") {
     contents.Resources = [];
-  }
-  if (output["Resources"] !== undefined && output["Resources"]["member"] !== undefined) {
+  } else if (output["Resources"] !== undefined && output["Resources"]["member"] !== undefined) {
     contents.Resources = deserializeAws_queryArnListType(
       __getArrayIfSingleItem(output["Resources"]["member"]),
       context
@@ -17108,8 +17044,7 @@ const deserializeAws_queryServerCertificate = (output: any, context: __SerdeCont
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -17202,8 +17137,7 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
   }
   if (output.TrackedActionsLastAccessed === "") {
     contents.TrackedActionsLastAccessed = [];
-  }
-  if (
+  } else if (
     output["TrackedActionsLastAccessed"] !== undefined &&
     output["TrackedActionsLastAccessed"]["member"] !== undefined
   ) {
@@ -17357,8 +17291,7 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
   };
   if (output.EvaluationResults === "") {
     contents.EvaluationResults = [];
-  }
-  if (output["EvaluationResults"] !== undefined && output["EvaluationResults"]["member"] !== undefined) {
+  } else if (output["EvaluationResults"] !== undefined && output["EvaluationResults"]["member"] !== undefined) {
     contents.EvaluationResults = deserializeAws_queryEvaluationResultsListType(
       __getArrayIfSingleItem(output["EvaluationResults"]["member"]),
       context
@@ -17629,8 +17562,7 @@ const deserializeAws_queryUploadServerCertificateResponse = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -17699,8 +17631,7 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -17736,8 +17667,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   }
   if (output.UserPolicyList === "") {
     contents.UserPolicyList = [];
-  }
-  if (output["UserPolicyList"] !== undefined && output["UserPolicyList"]["member"] !== undefined) {
+  } else if (output["UserPolicyList"] !== undefined && output["UserPolicyList"]["member"] !== undefined) {
     contents.UserPolicyList = deserializeAws_querypolicyDetailListType(
       __getArrayIfSingleItem(output["UserPolicyList"]["member"]),
       context
@@ -17745,8 +17675,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   }
   if (output.GroupList === "") {
     contents.GroupList = [];
-  }
-  if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
+  } else if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
     contents.GroupList = deserializeAws_querygroupNameListType(
       __getArrayIfSingleItem(output["GroupList"]["member"]),
       context
@@ -17754,8 +17683,10 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
-  }
-  if (output["AttachedManagedPolicies"] !== undefined && output["AttachedManagedPolicies"]["member"] !== undefined) {
+  } else if (
+    output["AttachedManagedPolicies"] !== undefined &&
+    output["AttachedManagedPolicies"]["member"] !== undefined
+  ) {
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
       context
@@ -17769,8 +17700,7 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
@@ -17824,8 +17754,7 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;

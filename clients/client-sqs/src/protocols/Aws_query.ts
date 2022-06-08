@@ -2245,8 +2245,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   };
   if (output.ChangeMessageVisibilityBatchResultEntry === "") {
     contents.Successful = [];
-  }
-  if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
+  } else if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
     contents.Successful = deserializeAws_queryChangeMessageVisibilityBatchResultEntryList(
       __getArrayIfSingleItem(output["ChangeMessageVisibilityBatchResultEntry"]),
       context
@@ -2254,8 +2253,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   }
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-  }
-  if (output["BatchResultErrorEntry"] !== undefined) {
+  } else if (output["BatchResultErrorEntry"] !== undefined) {
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
@@ -2311,8 +2309,7 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   };
   if (output.DeleteMessageBatchResultEntry === "") {
     contents.Successful = [];
-  }
-  if (output["DeleteMessageBatchResultEntry"] !== undefined) {
+  } else if (output["DeleteMessageBatchResultEntry"] !== undefined) {
     contents.Successful = deserializeAws_queryDeleteMessageBatchResultEntryList(
       __getArrayIfSingleItem(output["DeleteMessageBatchResultEntry"]),
       context
@@ -2320,8 +2317,7 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   }
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-  }
-  if (output["BatchResultErrorEntry"] !== undefined) {
+  } else if (output["BatchResultErrorEntry"] !== undefined) {
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
@@ -2371,8 +2367,7 @@ const deserializeAws_queryGetQueueAttributesResult = (
   };
   if (output.Attribute === "") {
     contents.Attributes = {};
-  }
-  if (output["Attribute"] !== undefined) {
+  } else if (output["Attribute"] !== undefined) {
     contents.Attributes = deserializeAws_queryQueueAttributeMap(__getArrayIfSingleItem(output["Attribute"]), context);
   }
   return contents;
@@ -2418,8 +2413,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
   };
   if (output.QueueUrl === "") {
     contents.queueUrls = [];
-  }
-  if (output["QueueUrl"] !== undefined) {
+  } else if (output["QueueUrl"] !== undefined) {
     contents.queueUrls = deserializeAws_queryQueueUrlList(__getArrayIfSingleItem(output["QueueUrl"]), context);
   }
   if (output["NextToken"] !== undefined) {
@@ -2438,8 +2432,7 @@ const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeConte
   }
   if (output.QueueUrl === "") {
     contents.QueueUrls = [];
-  }
-  if (output["QueueUrl"] !== undefined) {
+  } else if (output["QueueUrl"] !== undefined) {
     contents.QueueUrls = deserializeAws_queryQueueUrlList(__getArrayIfSingleItem(output["QueueUrl"]), context);
   }
   return contents;
@@ -2451,8 +2444,7 @@ const deserializeAws_queryListQueueTagsResult = (output: any, context: __SerdeCo
   };
   if (output.Tag === "") {
     contents.Tags = {};
-  }
-  if (output["Tag"] !== undefined) {
+  } else if (output["Tag"] !== undefined) {
     contents.Tags = deserializeAws_queryTagMap(__getArrayIfSingleItem(output["Tag"]), context);
   }
   return contents;
@@ -2482,8 +2474,7 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
   }
   if (output.Attribute === "") {
     contents.Attributes = {};
-  }
-  if (output["Attribute"] !== undefined) {
+  } else if (output["Attribute"] !== undefined) {
     contents.Attributes = deserializeAws_queryMessageSystemAttributeMap(
       __getArrayIfSingleItem(output["Attribute"]),
       context
@@ -2494,8 +2485,7 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
   }
   if (output.MessageAttribute === "") {
     contents.MessageAttributes = {};
-  }
-  if (output["MessageAttribute"] !== undefined) {
+  } else if (output["MessageAttribute"] !== undefined) {
     contents.MessageAttributes = deserializeAws_queryMessageBodyAttributeMap(
       __getArrayIfSingleItem(output["MessageAttribute"]),
       context
@@ -2520,8 +2510,7 @@ const deserializeAws_queryMessageAttributeValue = (output: any, context: __Serde
   }
   if (output.StringListValue === "") {
     contents.StringListValues = [];
-  }
-  if (output["StringListValue"] !== undefined) {
+  } else if (output["StringListValue"] !== undefined) {
     contents.StringListValues = deserializeAws_queryStringList(
       __getArrayIfSingleItem(output["StringListValue"]),
       context
@@ -2529,8 +2518,7 @@ const deserializeAws_queryMessageAttributeValue = (output: any, context: __Serde
   }
   if (output.BinaryListValue === "") {
     contents.BinaryListValues = [];
-  }
-  if (output["BinaryListValue"] !== undefined) {
+  } else if (output["BinaryListValue"] !== undefined) {
     contents.BinaryListValues = deserializeAws_queryBinaryList(
       __getArrayIfSingleItem(output["BinaryListValue"]),
       context
@@ -2647,8 +2635,7 @@ const deserializeAws_queryReceiveMessageResult = (output: any, context: __SerdeC
   };
   if (output.Message === "") {
     contents.Messages = [];
-  }
-  if (output["Message"] !== undefined) {
+  } else if (output["Message"] !== undefined) {
     contents.Messages = deserializeAws_queryMessageList(__getArrayIfSingleItem(output["Message"]), context);
   }
   return contents;
@@ -2661,8 +2648,7 @@ const deserializeAws_querySendMessageBatchResult = (output: any, context: __Serd
   };
   if (output.SendMessageBatchResultEntry === "") {
     contents.Successful = [];
-  }
-  if (output["SendMessageBatchResultEntry"] !== undefined) {
+  } else if (output["SendMessageBatchResultEntry"] !== undefined) {
     contents.Successful = deserializeAws_querySendMessageBatchResultEntryList(
       __getArrayIfSingleItem(output["SendMessageBatchResultEntry"]),
       context
@@ -2670,8 +2656,7 @@ const deserializeAws_querySendMessageBatchResult = (output: any, context: __Serd
   }
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-  }
-  if (output["BatchResultErrorEntry"] !== undefined) {
+  } else if (output["BatchResultErrorEntry"] !== undefined) {
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context

@@ -2540,8 +2540,7 @@ export const deserializeAws_restXmlFlattenedXmlMapCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
     contents.myMap = {};
-  }
-  if (data["myMap"] !== undefined) {
+  } else if (data["myMap"] !== undefined) {
     contents.myMap = deserializeAws_restXmlFooEnumMap(__getArrayIfSingleItem(data["myMap"]), context);
   }
   return Promise.resolve(contents);
@@ -2584,8 +2583,7 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KVP === "") {
     contents.myMap = {};
-  }
-  if (data["KVP"] !== undefined) {
+  } else if (data["KVP"] !== undefined) {
     contents.myMap = deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap(
       __getArrayIfSingleItem(data["KVP"]),
       context
@@ -2631,8 +2629,7 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand = asyn
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KVP === "") {
     contents.myMap = {};
-  }
-  if (data["KVP"] !== undefined) {
+  } else if (data["KVP"] !== undefined) {
     contents.myMap = deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceOutputMap(
       __getArrayIfSingleItem(data["KVP"]),
       context
@@ -3394,14 +3391,12 @@ export const deserializeAws_restXmlNestedXmlMapsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flatNestedMap === "") {
     contents.flatNestedMap = {};
-  }
-  if (data["flatNestedMap"] !== undefined) {
+  } else if (data["flatNestedMap"] !== undefined) {
     contents.flatNestedMap = deserializeAws_restXmlNestedMap(__getArrayIfSingleItem(data["flatNestedMap"]), context);
   }
   if (data.nestedMap === "") {
     contents.nestedMap = {};
-  }
-  if (data["nestedMap"] !== undefined && data["nestedMap"]["entry"] !== undefined) {
+  } else if (data["nestedMap"] !== undefined && data["nestedMap"]["entry"] !== undefined) {
     contents.nestedMap = deserializeAws_restXmlNestedMap(__getArrayIfSingleItem(data["nestedMap"]["entry"]), context);
   }
   return Promise.resolve(contents);
@@ -4126,8 +4121,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.booleanList === "") {
     contents.booleanList = [];
-  }
-  if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
+  } else if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
     contents.booleanList = deserializeAws_restXmlBooleanList(
       __getArrayIfSingleItem(data["booleanList"]["member"]),
       context
@@ -4135,14 +4129,12 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.enumList === "") {
     contents.enumList = [];
-  }
-  if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
+  } else if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_restXmlFooEnumList(__getArrayIfSingleItem(data["enumList"]["member"]), context);
   }
   if (data.flattenedList === "") {
     contents.flattenedList = [];
-  }
-  if (data["flattenedList"] !== undefined) {
+  } else if (data["flattenedList"] !== undefined) {
     contents.flattenedList = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["flattenedList"]),
       context
@@ -4150,8 +4142,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.customName === "") {
     contents.flattenedList2 = [];
-  }
-  if (data["customName"] !== undefined) {
+  } else if (data["customName"] !== undefined) {
     contents.flattenedList2 = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["customName"]),
       context
@@ -4159,8 +4150,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.flattenedListWithMemberNamespace === "") {
     contents.flattenedListWithMemberNamespace = [];
-  }
-  if (data["flattenedListWithMemberNamespace"] !== undefined) {
+  } else if (data["flattenedListWithMemberNamespace"] !== undefined) {
     contents.flattenedListWithMemberNamespace = deserializeAws_restXmlListWithMemberNamespace(
       __getArrayIfSingleItem(data["flattenedListWithMemberNamespace"]),
       context
@@ -4168,8 +4158,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.flattenedListWithNamespace === "") {
     contents.flattenedListWithNamespace = [];
-  }
-  if (data["flattenedListWithNamespace"] !== undefined) {
+  } else if (data["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_restXmlListWithNamespace(
       __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
       context
@@ -4177,8 +4166,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.flattenedStructureList === "") {
     contents.flattenedStructureList = [];
-  }
-  if (data["flattenedStructureList"] !== undefined) {
+  } else if (data["flattenedStructureList"] !== undefined) {
     contents.flattenedStructureList = deserializeAws_restXmlStructureList(
       __getArrayIfSingleItem(data["flattenedStructureList"]),
       context
@@ -4186,8 +4174,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.integerList === "") {
     contents.integerList = [];
-  }
-  if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
+  } else if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
     contents.integerList = deserializeAws_restXmlIntegerList(
       __getArrayIfSingleItem(data["integerList"]["member"]),
       context
@@ -4195,8 +4182,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.nestedStringList === "") {
     contents.nestedStringList = [];
-  }
-  if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
+  } else if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
     contents.nestedStringList = deserializeAws_restXmlNestedStringList(
       __getArrayIfSingleItem(data["nestedStringList"]["member"]),
       context
@@ -4204,8 +4190,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.renamed === "") {
     contents.renamedListMembers = [];
-  }
-  if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
+  } else if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
     contents.renamedListMembers = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["renamed"]["item"]),
       context
@@ -4213,8 +4198,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.stringList === "") {
     contents.stringList = [];
-  }
-  if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
+  } else if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
     contents.stringList = deserializeAws_restXmlStringList(
       __getArrayIfSingleItem(data["stringList"]["member"]),
       context
@@ -4222,14 +4206,12 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.stringSet === "") {
     contents.stringSet = [];
-  }
-  if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
+  } else if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
     contents.stringSet = deserializeAws_restXmlStringSet(__getArrayIfSingleItem(data["stringSet"]["member"]), context);
   }
   if (data.myStructureList === "") {
     contents.structureList = [];
-  }
-  if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
+  } else if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_restXmlStructureList(
       __getArrayIfSingleItem(data["myStructureList"]["item"]),
       context
@@ -4237,8 +4219,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (data.timestampList === "") {
     contents.timestampList = [];
-  }
-  if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
+  } else if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
     contents.timestampList = deserializeAws_restXmlTimestampList(
       __getArrayIfSingleItem(data["timestampList"]["member"]),
       context
@@ -4284,8 +4265,7 @@ export const deserializeAws_restXmlXmlEmptyMapsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
     contents.myMap = {};
-  }
-  if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
+  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
     contents.myMap = deserializeAws_restXmlXmlMapsInputOutputMap(
       __getArrayIfSingleItem(data["myMap"]["entry"]),
       context
@@ -4386,8 +4366,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   }
   if (data.fooEnumList === "") {
     contents.fooEnumList = [];
-  }
-  if (data["fooEnumList"] !== undefined && data["fooEnumList"]["member"] !== undefined) {
+  } else if (data["fooEnumList"] !== undefined && data["fooEnumList"]["member"] !== undefined) {
     contents.fooEnumList = deserializeAws_restXmlFooEnumList(
       __getArrayIfSingleItem(data["fooEnumList"]["member"]),
       context
@@ -4395,8 +4374,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   }
   if (data.fooEnumMap === "") {
     contents.fooEnumMap = {};
-  }
-  if (data["fooEnumMap"] !== undefined && data["fooEnumMap"]["entry"] !== undefined) {
+  } else if (data["fooEnumMap"] !== undefined && data["fooEnumMap"]["entry"] !== undefined) {
     contents.fooEnumMap = deserializeAws_restXmlFooEnumMap(
       __getArrayIfSingleItem(data["fooEnumMap"]["entry"]),
       context
@@ -4404,8 +4382,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   }
   if (data.fooEnumSet === "") {
     contents.fooEnumSet = [];
-  }
-  if (data["fooEnumSet"] !== undefined && data["fooEnumSet"]["member"] !== undefined) {
+  } else if (data["fooEnumSet"] !== undefined && data["fooEnumSet"]["member"] !== undefined) {
     contents.fooEnumSet = deserializeAws_restXmlFooEnumSet(
       __getArrayIfSingleItem(data["fooEnumSet"]["member"]),
       context
@@ -4464,8 +4441,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.booleanList === "") {
     contents.booleanList = [];
-  }
-  if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
+  } else if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
     contents.booleanList = deserializeAws_restXmlBooleanList(
       __getArrayIfSingleItem(data["booleanList"]["member"]),
       context
@@ -4473,14 +4449,12 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.enumList === "") {
     contents.enumList = [];
-  }
-  if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
+  } else if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_restXmlFooEnumList(__getArrayIfSingleItem(data["enumList"]["member"]), context);
   }
   if (data.flattenedList === "") {
     contents.flattenedList = [];
-  }
-  if (data["flattenedList"] !== undefined) {
+  } else if (data["flattenedList"] !== undefined) {
     contents.flattenedList = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["flattenedList"]),
       context
@@ -4488,8 +4462,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.customName === "") {
     contents.flattenedList2 = [];
-  }
-  if (data["customName"] !== undefined) {
+  } else if (data["customName"] !== undefined) {
     contents.flattenedList2 = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["customName"]),
       context
@@ -4497,8 +4470,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.flattenedListWithMemberNamespace === "") {
     contents.flattenedListWithMemberNamespace = [];
-  }
-  if (data["flattenedListWithMemberNamespace"] !== undefined) {
+  } else if (data["flattenedListWithMemberNamespace"] !== undefined) {
     contents.flattenedListWithMemberNamespace = deserializeAws_restXmlListWithMemberNamespace(
       __getArrayIfSingleItem(data["flattenedListWithMemberNamespace"]),
       context
@@ -4506,8 +4478,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.flattenedListWithNamespace === "") {
     contents.flattenedListWithNamespace = [];
-  }
-  if (data["flattenedListWithNamespace"] !== undefined) {
+  } else if (data["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_restXmlListWithNamespace(
       __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
       context
@@ -4515,8 +4486,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.flattenedStructureList === "") {
     contents.flattenedStructureList = [];
-  }
-  if (data["flattenedStructureList"] !== undefined) {
+  } else if (data["flattenedStructureList"] !== undefined) {
     contents.flattenedStructureList = deserializeAws_restXmlStructureList(
       __getArrayIfSingleItem(data["flattenedStructureList"]),
       context
@@ -4524,8 +4494,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.integerList === "") {
     contents.integerList = [];
-  }
-  if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
+  } else if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
     contents.integerList = deserializeAws_restXmlIntegerList(
       __getArrayIfSingleItem(data["integerList"]["member"]),
       context
@@ -4533,8 +4502,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.nestedStringList === "") {
     contents.nestedStringList = [];
-  }
-  if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
+  } else if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
     contents.nestedStringList = deserializeAws_restXmlNestedStringList(
       __getArrayIfSingleItem(data["nestedStringList"]["member"]),
       context
@@ -4542,8 +4510,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.renamed === "") {
     contents.renamedListMembers = [];
-  }
-  if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
+  } else if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
     contents.renamedListMembers = deserializeAws_restXmlRenamedListMembers(
       __getArrayIfSingleItem(data["renamed"]["item"]),
       context
@@ -4551,8 +4518,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.stringList === "") {
     contents.stringList = [];
-  }
-  if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
+  } else if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
     contents.stringList = deserializeAws_restXmlStringList(
       __getArrayIfSingleItem(data["stringList"]["member"]),
       context
@@ -4560,14 +4526,12 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.stringSet === "") {
     contents.stringSet = [];
-  }
-  if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
+  } else if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
     contents.stringSet = deserializeAws_restXmlStringSet(__getArrayIfSingleItem(data["stringSet"]["member"]), context);
   }
   if (data.myStructureList === "") {
     contents.structureList = [];
-  }
-  if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
+  } else if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_restXmlStructureList(
       __getArrayIfSingleItem(data["myStructureList"]["item"]),
       context
@@ -4575,8 +4539,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   if (data.timestampList === "") {
     contents.timestampList = [];
-  }
-  if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
+  } else if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
     contents.timestampList = deserializeAws_restXmlTimestampList(
       __getArrayIfSingleItem(data["timestampList"]["member"]),
       context
@@ -4622,8 +4585,7 @@ export const deserializeAws_restXmlXmlMapsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
     contents.myMap = {};
-  }
-  if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
+  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
     contents.myMap = deserializeAws_restXmlXmlMapsInputOutputMap(
       __getArrayIfSingleItem(data["myMap"]["entry"]),
       context
@@ -4669,8 +4631,7 @@ export const deserializeAws_restXmlXmlMapsXmlNameCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
     contents.myMap = {};
-  }
-  if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
+  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
     contents.myMap = deserializeAws_restXmlXmlMapsXmlNameInputOutputMap(
       __getArrayIfSingleItem(data["myMap"]["entry"]),
       context
@@ -4808,7 +4769,9 @@ export const deserializeAws_restXmlXmlUnionsCommand = async (
     unionValue: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["unionValue"] !== undefined) {
+  if (data.unionValue === "") {
+    // Pass empty tags.
+  } else if (data["unionValue"] !== undefined) {
     contents.unionValue = deserializeAws_restXmlXmlUnionShape(__expectUnion(data["unionValue"]), context);
   }
   return Promise.resolve(contents);
@@ -5616,8 +5579,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeC
   }
   if (output.values === "") {
     contents.values = [];
-  }
-  if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
+  } else if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
     contents.values = deserializeAws_restXmlXmlNamespacedList(
       __getArrayIfSingleItem(output["values"]["member"]),
       context
@@ -5705,7 +5667,9 @@ const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContex
       doubleValue: __strictParseFloat(output["doubleValue"]) as number,
     };
   }
-  if (output["unionValue"] !== undefined) {
+  if (output.unionValue === "") {
+    // Pass empty tags.
+  } else if (output["unionValue"] !== undefined) {
     return {
       unionValue: deserializeAws_restXmlXmlUnionShape(__expectUnion(output["unionValue"]), context),
     };

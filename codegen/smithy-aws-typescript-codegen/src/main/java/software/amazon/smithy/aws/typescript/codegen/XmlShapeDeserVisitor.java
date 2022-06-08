@@ -45,12 +45,14 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * Visitor to generate deserialization functions for shapes in XML-document
  * based document bodies.
  *
- * No standard visitation methods are overridden; function body generation for all
+ * No standard visitation methods are overridden; function body generation for
+ * all
  * expected deserializers is handled by this class.
  *
  * Timestamps are deserialized from {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML
+ *      traits.</a>
  */
 @SmithyInternalApi
 final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
@@ -169,26 +171,29 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
     /**
      * Generates an if statement for deserializing an output member, validating its
      * presence at the correct location, handling collections and flattening, and
-     * dispatching to the supplied function to generate the body of the if statement.
+     * dispatching to the supplied function to generate the body of the if
+     * statement.
      *
-     * @param context The generation context.
-     * @param memberName The name of the member being deserialized.
-     * @param memberShape The shape of the member being deserialized.
-     * @param inputLocation The parent input location of the member being deserialized.
-     * @param statementBodyGenerator A function that generates the proper deserialization
-     *   after member presence is validated.
+     * @param context                The generation context.
+     * @param memberName             The name of the member being deserialized.
+     * @param memberShape            The shape of the member being deserialized.
+     * @param inputLocation          The parent input location of the member being
+     *                               deserialized.
+     * @param statementBodyGenerator A function that generates the proper
+     *                               deserialization
+     *                               after member presence is validated.
      */
     void deserializeNamedMember(
             GenerationContext context,
             String memberName,
             MemberShape memberShape,
             String inputLocation,
-            BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator
-    ) {
+            BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
 
-        // Use the @xmlName trait if present on the member, otherwise use the member name.
+        // Use the @xmlName trait if present on the member, otherwise use the member
+        // name.
         String locationName = memberShape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
                 .orElse(memberName);
@@ -215,16 +220,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             sourceBuilder.append("['").append(targetLocation).append("']");
         }
 
-        // Handle self-closed xml parsed as an empty string.
-        if (deserializationReturnsArray) {
-            writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
-                if (target instanceof MapShape) {
-                    writer.write("contents.$L = {};", memberName);
-                } else if (target instanceof CollectionShape) {
-                    writer.write("contents.$L = [];", memberName);
-                }
-            });
-        }
+        boolean canMemberParsed = handleEmptyTags(writer, target, inputLocation, locationName, memberName);
 
         // Handle the response property.
         String source = sourceBuilder.toString();
@@ -234,7 +230,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         String validationStatement = locationsToValidate.stream()
                 .map(location -> location + " !== undefined")
                 .collect(Collectors.joining(" && "));
-        writer.openBlock("if ($L) {", "}", validationStatement, () -> {
+        String ifOrElseIfStatement = canMemberParsed ? "else if" : "if";
+        writer.openBlock("$L ($L) {", "}", ifOrElseIfStatement, validationStatement, () -> {
             String dataSource = getNamedTargetWrapper(context, target, source);
             statementBodyGenerator.accept(dataSource, getMemberVisitor(memberShape, dataSource));
         });
@@ -261,6 +258,32 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         return ((CollectionShape) shape).getMember().getMemberTrait(model, XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
                 .orElse("member");
+    }
+
+    // Handle self-closed xml parsed as an empty string. For Map, List, and
+    // Union, the deserializer should return empty value for empty Xml tags
+    // before parsing the subordinary members.
+    // It returns true if target can be returned earlier in case of empty tags.
+    private boolean handleEmptyTags(
+            TypeScriptWriter writer,
+            Shape target,
+            String inputLocation,
+            String locationName,
+            String memberName) {
+        if (target instanceof MapShape || target instanceof CollectionShape || target instanceof UnionShape) {
+            writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
+                if (target instanceof MapShape) {
+                    writer.write("contents.$L = {};", memberName);
+                } else if (target instanceof CollectionShape) {
+                    writer.write("contents.$L = [];", memberName);
+                } else if (target instanceof UnionShape) {
+                    writer.write("// Pass empty tags.");
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

@@ -7169,8 +7169,10 @@ const deserializeAws_queryCloudWatchDestination = (output: any, context: __Serde
   };
   if (output.DimensionConfigurations === "") {
     contents.DimensionConfigurations = [];
-  }
-  if (output["DimensionConfigurations"] !== undefined && output["DimensionConfigurations"]["member"] !== undefined) {
+  } else if (
+    output["DimensionConfigurations"] !== undefined &&
+    output["DimensionConfigurations"]["member"] !== undefined
+  ) {
     contents.DimensionConfigurations = deserializeAws_queryCloudWatchDimensionConfigurations(
       __getArrayIfSingleItem(output["DimensionConfigurations"]["member"]),
       context
@@ -7518,8 +7520,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
   }
   if (output.Rules === "") {
     contents.Rules = [];
-  }
-  if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
+  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
     contents.Rules = deserializeAws_queryReceiptRulesList(__getArrayIfSingleItem(output["Rules"]["member"]), context);
   }
   return contents;
@@ -7541,8 +7542,7 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
   }
   if (output.EventDestinations === "") {
     contents.EventDestinations = [];
-  }
-  if (output["EventDestinations"] !== undefined && output["EventDestinations"]["member"] !== undefined) {
+  } else if (output["EventDestinations"] !== undefined && output["EventDestinations"]["member"] !== undefined) {
     contents.EventDestinations = deserializeAws_queryEventDestinations(
       __getArrayIfSingleItem(output["EventDestinations"]["member"]),
       context
@@ -7586,8 +7586,7 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
   }
   if (output.Rules === "") {
     contents.Rules = [];
-  }
-  if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
+  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
     contents.Rules = deserializeAws_queryReceiptRulesList(__getArrayIfSingleItem(output["Rules"]["member"]), context);
   }
   return contents;
@@ -7625,8 +7624,7 @@ const deserializeAws_queryEventDestination = (output: any, context: __SerdeConte
   }
   if (output.MatchingEventTypes === "") {
     contents.MatchingEventTypes = [];
-  }
-  if (output["MatchingEventTypes"] !== undefined && output["MatchingEventTypes"]["member"] !== undefined) {
+  } else if (output["MatchingEventTypes"] !== undefined && output["MatchingEventTypes"]["member"] !== undefined) {
     contents.MatchingEventTypes = deserializeAws_queryEventTypes(
       __getArrayIfSingleItem(output["MatchingEventTypes"]["member"]),
       context
@@ -7786,8 +7784,7 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
   };
   if (output.DkimAttributes === "") {
     contents.DkimAttributes = {};
-  }
-  if (output["DkimAttributes"] !== undefined && output["DkimAttributes"]["entry"] !== undefined) {
+  } else if (output["DkimAttributes"] !== undefined && output["DkimAttributes"]["entry"] !== undefined) {
     contents.DkimAttributes = deserializeAws_queryDkimAttributes(
       __getArrayIfSingleItem(output["DkimAttributes"]["entry"]),
       context
@@ -7805,8 +7802,10 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
   };
   if (output.MailFromDomainAttributes === "") {
     contents.MailFromDomainAttributes = {};
-  }
-  if (output["MailFromDomainAttributes"] !== undefined && output["MailFromDomainAttributes"]["entry"] !== undefined) {
+  } else if (
+    output["MailFromDomainAttributes"] !== undefined &&
+    output["MailFromDomainAttributes"]["entry"] !== undefined
+  ) {
     contents.MailFromDomainAttributes = deserializeAws_queryMailFromDomainAttributes(
       __getArrayIfSingleItem(output["MailFromDomainAttributes"]["entry"]),
       context
@@ -7824,8 +7823,10 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
   };
   if (output.NotificationAttributes === "") {
     contents.NotificationAttributes = {};
-  }
-  if (output["NotificationAttributes"] !== undefined && output["NotificationAttributes"]["entry"] !== undefined) {
+  } else if (
+    output["NotificationAttributes"] !== undefined &&
+    output["NotificationAttributes"]["entry"] !== undefined
+  ) {
     contents.NotificationAttributes = deserializeAws_queryNotificationAttributes(
       __getArrayIfSingleItem(output["NotificationAttributes"]["entry"]),
       context
@@ -7843,8 +7844,7 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
   };
   if (output.Policies === "") {
     contents.Policies = {};
-  }
-  if (output["Policies"] !== undefined && output["Policies"]["entry"] !== undefined) {
+  } else if (output["Policies"] !== undefined && output["Policies"]["entry"] !== undefined) {
     contents.Policies = deserializeAws_queryPolicyMap(__getArrayIfSingleItem(output["Policies"]["entry"]), context);
   }
   return contents;
@@ -7859,8 +7859,10 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
   };
   if (output.VerificationAttributes === "") {
     contents.VerificationAttributes = {};
-  }
-  if (output["VerificationAttributes"] !== undefined && output["VerificationAttributes"]["entry"] !== undefined) {
+  } else if (
+    output["VerificationAttributes"] !== undefined &&
+    output["VerificationAttributes"]["entry"] !== undefined
+  ) {
     contents.VerificationAttributes = deserializeAws_queryVerificationAttributes(
       __getArrayIfSingleItem(output["VerificationAttributes"]["entry"]),
       context
@@ -7896,8 +7898,7 @@ const deserializeAws_queryGetSendStatisticsResponse = (
   };
   if (output.SendDataPoints === "") {
     contents.SendDataPoints = [];
-  }
-  if (output["SendDataPoints"] !== undefined && output["SendDataPoints"]["member"] !== undefined) {
+  } else if (output["SendDataPoints"] !== undefined && output["SendDataPoints"]["member"] !== undefined) {
     contents.SendDataPoints = deserializeAws_querySendDataPointList(
       __getArrayIfSingleItem(output["SendDataPoints"]["member"]),
       context
@@ -7930,8 +7931,7 @@ const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __Serd
   }
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
-  }
-  if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
+  } else if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
       __getArrayIfSingleItem(output["DkimTokens"]["member"]),
       context
@@ -8278,8 +8278,7 @@ const deserializeAws_queryListConfigurationSetsResponse = (
   };
   if (output.ConfigurationSets === "") {
     contents.ConfigurationSets = [];
-  }
-  if (output["ConfigurationSets"] !== undefined && output["ConfigurationSets"]["member"] !== undefined) {
+  } else if (output["ConfigurationSets"] !== undefined && output["ConfigurationSets"]["member"] !== undefined) {
     contents.ConfigurationSets = deserializeAws_queryConfigurationSets(
       __getArrayIfSingleItem(output["ConfigurationSets"]["member"]),
       context
@@ -8301,8 +8300,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
   };
   if (output.CustomVerificationEmailTemplates === "") {
     contents.CustomVerificationEmailTemplates = [];
-  }
-  if (
+  } else if (
     output["CustomVerificationEmailTemplates"] !== undefined &&
     output["CustomVerificationEmailTemplates"]["member"] !== undefined
   ) {
@@ -8324,8 +8322,7 @@ const deserializeAws_queryListIdentitiesResponse = (output: any, context: __Serd
   };
   if (output.Identities === "") {
     contents.Identities = [];
-  }
-  if (output["Identities"] !== undefined && output["Identities"]["member"] !== undefined) {
+  } else if (output["Identities"] !== undefined && output["Identities"]["member"] !== undefined) {
     contents.Identities = deserializeAws_queryIdentityList(
       __getArrayIfSingleItem(output["Identities"]["member"]),
       context
@@ -8346,8 +8343,7 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
   };
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
     contents.PolicyNames = deserializeAws_queryPolicyNameList(
       __getArrayIfSingleItem(output["PolicyNames"]["member"]),
       context
@@ -8365,8 +8361,7 @@ const deserializeAws_queryListReceiptFiltersResponse = (
   };
   if (output.Filters === "") {
     contents.Filters = [];
-  }
-  if (output["Filters"] !== undefined && output["Filters"]["member"] !== undefined) {
+  } else if (output["Filters"] !== undefined && output["Filters"]["member"] !== undefined) {
     contents.Filters = deserializeAws_queryReceiptFilterList(
       __getArrayIfSingleItem(output["Filters"]["member"]),
       context
@@ -8385,8 +8380,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
   };
   if (output.RuleSets === "") {
     contents.RuleSets = [];
-  }
-  if (output["RuleSets"] !== undefined && output["RuleSets"]["member"] !== undefined) {
+  } else if (output["RuleSets"] !== undefined && output["RuleSets"]["member"] !== undefined) {
     contents.RuleSets = deserializeAws_queryReceiptRuleSetsLists(
       __getArrayIfSingleItem(output["RuleSets"]["member"]),
       context
@@ -8405,8 +8399,7 @@ const deserializeAws_queryListTemplatesResponse = (output: any, context: __Serde
   };
   if (output.TemplatesMetadata === "") {
     contents.TemplatesMetadata = [];
-  }
-  if (output["TemplatesMetadata"] !== undefined && output["TemplatesMetadata"]["member"] !== undefined) {
+  } else if (output["TemplatesMetadata"] !== undefined && output["TemplatesMetadata"]["member"] !== undefined) {
     contents.TemplatesMetadata = deserializeAws_queryTemplateMetadataList(
       __getArrayIfSingleItem(output["TemplatesMetadata"]["member"]),
       context
@@ -8427,8 +8420,10 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
   };
   if (output.VerifiedEmailAddresses === "") {
     contents.VerifiedEmailAddresses = [];
-  }
-  if (output["VerifiedEmailAddresses"] !== undefined && output["VerifiedEmailAddresses"]["member"] !== undefined) {
+  } else if (
+    output["VerifiedEmailAddresses"] !== undefined &&
+    output["VerifiedEmailAddresses"]["member"] !== undefined
+  ) {
     contents.VerifiedEmailAddresses = deserializeAws_queryAddressList(
       __getArrayIfSingleItem(output["VerifiedEmailAddresses"]["member"]),
       context
@@ -8663,8 +8658,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
   }
   if (output.Recipients === "") {
     contents.Recipients = [];
-  }
-  if (output["Recipients"] !== undefined && output["Recipients"]["member"] !== undefined) {
+  } else if (output["Recipients"] !== undefined && output["Recipients"]["member"] !== undefined) {
     contents.Recipients = deserializeAws_queryRecipientsList(
       __getArrayIfSingleItem(output["Recipients"]["member"]),
       context
@@ -8672,8 +8666,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
   }
   if (output.Actions === "") {
     contents.Actions = [];
-  }
-  if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
+  } else if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
     contents.Actions = deserializeAws_queryReceiptActionsList(
       __getArrayIfSingleItem(output["Actions"]["member"]),
       context
@@ -8833,8 +8826,7 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
   };
   if (output.Status === "") {
     contents.Status = [];
-  }
-  if (output["Status"] !== undefined && output["Status"]["member"] !== undefined) {
+  } else if (output["Status"] !== undefined && output["Status"]["member"] !== undefined) {
     contents.Status = deserializeAws_queryBulkEmailDestinationStatusList(
       __getArrayIfSingleItem(output["Status"]["member"]),
       context
@@ -9205,8 +9197,7 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
   };
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
-  }
-  if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
+  } else if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
       __getArrayIfSingleItem(output["DkimTokens"]["member"]),
       context

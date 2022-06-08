@@ -1743,8 +1743,7 @@ const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext):
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
-  }
-  if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
+  } else if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
     contents.fooEnumList = deserializeAws_ec2FooEnumList(
       __getArrayIfSingleItem(output["fooEnumList"]["member"]),
       context
@@ -1752,14 +1751,12 @@ const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext):
   }
   if (output.fooEnumSet === "") {
     contents.fooEnumSet = [];
-  }
-  if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
+  } else if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
     contents.fooEnumSet = deserializeAws_ec2FooEnumSet(__getArrayIfSingleItem(output["fooEnumSet"]["member"]), context);
   }
   if (output.fooEnumMap === "") {
     contents.fooEnumMap = {};
-  }
-  if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
+  } else if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
     contents.fooEnumMap = deserializeAws_ec2FooEnumMap(__getArrayIfSingleItem(output["fooEnumMap"]["entry"]), context);
   }
   return contents;
@@ -1783,20 +1780,17 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   };
   if (output.stringList === "") {
     contents.stringList = [];
-  }
-  if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
+  } else if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
     contents.stringList = deserializeAws_ec2StringList(__getArrayIfSingleItem(output["stringList"]["member"]), context);
   }
   if (output.stringSet === "") {
     contents.stringSet = [];
-  }
-  if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
+  } else if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
     contents.stringSet = deserializeAws_ec2StringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
   }
   if (output.integerList === "") {
     contents.integerList = [];
-  }
-  if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
+  } else if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
     contents.integerList = deserializeAws_ec2IntegerList(
       __getArrayIfSingleItem(output["integerList"]["member"]),
       context
@@ -1804,8 +1798,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.booleanList === "") {
     contents.booleanList = [];
-  }
-  if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
+  } else if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
     contents.booleanList = deserializeAws_ec2BooleanList(
       __getArrayIfSingleItem(output["booleanList"]["member"]),
       context
@@ -1813,8 +1806,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.timestampList === "") {
     contents.timestampList = [];
-  }
-  if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
+  } else if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
     contents.timestampList = deserializeAws_ec2TimestampList(
       __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
@@ -1822,14 +1814,12 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.enumList === "") {
     contents.enumList = [];
-  }
-  if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
+  } else if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_ec2FooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
-  }
-  if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
+  } else if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
     contents.nestedStringList = deserializeAws_ec2NestedStringList(
       __getArrayIfSingleItem(output["nestedStringList"]["member"]),
       context
@@ -1837,8 +1827,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.renamed === "") {
     contents.renamedListMembers = [];
-  }
-  if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
+  } else if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
     contents.renamedListMembers = deserializeAws_ec2RenamedListMembers(
       __getArrayIfSingleItem(output["renamed"]["item"]),
       context
@@ -1846,8 +1835,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
-  }
-  if (output["flattenedList"] !== undefined) {
+  } else if (output["flattenedList"] !== undefined) {
     contents.flattenedList = deserializeAws_ec2RenamedListMembers(
       __getArrayIfSingleItem(output["flattenedList"]),
       context
@@ -1855,8 +1843,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.customName === "") {
     contents.flattenedList2 = [];
-  }
-  if (output["customName"] !== undefined) {
+  } else if (output["customName"] !== undefined) {
     contents.flattenedList2 = deserializeAws_ec2RenamedListMembers(
       __getArrayIfSingleItem(output["customName"]),
       context
@@ -1864,8 +1851,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.flattenedListWithMemberNamespace === "") {
     contents.flattenedListWithMemberNamespace = [];
-  }
-  if (output["flattenedListWithMemberNamespace"] !== undefined) {
+  } else if (output["flattenedListWithMemberNamespace"] !== undefined) {
     contents.flattenedListWithMemberNamespace = deserializeAws_ec2ListWithMemberNamespace(
       __getArrayIfSingleItem(output["flattenedListWithMemberNamespace"]),
       context
@@ -1873,8 +1859,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.flattenedListWithNamespace === "") {
     contents.flattenedListWithNamespace = [];
-  }
-  if (output["flattenedListWithNamespace"] !== undefined) {
+  } else if (output["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_ec2ListWithNamespace(
       __getArrayIfSingleItem(output["flattenedListWithNamespace"]),
       context
@@ -1882,8 +1867,7 @@ const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext):
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
-  }
-  if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
+  } else if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_ec2StructureList(
       __getArrayIfSingleItem(output["myStructureList"]["item"]),
       context
@@ -1913,8 +1897,7 @@ const deserializeAws_ec2XmlNamespaceNested = (output: any, context: __SerdeConte
   }
   if (output.values === "") {
     contents.values = [];
-  }
-  if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
+  } else if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
     contents.values = deserializeAws_ec2XmlNamespacedList(__getArrayIfSingleItem(output["values"]["member"]), context);
   }
   return contents;
