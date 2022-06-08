@@ -17,8 +17,6 @@ import {
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
-const version = "2016-11-15";
-
 interface PreviouslyResolved {
   credentials: MemoizedProvider<Credentials>;
   endpoint: Provider<Endpoint>;
@@ -27,6 +25,8 @@ interface PreviouslyResolved {
   signingEscapePath: boolean;
   regionInfoProvider?: RegionInfoProvider;
 }
+
+const version = "2016-11-15";
 
 //an initialize middleware to add PresignUrl to input
 export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
