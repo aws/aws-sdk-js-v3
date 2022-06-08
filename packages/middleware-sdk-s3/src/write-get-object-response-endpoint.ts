@@ -3,19 +3,20 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
   Provider,
+  RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
 type PreviouslyResolved = {
   region: Provider<string>;
   isCustomEndpoint: boolean;
   disableHostPrefix: boolean;
+  runtime: string;
 };
 
 type Input = {
@@ -49,15 +50,22 @@ export const writeGetObjectResponseEndpointMiddleware =
     }
     request.hostname = hostname;
     context["signing_service"] = "s3-object-lambda";
+
+    // Set the chunked transfer encoding when content-length cannot be inferred
+    // Only set in node because this header is forbidden in browser.
+    if (config.runtime === "node" && !request.headers["content-length"]) {
+      request.headers["transfer-encoding"] = "chunked";
+    }
     return next({ ...args });
   };
 
 /**
  * @internal
  */
-export const writeGetObjectResponseEndpointMiddlewareOptions: BuildHandlerOptions = {
-  step: "build",
-  tags: ["WRITE_GET_OBJECT_RESPONSE", "S3"],
+export const writeGetObjectResponseEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
+  relation: "after",
+  toMiddleware: "contentLengthMiddleware",
+  tags: ["WRITE_GET_OBJECT_RESPONSE", "S3", "ENDPOINT"],
   name: "writeGetObjectResponseEndpointMiddleware",
   override: true,
 };
@@ -67,6 +75,9 @@ export const writeGetObjectResponseEndpointMiddlewareOptions: BuildHandlerOption
  */
 export const getWriteGetObjectResponseEndpointPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(writeGetObjectResponseEndpointMiddleware(config), writeGetObjectResponseEndpointMiddlewareOptions);
+    clientStack.addRelativeTo(
+      writeGetObjectResponseEndpointMiddleware(config),
+      writeGetObjectResponseEndpointMiddlewareOptions
+    );
   },
 });

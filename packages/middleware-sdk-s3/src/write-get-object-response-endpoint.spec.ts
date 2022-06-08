@@ -9,6 +9,7 @@ describe("writeGetObjectResponseEndpointMiddlewareOptions", () => {
     region: mockRegionProvider,
     isCustomEndpoint: false,
     disableHostPrefix: false,
+    runtime: "node",
   };
 
   beforeEach(() => {
@@ -55,6 +56,7 @@ describe("writeGetObjectResponseEndpointMiddlewareOptions", () => {
     expect(mockNextHandler.mock.calls.length).toBe(1);
     expect(mockNextHandler.mock.calls[0][0].request.hostname).toBe(expected);
     expect(context).toMatchObject({ signing_service: "s3-object-lambda" });
+    expect(mockNextHandler.mock.calls[0][0].request.headers["transfer-encoding"]).toBe("chunked");
     mockNextHandler.mockClear();
   });
 
@@ -72,6 +74,7 @@ describe("writeGetObjectResponseEndpointMiddlewareOptions", () => {
     });
     expect(mockNextHandler.mock.calls.length).toBe(1);
     expect(mockNextHandler.mock.calls[0][0].request.hostname).toBe("route.my-endpoint.com");
+    expect(mockNextHandler.mock.calls[0][0].request.headers["transfer-encoding"]).toBe("chunked");
     expect(context).toMatchObject({ signing_service: "s3-object-lambda" });
     mockNextHandler.mockClear();
   });
@@ -90,5 +93,35 @@ describe("writeGetObjectResponseEndpointMiddlewareOptions", () => {
     });
     expect(mockNextHandler.mock.calls.length).toBe(1);
     expect(mockNextHandler.mock.calls[0][0].request.hostname).toBe("s3-object-lambda.us-west-2.amazonaws.com");
+  });
+
+  it("should not set chunked encoding if content-length is already set", async () => {
+    const context = {} as any;
+    const handler = writeGetObjectResponseEndpointMiddleware({ ...mockConfig })(mockNextHandler, context);
+    const headers = { "content-length": "123" };
+    await handler({
+      request: new HttpRequest({ hostname: "s3.us-west-2.amazonaws.com", headers }),
+      input: {
+        RequestRoute: "route",
+      },
+    });
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    expect(mockNextHandler.mock.calls[0][0].request.headers).toEqual(headers);
+  });
+
+  it("should not set the chunked encoding for non Node.js runtime", async () => {
+    const context = {} as any;
+    const handler = writeGetObjectResponseEndpointMiddleware({ ...mockConfig, runtime: "browser" })(
+      mockNextHandler,
+      context
+    );
+    await handler({
+      request: new HttpRequest({ hostname: "s3.us-west-2.amazonaws.com" }),
+      input: {
+        RequestRoute: "route",
+      },
+    });
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    expect(mockNextHandler.mock.calls[0][0].request.headers["transfer-encoding"]).not.toBeDefined();
   });
 });
