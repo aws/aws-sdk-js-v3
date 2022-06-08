@@ -8,7 +8,10 @@ const handler = copySnapshotPresignedUrlMiddleware({
   region,
   sha256: MockSha256,
   signingEscapePath: true,
-})(nextHandler, {} as any);
+  regionInfoProvider: async (...args) => ({
+    hostname: "ec2.src-region.test-host.com",
+  }),
+} as any)(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {
   beforeEach(() => {
@@ -27,7 +30,8 @@ describe("middleware-sdk-ec2", () => {
     expect(middlewareOutput.input.SourceSnapshotId).toEqual(params.SourceSnapshotId);
     expect(middlewareOutput.input.DestinationRegion).toEqual(await region());
     const presignedUrl = middlewareOutput.input.PresignedUrl;
-    expect(presignedUrl).toMatch(/https\:\/\/ec2.src-region.amazonaws.com\/\?/);
+    expect(presignedUrl).not.toMatch(/https\:\/\/ec2.src-region.amazonaws.com\/\?/);
+    expect(presignedUrl).toMatch(/https\:\/\/ec2.src-region.test-host.com\/\?/);
     expect(presignedUrl).toMatch(/Action\=CopySnapshot/);
     expect(presignedUrl).toMatch(/Version\=2016\-11\-15/);
     expect(presignedUrl).toMatch(

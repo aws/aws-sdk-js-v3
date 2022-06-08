@@ -1,40 +1,35 @@
+import { EC2ClientResolvedConfig } from "@aws-sdk/client-ec2";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
-  Endpoint,
-  HashConstructor,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
-  MemoizedProvider,
   MetadataBearer,
   Pluggable,
-  Provider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
-
-interface PreviouslyResolved {
-  credentials: MemoizedProvider<Credentials>;
-  endpoint: Provider<Endpoint>;
-  region: Provider<string>;
-  sha256: HashConstructor;
-  signingEscapePath: boolean;
-}
 
 const version = "2016-11-15";
 
 //an initialize middleware to add PresignUrl to input
-export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
+export function copySnapshotPresignedUrlMiddleware(options: EC2ClientResolvedConfig): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       const { input } = args;
       if (!input.PresignedUrl) {
         const region = await options.region();
         const resolvedEndpoint = await options.endpoint();
-        resolvedEndpoint.hostname = `ec2.${input.SourceRegion}.amazonaws.com`;
+
+        if (typeof options.regionInfoProvider === "function") {
+          const regionInfo = await options.regionInfoProvider(input.SourceRegion);
+          resolvedEndpoint.hostname = regionInfo?.hostname || `ec2.${input.SourceRegion}.amazonaws.com`;
+        } else {
+          resolvedEndpoint.hostname = `ec2.${input.SourceRegion}.amazonaws.com`;
+        }
+
         const request = new HttpRequest({
           ...resolvedEndpoint,
           protocol: "https",
@@ -81,7 +76,7 @@ export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions
   override: true,
 };
 
-export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+export const getCopySnapshotPresignedUrlPlugin = (config: EC2ClientResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(copySnapshotPresignedUrlMiddleware(config), copySnapshotPresignedUrlMiddlewareOptions);
   },
