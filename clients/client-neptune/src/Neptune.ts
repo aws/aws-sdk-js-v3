@@ -77,6 +77,11 @@ import {
   CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
+  CreateGlobalClusterCommand,
+  CreateGlobalClusterCommandInput,
+  CreateGlobalClusterCommandOutput,
+} from "./commands/CreateGlobalClusterCommand";
+import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -116,6 +121,11 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteGlobalClusterCommand,
+  DeleteGlobalClusterCommandInput,
+  DeleteGlobalClusterCommandOutput,
+} from "./commands/DeleteGlobalClusterCommand";
 import {
   DescribeDBClusterEndpointsCommand,
   DescribeDBClusterEndpointsCommandInput,
@@ -197,6 +207,11 @@ import {
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  DescribeGlobalClustersCommand,
+  DescribeGlobalClustersCommandInput,
+  DescribeGlobalClustersCommandOutput,
+} from "./commands/DescribeGlobalClustersCommand";
+import {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
@@ -216,6 +231,11 @@ import {
   FailoverDBClusterCommandInput,
   FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
+import {
+  FailoverGlobalClusterCommand,
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "./commands/FailoverGlobalClusterCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -262,6 +282,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyGlobalClusterCommand,
+  ModifyGlobalClusterCommandInput,
+  ModifyGlobalClusterCommandOutput,
+} from "./commands/ModifyGlobalClusterCommand";
+import {
   PromoteReadReplicaDBClusterCommand,
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput,
@@ -271,6 +296,11 @@ import {
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
+import {
+  RemoveFromGlobalClusterCommand,
+  RemoveFromGlobalClusterCommandInput,
+  RemoveFromGlobalClusterCommandOutput,
+} from "./commands/RemoveFromGlobalClusterCommand";
 import {
   RemoveRoleFromDBClusterCommand,
   RemoveRoleFromDBClusterCommandInput,
@@ -892,6 +922,47 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Creates a Neptune global database spread across multiple Amazon Regions.
+   *       The global database contains a single primary cluster with read-write
+   *       capability, and read-only secondary clusters that receive data from the
+   *       primary cluster through high-speed replication performed by the Neptune
+   *       storage subsystem.</p>
+   *
+   *          <p>You can create a global database that is initially empty, and then
+   *       add a primary cluster and secondary clusters to it, or you can specify
+   *       an existing Neptune cluster during the create operation to become the
+   *       primary cluster of the global database.</p>
+   */
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlobalClusterCommandOutput>;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): void;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): void;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): Promise<CreateGlobalClusterCommandOutput> | void {
+    const command = new CreateGlobalClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
    *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
@@ -1166,6 +1237,39 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a global database. The primary and all secondary clusters must
+   *       already be detached or deleted first.</p>
+   */
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlobalClusterCommandOutput>;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): void;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): void;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): Promise<DeleteGlobalClusterCommandOutput> | void {
+    const command = new DeleteGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1731,6 +1835,39 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Returns information about Neptune global database clusters. This API
+   *       supports pagination.</p>
+   */
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGlobalClustersCommandOutput>;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): void;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): void;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): Promise<DescribeGlobalClustersCommandOutput> | void {
+    const command = new DescribeGlobalClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of orderable DB instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
@@ -1858,6 +1995,52 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): Promise<FailoverDBClusterCommandOutput> | void {
     const command = new FailoverDBClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates the failover process for a Neptune global database.</p>
+   *          <p>A failover for a Neptune global database promotes one of secondary
+   *       read-only DB clusters to be the primary DB cluster and demotes the
+   *       primary DB cluster to being a secondary (read-only) DB cluster. In other
+   *       words, the role of the current primary DB cluster and the selected
+   *       target secondary DB cluster are switched. The selected secondary DB cluster
+   *       assumes full read/write capabilities for the Neptune global database.</p>
+   *
+   *          <note>
+   *             <p>This action applies <b>only</b> to
+   *       Neptune global databases. This action is only intended for use on healthy
+   *       Neptune global databases with healthy Neptune DB clusters and no region-wide
+   *       outages, to test disaster recovery scenarios or to reconfigure the global
+   *       database topology.</p>
+   *          </note>
+   */
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverGlobalClusterCommandOutput>;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): void;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): void;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): Promise<FailoverGlobalClusterCommandOutput> | void {
+    const command = new FailoverGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2217,6 +2400,40 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Modify a setting for an Amazon Neptune global cluster. You can change one
+   *       or more database configuration parameters by specifying these parameters
+   *       and their new values in the request.</p>
+   */
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyGlobalClusterCommandOutput>;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): void;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): void;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): Promise<ModifyGlobalClusterCommandOutput> | void {
+    const command = new ModifyGlobalClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Not supported.</p>
    */
   public promoteReadReplicaDBCluster(
@@ -2274,6 +2491,41 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
+   *       cluster becomes a normal standalone cluster with read-write capability
+   *       instead of being read-only, and no longer receives data from a the
+   *       primary cluster.</p>
+   */
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveFromGlobalClusterCommandOutput>;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): void;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): void;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFromGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): Promise<RemoveFromGlobalClusterCommandOutput> | void {
+    const command = new RemoveFromGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

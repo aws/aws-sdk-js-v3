@@ -1384,6 +1384,12 @@ export interface CreateDBClusterMessage {
    *       deletion protection is enabled.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The ID of the Neptune global database to which this new DB cluster
+   *       should be added.</p>
+   */
+  GlobalClusterIdentifier?: string;
 }
 
 export namespace CreateDBClusterMessage {
@@ -1895,6 +1901,25 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ */
+export class GlobalClusterNotFoundFault extends __BaseException {
+  readonly name: "GlobalClusterNotFoundFault" = "GlobalClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "GlobalClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterNotFoundFault.prototype);
+  }
+}
+
+/**
  * <p>There is insufficient storage available for the current action. You may
  *        be able to resolve this error by updating your subnet group to use different
  *        Availability Zones that have more storage available.</p>
@@ -1950,6 +1975,25 @@ export class InvalidDBSubnetGroupStateFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidDBSubnetGroupStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ */
+export class InvalidGlobalClusterStateFault extends __BaseException {
+  readonly name: "InvalidGlobalClusterStateFault" = "InvalidGlobalClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGlobalClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidGlobalClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGlobalClusterStateFault.prototype);
   }
 }
 
@@ -3971,6 +4015,228 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
   }
 }
 
+export interface CreateGlobalClusterMessage {
+  /**
+   * <p>The cluster identifier of the new global database cluster.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>(<i>Optional</i>) The Amazon Resource Name (ARN) of
+   *       an existing Neptune DB cluster to use as the primary cluster of the new
+   *       global database.</p>
+   */
+  SourceDBClusterIdentifier?: string;
+
+  /**
+   * <p>The name of the database engine to be used in the global database.</p>
+   *          <p>Valid values: <code>neptune</code>
+   *          </p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The Neptune engine version to be used by the global database.</p>
+   *          <p>Valid values: <code>1.2.0.0</code> or above.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The deletion protection setting for the new global database.
+   *       The global database can't be deleted when deletion protection is
+   *       enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The storage encryption setting for the new global database
+   *       cluster.</p>
+   */
+  StorageEncrypted?: boolean;
+}
+
+export namespace CreateGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *     A data structure with information about any primary and
+ *     secondary clusters associated with an Neptune global database.
+ *   </p>
+ */
+export interface GlobalClusterMember {
+  /**
+   * <p>
+   *     The Amazon Resource Name (ARN) for each Neptune cluster.
+   *   </p>
+   */
+  DBClusterArn?: string;
+
+  /**
+   * <p>
+   *     The Amazon Resource Name (ARN) for each read-only secondary cluster
+   *     associated with the Neptune global database.
+   *   </p>
+   */
+  Readers?: string[];
+
+  /**
+   * <p>
+   *     Specifies whether the Neptune cluster is the primary cluster
+   *     (that is, has read-write capability) for the Neptune global
+   *     database with which it is associated.
+   *   </p>
+   */
+  IsWriter?: boolean;
+}
+
+export namespace GlobalClusterMember {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClusterMember): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the details of an Amazon Neptune global database.</p>
+ *          <p>This data type is used as a response element for the
+ *       <a>CreateGlobalCluster</a>,
+ *       <a>DescribeGlobalClusters</a>,
+ *       <a>ModifyGlobalCluster</a>,
+ *       <a>DeleteGlobalCluster</a>,
+ *       <a>FailoverGlobalCluster</a>, and
+ *       <a>RemoveFromGlobalCluster</a> actions.</p>
+ */
+export interface GlobalCluster {
+  /**
+   * <p>Contains a user-supplied global database cluster identifier. This identifier
+   *       is the unique key that identifies a global database.</p>
+   */
+  GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>An immutable identifier for the global database that is unique within in all
+   *       regions. This identifier is found in CloudTrail log entries whenever the KMS
+   *       key for the DB cluster is accessed.</p>
+   */
+  GlobalClusterResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the global database.</p>
+   */
+  GlobalClusterArn?: string;
+
+  /**
+   * <p>Specifies the current state of this global database.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The Neptune database engine used by the global database
+   *       (<code>"neptune"</code>).</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The Neptune engine version used by the global database.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The storage encryption setting for the global database.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The deletion protection setting for the global database.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>A list of cluster ARNs and instance ARNs for all the DB clusters
+   *         that are part of the global database.</p>
+   */
+  GlobalClusterMembers?: GlobalClusterMember[];
+}
+
+export namespace GlobalCluster {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalCluster): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace CreateGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ */
+export class GlobalClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "GlobalClusterAlreadyExistsFault" = "GlobalClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "GlobalClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+ */
+export class GlobalClusterQuotaExceededFault extends __BaseException {
+  readonly name: "GlobalClusterQuotaExceededFault" = "GlobalClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "GlobalClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterQuotaExceededFault.prototype);
+  }
+}
+
 export interface DeleteDBClusterMessage {
   /**
    * <p>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't
@@ -4499,6 +4765,45 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidEventSubscriptionStateFault.prototype);
   }
+}
+
+export interface DeleteGlobalClusterMessage {
+  /**
+   * <p>The cluster identifier of the global database cluster being deleted.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+}
+
+export namespace DeleteGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace DeleteGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -5298,6 +5603,11 @@ export interface UpgradeTarget {
    * <p>A value that indicates whether a database engine is upgraded to a major version.</p>
    */
   IsMajorVersionUpgrade?: boolean;
+
+  /**
+   * <p>A value that indicates whether you can use Neptune global databases with the target engine version.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
 }
 
 export namespace UpgradeTarget {
@@ -5379,6 +5689,11 @@ export interface DBEngineVersion {
    * <p>Indicates whether the database engine version supports read replicas.</p>
    */
   SupportsReadReplica?: boolean;
+
+  /**
+   * <p>A value that indicates whether you can use Aurora global databases with a specific DB engine version.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
 }
 
 export namespace DBEngineVersion {
@@ -6208,6 +6523,67 @@ export namespace EventSubscriptionsMessage {
   });
 }
 
+export interface DescribeGlobalClustersMessage {
+  /**
+   * <p>The user-supplied DB cluster identifier. If this parameter is specified,
+   *       only information about the specified DB cluster is returned. This parameter
+   *       is not case-sensitive.</p>
+   *
+   *          <p>Constraints: If supplied, must match an existing DB cluster identifier.</p>
+   */
+  GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records
+   *       exist than the specified <code>MaxRecords</code> value, a pagination marker token
+   *       is included in the response that you can use to retrieve the remaining results.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>(<i>Optional</i>) A pagination token returned by a previous
+   *       call to <code>DescribeGlobalClusters</code>. If this parameter is specified,
+   *       the response will only include records beyond the marker, up to the number
+   *       specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeGlobalClustersMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeGlobalClustersMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface GlobalClustersMessage {
+  /**
+   * <p>A pagination token. If this parameter is returned in the response,
+   *       more records are available, which can be retrieved by one or more additional
+   *       calls to <code>DescribeGlobalClusters</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The list of global clusters and instances returned by this request.</p>
+   */
+  GlobalClusters?: GlobalCluster[];
+}
+
+export namespace GlobalClustersMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClustersMessage): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
    * <p>The name of the engine to retrieve DB instance options for.</p>
@@ -6376,6 +6752,11 @@ export interface OrderableDBInstanceOption {
    * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
    */
   MaxIopsPerGib?: number;
+
+  /**
+   * <p>A value that indicates whether you can use Neptune global databases with a specific combination of other DB engine attributes.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
 }
 
 export namespace OrderableDBInstanceOption {
@@ -6682,6 +7063,56 @@ export namespace FailoverDBClusterResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
+    ...obj,
+  });
+}
+
+export interface FailoverGlobalClusterMessage {
+  /**
+   * <p>Identifier of the Neptune global database that should be failed over.
+   *       The identifier is the unique key assigned by the user when the Neptune
+   *       global database was created. In other words, it's the name of the global
+   *       database that you want to fail over.</p>
+   *          <p>Constraints: Must match the identifier of an existing Neptune global
+   *       database.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secondary Neptune DB cluster
+   *       that you want to promote to primary for the global database.</p>
+   */
+  TargetDbClusterIdentifier: string | undefined;
+}
+
+export namespace FailoverGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FailoverGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface FailoverGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace FailoverGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FailoverGlobalClusterResult): any => ({
     ...obj,
   });
 }
@@ -7029,7 +7460,7 @@ export namespace ModifyDBClusterEndpointMessage {
 }
 
 /**
- * <p>This data type represents the information you need to connect to an Amazon Aurora DB cluster.
+ * <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster.
  *       This data type is used as a response element in the following actions:</p>
  *          <ul>
  *             <li>
@@ -7835,6 +8266,93 @@ export namespace ModifyEventSubscriptionResult {
   });
 }
 
+export interface ModifyGlobalClusterMessage {
+  /**
+   * <p>The DB cluster identifier for the global cluster being modified. This parameter
+   *       is not case-sensitive.</p>
+   *          <p>Constraints: Must match the identifier of an existing global database cluster.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>A new cluster identifier to assign to the global database. This value is
+   *       stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster2</code>
+   *          </p>
+   */
+  NewGlobalClusterIdentifier?: string;
+
+  /**
+   * <p>Indicates whether the global database has deletion protection enabled. The
+   *       global database cannot be deleted when deletion protection is enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The version number of the database engine to which you want to upgrade.
+   *       Changing this parameter will result in an outage. The change is applied during
+   *       the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
+   *          <p>To list all of the available Neptune engine versions, use the following command:</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>A value that indicates whether major version upgrades are allowed.</p>
+   *          <p>Constraints: You must allow major version upgrades if you specify a value
+   *       for the <code>EngineVersion</code> parameter that is a different major version
+   *       than the DB cluster's current version.</p>
+   *          <p>If you upgrade the major version of a global database, the cluster and
+   *       DB instance parameter groups are set to the default parameter groups for the
+   *       new version, so you will need to apply any custom parameter groups after
+   *       completing the upgrade.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
+}
+
+export namespace ModifyGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace ModifyGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
 export interface PromoteReadReplicaDBClusterMessage {
   /**
    * <p>Not supported.</p>
@@ -7910,6 +8428,52 @@ export namespace RebootDBInstanceResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveFromGlobalClusterMessage {
+  /**
+   * <p>The identifier of the Neptune global database from which to detach the
+   *       specified Neptune DB cluster.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) identifying the cluster to be detached
+   *       from the Neptune global database cluster.</p>
+   */
+  DbClusterIdentifier: string | undefined;
+}
+
+export namespace RemoveFromGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveFromGlobalClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Neptune global database.</p>
+   *          <p>This data type is used as a response element for the
+   *       <a>CreateGlobalCluster</a>,
+   *       <a>DescribeGlobalClusters</a>,
+   *       <a>ModifyGlobalCluster</a>,
+   *       <a>DeleteGlobalCluster</a>,
+   *       <a>FailoverGlobalCluster</a>, and
+   *       <a>RemoveFromGlobalCluster</a> actions.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace RemoveFromGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterResult): any => ({
     ...obj,
   });
 }

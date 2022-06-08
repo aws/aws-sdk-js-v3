@@ -69,6 +69,10 @@ import {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
 } from "../commands/CreateEventSubscriptionCommand";
+import {
+  CreateGlobalClusterCommandInput,
+  CreateGlobalClusterCommandOutput,
+} from "../commands/CreateGlobalClusterCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "../commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
@@ -95,6 +99,10 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "../commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteGlobalClusterCommandInput,
+  DeleteGlobalClusterCommandOutput,
+} from "../commands/DeleteGlobalClusterCommand";
 import {
   DescribeDBClusterEndpointsCommandInput,
   DescribeDBClusterEndpointsCommandOutput,
@@ -154,6 +162,10 @@ import {
   DescribeEventSubscriptionsCommandOutput,
 } from "../commands/DescribeEventSubscriptionsCommand";
 import {
+  DescribeGlobalClustersCommandInput,
+  DescribeGlobalClustersCommandOutput,
+} from "../commands/DescribeGlobalClustersCommand";
+import {
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "../commands/DescribeOrderableDBInstanceOptionsCommand";
@@ -166,6 +178,10 @@ import {
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "../commands/DescribeValidDBInstanceModificationsCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "../commands/FailoverDBClusterCommand";
+import {
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "../commands/FailoverGlobalClusterCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -197,10 +213,18 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "../commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyGlobalClusterCommandInput,
+  ModifyGlobalClusterCommandOutput,
+} from "../commands/ModifyGlobalClusterCommand";
+import {
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput,
 } from "../commands/PromoteReadReplicaDBClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "../commands/RebootDBInstanceCommand";
+import {
+  RemoveFromGlobalClusterCommandInput,
+  RemoveFromGlobalClusterCommandOutput,
+} from "../commands/RemoveFromGlobalClusterCommand";
 import {
   RemoveRoleFromDBClusterCommandInput,
   RemoveRoleFromDBClusterCommandOutput,
@@ -265,6 +289,8 @@ import {
   CreateDBSubnetGroupResult,
   CreateEventSubscriptionMessage,
   CreateEventSubscriptionResult,
+  CreateGlobalClusterMessage,
+  CreateGlobalClusterResult,
   DBCluster,
   DBClusterAlreadyExistsFault,
   DBClusterEndpoint,
@@ -332,6 +358,8 @@ import {
   DeleteDBSubnetGroupMessage,
   DeleteEventSubscriptionMessage,
   DeleteEventSubscriptionResult,
+  DeleteGlobalClusterMessage,
+  DeleteGlobalClusterResult,
   DescribeDBClusterEndpointsMessage,
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
@@ -351,6 +379,7 @@ import {
   DescribeEventCategoriesMessage,
   DescribeEventsMessage,
   DescribeEventSubscriptionsMessage,
+  DescribeGlobalClustersMessage,
   DescribeOrderableDBInstanceOptionsMessage,
   DescribePendingMaintenanceActionsMessage,
   DescribeValidDBInstanceModificationsMessage,
@@ -369,7 +398,15 @@ import {
   EventSubscriptionsMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
+  FailoverGlobalClusterMessage,
+  FailoverGlobalClusterResult,
   Filter,
+  GlobalCluster,
+  GlobalClusterAlreadyExistsFault,
+  GlobalClusterMember,
+  GlobalClusterNotFoundFault,
+  GlobalClusterQuotaExceededFault,
+  GlobalClustersMessage,
   InstanceQuotaExceededFault,
   InsufficientDBClusterCapacityFault,
   InsufficientDBInstanceCapacityFault,
@@ -384,6 +421,7 @@ import {
   InvalidDBSubnetGroupStateFault,
   InvalidDBSubnetStateFault,
   InvalidEventSubscriptionStateFault,
+  InvalidGlobalClusterStateFault,
   InvalidRestoreFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
@@ -403,6 +441,8 @@ import {
   ModifyDBSubnetGroupResult,
   ModifyEventSubscriptionMessage,
   ModifyEventSubscriptionResult,
+  ModifyGlobalClusterMessage,
+  ModifyGlobalClusterResult,
   OptionGroupMembership,
   OptionGroupNotFoundFault,
   OrderableDBInstanceOption,
@@ -418,6 +458,8 @@ import {
   Range,
   RebootDBInstanceMessage,
   RebootDBInstanceResult,
+  RemoveFromGlobalClusterMessage,
+  RemoveFromGlobalClusterResult,
   RemoveRoleFromDBClusterMessage,
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
@@ -697,6 +739,22 @@ export const serializeAws_queryCreateEventSubscriptionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryCreateGlobalClusterCommand = async (
+  input: CreateGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateGlobalClusterMessage(input, context),
+    Action: "CreateGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDeleteDBClusterCommand = async (
   input: DeleteDBClusterCommandInput,
   context: __SerdeContext
@@ -820,6 +878,22 @@ export const serializeAws_queryDeleteEventSubscriptionCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteEventSubscriptionMessage(input, context),
     Action: "DeleteEventSubscription",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteGlobalClusterCommand = async (
+  input: DeleteGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteGlobalClusterMessage(input, context),
+    Action: "DeleteGlobalCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1081,6 +1155,22 @@ export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeGlobalClustersCommand = async (
+  input: DescribeGlobalClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeGlobalClustersMessage(input, context),
+    Action: "DescribeGlobalClusters",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeOrderableDBInstanceOptionsCommand = async (
   input: DescribeOrderableDBInstanceOptionsCommandInput,
   context: __SerdeContext
@@ -1140,6 +1230,22 @@ export const serializeAws_queryFailoverDBClusterCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryFailoverDBClusterMessage(input, context),
     Action: "FailoverDBCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryFailoverGlobalClusterCommand = async (
+  input: FailoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryFailoverGlobalClusterMessage(input, context),
+    Action: "FailoverGlobalCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1289,6 +1395,22 @@ export const serializeAws_queryModifyEventSubscriptionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryModifyGlobalClusterCommand = async (
+  input: ModifyGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyGlobalClusterMessage(input, context),
+    Action: "ModifyGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryPromoteReadReplicaDBClusterCommand = async (
   input: PromoteReadReplicaDBClusterCommandInput,
   context: __SerdeContext
@@ -1316,6 +1438,22 @@ export const serializeAws_queryRebootDBInstanceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryRebootDBInstanceMessage(input, context),
     Action: "RebootDBInstance",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRemoveFromGlobalClusterCommand = async (
+  input: RemoveFromGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRemoveFromGlobalClusterMessage(input, context),
+    Action: "RemoveFromGlobalCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1858,6 +1996,9 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
       throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
@@ -1870,6 +2011,9 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
       throw await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.neptune#InvalidSubnet":
       throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
@@ -2308,6 +2452,58 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   }
 };
 
+export const deserializeAws_queryCreateGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
+  const response: CreateGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "GlobalClusterAlreadyExistsFault":
+    case "com.amazonaws.neptune#GlobalClusterAlreadyExistsFault":
+      throw await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(parsedOutput, context);
+    case "GlobalClusterQuotaExceededFault":
+    case "com.amazonaws.neptune#GlobalClusterQuotaExceededFault":
+      throw await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
 export const deserializeAws_queryDeleteDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2680,6 +2876,52 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_queryDeleteGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
+  const response: DeleteGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -3373,6 +3615,49 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
   }
 };
 
+export const deserializeAws_queryDescribeGlobalClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeGlobalClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGlobalClustersMessage(data.DescribeGlobalClustersResult, context);
+  const response: DescribeGlobalClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeGlobalClustersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
 export const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3549,6 +3834,58 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_queryFailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryFailoverGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryFailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryFailoverGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -4082,6 +4419,52 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
   }
 };
 
+export const deserializeAws_queryModifyGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
+  const response: ModifyGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
 export const deserializeAws_queryPromoteReadReplicaDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4163,6 +4546,55 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_queryRemoveFromGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRemoveFromGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
+  const response: RemoveFromGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRemoveFromGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.neptune#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -5074,6 +5506,45 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterAlreadyExistsFault(body.Error, context);
+  const exception = new GlobalClusterAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryGlobalClusterNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterNotFoundFault(body.Error, context);
+  const exception = new GlobalClusterNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryGlobalClusterQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterQuotaExceededFault(body.Error, context);
+  const exception = new GlobalClusterQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5250,6 +5721,19 @@ const deserializeAws_queryInvalidEventSubscriptionStateFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidEventSubscriptionStateFault(body.Error, context);
   const exception = new InvalidEventSubscriptionStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryInvalidGlobalClusterStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidGlobalClusterStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidGlobalClusterStateFault(body.Error, context);
+  const exception = new InvalidGlobalClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5832,6 +6316,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
   return entries;
 };
 
@@ -6123,6 +6610,32 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   return entries;
 };
 
+const serializeAws_queryCreateGlobalClusterMessage = (
+  input: CreateGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.SourceDBClusterIdentifier !== undefined && input.SourceDBClusterIdentifier !== null) {
+    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  }
+  if (input.Engine !== undefined && input.Engine !== null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
+    entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.StorageEncrypted !== undefined && input.StorageEncrypted !== null) {
+    entries["StorageEncrypted"] = input.StorageEncrypted;
+  }
+  return entries;
+};
+
 const serializeAws_queryDBSecurityGroupNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -6226,6 +6739,17 @@ const serializeAws_queryDeleteEventSubscriptionMessage = (
   const entries: any = {};
   if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
     entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteGlobalClusterMessage = (
+  input: DeleteGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
   }
   return entries;
 };
@@ -6647,6 +7171,23 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeGlobalClustersMessage = (
+  input: DescribeGlobalClustersMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeOrderableDBInstanceOptionsMessage = (
   input: DescribeOrderableDBInstanceOptionsMessage,
   context: __SerdeContext
@@ -6738,6 +7279,20 @@ const serializeAws_queryFailoverDBClusterMessage = (input: FailoverDBClusterMess
   }
   if (input.TargetDBInstanceIdentifier !== undefined && input.TargetDBInstanceIdentifier !== null) {
     entries["TargetDBInstanceIdentifier"] = input.TargetDBInstanceIdentifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryFailoverGlobalClusterMessage = (
+  input: FailoverGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.TargetDbClusterIdentifier !== undefined && input.TargetDbClusterIdentifier !== null) {
+    entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
   }
   return entries;
 };
@@ -7171,6 +7726,29 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
   return entries;
 };
 
+const serializeAws_queryModifyGlobalClusterMessage = (
+  input: ModifyGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.NewGlobalClusterIdentifier !== undefined && input.NewGlobalClusterIdentifier !== null) {
+    entries["NewGlobalClusterIdentifier"] = input.NewGlobalClusterIdentifier;
+  }
+  if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
+    entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.AllowMajorVersionUpgrade !== undefined && input.AllowMajorVersionUpgrade !== null) {
+    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  }
+  return entries;
+};
+
 const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ParameterName !== undefined && input.ParameterName !== null) {
@@ -7240,6 +7818,20 @@ const serializeAws_queryRebootDBInstanceMessage = (input: RebootDBInstanceMessag
   }
   if (input.ForceFailover !== undefined && input.ForceFailover !== null) {
     entries["ForceFailover"] = input.ForceFailover;
+  }
+  return entries;
+};
+
+const serializeAws_queryRemoveFromGlobalClusterMessage = (
+  input: RemoveFromGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.DbClusterIdentifier !== undefined && input.DbClusterIdentifier !== null) {
+    entries["DbClusterIdentifier"] = input.DbClusterIdentifier;
   }
   return entries;
 };
@@ -7867,6 +8459,19 @@ const deserializeAws_queryCreateEventSubscriptionResult = (
   };
   if (output["EventSubscription"] !== undefined) {
     contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CreateGlobalClusterResult => {
+  const contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
   }
   return contents;
 };
@@ -8756,6 +9361,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     ExportableLogTypes: undefined,
     SupportsLogExportsToCloudwatchLogs: undefined,
     SupportsReadReplica: undefined,
+    SupportsGlobalDatabases: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -8818,6 +9424,9 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["SupportsReadReplica"] !== undefined) {
     contents.SupportsReadReplica = __parseBoolean(output["SupportsReadReplica"]);
+  }
+  if (output["SupportsGlobalDatabases"] !== undefined) {
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
@@ -9694,6 +10303,19 @@ const deserializeAws_queryDeleteEventSubscriptionResult = (
   return contents;
 };
 
+const deserializeAws_queryDeleteGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteGlobalClusterResult => {
+  const contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeDBClusterSnapshotAttributesResult = (
   output: any,
   context: __SerdeContext
@@ -10100,6 +10722,169 @@ const deserializeAws_queryFailoverDBClusterResult = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryFailoverGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): FailoverGlobalClusterResult => {
+  const contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
+  const contents: any = {
+    GlobalClusterIdentifier: undefined,
+    GlobalClusterResourceId: undefined,
+    GlobalClusterArn: undefined,
+    Status: undefined,
+    Engine: undefined,
+    EngineVersion: undefined,
+    StorageEncrypted: undefined,
+    DeletionProtection: undefined,
+    GlobalClusterMembers: undefined,
+  };
+  if (output["GlobalClusterIdentifier"] !== undefined) {
+    contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
+  }
+  if (output["GlobalClusterResourceId"] !== undefined) {
+    contents.GlobalClusterResourceId = __expectString(output["GlobalClusterResourceId"]);
+  }
+  if (output["GlobalClusterArn"] !== undefined) {
+    contents.GlobalClusterArn = __expectString(output["GlobalClusterArn"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["StorageEncrypted"] !== undefined) {
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  }
+  if (output["DeletionProtection"] !== undefined) {
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  }
+  if (output.GlobalClusterMembers === "") {
+    contents.GlobalClusterMembers = [];
+  } else if (
+    output["GlobalClusterMembers"] !== undefined &&
+    output["GlobalClusterMembers"]["GlobalClusterMember"] !== undefined
+  ) {
+    contents.GlobalClusterMembers = deserializeAws_queryGlobalClusterMemberList(
+      __getArrayIfSingleItem(output["GlobalClusterMembers"]["GlobalClusterMember"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterAlreadyExistsFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterList = (output: any, context: __SerdeContext): GlobalCluster[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGlobalCluster(entry, context);
+    });
+};
+
+const deserializeAws_queryGlobalClusterMember = (output: any, context: __SerdeContext): GlobalClusterMember => {
+  const contents: any = {
+    DBClusterArn: undefined,
+    Readers: undefined,
+    IsWriter: undefined,
+  };
+  if (output["DBClusterArn"] !== undefined) {
+    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  }
+  if (output.Readers === "") {
+    contents.Readers = [];
+  } else if (output["Readers"] !== undefined && output["Readers"]["member"] !== undefined) {
+    contents.Readers = deserializeAws_queryReadersArnList(__getArrayIfSingleItem(output["Readers"]["member"]), context);
+  }
+  if (output["IsWriter"] !== undefined) {
+    contents.IsWriter = __parseBoolean(output["IsWriter"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterMemberList = (output: any, context: __SerdeContext): GlobalClusterMember[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGlobalClusterMember(entry, context);
+    });
+};
+
+const deserializeAws_queryGlobalClusterNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterQuotaExceededFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClustersMessage = (output: any, context: __SerdeContext): GlobalClustersMessage => {
+  const contents: any = {
+    Marker: undefined,
+    GlobalClusters: undefined,
+  };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.GlobalClusters === "") {
+    contents.GlobalClusters = [];
+  } else if (output["GlobalClusters"] !== undefined && output["GlobalClusters"]["GlobalClusterMember"] !== undefined) {
+    contents.GlobalClusters = deserializeAws_queryGlobalClusterList(
+      __getArrayIfSingleItem(output["GlobalClusters"]["GlobalClusterMember"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryInstanceQuotaExceededFault = (
   output: any,
   context: __SerdeContext
@@ -10273,6 +11058,19 @@ const deserializeAws_queryInvalidEventSubscriptionStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidEventSubscriptionStateFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidGlobalClusterStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidGlobalClusterStateFault => {
   const contents: any = {
     message: undefined,
   };
@@ -10460,6 +11258,19 @@ const deserializeAws_queryModifyEventSubscriptionResult = (
   return contents;
 };
 
+const deserializeAws_queryModifyGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyGlobalClusterResult => {
+  const contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryOptionGroupMembership = (output: any, context: __SerdeContext): OptionGroupMembership => {
   const contents: any = {
     OptionGroupName: undefined,
@@ -10526,6 +11337,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     MaxIopsPerDbInstance: undefined,
     MinIopsPerGib: undefined,
     MaxIopsPerGib: undefined,
+    SupportsGlobalDatabases: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -10594,6 +11406,9 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   }
   if (output["MaxIopsPerGib"] !== undefined) {
     contents.MaxIopsPerGib = __strictParseFloat(output["MaxIopsPerGib"]) as number;
+  }
+  if (output["SupportsGlobalDatabases"] !== undefined) {
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
@@ -10927,6 +11742,17 @@ const deserializeAws_queryRangeList = (output: any, context: __SerdeContext): Ra
     });
 };
 
+const deserializeAws_queryReadersArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_queryReadReplicaDBClusterIdentifierList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -10966,6 +11792,19 @@ const deserializeAws_queryRebootDBInstanceResult = (output: any, context: __Serd
   };
   if (output["DBInstance"] !== undefined) {
     contents.DBInstance = deserializeAws_queryDBInstance(output["DBInstance"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryRemoveFromGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): RemoveFromGlobalClusterResult => {
+  const contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
   }
   return contents;
 };
@@ -11335,6 +12174,7 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     Description: undefined,
     AutoUpgrade: undefined,
     IsMajorVersionUpgrade: undefined,
+    SupportsGlobalDatabases: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -11350,6 +12190,9 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
   }
   if (output["IsMajorVersionUpgrade"] !== undefined) {
     contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
+  }
+  if (output["SupportsGlobalDatabases"] !== undefined) {
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
