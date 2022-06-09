@@ -1221,6 +1221,7 @@ export enum TranscribeRegion {
   SA_EAST_1 = "sa-east-1",
   US_EAST_1 = "us-east-1",
   US_EAST_2 = "us-east-2",
+  US_GOV_WEST_1 = "us-gov-west-1",
   US_WEST_2 = "us-west-2",
 }
 
