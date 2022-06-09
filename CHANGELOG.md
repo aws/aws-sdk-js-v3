@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.107.0...v3.108.0) (2022-06-09)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Adds support for live transcription in AWS GovCloud (US) Regions. ([e42639d](https://github.com/aws/aws-sdk-js-v3/commit/e42639d4c08bf730f1a41e26f5932571a57fa111))
+
+
+
+
+
 # [3.107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.106.0...v3.107.0) (2022-06-08)
 
 
