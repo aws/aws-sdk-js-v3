@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.108.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.0...v3.108.1) (2022-06-10)
+
+
+### Bug Fixes
+
+* **client-redshift-serverless:** remove redshift-serverless client ([#3675](https://github.com/aws/aws-sdk-js-v3/issues/3675)) ([1d9b9e0](https://github.com/aws/aws-sdk-js-v3/commit/1d9b9e0b1df143acd4682da83b5841f7e5c98a0a))
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-06-10 ([7268a70](https://github.com/aws/aws-sdk-js-v3/commit/7268a7052364f5aaeb57f26be0695afea990aaae))
+
+
+
+
+
 # [3.108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.107.0...v3.108.0) (2022-06-09)
 
 
