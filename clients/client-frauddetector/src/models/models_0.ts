@@ -2952,8 +2952,9 @@ export interface GetEventPredictionMetadataRequest {
 
   /**
    * <p>
-   * The timestamp that defines when the prediction was generated.
-   * </p>
+   *     The timestamp that defines when the prediction was generated. The timestamp must be specified using ISO 8601 standard in UTC.</p>
+   *          <p>We recommend calling <a href="https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html">ListEventPredictions</a>
+   *         first, and using the <code>predictionTimestamp</code> value in the response to provide an accurate prediction timestamp value.</p>
    */
   predictionTimestamp: string | undefined;
 }
@@ -3369,8 +3370,7 @@ export interface GetEventPredictionMetadataResult {
   evaluatedExternalModels?: EvaluatedExternalModel[];
 
   /**
-   * <p>The timestamp that defines when the prediction was generated.
-   * </p>
+   * <p>The timestamp that defines when the prediction was generated. </p>
    */
   predictionTimestamp?: string;
 }

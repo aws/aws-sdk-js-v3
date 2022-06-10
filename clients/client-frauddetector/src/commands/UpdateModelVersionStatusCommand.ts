@@ -27,6 +27,9 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  *          <p>You can perform the following status updates:</p>
  *          <ol>
  *             <li>
+ *                <p>Change the <code>TRAINING_IN_PROGRESS</code> status to <code>TRAINING_CANCELLED</code>.</p>
+ *             </li>
+ *             <li>
  *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
  *             </li>
  *             <li>

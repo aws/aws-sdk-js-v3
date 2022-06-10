@@ -23,7 +23,7 @@ export interface DeleteBatchImportJobCommandInput extends DeleteBatchImportJobRe
 export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobResult, __MetadataBearer {}
 
 /**
- * <p>Deletes data that was batch imported to Amazon Fraud Detector. </p>
+ * <p>Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
