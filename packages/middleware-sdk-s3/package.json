@@ -19,6 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
