@@ -165,6 +165,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             Shape payloadShape
     ) {
         TypeScriptWriter writer = context.getWriter();
+        Model model = context.getModel();
+
         if (payloadShape instanceof StructureShape || payloadShape instanceof UnionShape) {
             SymbolProvider symbolProvider = context.getSymbolProvider();
             Symbol symbol = symbolProvider.toSymbol(payloadShape);

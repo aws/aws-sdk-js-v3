@@ -193,6 +193,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             Shape payloadShape
     ) {
         TypeScriptWriter writer = context.getWriter();
+        Model model = context.getModel();
 
         if (payloadShape instanceof StructureShape || payloadShape instanceof UnionShape) {
             SymbolProvider symbolProvider = context.getSymbolProvider();

@@ -27,7 +27,6 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
@@ -201,11 +200,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         // Serialize every member of the structure if present.
         Map<String, MemberShape> members = shape.getAllMembers();
         members.forEach((memberName, memberShape) -> {
-            if (memberShape.hasTrait(EventHeaderTrait.class)) {
-                return;
-            }
-
             String inputLocation = "input." + memberName;
+
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
@@ -322,9 +318,6 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
             Map<String, MemberShape> members = shape.getAllMembers();
             members.forEach((memberName, memberShape) -> {
-                if (memberShape.hasTrait(EventHeaderTrait.class)) {
-                    return;
-                }
                 writer.openBlock("$L: value => {", "},", memberName, () -> {
                     serializeNamedMember(context, memberName, memberShape, () -> "value");
                 });
