@@ -15,10 +15,15 @@ export const parseIni = (iniData: string): ParsedIniData => {
         throw new Error(`Found invalid profile name "${currentSection}"`);
       }
     } else if (currentSection) {
-      const item = line.match(/^\s*(.+?)\s*=\s*(.+?)\s*$/);
-      if (item) {
+      const expressionComponents: string[] = line.split("=");
+      const isAssignment: boolean = expressionComponents.length >= 2 && !!expressionComponents[0];
+      if (isAssignment) {
+        const [name, value]: [string, string] = [
+          expressionComponents[0].trim(),
+          expressionComponents.slice(1).join("=").trim(),
+        ];
         map[currentSection] = map[currentSection] || {};
-        map[currentSection][item[1]] = item[2];
+        map[currentSection][name] = value;
       }
     }
   }
