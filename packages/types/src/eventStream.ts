@@ -16,9 +16,7 @@ export interface Message {
   body: Uint8Array;
 }
 
-export interface MessageHeaders {
-  [name: string]: MessageHeaderValue;
-}
+export type MessageHeaders = Record<string, MessageHeaderValue>;
 
 export interface BooleanHeaderValue {
   type: "boolean";
