@@ -20,6 +20,11 @@ import {
   GetCatalogItemCommandInput,
   GetCatalogItemCommandOutput,
 } from "./commands/GetCatalogItemCommand";
+import {
+  GetConnectionCommand,
+  GetConnectionCommandInput,
+  GetConnectionCommandOutput,
+} from "./commands/GetConnectionCommand";
 import { GetOrderCommand, GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
 import { GetOutpostCommand, GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
@@ -51,6 +56,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartConnectionCommand,
+  StartConnectionCommandInput,
+  StartConnectionCommandOutput,
+} from "./commands/StartConnectionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -278,6 +288,50 @@ export class Outposts extends OutpostsClient {
     cb?: (err: any, data?: GetCatalogItemCommandOutput) => void
   ): Promise<GetCatalogItemCommandOutput> | void {
     const command = new GetCatalogItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>
+   *       Amazon Web Services uses this action to install Outpost servers.</p>
+   *          </note>
+   *          <p>
+   *       Gets information about a specified connection.
+   *     </p>
+   *          <p>
+   *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
+   *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
+   *       Amazon Web Services managed policies for Amazon Web Services Outposts</a> and <a href="https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html">
+   *       Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Outposts User Guide</i>.
+   *       </p>
+   */
+  public getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  public getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
+  public getConnection(
+    args: GetConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
+  public getConnection(
+    args: GetConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectionCommandOutput) => void
+  ): Promise<GetConnectionCommandOutput> | void {
+    const command = new GetConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -614,6 +668,50 @@ export class Outposts extends OutpostsClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>
+   *       Amazon Web Services uses this action to install Outpost servers.</p>
+   *          </note>
+   *          <p>
+   *       Starts the connection required for Outpost server installation.
+   *     </p>
+   *          <p>
+   *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For
+   *       more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
+   *       Amazon Web Services managed policies for Amazon Web Services Outposts</a> and <a href="https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html">
+   *       Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Outposts User Guide</i>.
+   *       </p>
+   */
+  public startConnection(
+    args: StartConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConnectionCommandOutput>;
+  public startConnection(
+    args: StartConnectionCommandInput,
+    cb: (err: any, data?: StartConnectionCommandOutput) => void
+  ): void;
+  public startConnection(
+    args: StartConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConnectionCommandOutput) => void
+  ): void;
+  public startConnection(
+    args: StartConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartConnectionCommandOutput) => void),
+    cb?: (err: any, data?: StartConnectionCommandOutput) => void
+  ): Promise<StartConnectionCommandOutput> | void {
+    const command = new StartConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

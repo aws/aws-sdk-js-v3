@@ -413,6 +413,64 @@ export enum CatalogItemClass {
 }
 
 /**
+ * <p>
+ *     Information about a connection.
+ *     </p>
+ */
+export interface ConnectionDetails {
+  /**
+   * <p>
+   *       The public key of the client.
+   *     </p>
+   */
+  ClientPublicKey?: string;
+
+  /**
+   * <p>
+   *       The public key of the server.
+   *     </p>
+   */
+  ServerPublicKey?: string;
+
+  /**
+   * <p>
+   *       The endpoint for the server.
+   *     </p>
+   */
+  ServerEndpoint?: string;
+
+  /**
+   * <p>
+   *       The client tunnel address.
+   *     </p>
+   */
+  ClientTunnelAddress?: string;
+
+  /**
+   * <p>
+   *       The server tunnel address.
+   *     </p>
+   */
+  ServerTunnelAddress?: string;
+
+  /**
+   * <p>
+   *       The allowed IP addresses.
+   *     </p>
+   */
+  AllowedIps?: string[];
+}
+
+export namespace ConnectionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a line item request.</p>
  */
 export interface LineItemRequest {
@@ -1209,6 +1267,49 @@ export namespace GetCatalogItemOutput {
   });
 }
 
+export interface GetConnectionRequest {
+  /**
+   * <p>
+   *       The ID of the connection you request.
+   *     </p>
+   */
+  ConnectionId: string | undefined;
+}
+
+export namespace GetConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectionResponse {
+  /**
+   * <p>
+   *       The ID of the connection you receive.
+   *     </p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>
+   *      Information about a connection.
+   *     </p>
+   */
+  ConnectionDetails?: ConnectionDetails;
+}
+
+export namespace GetConnectionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetOrderInput {
   /**
    * <p>The ID of the order.</p>
@@ -1920,6 +2021,70 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartConnectionRequest {
+  /**
+   * <p>
+   *       The serial number of the dongle.
+   *     </p>
+   */
+  DeviceSerialNumber: string | undefined;
+
+  /**
+   * <p>
+   *       The ID of the Outpost server.
+   *     </p>
+   */
+  AssetId: string | undefined;
+
+  /**
+   * <p>
+   *       The public key of the client.
+   *     </p>
+   */
+  ClientPublicKey: string | undefined;
+
+  /**
+   * <p>
+   *       The device index of the network interface on the Outpost server.
+   *     </p>
+   */
+  NetworkInterfaceDeviceIndex: number | undefined;
+}
+
+export namespace StartConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartConnectionResponse {
+  /**
+   * <p>
+   *       The ID of the connection.
+   *     </p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>
+   *       The underlay IP address.
+   *     </p>
+   */
+  UnderlayIpAddress?: string;
+}
+
+export namespace StartConnectionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartConnectionResponse): any => ({
     ...obj,
   });
 }

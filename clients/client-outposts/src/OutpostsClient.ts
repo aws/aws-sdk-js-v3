@@ -60,6 +60,7 @@ import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/Crea
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
@@ -77,6 +78,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartConnectionCommandInput, StartConnectionCommandOutput } from "./commands/StartConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
@@ -96,6 +98,7 @@ export type ServiceInputTypes =
   | DeleteOutpostCommandInput
   | DeleteSiteCommandInput
   | GetCatalogItemCommandInput
+  | GetConnectionCommandInput
   | GetOrderCommandInput
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
@@ -107,6 +110,7 @@ export type ServiceInputTypes =
   | ListOutpostsCommandInput
   | ListSitesCommandInput
   | ListTagsForResourceCommandInput
+  | StartConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateOutpostCommandInput
@@ -122,6 +126,7 @@ export type ServiceOutputTypes =
   | DeleteOutpostCommandOutput
   | DeleteSiteCommandOutput
   | GetCatalogItemCommandOutput
+  | GetConnectionCommandOutput
   | GetOrderCommandOutput
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
@@ -133,6 +138,7 @@ export type ServiceOutputTypes =
   | ListOutpostsCommandOutput
   | ListSitesCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateOutpostCommandOutput

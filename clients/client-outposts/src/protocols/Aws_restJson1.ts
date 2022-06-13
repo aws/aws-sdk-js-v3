@@ -24,6 +24,7 @@ import { CreateSiteCommandInput, CreateSiteCommandOutput } from "../commands/Cre
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "../commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "../commands/DeleteSiteCommand";
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "../commands/GetCatalogItemCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "../commands/GetOrderCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "../commands/GetOutpostCommand";
 import {
@@ -41,6 +42,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { StartConnectionCommandInput, StartConnectionCommandOutput } from "../commands/StartConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "../commands/UpdateOutpostCommand";
@@ -57,6 +59,7 @@ import {
   CatalogItem,
   ComputeAttributes,
   ConflictException,
+  ConnectionDetails,
   EC2Capacity,
   InstanceTypeItem,
   InternalServerException,
@@ -278,6 +281,35 @@ export const serializeAws_restJson1GetCatalogItemCommand = async (
     resolvedPath = resolvedPath.replace("{CatalogItemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CatalogItemId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetConnectionCommand = async (
+  input: GetConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections/{ConnectionId}";
+  if (input.ConnectionId !== undefined) {
+    const labelValue: string = input.ConnectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -626,6 +658,36 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartConnectionCommand = async (
+  input: StartConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AssetId !== undefined && input.AssetId !== null && { AssetId: input.AssetId }),
+    ...(input.ClientPublicKey !== undefined &&
+      input.ClientPublicKey !== null && { ClientPublicKey: input.ClientPublicKey }),
+    ...(input.DeviceSerialNumber !== undefined &&
+      input.DeviceSerialNumber !== null && { DeviceSerialNumber: input.DeviceSerialNumber }),
+    ...(input.NetworkInterfaceDeviceIndex !== undefined &&
+      input.NetworkInterfaceDeviceIndex !== null && { NetworkInterfaceDeviceIndex: input.NetworkInterfaceDeviceIndex }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1209,6 +1271,63 @@ const deserializeAws_restJson1GetCatalogItemCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.outposts#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.outposts#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.outposts#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConnectionCommandError(output, context);
+  }
+  const contents: GetConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectionDetails: undefined,
+    ConnectionId: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectionDetails !== undefined && data.ConnectionDetails !== null) {
+    contents.ConnectionDetails = deserializeAws_restJson1ConnectionDetails(data.ConnectionDetails, context);
+  }
+  if (data.ConnectionId !== undefined && data.ConnectionId !== null) {
+    contents.ConnectionId = __expectString(data.ConnectionId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.outposts#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.outposts#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1837,6 +1956,63 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1StartConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartConnectionCommandError(output, context);
+  }
+  const contents: StartConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectionId: undefined,
+    UnderlayIpAddress: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectionId !== undefined && data.ConnectionId !== null) {
+    contents.ConnectionId = __expectString(data.ConnectionId);
+  }
+  if (data.UnderlayIpAddress !== undefined && data.UnderlayIpAddress !== null) {
+    contents.UnderlayIpAddress = __expectString(data.UnderlayIpAddress);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.outposts#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.outposts#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.outposts#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.outposts#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2401,9 +2577,35 @@ const deserializeAws_restJson1CatalogItemListDefinition = (output: any, context:
   return retVal;
 };
 
+const deserializeAws_restJson1CIDRList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ComputeAttributes = (output: any, context: __SerdeContext): ComputeAttributes => {
   return {
     HostId: __expectString(output.HostId),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectionDetails = (output: any, context: __SerdeContext): ConnectionDetails => {
+  return {
+    AllowedIps:
+      output.AllowedIps !== undefined && output.AllowedIps !== null
+        ? deserializeAws_restJson1CIDRList(output.AllowedIps, context)
+        : undefined,
+    ClientPublicKey: __expectString(output.ClientPublicKey),
+    ClientTunnelAddress: __expectString(output.ClientTunnelAddress),
+    ServerEndpoint: __expectString(output.ServerEndpoint),
+    ServerPublicKey: __expectString(output.ServerPublicKey),
+    ServerTunnelAddress: __expectString(output.ServerTunnelAddress),
   } as any;
 };
 
