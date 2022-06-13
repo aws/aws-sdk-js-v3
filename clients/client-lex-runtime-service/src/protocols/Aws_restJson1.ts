@@ -363,7 +363,7 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
     sessionId: undefined,
     userId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botAlias !== undefined && data.botAlias !== null) {
     contents.botAlias = __expectString(data.botAlias);
   }
@@ -432,7 +432,7 @@ export const deserializeAws_restJson1GetSessionCommand = async (
     sessionAttributes: undefined,
     sessionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts !== undefined && data.activeContexts !== null) {
     contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
   }
@@ -660,7 +660,7 @@ export const deserializeAws_restJson1PostTextCommand = async (
     slotToElicit: undefined,
     slots: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts !== undefined && data.activeContexts !== null) {
     contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
   }

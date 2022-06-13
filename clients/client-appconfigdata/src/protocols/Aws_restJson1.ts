@@ -165,7 +165,7 @@ export const deserializeAws_restJson1StartConfigurationSessionCommand = async (
     $metadata: deserializeMetadata(output),
     InitialConfigurationToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InitialConfigurationToken !== undefined && data.InitialConfigurationToken !== null) {
     contents.InitialConfigurationToken = __expectString(data.InitialConfigurationToken);
   }

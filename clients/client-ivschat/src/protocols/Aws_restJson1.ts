@@ -412,7 +412,7 @@ export const deserializeAws_restJson1CreateChatTokenCommand = async (
     token: undefined,
     tokenExpirationTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.sessionExpirationTime !== undefined && data.sessionExpirationTime !== null) {
     contents.sessionExpirationTime = __expectNonNull(__parseRfc3339DateTime(data.sessionExpirationTime));
   }
@@ -479,7 +479,7 @@ export const deserializeAws_restJson1CreateRoomCommand = async (
     tags: undefined,
     updateTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -562,7 +562,7 @@ export const deserializeAws_restJson1DeleteMessageCommand = async (
     $metadata: deserializeMetadata(output),
     id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.id !== undefined && data.id !== null) {
     contents.id = __expectString(data.id);
   }
@@ -721,7 +721,7 @@ export const deserializeAws_restJson1GetRoomCommand = async (
     tags: undefined,
     updateTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -796,7 +796,7 @@ export const deserializeAws_restJson1ListRoomsCommand = async (
     nextToken: undefined,
     rooms: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -849,7 +849,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
@@ -899,7 +899,7 @@ export const deserializeAws_restJson1SendEventCommand = async (
     $metadata: deserializeMetadata(output),
     id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.id !== undefined && data.id !== null) {
     contents.id = __expectString(data.id);
   }
@@ -1052,7 +1052,7 @@ export const deserializeAws_restJson1UpdateRoomCommand = async (
     tags: undefined,
     updateTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }

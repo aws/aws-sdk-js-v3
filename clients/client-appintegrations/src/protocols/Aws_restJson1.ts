@@ -562,7 +562,7 @@ export const deserializeAws_restJson1CreateDataIntegrationCommand = async (
     SourceURI: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -645,7 +645,7 @@ export const deserializeAws_restJson1CreateEventIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
     EventIntegrationArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrationArn !== undefined && data.EventIntegrationArn !== null) {
     contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
   }
@@ -815,7 +815,7 @@ export const deserializeAws_restJson1GetDataIntegrationCommand = async (
     SourceURI: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -897,7 +897,7 @@ export const deserializeAws_restJson1GetEventIntegrationCommand = async (
     Name: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -969,7 +969,7 @@ export const deserializeAws_restJson1ListDataIntegrationAssociationsCommand = as
     DataIntegrationAssociations: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DataIntegrationAssociations !== undefined && data.DataIntegrationAssociations !== null) {
     contents.DataIntegrationAssociations = deserializeAws_restJson1DataIntegrationAssociationsList(
       data.DataIntegrationAssociations,
@@ -1032,7 +1032,7 @@ export const deserializeAws_restJson1ListDataIntegrationsCommand = async (
     DataIntegrations: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DataIntegrations !== undefined && data.DataIntegrations !== null) {
     contents.DataIntegrations = deserializeAws_restJson1DataIntegrationsList(data.DataIntegrations, context);
   }
@@ -1089,7 +1089,7 @@ export const deserializeAws_restJson1ListEventIntegrationAssociationsCommand = a
     EventIntegrationAssociations: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrationAssociations !== undefined && data.EventIntegrationAssociations !== null) {
     contents.EventIntegrationAssociations = deserializeAws_restJson1EventIntegrationAssociationsList(
       data.EventIntegrationAssociations,
@@ -1152,7 +1152,7 @@ export const deserializeAws_restJson1ListEventIntegrationsCommand = async (
     EventIntegrations: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrations !== undefined && data.EventIntegrations !== null) {
     contents.EventIntegrations = deserializeAws_restJson1EventIntegrationsList(data.EventIntegrations, context);
   }
@@ -1208,7 +1208,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

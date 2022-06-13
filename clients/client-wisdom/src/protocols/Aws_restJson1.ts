@@ -1253,7 +1253,7 @@ export const deserializeAws_restJson1CreateAssistantCommand = async (
     $metadata: deserializeMetadata(output),
     assistant: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistant !== undefined && data.assistant !== null) {
     contents.assistant = deserializeAws_restJson1AssistantData(data.assistant, context);
   }
@@ -1306,7 +1306,7 @@ export const deserializeAws_restJson1CreateAssistantAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     assistantAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistantAssociation !== undefined && data.assistantAssociation !== null) {
     contents.assistantAssociation = deserializeAws_restJson1AssistantAssociationData(
       data.assistantAssociation,
@@ -1365,7 +1365,7 @@ export const deserializeAws_restJson1CreateContentCommand = async (
     $metadata: deserializeMetadata(output),
     content: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.content !== undefined && data.content !== null) {
     contents.content = deserializeAws_restJson1ContentData(data.content, context);
   }
@@ -1421,7 +1421,7 @@ export const deserializeAws_restJson1CreateKnowledgeBaseCommand = async (
     $metadata: deserializeMetadata(output),
     knowledgeBase: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.knowledgeBase !== undefined && data.knowledgeBase !== null) {
     contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
   }
@@ -1474,7 +1474,7 @@ export const deserializeAws_restJson1CreateSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1SessionData(data.session, context);
   }
@@ -1711,7 +1711,7 @@ export const deserializeAws_restJson1GetAssistantCommand = async (
     $metadata: deserializeMetadata(output),
     assistant: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistant !== undefined && data.assistant !== null) {
     contents.assistant = deserializeAws_restJson1AssistantData(data.assistant, context);
   }
@@ -1761,7 +1761,7 @@ export const deserializeAws_restJson1GetAssistantAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     assistantAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistantAssociation !== undefined && data.assistantAssociation !== null) {
     contents.assistantAssociation = deserializeAws_restJson1AssistantAssociationData(
       data.assistantAssociation,
@@ -1814,7 +1814,7 @@ export const deserializeAws_restJson1GetContentCommand = async (
     $metadata: deserializeMetadata(output),
     content: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.content !== undefined && data.content !== null) {
     contents.content = deserializeAws_restJson1ContentData(data.content, context);
   }
@@ -1864,7 +1864,7 @@ export const deserializeAws_restJson1GetContentSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     contentSummary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentSummary !== undefined && data.contentSummary !== null) {
     contents.contentSummary = deserializeAws_restJson1ContentSummary(data.contentSummary, context);
   }
@@ -1914,7 +1914,7 @@ export const deserializeAws_restJson1GetKnowledgeBaseCommand = async (
     $metadata: deserializeMetadata(output),
     knowledgeBase: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.knowledgeBase !== undefined && data.knowledgeBase !== null) {
     contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
   }
@@ -1965,7 +1965,7 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     recommendations: undefined,
     triggers: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.recommendations !== undefined && data.recommendations !== null) {
     contents.recommendations = deserializeAws_restJson1RecommendationList(data.recommendations, context);
   }
@@ -2018,7 +2018,7 @@ export const deserializeAws_restJson1GetSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1SessionData(data.session, context);
   }
@@ -2069,7 +2069,7 @@ export const deserializeAws_restJson1ListAssistantAssociationsCommand = async (
     assistantAssociationSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistantAssociationSummaries !== undefined && data.assistantAssociationSummaries !== null) {
     contents.assistantAssociationSummaries = deserializeAws_restJson1AssistantAssociationSummaryList(
       data.assistantAssociationSummaries,
@@ -2126,7 +2126,7 @@ export const deserializeAws_restJson1ListAssistantsCommand = async (
     assistantSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assistantSummaries !== undefined && data.assistantSummaries !== null) {
     contents.assistantSummaries = deserializeAws_restJson1AssistantList(data.assistantSummaries, context);
   }
@@ -2177,7 +2177,7 @@ export const deserializeAws_restJson1ListContentsCommand = async (
     contentSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentSummaries !== undefined && data.contentSummaries !== null) {
     contents.contentSummaries = deserializeAws_restJson1ContentSummaryList(data.contentSummaries, context);
   }
@@ -2231,7 +2231,7 @@ export const deserializeAws_restJson1ListKnowledgeBasesCommand = async (
     knowledgeBaseSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.knowledgeBaseSummaries !== undefined && data.knowledgeBaseSummaries !== null) {
     contents.knowledgeBaseSummaries = deserializeAws_restJson1KnowledgeBaseList(data.knowledgeBaseSummaries, context);
   }
@@ -2281,7 +2281,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
@@ -2326,7 +2326,7 @@ export const deserializeAws_restJson1NotifyRecommendationsReceivedCommand = asyn
     errors: undefined,
     recommendationIds: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors !== undefined && data.errors !== null) {
     contents.errors = deserializeAws_restJson1NotifyRecommendationsReceivedErrorList(data.errors, context);
   }
@@ -2380,7 +2380,7 @@ export const deserializeAws_restJson1QueryAssistantCommand = async (
     nextToken: undefined,
     results: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2480,7 +2480,7 @@ export const deserializeAws_restJson1SearchContentCommand = async (
     contentSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentSummaries !== undefined && data.contentSummaries !== null) {
     contents.contentSummaries = deserializeAws_restJson1ContentSummaryList(data.contentSummaries, context);
   }
@@ -2534,7 +2534,7 @@ export const deserializeAws_restJson1SearchSessionsCommand = async (
     nextToken: undefined,
     sessionSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2590,7 +2590,7 @@ export const deserializeAws_restJson1StartContentUploadCommand = async (
     url: undefined,
     urlExpiry: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.headersToInclude !== undefined && data.headersToInclude !== null) {
     contents.headersToInclude = deserializeAws_restJson1Headers(data.headersToInclude, context);
   }
@@ -2732,7 +2732,7 @@ export const deserializeAws_restJson1UpdateContentCommand = async (
     $metadata: deserializeMetadata(output),
     content: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.content !== undefined && data.content !== null) {
     contents.content = deserializeAws_restJson1ContentData(data.content, context);
   }
@@ -2785,7 +2785,7 @@ export const deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = asy
     $metadata: deserializeMetadata(output),
     knowledgeBase: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.knowledgeBase !== undefined && data.knowledgeBase !== null) {
     contents.knowledgeBase = deserializeAws_restJson1KnowledgeBaseData(data.knowledgeBase, context);
   }

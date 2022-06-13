@@ -1661,7 +1661,7 @@ export const deserializeAws_restJson1CreateLensShareCommand = async (
     $metadata: deserializeMetadata(output),
     ShareId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ShareId !== undefined && data.ShareId !== null) {
     contents.ShareId = __expectString(data.ShareId);
   }
@@ -1724,7 +1724,7 @@ export const deserializeAws_restJson1CreateLensVersionCommand = async (
     LensArn: undefined,
     LensVersion: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensArn !== undefined && data.LensArn !== null) {
     contents.LensArn = __expectString(data.LensArn);
   }
@@ -1790,7 +1790,7 @@ export const deserializeAws_restJson1CreateMilestoneCommand = async (
     MilestoneNumber: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
     contents.MilestoneNumber = __expectInt32(data.MilestoneNumber);
   }
@@ -1856,7 +1856,7 @@ export const deserializeAws_restJson1CreateWorkloadCommand = async (
     WorkloadArn: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.WorkloadArn !== undefined && data.WorkloadArn !== null) {
     contents.WorkloadArn = __expectString(data.WorkloadArn);
   }
@@ -1919,7 +1919,7 @@ export const deserializeAws_restJson1CreateWorkloadShareCommand = async (
     ShareId: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ShareId !== undefined && data.ShareId !== null) {
     contents.ShareId = __expectString(data.ShareId);
   }
@@ -2259,7 +2259,7 @@ export const deserializeAws_restJson1ExportLensCommand = async (
     $metadata: deserializeMetadata(output),
     LensJSON: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensJSON !== undefined && data.LensJSON !== null) {
     contents.LensJSON = __expectString(data.LensJSON);
   }
@@ -2319,7 +2319,7 @@ export const deserializeAws_restJson1GetAnswerCommand = async (
     MilestoneNumber: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Answer !== undefined && data.Answer !== null) {
     contents.Answer = deserializeAws_restJson1Answer(data.Answer, context);
   }
@@ -2387,7 +2387,7 @@ export const deserializeAws_restJson1GetLensCommand = async (
     $metadata: deserializeMetadata(output),
     Lens: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Lens !== undefined && data.Lens !== null) {
     contents.Lens = deserializeAws_restJson1Lens(data.Lens, context);
   }
@@ -2445,7 +2445,7 @@ export const deserializeAws_restJson1GetLensReviewCommand = async (
     MilestoneNumber: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensReview !== undefined && data.LensReview !== null) {
     contents.LensReview = deserializeAws_restJson1LensReview(data.LensReview, context);
   }
@@ -2509,7 +2509,7 @@ export const deserializeAws_restJson1GetLensReviewReportCommand = async (
     MilestoneNumber: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensReviewReport !== undefined && data.LensReviewReport !== null) {
     contents.LensReviewReport = deserializeAws_restJson1LensReviewReport(data.LensReviewReport, context);
   }
@@ -2576,7 +2576,7 @@ export const deserializeAws_restJson1GetLensVersionDifferenceCommand = async (
     TargetLensVersion: undefined,
     VersionDifferences: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BaseLensVersion !== undefined && data.BaseLensVersion !== null) {
     contents.BaseLensVersion = __expectString(data.BaseLensVersion);
   }
@@ -2648,7 +2648,7 @@ export const deserializeAws_restJson1GetMilestoneCommand = async (
     Milestone: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Milestone !== undefined && data.Milestone !== null) {
     contents.Milestone = deserializeAws_restJson1Milestone(data.Milestone, context);
   }
@@ -2707,7 +2707,7 @@ export const deserializeAws_restJson1GetWorkloadCommand = async (
     $metadata: deserializeMetadata(output),
     Workload: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Workload !== undefined && data.Workload !== null) {
     contents.Workload = deserializeAws_restJson1Workload(data.Workload, context);
   }
@@ -2764,7 +2764,7 @@ export const deserializeAws_restJson1ImportLensCommand = async (
     LensArn: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensArn !== undefined && data.LensArn !== null) {
     contents.LensArn = __expectString(data.LensArn);
   }
@@ -2834,7 +2834,7 @@ export const deserializeAws_restJson1ListAnswersCommand = async (
     NextToken: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnswerSummaries !== undefined && data.AnswerSummaries !== null) {
     contents.AnswerSummaries = deserializeAws_restJson1AnswerSummaries(data.AnswerSummaries, context);
   }
@@ -2906,7 +2906,7 @@ export const deserializeAws_restJson1ListLensesCommand = async (
     LensSummaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensSummaries !== undefined && data.LensSummaries !== null) {
     contents.LensSummaries = deserializeAws_restJson1LensSummaries(data.LensSummaries, context);
   }
@@ -2967,7 +2967,7 @@ export const deserializeAws_restJson1ListLensReviewImprovementsCommand = async (
     NextToken: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ImprovementSummaries !== undefined && data.ImprovementSummaries !== null) {
     contents.ImprovementSummaries = deserializeAws_restJson1ImprovementSummaries(data.ImprovementSummaries, context);
   }
@@ -3041,7 +3041,7 @@ export const deserializeAws_restJson1ListLensReviewsCommand = async (
     NextToken: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensReviewSummaries !== undefined && data.LensReviewSummaries !== null) {
     contents.LensReviewSummaries = deserializeAws_restJson1LensReviewSummaries(data.LensReviewSummaries, context);
   }
@@ -3107,7 +3107,7 @@ export const deserializeAws_restJson1ListLensSharesCommand = async (
     LensShareSummaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensShareSummaries !== undefined && data.LensShareSummaries !== null) {
     contents.LensShareSummaries = deserializeAws_restJson1LensShareSummaries(data.LensShareSummaries, context);
   }
@@ -3168,7 +3168,7 @@ export const deserializeAws_restJson1ListMilestonesCommand = async (
     NextToken: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MilestoneSummaries !== undefined && data.MilestoneSummaries !== null) {
     contents.MilestoneSummaries = deserializeAws_restJson1MilestoneSummaries(data.MilestoneSummaries, context);
   }
@@ -3231,7 +3231,7 @@ export const deserializeAws_restJson1ListNotificationsCommand = async (
     NextToken: undefined,
     NotificationSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3288,7 +3288,7 @@ export const deserializeAws_restJson1ListShareInvitationsCommand = async (
     NextToken: undefined,
     ShareInvitationSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3347,7 +3347,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -3395,7 +3395,7 @@ export const deserializeAws_restJson1ListWorkloadsCommand = async (
     NextToken: undefined,
     WorkloadSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3453,7 +3453,7 @@ export const deserializeAws_restJson1ListWorkloadSharesCommand = async (
     WorkloadId: undefined,
     WorkloadShareSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3607,7 +3607,7 @@ export const deserializeAws_restJson1UpdateAnswerCommand = async (
     LensArn: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Answer !== undefined && data.Answer !== null) {
     contents.Answer = deserializeAws_restJson1Answer(data.Answer, context);
   }
@@ -3676,7 +3676,7 @@ export const deserializeAws_restJson1UpdateLensReviewCommand = async (
     LensReview: undefined,
     WorkloadId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LensReview !== undefined && data.LensReview !== null) {
     contents.LensReview = deserializeAws_restJson1LensReview(data.LensReview, context);
   }
@@ -3738,7 +3738,7 @@ export const deserializeAws_restJson1UpdateShareInvitationCommand = async (
     $metadata: deserializeMetadata(output),
     ShareInvitation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ShareInvitation !== undefined && data.ShareInvitation !== null) {
     contents.ShareInvitation = deserializeAws_restJson1ShareInvitation(data.ShareInvitation, context);
   }
@@ -3797,7 +3797,7 @@ export const deserializeAws_restJson1UpdateWorkloadCommand = async (
     $metadata: deserializeMetadata(output),
     Workload: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Workload !== undefined && data.Workload !== null) {
     contents.Workload = deserializeAws_restJson1Workload(data.Workload, context);
   }
@@ -3857,7 +3857,7 @@ export const deserializeAws_restJson1UpdateWorkloadShareCommand = async (
     WorkloadId: undefined,
     WorkloadShare: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
     contents.WorkloadId = __expectString(data.WorkloadId);
   }

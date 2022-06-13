@@ -2924,7 +2924,7 @@ export const deserializeAws_restXmlCreateAccessPointCommand = async (
     AccessPointArn: undefined,
     Alias: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["AccessPointArn"] !== undefined) {
     contents.AccessPointArn = __expectString(data["AccessPointArn"]);
   }
@@ -2968,7 +2968,7 @@ export const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommand = asy
     $metadata: deserializeMetadata(output),
     ObjectLambdaAccessPointArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["ObjectLambdaAccessPointArn"] !== undefined) {
     contents.ObjectLambdaAccessPointArn = __expectString(data["ObjectLambdaAccessPointArn"]);
   }
@@ -3013,7 +3013,7 @@ export const deserializeAws_restXmlCreateBucketCommand = async (
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["BucketArn"] !== undefined) {
     contents.BucketArn = __expectString(data["BucketArn"]);
   }
@@ -3060,7 +3060,7 @@ export const deserializeAws_restXmlCreateJobCommand = async (
     $metadata: deserializeMetadata(output),
     JobId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["JobId"] !== undefined) {
     contents.JobId = __expectString(data["JobId"]);
   }
@@ -3113,7 +3113,7 @@ export const deserializeAws_restXmlCreateMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
     RequestTokenARN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RequestTokenARN"] !== undefined) {
     contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
   }
@@ -3496,7 +3496,7 @@ export const deserializeAws_restXmlDeleteMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
     RequestTokenARN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RequestTokenARN"] !== undefined) {
     contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
   }
@@ -3648,7 +3648,7 @@ export const deserializeAws_restXmlDescribeJobCommand = async (
     $metadata: deserializeMetadata(output),
     Job: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Job"] !== undefined) {
     contents.Job = deserializeAws_restXmlJobDescriptor(data["Job"], context);
   }
@@ -3701,7 +3701,7 @@ export const deserializeAws_restXmlDescribeMultiRegionAccessPointOperationComman
     $metadata: deserializeMetadata(output),
     AsyncOperation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["AsyncOperation"] !== undefined) {
     contents.AsyncOperation = deserializeAws_restXmlAsyncOperation(data["AsyncOperation"], context);
   }
@@ -3750,7 +3750,7 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
     PublicAccessBlockConfiguration: undefined,
     VpcConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["AccessPointArn"] !== undefined) {
     contents.AccessPointArn = __expectString(data["AccessPointArn"]);
   }
@@ -3820,7 +3820,7 @@ export const deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCom
     $metadata: deserializeMetadata(output),
     Configuration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Configuration"] !== undefined) {
     contents.Configuration = deserializeAws_restXmlObjectLambdaConfiguration(data["Configuration"], context);
   }
@@ -3863,7 +3863,7 @@ export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async 
     Name: undefined,
     PublicAccessBlockConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
   }
@@ -3913,7 +3913,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Policy"] !== undefined) {
     contents.Policy = __expectString(data["Policy"]);
   }
@@ -3954,7 +3954,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = 
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Policy"] !== undefined) {
     contents.Policy = __expectString(data["Policy"]);
   }
@@ -3995,7 +3995,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
     $metadata: deserializeMetadata(output),
     PolicyStatus: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["PolicyStatus"] !== undefined) {
     contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(data["PolicyStatus"], context);
   }
@@ -4036,7 +4036,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaComm
     $metadata: deserializeMetadata(output),
     PolicyStatus: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["PolicyStatus"] !== undefined) {
     contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(data["PolicyStatus"], context);
   }
@@ -4079,7 +4079,7 @@ export const deserializeAws_restXmlGetBucketCommand = async (
     CreationDate: undefined,
     PublicAccessBlockEnabled: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
   }
@@ -4126,7 +4126,7 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
     $metadata: deserializeMetadata(output),
     Rules: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Rules === "") {
     contents.Rules = [];
   } else if (data["Rules"] !== undefined && data["Rules"]["Rule"] !== undefined) {
@@ -4169,7 +4169,7 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Policy"] !== undefined) {
     contents.Policy = __expectString(data["Policy"]);
   }
@@ -4210,7 +4210,7 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
     $metadata: deserializeMetadata(output),
     TagSet: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagSet === "") {
     contents.TagSet = [];
   } else if (data["TagSet"] !== undefined && data["TagSet"]["member"] !== undefined) {
@@ -4253,7 +4253,7 @@ export const deserializeAws_restXmlGetJobTaggingCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags === "") {
     contents.Tags = [];
   } else if (data["Tags"] !== undefined && data["Tags"]["member"] !== undefined) {
@@ -4305,7 +4305,7 @@ export const deserializeAws_restXmlGetMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
     AccessPoint: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["AccessPoint"] !== undefined) {
     contents.AccessPoint = deserializeAws_restXmlMultiRegionAccessPointReport(data["AccessPoint"], context);
   }
@@ -4346,7 +4346,7 @@ export const deserializeAws_restXmlGetMultiRegionAccessPointPolicyCommand = asyn
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Policy"] !== undefined) {
     contents.Policy = deserializeAws_restXmlMultiRegionAccessPointPolicyDocument(data["Policy"], context);
   }
@@ -4387,7 +4387,7 @@ export const deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand 
     $metadata: deserializeMetadata(output),
     Established: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Established"] !== undefined) {
     contents.Established = deserializeAws_restXmlPolicyStatus(data["Established"], context);
   }
@@ -4509,7 +4509,7 @@ export const deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand = a
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags === "") {
     contents.Tags = [];
   } else if (data["Tags"] !== undefined && data["Tags"]["Tag"] !== undefined) {
@@ -4553,7 +4553,7 @@ export const deserializeAws_restXmlListAccessPointsCommand = async (
     AccessPointList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessPointList === "") {
     contents.AccessPointList = [];
   } else if (data["AccessPointList"] !== undefined && data["AccessPointList"]["AccessPoint"] !== undefined) {
@@ -4603,7 +4603,7 @@ export const deserializeAws_restXmlListAccessPointsForObjectLambdaCommand = asyn
     NextToken: undefined,
     ObjectLambdaAccessPointList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["NextToken"] !== undefined) {
     contents.NextToken = __expectString(data["NextToken"]);
   }
@@ -4656,7 +4656,7 @@ export const deserializeAws_restXmlListJobsCommand = async (
     Jobs: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Jobs === "") {
     contents.Jobs = [];
   } else if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
@@ -4715,7 +4715,7 @@ export const deserializeAws_restXmlListMultiRegionAccessPointsCommand = async (
     AccessPoints: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessPoints === "") {
     contents.AccessPoints = [];
   } else if (data["AccessPoints"] !== undefined && data["AccessPoints"]["AccessPoint"] !== undefined) {
@@ -4765,7 +4765,7 @@ export const deserializeAws_restXmlListRegionalBucketsCommand = async (
     NextToken: undefined,
     RegionalBucketList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["NextToken"] !== undefined) {
     contents.NextToken = __expectString(data["NextToken"]);
   }
@@ -4815,7 +4815,7 @@ export const deserializeAws_restXmlListStorageLensConfigurationsCommand = async 
     NextToken: undefined,
     StorageLensConfigurationList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["NextToken"] !== undefined) {
     contents.NextToken = __expectString(data["NextToken"]);
   }
@@ -5135,7 +5135,7 @@ export const deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommand = asyn
     $metadata: deserializeMetadata(output),
     RequestTokenARN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RequestTokenARN"] !== undefined) {
     contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
   }
@@ -5288,7 +5288,7 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
     JobId: undefined,
     Priority: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["JobId"] !== undefined) {
     contents.JobId = __expectString(data["JobId"]);
   }
@@ -5346,7 +5346,7 @@ export const deserializeAws_restXmlUpdateJobStatusCommand = async (
     Status: undefined,
     StatusUpdateReason: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["JobId"] !== undefined) {
     contents.JobId = __expectString(data["JobId"]);
   }

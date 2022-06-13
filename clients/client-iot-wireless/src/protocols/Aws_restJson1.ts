@@ -3358,7 +3358,7 @@ export const deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountComman
     Arn: undefined,
     Sidewalk: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -3640,7 +3640,7 @@ export const deserializeAws_restJson1AssociateWirelessGatewayWithCertificateComm
     $metadata: deserializeMetadata(output),
     IotCertificateId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IotCertificateId !== undefined && data.IotCertificateId !== null) {
     contents.IotCertificateId = __expectString(data.IotCertificateId);
   }
@@ -3810,7 +3810,7 @@ export const deserializeAws_restJson1CreateDestinationCommand = async (
     Arn: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -3873,7 +3873,7 @@ export const deserializeAws_restJson1CreateDeviceProfileCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -3933,7 +3933,7 @@ export const deserializeAws_restJson1CreateFuotaTaskCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -3996,7 +3996,7 @@ export const deserializeAws_restJson1CreateMulticastGroupCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -4059,7 +4059,7 @@ export const deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand =
     Arn: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -4122,7 +4122,7 @@ export const deserializeAws_restJson1CreateServiceProfileCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -4182,7 +4182,7 @@ export const deserializeAws_restJson1CreateWirelessDeviceCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -4245,7 +4245,7 @@ export const deserializeAws_restJson1CreateWirelessGatewayCommand = async (
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -4305,7 +4305,7 @@ export const deserializeAws_restJson1CreateWirelessGatewayTaskCommand = async (
     Status: undefined,
     WirelessGatewayTaskDefinitionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);
   }
@@ -4368,7 +4368,7 @@ export const deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand 
     Arn: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5392,7 +5392,7 @@ export const deserializeAws_restJson1GetDestinationCommand = async (
     Name: undefined,
     RoleArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5466,7 +5466,7 @@ export const deserializeAws_restJson1GetDeviceProfileCommand = async (
     LoRaWAN: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5534,7 +5534,7 @@ export const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand
     Join: undefined,
     Proximity: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
     contents.ConnectionStatus = deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration(
       data.ConnectionStatus,
@@ -5607,7 +5607,7 @@ export const deserializeAws_restJson1GetFuotaTaskCommand = async (
     Name: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5689,7 +5689,7 @@ export const deserializeAws_restJson1GetLogLevelsByResourceTypesCommand = async 
     WirelessDeviceLogOptions: undefined,
     WirelessGatewayLogOptions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DefaultLogLevel !== undefined && data.DefaultLogLevel !== null) {
     contents.DefaultLogLevel = __expectString(data.DefaultLogLevel);
   }
@@ -5763,7 +5763,7 @@ export const deserializeAws_restJson1GetMulticastGroupCommand = async (
     Name: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5837,7 +5837,7 @@ export const deserializeAws_restJson1GetMulticastGroupSessionCommand = async (
     $metadata: deserializeMetadata(output),
     LoRaWAN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANMulticastSession(data.LoRaWAN, context);
   }
@@ -5898,7 +5898,7 @@ export const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand = as
     WirelessDevices: undefined,
     WirelessGateways: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -5970,7 +5970,7 @@ export const deserializeAws_restJson1GetPartnerAccountCommand = async (
     AccountLinked: undefined,
     Sidewalk: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccountLinked !== undefined && data.AccountLinked !== null) {
     contents.AccountLinked = __expectBoolean(data.AccountLinked);
   }
@@ -6029,7 +6029,7 @@ export const deserializeAws_restJson1GetResourceEventConfigurationCommand = asyn
     Join: undefined,
     Proximity: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
     contents.ConnectionStatus = deserializeAws_restJson1ConnectionStatusEventConfiguration(
       data.ConnectionStatus,
@@ -6100,7 +6100,7 @@ export const deserializeAws_restJson1GetResourceLogLevelCommand = async (
     $metadata: deserializeMetadata(output),
     LogLevel: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LogLevel !== undefined && data.LogLevel !== null) {
     contents.LogLevel = __expectString(data.LogLevel);
   }
@@ -6158,7 +6158,7 @@ export const deserializeAws_restJson1GetServiceEndpointCommand = async (
     ServiceEndpoint: undefined,
     ServiceType: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ServerTrust !== undefined && data.ServerTrust !== null) {
     contents.ServerTrust = __expectString(data.ServerTrust);
   }
@@ -6220,7 +6220,7 @@ export const deserializeAws_restJson1GetServiceProfileCommand = async (
     LoRaWAN: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -6294,7 +6294,7 @@ export const deserializeAws_restJson1GetWirelessDeviceCommand = async (
     ThingName: undefined,
     Type: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -6380,7 +6380,7 @@ export const deserializeAws_restJson1GetWirelessDeviceStatisticsCommand = async 
     Sidewalk: undefined,
     WirelessDeviceId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LastUplinkReceivedAt !== undefined && data.LastUplinkReceivedAt !== null) {
     contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
   }
@@ -6451,7 +6451,7 @@ export const deserializeAws_restJson1GetWirelessGatewayCommand = async (
     ThingArn: undefined,
     ThingName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -6526,7 +6526,7 @@ export const deserializeAws_restJson1GetWirelessGatewayCertificateCommand = asyn
     IotCertificateId: undefined,
     LoRaWANNetworkServerCertificateId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IotCertificateId !== undefined && data.IotCertificateId !== null) {
     contents.IotCertificateId = __expectString(data.IotCertificateId);
   }
@@ -6585,7 +6585,7 @@ export const deserializeAws_restJson1GetWirelessGatewayFirmwareInformationComman
     $metadata: deserializeMetadata(output),
     LoRaWAN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANGatewayCurrentVersion(data.LoRaWAN, context);
   }
@@ -6643,7 +6643,7 @@ export const deserializeAws_restJson1GetWirelessGatewayStatisticsCommand = async
     LastUplinkReceivedAt: undefined,
     WirelessGatewayId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
     contents.ConnectionStatus = __expectString(data.ConnectionStatus);
   }
@@ -6709,7 +6709,7 @@ export const deserializeAws_restJson1GetWirelessGatewayTaskCommand = async (
     WirelessGatewayId: undefined,
     WirelessGatewayTaskDefinitionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LastUplinkReceivedAt !== undefined && data.LastUplinkReceivedAt !== null) {
     contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
   }
@@ -6780,7 +6780,7 @@ export const deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand = a
     Name: undefined,
     Update: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -6846,7 +6846,7 @@ export const deserializeAws_restJson1ListDestinationsCommand = async (
     DestinationList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DestinationList !== undefined && data.DestinationList !== null) {
     contents.DestinationList = deserializeAws_restJson1DestinationList(data.DestinationList, context);
   }
@@ -6903,7 +6903,7 @@ export const deserializeAws_restJson1ListDeviceProfilesCommand = async (
     DeviceProfileList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeviceProfileList !== undefined && data.DeviceProfileList !== null) {
     contents.DeviceProfileList = deserializeAws_restJson1DeviceProfileList(data.DeviceProfileList, context);
   }
@@ -6960,7 +6960,7 @@ export const deserializeAws_restJson1ListEventConfigurationsCommand = async (
     EventConfigurationsList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventConfigurationsList !== undefined && data.EventConfigurationsList !== null) {
     contents.EventConfigurationsList = deserializeAws_restJson1EventConfigurationsList(
       data.EventConfigurationsList,
@@ -7020,7 +7020,7 @@ export const deserializeAws_restJson1ListFuotaTasksCommand = async (
     FuotaTaskList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FuotaTaskList !== undefined && data.FuotaTaskList !== null) {
     contents.FuotaTaskList = deserializeAws_restJson1FuotaTaskList(data.FuotaTaskList, context);
   }
@@ -7077,7 +7077,7 @@ export const deserializeAws_restJson1ListMulticastGroupsCommand = async (
     MulticastGroupList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MulticastGroupList !== undefined && data.MulticastGroupList !== null) {
     contents.MulticastGroupList = deserializeAws_restJson1MulticastGroupList(data.MulticastGroupList, context);
   }
@@ -7134,7 +7134,7 @@ export const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand = asy
     MulticastGroupList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MulticastGroupList !== undefined && data.MulticastGroupList !== null) {
     contents.MulticastGroupList = deserializeAws_restJson1MulticastGroupListByFuotaTask(
       data.MulticastGroupList,
@@ -7197,7 +7197,7 @@ export const deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand = 
     NetworkAnalyzerConfigurationList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NetworkAnalyzerConfigurationList !== undefined && data.NetworkAnalyzerConfigurationList !== null) {
     contents.NetworkAnalyzerConfigurationList = deserializeAws_restJson1NetworkAnalyzerConfigurationList(
       data.NetworkAnalyzerConfigurationList,
@@ -7257,7 +7257,7 @@ export const deserializeAws_restJson1ListPartnerAccountsCommand = async (
     NextToken: undefined,
     Sidewalk: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -7314,7 +7314,7 @@ export const deserializeAws_restJson1ListQueuedMessagesCommand = async (
     DownlinkQueueMessagesList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DownlinkQueueMessagesList !== undefined && data.DownlinkQueueMessagesList !== null) {
     contents.DownlinkQueueMessagesList = deserializeAws_restJson1DownlinkQueueMessagesList(
       data.DownlinkQueueMessagesList,
@@ -7377,7 +7377,7 @@ export const deserializeAws_restJson1ListServiceProfilesCommand = async (
     NextToken: undefined,
     ServiceProfileList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -7433,7 +7433,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
@@ -7490,7 +7490,7 @@ export const deserializeAws_restJson1ListWirelessDevicesCommand = async (
     NextToken: undefined,
     WirelessDeviceList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -7550,7 +7550,7 @@ export const deserializeAws_restJson1ListWirelessGatewaysCommand = async (
     NextToken: undefined,
     WirelessGatewayList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -7610,7 +7610,7 @@ export const deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand =
     NextToken: undefined,
     TaskDefinitions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -7822,7 +7822,7 @@ export const deserializeAws_restJson1SendDataToMulticastGroupCommand = async (
     $metadata: deserializeMetadata(output),
     MessageId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MessageId !== undefined && data.MessageId !== null) {
     contents.MessageId = __expectString(data.MessageId);
   }
@@ -7881,7 +7881,7 @@ export const deserializeAws_restJson1SendDataToWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     MessageId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MessageId !== undefined && data.MessageId !== null) {
     contents.MessageId = __expectString(data.MessageId);
   }
@@ -8203,7 +8203,7 @@ export const deserializeAws_restJson1TestWirelessDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     Result: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Result !== undefined && data.Result !== null) {
     contents.Result = __expectString(data.Result);
   }

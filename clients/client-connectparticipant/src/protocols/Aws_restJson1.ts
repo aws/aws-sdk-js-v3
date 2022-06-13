@@ -347,7 +347,7 @@ export const deserializeAws_restJson1CreateParticipantConnectionCommand = async 
     ConnectionCredentials: undefined,
     Websocket: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConnectionCredentials !== undefined && data.ConnectionCredentials !== null) {
     contents.ConnectionCredentials = deserializeAws_restJson1ConnectionCredentials(data.ConnectionCredentials, context);
   }
@@ -453,7 +453,7 @@ export const deserializeAws_restJson1GetAttachmentCommand = async (
     Url: undefined,
     UrlExpiry: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Url !== undefined && data.Url !== null) {
     contents.Url = __expectString(data.Url);
   }
@@ -511,7 +511,7 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
     NextToken: undefined,
     Transcript: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InitialContactId !== undefined && data.InitialContactId !== null) {
     contents.InitialContactId = __expectString(data.InitialContactId);
   }
@@ -571,7 +571,7 @@ export const deserializeAws_restJson1SendEventCommand = async (
     AbsoluteTime: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
     contents.AbsoluteTime = __expectString(data.AbsoluteTime);
   }
@@ -628,7 +628,7 @@ export const deserializeAws_restJson1SendMessageCommand = async (
     AbsoluteTime: undefined,
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
     contents.AbsoluteTime = __expectString(data.AbsoluteTime);
   }
@@ -685,7 +685,7 @@ export const deserializeAws_restJson1StartAttachmentUploadCommand = async (
     AttachmentId: undefined,
     UploadMetadata: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AttachmentId !== undefined && data.AttachmentId !== null) {
     contents.AttachmentId = __expectString(data.AttachmentId);
   }

@@ -2033,7 +2033,7 @@ export const deserializeAws_restJson1AssociateApiCommand = async (
     $metadata: deserializeMetadata(output),
     apiAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiAssociation !== undefined && data.apiAssociation !== null) {
     contents.apiAssociation = deserializeAws_restJson1ApiAssociation(data.apiAssociation, context);
   }
@@ -2086,7 +2086,7 @@ export const deserializeAws_restJson1CreateApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
     apiCache: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiCache !== undefined && data.apiCache !== null) {
     contents.apiCache = deserializeAws_restJson1ApiCache(data.apiCache, context);
   }
@@ -2142,7 +2142,7 @@ export const deserializeAws_restJson1CreateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
     apiKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiKey !== undefined && data.apiKey !== null) {
     contents.apiKey = deserializeAws_restJson1ApiKey(data.apiKey, context);
   }
@@ -2204,7 +2204,7 @@ export const deserializeAws_restJson1CreateDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
     dataSource: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSource !== undefined && data.dataSource !== null) {
     contents.dataSource = deserializeAws_restJson1DataSource(data.dataSource, context);
   }
@@ -2260,7 +2260,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
     domainNameConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainNameConfig !== undefined && data.domainNameConfig !== null) {
     contents.domainNameConfig = deserializeAws_restJson1DomainNameConfig(data.domainNameConfig, context);
   }
@@ -2310,7 +2310,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     $metadata: deserializeMetadata(output),
     functionConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1FunctionConfiguration(data.functionConfiguration, context);
   }
@@ -2363,7 +2363,7 @@ export const deserializeAws_restJson1CreateGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
     graphqlApi: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
     contents.graphqlApi = deserializeAws_restJson1GraphqlApi(data.graphqlApi, context);
   }
@@ -2422,7 +2422,7 @@ export const deserializeAws_restJson1CreateResolverCommand = async (
     $metadata: deserializeMetadata(output),
     resolver: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.resolver !== undefined && data.resolver !== null) {
     contents.resolver = deserializeAws_restJson1Resolver(data.resolver, context);
   }
@@ -2475,7 +2475,7 @@ export const deserializeAws_restJson1CreateTypeCommand = async (
     $metadata: deserializeMetadata(output),
     type: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.type !== undefined && data.type !== null) {
     contents.type = deserializeAws_restJson1Type(data.type, context);
   }
@@ -3045,7 +3045,7 @@ export const deserializeAws_restJson1GetApiAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     apiAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiAssociation !== undefined && data.apiAssociation !== null) {
     contents.apiAssociation = deserializeAws_restJson1ApiAssociation(data.apiAssociation, context);
   }
@@ -3098,7 +3098,7 @@ export const deserializeAws_restJson1GetApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
     apiCache: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiCache !== undefined && data.apiCache !== null) {
     contents.apiCache = deserializeAws_restJson1ApiCache(data.apiCache, context);
   }
@@ -3154,7 +3154,7 @@ export const deserializeAws_restJson1GetDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
     dataSource: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSource !== undefined && data.dataSource !== null) {
     contents.dataSource = deserializeAws_restJson1DataSource(data.dataSource, context);
   }
@@ -3210,7 +3210,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
     domainNameConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainNameConfig !== undefined && data.domainNameConfig !== null) {
     contents.domainNameConfig = deserializeAws_restJson1DomainNameConfig(data.domainNameConfig, context);
   }
@@ -3263,7 +3263,7 @@ export const deserializeAws_restJson1GetFunctionCommand = async (
     $metadata: deserializeMetadata(output),
     functionConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1FunctionConfiguration(data.functionConfiguration, context);
   }
@@ -3313,7 +3313,7 @@ export const deserializeAws_restJson1GetGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
     graphqlApi: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
     contents.graphqlApi = deserializeAws_restJson1GraphqlApi(data.graphqlApi, context);
   }
@@ -3420,7 +3420,7 @@ export const deserializeAws_restJson1GetResolverCommand = async (
     $metadata: deserializeMetadata(output),
     resolver: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.resolver !== undefined && data.resolver !== null) {
     contents.resolver = deserializeAws_restJson1Resolver(data.resolver, context);
   }
@@ -3471,7 +3471,7 @@ export const deserializeAws_restJson1GetSchemaCreationStatusCommand = async (
     details: undefined,
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.details !== undefined && data.details !== null) {
     contents.details = __expectString(data.details);
   }
@@ -3527,7 +3527,7 @@ export const deserializeAws_restJson1GetTypeCommand = async (
     $metadata: deserializeMetadata(output),
     type: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.type !== undefined && data.type !== null) {
     contents.type = deserializeAws_restJson1Type(data.type, context);
   }
@@ -3584,7 +3584,7 @@ export const deserializeAws_restJson1ListApiKeysCommand = async (
     apiKeys: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiKeys !== undefined && data.apiKeys !== null) {
     contents.apiKeys = deserializeAws_restJson1ApiKeys(data.apiKeys, context);
   }
@@ -3641,7 +3641,7 @@ export const deserializeAws_restJson1ListDataSourcesCommand = async (
     dataSources: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSources !== undefined && data.dataSources !== null) {
     contents.dataSources = deserializeAws_restJson1DataSources(data.dataSources, context);
   }
@@ -3698,7 +3698,7 @@ export const deserializeAws_restJson1ListDomainNamesCommand = async (
     domainNameConfigs: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainNameConfigs !== undefined && data.domainNameConfigs !== null) {
     contents.domainNameConfigs = deserializeAws_restJson1DomainNameConfigs(data.domainNameConfigs, context);
   }
@@ -3752,7 +3752,7 @@ export const deserializeAws_restJson1ListFunctionsCommand = async (
     functions: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.functions !== undefined && data.functions !== null) {
     contents.functions = deserializeAws_restJson1Functions(data.functions, context);
   }
@@ -3809,7 +3809,7 @@ export const deserializeAws_restJson1ListGraphqlApisCommand = async (
     graphqlApis: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.graphqlApis !== undefined && data.graphqlApis !== null) {
     contents.graphqlApis = deserializeAws_restJson1GraphqlApis(data.graphqlApis, context);
   }
@@ -3863,7 +3863,7 @@ export const deserializeAws_restJson1ListResolversCommand = async (
     nextToken: undefined,
     resolvers: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3920,7 +3920,7 @@ export const deserializeAws_restJson1ListResolversByFunctionCommand = async (
     nextToken: undefined,
     resolvers: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3976,7 +3976,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -4036,7 +4036,7 @@ export const deserializeAws_restJson1ListTypesCommand = async (
     nextToken: undefined,
     types: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4095,7 +4095,7 @@ export const deserializeAws_restJson1StartSchemaCreationCommand = async (
     $metadata: deserializeMetadata(output),
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
   }
@@ -4261,7 +4261,7 @@ export const deserializeAws_restJson1UpdateApiCacheCommand = async (
     $metadata: deserializeMetadata(output),
     apiCache: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiCache !== undefined && data.apiCache !== null) {
     contents.apiCache = deserializeAws_restJson1ApiCache(data.apiCache, context);
   }
@@ -4317,7 +4317,7 @@ export const deserializeAws_restJson1UpdateApiKeyCommand = async (
     $metadata: deserializeMetadata(output),
     apiKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiKey !== undefined && data.apiKey !== null) {
     contents.apiKey = deserializeAws_restJson1ApiKey(data.apiKey, context);
   }
@@ -4376,7 +4376,7 @@ export const deserializeAws_restJson1UpdateDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
     dataSource: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSource !== undefined && data.dataSource !== null) {
     contents.dataSource = deserializeAws_restJson1DataSource(data.dataSource, context);
   }
@@ -4432,7 +4432,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     $metadata: deserializeMetadata(output),
     domainNameConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainNameConfig !== undefined && data.domainNameConfig !== null) {
     contents.domainNameConfig = deserializeAws_restJson1DomainNameConfig(data.domainNameConfig, context);
   }
@@ -4488,7 +4488,7 @@ export const deserializeAws_restJson1UpdateFunctionCommand = async (
     $metadata: deserializeMetadata(output),
     functionConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1FunctionConfiguration(data.functionConfiguration, context);
   }
@@ -4541,7 +4541,7 @@ export const deserializeAws_restJson1UpdateGraphqlApiCommand = async (
     $metadata: deserializeMetadata(output),
     graphqlApi: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
     contents.graphqlApi = deserializeAws_restJson1GraphqlApi(data.graphqlApi, context);
   }
@@ -4600,7 +4600,7 @@ export const deserializeAws_restJson1UpdateResolverCommand = async (
     $metadata: deserializeMetadata(output),
     resolver: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.resolver !== undefined && data.resolver !== null) {
     contents.resolver = deserializeAws_restJson1Resolver(data.resolver, context);
   }
@@ -4653,7 +4653,7 @@ export const deserializeAws_restJson1UpdateTypeCommand = async (
     $metadata: deserializeMetadata(output),
     type: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.type !== undefined && data.type !== null) {
     contents.type = deserializeAws_restJson1Type(data.type, context);
   }

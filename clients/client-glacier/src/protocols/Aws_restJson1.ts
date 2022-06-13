@@ -2079,7 +2079,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     Tier: undefined,
     VaultARN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Action !== undefined && data.Action !== null) {
     contents.Action = __expectString(data.Action);
   }
@@ -2200,7 +2200,7 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
     VaultARN: undefined,
     VaultName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
     contents.CreationDate = __expectString(data.CreationDate);
   }
@@ -2268,7 +2268,7 @@ export const deserializeAws_restJson1GetDataRetrievalPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy !== undefined && data.Policy !== null) {
     contents.Policy = deserializeAws_restJson1DataRetrievalPolicy(data.Policy, context);
   }
@@ -2447,7 +2447,7 @@ export const deserializeAws_restJson1GetVaultLockCommand = async (
     Policy: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
     contents.CreationDate = __expectString(data.CreationDate);
   }
@@ -2738,7 +2738,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     JobList: undefined,
     Marker: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.JobList !== undefined && data.JobList !== null) {
     contents.JobList = deserializeAws_restJson1JobList(data.JobList, context);
   }
@@ -2795,7 +2795,7 @@ export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
     Marker: undefined,
     UploadsList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }
@@ -2857,7 +2857,7 @@ export const deserializeAws_restJson1ListPartsCommand = async (
     Parts: undefined,
     VaultARN: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ArchiveDescription !== undefined && data.ArchiveDescription !== null) {
     contents.ArchiveDescription = __expectString(data.ArchiveDescription);
   }
@@ -2928,7 +2928,7 @@ export const deserializeAws_restJson1ListProvisionedCapacityCommand = async (
     $metadata: deserializeMetadata(output),
     ProvisionedCapacityList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProvisionedCapacityList !== undefined && data.ProvisionedCapacityList !== null) {
     contents.ProvisionedCapacityList = deserializeAws_restJson1ProvisionedCapacityList(
       data.ProvisionedCapacityList,
@@ -2981,7 +2981,7 @@ export const deserializeAws_restJson1ListTagsForVaultCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -3035,7 +3035,7 @@ export const deserializeAws_restJson1ListVaultsCommand = async (
     Marker: undefined,
     VaultList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }

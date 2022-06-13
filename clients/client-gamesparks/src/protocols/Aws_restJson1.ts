@@ -1366,7 +1366,7 @@ export const deserializeAws_restJson1CreateGameCommand = async (
     $metadata: deserializeMetadata(output),
     Game: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Game !== undefined && data.Game !== null) {
     contents.Game = deserializeAws_restJson1GameDetails(data.Game, context);
   }
@@ -1425,7 +1425,7 @@ export const deserializeAws_restJson1CreateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     Snapshot: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Snapshot !== undefined && data.Snapshot !== null) {
     contents.Snapshot = deserializeAws_restJson1SnapshotDetails(data.Snapshot, context);
   }
@@ -1484,7 +1484,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     $metadata: deserializeMetadata(output),
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Stage !== undefined && data.Stage !== null) {
     contents.Stage = deserializeAws_restJson1StageDetails(data.Stage, context);
   }
@@ -1651,7 +1651,7 @@ export const deserializeAws_restJson1DisconnectPlayerCommand = async (
     DisconnectFailures: undefined,
     DisconnectSuccesses: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DisconnectFailures !== undefined && data.DisconnectFailures !== null) {
     contents.DisconnectFailures = deserializeAws_restJson1ConnectionIdList(data.DisconnectFailures, context);
   }
@@ -1710,7 +1710,7 @@ export const deserializeAws_restJson1ExportSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     S3Url: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.S3Url !== undefined && data.S3Url !== null) {
     contents.S3Url = __expectString(data.S3Url);
   }
@@ -1766,7 +1766,7 @@ export const deserializeAws_restJson1GetExtensionCommand = async (
     $metadata: deserializeMetadata(output),
     Extension: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Extension !== undefined && data.Extension !== null) {
     contents.Extension = deserializeAws_restJson1ExtensionDetails(data.Extension, context);
   }
@@ -1822,7 +1822,7 @@ export const deserializeAws_restJson1GetExtensionVersionCommand = async (
     $metadata: deserializeMetadata(output),
     ExtensionVersion: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ExtensionVersion !== undefined && data.ExtensionVersion !== null) {
     contents.ExtensionVersion = deserializeAws_restJson1ExtensionVersionDetails(data.ExtensionVersion, context);
   }
@@ -1878,7 +1878,7 @@ export const deserializeAws_restJson1GetGameCommand = async (
     $metadata: deserializeMetadata(output),
     Game: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Game !== undefined && data.Game !== null) {
     contents.Game = deserializeAws_restJson1GameDetails(data.Game, context);
   }
@@ -1934,7 +1934,7 @@ export const deserializeAws_restJson1GetGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     GameConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GameConfiguration !== undefined && data.GameConfiguration !== null) {
     contents.GameConfiguration = deserializeAws_restJson1GameConfigurationDetails(data.GameConfiguration, context);
   }
@@ -1990,7 +1990,7 @@ export const deserializeAws_restJson1GetGeneratedCodeJobCommand = async (
     $metadata: deserializeMetadata(output),
     GeneratedCodeJob: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GeneratedCodeJob !== undefined && data.GeneratedCodeJob !== null) {
     contents.GeneratedCodeJob = deserializeAws_restJson1GeneratedCodeJobDetails(data.GeneratedCodeJob, context);
   }
@@ -2046,7 +2046,7 @@ export const deserializeAws_restJson1GetPlayerConnectionStatusCommand = async (
     $metadata: deserializeMetadata(output),
     Connections: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Connections !== undefined && data.Connections !== null) {
     contents.Connections = deserializeAws_restJson1ConnectionList(data.Connections, context);
   }
@@ -2102,7 +2102,7 @@ export const deserializeAws_restJson1GetSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     Snapshot: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Snapshot !== undefined && data.Snapshot !== null) {
     contents.Snapshot = deserializeAws_restJson1SnapshotDetails(data.Snapshot, context);
   }
@@ -2158,7 +2158,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     $metadata: deserializeMetadata(output),
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Stage !== undefined && data.Stage !== null) {
     contents.Stage = deserializeAws_restJson1StageDetails(data.Stage, context);
   }
@@ -2214,7 +2214,7 @@ export const deserializeAws_restJson1GetStageDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     StageDeployment: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StageDeployment !== undefined && data.StageDeployment !== null) {
     contents.StageDeployment = deserializeAws_restJson1StageDeploymentDetails(data.StageDeployment, context);
   }
@@ -2270,7 +2270,7 @@ export const deserializeAws_restJson1ImportGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     GameConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GameConfiguration !== undefined && data.GameConfiguration !== null) {
     contents.GameConfiguration = deserializeAws_restJson1GameConfigurationDetails(data.GameConfiguration, context);
   }
@@ -2330,7 +2330,7 @@ export const deserializeAws_restJson1ListExtensionsCommand = async (
     Extensions: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Extensions !== undefined && data.Extensions !== null) {
     contents.Extensions = deserializeAws_restJson1ExtensionDetailsList(data.Extensions, context);
   }
@@ -2387,7 +2387,7 @@ export const deserializeAws_restJson1ListExtensionVersionsCommand = async (
     ExtensionVersions: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ExtensionVersions !== undefined && data.ExtensionVersions !== null) {
     contents.ExtensionVersions = deserializeAws_restJson1ExtensionVersionDetailsList(data.ExtensionVersions, context);
   }
@@ -2447,7 +2447,7 @@ export const deserializeAws_restJson1ListGamesCommand = async (
     Games: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Games !== undefined && data.Games !== null) {
     contents.Games = deserializeAws_restJson1GameSummaryList(data.Games, context);
   }
@@ -2504,7 +2504,7 @@ export const deserializeAws_restJson1ListGeneratedCodeJobsCommand = async (
     GeneratedCodeJobs: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GeneratedCodeJobs !== undefined && data.GeneratedCodeJobs !== null) {
     contents.GeneratedCodeJobs = deserializeAws_restJson1GeneratedCodeJobDetailsList(data.GeneratedCodeJobs, context);
   }
@@ -2564,7 +2564,7 @@ export const deserializeAws_restJson1ListSnapshotsCommand = async (
     NextToken: undefined,
     Snapshots: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2624,7 +2624,7 @@ export const deserializeAws_restJson1ListStageDeploymentsCommand = async (
     NextToken: undefined,
     StageDeployments: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2684,7 +2684,7 @@ export const deserializeAws_restJson1ListStagesCommand = async (
     NextToken: undefined,
     Stages: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2743,7 +2743,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -2793,7 +2793,7 @@ export const deserializeAws_restJson1StartGeneratedCodeJobCommand = async (
     $metadata: deserializeMetadata(output),
     GeneratedCodeJobId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GeneratedCodeJobId !== undefined && data.GeneratedCodeJobId !== null) {
     contents.GeneratedCodeJobId = __expectString(data.GeneratedCodeJobId);
   }
@@ -2849,7 +2849,7 @@ export const deserializeAws_restJson1StartStageDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     StageDeployment: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StageDeployment !== undefined && data.StageDeployment !== null) {
     contents.StageDeployment = deserializeAws_restJson1StageDeploymentDetails(data.StageDeployment, context);
   }
@@ -3000,7 +3000,7 @@ export const deserializeAws_restJson1UpdateGameCommand = async (
     $metadata: deserializeMetadata(output),
     Game: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Game !== undefined && data.Game !== null) {
     contents.Game = deserializeAws_restJson1GameDetails(data.Game, context);
   }
@@ -3056,7 +3056,7 @@ export const deserializeAws_restJson1UpdateGameConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     GameConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GameConfiguration !== undefined && data.GameConfiguration !== null) {
     contents.GameConfiguration = deserializeAws_restJson1GameConfigurationDetails(data.GameConfiguration, context);
   }
@@ -3115,7 +3115,7 @@ export const deserializeAws_restJson1UpdateSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     Snapshot: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Snapshot !== undefined && data.Snapshot !== null) {
     contents.Snapshot = deserializeAws_restJson1SnapshotDetails(data.Snapshot, context);
   }
@@ -3171,7 +3171,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     $metadata: deserializeMetadata(output),
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Stage !== undefined && data.Stage !== null) {
     contents.Stage = deserializeAws_restJson1StageDetails(data.Stage, context);
   }

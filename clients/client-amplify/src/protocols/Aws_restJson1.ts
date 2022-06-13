@@ -1631,7 +1631,7 @@ export const deserializeAws_restJson1CreateAppCommand = async (
     $metadata: deserializeMetadata(output),
     app: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.app !== undefined && data.app !== null) {
     contents.app = deserializeAws_restJson1App(data.app, context);
   }
@@ -1687,7 +1687,7 @@ export const deserializeAws_restJson1CreateBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     backendEnvironment: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
     contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
@@ -1743,7 +1743,7 @@ export const deserializeAws_restJson1CreateBranchCommand = async (
     $metadata: deserializeMetadata(output),
     branch: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.branch !== undefined && data.branch !== null) {
     contents.branch = deserializeAws_restJson1Branch(data.branch, context);
   }
@@ -1804,7 +1804,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
     jobId: undefined,
     zipUploadUrl: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fileUploadUrls !== undefined && data.fileUploadUrls !== null) {
     contents.fileUploadUrls = deserializeAws_restJson1FileUploadUrls(data.fileUploadUrls, context);
   }
@@ -1863,7 +1863,7 @@ export const deserializeAws_restJson1CreateDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     domainAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
     contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
@@ -1922,7 +1922,7 @@ export const deserializeAws_restJson1CreateWebhookCommand = async (
     $metadata: deserializeMetadata(output),
     webhook: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.webhook !== undefined && data.webhook !== null) {
     contents.webhook = deserializeAws_restJson1Webhook(data.webhook, context);
   }
@@ -1981,7 +1981,7 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
     $metadata: deserializeMetadata(output),
     app: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.app !== undefined && data.app !== null) {
     contents.app = deserializeAws_restJson1App(data.app, context);
   }
@@ -2037,7 +2037,7 @@ export const deserializeAws_restJson1DeleteBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     backendEnvironment: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
     contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
@@ -2093,7 +2093,7 @@ export const deserializeAws_restJson1DeleteBranchCommand = async (
     $metadata: deserializeMetadata(output),
     branch: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.branch !== undefined && data.branch !== null) {
     contents.branch = deserializeAws_restJson1Branch(data.branch, context);
   }
@@ -2149,7 +2149,7 @@ export const deserializeAws_restJson1DeleteDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     domainAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
     contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
@@ -2205,7 +2205,7 @@ export const deserializeAws_restJson1DeleteJobCommand = async (
     $metadata: deserializeMetadata(output),
     jobSummary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
     contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
@@ -2261,7 +2261,7 @@ export const deserializeAws_restJson1DeleteWebhookCommand = async (
     $metadata: deserializeMetadata(output),
     webhook: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.webhook !== undefined && data.webhook !== null) {
     contents.webhook = deserializeAws_restJson1Webhook(data.webhook, context);
   }
@@ -2317,7 +2317,7 @@ export const deserializeAws_restJson1GenerateAccessLogsCommand = async (
     $metadata: deserializeMetadata(output),
     logUrl: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.logUrl !== undefined && data.logUrl !== null) {
     contents.logUrl = __expectString(data.logUrl);
   }
@@ -2370,7 +2370,7 @@ export const deserializeAws_restJson1GetAppCommand = async (
     $metadata: deserializeMetadata(output),
     app: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.app !== undefined && data.app !== null) {
     contents.app = deserializeAws_restJson1App(data.app, context);
   }
@@ -2424,7 +2424,7 @@ export const deserializeAws_restJson1GetArtifactUrlCommand = async (
     artifactId: undefined,
     artifactUrl: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.artifactId !== undefined && data.artifactId !== null) {
     contents.artifactId = __expectString(data.artifactId);
   }
@@ -2483,7 +2483,7 @@ export const deserializeAws_restJson1GetBackendEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     backendEnvironment: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
     contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
@@ -2536,7 +2536,7 @@ export const deserializeAws_restJson1GetBranchCommand = async (
     $metadata: deserializeMetadata(output),
     branch: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.branch !== undefined && data.branch !== null) {
     contents.branch = deserializeAws_restJson1Branch(data.branch, context);
   }
@@ -2589,7 +2589,7 @@ export const deserializeAws_restJson1GetDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     domainAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
     contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
@@ -2642,7 +2642,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     $metadata: deserializeMetadata(output),
     job: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.job !== undefined && data.job !== null) {
     contents.job = deserializeAws_restJson1Job(data.job, context);
   }
@@ -2698,7 +2698,7 @@ export const deserializeAws_restJson1GetWebhookCommand = async (
     $metadata: deserializeMetadata(output),
     webhook: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.webhook !== undefined && data.webhook !== null) {
     contents.webhook = deserializeAws_restJson1Webhook(data.webhook, context);
   }
@@ -2755,7 +2755,7 @@ export const deserializeAws_restJson1ListAppsCommand = async (
     apps: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apps !== undefined && data.apps !== null) {
     contents.apps = deserializeAws_restJson1Apps(data.apps, context);
   }
@@ -2809,7 +2809,7 @@ export const deserializeAws_restJson1ListArtifactsCommand = async (
     artifacts: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.artifacts !== undefined && data.artifacts !== null) {
     contents.artifacts = deserializeAws_restJson1Artifacts(data.artifacts, context);
   }
@@ -2866,7 +2866,7 @@ export const deserializeAws_restJson1ListBackendEnvironmentsCommand = async (
     backendEnvironments: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.backendEnvironments !== undefined && data.backendEnvironments !== null) {
     contents.backendEnvironments = deserializeAws_restJson1BackendEnvironments(data.backendEnvironments, context);
   }
@@ -2920,7 +2920,7 @@ export const deserializeAws_restJson1ListBranchesCommand = async (
     branches: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.branches !== undefined && data.branches !== null) {
     contents.branches = deserializeAws_restJson1Branches(data.branches, context);
   }
@@ -2974,7 +2974,7 @@ export const deserializeAws_restJson1ListDomainAssociationsCommand = async (
     domainAssociations: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainAssociations !== undefined && data.domainAssociations !== null) {
     contents.domainAssociations = deserializeAws_restJson1DomainAssociations(data.domainAssociations, context);
   }
@@ -3028,7 +3028,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     jobSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummaries !== undefined && data.jobSummaries !== null) {
     contents.jobSummaries = deserializeAws_restJson1JobSummaries(data.jobSummaries, context);
   }
@@ -3084,7 +3084,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -3135,7 +3135,7 @@ export const deserializeAws_restJson1ListWebhooksCommand = async (
     nextToken: undefined,
     webhooks: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3191,7 +3191,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     $metadata: deserializeMetadata(output),
     jobSummary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
     contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
@@ -3247,7 +3247,7 @@ export const deserializeAws_restJson1StartJobCommand = async (
     $metadata: deserializeMetadata(output),
     jobSummary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
     contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
@@ -3303,7 +3303,7 @@ export const deserializeAws_restJson1StopJobCommand = async (
     $metadata: deserializeMetadata(output),
     jobSummary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
     contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
@@ -3451,7 +3451,7 @@ export const deserializeAws_restJson1UpdateAppCommand = async (
     $metadata: deserializeMetadata(output),
     app: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.app !== undefined && data.app !== null) {
     contents.app = deserializeAws_restJson1App(data.app, context);
   }
@@ -3504,7 +3504,7 @@ export const deserializeAws_restJson1UpdateBranchCommand = async (
     $metadata: deserializeMetadata(output),
     branch: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.branch !== undefined && data.branch !== null) {
     contents.branch = deserializeAws_restJson1Branch(data.branch, context);
   }
@@ -3560,7 +3560,7 @@ export const deserializeAws_restJson1UpdateDomainAssociationCommand = async (
     $metadata: deserializeMetadata(output),
     domainAssociation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
     contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
@@ -3616,7 +3616,7 @@ export const deserializeAws_restJson1UpdateWebhookCommand = async (
     $metadata: deserializeMetadata(output),
     webhook: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.webhook !== undefined && data.webhook !== null) {
     contents.webhook = deserializeAws_restJson1Webhook(data.webhook, context);
   }

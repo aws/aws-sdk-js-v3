@@ -1043,7 +1043,7 @@ export const deserializeAws_restJson1AssociateAccountsCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1105,7 +1105,7 @@ export const deserializeAws_restJson1AssociatePricingRulesCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1168,7 +1168,7 @@ export const deserializeAws_restJson1BatchAssociateResourcesToCustomLineItemComm
     FailedAssociatedResources: undefined,
     SuccessfullyAssociatedResources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FailedAssociatedResources !== undefined && data.FailedAssociatedResources !== null) {
     contents.FailedAssociatedResources = deserializeAws_restJson1AssociateResourcesResponseList(
       data.FailedAssociatedResources,
@@ -1240,7 +1240,7 @@ export const deserializeAws_restJson1BatchDisassociateResourcesFromCustomLineIte
     FailedDisassociatedResources: undefined,
     SuccessfullyDisassociatedResources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FailedDisassociatedResources !== undefined && data.FailedDisassociatedResources !== null) {
     contents.FailedDisassociatedResources = deserializeAws_restJson1DisassociateResourcesResponseList(
       data.FailedDisassociatedResources,
@@ -1308,7 +1308,7 @@ export const deserializeAws_restJson1CreateBillingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1367,7 +1367,7 @@ export const deserializeAws_restJson1CreateCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1426,7 +1426,7 @@ export const deserializeAws_restJson1CreatePricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1488,7 +1488,7 @@ export const deserializeAws_restJson1CreatePricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1547,7 +1547,7 @@ export const deserializeAws_restJson1DeleteBillingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1600,7 +1600,7 @@ export const deserializeAws_restJson1DeleteCustomLineItemCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1656,7 +1656,7 @@ export const deserializeAws_restJson1DeletePricingPlanCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1712,7 +1712,7 @@ export const deserializeAws_restJson1DeletePricingRuleCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1768,7 +1768,7 @@ export const deserializeAws_restJson1DisassociateAccountsCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1827,7 +1827,7 @@ export const deserializeAws_restJson1DisassociatePricingRulesCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1887,7 +1887,7 @@ export const deserializeAws_restJson1ListAccountAssociationsCommand = async (
     LinkedAccounts: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LinkedAccounts !== undefined && data.LinkedAccounts !== null) {
     contents.LinkedAccounts = deserializeAws_restJson1AccountAssociationsList(data.LinkedAccounts, context);
   }
@@ -1947,7 +1947,7 @@ export const deserializeAws_restJson1ListBillingGroupCostReportsCommand = async 
     BillingGroupCostReports: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingGroupCostReports !== undefined && data.BillingGroupCostReports !== null) {
     contents.BillingGroupCostReports = deserializeAws_restJson1BillingGroupCostReportList(
       data.BillingGroupCostReports,
@@ -2010,7 +2010,7 @@ export const deserializeAws_restJson1ListBillingGroupsCommand = async (
     BillingGroups: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingGroups !== undefined && data.BillingGroups !== null) {
     contents.BillingGroups = deserializeAws_restJson1BillingGroupList(data.BillingGroups, context);
   }
@@ -2070,7 +2070,7 @@ export const deserializeAws_restJson1ListCustomLineItemsCommand = async (
     CustomLineItems: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomLineItems !== undefined && data.CustomLineItems !== null) {
     contents.CustomLineItems = deserializeAws_restJson1CustomLineItemList(data.CustomLineItems, context);
   }
@@ -2131,7 +2131,7 @@ export const deserializeAws_restJson1ListPricingPlansCommand = async (
     NextToken: undefined,
     PricingPlans: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingPeriod !== undefined && data.BillingPeriod !== null) {
     contents.BillingPeriod = __expectString(data.BillingPeriod);
   }
@@ -2193,7 +2193,7 @@ export const deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCo
     PricingPlanArns: undefined,
     PricingRuleArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingPeriod !== undefined && data.BillingPeriod !== null) {
     contents.BillingPeriod = __expectString(data.BillingPeriod);
   }
@@ -2260,7 +2260,7 @@ export const deserializeAws_restJson1ListPricingRulesCommand = async (
     NextToken: undefined,
     PricingRules: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingPeriod !== undefined && data.BillingPeriod !== null) {
     contents.BillingPeriod = __expectString(data.BillingPeriod);
   }
@@ -2322,7 +2322,7 @@ export const deserializeAws_restJson1ListPricingRulesAssociatedToPricingPlanComm
     PricingPlanArn: undefined,
     PricingRuleArns: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BillingPeriod !== undefined && data.BillingPeriod !== null) {
     contents.BillingPeriod = __expectString(data.BillingPeriod);
   }
@@ -2389,7 +2389,7 @@ export const deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemComm
     AssociatedResources: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -2454,7 +2454,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -2622,7 +2622,7 @@ export const deserializeAws_restJson1UpdateBillingGroupCommand = async (
     Status: undefined,
     StatusReason: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -2711,7 +2711,7 @@ export const deserializeAws_restJson1UpdateCustomLineItemCommand = async (
     LastModifiedTime: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -2789,7 +2789,7 @@ export const deserializeAws_restJson1UpdatePricingPlanCommand = async (
     Name: undefined,
     Size: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -2868,7 +2868,7 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
     Service: undefined,
     Type: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }

@@ -944,7 +944,7 @@ export const deserializeAws_restJson1CreateComputeEnvironmentCommand = async (
     computeEnvironmentArn: undefined,
     computeEnvironmentName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.computeEnvironmentArn !== undefined && data.computeEnvironmentArn !== null) {
     contents.computeEnvironmentArn = __expectString(data.computeEnvironmentArn);
   }
@@ -995,7 +995,7 @@ export const deserializeAws_restJson1CreateJobQueueCommand = async (
     jobQueueArn: undefined,
     jobQueueName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobQueueArn !== undefined && data.jobQueueArn !== null) {
     contents.jobQueueArn = __expectString(data.jobQueueArn);
   }
@@ -1046,7 +1046,7 @@ export const deserializeAws_restJson1CreateSchedulingPolicyCommand = async (
     arn: undefined,
     name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1269,7 +1269,7 @@ export const deserializeAws_restJson1DescribeComputeEnvironmentsCommand = async 
     computeEnvironments: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.computeEnvironments !== undefined && data.computeEnvironments !== null) {
     contents.computeEnvironments = deserializeAws_restJson1ComputeEnvironmentDetailList(
       data.computeEnvironments,
@@ -1323,7 +1323,7 @@ export const deserializeAws_restJson1DescribeJobDefinitionsCommand = async (
     jobDefinitions: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobDefinitions !== undefined && data.jobDefinitions !== null) {
     contents.jobDefinitions = deserializeAws_restJson1JobDefinitionList(data.jobDefinitions, context);
   }
@@ -1374,7 +1374,7 @@ export const deserializeAws_restJson1DescribeJobQueuesCommand = async (
     jobQueues: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobQueues !== undefined && data.jobQueues !== null) {
     contents.jobQueues = deserializeAws_restJson1JobQueueDetailList(data.jobQueues, context);
   }
@@ -1424,7 +1424,7 @@ export const deserializeAws_restJson1DescribeJobsCommand = async (
     $metadata: deserializeMetadata(output),
     jobs: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobs !== undefined && data.jobs !== null) {
     contents.jobs = deserializeAws_restJson1JobDetailList(data.jobs, context);
   }
@@ -1471,7 +1471,7 @@ export const deserializeAws_restJson1DescribeSchedulingPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     schedulingPolicies: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.schedulingPolicies !== undefined && data.schedulingPolicies !== null) {
     contents.schedulingPolicies = deserializeAws_restJson1SchedulingPolicyDetailList(data.schedulingPolicies, context);
   }
@@ -1519,7 +1519,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     jobSummaryList: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobSummaryList !== undefined && data.jobSummaryList !== null) {
     contents.jobSummaryList = deserializeAws_restJson1JobSummaryList(data.jobSummaryList, context);
   }
@@ -1570,7 +1570,7 @@ export const deserializeAws_restJson1ListSchedulingPoliciesCommand = async (
     nextToken: undefined,
     schedulingPolicies: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1623,7 +1623,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagrisTagsMap(data.tags, context);
   }
@@ -1672,7 +1672,7 @@ export const deserializeAws_restJson1RegisterJobDefinitionCommand = async (
     jobDefinitionName: undefined,
     revision: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobDefinitionArn !== undefined && data.jobDefinitionArn !== null) {
     contents.jobDefinitionArn = __expectString(data.jobDefinitionArn);
   }
@@ -1727,7 +1727,7 @@ export const deserializeAws_restJson1SubmitJobCommand = async (
     jobId: undefined,
     jobName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobArn !== undefined && data.jobArn !== null) {
     contents.jobArn = __expectString(data.jobArn);
   }
@@ -1910,7 +1910,7 @@ export const deserializeAws_restJson1UpdateComputeEnvironmentCommand = async (
     computeEnvironmentArn: undefined,
     computeEnvironmentName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.computeEnvironmentArn !== undefined && data.computeEnvironmentArn !== null) {
     contents.computeEnvironmentArn = __expectString(data.computeEnvironmentArn);
   }
@@ -1961,7 +1961,7 @@ export const deserializeAws_restJson1UpdateJobQueueCommand = async (
     jobQueueArn: undefined,
     jobQueueName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobQueueArn !== undefined && data.jobQueueArn !== null) {
     contents.jobQueueArn = __expectString(data.jobQueueArn);
   }

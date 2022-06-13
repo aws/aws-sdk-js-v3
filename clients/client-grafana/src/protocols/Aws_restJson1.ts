@@ -688,7 +688,7 @@ export const deserializeAws_restJson1AssociateLicenseCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -744,7 +744,7 @@ export const deserializeAws_restJson1CreateWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -805,7 +805,7 @@ export const deserializeAws_restJson1CreateWorkspaceApiKeyCommand = async (
     keyName: undefined,
     workspaceId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.key !== undefined && data.key !== null) {
     contents.key = __expectString(data.key);
   }
@@ -873,7 +873,7 @@ export const deserializeAws_restJson1DeleteWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -933,7 +933,7 @@ export const deserializeAws_restJson1DeleteWorkspaceApiKeyCommand = async (
     keyName: undefined,
     workspaceId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.keyName !== undefined && data.keyName !== null) {
     contents.keyName = __expectString(data.keyName);
   }
@@ -995,7 +995,7 @@ export const deserializeAws_restJson1DescribeWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -1051,7 +1051,7 @@ export const deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand = as
     $metadata: deserializeMetadata(output),
     authentication: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authentication !== undefined && data.authentication !== null) {
     contents.authentication = deserializeAws_restJson1AuthenticationDescription(data.authentication, context);
   }
@@ -1107,7 +1107,7 @@ export const deserializeAws_restJson1DisassociateLicenseCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -1164,7 +1164,7 @@ export const deserializeAws_restJson1ListPermissionsCommand = async (
     nextToken: undefined,
     permissions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1223,7 +1223,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1280,7 +1280,7 @@ export const deserializeAws_restJson1ListWorkspacesCommand = async (
     nextToken: undefined,
     workspaces: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1437,7 +1437,7 @@ export const deserializeAws_restJson1UpdatePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     errors: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors !== undefined && data.errors !== null) {
     contents.errors = deserializeAws_restJson1UpdateErrorList(data.errors, context);
   }
@@ -1493,7 +1493,7 @@ export const deserializeAws_restJson1UpdateWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -1552,7 +1552,7 @@ export const deserializeAws_restJson1UpdateWorkspaceAuthenticationCommand = asyn
     $metadata: deserializeMetadata(output),
     authentication: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authentication !== undefined && data.authentication !== null) {
     contents.authentication = deserializeAws_restJson1AuthenticationDescription(data.authentication, context);
   }

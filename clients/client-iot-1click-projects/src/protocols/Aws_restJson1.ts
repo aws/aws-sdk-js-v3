@@ -888,7 +888,7 @@ export const deserializeAws_restJson1DescribePlacementCommand = async (
     $metadata: deserializeMetadata(output),
     placement: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.placement !== undefined && data.placement !== null) {
     contents.placement = deserializeAws_restJson1PlacementDescription(data.placement, context);
   }
@@ -938,7 +938,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
     $metadata: deserializeMetadata(output),
     project: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.project !== undefined && data.project !== null) {
     contents.project = deserializeAws_restJson1ProjectDescription(data.project, context);
   }
@@ -1037,7 +1037,7 @@ export const deserializeAws_restJson1GetDevicesInPlacementCommand = async (
     $metadata: deserializeMetadata(output),
     devices: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.devices !== undefined && data.devices !== null) {
     contents.devices = deserializeAws_restJson1DeviceMap(data.devices, context);
   }
@@ -1088,7 +1088,7 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
     nextToken: undefined,
     placements: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1142,7 +1142,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
     nextToken: undefined,
     projects: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1192,7 +1192,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

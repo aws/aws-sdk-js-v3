@@ -349,7 +349,7 @@ export const deserializeAws_restJson1GetRetainedMessageCommand = async (
     qos: undefined,
     topic: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.lastModifiedTime !== undefined && data.lastModifiedTime !== null) {
     contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
   }
@@ -485,7 +485,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
     results: undefined,
     timestamp: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -554,7 +554,7 @@ export const deserializeAws_restJson1ListRetainedMessagesCommand = async (
     nextToken: undefined,
     retainedTopics: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }

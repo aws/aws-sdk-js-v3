@@ -90,7 +90,7 @@ export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
     CacheTTL: undefined,
     DeviceRegistration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CacheTTL !== undefined && data.CacheTTL !== null) {
     contents.CacheTTL = __expectString(data.CacheTTL);
   }

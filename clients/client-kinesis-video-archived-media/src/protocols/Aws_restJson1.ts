@@ -343,7 +343,7 @@ export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
     $metadata: deserializeMetadata(output),
     DASHStreamingSessionURL: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DASHStreamingSessionURL !== undefined && data.DASHStreamingSessionURL !== null) {
     contents.DASHStreamingSessionURL = __expectString(data.DASHStreamingSessionURL);
   }
@@ -408,7 +408,7 @@ export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
     $metadata: deserializeMetadata(output),
     HLSStreamingSessionURL: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HLSStreamingSessionURL !== undefined && data.HLSStreamingSessionURL !== null) {
     contents.HLSStreamingSessionURL = __expectString(data.HLSStreamingSessionURL);
   }
@@ -474,7 +474,7 @@ export const deserializeAws_restJson1GetImagesCommand = async (
     Images: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Images !== undefined && data.Images !== null) {
     contents.Images = deserializeAws_restJson1Images(data.Images, context);
   }
@@ -586,7 +586,7 @@ export const deserializeAws_restJson1ListFragmentsCommand = async (
     Fragments: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Fragments !== undefined && data.Fragments !== null) {
     contents.Fragments = deserializeAws_restJson1FragmentList(data.Fragments, context);
   }

@@ -410,7 +410,7 @@ export const deserializeAws_restJson1ListItemsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ItemList(data.Items, context);
   }
@@ -462,7 +462,7 @@ export const deserializeAws_restJson1PutObjectCommand = async (
     ETag: undefined,
     StorageClass: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
     contents.ContentSHA256 = __expectString(data.ContentSHA256);
   }

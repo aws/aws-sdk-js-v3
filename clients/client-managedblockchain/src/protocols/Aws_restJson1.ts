@@ -963,7 +963,7 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
     $metadata: deserializeMetadata(output),
     MemberId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MemberId !== undefined && data.MemberId !== null) {
     contents.MemberId = __expectString(data.MemberId);
   }
@@ -1032,7 +1032,7 @@ export const deserializeAws_restJson1CreateNetworkCommand = async (
     MemberId: undefined,
     NetworkId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MemberId !== undefined && data.MemberId !== null) {
     contents.MemberId = __expectString(data.MemberId);
   }
@@ -1097,7 +1097,7 @@ export const deserializeAws_restJson1CreateNodeCommand = async (
     $metadata: deserializeMetadata(output),
     NodeId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NodeId !== undefined && data.NodeId !== null) {
     contents.NodeId = __expectString(data.NodeId);
   }
@@ -1165,7 +1165,7 @@ export const deserializeAws_restJson1CreateProposalCommand = async (
     $metadata: deserializeMetadata(output),
     ProposalId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProposalId !== undefined && data.ProposalId !== null) {
     contents.ProposalId = __expectString(data.ProposalId);
   }
@@ -1337,7 +1337,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
     $metadata: deserializeMetadata(output),
     Member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Member !== undefined && data.Member !== null) {
     contents.Member = deserializeAws_restJson1Member(data.Member, context);
   }
@@ -1393,7 +1393,7 @@ export const deserializeAws_restJson1GetNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     Network: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Network !== undefined && data.Network !== null) {
     contents.Network = deserializeAws_restJson1Network(data.Network, context);
   }
@@ -1449,7 +1449,7 @@ export const deserializeAws_restJson1GetNodeCommand = async (
     $metadata: deserializeMetadata(output),
     Node: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Node !== undefined && data.Node !== null) {
     contents.Node = deserializeAws_restJson1Node(data.Node, context);
   }
@@ -1505,7 +1505,7 @@ export const deserializeAws_restJson1GetProposalCommand = async (
     $metadata: deserializeMetadata(output),
     Proposal: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Proposal !== undefined && data.Proposal !== null) {
     contents.Proposal = deserializeAws_restJson1Proposal(data.Proposal, context);
   }
@@ -1562,7 +1562,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
     Invitations: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Invitations !== undefined && data.Invitations !== null) {
     contents.Invitations = deserializeAws_restJson1InvitationList(data.Invitations, context);
   }
@@ -1625,7 +1625,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
     Members: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Members !== undefined && data.Members !== null) {
     contents.Members = deserializeAws_restJson1MemberSummaryList(data.Members, context);
   }
@@ -1682,7 +1682,7 @@ export const deserializeAws_restJson1ListNetworksCommand = async (
     Networks: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Networks !== undefined && data.Networks !== null) {
     contents.Networks = deserializeAws_restJson1NetworkSummaryList(data.Networks, context);
   }
@@ -1739,7 +1739,7 @@ export const deserializeAws_restJson1ListNodesCommand = async (
     NextToken: undefined,
     Nodes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1796,7 +1796,7 @@ export const deserializeAws_restJson1ListProposalsCommand = async (
     NextToken: undefined,
     Proposals: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1856,7 +1856,7 @@ export const deserializeAws_restJson1ListProposalVotesCommand = async (
     NextToken: undefined,
     ProposalVotes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1912,7 +1912,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1OutputTagMap(data.Tags, context);
   }

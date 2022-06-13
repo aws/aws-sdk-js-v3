@@ -330,7 +330,7 @@ export const deserializeAws_restJson1CreateLifecyclePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     PolicyId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.PolicyId !== undefined && data.PolicyId !== null) {
     contents.PolicyId = __expectString(data.PolicyId);
   }
@@ -426,7 +426,7 @@ export const deserializeAws_restJson1GetLifecyclePoliciesCommand = async (
     $metadata: deserializeMetadata(output),
     Policies: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policies !== undefined && data.Policies !== null) {
     contents.Policies = deserializeAws_restJson1LifecyclePolicySummaryList(data.Policies, context);
   }
@@ -479,7 +479,7 @@ export const deserializeAws_restJson1GetLifecyclePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy !== undefined && data.Policy !== null) {
     contents.Policy = deserializeAws_restJson1LifecyclePolicy(data.Policy, context);
   }
@@ -529,7 +529,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }

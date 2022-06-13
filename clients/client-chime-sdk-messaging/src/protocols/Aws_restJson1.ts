@@ -1917,7 +1917,7 @@ export const deserializeAws_restJson1BatchCreateChannelMembershipCommand = async
     BatchChannelMemberships: undefined,
     Errors: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchChannelMemberships !== undefined && data.BatchChannelMemberships !== null) {
     contents.BatchChannelMemberships = deserializeAws_restJson1BatchChannelMemberships(
       data.BatchChannelMemberships,
@@ -1983,7 +1983,7 @@ export const deserializeAws_restJson1ChannelFlowCallbackCommand = async (
     CallbackId: undefined,
     ChannelArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CallbackId !== undefined && data.CallbackId !== null) {
     contents.CallbackId = __expectString(data.CallbackId);
   }
@@ -2048,7 +2048,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -2114,7 +2114,7 @@ export const deserializeAws_restJson1CreateChannelBanCommand = async (
     ChannelArn: undefined,
     Member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -2182,7 +2182,7 @@ export const deserializeAws_restJson1CreateChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelFlowArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlowArn !== undefined && data.ChannelFlowArn !== null) {
     contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
   }
@@ -2248,7 +2248,7 @@ export const deserializeAws_restJson1CreateChannelMembershipCommand = async (
     ChannelArn: undefined,
     Member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -2317,7 +2317,7 @@ export const deserializeAws_restJson1CreateChannelModeratorCommand = async (
     ChannelArn: undefined,
     ChannelModerator: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -2721,7 +2721,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     $metadata: deserializeMetadata(output),
     Channel: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channel !== undefined && data.Channel !== null) {
     contents.Channel = deserializeAws_restJson1Channel(data.Channel, context);
   }
@@ -2780,7 +2780,7 @@ export const deserializeAws_restJson1DescribeChannelBanCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelBan: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelBan !== undefined && data.ChannelBan !== null) {
     contents.ChannelBan = deserializeAws_restJson1ChannelBan(data.ChannelBan, context);
   }
@@ -2842,7 +2842,7 @@ export const deserializeAws_restJson1DescribeChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelFlow: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlow !== undefined && data.ChannelFlow !== null) {
     contents.ChannelFlow = deserializeAws_restJson1ChannelFlow(data.ChannelFlow, context);
   }
@@ -2901,7 +2901,7 @@ export const deserializeAws_restJson1DescribeChannelMembershipCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelMembership: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMembership !== undefined && data.ChannelMembership !== null) {
     contents.ChannelMembership = deserializeAws_restJson1ChannelMembership(data.ChannelMembership, context);
   }
@@ -2963,7 +2963,7 @@ export const deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUser
     $metadata: deserializeMetadata(output),
     ChannelMembership: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMembership !== undefined && data.ChannelMembership !== null) {
     contents.ChannelMembership = deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(
       data.ChannelMembership,
@@ -3025,7 +3025,7 @@ export const deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCo
     $metadata: deserializeMetadata(output),
     Channel: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channel !== undefined && data.Channel !== null) {
     contents.Channel = deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(data.Channel, context);
   }
@@ -3084,7 +3084,7 @@ export const deserializeAws_restJson1DescribeChannelModeratorCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelModerator: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelModerator !== undefined && data.ChannelModerator !== null) {
     contents.ChannelModerator = deserializeAws_restJson1ChannelModerator(data.ChannelModerator, context);
   }
@@ -3209,7 +3209,7 @@ export const deserializeAws_restJson1GetChannelMembershipPreferencesCommand = as
     Member: undefined,
     Preferences: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -3274,7 +3274,7 @@ export const deserializeAws_restJson1GetChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelMessage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMessage !== undefined && data.ChannelMessage !== null) {
     contents.ChannelMessage = deserializeAws_restJson1ChannelMessage(data.ChannelMessage, context);
   }
@@ -3336,7 +3336,7 @@ export const deserializeAws_restJson1GetChannelMessageStatusCommand = async (
     $metadata: deserializeMetadata(output),
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
   }
@@ -3395,7 +3395,7 @@ export const deserializeAws_restJson1GetMessagingSessionEndpointCommand = async 
     $metadata: deserializeMetadata(output),
     Endpoint: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Endpoint !== undefined && data.Endpoint !== null) {
     contents.Endpoint = deserializeAws_restJson1MessagingSessionEndpoint(data.Endpoint, context);
   }
@@ -3453,7 +3453,7 @@ export const deserializeAws_restJson1ListChannelBansCommand = async (
     ChannelBans: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -3519,7 +3519,7 @@ export const deserializeAws_restJson1ListChannelFlowsCommand = async (
     ChannelFlows: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlows !== undefined && data.ChannelFlows !== null) {
     contents.ChannelFlows = deserializeAws_restJson1ChannelFlowSummaryList(data.ChannelFlows, context);
   }
@@ -3583,7 +3583,7 @@ export const deserializeAws_restJson1ListChannelMembershipsCommand = async (
     ChannelMemberships: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -3652,7 +3652,7 @@ export const deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCom
     ChannelMemberships: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelMemberships !== undefined && data.ChannelMemberships !== null) {
     contents.ChannelMemberships = deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList(
       data.ChannelMemberships,
@@ -3719,7 +3719,7 @@ export const deserializeAws_restJson1ListChannelMessagesCommand = async (
     ChannelMessages: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -3786,7 +3786,7 @@ export const deserializeAws_restJson1ListChannelModeratorsCommand = async (
     ChannelModerators: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -3852,7 +3852,7 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
     Channels: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels !== undefined && data.Channels !== null) {
     contents.Channels = deserializeAws_restJson1ChannelSummaryList(data.Channels, context);
   }
@@ -3915,7 +3915,7 @@ export const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowComman
     Channels: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels !== undefined && data.Channels !== null) {
     contents.Channels = deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList(data.Channels, context);
   }
@@ -3978,7 +3978,7 @@ export const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserComma
     Channels: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels !== undefined && data.Channels !== null) {
     contents.Channels = deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList(data.Channels, context);
   }
@@ -4040,7 +4040,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
@@ -4101,7 +4101,7 @@ export const deserializeAws_restJson1PutChannelMembershipPreferencesCommand = as
     Member: undefined,
     Preferences: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -4170,7 +4170,7 @@ export const deserializeAws_restJson1RedactChannelMessageCommand = async (
     ChannelArn: undefined,
     MessageId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -4236,7 +4236,7 @@ export const deserializeAws_restJson1SearchChannelsCommand = async (
     Channels: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels !== undefined && data.Channels !== null) {
     contents.Channels = deserializeAws_restJson1ChannelSummaryList(data.Channels, context);
   }
@@ -4300,7 +4300,7 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
     MessageId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -4481,7 +4481,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -4543,7 +4543,7 @@ export const deserializeAws_restJson1UpdateChannelFlowCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelFlowArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelFlowArn !== undefined && data.ChannelFlowArn !== null) {
     contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
   }
@@ -4607,7 +4607,7 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
     MessageId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }
@@ -4675,7 +4675,7 @@ export const deserializeAws_restJson1UpdateChannelReadMarkerCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
   }

@@ -396,7 +396,7 @@ export const deserializeAws_restJson1CreateAppMonitorCommand = async (
     $metadata: deserializeMetadata(output),
     Id: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = __expectString(data.Id);
   }
@@ -510,7 +510,7 @@ export const deserializeAws_restJson1GetAppMonitorCommand = async (
     $metadata: deserializeMetadata(output),
     AppMonitor: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppMonitor !== undefined && data.AppMonitor !== null) {
     contents.AppMonitor = deserializeAws_restJson1AppMonitor(data.AppMonitor, context);
   }
@@ -567,7 +567,7 @@ export const deserializeAws_restJson1GetAppMonitorDataCommand = async (
     Events: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Events !== undefined && data.Events !== null) {
     contents.Events = deserializeAws_restJson1EventDataList(data.Events, context);
   }
@@ -627,7 +627,7 @@ export const deserializeAws_restJson1ListAppMonitorsCommand = async (
     AppMonitorSummaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppMonitorSummaries !== undefined && data.AppMonitorSummaries !== null) {
     contents.AppMonitorSummaries = deserializeAws_restJson1AppMonitorSummaryList(data.AppMonitorSummaries, context);
   }
@@ -684,7 +684,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     ResourceArn: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
     contents.ResourceArn = __expectString(data.ResourceArn);
   }

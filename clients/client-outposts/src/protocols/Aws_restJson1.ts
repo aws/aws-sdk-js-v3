@@ -912,7 +912,7 @@ export const deserializeAws_restJson1CreateOrderCommand = async (
     $metadata: deserializeMetadata(output),
     Order: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Order !== undefined && data.Order !== null) {
     contents.Order = deserializeAws_restJson1Order(data.Order, context);
   }
@@ -971,7 +971,7 @@ export const deserializeAws_restJson1CreateOutpostCommand = async (
     $metadata: deserializeMetadata(output),
     Outpost: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1Outpost(data.Outpost, context);
   }
@@ -1030,7 +1030,7 @@ export const deserializeAws_restJson1CreateSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }
@@ -1190,7 +1190,7 @@ export const deserializeAws_restJson1GetCatalogItemCommand = async (
     $metadata: deserializeMetadata(output),
     CatalogItem: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CatalogItem !== undefined && data.CatalogItem !== null) {
     contents.CatalogItem = deserializeAws_restJson1CatalogItem(data.CatalogItem, context);
   }
@@ -1240,7 +1240,7 @@ export const deserializeAws_restJson1GetOrderCommand = async (
     $metadata: deserializeMetadata(output),
     Order: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Order !== undefined && data.Order !== null) {
     contents.Order = deserializeAws_restJson1Order(data.Order, context);
   }
@@ -1290,7 +1290,7 @@ export const deserializeAws_restJson1GetOutpostCommand = async (
     $metadata: deserializeMetadata(output),
     Outpost: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1Outpost(data.Outpost, context);
   }
@@ -1346,7 +1346,7 @@ export const deserializeAws_restJson1GetOutpostInstanceTypesCommand = async (
     OutpostArn: undefined,
     OutpostId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceTypes !== undefined && data.InstanceTypes !== null) {
     contents.InstanceTypes = deserializeAws_restJson1InstanceTypeListDefinition(data.InstanceTypes, context);
   }
@@ -1408,7 +1408,7 @@ export const deserializeAws_restJson1GetSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }
@@ -1463,7 +1463,7 @@ export const deserializeAws_restJson1GetSiteAddressCommand = async (
     AddressType: undefined,
     SiteId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Address !== undefined && data.Address !== null) {
     contents.Address = deserializeAws_restJson1Address(data.Address, context);
   }
@@ -1523,7 +1523,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
     Assets: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Assets !== undefined && data.Assets !== null) {
     contents.Assets = deserializeAws_restJson1AssetListDefinition(data.Assets, context);
   }
@@ -1580,7 +1580,7 @@ export const deserializeAws_restJson1ListCatalogItemsCommand = async (
     CatalogItems: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CatalogItems !== undefined && data.CatalogItems !== null) {
     contents.CatalogItems = deserializeAws_restJson1CatalogItemListDefinition(data.CatalogItems, context);
   }
@@ -1634,7 +1634,7 @@ export const deserializeAws_restJson1ListOrdersCommand = async (
     NextToken: undefined,
     Orders: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1691,7 +1691,7 @@ export const deserializeAws_restJson1ListOutpostsCommand = async (
     NextToken: undefined,
     Outposts: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1745,7 +1745,7 @@ export const deserializeAws_restJson1ListSitesCommand = async (
     NextToken: undefined,
     Sites: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1798,7 +1798,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -1940,7 +1940,7 @@ export const deserializeAws_restJson1UpdateOutpostCommand = async (
     $metadata: deserializeMetadata(output),
     Outpost: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1Outpost(data.Outpost, context);
   }
@@ -1996,7 +1996,7 @@ export const deserializeAws_restJson1UpdateSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }
@@ -2053,7 +2053,7 @@ export const deserializeAws_restJson1UpdateSiteAddressCommand = async (
     Address: undefined,
     AddressType: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Address !== undefined && data.Address !== null) {
     contents.Address = deserializeAws_restJson1Address(data.Address, context);
   }
@@ -2112,7 +2112,7 @@ export const deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand = a
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }

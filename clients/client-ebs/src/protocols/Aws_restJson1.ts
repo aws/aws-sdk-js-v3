@@ -285,7 +285,7 @@ export const deserializeAws_restJson1CompleteSnapshotCommand = async (
     $metadata: deserializeMetadata(output),
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);
   }
@@ -417,7 +417,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
     NextToken: undefined,
     VolumeSize: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = __expectInt32(data.BlockSize);
   }
@@ -492,7 +492,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
     NextToken: undefined,
     VolumeSize: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = __expectInt32(data.BlockSize);
   }
@@ -635,7 +635,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
     Tags: undefined,
     VolumeSize: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = __expectInt32(data.BlockSize);
   }

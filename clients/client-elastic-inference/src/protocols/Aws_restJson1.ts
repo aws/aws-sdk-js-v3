@@ -233,7 +233,7 @@ export const deserializeAws_restJson1DescribeAcceleratorOfferingsCommand = async
     $metadata: deserializeMetadata(output),
     acceleratorTypeOfferings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorTypeOfferings !== undefined && data.acceleratorTypeOfferings !== null) {
     contents.acceleratorTypeOfferings = deserializeAws_restJson1AcceleratorTypeOfferingList(
       data.acceleratorTypeOfferings,
@@ -287,7 +287,7 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
     acceleratorSet: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorSet !== undefined && data.acceleratorSet !== null) {
     contents.acceleratorSet = deserializeAws_restJson1ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
   }
@@ -340,7 +340,7 @@ export const deserializeAws_restJson1DescribeAcceleratorTypesCommand = async (
     $metadata: deserializeMetadata(output),
     acceleratorTypes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.acceleratorTypes !== undefined && data.acceleratorTypes !== null) {
     contents.acceleratorTypes = deserializeAws_restJson1AcceleratorTypeList(data.acceleratorTypes, context);
   }
@@ -384,7 +384,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

@@ -943,7 +943,7 @@ export const deserializeAws_restJson1ExchangeCodeForTokenCommand = async (
     expiresIn: undefined,
     refreshToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessToken !== undefined && data.accessToken !== null) {
     contents.accessToken = __expectString(data.accessToken);
   }
@@ -994,7 +994,7 @@ export const deserializeAws_restJson1ExportComponentsCommand = async (
     entities: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities !== undefined && data.entities !== null) {
     contents.entities = deserializeAws_restJson1ComponentList(data.entities, context);
   }
@@ -1045,7 +1045,7 @@ export const deserializeAws_restJson1ExportThemesCommand = async (
     entities: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities !== undefined && data.entities !== null) {
     contents.entities = deserializeAws_restJson1ThemeList(data.entities, context);
   }
@@ -1192,7 +1192,7 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
     entities: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities !== undefined && data.entities !== null) {
     contents.entities = deserializeAws_restJson1ComponentSummaryList(data.entities, context);
   }
@@ -1243,7 +1243,7 @@ export const deserializeAws_restJson1ListThemesCommand = async (
     entities: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entities !== undefined && data.entities !== null) {
     contents.entities = deserializeAws_restJson1ThemeSummaryList(data.entities, context);
   }
@@ -1294,7 +1294,7 @@ export const deserializeAws_restJson1RefreshTokenCommand = async (
     accessToken: undefined,
     expiresIn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessToken !== undefined && data.accessToken !== null) {
     contents.accessToken = __expectString(data.accessToken);
   }

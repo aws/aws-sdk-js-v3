@@ -1637,7 +1637,7 @@ export const deserializeAws_restJson1AddProfileKeyCommand = async (
     KeyName: undefined,
     Values: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KeyName !== undefined && data.KeyName !== null) {
     contents.KeyName = __expectString(data.KeyName);
   }
@@ -1703,7 +1703,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     Matching: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
@@ -1781,7 +1781,7 @@ export const deserializeAws_restJson1CreateIntegrationWorkflowCommand = async (
     Message: undefined,
     WorkflowId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -1840,7 +1840,7 @@ export const deserializeAws_restJson1CreateProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ProfileId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProfileId !== undefined && data.ProfileId !== null) {
     contents.ProfileId = __expectString(data.ProfileId);
   }
@@ -1896,7 +1896,7 @@ export const deserializeAws_restJson1DeleteDomainCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -1952,7 +1952,7 @@ export const deserializeAws_restJson1DeleteIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -2008,7 +2008,7 @@ export const deserializeAws_restJson1DeleteProfileCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -2064,7 +2064,7 @@ export const deserializeAws_restJson1DeleteProfileKeyCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -2120,7 +2120,7 @@ export const deserializeAws_restJson1DeleteProfileObjectCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -2176,7 +2176,7 @@ export const deserializeAws_restJson1DeleteProfileObjectTypeCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -2287,7 +2287,7 @@ export const deserializeAws_restJson1GetAutoMergingPreviewCommand = async (
     NumberOfProfilesInSample: undefined,
     NumberOfProfilesWillBeMerged: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
   }
@@ -2360,7 +2360,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
     Stats: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
@@ -2450,7 +2450,7 @@ export const deserializeAws_restJson1GetIdentityResolutionJobCommand = async (
     Message: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AutoMerging !== undefined && data.AutoMerging !== null) {
     contents.AutoMerging = deserializeAws_restJson1AutoMerging(data.AutoMerging, context);
   }
@@ -2543,7 +2543,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     Uri: undefined,
     WorkflowId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
@@ -2623,7 +2623,7 @@ export const deserializeAws_restJson1GetMatchesCommand = async (
     NextToken: undefined,
     PotentialMatches: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MatchGenerationDate !== undefined && data.MatchGenerationDate !== null) {
     contents.MatchGenerationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.MatchGenerationDate)));
   }
@@ -2699,7 +2699,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
     Tags: undefined,
     TemplateId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
     contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
@@ -2794,7 +2794,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeTemplateCommand = async
     SourceObject: undefined,
     TemplateId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
     contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
@@ -2875,7 +2875,7 @@ export const deserializeAws_restJson1GetWorkflowCommand = async (
     WorkflowId: undefined,
     WorkflowType: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attributes !== undefined && data.Attributes !== null) {
     contents.Attributes = deserializeAws_restJson1WorkflowAttributes(data.Attributes, context);
   }
@@ -2955,7 +2955,7 @@ export const deserializeAws_restJson1GetWorkflowStepsCommand = async (
     WorkflowId: undefined,
     WorkflowType: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1WorkflowStepsList(data.Items, context);
   }
@@ -3021,7 +3021,7 @@ export const deserializeAws_restJson1ListAccountIntegrationsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1IntegrationList(data.Items, context);
   }
@@ -3081,7 +3081,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1DomainList(data.Items, context);
   }
@@ -3141,7 +3141,7 @@ export const deserializeAws_restJson1ListIdentityResolutionJobsCommand = async (
     IdentityResolutionJobsList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityResolutionJobsList !== undefined && data.IdentityResolutionJobsList !== null) {
     contents.IdentityResolutionJobsList = deserializeAws_restJson1IdentityResolutionJobsList(
       data.IdentityResolutionJobsList,
@@ -3204,7 +3204,7 @@ export const deserializeAws_restJson1ListIntegrationsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1IntegrationList(data.Items, context);
   }
@@ -3264,7 +3264,7 @@ export const deserializeAws_restJson1ListProfileObjectsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ProfileObjectList(data.Items, context);
   }
@@ -3324,7 +3324,7 @@ export const deserializeAws_restJson1ListProfileObjectTypesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ProfileObjectTypeList(data.Items, context);
   }
@@ -3384,7 +3384,7 @@ export const deserializeAws_restJson1ListProfileObjectTypeTemplatesCommand = asy
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ProfileObjectTypeTemplateList(data.Items, context);
   }
@@ -3443,7 +3443,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -3494,7 +3494,7 @@ export const deserializeAws_restJson1ListWorkflowsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1WorkflowList(data.Items, context);
   }
@@ -3553,7 +3553,7 @@ export const deserializeAws_restJson1MergeProfilesCommand = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -3613,7 +3613,7 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
     Uri: undefined,
     WorkflowId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
@@ -3690,7 +3690,7 @@ export const deserializeAws_restJson1PutProfileObjectCommand = async (
     $metadata: deserializeMetadata(output),
     ProfileObjectUniqueKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProfileObjectUniqueKey !== undefined && data.ProfileObjectUniqueKey !== null) {
     contents.ProfileObjectUniqueKey = __expectString(data.ProfileObjectUniqueKey);
   }
@@ -3757,7 +3757,7 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
     Tags: undefined,
     TemplateId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
     contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
@@ -3847,7 +3847,7 @@ export const deserializeAws_restJson1SearchProfilesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ProfileList(data.Items, context);
   }
@@ -4005,7 +4005,7 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
     Matching: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
@@ -4082,7 +4082,7 @@ export const deserializeAws_restJson1UpdateProfileCommand = async (
     $metadata: deserializeMetadata(output),
     ProfileId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProfileId !== undefined && data.ProfileId !== null) {
     contents.ProfileId = __expectString(data.ProfileId);
   }

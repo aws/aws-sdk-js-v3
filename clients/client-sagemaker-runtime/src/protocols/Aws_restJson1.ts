@@ -199,7 +199,7 @@ export const deserializeAws_restJson1InvokeEndpointAsyncCommand = async (
   if (output.headers["x-amzn-sagemaker-outputlocation"] !== undefined) {
     contents.OutputLocation = output.headers["x-amzn-sagemaker-outputlocation"];
   }
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InferenceId !== undefined && data.InferenceId !== null) {
     contents.InferenceId = __expectString(data.InferenceId);
   }

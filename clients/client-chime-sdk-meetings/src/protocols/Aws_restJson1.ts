@@ -592,7 +592,7 @@ export const deserializeAws_restJson1BatchCreateAttendeeCommand = async (
     Attendees: undefined,
     Errors: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendees !== undefined && data.Attendees !== null) {
     contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
   }
@@ -718,7 +718,7 @@ export const deserializeAws_restJson1CreateAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
     Attendee: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendee !== undefined && data.Attendee !== null) {
     contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
   }
@@ -786,7 +786,7 @@ export const deserializeAws_restJson1CreateMeetingCommand = async (
     $metadata: deserializeMetadata(output),
     Meeting: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Meeting !== undefined && data.Meeting !== null) {
     contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
   }
@@ -850,7 +850,7 @@ export const deserializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
     Errors: undefined,
     Meeting: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendees !== undefined && data.Attendees !== null) {
     contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
   }
@@ -1034,7 +1034,7 @@ export const deserializeAws_restJson1GetAttendeeCommand = async (
     $metadata: deserializeMetadata(output),
     Attendee: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendee !== undefined && data.Attendee !== null) {
     contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
   }
@@ -1096,7 +1096,7 @@ export const deserializeAws_restJson1GetMeetingCommand = async (
     $metadata: deserializeMetadata(output),
     Meeting: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Meeting !== undefined && data.Meeting !== null) {
     contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
   }
@@ -1159,7 +1159,7 @@ export const deserializeAws_restJson1ListAttendeesCommand = async (
     Attendees: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendees !== undefined && data.Attendees !== null) {
     contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
   }
@@ -1349,7 +1349,7 @@ export const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
     $metadata: deserializeMetadata(output),
     Attendee: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Attendee !== undefined && data.Attendee !== null) {
     contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
   }

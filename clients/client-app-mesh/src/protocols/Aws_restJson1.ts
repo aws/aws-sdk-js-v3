@@ -3159,7 +3159,7 @@ export const deserializeAws_restJson1ListGatewayRoutesCommand = async (
     gatewayRoutes: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.gatewayRoutes !== undefined && data.gatewayRoutes !== null) {
     contents.gatewayRoutes = deserializeAws_restJson1GatewayRouteList(data.gatewayRoutes, context);
   }
@@ -3222,7 +3222,7 @@ export const deserializeAws_restJson1ListMeshesCommand = async (
     meshes: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.meshes !== undefined && data.meshes !== null) {
     contents.meshes = deserializeAws_restJson1MeshList(data.meshes, context);
   }
@@ -3285,7 +3285,7 @@ export const deserializeAws_restJson1ListRoutesCommand = async (
     nextToken: undefined,
     routes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3348,7 +3348,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     nextToken: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3411,7 +3411,7 @@ export const deserializeAws_restJson1ListVirtualGatewaysCommand = async (
     nextToken: undefined,
     virtualGateways: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3474,7 +3474,7 @@ export const deserializeAws_restJson1ListVirtualNodesCommand = async (
     nextToken: undefined,
     virtualNodes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3537,7 +3537,7 @@ export const deserializeAws_restJson1ListVirtualRoutersCommand = async (
     nextToken: undefined,
     virtualRouters: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3600,7 +3600,7 @@ export const deserializeAws_restJson1ListVirtualServicesCommand = async (
     nextToken: undefined,
     virtualServices: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }

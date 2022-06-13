@@ -97,7 +97,7 @@ export const deserializeAws_restJson1GetIceServerConfigCommand = async (
     $metadata: deserializeMetadata(output),
     IceServerList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IceServerList !== undefined && data.IceServerList !== null) {
     contents.IceServerList = deserializeAws_restJson1IceServerList(data.IceServerList, context);
   }
@@ -156,7 +156,7 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
     $metadata: deserializeMetadata(output),
     Answer: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Answer !== undefined && data.Answer !== null) {
     contents.Answer = __expectString(data.Answer);
   }

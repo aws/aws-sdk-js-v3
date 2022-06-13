@@ -2122,7 +2122,7 @@ export const deserializeAws_restJson1AcceptEulasCommand = async (
     $metadata: deserializeMetadata(output),
     eulaAcceptances: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulaAcceptances !== undefined && data.eulaAcceptances !== null) {
     contents.eulaAcceptances = deserializeAws_restJson1EulaAcceptanceList(data.eulaAcceptances, context);
   }
@@ -2184,7 +2184,7 @@ export const deserializeAws_restJson1CreateLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
     launchProfile: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile !== undefined && data.launchProfile !== null) {
     contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
   }
@@ -2246,7 +2246,7 @@ export const deserializeAws_restJson1CreateStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
     streamingImage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage !== undefined && data.streamingImage !== null) {
     contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
   }
@@ -2308,7 +2308,7 @@ export const deserializeAws_restJson1CreateStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
   }
@@ -2370,7 +2370,7 @@ export const deserializeAws_restJson1CreateStreamingSessionStreamCommand = async
     $metadata: deserializeMetadata(output),
     stream: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.stream !== undefined && data.stream !== null) {
     contents.stream = deserializeAws_restJson1StreamingSessionStream(data.stream, context);
   }
@@ -2432,7 +2432,7 @@ export const deserializeAws_restJson1CreateStudioCommand = async (
     $metadata: deserializeMetadata(output),
     studio: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio !== undefined && data.studio !== null) {
     contents.studio = deserializeAws_restJson1Studio(data.studio, context);
   }
@@ -2494,7 +2494,7 @@ export const deserializeAws_restJson1CreateStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
     studioComponent: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent !== undefined && data.studioComponent !== null) {
     contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
   }
@@ -2556,7 +2556,7 @@ export const deserializeAws_restJson1DeleteLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
     launchProfile: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile !== undefined && data.launchProfile !== null) {
     contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
   }
@@ -2676,7 +2676,7 @@ export const deserializeAws_restJson1DeleteStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
     streamingImage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage !== undefined && data.streamingImage !== null) {
     contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
   }
@@ -2738,7 +2738,7 @@ export const deserializeAws_restJson1DeleteStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
   }
@@ -2800,7 +2800,7 @@ export const deserializeAws_restJson1DeleteStudioCommand = async (
     $metadata: deserializeMetadata(output),
     studio: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio !== undefined && data.studio !== null) {
     contents.studio = deserializeAws_restJson1Studio(data.studio, context);
   }
@@ -2862,7 +2862,7 @@ export const deserializeAws_restJson1DeleteStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
     studioComponent: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent !== undefined && data.studioComponent !== null) {
     contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
   }
@@ -2982,7 +2982,7 @@ export const deserializeAws_restJson1GetEulaCommand = async (
     $metadata: deserializeMetadata(output),
     eula: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eula !== undefined && data.eula !== null) {
     contents.eula = deserializeAws_restJson1Eula(data.eula, context);
   }
@@ -3044,7 +3044,7 @@ export const deserializeAws_restJson1GetLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
     launchProfile: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile !== undefined && data.launchProfile !== null) {
     contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
   }
@@ -3108,7 +3108,7 @@ export const deserializeAws_restJson1GetLaunchProfileDetailsCommand = async (
     streamingImages: undefined,
     studioComponentSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile !== undefined && data.launchProfile !== null) {
     contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
   }
@@ -3179,7 +3179,7 @@ export const deserializeAws_restJson1GetLaunchProfileInitializationCommand = asy
     $metadata: deserializeMetadata(output),
     launchProfileInitialization: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfileInitialization !== undefined && data.launchProfileInitialization !== null) {
     contents.launchProfileInitialization = deserializeAws_restJson1LaunchProfileInitialization(
       data.launchProfileInitialization,
@@ -3244,7 +3244,7 @@ export const deserializeAws_restJson1GetLaunchProfileMemberCommand = async (
     $metadata: deserializeMetadata(output),
     member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member !== undefined && data.member !== null) {
     contents.member = deserializeAws_restJson1LaunchProfileMembership(data.member, context);
   }
@@ -3306,7 +3306,7 @@ export const deserializeAws_restJson1GetStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
     streamingImage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage !== undefined && data.streamingImage !== null) {
     contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
   }
@@ -3368,7 +3368,7 @@ export const deserializeAws_restJson1GetStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
   }
@@ -3430,7 +3430,7 @@ export const deserializeAws_restJson1GetStreamingSessionStreamCommand = async (
     $metadata: deserializeMetadata(output),
     stream: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.stream !== undefined && data.stream !== null) {
     contents.stream = deserializeAws_restJson1StreamingSessionStream(data.stream, context);
   }
@@ -3492,7 +3492,7 @@ export const deserializeAws_restJson1GetStudioCommand = async (
     $metadata: deserializeMetadata(output),
     studio: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio !== undefined && data.studio !== null) {
     contents.studio = deserializeAws_restJson1Studio(data.studio, context);
   }
@@ -3554,7 +3554,7 @@ export const deserializeAws_restJson1GetStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
     studioComponent: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent !== undefined && data.studioComponent !== null) {
     contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
   }
@@ -3616,7 +3616,7 @@ export const deserializeAws_restJson1GetStudioMemberCommand = async (
     $metadata: deserializeMetadata(output),
     member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member !== undefined && data.member !== null) {
     contents.member = deserializeAws_restJson1StudioMembership(data.member, context);
   }
@@ -3679,7 +3679,7 @@ export const deserializeAws_restJson1ListEulaAcceptancesCommand = async (
     eulaAcceptances: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulaAcceptances !== undefined && data.eulaAcceptances !== null) {
     contents.eulaAcceptances = deserializeAws_restJson1EulaAcceptanceList(data.eulaAcceptances, context);
   }
@@ -3745,7 +3745,7 @@ export const deserializeAws_restJson1ListEulasCommand = async (
     eulas: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eulas !== undefined && data.eulas !== null) {
     contents.eulas = deserializeAws_restJson1EulaList(data.eulas, context);
   }
@@ -3811,7 +3811,7 @@ export const deserializeAws_restJson1ListLaunchProfileMembersCommand = async (
     members: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.members !== undefined && data.members !== null) {
     contents.members = deserializeAws_restJson1LaunchProfileMembershipList(data.members, context);
   }
@@ -3877,7 +3877,7 @@ export const deserializeAws_restJson1ListLaunchProfilesCommand = async (
     launchProfiles: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfiles !== undefined && data.launchProfiles !== null) {
     contents.launchProfiles = deserializeAws_restJson1LaunchProfileList(data.launchProfiles, context);
   }
@@ -3943,7 +3943,7 @@ export const deserializeAws_restJson1ListStreamingImagesCommand = async (
     nextToken: undefined,
     streamingImages: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4009,7 +4009,7 @@ export const deserializeAws_restJson1ListStreamingSessionsCommand = async (
     nextToken: undefined,
     sessions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4075,7 +4075,7 @@ export const deserializeAws_restJson1ListStudioComponentsCommand = async (
     nextToken: undefined,
     studioComponents: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4141,7 +4141,7 @@ export const deserializeAws_restJson1ListStudioMembersCommand = async (
     members: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.members !== undefined && data.members !== null) {
     contents.members = deserializeAws_restJson1StudioMembershipList(data.members, context);
   }
@@ -4207,7 +4207,7 @@ export const deserializeAws_restJson1ListStudiosCommand = async (
     nextToken: undefined,
     studios: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4272,7 +4272,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
@@ -4450,7 +4450,7 @@ export const deserializeAws_restJson1StartStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
   }
@@ -4512,7 +4512,7 @@ export const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand = 
     $metadata: deserializeMetadata(output),
     studio: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio !== undefined && data.studio !== null) {
     contents.studio = deserializeAws_restJson1Studio(data.studio, context);
   }
@@ -4574,7 +4574,7 @@ export const deserializeAws_restJson1StopStreamingSessionCommand = async (
     $metadata: deserializeMetadata(output),
     session: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.session !== undefined && data.session !== null) {
     contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
   }
@@ -4752,7 +4752,7 @@ export const deserializeAws_restJson1UpdateLaunchProfileCommand = async (
     $metadata: deserializeMetadata(output),
     launchProfile: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.launchProfile !== undefined && data.launchProfile !== null) {
     contents.launchProfile = deserializeAws_restJson1LaunchProfile(data.launchProfile, context);
   }
@@ -4814,7 +4814,7 @@ export const deserializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
     $metadata: deserializeMetadata(output),
     member: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.member !== undefined && data.member !== null) {
     contents.member = deserializeAws_restJson1LaunchProfileMembership(data.member, context);
   }
@@ -4876,7 +4876,7 @@ export const deserializeAws_restJson1UpdateStreamingImageCommand = async (
     $metadata: deserializeMetadata(output),
     streamingImage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.streamingImage !== undefined && data.streamingImage !== null) {
     contents.streamingImage = deserializeAws_restJson1StreamingImage(data.streamingImage, context);
   }
@@ -4938,7 +4938,7 @@ export const deserializeAws_restJson1UpdateStudioCommand = async (
     $metadata: deserializeMetadata(output),
     studio: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studio !== undefined && data.studio !== null) {
     contents.studio = deserializeAws_restJson1Studio(data.studio, context);
   }
@@ -5000,7 +5000,7 @@ export const deserializeAws_restJson1UpdateStudioComponentCommand = async (
     $metadata: deserializeMetadata(output),
     studioComponent: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.studioComponent !== undefined && data.studioComponent !== null) {
     contents.studioComponent = deserializeAws_restJson1StudioComponent(data.studioComponent, context);
   }
