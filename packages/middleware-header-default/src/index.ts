@@ -1,9 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 
-export interface HeaderDefaultArgs {
-  [header: string]: string;
-}
+export type HeaderDefaultArgs = Record<string, string>;
 
 export function headerDefault(headerBag: HeaderDefaultArgs): BuildMiddleware<any, any> {
   return (next: BuildHandler<any, any>) => {

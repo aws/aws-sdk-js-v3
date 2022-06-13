@@ -39,9 +39,7 @@ export interface Headers extends Map<string, string> {
  * properties in favor of the other. The headers may or may not be combined, and
  * the SDK will not deterministically select which header candidate to use.
  */
-export interface HeaderBag {
-  [key: string]: string;
-}
+export type HeaderBag = Record<string, string>;
 
 /**
  * Represents an HTTP message with headers and an optional static or streaming
@@ -57,9 +55,7 @@ export interface HttpMessage {
  * second being used when a parameter contains a list of values. Value can be set
  * to null when query is not in key-value pairs shape
  */
-export interface QueryParameterBag {
-  [key: string]: string | Array<string> | null;
-}
+export type QueryParameterBag = Record<string, string | Array<string> | null>;
 
 export interface Endpoint {
   protocol: string;
