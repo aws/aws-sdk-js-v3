@@ -180,7 +180,7 @@ export const deserializeAws_restJson1GetAlternateContactCommand = async (
     $metadata: deserializeMetadata(output),
     AlternateContact: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AlternateContact !== undefined && data.AlternateContact !== null) {
     contents.AlternateContact = deserializeAws_restJson1AlternateContact(data.AlternateContact, context);
   }

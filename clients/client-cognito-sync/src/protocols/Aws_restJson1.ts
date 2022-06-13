@@ -791,7 +791,7 @@ export const deserializeAws_restJson1BulkPublishCommand = async (
     $metadata: deserializeMetadata(output),
     IdentityPoolId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
     contents.IdentityPoolId = __expectString(data.IdentityPoolId);
   }
@@ -850,7 +850,7 @@ export const deserializeAws_restJson1DeleteDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     Dataset: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Dataset !== undefined && data.Dataset !== null) {
     contents.Dataset = deserializeAws_restJson1Dataset(data.Dataset, context);
   }
@@ -909,7 +909,7 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     Dataset: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Dataset !== undefined && data.Dataset !== null) {
     contents.Dataset = deserializeAws_restJson1Dataset(data.Dataset, context);
   }
@@ -965,7 +965,7 @@ export const deserializeAws_restJson1DescribeIdentityPoolUsageCommand = async (
     $metadata: deserializeMetadata(output),
     IdentityPoolUsage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityPoolUsage !== undefined && data.IdentityPoolUsage !== null) {
     contents.IdentityPoolUsage = deserializeAws_restJson1IdentityPoolUsage(data.IdentityPoolUsage, context);
   }
@@ -1021,7 +1021,7 @@ export const deserializeAws_restJson1DescribeIdentityUsageCommand = async (
     $metadata: deserializeMetadata(output),
     IdentityUsage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityUsage !== undefined && data.IdentityUsage !== null) {
     contents.IdentityUsage = deserializeAws_restJson1IdentityUsage(data.IdentityUsage, context);
   }
@@ -1081,7 +1081,7 @@ export const deserializeAws_restJson1GetBulkPublishDetailsCommand = async (
     FailureMessage: undefined,
     IdentityPoolId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BulkPublishCompleteTime !== undefined && data.BulkPublishCompleteTime !== null) {
     contents.BulkPublishCompleteTime = __expectNonNull(
       __parseEpochTimestamp(__expectNumber(data.BulkPublishCompleteTime))
@@ -1148,7 +1148,7 @@ export const deserializeAws_restJson1GetCognitoEventsCommand = async (
     $metadata: deserializeMetadata(output),
     Events: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Events !== undefined && data.Events !== null) {
     contents.Events = deserializeAws_restJson1Events(data.Events, context);
   }
@@ -1206,7 +1206,7 @@ export const deserializeAws_restJson1GetIdentityPoolConfigurationCommand = async
     IdentityPoolId: undefined,
     PushSync: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CognitoStreams !== undefined && data.CognitoStreams !== null) {
     contents.CognitoStreams = deserializeAws_restJson1CognitoStreams(data.CognitoStreams, context);
   }
@@ -1270,7 +1270,7 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
     Datasets: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Count !== undefined && data.Count !== null) {
     contents.Count = __expectInt32(data.Count);
   }
@@ -1332,7 +1332,7 @@ export const deserializeAws_restJson1ListIdentityPoolUsageCommand = async (
     MaxResults: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Count !== undefined && data.Count !== null) {
     contents.Count = __expectInt32(data.Count);
   }
@@ -1402,7 +1402,7 @@ export const deserializeAws_restJson1ListRecordsCommand = async (
     Records: undefined,
     SyncSessionToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Count !== undefined && data.Count !== null) {
     contents.Count = __expectInt32(data.Count);
   }
@@ -1479,7 +1479,7 @@ export const deserializeAws_restJson1RegisterDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     DeviceId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeviceId !== undefined && data.DeviceId !== null) {
     contents.DeviceId = __expectString(data.DeviceId);
   }
@@ -1592,7 +1592,7 @@ export const deserializeAws_restJson1SetIdentityPoolConfigurationCommand = async
     IdentityPoolId: undefined,
     PushSync: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CognitoStreams !== undefined && data.CognitoStreams !== null) {
     contents.CognitoStreams = deserializeAws_restJson1CognitoStreams(data.CognitoStreams, context);
   }
@@ -1767,7 +1767,7 @@ export const deserializeAws_restJson1UpdateRecordsCommand = async (
     $metadata: deserializeMetadata(output),
     Records: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Records !== undefined && data.Records !== null) {
     contents.Records = deserializeAws_restJson1RecordList(data.Records, context);
   }

@@ -136,7 +136,7 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
     refreshToken: undefined,
     tokenType: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessToken !== undefined && data.accessToken !== null) {
     contents.accessToken = __expectString(data.accessToken);
   }
@@ -227,7 +227,7 @@ export const deserializeAws_restJson1RegisterClientCommand = async (
     clientSecretExpiresAt: undefined,
     tokenEndpoint: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authorizationEndpoint !== undefined && data.authorizationEndpoint !== null) {
     contents.authorizationEndpoint = __expectString(data.authorizationEndpoint);
   }
@@ -300,7 +300,7 @@ export const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (
     verificationUri: undefined,
     verificationUriComplete: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceCode !== undefined && data.deviceCode !== null) {
     contents.deviceCode = __expectString(data.deviceCode);
   }

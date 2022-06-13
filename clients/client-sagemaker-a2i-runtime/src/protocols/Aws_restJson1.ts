@@ -250,7 +250,7 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
     HumanLoopOutput: undefined,
     HumanLoopStatus: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
@@ -325,7 +325,7 @@ export const deserializeAws_restJson1ListHumanLoopsCommand = async (
     HumanLoopSummaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HumanLoopSummaries !== undefined && data.HumanLoopSummaries !== null) {
     contents.HumanLoopSummaries = deserializeAws_restJson1HumanLoopSummaries(data.HumanLoopSummaries, context);
   }
@@ -381,7 +381,7 @@ export const deserializeAws_restJson1StartHumanLoopCommand = async (
     $metadata: deserializeMetadata(output),
     HumanLoopArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
     contents.HumanLoopArn = __expectString(data.HumanLoopArn);
   }

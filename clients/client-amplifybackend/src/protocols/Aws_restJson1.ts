@@ -1418,7 +1418,7 @@ export const deserializeAws_restJson1CloneBackendCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1491,7 +1491,7 @@ export const deserializeAws_restJson1CreateBackendCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1564,7 +1564,7 @@ export const deserializeAws_restJson1CreateBackendAPICommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1637,7 +1637,7 @@ export const deserializeAws_restJson1CreateBackendAuthCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1708,7 +1708,7 @@ export const deserializeAws_restJson1CreateBackendConfigCommand = async (
     JobId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1773,7 +1773,7 @@ export const deserializeAws_restJson1CreateBackendStorageCommand = async (
     JobId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1838,7 +1838,7 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
     SessionId: undefined,
     Ttl: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1905,7 +1905,7 @@ export const deserializeAws_restJson1DeleteBackendCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -1978,7 +1978,7 @@ export const deserializeAws_restJson1DeleteBackendAPICommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2051,7 +2051,7 @@ export const deserializeAws_restJson1DeleteBackendAuthCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2122,7 +2122,7 @@ export const deserializeAws_restJson1DeleteBackendStorageCommand = async (
     JobId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2184,7 +2184,7 @@ export const deserializeAws_restJson1DeleteTokenCommand = async (
     $metadata: deserializeMetadata(output),
     IsSuccess: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.isSuccess !== undefined && data.isSuccess !== null) {
     contents.IsSuccess = __expectBoolean(data.isSuccess);
   }
@@ -2242,7 +2242,7 @@ export const deserializeAws_restJson1GenerateBackendAPIModelsCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2316,7 +2316,7 @@ export const deserializeAws_restJson1GetBackendCommand = async (
     BackendEnvironmentName: undefined,
     Error: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.amplifyFeatureFlags !== undefined && data.amplifyFeatureFlags !== null) {
     contents.AmplifyFeatureFlags = __expectString(data.amplifyFeatureFlags);
   }
@@ -2391,7 +2391,7 @@ export const deserializeAws_restJson1GetBackendAPICommand = async (
     ResourceConfig: undefined,
     ResourceName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2457,7 +2457,7 @@ export const deserializeAws_restJson1GetBackendAPIModelsCommand = async (
     Models: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.models !== undefined && data.models !== null) {
     contents.Models = __expectString(data.models);
   }
@@ -2517,7 +2517,7 @@ export const deserializeAws_restJson1GetBackendAuthCommand = async (
     ResourceConfig: undefined,
     ResourceName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2589,7 +2589,7 @@ export const deserializeAws_restJson1GetBackendJobCommand = async (
     Status: undefined,
     UpdateTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2666,7 +2666,7 @@ export const deserializeAws_restJson1GetBackendStorageCommand = async (
     ResourceConfig: undefined,
     ResourceName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2731,7 +2731,7 @@ export const deserializeAws_restJson1GetTokenCommand = async (
     SessionId: undefined,
     Ttl: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2798,7 +2798,7 @@ export const deserializeAws_restJson1ImportBackendAuthCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2869,7 +2869,7 @@ export const deserializeAws_restJson1ImportBackendStorageCommand = async (
     JobId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -2932,7 +2932,7 @@ export const deserializeAws_restJson1ListBackendJobsCommand = async (
     Jobs: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobs !== undefined && data.jobs !== null) {
     contents.Jobs = deserializeAws_restJson1ListOfBackendJobRespObj(data.jobs, context);
   }
@@ -2989,7 +2989,7 @@ export const deserializeAws_restJson1ListS3BucketsCommand = async (
     Buckets: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.buckets !== undefined && data.buckets !== null) {
     contents.Buckets = deserializeAws_restJson1ListOfS3BucketInfo(data.buckets, context);
   }
@@ -3049,7 +3049,7 @@ export const deserializeAws_restJson1RemoveAllBackendsCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -3114,7 +3114,7 @@ export const deserializeAws_restJson1RemoveBackendConfigCommand = async (
     $metadata: deserializeMetadata(output),
     Error: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.error !== undefined && data.error !== null) {
     contents.Error = __expectString(data.error);
   }
@@ -3172,7 +3172,7 @@ export const deserializeAws_restJson1UpdateBackendAPICommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -3245,7 +3245,7 @@ export const deserializeAws_restJson1UpdateBackendAuthCommand = async (
     Operation: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -3316,7 +3316,7 @@ export const deserializeAws_restJson1UpdateBackendConfigCommand = async (
     Error: undefined,
     LoginAuthConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -3385,7 +3385,7 @@ export const deserializeAws_restJson1UpdateBackendJobCommand = async (
     Status: undefined,
     UpdateTime: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }
@@ -3462,7 +3462,7 @@ export const deserializeAws_restJson1UpdateBackendStorageCommand = async (
     JobId: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.appId !== undefined && data.appId !== null) {
     contents.AppId = __expectString(data.appId);
   }

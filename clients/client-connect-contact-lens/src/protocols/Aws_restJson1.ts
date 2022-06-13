@@ -74,7 +74,7 @@ export const deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand 
     NextToken: undefined,
     Segments: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }

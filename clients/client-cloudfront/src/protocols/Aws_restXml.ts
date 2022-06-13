@@ -4795,7 +4795,7 @@ export const deserializeAws_restXmlCreateRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
     RealtimeLogConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }
@@ -6737,7 +6737,7 @@ export const deserializeAws_restXmlGetRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
     RealtimeLogConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }
@@ -8932,7 +8932,7 @@ export const deserializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
     RealtimeLogConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }

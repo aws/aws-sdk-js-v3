@@ -1759,7 +1759,7 @@ export const deserializeAws_restJson1AssociateBrowserSettingsCommand = async (
     browserSettingsArn: undefined,
     portalArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.browserSettingsArn !== undefined && data.browserSettingsArn !== null) {
     contents.browserSettingsArn = __expectString(data.browserSettingsArn);
   }
@@ -1822,7 +1822,7 @@ export const deserializeAws_restJson1AssociateNetworkSettingsCommand = async (
     networkSettingsArn: undefined,
     portalArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.networkSettingsArn !== undefined && data.networkSettingsArn !== null) {
     contents.networkSettingsArn = __expectString(data.networkSettingsArn);
   }
@@ -1885,7 +1885,7 @@ export const deserializeAws_restJson1AssociateTrustStoreCommand = async (
     portalArn: undefined,
     trustStoreArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = __expectString(data.portalArn);
   }
@@ -1945,7 +1945,7 @@ export const deserializeAws_restJson1AssociateUserSettingsCommand = async (
     portalArn: undefined,
     userSettingsArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = __expectString(data.portalArn);
   }
@@ -2007,7 +2007,7 @@ export const deserializeAws_restJson1CreateBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     browserSettingsArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.browserSettingsArn !== undefined && data.browserSettingsArn !== null) {
     contents.browserSettingsArn = __expectString(data.browserSettingsArn);
   }
@@ -2069,7 +2069,7 @@ export const deserializeAws_restJson1CreateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     identityProviderArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProviderArn !== undefined && data.identityProviderArn !== null) {
     contents.identityProviderArn = __expectString(data.identityProviderArn);
   }
@@ -2131,7 +2131,7 @@ export const deserializeAws_restJson1CreateNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     networkSettingsArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.networkSettingsArn !== undefined && data.networkSettingsArn !== null) {
     contents.networkSettingsArn = __expectString(data.networkSettingsArn);
   }
@@ -2191,7 +2191,7 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
     portalArn: undefined,
     portalEndpoint: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = __expectString(data.portalArn);
   }
@@ -2256,7 +2256,7 @@ export const deserializeAws_restJson1CreateTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
     trustStoreArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustStoreArn !== undefined && data.trustStoreArn !== null) {
     contents.trustStoreArn = __expectString(data.trustStoreArn);
   }
@@ -2315,7 +2315,7 @@ export const deserializeAws_restJson1CreateUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     userSettingsArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.userSettingsArn !== undefined && data.userSettingsArn !== null) {
     contents.userSettingsArn = __expectString(data.userSettingsArn);
   }
@@ -2894,7 +2894,7 @@ export const deserializeAws_restJson1GetBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     browserSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.browserSettings !== undefined && data.browserSettings !== null) {
     contents.browserSettings = deserializeAws_restJson1BrowserSettings(data.browserSettings, context);
   }
@@ -2950,7 +2950,7 @@ export const deserializeAws_restJson1GetIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     identityProvider: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProvider !== undefined && data.identityProvider !== null) {
     contents.identityProvider = deserializeAws_restJson1IdentityProvider(data.identityProvider, context);
   }
@@ -3006,7 +3006,7 @@ export const deserializeAws_restJson1GetNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     networkSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.networkSettings !== undefined && data.networkSettings !== null) {
     contents.networkSettings = deserializeAws_restJson1NetworkSettings(data.networkSettings, context);
   }
@@ -3062,7 +3062,7 @@ export const deserializeAws_restJson1GetPortalCommand = async (
     $metadata: deserializeMetadata(output),
     portal: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portal !== undefined && data.portal !== null) {
     contents.portal = deserializeAws_restJson1Portal(data.portal, context);
   }
@@ -3119,7 +3119,7 @@ export const deserializeAws_restJson1GetPortalServiceProviderMetadataCommand = a
     portalArn: undefined,
     serviceProviderSamlMetadata: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = __expectString(data.portalArn);
   }
@@ -3178,7 +3178,7 @@ export const deserializeAws_restJson1GetTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
     trustStore: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustStore !== undefined && data.trustStore !== null) {
     contents.trustStore = deserializeAws_restJson1TrustStore(data.trustStore, context);
   }
@@ -3235,7 +3235,7 @@ export const deserializeAws_restJson1GetTrustStoreCertificateCommand = async (
     certificate: undefined,
     trustStoreArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.certificate !== undefined && data.certificate !== null) {
     contents.certificate = deserializeAws_restJson1Certificate(data.certificate, context);
   }
@@ -3294,7 +3294,7 @@ export const deserializeAws_restJson1GetUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     userSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.userSettings !== undefined && data.userSettings !== null) {
     contents.userSettings = deserializeAws_restJson1UserSettings(data.userSettings, context);
   }
@@ -3351,7 +3351,7 @@ export const deserializeAws_restJson1ListBrowserSettingsCommand = async (
     browserSettings: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.browserSettings !== undefined && data.browserSettings !== null) {
     contents.browserSettings = deserializeAws_restJson1BrowserSettingsList(data.browserSettings, context);
   }
@@ -3408,7 +3408,7 @@ export const deserializeAws_restJson1ListIdentityProvidersCommand = async (
     identityProviders: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProviders !== undefined && data.identityProviders !== null) {
     contents.identityProviders = deserializeAws_restJson1IdentityProviderList(data.identityProviders, context);
   }
@@ -3465,7 +3465,7 @@ export const deserializeAws_restJson1ListNetworkSettingsCommand = async (
     networkSettings: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.networkSettings !== undefined && data.networkSettings !== null) {
     contents.networkSettings = deserializeAws_restJson1NetworkSettingsList(data.networkSettings, context);
   }
@@ -3522,7 +3522,7 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
     nextToken: undefined,
     portals: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3578,7 +3578,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
@@ -3636,7 +3636,7 @@ export const deserializeAws_restJson1ListTrustStoreCertificatesCommand = async (
     nextToken: undefined,
     trustStoreArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.certificateList !== undefined && data.certificateList !== null) {
     contents.certificateList = deserializeAws_restJson1CertificateSummaryList(data.certificateList, context);
   }
@@ -3699,7 +3699,7 @@ export const deserializeAws_restJson1ListTrustStoresCommand = async (
     nextToken: undefined,
     trustStores: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3756,7 +3756,7 @@ export const deserializeAws_restJson1ListUserSettingsCommand = async (
     nextToken: undefined,
     userSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3919,7 +3919,7 @@ export const deserializeAws_restJson1UpdateBrowserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     browserSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.browserSettings !== undefined && data.browserSettings !== null) {
     contents.browserSettings = deserializeAws_restJson1BrowserSettings(data.browserSettings, context);
   }
@@ -3975,7 +3975,7 @@ export const deserializeAws_restJson1UpdateIdentityProviderCommand = async (
     $metadata: deserializeMetadata(output),
     identityProvider: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProvider !== undefined && data.identityProvider !== null) {
     contents.identityProvider = deserializeAws_restJson1IdentityProvider(data.identityProvider, context);
   }
@@ -4031,7 +4031,7 @@ export const deserializeAws_restJson1UpdateNetworkSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     networkSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.networkSettings !== undefined && data.networkSettings !== null) {
     contents.networkSettings = deserializeAws_restJson1NetworkSettings(data.networkSettings, context);
   }
@@ -4087,7 +4087,7 @@ export const deserializeAws_restJson1UpdatePortalCommand = async (
     $metadata: deserializeMetadata(output),
     portal: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portal !== undefined && data.portal !== null) {
     contents.portal = deserializeAws_restJson1Portal(data.portal, context);
   }
@@ -4143,7 +4143,7 @@ export const deserializeAws_restJson1UpdateTrustStoreCommand = async (
     $metadata: deserializeMetadata(output),
     trustStoreArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.trustStoreArn !== undefined && data.trustStoreArn !== null) {
     contents.trustStoreArn = __expectString(data.trustStoreArn);
   }
@@ -4202,7 +4202,7 @@ export const deserializeAws_restJson1UpdateUserSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     userSettings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.userSettings !== undefined && data.userSettings !== null) {
     contents.userSettings = deserializeAws_restJson1UserSettings(data.userSettings, context);
   }

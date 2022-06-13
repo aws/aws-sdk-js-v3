@@ -177,7 +177,7 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
     Identity: undefined,
     LastActiveAt: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectedAt !== undefined && data.connectedAt !== null) {
     contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTime(data.connectedAt));
   }

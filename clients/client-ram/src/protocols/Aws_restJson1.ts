@@ -895,7 +895,7 @@ export const deserializeAws_restJson1AcceptResourceShareInvitationCommand = asyn
     clientToken: undefined,
     resourceShareInvitation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -979,7 +979,7 @@ export const deserializeAws_restJson1AssociateResourceShareCommand = async (
     clientToken: undefined,
     resourceShareAssociations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1060,7 +1060,7 @@ export const deserializeAws_restJson1AssociateResourceSharePermissionCommand = a
     clientToken: undefined,
     returnValue: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1126,7 +1126,7 @@ export const deserializeAws_restJson1CreateResourceShareCommand = async (
     clientToken: undefined,
     resourceShare: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1204,7 +1204,7 @@ export const deserializeAws_restJson1DeleteResourceShareCommand = async (
     clientToken: undefined,
     returnValue: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1276,7 +1276,7 @@ export const deserializeAws_restJson1DisassociateResourceShareCommand = async (
     clientToken: undefined,
     resourceShareAssociations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1354,7 +1354,7 @@ export const deserializeAws_restJson1DisassociateResourceSharePermissionCommand 
     clientToken: undefined,
     returnValue: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1422,7 +1422,7 @@ export const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand = a
     $metadata: deserializeMetadata(output),
     returnValue: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
@@ -1472,7 +1472,7 @@ export const deserializeAws_restJson1GetPermissionCommand = async (
     $metadata: deserializeMetadata(output),
     permission: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.permission !== undefined && data.permission !== null) {
     contents.permission = deserializeAws_restJson1ResourceSharePermissionDetail(data.permission, context);
   }
@@ -1532,7 +1532,7 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
     nextToken: undefined,
     policies: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1595,7 +1595,7 @@ export const deserializeAws_restJson1GetResourceShareAssociationsCommand = async
     nextToken: undefined,
     resourceShareAssociations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1664,7 +1664,7 @@ export const deserializeAws_restJson1GetResourceShareInvitationsCommand = async 
     nextToken: undefined,
     resourceShareInvitations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1736,7 +1736,7 @@ export const deserializeAws_restJson1GetResourceSharesCommand = async (
     nextToken: undefined,
     resourceShares: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1799,7 +1799,7 @@ export const deserializeAws_restJson1ListPendingInvitationResourcesCommand = asy
     nextToken: undefined,
     resources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1874,7 +1874,7 @@ export const deserializeAws_restJson1ListPermissionsCommand = async (
     nextToken: undefined,
     permissions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1934,7 +1934,7 @@ export const deserializeAws_restJson1ListPermissionVersionsCommand = async (
     nextToken: undefined,
     permissions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2000,7 +2000,7 @@ export const deserializeAws_restJson1ListPrincipalsCommand = async (
     nextToken: undefined,
     principals: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2063,7 +2063,7 @@ export const deserializeAws_restJson1ListResourcesCommand = async (
     nextToken: undefined,
     resources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2129,7 +2129,7 @@ export const deserializeAws_restJson1ListResourceSharePermissionsCommand = async
     nextToken: undefined,
     permissions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2195,7 +2195,7 @@ export const deserializeAws_restJson1ListResourceTypesCommand = async (
     nextToken: undefined,
     resourceTypes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2251,7 +2251,7 @@ export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyComman
     $metadata: deserializeMetadata(output),
     returnValue: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.returnValue !== undefined && data.returnValue !== null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
@@ -2317,7 +2317,7 @@ export const deserializeAws_restJson1RejectResourceShareInvitationCommand = asyn
     clientToken: undefined,
     resourceShareInvitation: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2508,7 +2508,7 @@ export const deserializeAws_restJson1UpdateResourceShareCommand = async (
     clientToken: undefined,
     resourceShare: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }

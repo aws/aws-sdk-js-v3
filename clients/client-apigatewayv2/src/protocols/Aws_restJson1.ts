@@ -3187,7 +3187,7 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     Version: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
     contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
@@ -3288,7 +3288,7 @@ export const deserializeAws_restJson1CreateApiMappingCommand = async (
     ApiMappingKey: undefined,
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = __expectString(data.apiId);
   }
@@ -3360,7 +3360,7 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
     JwtConfiguration: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
@@ -3448,7 +3448,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
     DeploymentStatusMessage: undefined,
     Description: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
@@ -3520,7 +3520,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     MutualTlsAuthentication: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
@@ -3613,7 +3613,7 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -3731,7 +3731,7 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
     ResponseTemplates: undefined,
     TemplateSelectionExpression: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
@@ -3803,7 +3803,7 @@ export const deserializeAws_restJson1CreateModelCommand = async (
     Name: undefined,
     Schema: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentType !== undefined && data.contentType !== null) {
     contents.ContentType = __expectString(data.contentType);
   }
@@ -3880,7 +3880,7 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
     RouteResponseSelectionExpression: undefined,
     Target: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -3973,7 +3973,7 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
     RouteResponseId: undefined,
     RouteResponseKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
@@ -4051,7 +4051,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     StageVariables: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
@@ -4151,7 +4151,7 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
     VpcLinkStatusMessage: undefined,
     VpcLinkVersion: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
@@ -4976,7 +4976,7 @@ export const deserializeAws_restJson1GetApiCommand = async (
     Version: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
     contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
@@ -5071,7 +5071,7 @@ export const deserializeAws_restJson1GetApiMappingCommand = async (
     ApiMappingKey: undefined,
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = __expectString(data.apiId);
   }
@@ -5131,7 +5131,7 @@ export const deserializeAws_restJson1GetApiMappingsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfApiMapping(data.items, context);
   }
@@ -5185,7 +5185,7 @@ export const deserializeAws_restJson1GetApisCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfApi(data.items, context);
   }
@@ -5248,7 +5248,7 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
     JwtConfiguration: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
@@ -5326,7 +5326,7 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfAuthorizer(data.items, context);
   }
@@ -5384,7 +5384,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     DeploymentStatusMessage: undefined,
     Description: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
@@ -5447,7 +5447,7 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfDeployment(data.items, context);
   }
@@ -5504,7 +5504,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     MutualTlsAuthentication: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
@@ -5570,7 +5570,7 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfDomainName(data.items, context);
   }
@@ -5642,7 +5642,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -5754,7 +5754,7 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
     ResponseTemplates: undefined,
     TemplateSelectionExpression: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
@@ -5817,7 +5817,7 @@ export const deserializeAws_restJson1GetIntegrationResponsesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfIntegrationResponse(data.items, context);
   }
@@ -5871,7 +5871,7 @@ export const deserializeAws_restJson1GetIntegrationsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfIntegration(data.items, context);
   }
@@ -5928,7 +5928,7 @@ export const deserializeAws_restJson1GetModelCommand = async (
     Name: undefined,
     Schema: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentType !== undefined && data.contentType !== null) {
     contents.ContentType = __expectString(data.contentType);
   }
@@ -5988,7 +5988,7 @@ export const deserializeAws_restJson1GetModelsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfModel(data.items, context);
   }
@@ -6041,7 +6041,7 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     Value: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.value !== undefined && data.value !== null) {
     contents.Value = __expectString(data.value);
   }
@@ -6100,7 +6100,7 @@ export const deserializeAws_restJson1GetRouteCommand = async (
     RouteResponseSelectionExpression: undefined,
     Target: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -6187,7 +6187,7 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
     RouteResponseId: undefined,
     RouteResponseKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
@@ -6247,7 +6247,7 @@ export const deserializeAws_restJson1GetRouteResponsesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfRouteResponse(data.items, context);
   }
@@ -6301,7 +6301,7 @@ export const deserializeAws_restJson1GetRoutesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfRoute(data.items, context);
   }
@@ -6367,7 +6367,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     StageVariables: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
@@ -6454,7 +6454,7 @@ export const deserializeAws_restJson1GetStagesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfStage(data.items, context);
   }
@@ -6507,7 +6507,7 @@ export const deserializeAws_restJson1GetTagsCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
@@ -6568,7 +6568,7 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
     VpcLinkStatusMessage: undefined,
     VpcLinkVersion: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
@@ -6640,7 +6640,7 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.Items = deserializeAws_restJson1__listOfVpcLink(data.items, context);
   }
@@ -6705,7 +6705,7 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     Version: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
     contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
@@ -6818,7 +6818,7 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     Version: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
     contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
@@ -7072,7 +7072,7 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     Version: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
     contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
@@ -7173,7 +7173,7 @@ export const deserializeAws_restJson1UpdateApiMappingCommand = async (
     ApiMappingKey: undefined,
     Stage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = __expectString(data.apiId);
   }
@@ -7245,7 +7245,7 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
     JwtConfiguration: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
@@ -7333,7 +7333,7 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
     DeploymentStatusMessage: undefined,
     Description: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
@@ -7405,7 +7405,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     MutualTlsAuthentication: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
@@ -7495,7 +7495,7 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -7613,7 +7613,7 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
     ResponseTemplates: undefined,
     TemplateSelectionExpression: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
@@ -7685,7 +7685,7 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
     Name: undefined,
     Schema: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contentType !== undefined && data.contentType !== null) {
     contents.ContentType = __expectString(data.contentType);
   }
@@ -7762,7 +7762,7 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
     RouteResponseSelectionExpression: undefined,
     Target: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
@@ -7855,7 +7855,7 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
     RouteResponseId: undefined,
     RouteResponseKey: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
@@ -7933,7 +7933,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     StageVariables: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
@@ -8033,7 +8033,7 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
     VpcLinkStatusMessage: undefined,
     VpcLinkVersion: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }

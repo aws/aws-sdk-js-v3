@@ -99,7 +99,7 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
     personalizedRanking: undefined,
     recommendationId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.personalizedRanking !== undefined && data.personalizedRanking !== null) {
     contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
   }
@@ -150,7 +150,7 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     itemList: undefined,
     recommendationId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.itemList !== undefined && data.itemList !== null) {
     contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
   }

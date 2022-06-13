@@ -276,7 +276,7 @@ export const deserializeAws_restJson1CreateMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
     MediaCapturePipeline: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
     contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
   }
@@ -396,7 +396,7 @@ export const deserializeAws_restJson1GetMediaCapturePipelineCommand = async (
     $metadata: deserializeMetadata(output),
     MediaCapturePipeline: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
     contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
   }
@@ -459,7 +459,7 @@ export const deserializeAws_restJson1ListMediaCapturePipelinesCommand = async (
     MediaCapturePipelines: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MediaCapturePipelines !== undefined && data.MediaCapturePipelines !== null) {
     contents.MediaCapturePipelines = deserializeAws_restJson1MediaCapturePipelineSummaryList(
       data.MediaCapturePipelines,
@@ -527,7 +527,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }

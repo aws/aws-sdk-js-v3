@@ -679,7 +679,7 @@ export const deserializeAws_restJson1AddProfilePermissionCommand = async (
     $metadata: deserializeMetadata(output),
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.revisionId !== undefined && data.revisionId !== null) {
     contents.revisionId = __expectString(data.revisionId);
   }
@@ -808,7 +808,7 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
     status: undefined,
     statusReason: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completedAt !== undefined && data.completedAt !== null) {
     contents.completedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.completedAt)));
   }
@@ -923,7 +923,7 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
     signingImageFormat: undefined,
     target: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.category !== undefined && data.category !== null) {
     contents.category = __expectString(data.category);
   }
@@ -1013,7 +1013,7 @@ export const deserializeAws_restJson1GetSigningProfileCommand = async (
     statusReason: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1111,7 +1111,7 @@ export const deserializeAws_restJson1ListProfilePermissionsCommand = async (
     policySizeBytes: undefined,
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1177,7 +1177,7 @@ export const deserializeAws_restJson1ListSigningJobsCommand = async (
     jobs: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobs !== undefined && data.jobs !== null) {
     contents.jobs = deserializeAws_restJson1SigningJobs(data.jobs, context);
   }
@@ -1234,7 +1234,7 @@ export const deserializeAws_restJson1ListSigningPlatformsCommand = async (
     nextToken: undefined,
     platforms: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1291,7 +1291,7 @@ export const deserializeAws_restJson1ListSigningProfilesCommand = async (
     nextToken: undefined,
     profiles: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1344,7 +1344,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1399,7 +1399,7 @@ export const deserializeAws_restJson1PutSigningProfileCommand = async (
     profileVersion: undefined,
     profileVersionArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1461,7 +1461,7 @@ export const deserializeAws_restJson1RemoveProfilePermissionCommand = async (
     $metadata: deserializeMetadata(output),
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.revisionId !== undefined && data.revisionId !== null) {
     contents.revisionId = __expectString(data.revisionId);
   }
@@ -1625,7 +1625,7 @@ export const deserializeAws_restJson1StartSigningJobCommand = async (
     jobId: undefined,
     jobOwner: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = __expectString(data.jobId);
   }

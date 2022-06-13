@@ -495,7 +495,7 @@ export const deserializeAws_restJson1CancelJobCommand = async (
     cancellationStatus: undefined,
     jobArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cancellationStatus !== undefined && data.cancellationStatus !== null) {
     contents.cancellationStatus = __expectString(data.cancellationStatus);
   }
@@ -558,7 +558,7 @@ export const deserializeAws_restJson1CancelQuantumTaskCommand = async (
     cancellationStatus: undefined,
     quantumTaskArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cancellationStatus !== undefined && data.cancellationStatus !== null) {
     contents.cancellationStatus = __expectString(data.cancellationStatus);
   }
@@ -620,7 +620,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
     $metadata: deserializeMetadata(output),
     jobArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobArn !== undefined && data.jobArn !== null) {
     contents.jobArn = __expectString(data.jobArn);
   }
@@ -682,7 +682,7 @@ export const deserializeAws_restJson1CreateQuantumTaskCommand = async (
     $metadata: deserializeMetadata(output),
     quantumTaskArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.quantumTaskArn !== undefined && data.quantumTaskArn !== null) {
     contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
@@ -749,7 +749,7 @@ export const deserializeAws_restJson1GetDeviceCommand = async (
     deviceType: undefined,
     providerName: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceArn !== undefined && data.deviceArn !== null) {
     contents.deviceArn = __expectString(data.deviceArn);
   }
@@ -838,7 +838,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     stoppingCondition: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.algorithmSpecification !== undefined && data.algorithmSpecification !== null) {
     contents.algorithmSpecification = deserializeAws_restJson1AlgorithmSpecification(
       data.algorithmSpecification,
@@ -962,7 +962,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
   }
@@ -1051,7 +1051,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
   }
@@ -1102,7 +1102,7 @@ export const deserializeAws_restJson1SearchDevicesCommand = async (
     devices: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.devices !== undefined && data.devices !== null) {
     contents.devices = deserializeAws_restJson1DeviceSummaryList(data.devices, context);
   }
@@ -1159,7 +1159,7 @@ export const deserializeAws_restJson1SearchJobsCommand = async (
     jobs: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobs !== undefined && data.jobs !== null) {
     contents.jobs = deserializeAws_restJson1JobSummaryList(data.jobs, context);
   }
@@ -1216,7 +1216,7 @@ export const deserializeAws_restJson1SearchQuantumTasksCommand = async (
     nextToken: undefined,
     quantumTasks: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }

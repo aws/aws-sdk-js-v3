@@ -141,7 +141,7 @@ export const deserializeAws_restJson1GetRoleCredentialsCommand = async (
     $metadata: deserializeMetadata(output),
     roleCredentials: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.roleCredentials !== undefined && data.roleCredentials !== null) {
     contents.roleCredentials = deserializeAws_restJson1RoleCredentials(data.roleCredentials, context);
   }
@@ -195,7 +195,7 @@ export const deserializeAws_restJson1ListAccountRolesCommand = async (
     nextToken: undefined,
     roleList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -252,7 +252,7 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
     accountList: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accountList !== undefined && data.accountList !== null) {
     contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
   }

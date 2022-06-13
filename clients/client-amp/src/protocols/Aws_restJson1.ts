@@ -676,7 +676,7 @@ export const deserializeAws_restJson1CreateAlertManagerDefinitionCommand = async
     $metadata: deserializeMetadata(output),
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1AlertManagerDefinitionStatus(data.status, context);
   }
@@ -741,7 +741,7 @@ export const deserializeAws_restJson1CreateRuleGroupsNamespaceCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -815,7 +815,7 @@ export const deserializeAws_restJson1CreateWorkspaceCommand = async (
     tags: undefined,
     workspaceId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1048,7 +1048,7 @@ export const deserializeAws_restJson1DescribeAlertManagerDefinitionCommand = asy
     $metadata: deserializeMetadata(output),
     alertManagerDefinition: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alertManagerDefinition !== undefined && data.alertManagerDefinition !== null) {
     contents.alertManagerDefinition = deserializeAws_restJson1AlertManagerDefinitionDescription(
       data.alertManagerDefinition,
@@ -1107,7 +1107,7 @@ export const deserializeAws_restJson1DescribeRuleGroupsNamespaceCommand = async 
     $metadata: deserializeMetadata(output),
     ruleGroupsNamespace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ruleGroupsNamespace !== undefined && data.ruleGroupsNamespace !== null) {
     contents.ruleGroupsNamespace = deserializeAws_restJson1RuleGroupsNamespaceDescription(
       data.ruleGroupsNamespace,
@@ -1166,7 +1166,7 @@ export const deserializeAws_restJson1DescribeWorkspaceCommand = async (
     $metadata: deserializeMetadata(output),
     workspace: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workspace !== undefined && data.workspace !== null) {
     contents.workspace = deserializeAws_restJson1WorkspaceDescription(data.workspace, context);
   }
@@ -1223,7 +1223,7 @@ export const deserializeAws_restJson1ListRuleGroupsNamespacesCommand = async (
     nextToken: undefined,
     ruleGroupsNamespaces: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1285,7 +1285,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1342,7 +1342,7 @@ export const deserializeAws_restJson1ListWorkspacesCommand = async (
     nextToken: undefined,
     workspaces: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1398,7 +1398,7 @@ export const deserializeAws_restJson1PutAlertManagerDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1AlertManagerDefinitionStatus(data.status, context);
   }
@@ -1463,7 +1463,7 @@ export const deserializeAws_restJson1PutRuleGroupsNamespaceCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }

@@ -532,7 +532,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
     ResourceQuery: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -597,7 +597,7 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -656,7 +656,7 @@ export const deserializeAws_restJson1GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -715,7 +715,7 @@ export const deserializeAws_restJson1GetGroupConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     GroupConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GroupConfiguration !== undefined && data.GroupConfiguration !== null) {
     contents.GroupConfiguration = deserializeAws_restJson1GroupConfiguration(data.GroupConfiguration, context);
   }
@@ -774,7 +774,7 @@ export const deserializeAws_restJson1GetGroupQueryCommand = async (
     $metadata: deserializeMetadata(output),
     GroupQuery: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GroupQuery !== undefined && data.GroupQuery !== null) {
     contents.GroupQuery = deserializeAws_restJson1GroupQuery(data.GroupQuery, context);
   }
@@ -834,7 +834,7 @@ export const deserializeAws_restJson1GetTagsCommand = async (
     Arn: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -898,7 +898,7 @@ export const deserializeAws_restJson1GroupResourcesCommand = async (
     Pending: undefined,
     Succeeded: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Failed !== undefined && data.Failed !== null) {
     contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
   }
@@ -966,7 +966,7 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
     ResourceIdentifiers: undefined,
     Resources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1039,7 +1039,7 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
     Groups: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GroupIdentifiers !== undefined && data.GroupIdentifiers !== null) {
     contents.GroupIdentifiers = deserializeAws_restJson1GroupIdentifierList(data.GroupIdentifiers, context);
   }
@@ -1158,7 +1158,7 @@ export const deserializeAws_restJson1SearchResourcesCommand = async (
     QueryErrors: undefined,
     ResourceIdentifiers: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1224,7 +1224,7 @@ export const deserializeAws_restJson1TagCommand = async (
     Arn: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1288,7 +1288,7 @@ export const deserializeAws_restJson1UngroupResourcesCommand = async (
     Pending: undefined,
     Succeeded: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Failed !== undefined && data.Failed !== null) {
     contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
   }
@@ -1354,7 +1354,7 @@ export const deserializeAws_restJson1UntagCommand = async (
     Arn: undefined,
     Keys: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1416,7 +1416,7 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -1475,7 +1475,7 @@ export const deserializeAws_restJson1UpdateGroupQueryCommand = async (
     $metadata: deserializeMetadata(output),
     GroupQuery: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GroupQuery !== undefined && data.GroupQuery !== null) {
     contents.GroupQuery = deserializeAws_restJson1GroupQuery(data.GroupQuery, context);
   }

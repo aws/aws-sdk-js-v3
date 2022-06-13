@@ -583,7 +583,7 @@ export const deserializeAws_restJson1CancelJobRunCommand = async (
     applicationId: undefined,
     jobRunId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.applicationId = __expectString(data.applicationId);
   }
@@ -638,7 +638,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
     arn: undefined,
     name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.applicationId = __expectString(data.applicationId);
   }
@@ -740,7 +740,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     $metadata: deserializeMetadata(output),
     application: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.application !== undefined && data.application !== null) {
     contents.application = deserializeAws_restJson1Application(data.application, context);
   }
@@ -790,7 +790,7 @@ export const deserializeAws_restJson1GetJobRunCommand = async (
     $metadata: deserializeMetadata(output),
     jobRun: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRun !== undefined && data.jobRun !== null) {
     contents.jobRun = deserializeAws_restJson1JobRun(data.jobRun, context);
   }
@@ -841,7 +841,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     applications: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applications !== undefined && data.applications !== null) {
     contents.applications = deserializeAws_restJson1ApplicationList(data.applications, context);
   }
@@ -892,7 +892,7 @@ export const deserializeAws_restJson1ListJobRunsCommand = async (
     jobRuns: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRuns !== undefined && data.jobRuns !== null) {
     contents.jobRuns = deserializeAws_restJson1JobRuns(data.jobRuns, context);
   }
@@ -942,7 +942,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1043,7 +1043,7 @@ export const deserializeAws_restJson1StartJobRunCommand = async (
     arn: undefined,
     jobRunId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.applicationId = __expectString(data.applicationId);
   }
@@ -1240,7 +1240,7 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
     $metadata: deserializeMetadata(output),
     application: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.application !== undefined && data.application !== null) {
     contents.application = deserializeAws_restJson1Application(data.application, context);
   }

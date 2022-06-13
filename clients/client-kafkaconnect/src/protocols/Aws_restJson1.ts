@@ -498,7 +498,7 @@ export const deserializeAws_restJson1CreateConnectorCommand = async (
     connectorName: undefined,
     connectorState: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorArn !== undefined && data.connectorArn !== null) {
     contents.connectorArn = __expectString(data.connectorArn);
   }
@@ -572,7 +572,7 @@ export const deserializeAws_restJson1CreateCustomPluginCommand = async (
     name: undefined,
     revision: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.customPluginArn !== undefined && data.customPluginArn !== null) {
     contents.customPluginArn = __expectString(data.customPluginArn);
   }
@@ -649,7 +649,7 @@ export const deserializeAws_restJson1CreateWorkerConfigurationCommand = async (
     name: undefined,
     workerConfigurationArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
@@ -724,7 +724,7 @@ export const deserializeAws_restJson1DeleteConnectorCommand = async (
     connectorArn: undefined,
     connectorState: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorArn !== undefined && data.connectorArn !== null) {
     contents.connectorArn = __expectString(data.connectorArn);
   }
@@ -790,7 +790,7 @@ export const deserializeAws_restJson1DeleteCustomPluginCommand = async (
     customPluginArn: undefined,
     customPluginState: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.customPluginArn !== undefined && data.customPluginArn !== null) {
     contents.customPluginArn = __expectString(data.customPluginArn);
   }
@@ -871,7 +871,7 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     stateDescription: undefined,
     workerConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.capacity !== undefined && data.capacity !== null) {
     contents.capacity = deserializeAws_restJson1CapacityDescription(data.capacity, context);
   }
@@ -996,7 +996,7 @@ export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
     name: undefined,
     stateDescription: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
@@ -1080,7 +1080,7 @@ export const deserializeAws_restJson1DescribeWorkerConfigurationCommand = async 
     name: undefined,
     workerConfigurationArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
@@ -1158,7 +1158,7 @@ export const deserializeAws_restJson1ListConnectorsCommand = async (
     connectors: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectors !== undefined && data.connectors !== null) {
     contents.connectors = deserializeAws_restJson1__listOfConnectorSummary(data.connectors, context);
   }
@@ -1224,7 +1224,7 @@ export const deserializeAws_restJson1ListCustomPluginsCommand = async (
     customPlugins: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.customPlugins !== undefined && data.customPlugins !== null) {
     contents.customPlugins = deserializeAws_restJson1__listOfCustomPluginSummary(data.customPlugins, context);
   }
@@ -1290,7 +1290,7 @@ export const deserializeAws_restJson1ListWorkerConfigurationsCommand = async (
     nextToken: undefined,
     workerConfigurations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1359,7 +1359,7 @@ export const deserializeAws_restJson1UpdateConnectorCommand = async (
     connectorArn: undefined,
     connectorState: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorArn !== undefined && data.connectorArn !== null) {
     contents.connectorArn = __expectString(data.connectorArn);
   }

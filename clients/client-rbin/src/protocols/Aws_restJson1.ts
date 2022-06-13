@@ -305,7 +305,7 @@ export const deserializeAws_restJson1CreateRuleCommand = async (
     Status: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -424,7 +424,7 @@ export const deserializeAws_restJson1GetRuleCommand = async (
     RetentionPeriod: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -490,7 +490,7 @@ export const deserializeAws_restJson1ListRulesCommand = async (
     NextToken: undefined,
     Rules: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -540,7 +540,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
@@ -690,7 +690,7 @@ export const deserializeAws_restJson1UpdateRuleCommand = async (
     RetentionPeriod: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }

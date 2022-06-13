@@ -945,7 +945,7 @@ export const deserializeAws_restJson1AddNotificationChannelsCommand = async (
     $metadata: deserializeMetadata(output),
     notificationConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.notificationConfiguration !== undefined && data.notificationConfiguration !== null) {
     contents.notificationConfiguration = deserializeAws_restJson1NotificationConfiguration(
       data.notificationConfiguration,
@@ -1012,7 +1012,7 @@ export const deserializeAws_restJson1BatchGetFrameMetricDataCommand = async (
     startTime: undefined,
     unprocessedEndTimes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endTime !== undefined && data.endTime !== null) {
     contents.endTime = __expectNonNull(__parseRfc3339DateTime(data.endTime));
   }
@@ -1289,7 +1289,7 @@ export const deserializeAws_restJson1GetFindingsReportAccountSummaryCommand = as
     nextToken: undefined,
     reportSummaries: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1342,7 +1342,7 @@ export const deserializeAws_restJson1GetNotificationConfigurationCommand = async
     $metadata: deserializeMetadata(output),
     notificationConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.notificationConfiguration !== undefined && data.notificationConfiguration !== null) {
     contents.notificationConfiguration = deserializeAws_restJson1NotificationConfiguration(
       data.notificationConfiguration,
@@ -1399,7 +1399,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
     policy: undefined,
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -1515,7 +1515,7 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     profilingGroupName: undefined,
     recommendations: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.anomalies !== undefined && data.anomalies !== null) {
     contents.anomalies = deserializeAws_restJson1Anomalies(data.anomalies, context);
   }
@@ -1581,7 +1581,7 @@ export const deserializeAws_restJson1ListFindingsReportsCommand = async (
     findingsReportSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.findingsReportSummaries !== undefined && data.findingsReportSummaries !== null) {
     contents.findingsReportSummaries = deserializeAws_restJson1FindingsReportSummaries(
       data.findingsReportSummaries,
@@ -1641,7 +1641,7 @@ export const deserializeAws_restJson1ListProfileTimesCommand = async (
     nextToken: undefined,
     profileTimes: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1699,7 +1699,7 @@ export const deserializeAws_restJson1ListProfilingGroupsCommand = async (
     profilingGroupNames: undefined,
     profilingGroups: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1752,7 +1752,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
   }
@@ -1852,7 +1852,7 @@ export const deserializeAws_restJson1PutPermissionCommand = async (
     policy: undefined,
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -1911,7 +1911,7 @@ export const deserializeAws_restJson1RemoveNotificationChannelCommand = async (
     $metadata: deserializeMetadata(output),
     notificationConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.notificationConfiguration !== undefined && data.notificationConfiguration !== null) {
     contents.notificationConfiguration = deserializeAws_restJson1NotificationConfiguration(
       data.notificationConfiguration,
@@ -1968,7 +1968,7 @@ export const deserializeAws_restJson1RemovePermissionCommand = async (
     policy: undefined,
     revisionId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }

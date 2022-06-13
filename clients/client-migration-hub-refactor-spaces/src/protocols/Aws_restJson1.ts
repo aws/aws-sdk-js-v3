@@ -969,7 +969,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
     Tags: undefined,
     VpcId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApiGatewayProxy !== undefined && data.ApiGatewayProxy !== null) {
     contents.ApiGatewayProxy = deserializeAws_restJson1ApiGatewayProxyInput(data.ApiGatewayProxy, context);
   }
@@ -1076,7 +1076,7 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
     State: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1176,7 +1176,7 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
     Tags: undefined,
     UriPathRoute: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1286,7 +1286,7 @@ export const deserializeAws_restJson1CreateServiceCommand = async (
     UrlEndpoint: undefined,
     VpcId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1398,7 +1398,7 @@ export const deserializeAws_restJson1DeleteApplicationCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1476,7 +1476,7 @@ export const deserializeAws_restJson1DeleteEnvironmentCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1604,7 +1604,7 @@ export const deserializeAws_restJson1DeleteRouteCommand = async (
     ServiceId: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1684,7 +1684,7 @@ export const deserializeAws_restJson1DeleteServiceCommand = async (
     ServiceId: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1774,7 +1774,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     Tags: undefined,
     VpcId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApiGatewayProxy !== undefined && data.ApiGatewayProxy !== null) {
     contents.ApiGatewayProxy = deserializeAws_restJson1ApiGatewayProxyConfig(data.ApiGatewayProxy, context);
   }
@@ -1880,7 +1880,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     Tags: undefined,
     TransitGatewayId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1969,7 +1969,7 @@ export const deserializeAws_restJson1GetResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy !== undefined && data.Policy !== null) {
     contents.Policy = __expectString(data.Policy);
   }
@@ -2041,7 +2041,7 @@ export const deserializeAws_restJson1GetRouteCommand = async (
     State: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2161,7 +2161,7 @@ export const deserializeAws_restJson1GetServiceCommand = async (
     UrlEndpoint: undefined,
     VpcId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2266,7 +2266,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     ApplicationSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationSummaryList !== undefined && data.ApplicationSummaryList !== null) {
     contents.ApplicationSummaryList = deserializeAws_restJson1ApplicationSummaries(
       data.ApplicationSummaryList,
@@ -2335,7 +2335,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     EnvironmentSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EnvironmentSummaryList !== undefined && data.EnvironmentSummaryList !== null) {
     contents.EnvironmentSummaryList = deserializeAws_restJson1EnvironmentSummaries(
       data.EnvironmentSummaryList,
@@ -2398,7 +2398,7 @@ export const deserializeAws_restJson1ListEnvironmentVpcsCommand = async (
     EnvironmentVpcList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EnvironmentVpcList !== undefined && data.EnvironmentVpcList !== null) {
     contents.EnvironmentVpcList = deserializeAws_restJson1EnvironmentVpcs(data.EnvironmentVpcList, context);
   }
@@ -2458,7 +2458,7 @@ export const deserializeAws_restJson1ListRoutesCommand = async (
     NextToken: undefined,
     RouteSummaryList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2524,7 +2524,7 @@ export const deserializeAws_restJson1ListServicesCommand = async (
     NextToken: undefined,
     ServiceSummaryList: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2589,7 +2589,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }

@@ -298,7 +298,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
     applicationArn: undefined,
     applicationId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationArn !== undefined && data.applicationArn !== null) {
     contents.applicationArn = __expectString(data.applicationArn);
   }
@@ -414,7 +414,7 @@ export const deserializeAws_restJson1DescribeApplicationCommand = async (
     ssoClientId: undefined,
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationArn !== undefined && data.applicationArn !== null) {
     contents.applicationArn = __expectString(data.applicationArn);
   }
@@ -501,7 +501,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     applicationSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationSummaries !== undefined && data.applicationSummaries !== null) {
     contents.applicationSummaries = deserializeAws_restJson1ApplicationSummaries(data.applicationSummaries, context);
   }
@@ -554,7 +554,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

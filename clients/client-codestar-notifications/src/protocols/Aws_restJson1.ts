@@ -429,7 +429,7 @@ export const deserializeAws_restJson1CreateNotificationRuleCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -488,7 +488,7 @@ export const deserializeAws_restJson1DeleteNotificationRuleCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -588,7 +588,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     Tags: undefined,
     Targets: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -666,7 +666,7 @@ export const deserializeAws_restJson1ListEventTypesCommand = async (
     EventTypes: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
     contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
   }
@@ -717,7 +717,7 @@ export const deserializeAws_restJson1ListNotificationRulesCommand = async (
     NextToken: undefined,
     NotificationRules: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -767,7 +767,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
@@ -815,7 +815,7 @@ export const deserializeAws_restJson1ListTargetsCommand = async (
     NextToken: undefined,
     Targets: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -865,7 +865,7 @@ export const deserializeAws_restJson1SubscribeCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -912,7 +912,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
@@ -962,7 +962,7 @@ export const deserializeAws_restJson1UnsubscribeCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }

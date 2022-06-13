@@ -151,7 +151,7 @@ export const deserializeAws_restJson1CreateEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointArn: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EndpointArn !== undefined && data.EndpointArn !== null) {
     contents.EndpointArn = __expectString(data.EndpointArn);
   }
@@ -257,7 +257,7 @@ export const deserializeAws_restJson1ListEndpointsCommand = async (
     Endpoints: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Endpoints !== undefined && data.Endpoints !== null) {
     contents.Endpoints = deserializeAws_restJson1Endpoints(data.Endpoints, context);
   }
@@ -314,7 +314,7 @@ export const deserializeAws_restJson1ListSharedEndpointsCommand = async (
     Endpoints: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Endpoints !== undefined && data.Endpoints !== null) {
     contents.Endpoints = deserializeAws_restJson1Endpoints(data.Endpoints, context);
   }

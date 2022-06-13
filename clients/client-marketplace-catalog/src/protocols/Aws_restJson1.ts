@@ -211,7 +211,7 @@ export const deserializeAws_restJson1CancelChangeSetCommand = async (
     ChangeSetArn: undefined,
     ChangeSetId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
     contents.ChangeSetArn = __expectString(data.ChangeSetArn);
   }
@@ -281,7 +281,7 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
     StartTime: undefined,
     Status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChangeSet !== undefined && data.ChangeSet !== null) {
     contents.ChangeSet = deserializeAws_restJson1ChangeSetDescription(data.ChangeSet, context);
   }
@@ -365,7 +365,7 @@ export const deserializeAws_restJson1DescribeEntityCommand = async (
     EntityType: undefined,
     LastModifiedDate: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Details !== undefined && data.Details !== null) {
     contents.Details = __expectString(data.Details);
   }
@@ -437,7 +437,7 @@ export const deserializeAws_restJson1ListChangeSetsCommand = async (
     ChangeSetSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChangeSetSummaryList !== undefined && data.ChangeSetSummaryList !== null) {
     contents.ChangeSetSummaryList = deserializeAws_restJson1ChangeSetSummaryList(data.ChangeSetSummaryList, context);
   }
@@ -494,7 +494,7 @@ export const deserializeAws_restJson1ListEntitiesCommand = async (
     EntitySummaryList: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EntitySummaryList !== undefined && data.EntitySummaryList !== null) {
     contents.EntitySummaryList = deserializeAws_restJson1EntitySummaryList(data.EntitySummaryList, context);
   }
@@ -554,7 +554,7 @@ export const deserializeAws_restJson1StartChangeSetCommand = async (
     ChangeSetArn: undefined,
     ChangeSetId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
     contents.ChangeSetArn = __expectString(data.ChangeSetArn);
   }

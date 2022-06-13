@@ -82,7 +82,7 @@ export const deserializeAws_restJson1EchoCommand = async (
     $metadata: deserializeMetadata(output),
     string: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.string !== undefined && data.string !== null) {
     contents.string = __expectString(data.string);
   }
@@ -126,7 +126,7 @@ export const deserializeAws_restJson1LengthCommand = async (
     $metadata: deserializeMetadata(output),
     length: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.length !== undefined && data.length !== null) {
     contents.length = __expectInt32(data.length);
   }

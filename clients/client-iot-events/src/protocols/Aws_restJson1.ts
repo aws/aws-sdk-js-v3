@@ -975,7 +975,7 @@ export const deserializeAws_restJson1CreateAlarmModelCommand = async (
     lastUpdateTime: undefined,
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmModelArn !== undefined && data.alarmModelArn !== null) {
     contents.alarmModelArn = __expectString(data.alarmModelArn);
   }
@@ -1049,7 +1049,7 @@ export const deserializeAws_restJson1CreateDetectorModelCommand = async (
     $metadata: deserializeMetadata(output),
     detectorModelConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorModelConfiguration !== undefined && data.detectorModelConfiguration !== null) {
     contents.detectorModelConfiguration = deserializeAws_restJson1DetectorModelConfiguration(
       data.detectorModelConfiguration,
@@ -1114,7 +1114,7 @@ export const deserializeAws_restJson1CreateInputCommand = async (
     $metadata: deserializeMetadata(output),
     inputConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.inputConfiguration !== undefined && data.inputConfiguration !== null) {
     contents.inputConfiguration = deserializeAws_restJson1InputConfiguration(data.inputConfiguration, context);
   }
@@ -1349,7 +1349,7 @@ export const deserializeAws_restJson1DescribeAlarmModelCommand = async (
     status: undefined,
     statusMessage: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmCapabilities !== undefined && data.alarmCapabilities !== null) {
     contents.alarmCapabilities = deserializeAws_restJson1AlarmCapabilities(data.alarmCapabilities, context);
   }
@@ -1447,7 +1447,7 @@ export const deserializeAws_restJson1DescribeDetectorModelCommand = async (
     $metadata: deserializeMetadata(output),
     detectorModel: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorModel !== undefined && data.detectorModel !== null) {
     contents.detectorModel = deserializeAws_restJson1DetectorModel(data.detectorModel, context);
   }
@@ -1503,7 +1503,7 @@ export const deserializeAws_restJson1DescribeDetectorModelAnalysisCommand = asyn
     $metadata: deserializeMetadata(output),
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
   }
@@ -1559,7 +1559,7 @@ export const deserializeAws_restJson1DescribeInputCommand = async (
     $metadata: deserializeMetadata(output),
     input: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.input !== undefined && data.input !== null) {
     contents.input = deserializeAws_restJson1Input(data.input, context);
   }
@@ -1615,7 +1615,7 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     loggingOptions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.loggingOptions !== undefined && data.loggingOptions !== null) {
     contents.loggingOptions = deserializeAws_restJson1LoggingOptions(data.loggingOptions, context);
   }
@@ -1675,7 +1675,7 @@ export const deserializeAws_restJson1GetDetectorModelAnalysisResultsCommand = as
     analysisResults: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.analysisResults !== undefined && data.analysisResults !== null) {
     contents.analysisResults = deserializeAws_restJson1AnalysisResults(data.analysisResults, context);
   }
@@ -1735,7 +1735,7 @@ export const deserializeAws_restJson1ListAlarmModelsCommand = async (
     alarmModelSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmModelSummaries !== undefined && data.alarmModelSummaries !== null) {
     contents.alarmModelSummaries = deserializeAws_restJson1AlarmModelSummaries(data.alarmModelSummaries, context);
   }
@@ -1792,7 +1792,7 @@ export const deserializeAws_restJson1ListAlarmModelVersionsCommand = async (
     alarmModelVersionSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmModelVersionSummaries !== undefined && data.alarmModelVersionSummaries !== null) {
     contents.alarmModelVersionSummaries = deserializeAws_restJson1AlarmModelVersionSummaries(
       data.alarmModelVersionSummaries,
@@ -1855,7 +1855,7 @@ export const deserializeAws_restJson1ListDetectorModelsCommand = async (
     detectorModelSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorModelSummaries !== undefined && data.detectorModelSummaries !== null) {
     contents.detectorModelSummaries = deserializeAws_restJson1DetectorModelSummaries(
       data.detectorModelSummaries,
@@ -1915,7 +1915,7 @@ export const deserializeAws_restJson1ListDetectorModelVersionsCommand = async (
     detectorModelVersionSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorModelVersionSummaries !== undefined && data.detectorModelVersionSummaries !== null) {
     contents.detectorModelVersionSummaries = deserializeAws_restJson1DetectorModelVersionSummaries(
       data.detectorModelVersionSummaries,
@@ -1978,7 +1978,7 @@ export const deserializeAws_restJson1ListInputRoutingsCommand = async (
     nextToken: undefined,
     routedResources: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2038,7 +2038,7 @@ export const deserializeAws_restJson1ListInputsCommand = async (
     inputSummaries: undefined,
     nextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.inputSummaries !== undefined && data.inputSummaries !== null) {
     contents.inputSummaries = deserializeAws_restJson1InputSummaries(data.inputSummaries, context);
   }
@@ -2094,7 +2094,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
   }
@@ -2205,7 +2205,7 @@ export const deserializeAws_restJson1StartDetectorModelAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     analysisId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.analysisId !== undefined && data.analysisId !== null) {
     contents.analysisId = __expectString(data.analysisId);
   }
@@ -2372,7 +2372,7 @@ export const deserializeAws_restJson1UpdateAlarmModelCommand = async (
     lastUpdateTime: undefined,
     status: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmModelArn !== undefined && data.alarmModelArn !== null) {
     contents.alarmModelArn = __expectString(data.alarmModelArn);
   }
@@ -2443,7 +2443,7 @@ export const deserializeAws_restJson1UpdateDetectorModelCommand = async (
     $metadata: deserializeMetadata(output),
     detectorModelConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorModelConfiguration !== undefined && data.detectorModelConfiguration !== null) {
     contents.detectorModelConfiguration = deserializeAws_restJson1DetectorModelConfiguration(
       data.detectorModelConfiguration,
@@ -2505,7 +2505,7 @@ export const deserializeAws_restJson1UpdateInputCommand = async (
     $metadata: deserializeMetadata(output),
     inputConfiguration: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.inputConfiguration !== undefined && data.inputConfiguration !== null) {
     contents.inputConfiguration = deserializeAws_restJson1InputConfiguration(data.inputConfiguration, context);
   }

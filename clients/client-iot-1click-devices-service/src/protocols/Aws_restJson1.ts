@@ -477,7 +477,7 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
     ClaimCode: undefined,
     Total: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.claimCode !== undefined && data.claimCode !== null) {
     contents.ClaimCode = __expectString(data.claimCode);
   }
@@ -530,7 +530,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     DeviceDescription: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceDescription !== undefined && data.deviceDescription !== null) {
     contents.DeviceDescription = deserializeAws_restJson1DeviceDescription(data.deviceDescription, context);
   }
@@ -580,7 +580,7 @@ export const deserializeAws_restJson1FinalizeDeviceClaimCommand = async (
     $metadata: deserializeMetadata(output),
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
   }
@@ -636,7 +636,7 @@ export const deserializeAws_restJson1GetDeviceMethodsCommand = async (
     $metadata: deserializeMetadata(output),
     DeviceMethods: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceMethods !== undefined && data.deviceMethods !== null) {
     contents.DeviceMethods = deserializeAws_restJson1__listOfDeviceMethod(data.deviceMethods, context);
   }
@@ -686,7 +686,7 @@ export const deserializeAws_restJson1InitiateDeviceClaimCommand = async (
     $metadata: deserializeMetadata(output),
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
   }
@@ -739,7 +739,7 @@ export const deserializeAws_restJson1InvokeDeviceMethodCommand = async (
     $metadata: deserializeMetadata(output),
     DeviceMethodResponse: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceMethodResponse !== undefined && data.deviceMethodResponse !== null) {
     contents.DeviceMethodResponse = __expectString(data.deviceMethodResponse);
   }
@@ -799,7 +799,7 @@ export const deserializeAws_restJson1ListDeviceEventsCommand = async (
     Events: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.events !== undefined && data.events !== null) {
     contents.Events = deserializeAws_restJson1__listOfDeviceEvent(data.events, context);
   }
@@ -856,7 +856,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     Devices: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.devices !== undefined && data.devices !== null) {
     contents.Devices = deserializeAws_restJson1__listOfDeviceDescription(data.devices, context);
   }
@@ -909,7 +909,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
   }
@@ -1002,7 +1002,7 @@ export const deserializeAws_restJson1UnclaimDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
   }

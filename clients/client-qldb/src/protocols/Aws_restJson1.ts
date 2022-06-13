@@ -772,7 +772,7 @@ export const deserializeAws_restJson1CancelJournalKinesisStreamCommand = async (
     $metadata: deserializeMetadata(output),
     StreamId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamId !== undefined && data.StreamId !== null) {
     contents.StreamId = __expectString(data.StreamId);
   }
@@ -828,7 +828,7 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
     PermissionsMode: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -948,7 +948,7 @@ export const deserializeAws_restJson1DescribeJournalKinesisStreamCommand = async
     $metadata: deserializeMetadata(output),
     Stream: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Stream !== undefined && data.Stream !== null) {
     contents.Stream = deserializeAws_restJson1JournalKinesisStreamDescription(data.Stream, context);
   }
@@ -998,7 +998,7 @@ export const deserializeAws_restJson1DescribeJournalS3ExportCommand = async (
     $metadata: deserializeMetadata(output),
     ExportDescription: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ExportDescription !== undefined && data.ExportDescription !== null) {
     contents.ExportDescription = deserializeAws_restJson1JournalS3ExportDescription(data.ExportDescription, context);
   }
@@ -1048,7 +1048,7 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
     PermissionsMode: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1116,7 +1116,7 @@ export const deserializeAws_restJson1ExportJournalToS3Command = async (
     $metadata: deserializeMetadata(output),
     ExportId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ExportId !== undefined && data.ExportId !== null) {
     contents.ExportId = __expectString(data.ExportId);
   }
@@ -1164,7 +1164,7 @@ export const deserializeAws_restJson1GetBlockCommand = async (
     Block: undefined,
     Proof: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Block !== undefined && data.Block !== null) {
     contents.Block = deserializeAws_restJson1ValueHolder(data.Block, context);
   }
@@ -1218,7 +1218,7 @@ export const deserializeAws_restJson1GetDigestCommand = async (
     Digest: undefined,
     DigestTipAddress: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Digest !== undefined && data.Digest !== null) {
     contents.Digest = context.base64Decoder(data.Digest);
   }
@@ -1272,7 +1272,7 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
     Proof: undefined,
     Revision: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Proof !== undefined && data.Proof !== null) {
     contents.Proof = deserializeAws_restJson1ValueHolder(data.Proof, context);
   }
@@ -1326,7 +1326,7 @@ export const deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand =
     NextToken: undefined,
     Streams: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1380,7 +1380,7 @@ export const deserializeAws_restJson1ListJournalS3ExportsCommand = async (
     JournalS3Exports: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.JournalS3Exports !== undefined && data.JournalS3Exports !== null) {
     contents.JournalS3Exports = deserializeAws_restJson1JournalS3ExportList(data.JournalS3Exports, context);
   }
@@ -1425,7 +1425,7 @@ export const deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand = asyn
     JournalS3Exports: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.JournalS3Exports !== undefined && data.JournalS3Exports !== null) {
     contents.JournalS3Exports = deserializeAws_restJson1JournalS3ExportList(data.JournalS3Exports, context);
   }
@@ -1470,7 +1470,7 @@ export const deserializeAws_restJson1ListLedgersCommand = async (
     Ledgers: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Ledgers !== undefined && data.Ledgers !== null) {
     contents.Ledgers = deserializeAws_restJson1LedgerList(data.Ledgers, context);
   }
@@ -1514,7 +1514,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
@@ -1561,7 +1561,7 @@ export const deserializeAws_restJson1StreamJournalToKinesisCommand = async (
     $metadata: deserializeMetadata(output),
     StreamId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamId !== undefined && data.StreamId !== null) {
     contents.StreamId = __expectString(data.StreamId);
   }
@@ -1702,7 +1702,7 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1769,7 +1769,7 @@ export const deserializeAws_restJson1UpdateLedgerPermissionsModeCommand = async 
     Name: undefined,
     PermissionsMode: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }

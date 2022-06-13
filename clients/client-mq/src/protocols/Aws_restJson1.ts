@@ -877,7 +877,7 @@ export const deserializeAws_restJson1CreateBrokerCommand = async (
     BrokerArn: undefined,
     BrokerId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerArn !== undefined && data.brokerArn !== null) {
     contents.BrokerArn = __expectString(data.brokerArn);
   }
@@ -941,7 +941,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     LatestRevision: undefined,
     Name: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1110,7 +1110,7 @@ export const deserializeAws_restJson1DeleteBrokerCommand = async (
     $metadata: deserializeMetadata(output),
     BrokerId: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerId !== undefined && data.brokerId !== null) {
     contents.BrokerId = __expectString(data.brokerId);
   }
@@ -1289,7 +1289,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     Tags: undefined,
     Users: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.actionsRequired !== undefined && data.actionsRequired !== null) {
     contents.ActionsRequired = deserializeAws_restJson1__listOfActionRequired(data.actionsRequired, context);
   }
@@ -1434,7 +1434,7 @@ export const deserializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
     MaxResults: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerEngineTypes !== undefined && data.brokerEngineTypes !== null) {
     contents.BrokerEngineTypes = deserializeAws_restJson1__listOfBrokerEngineType(data.brokerEngineTypes, context);
   }
@@ -1492,7 +1492,7 @@ export const deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand = asyn
     MaxResults: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerInstanceOptions !== undefined && data.brokerInstanceOptions !== null) {
     contents.BrokerInstanceOptions = deserializeAws_restJson1__listOfBrokerInstanceOption(
       data.brokerInstanceOptions,
@@ -1560,7 +1560,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     Name: undefined,
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1643,7 +1643,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     Data: undefined,
     Description: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationId !== undefined && data.configurationId !== null) {
     contents.ConfigurationId = __expectString(data.configurationId);
   }
@@ -1709,7 +1709,7 @@ export const deserializeAws_restJson1DescribeUserCommand = async (
     Pending: undefined,
     Username: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerId !== undefined && data.brokerId !== null) {
     contents.BrokerId = __expectString(data.brokerId);
   }
@@ -1775,7 +1775,7 @@ export const deserializeAws_restJson1ListBrokersCommand = async (
     BrokerSummaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerSummaries !== undefined && data.brokerSummaries !== null) {
     contents.BrokerSummaries = deserializeAws_restJson1__listOfBrokerSummary(data.brokerSummaries, context);
   }
@@ -1831,7 +1831,7 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
     NextToken: undefined,
     Revisions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationId !== undefined && data.configurationId !== null) {
     contents.ConfigurationId = __expectString(data.configurationId);
   }
@@ -1895,7 +1895,7 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
     MaxResults: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurations !== undefined && data.configurations !== null) {
     contents.Configurations = deserializeAws_restJson1__listOfConfiguration(data.configurations, context);
   }
@@ -1951,7 +1951,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
   }
@@ -2007,7 +2007,7 @@ export const deserializeAws_restJson1ListUsersCommand = async (
     NextToken: undefined,
     Users: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.brokerId !== undefined && data.brokerId !== null) {
     contents.BrokerId = __expectString(data.brokerId);
   }
@@ -2127,7 +2127,7 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
     MaintenanceWindowStartTime: undefined,
     SecurityGroups: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authenticationStrategy !== undefined && data.authenticationStrategy !== null) {
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
@@ -2218,7 +2218,7 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
     Name: undefined,
     Warnings: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.Arn = __expectString(data.arn);
   }

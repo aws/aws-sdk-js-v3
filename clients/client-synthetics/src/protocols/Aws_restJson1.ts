@@ -517,7 +517,7 @@ export const deserializeAws_restJson1CreateCanaryCommand = async (
     $metadata: deserializeMetadata(output),
     Canary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Canary !== undefined && data.Canary !== null) {
     contents.Canary = deserializeAws_restJson1Canary(data.Canary, context);
   }
@@ -617,7 +617,7 @@ export const deserializeAws_restJson1DescribeCanariesCommand = async (
     Canaries: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Canaries !== undefined && data.Canaries !== null) {
     contents.Canaries = deserializeAws_restJson1Canaries(data.Canaries, context);
   }
@@ -668,7 +668,7 @@ export const deserializeAws_restJson1DescribeCanariesLastRunCommand = async (
     CanariesLastRun: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CanariesLastRun !== undefined && data.CanariesLastRun !== null) {
     contents.CanariesLastRun = deserializeAws_restJson1CanariesLastRun(data.CanariesLastRun, context);
   }
@@ -719,7 +719,7 @@ export const deserializeAws_restJson1DescribeRuntimeVersionsCommand = async (
     NextToken: undefined,
     RuntimeVersions: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -769,7 +769,7 @@ export const deserializeAws_restJson1GetCanaryCommand = async (
     $metadata: deserializeMetadata(output),
     Canary: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Canary !== undefined && data.Canary !== null) {
     contents.Canary = deserializeAws_restJson1Canary(data.Canary, context);
   }
@@ -817,7 +817,7 @@ export const deserializeAws_restJson1GetCanaryRunsCommand = async (
     CanaryRuns: undefined,
     NextToken: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CanaryRuns !== undefined && data.CanaryRuns !== null) {
     contents.CanaryRuns = deserializeAws_restJson1CanaryRuns(data.CanaryRuns, context);
   }
@@ -870,7 +870,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
