@@ -98,9 +98,7 @@ export const constructStack = <Input extends object, Output extends object>(): M
   const getMiddlewareList = (): Array<MiddlewareType<Input, Output>> => {
     const normalizedAbsoluteEntries: Normalized<AbsoluteMiddlewareEntry<Input, Output>, Input, Output>[] = [];
     const normalizedRelativeEntries: Normalized<RelativeMiddlewareEntry<Input, Output>, Input, Output>[] = [];
-    const normalizedEntriesNameMap: {
-      [middlewareName: string]: Normalized<MiddlewareEntry<Input, Output>, Input, Output>;
-    } = {};
+    const normalizedEntriesNameMap: Record<string, Normalized<MiddlewareEntry<Input, Output>, Input, Output>> = {};
 
     absoluteEntries.forEach((entry) => {
       const normalizedEntry = {

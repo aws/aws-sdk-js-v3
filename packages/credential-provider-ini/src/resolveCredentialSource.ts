@@ -11,7 +11,7 @@ import { CredentialProvider } from "@aws-sdk/types";
  * fromIni() is called.
  */
 export const resolveCredentialSource = (credentialSource: string, profileName: string): CredentialProvider => {
-  const sourceProvidersMap: { [name: string]: () => CredentialProvider } = {
+  const sourceProvidersMap: Record<string, () => CredentialProvider> = {
     EcsContainer: fromContainerMetadata,
     Ec2InstanceMetadata: fromInstanceMetadata,
     Environment: fromEnv,
