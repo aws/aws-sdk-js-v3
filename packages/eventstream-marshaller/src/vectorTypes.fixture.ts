@@ -13,6 +13,4 @@ export interface PositiveTestVector {
 
 export type TestVector = NegativeTestVector | PositiveTestVector;
 
-export interface TestVectors {
-  [vectorName: string]: TestVector;
-}
+export type TestVectors = Record<string, TestVector>;
