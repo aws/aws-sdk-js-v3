@@ -7,7 +7,7 @@ export const getCacheKey = async (
   commandName: string,
   config: { credentials: Provider<Credentials> },
   options: {
-    identifiers?: { [key: string]: string };
+    identifiers?: Record<string, string>;
   }
 ) => {
   const { accessKeyId } = await config.credentials();

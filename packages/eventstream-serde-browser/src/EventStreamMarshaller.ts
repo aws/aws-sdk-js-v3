@@ -40,7 +40,7 @@ export class EventStreamMarshaller {
 
   deserialize<T>(
     body: ReadableStream<Uint8Array> | AsyncIterable<Uint8Array>,
-    deserializer: (input: { [event: string]: Message }) => Promise<T>
+    deserializer: (input: Record<string, Message>) => Promise<T>
   ): AsyncIterable<T> {
     const bodyIterable = isReadableStream(body) ? readableStreamtoIterable(body) : body;
     return this.universalMarshaller.deserialize(bodyIterable, deserializer);

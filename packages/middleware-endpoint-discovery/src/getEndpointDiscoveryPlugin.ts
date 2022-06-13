@@ -14,7 +14,7 @@ export interface EndpointDiscoveryMiddlewareConfig {
   isDiscoveredEndpointRequired: boolean;
   clientStack: MiddlewareStack<any, any>;
   options?: HttpHandlerOptions;
-  identifiers?: { [key: string]: string };
+  identifiers?: Record<string, string>;
 }
 
 export const getEndpointDiscoveryPlugin = (

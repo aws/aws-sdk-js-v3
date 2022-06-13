@@ -28,7 +28,7 @@ export const sendMessageBatchMiddleware =
     const resp = await next({ ...args });
     const output = resp.output as unknown as SendMessageBatchResult;
     const messageIds = [];
-    const entries: { [index: string]: SendMessageBatchResultEntry } = {};
+    const entries: Record<string, SendMessageBatchResultEntry> = {};
     if (output.Successful !== undefined) {
       for (const entry of output.Successful) {
         if (entry.Id !== undefined) {

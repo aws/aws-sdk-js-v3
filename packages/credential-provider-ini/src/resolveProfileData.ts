@@ -11,7 +11,7 @@ export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: { [profileName: string]: true } = {}
+  visitedProfiles: Record<string, true> = {}
 ): Promise<Credentials> => {
   const data = profiles[profileName];
 

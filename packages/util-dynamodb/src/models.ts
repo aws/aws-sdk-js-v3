@@ -12,7 +12,7 @@ export interface NumberValue {
 
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
-  | { [key: string]: NativeAttributeValue }
+  | Record<string, NativeAttributeValue>
   | NativeAttributeValue[]
   | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>
   | InstanceType<{ new (...args: any[]): any }>; // accepts any class instance with options.convertClassInstanceToMap

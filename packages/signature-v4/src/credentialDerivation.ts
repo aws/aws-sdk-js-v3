@@ -3,7 +3,7 @@ import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import { KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE } from "./constants";
 
-const signingKeyCache: { [key: string]: Uint8Array } = {};
+const signingKeyCache: Record<string, Uint8Array> = {};
 const cacheQueue: Array<string> = [];
 
 /**

@@ -1,5 +1,5 @@
 const SHORT_TO_HEX: { [key: number]: string } = {};
-const HEX_TO_SHORT: { [key: string]: number } = {};
+const HEX_TO_SHORT: Record<string, number> = {};
 
 for (let i = 0; i < 256; i++) {
   let encodedByte = i.toString(16).toLowerCase();

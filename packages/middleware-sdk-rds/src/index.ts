@@ -18,7 +18,7 @@ import { formatUrl } from "@aws-sdk/util-format-url";
 
 const regARN = /arn:[\w+=/,.@-]+:[\w+=/,.@-]+:([\w+=/,.@-]*)?:[0-9]+:[\w+=/,.@-]+(:[\w+=/,.@-]+)?(:[\w+=/,.@-]+)?/;
 
-const sourceIdToCommandKeyMap: { [key: string]: string } = {
+const sourceIdToCommandKeyMap: Record<string, string> = {
   SourceDBSnapshotIdentifier: "CopyDBSnapshot",
   SourceDBInstanceIdentifier: "CreateDBInstanceReadReplica",
   ReplicationSourceIdentifier: "CreateDBCluster", // This key is optional.

@@ -5,7 +5,7 @@ import { Stringable } from "./stringable";
  * Represents an XML node.
  */
 export class XmlNode {
-  private attributes: { [name: string]: any } = {};
+  private attributes: Record<string, any> = {};
 
   constructor(private name: string, public readonly children: Stringable[] = []) {}
 

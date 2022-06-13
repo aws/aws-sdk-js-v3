@@ -3,7 +3,7 @@ import { promises as fsPromises } from "fs";
 
 const { readFile } = fsPromises;
 
-const filePromisesHash: { [key: string]: Promise<string> } = {};
+const filePromisesHash: Record<string, Promise<string>> = {};
 
 export const slurpFile = (path: string) => {
   if (!filePromisesHash[path]) {

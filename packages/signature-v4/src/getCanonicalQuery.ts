@@ -8,7 +8,7 @@ import { SIGNATURE_HEADER } from "./constants";
  */
 export const getCanonicalQuery = ({ query = {} }: HttpRequest): string => {
   const keys: Array<string> = [];
-  const serialized: { [key: string]: string } = {};
+  const serialized: Record<string, string> = {};
   for (const key of Object.keys(query).sort()) {
     if (key.toLowerCase() === SIGNATURE_HEADER) {
       continue;

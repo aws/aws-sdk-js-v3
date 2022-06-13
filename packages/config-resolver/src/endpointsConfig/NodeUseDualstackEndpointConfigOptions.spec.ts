@@ -14,7 +14,7 @@ describe("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS", () => {
     jest.clearAllMocks();
   });
 
-  const test = (func: Function, obj: { [key: string]: string }, key: string, type: SelectorType) => {
+  const test = (func: Function, obj: Record<string, string>, key: string, type: SelectorType) => {
     it.each([true, false, undefined])("returns %s", (output) => {
       (booleanSelector as jest.Mock).mockReturnValueOnce(output);
       expect(func(obj)).toEqual(output);

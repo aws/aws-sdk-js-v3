@@ -202,7 +202,7 @@ describe("convertToNative", () => {
             stringSet: new Set(["one", "two", "three"]),
           },
         },
-      ] as { input: { [key: string]: AttributeValue }; output: { [key: string]: NativeAttributeValue } }[]
+      ] as { input: Record<string, AttributeValue>; output: Record<string, NativeAttributeValue> }[]
     ).forEach(({ input, output }) => {
       it(`testing map: ${input}`, () => {
         expect(convertToNative({ M: input })).toEqual(output);

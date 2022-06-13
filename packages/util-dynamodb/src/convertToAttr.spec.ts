@@ -349,7 +349,7 @@ describe("convertToAttr", () => {
             stringSet: { SS: ["one", "two", "three"] },
           },
         },
-      ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]
+      ] as { input: Record<string, NativeAttributeValue>; output: Record<string, AttributeValue> }[]
     ).forEach(({ input, output }) => {
       [true, false].forEach((useObjectCreate) => {
         const inputObject = useObjectCreate ? Object.create(input) : input;
@@ -506,7 +506,7 @@ describe("convertToAttr", () => {
           private readonly bigintAttr: bigint,
           private readonly binaryAttr: Uint8Array,
           private readonly listAttr: any[],
-          private readonly mapAttr: { [key: string]: any }
+          private readonly mapAttr: Record<string, any>
         ) {}
         public exampleMethod() {
           return "This method won't be marshalled";
