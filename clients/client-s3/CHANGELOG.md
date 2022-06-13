@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
+
+
+### Bug Fixes
+
+* **s3:** update endpoints for writeGetObjectResponse for object lambda ([#3662](https://github.com/aws/aws-sdk-js-v3/issues/3662)) ([bb9f18e](https://github.com/aws/aws-sdk-js-v3/commit/bb9f18edb6226b65b146d81be3b91cb3581bc3b3))
+
+
+
+
+
 # [3.107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.106.0...v3.107.0) (2022-06-08)
 
 

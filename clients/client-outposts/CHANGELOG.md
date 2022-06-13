@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
+
+
+### Features
+
+* **client-outposts:** This release adds API operations AWS uses to install Outpost servers. ([a04c290](https://github.com/aws/aws-sdk-js-v3/commit/a04c29088d100cd2e66c608d36afea52df60dc8f))
+
+
+
+
+
 # [3.105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.104.0...v3.105.0) (2022-06-06)
 
 
