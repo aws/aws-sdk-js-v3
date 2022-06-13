@@ -43,7 +43,7 @@ export class ServiceException extends Error implements SmithyException, Metadata
  */
 export const decorateServiceException = <E extends ServiceException>(
   exception: E,
-  additions: { [key: string]: any } = {}
+  additions: Record<string, any> = {}
 ): E => {
   // apply additional properties to deserialized ServiceException object
   Object.entries(additions)

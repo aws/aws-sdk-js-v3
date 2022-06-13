@@ -14,7 +14,7 @@ import {
 } from "./constants";
 import { Conditions as PolicyEntry } from "./types";
 
-type Fields = { [key: string]: string };
+type Fields = Record<string, string>;
 
 export interface PresignedPostOptions {
   Bucket: string;

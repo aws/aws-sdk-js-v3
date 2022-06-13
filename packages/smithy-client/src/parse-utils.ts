@@ -195,7 +195,7 @@ export const expectNonNull = <T>(value: T | null | undefined, location?: string)
  * @returns The value if it's an object, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export const expectObject = (value: any): { [key: string]: any } | undefined => {
+export const expectObject = (value: any): Record<string, any> | undefined => {
   if (value === null || value === undefined) {
     return undefined;
   }
@@ -231,7 +231,7 @@ export const expectString = (value: any): string | undefined => {
  * @return the value if it's a union, undefined if it's null/undefined, otherwise
  *  an error is thrown.
  */
-export const expectUnion = (value: unknown): { [key: string]: any } | undefined => {
+export const expectUnion = (value: unknown): Record<string, any> | undefined => {
   if (value === null || value === undefined) {
     return undefined;
   }

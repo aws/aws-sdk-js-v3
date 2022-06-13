@@ -1,4 +1,4 @@
-const alphabetByEncoding: { [key: string]: number } = {};
+const alphabetByEncoding: Record<string, number> = {};
 const alphabetByValue: Array<string> = new Array(64);
 
 for (let i = 0, start = "A".charCodeAt(0), limit = "Z".charCodeAt(0); i + start <= limit; i++) {

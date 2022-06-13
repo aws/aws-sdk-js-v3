@@ -68,7 +68,7 @@ export const resolveAssumeRoleCredentials = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: { [profileName: string]: true } = {}
+  visitedProfiles: Record<string, true> = {}
 ) => {
   const data = profiles[profileName];
 

@@ -7,7 +7,7 @@ export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscover
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 }
 
-const requestQueue: { [key: string]: { resolve: Function; reject: Function }[] } = {};
+const requestQueue: Record<string, { resolve: Function; reject: Function }[]> = {};
 
 export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryResolvedConfig & PreviouslyResolved,

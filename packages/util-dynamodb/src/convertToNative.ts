@@ -26,7 +26,7 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
         case "L":
           return convertList(value as AttributeValue[], options);
         case "M":
-          return convertMap(value as { [key: string]: AttributeValue }, options);
+          return convertMap(value as Record<string, AttributeValue>, options);
         case "NS":
           return new Set((value as string[]).map((item) => convertNumber(item, options)));
         case "BS":
@@ -70,11 +70,11 @@ const convertList = (list: AttributeValue[], options?: unmarshallOptions): Nativ
   list.map((item) => convertToNative(item, options));
 
 const convertMap = (
-  map: { [key: string]: AttributeValue },
+  map: Record<string, AttributeValue>,
   options?: unmarshallOptions
-): { [key: string]: NativeAttributeValue } =>
+): Record<string, NativeAttributeValue> =>
   Object.entries(map).reduce(
-    (acc: { [key: string]: NativeAttributeValue }, [key, value]: [string, AttributeValue]) => ({
+    (acc: Record<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) => ({
       ...acc,
       [key]: convertToNative(value, options),
     }),

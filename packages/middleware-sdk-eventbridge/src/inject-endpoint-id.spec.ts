@@ -16,7 +16,7 @@ describe("injectEndpointIdMiddleware", () => {
 
   const invokeMiddleware = async (
     config: InjectEndpointIdMiddlewareConfig
-  ): Promise<{ hostname: string; middlewareContext: { [key: string]: any } }> => {
+  ): Promise<{ hostname: string; middlewareContext: Record<string, any> }> => {
     const mockNextHandler = jest.fn();
     const middlewareContext = {} as any;
     const handler = injectEndpointIdMiddleware({ ...config })(mockNextHandler, middlewareContext);

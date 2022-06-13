@@ -3,11 +3,11 @@ import { Encoder, Message } from "@aws-sdk/types";
 
 export type UnmarshalledStreamOptions<T> = {
   eventMarshaller: EventMarshaller;
-  deserializer: (input: { [name: string]: Message }) => Promise<T>;
+  deserializer: (input: Record<string, Message>) => Promise<T>;
   toUtf8: Encoder;
 };
 
-export function getUnmarshalledStream<T extends { [key: string]: any }>(
+export function getUnmarshalledStream<T extends Record<string, any>>(
   source: AsyncIterable<Uint8Array>,
   options: UnmarshalledStreamOptions<T>
 ): AsyncIterable<T> {

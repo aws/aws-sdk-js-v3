@@ -90,7 +90,7 @@ export interface EventStreamSerdeContext {
 }
 
 export interface EventStreamMarshaller {
-  deserialize: (body: any, deserializer: (input: { [event: string]: Message }) => any) => AsyncIterable<any>;
+  deserialize: (body: any, deserializer: (input: Record<string, Message>) => any) => AsyncIterable<any>;
   serialize: (input: AsyncIterable<any>, serializer: (event: any) => Message) => any;
 }
 

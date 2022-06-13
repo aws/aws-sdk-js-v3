@@ -11,7 +11,7 @@ export enum SelectorType {
  *
  * @internal
  */
-export const booleanSelector = (obj: { [key: string]: string | undefined }, key: string, type: SelectorType) => {
+export const booleanSelector = (obj: Record<string, string | undefined>, key: string, type: SelectorType) => {
   if (!(key in obj)) return undefined;
   if (obj[key] === "true") return true;
   if (obj[key] === "false") return false;

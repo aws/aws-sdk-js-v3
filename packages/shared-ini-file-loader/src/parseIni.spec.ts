@@ -12,7 +12,7 @@ describe(parseIni.name, () => {
     const mockProfileName = "mock_profile_name";
     const mockProfileData = { key: "value" };
 
-    const getMockProfileData = (profileName: string, profileData: { [key: string]: string }) =>
+    const getMockProfileData = (profileName: string, profileData: Record<string, string>) =>
       `[${profileName}]\n${Object.entries(profileData)
         .map(([key, value]) => `${key} = ${value}`)
         .join("\n")}\n`;

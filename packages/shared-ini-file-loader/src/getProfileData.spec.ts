@@ -29,7 +29,7 @@ describe(getProfileData.name, () => {
     const getMockOutput = (profileNames: string[]) =>
       profileNames.reduce((acc, profileName) => ({ ...acc, [profileName]: getMockProfileData(profileName) }), {});
 
-    const getMockInput = (mockOutput: { [key: string]: { [key: string]: string } }) =>
+    const getMockInput = (mockOutput: Record<string, Record<string, string>>) =>
       Object.entries(mockOutput).reduce((acc, [key, value]) => ({ ...acc, [`profile ${key}`]: value }), {});
 
     it("single profile", () => {

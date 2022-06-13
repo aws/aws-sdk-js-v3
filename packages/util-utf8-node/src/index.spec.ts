@@ -1,6 +1,6 @@
 import { fromUtf8, toUtf8 } from "./";
 
-const utf8StringsToByteArrays: { [key: string]: Uint8Array } = {
+const utf8StringsToByteArrays: Record<string, Uint8Array> = {
   ABC: new Uint8Array(["A".charCodeAt(0), "B".charCodeAt(0), "C".charCodeAt(0)]),
   "🐎👱❤": new Uint8Array([240, 159, 144, 142, 240, 159, 145, 177, 226, 157, 164]),
   "☃💩": new Uint8Array([226, 152, 131, 240, 159, 146, 169]),

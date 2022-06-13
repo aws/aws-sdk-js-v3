@@ -32,6 +32,7 @@ export interface NormalizedRelativeEntry<Input extends object, Output extends ob
   priority: null;
 }
 
-export type NamedMiddlewareEntriesMap<Input extends object, Output extends object> = {
-  [key: string]: MiddlewareEntry<Input, Output>;
-};
+export type NamedMiddlewareEntriesMap<Input extends object, Output extends object> = Record<
+  string,
+  MiddlewareEntry<Input, Output>
+>;
