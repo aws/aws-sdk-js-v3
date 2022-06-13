@@ -9,7 +9,7 @@ import { MetadataBearer } from "./response";
  * document types and they SHOULD serialize document types inline as normal
  * JSON values.
  */
-export type DocumentType = null | boolean | number | string | DocumentType[] | Record<string, DocumentType>;
+export type DocumentType = null | boolean | number | string | DocumentType[] | { [prop: string]: DocumentType };
 
 /**
  * A structure shape with the error trait.
