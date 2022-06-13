@@ -156,6 +156,12 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    protected void serializeInputEventDocumentPayload(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.write("message.body = context.utf8Decoder(body.toString());");
+    }
+
+    @Override
     protected void serializeOutputDocumentBody(
             GenerationContext context,
             OperationShape operation,

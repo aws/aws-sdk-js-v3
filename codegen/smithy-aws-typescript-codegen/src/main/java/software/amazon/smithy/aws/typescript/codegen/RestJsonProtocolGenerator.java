@@ -184,6 +184,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    protected void serializeInputEventDocumentPayload(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.write("message.body = context.utf8Decoder(JSON.stringify(body));");
+    }
+
+    @Override
     protected void serializeOutputPayload(
             GenerationContext context,
             OperationShape operation,

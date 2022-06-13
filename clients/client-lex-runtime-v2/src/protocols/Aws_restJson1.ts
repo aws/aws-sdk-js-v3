@@ -1040,7 +1040,8 @@ const serializeAws_restJson1AudioInputEvent_event = (input: AudioInputEvent, con
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1AudioInputEvent(input, context);
+  const body = serializeAws_restJson1AudioInputEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const serializeAws_restJson1ConfigurationEvent_event = (
@@ -1054,7 +1055,8 @@ const serializeAws_restJson1ConfigurationEvent_event = (
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1ConfigurationEvent(input, context);
+  const body = serializeAws_restJson1ConfigurationEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const serializeAws_restJson1DisconnectionEvent_event = (
@@ -1068,7 +1070,8 @@ const serializeAws_restJson1DisconnectionEvent_event = (
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1DisconnectionEvent(input, context);
+  const body = serializeAws_restJson1DisconnectionEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, context: __SerdeContext): __Message => {
@@ -1079,7 +1082,8 @@ const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, conte
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1DTMFInputEvent(input, context);
+  const body = serializeAws_restJson1DTMFInputEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const serializeAws_restJson1PlaybackCompletionEvent_event = (
@@ -1093,7 +1097,8 @@ const serializeAws_restJson1PlaybackCompletionEvent_event = (
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1PlaybackCompletionEvent(input, context);
+  const body = serializeAws_restJson1PlaybackCompletionEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
@@ -1104,7 +1109,8 @@ const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, conte
     },
     body: new Uint8Array(),
   };
-  message.body = serializeAws_restJson1TextInputEvent(input, context);
+  const body = serializeAws_restJson1TextInputEvent(input, context);
+  message.body = context.utf8Decoder(JSON.stringify(body));
   return message;
 };
 const deserializeAws_restJson1AccessDeniedException_event = async (
