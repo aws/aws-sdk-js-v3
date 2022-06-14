@@ -510,3 +510,21 @@ await waitUntilBucketExists({ client, maxWaitTime: 60 }, { Bucket });
 ```
 
 You can find everything of how to configure the waiters in the [blog post of waiters in v3 SDK](https://aws.amazon.com/blogs/developer/waiters-in-modular-aws-sdk-for-javascript/).
+
+## CloudFront Signer
+
+In v2, you can sign the request to access restricted CloudFront distributions with [`AWS.CloudFront.Signer`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudFront/Signer.html).
+
+In v3, you have the same utilities provided in the [`@aws-sdk/cloudfront-signer`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_cloudfront_signer.html) package.
+
+## RDS Signer
+
+In v2, you can generate the auth token to an RDS database using [`AWS.RDS.Signer`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RDS/Signer.html).
+
+In v3, the similar utility class is available in [`@aws-sdk/rds-signer` package](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.html).
+
+## Polly Signer
+
+In v2, you can generate a signed URL to the speech synthesized by AWS Polly service with [`AWS.Polly.Presigner` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html).
+
+In v3, the similar utility function is available in [`@aws-sdk/polly-request-presigner` package](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_polly_request_presigner.html)
