@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AccelerationSettings, HopDestination } from "./models_0";
 import {
+  Job,
   JobTemplate,
   JobTemplateListBy,
   JobTemplateSettings,
@@ -13,6 +14,27 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface ListJobsResponse {
+  /**
+   * List of jobs
+   */
+  Jobs?: Job[];
+
+  /**
+   * Use this string to request the next batch of jobs.
+   */
+  NextToken?: string;
+}
+
+export namespace ListJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface ListJobTemplatesRequest {
   /**

@@ -2437,6 +2437,13 @@ export namespace AudioSelectorGroup {
   });
 }
 
+export enum AudioDurationCorrection {
+  AUTO = "AUTO",
+  DISABLED = "DISABLED",
+  FRAME = "FRAME",
+  TRACK = "TRACK",
+}
+
 export enum AudioDefaultSelection {
   DEFAULT = "DEFAULT",
   NOT_DEFAULT = "NOT_DEFAULT",
@@ -2482,6 +2489,11 @@ export enum AudioSelectorType {
  * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
  */
 export interface AudioSelector {
+  /**
+   * Apply audio timing corrections to help synchronize audio and video in your output. To apply timing corrections, your input must meet the following requirements: * Container: MP4, or MOV, with an accurate time-to-sample (STTS) table. * Audio track: AAC. Choose from the following audio timing correction settings: * Disabled (Default): Apply no correction. * Auto: Recommended for most inputs. MediaConvert analyzes the audio timing in your input and determines which correction setting to use, if needed. * Track: Adjust the duration of each audio frame by a constant amount to align the audio track length with STTS duration. Track-level correction does not affect pitch, and is recommended for tonal audio content such as music. * Frame: Adjust the duration of each audio frame by a variable amount to align audio frames with STTS timestamps. No corrections are made to already-aligned frames. Frame-level correction may affect the pitch of corrected frames, and is recommended for atonal audio content such as speech or percussion.
+   */
+  AudioDurationCorrection?: AudioDurationCorrection | string;
+
   /**
    * Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
    */
@@ -3108,7 +3120,7 @@ export enum InputTimecodeSource {
 }
 
 /**
- * Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both.
+ * When you include Video generator, MediaConvert creates a video input with black frames. Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. You can specify Video generator, or you can specify an Input file, but you cannot specify both. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-generator.html
  */
 export interface InputVideoGenerator {
   /**
@@ -3411,7 +3423,7 @@ export interface Input {
   TimecodeStart?: string;
 
   /**
-   * Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both.
+   * When you include Video generator, MediaConvert creates a video input with black frames. Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. You can specify Video generator, or you can specify an Input file, but you cannot specify both. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-generator.html
    */
   VideoGenerator?: InputVideoGenerator;
 
@@ -5740,9 +5752,4 @@ export enum M2tsEsRateInPes {
 export enum M2tsForceTsVideoEbpOrder {
   DEFAULT = "DEFAULT",
   FORCE = "FORCE",
-}
-
-export enum M2tsKlvMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
 }

@@ -38,7 +38,6 @@ import {
   M2tsEbpPlacement,
   M2tsEsRateInPes,
   M2tsForceTsVideoEbpOrder,
-  M2tsKlvMetadata,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -47,6 +46,11 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum M2tsKlvMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
 
 export enum M2tsNielsenId3 {
   INSERT = "INSERT",
@@ -5508,27 +5512,6 @@ export namespace ListJobsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobsResponse {
-  /**
-   * List of jobs
-   */
-  Jobs?: Job[];
-
-  /**
-   * Use this string to request the next batch of jobs.
-   */
-  NextToken?: string;
-}
-
-export namespace ListJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
 }

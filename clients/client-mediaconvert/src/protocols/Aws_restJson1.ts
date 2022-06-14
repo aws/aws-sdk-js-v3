@@ -3441,6 +3441,8 @@ const serializeAws_restJson1AudioNormalizationSettings = (
 
 const serializeAws_restJson1AudioSelector = (input: AudioSelector, context: __SerdeContext): any => {
   return {
+    ...(input.AudioDurationCorrection !== undefined &&
+      input.AudioDurationCorrection !== null && { audioDurationCorrection: input.AudioDurationCorrection }),
     ...(input.CustomLanguageCode !== undefined &&
       input.CustomLanguageCode !== null && { customLanguageCode: input.CustomLanguageCode }),
     ...(input.DefaultSelection !== undefined &&
@@ -6987,6 +6989,7 @@ const deserializeAws_restJson1AudioNormalizationSettings = (
 
 const deserializeAws_restJson1AudioSelector = (output: any, context: __SerdeContext): AudioSelector => {
   return {
+    AudioDurationCorrection: __expectString(output.audioDurationCorrection),
     CustomLanguageCode: __expectString(output.customLanguageCode),
     DefaultSelection: __expectString(output.defaultSelection),
     ExternalAudioFileInput: __expectString(output.externalAudioFileInput),
