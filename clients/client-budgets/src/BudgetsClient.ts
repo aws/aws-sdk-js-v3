@@ -309,7 +309,7 @@ type BudgetsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
 export interface BudgetsClientResolvedConfig extends BudgetsClientResolvedConfigType {}
 
 /**
- * <p>The Amazon Web Services Budgets API enables you to use Amazon Web Services Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Amazon Web Services Budgets. </p>
+ * <p>Use the Amazon Web Services Budgets API to plan your service usage, service costs, and instance reservations. This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Amazon Web Services Budgets feature. </p>
  * 		       <p>Budgets provide you with a way to see the following information:</p>
  * 		       <ul>
  *             <li>
@@ -345,13 +345,13 @@ export interface BudgetsClientResolvedConfig extends BudgetsClientResolvedConfig
  * 			         </li>
  *          </ul>
  * 		       <p>Service Endpoint</p>
- * 		       <p>The Amazon Web Services Budgets API provides the following endpoint:</p>
+ * 	        <p>The Amazon Web Services Budgets API provides the following endpoint:</p>
  * 		       <ul>
  *             <li>
  * 				           <p>https://budgets.amazonaws.com</p>
  * 			         </li>
  *          </ul>
- * 		       <p>For information about costs that are associated with the Amazon Web Services Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost Management Pricing</a>.</p>
+ * 	        <p>For information about costs that are associated with the Amazon Web Services Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost Management Pricing</a>.</p>
  */
 export class BudgetsClient extends __Client<
   __HttpHandlerOptions,

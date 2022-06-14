@@ -1031,6 +1031,32 @@ export class InvalidParameterException extends __BaseException {
   }
 }
 
+/**
+ * <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message the exception carries.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface CreateBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>

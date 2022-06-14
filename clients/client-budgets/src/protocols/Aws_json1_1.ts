@@ -137,6 +137,7 @@ import {
   Spend,
   SsmActionDefinition,
   Subscriber,
+  ThrottlingException,
   TimePeriod,
   UpdateBudgetActionRequest,
   UpdateBudgetActionResponse,
@@ -491,6 +492,9 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.budgets#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -549,6 +553,9 @@ const deserializeAws_json1_1CreateBudgetActionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -607,6 +614,9 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -665,6 +675,9 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -717,6 +730,9 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -772,6 +788,9 @@ const deserializeAws_json1_1DeleteBudgetActionCommandError = async (
     case "ResourceLockedException":
     case "com.amazonaws.budgets#ResourceLockedException":
       throw await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -824,6 +843,9 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -876,6 +898,9 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -928,6 +953,9 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -980,6 +1008,9 @@ const deserializeAws_json1_1DescribeBudgetActionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1035,6 +1066,9 @@ const deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1087,6 +1121,9 @@ const deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError = async 
     case "InvalidParameterException":
     case "com.amazonaws.budgets#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1142,6 +1179,9 @@ const deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1200,6 +1240,9 @@ const deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommandError = 
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1258,6 +1301,9 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1316,6 +1362,9 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1374,6 +1423,9 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1432,6 +1484,9 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1487,6 +1542,9 @@ const deserializeAws_json1_1ExecuteBudgetActionCommandError = async (
     case "ResourceLockedException":
     case "com.amazonaws.budgets#ResourceLockedException":
       throw await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1539,6 +1597,9 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1594,6 +1655,9 @@ const deserializeAws_json1_1UpdateBudgetActionCommandError = async (
     case "ResourceLockedException":
     case "com.amazonaws.budgets#ResourceLockedException":
       throw await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1649,6 +1713,9 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1704,6 +1771,9 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.budgets#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1826,6 +1896,19 @@ const deserializeAws_json1_1ResourceLockedExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceLockedException(body, context);
   const exception = new ResourceLockedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3155,6 +3238,12 @@ const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): 
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
