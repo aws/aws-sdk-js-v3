@@ -107,6 +107,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { UpdateAlertCommand, UpdateAlertCommandInput, UpdateAlertCommandOutput } from "./commands/UpdateAlertCommand";
 import {
   UpdateAnomalyDetectorCommand,
   UpdateAnomalyDetectorCommandInput,
@@ -925,6 +926,32 @@ export class LookoutMetrics extends LookoutMetricsClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Make changes to an existing alert.</p>
+   */
+  public updateAlert(args: UpdateAlertCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAlertCommandOutput>;
+  public updateAlert(args: UpdateAlertCommandInput, cb: (err: any, data?: UpdateAlertCommandOutput) => void): void;
+  public updateAlert(
+    args: UpdateAlertCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAlertCommandOutput) => void
+  ): void;
+  public updateAlert(
+    args: UpdateAlertCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAlertCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAlertCommandOutput) => void
+  ): Promise<UpdateAlertCommandOutput> | void {
+    const command = new UpdateAlertCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -71,6 +71,20 @@ export interface SNSConfiguration {
 
   /**
    * <p>The format of the SNS topic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p>
+   *             </li>
+   *          </ul>
    */
   SnsFormat?: SnsFormat | string;
 }
@@ -310,6 +324,54 @@ export enum AggregationFunction {
   SUM = "SUM",
 }
 
+/**
+ * <p>The dimension filter, containing DimensionName and DimensionValueList.</p>
+ */
+export interface DimensionFilter {
+  /**
+   * <p>The name of the dimension to filter on.</p>
+   */
+  DimensionName?: string;
+
+  /**
+   * <p>The list of values for the dimension specified in DimensionName that you want to filter on.</p>
+   */
+  DimensionValueList?: string[];
+}
+
+export namespace DimensionFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DimensionFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration of the alert filters.</p>
+ */
+export interface AlertFilters {
+  /**
+   * <p>The list of measures that you want to get alerts for.</p>
+   */
+  MetricList?: string[];
+
+  /**
+   * <p>The list of DimensionFilter objects that are used for dimension-based filtering.</p>
+   */
+  DimensionFilterList?: DimensionFilter[];
+}
+
+export namespace AlertFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlertFilters): any => ({
+    ...obj,
+  });
+}
+
 export enum AlertStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
@@ -373,6 +435,11 @@ export interface Alert {
    * <p>The time at which the alert was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The configuration of the alert filters, containing MetricList and DimensionFilter.</p>
+   */
+  AlertFilters?: AlertFilters;
 }
 
 export namespace Alert {
@@ -1096,7 +1163,7 @@ export interface CreateAlertRequest {
   /**
    * <p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>
    */
-  AlertSensitivityThreshold: number | undefined;
+  AlertSensitivityThreshold?: number;
 
   /**
    * <p>A description of the alert.</p>
@@ -1117,6 +1184,11 @@ export interface CreateAlertRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the alert.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration of the alert filters, containing MetricList and DimensionFilterList.</p>
+   */
+  AlertFilters?: AlertFilters;
 }
 
 export namespace CreateAlertRequest {
@@ -3064,6 +3136,58 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAlertRequest {
+  /**
+   * <p>The ARN of the alert to update.</p>
+   */
+  AlertArn: string | undefined;
+
+  /**
+   * <p>A description of the alert.</p>
+   */
+  AlertDescription?: string;
+
+  /**
+   * <p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>
+   */
+  AlertSensitivityThreshold?: number;
+
+  /**
+   * <p>Action that will be triggered when there is an alert.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>The configuration of the alert filters, containing MetricList and DimensionFilterList.</p>
+   */
+  AlertFilters?: AlertFilters;
+}
+
+export namespace UpdateAlertRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAlertRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAlertResponse {
+  /**
+   * <p>The ARN of the updated alert.</p>
+   */
+  AlertArn?: string;
+}
+
+export namespace UpdateAlertResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAlertResponse): any => ({
     ...obj,
   });
 }

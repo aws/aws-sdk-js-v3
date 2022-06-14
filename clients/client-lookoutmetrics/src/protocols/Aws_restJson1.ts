@@ -83,6 +83,7 @@ import {
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "../commands/PutFeedbackCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAlertCommandInput, UpdateAlertCommandOutput } from "../commands/UpdateAlertCommand";
 import {
   UpdateAnomalyDetectorCommandInput,
   UpdateAnomalyDetectorCommandOutput,
@@ -93,6 +94,7 @@ import {
   AccessDeniedException,
   Action,
   Alert,
+  AlertFilters,
   AlertSummary,
   AnomalyDetectorConfig,
   AnomalyDetectorConfigSummary,
@@ -120,6 +122,7 @@ import {
   DetectedMetricSource,
   DetectedS3SourceConfig,
   DimensionContribution,
+  DimensionFilter,
   DimensionNameValue,
   DimensionValueContribution,
   ExecutionStatus,
@@ -216,6 +219,8 @@ export const serializeAws_restJson1CreateAlertCommand = async (
       input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
     ...(input.AlertDescription !== undefined &&
       input.AlertDescription !== null && { AlertDescription: input.AlertDescription }),
+    ...(input.AlertFilters !== undefined &&
+      input.AlertFilters !== null && { AlertFilters: serializeAws_restJson1AlertFilters(input.AlertFilters, context) }),
     ...(input.AlertName !== undefined && input.AlertName !== null && { AlertName: input.AlertName }),
     ...(input.AlertSensitivityThreshold !== undefined &&
       input.AlertSensitivityThreshold !== null && { AlertSensitivityThreshold: input.AlertSensitivityThreshold }),
@@ -903,6 +908,38 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateAlertCommand = async (
+  input: UpdateAlertCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateAlert";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Action !== undefined &&
+      input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
+    ...(input.AlertArn !== undefined && input.AlertArn !== null && { AlertArn: input.AlertArn }),
+    ...(input.AlertDescription !== undefined &&
+      input.AlertDescription !== null && { AlertDescription: input.AlertDescription }),
+    ...(input.AlertFilters !== undefined &&
+      input.AlertFilters !== null && { AlertFilters: serializeAws_restJson1AlertFilters(input.AlertFilters, context) }),
+    ...(input.AlertSensitivityThreshold !== undefined &&
+      input.AlertSensitivityThreshold !== null && { AlertSensitivityThreshold: input.AlertSensitivityThreshold }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2564,6 +2601,62 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateAlertCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAlertCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAlertCommandError(output, context);
+  }
+  const contents: UpdateAlertCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AlertArn: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AlertArn !== undefined && data.AlertArn !== null) {
+    contents.AlertArn = __expectString(data.AlertArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAlertCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAlertCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutmetrics#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutmetrics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lookoutmetrics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutmetrics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateAnomalyDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2834,6 +2927,17 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
   };
 };
 
+const serializeAws_restJson1AlertFilters = (input: AlertFilters, context: __SerdeContext): any => {
+  return {
+    ...(input.DimensionFilterList !== undefined &&
+      input.DimensionFilterList !== null && {
+        DimensionFilterList: serializeAws_restJson1DimensionFilterList(input.DimensionFilterList, context),
+      }),
+    ...(input.MetricList !== undefined &&
+      input.MetricList !== null && { MetricList: serializeAws_restJson1MetricNameList(input.MetricList, context) }),
+  };
+};
+
 const serializeAws_restJson1AnomalyDetectorConfig = (input: AnomalyDetectorConfig, context: __SerdeContext): any => {
   return {
     ...(input.AnomalyDetectorFrequency !== undefined &&
@@ -2942,7 +3046,39 @@ const serializeAws_restJson1CsvFormatDescriptor = (input: CsvFormatDescriptor, c
   };
 };
 
+const serializeAws_restJson1DimensionFilter = (input: DimensionFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.DimensionName !== undefined && input.DimensionName !== null && { DimensionName: input.DimensionName }),
+    ...(input.DimensionValueList !== undefined &&
+      input.DimensionValueList !== null && {
+        DimensionValueList: serializeAws_restJson1DimensionValueList(input.DimensionValueList, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1DimensionFilterList = (input: DimensionFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DimensionFilter(entry, context);
+    });
+};
+
 const serializeAws_restJson1DimensionList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1DimensionValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3020,6 +3156,17 @@ const serializeAws_restJson1MetricList = (input: Metric[], context: __SerdeConte
         return null as any;
       }
       return serializeAws_restJson1Metric(entry, context);
+    });
+};
+
+const serializeAws_restJson1MetricNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -3219,6 +3366,10 @@ const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Al
         : undefined,
     AlertArn: __expectString(output.AlertArn),
     AlertDescription: __expectString(output.AlertDescription),
+    AlertFilters:
+      output.AlertFilters !== undefined && output.AlertFilters !== null
+        ? deserializeAws_restJson1AlertFilters(output.AlertFilters, context)
+        : undefined,
     AlertName: __expectString(output.AlertName),
     AlertSensitivityThreshold: __expectInt32(output.AlertSensitivityThreshold),
     AlertStatus: __expectString(output.AlertStatus),
@@ -3231,6 +3382,19 @@ const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Al
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AlertFilters = (output: any, context: __SerdeContext): AlertFilters => {
+  return {
+    DimensionFilterList:
+      output.DimensionFilterList !== undefined && output.DimensionFilterList !== null
+        ? deserializeAws_restJson1DimensionFilterList(output.DimensionFilterList, context)
+        : undefined,
+    MetricList:
+      output.MetricList !== undefined && output.MetricList !== null
+        ? deserializeAws_restJson1MetricNameList(output.MetricList, context)
         : undefined,
   } as any;
 };
@@ -3605,6 +3769,28 @@ const deserializeAws_restJson1DimensionContributionList = (
   return retVal;
 };
 
+const deserializeAws_restJson1DimensionFilter = (output: any, context: __SerdeContext): DimensionFilter => {
+  return {
+    DimensionName: __expectString(output.DimensionName),
+    DimensionValueList:
+      output.DimensionValueList !== undefined && output.DimensionValueList !== null
+        ? deserializeAws_restJson1DimensionValueList(output.DimensionValueList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DimensionFilterList = (output: any, context: __SerdeContext): DimensionFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DimensionFilter(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DimensionList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3657,6 +3843,18 @@ const deserializeAws_restJson1DimensionValueContributionList = (
         return null as any;
       }
       return deserializeAws_restJson1DimensionValueContribution(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DimensionValueList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -3832,6 +4030,18 @@ const deserializeAws_restJson1MetricList = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_restJson1Metric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricNameList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };

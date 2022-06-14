@@ -118,6 +118,7 @@ import {
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAlertCommandInput, UpdateAlertCommandOutput } from "./commands/UpdateAlertCommand";
 import {
   UpdateAnomalyDetectorCommandInput,
   UpdateAnomalyDetectorCommandOutput,
@@ -152,6 +153,7 @@ export type ServiceInputTypes =
   | PutFeedbackCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAlertCommandInput
   | UpdateAnomalyDetectorCommandInput
   | UpdateMetricSetCommandInput;
 
@@ -182,6 +184,7 @@ export type ServiceOutputTypes =
   | PutFeedbackCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAlertCommandOutput
   | UpdateAnomalyDetectorCommandOutput
   | UpdateMetricSetCommandOutput;
 

@@ -25,5 +25,6 @@ export * from "./ListTagsForResourceCommand";
 export * from "./PutFeedbackCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateAlertCommand";
 export * from "./UpdateAnomalyDetectorCommand";
 export * from "./UpdateMetricSetCommand";
