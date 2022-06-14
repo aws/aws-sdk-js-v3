@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
+
+
+### Bug Fixes
+
+* **client-lex-runtime-v2:** serialize eventstream payload properly ([#3655](https://github.com/aws/aws-sdk-js-v3/issues/3655)) ([757f883](https://github.com/aws/aws-sdk-js-v3/commit/757f88331f78a29d976a97a7ed5dc4337a1aedfa))
+* **shared-ini-file-loader:** update ini parsing ([#3682](https://github.com/aws/aws-sdk-js-v3/issues/3682)) ([9536104](https://github.com/aws/aws-sdk-js-v3/commit/95361044a5f2291389bd2886fb5dffe238ae6cdb))
+
+
+### Features
+
+* **client-budgets:** Add a budgets ThrottlingException. Update the CostFilters value pattern. ([3f98cfc](https://github.com/aws/aws-sdk-js-v3/commit/3f98cfcc9e1df215c877462f02c7d40ab763691b))
+* **client-lookoutmetrics:** Adding filters to Alert and adding new UpdateAlert API. ([d52f9aa](https://github.com/aws/aws-sdk-js-v3/commit/d52f9aac9fe1d9508a51ac19d975f0bd5a78fdb7))
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK has added support for rules that constrain Automatic-ABR rendition selection when generating ABR package ladders. ([9c9825e](https://github.com/aws/aws-sdk-js-v3/commit/9c9825e38fd7acb00d82fb4d80921879d1b9205f))
+
+
+
+
+
 # [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
 
 

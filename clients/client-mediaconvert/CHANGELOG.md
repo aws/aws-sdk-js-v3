@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
+
+
+### Features
+
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK has added support for rules that constrain Automatic-ABR rendition selection when generating ABR package ladders. ([9c9825e](https://github.com/aws/aws-sdk-js-v3/commit/9c9825e38fd7acb00d82fb4d80921879d1b9205f))
+
+
+
+
+
 # [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

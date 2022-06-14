@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
+
+
+### Features
+
+* **client-lookoutmetrics:** Adding filters to Alert and adding new UpdateAlert API. ([d52f9aa](https://github.com/aws/aws-sdk-js-v3/commit/d52f9aac9fe1d9508a51ac19d975f0bd5a78fdb7))
+
+
+
+
+
 # [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutmetrics
