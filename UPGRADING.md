@@ -15,14 +15,14 @@ The goal is to help you easily find the v3 equivalents of the v2 APIs you are al
 
 ## Client Constructors
 
-This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html). For
-options shown as `Planned` in v3, they will be supported but no timeline can be shared at the moment. They
-might not have the same name either.
+This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).
 
 - [`computeChecksums`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#computeChecksums-property)
   - **v2**: Whether to compute MD5 checksums for payload bodies when the service accepts it (currently supported in S3
     only).
-  - **v3**: Not available. Planned.
+  - **v3**: applicable commands of S3 (PutObject, PutBucketCors, etc.) will automatically compute the MD5 checksums for
+    of the request payload. You can also specify a different checksum algorithm in the commands' `ChecksumAlgorithm`
+    parameter to use a different checksum algorithm. You can find more infomation in the [S3 feature announcement](https://aws.amazon.com/blogs/aws/new-additional-checksum-algorithms-for-amazon-s3/)
 - [`convertResponseTypes`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#convertResponseTypes-property)
   - **v2**: Whether types are converted when parsing response data.
   - **v3**: **Deprecated**. This option is considered not type-safe because it doesn't convert the types like time stamp
@@ -40,12 +40,10 @@ might not have the same name either.
     See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
 - [`endpointCacheSize`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointCacheSize-property)
   - **v2**: The size of the global cache storing endpoints from endpoint discovery operations.
-  - **v3**: Not available. Planned. This option configures endpoint discovery behavior, which is not yet available in v3.
+  - **v3**: No change.
 - [`endpointDiscoveryEnabled`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointDiscoveryEnabled-property)
   - **v2**: Whether to call operations with endpoints given by service dynamically.
-  - **v3**: Not available. Planned. This option configures endpoint discovery behavior, which is not yet available in v3.
-    Currently `TimeStreamQuery` and `TimeStreamWrite` client cannot fetch endpoints dynamically because they rely on
-    this behavior. [#2211](https://github.com/aws/aws-sdk-js-v3/issues/2211) is tracking this issue.
+  - **v3**: No change.
 - [`hostPrefixEnabled`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#hostPrefixEnabled-property)
   - **v2**: Whether to marshal request parameters to the prefix of hostname.
   - **v3**: **Deprecated**. SDK _always_ injects the hostname prefix when necessary.
