@@ -16,7 +16,10 @@ export const parseIni = (iniData: string): ParsedIniData => {
       }
     } else if (currentSection) {
       const indexOfEqualsSign = line.indexOf("=");
-      const isAssignment: boolean = indexOfEqualsSign !== -1 && indexOfEqualsSign > 0;
+      const start = 0;
+      const end: number = line.length - 1;
+      const isAssignment: boolean =
+        indexOfEqualsSign !== -1 && indexOfEqualsSign !== start && indexOfEqualsSign !== end;
       if (isAssignment) {
         const [name, value]: [string, string] = [
           line.substring(0, indexOfEqualsSign).trim(),
