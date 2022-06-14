@@ -7,20 +7,20 @@ export const parseIni = (iniData: string): ParsedIniData => {
   let currentSection: string | undefined;
 
   for (let line of iniData.split(/\r?\n/)) {
-    line = line.split(/(^|\s)[;#]/)[0]; // remove comments
-    const section = line.match(/^\s*\[([^\[\]]+)]\s*$/);
-    if (section) {
-      currentSection = section[1];
+    line = line.split(/(^|\s)[;#]/)[0].trim(); // remove comments and trim
+    const isSection: boolean = line[0] === "[" && line[line.length - 1] === "]";
+    if (isSection) {
+      currentSection = line.substring(1, line.length - 1);
       if (profileNameBlockList.includes(currentSection)) {
         throw new Error(`Found invalid profile name "${currentSection}"`);
       }
     } else if (currentSection) {
-      const expressionComponents: string[] = line.split("=");
-      const isAssignment: boolean = expressionComponents.length >= 2 && !!expressionComponents[0];
+      const indexOfEqualsSign = line.indexOf("=");
+      const isAssignment: boolean = indexOfEqualsSign !== -1 && indexOfEqualsSign > 0;
       if (isAssignment) {
         const [name, value]: [string, string] = [
-          expressionComponents[0].trim(),
-          expressionComponents.slice(1).join("=").trim(),
+          line.substring(0, indexOfEqualsSign).trim(),
+          line.substring(indexOfEqualsSign + 1).trim(),
         ];
         map[currentSection] = map[currentSection] || {};
         map[currentSection][name] = value;
