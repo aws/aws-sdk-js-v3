@@ -53,6 +53,10 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  AssociateUserToPermissionGroupCommandInput,
+  AssociateUserToPermissionGroupCommandOutput,
+} from "./commands/AssociateUserToPermissionGroupCommand";
 import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "./commands/CreateChangesetCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateDataViewCommandInput, CreateDataViewCommandOutput } from "./commands/CreateDataViewCommand";
@@ -67,10 +71,15 @@ import {
   DeletePermissionGroupCommandOutput,
 } from "./commands/DeletePermissionGroupCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import {
+  DisassociateUserFromPermissionGroupCommandInput,
+  DisassociateUserFromPermissionGroupCommandOutput,
+} from "./commands/DisassociateUserFromPermissionGroupCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
 import { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
+import { GetPermissionGroupCommandInput, GetPermissionGroupCommandOutput } from "./commands/GetPermissionGroupCommand";
 import {
   GetProgrammaticAccessCredentialsCommandInput,
   GetProgrammaticAccessCredentialsCommandOutput,
@@ -81,9 +90,17 @@ import { ListChangesetsCommandInput, ListChangesetsCommandOutput } from "./comma
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListDataViewsCommandInput, ListDataViewsCommandOutput } from "./commands/ListDataViewsCommand";
 import {
+  ListPermissionGroupsByUserCommandInput,
+  ListPermissionGroupsByUserCommandOutput,
+} from "./commands/ListPermissionGroupsByUserCommand";
+import {
   ListPermissionGroupsCommandInput,
   ListPermissionGroupsCommandOutput,
 } from "./commands/ListPermissionGroupsCommand";
+import {
+  ListUsersByPermissionGroupCommandInput,
+  ListUsersByPermissionGroupCommandOutput,
+} from "./commands/ListUsersByPermissionGroupCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand";
 import { UpdateChangesetCommandInput, UpdateChangesetCommandOutput } from "./commands/UpdateChangesetCommand";
@@ -96,6 +113,7 @@ import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/Upda
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateUserToPermissionGroupCommandInput
   | CreateChangesetCommandInput
   | CreateDataViewCommandInput
   | CreateDatasetCommandInput
@@ -104,17 +122,21 @@ export type ServiceInputTypes =
   | DeleteDatasetCommandInput
   | DeletePermissionGroupCommandInput
   | DisableUserCommandInput
+  | DisassociateUserFromPermissionGroupCommandInput
   | EnableUserCommandInput
   | GetChangesetCommandInput
   | GetDataViewCommandInput
   | GetDatasetCommandInput
+  | GetPermissionGroupCommandInput
   | GetProgrammaticAccessCredentialsCommandInput
   | GetUserCommandInput
   | GetWorkingLocationCommandInput
   | ListChangesetsCommandInput
   | ListDataViewsCommandInput
   | ListDatasetsCommandInput
+  | ListPermissionGroupsByUserCommandInput
   | ListPermissionGroupsCommandInput
+  | ListUsersByPermissionGroupCommandInput
   | ListUsersCommandInput
   | ResetUserPasswordCommandInput
   | UpdateChangesetCommandInput
@@ -123,6 +145,7 @@ export type ServiceInputTypes =
   | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateUserToPermissionGroupCommandOutput
   | CreateChangesetCommandOutput
   | CreateDataViewCommandOutput
   | CreateDatasetCommandOutput
@@ -131,17 +154,21 @@ export type ServiceOutputTypes =
   | DeleteDatasetCommandOutput
   | DeletePermissionGroupCommandOutput
   | DisableUserCommandOutput
+  | DisassociateUserFromPermissionGroupCommandOutput
   | EnableUserCommandOutput
   | GetChangesetCommandOutput
   | GetDataViewCommandOutput
   | GetDatasetCommandOutput
+  | GetPermissionGroupCommandOutput
   | GetProgrammaticAccessCredentialsCommandOutput
   | GetUserCommandOutput
   | GetWorkingLocationCommandOutput
   | ListChangesetsCommandOutput
   | ListDataViewsCommandOutput
   | ListDatasetsCommandOutput
+  | ListPermissionGroupsByUserCommandOutput
   | ListPermissionGroupsCommandOutput
+  | ListUsersByPermissionGroupCommandOutput
   | ListUsersCommandOutput
   | ResetUserPasswordCommandOutput
   | UpdateChangesetCommandOutput

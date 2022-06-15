@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateUserToPermissionGroupCommand,
+  AssociateUserToPermissionGroupCommandInput,
+  AssociateUserToPermissionGroupCommandOutput,
+} from "./commands/AssociateUserToPermissionGroupCommand";
+import {
   CreateChangesetCommand,
   CreateChangesetCommandInput,
   CreateChangesetCommandOutput,
@@ -33,6 +38,11 @@ import {
   DeletePermissionGroupCommandOutput,
 } from "./commands/DeletePermissionGroupCommand";
 import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import {
+  DisassociateUserFromPermissionGroupCommand,
+  DisassociateUserFromPermissionGroupCommandInput,
+  DisassociateUserFromPermissionGroupCommandOutput,
+} from "./commands/DisassociateUserFromPermissionGroupCommand";
 import { EnableUserCommand, EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import {
   GetChangesetCommand,
@@ -41,6 +51,11 @@ import {
 } from "./commands/GetChangesetCommand";
 import { GetDatasetCommand, GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import { GetDataViewCommand, GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
+import {
+  GetPermissionGroupCommand,
+  GetPermissionGroupCommandInput,
+  GetPermissionGroupCommandOutput,
+} from "./commands/GetPermissionGroupCommand";
 import {
   GetProgrammaticAccessCredentialsCommand,
   GetProgrammaticAccessCredentialsCommandInput,
@@ -68,10 +83,20 @@ import {
   ListDataViewsCommandOutput,
 } from "./commands/ListDataViewsCommand";
 import {
+  ListPermissionGroupsByUserCommand,
+  ListPermissionGroupsByUserCommandInput,
+  ListPermissionGroupsByUserCommandOutput,
+} from "./commands/ListPermissionGroupsByUserCommand";
+import {
   ListPermissionGroupsCommand,
   ListPermissionGroupsCommandInput,
   ListPermissionGroupsCommandOutput,
 } from "./commands/ListPermissionGroupsCommand";
+import {
+  ListUsersByPermissionGroupCommand,
+  ListUsersByPermissionGroupCommandInput,
+  ListUsersByPermissionGroupCommandOutput,
+} from "./commands/ListUsersByPermissionGroupCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ResetUserPasswordCommand,
@@ -100,6 +125,38 @@ import { FinspaceDataClient } from "./FinspaceDataClient";
  * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
  */
 export class FinspaceData extends FinspaceDataClient {
+  /**
+   * <p>Adds a user account to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
+   */
+  public associateUserToPermissionGroup(
+    args: AssociateUserToPermissionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateUserToPermissionGroupCommandOutput>;
+  public associateUserToPermissionGroup(
+    args: AssociateUserToPermissionGroupCommandInput,
+    cb: (err: any, data?: AssociateUserToPermissionGroupCommandOutput) => void
+  ): void;
+  public associateUserToPermissionGroup(
+    args: AssociateUserToPermissionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateUserToPermissionGroupCommandOutput) => void
+  ): void;
+  public associateUserToPermissionGroup(
+    args: AssociateUserToPermissionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateUserToPermissionGroupCommandOutput) => void),
+    cb?: (err: any, data?: AssociateUserToPermissionGroupCommandOutput) => void
+  ): Promise<AssociateUserToPermissionGroupCommandOutput> | void {
+    const command = new AssociateUserToPermissionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new Changeset in a FinSpace Dataset.</p>
    */
@@ -345,6 +402,38 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * <p>Removes a user account from a permission group.</p>
+   */
+  public disassociateUserFromPermissionGroup(
+    args: DisassociateUserFromPermissionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateUserFromPermissionGroupCommandOutput>;
+  public disassociateUserFromPermissionGroup(
+    args: DisassociateUserFromPermissionGroupCommandInput,
+    cb: (err: any, data?: DisassociateUserFromPermissionGroupCommandOutput) => void
+  ): void;
+  public disassociateUserFromPermissionGroup(
+    args: DisassociateUserFromPermissionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateUserFromPermissionGroupCommandOutput) => void
+  ): void;
+  public disassociateUserFromPermissionGroup(
+    args: DisassociateUserFromPermissionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateUserFromPermissionGroupCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateUserFromPermissionGroupCommandOutput) => void
+  ): Promise<DisassociateUserFromPermissionGroupCommandOutput> | void {
+    const command = new DisassociateUserFromPermissionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Allows the specified user to access the FinSpace web application and API.</p>
    */
   public enableUser(args: EnableUserCommandInput, options?: __HttpHandlerOptions): Promise<EnableUserCommandOutput>;
@@ -441,6 +530,38 @@ export class FinspaceData extends FinspaceDataClient {
     cb?: (err: any, data?: GetDataViewCommandOutput) => void
   ): Promise<GetDataViewCommandOutput> | void {
     const command = new GetDataViewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the details of a specific permission group.</p>
+   */
+  public getPermissionGroup(
+    args: GetPermissionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPermissionGroupCommandOutput>;
+  public getPermissionGroup(
+    args: GetPermissionGroupCommandInput,
+    cb: (err: any, data?: GetPermissionGroupCommandOutput) => void
+  ): void;
+  public getPermissionGroup(
+    args: GetPermissionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPermissionGroupCommandOutput) => void
+  ): void;
+  public getPermissionGroup(
+    args: GetPermissionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetPermissionGroupCommandOutput) => void
+  ): Promise<GetPermissionGroupCommandOutput> | void {
+    const command = new GetPermissionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -668,6 +789,38 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * <p>Lists all the permission groups that are associated with a specific user account.</p>
+   */
+  public listPermissionGroupsByUser(
+    args: ListPermissionGroupsByUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPermissionGroupsByUserCommandOutput>;
+  public listPermissionGroupsByUser(
+    args: ListPermissionGroupsByUserCommandInput,
+    cb: (err: any, data?: ListPermissionGroupsByUserCommandOutput) => void
+  ): void;
+  public listPermissionGroupsByUser(
+    args: ListPermissionGroupsByUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPermissionGroupsByUserCommandOutput) => void
+  ): void;
+  public listPermissionGroupsByUser(
+    args: ListPermissionGroupsByUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionGroupsByUserCommandOutput) => void),
+    cb?: (err: any, data?: ListPermissionGroupsByUserCommandOutput) => void
+  ): Promise<ListPermissionGroupsByUserCommandOutput> | void {
+    const command = new ListPermissionGroupsByUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all available user accounts in FinSpace.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
@@ -683,6 +836,38 @@ export class FinspaceData extends FinspaceDataClient {
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists details of all the users in a specific permission group.</p>
+   */
+  public listUsersByPermissionGroup(
+    args: ListUsersByPermissionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersByPermissionGroupCommandOutput>;
+  public listUsersByPermissionGroup(
+    args: ListUsersByPermissionGroupCommandInput,
+    cb: (err: any, data?: ListUsersByPermissionGroupCommandOutput) => void
+  ): void;
+  public listUsersByPermissionGroup(
+    args: ListUsersByPermissionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersByPermissionGroupCommandOutput) => void
+  ): void;
+  public listUsersByPermissionGroup(
+    args: ListUsersByPermissionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersByPermissionGroupCommandOutput) => void),
+    cb?: (err: any, data?: ListUsersByPermissionGroupCommandOutput) => void
+  ): Promise<ListUsersByPermissionGroupCommandOutput> | void {
+    const command = new ListUsersByPermissionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -37,6 +37,48 @@ export enum ApplicationPermission {
   ViewAuditData = "ViewAuditData",
 }
 
+export interface AssociateUserToPermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace AssociateUserToPermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateUserToPermissionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateUserToPermissionGroupResponse {
+  /**
+   * <p>The returned status code of the response.</p>
+   */
+  statusCode?: number;
+}
+
+export namespace AssociateUserToPermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateUserToPermissionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request conflicts with an existing resource.</p>
  */
@@ -54,6 +96,87 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.reason = opts.reason;
+  }
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>One or more resources can't be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  reason?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.reason = opts.reason;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  reason?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
     this.reason = opts.reason;
   }
 }
@@ -202,26 +325,6 @@ export namespace CreateChangesetResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
  * <p>A limit has exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -237,67 +340,6 @@ export class LimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>One or more resources can't be found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  reason?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  reason?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
   }
 }
 
@@ -653,7 +695,7 @@ export interface DataViewDestinationTypeParams {
   destinationType: string | undefined;
 
   /**
-   * <p>Data view export file format.</p>
+   * <p>Dataview export file format.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1047,6 +1089,48 @@ export namespace DisableUserResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisableUserResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateUserFromPermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace DisassociateUserFromPermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateUserFromPermissionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateUserFromPermissionGroupResponse {
+  /**
+   * <p>The returned status code of the response.</p>
+   */
+  statusCode?: number;
+}
+
+export namespace DisassociateUserFromPermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateUserFromPermissionGroupResponse): any => ({
     ...obj,
   });
 }
@@ -1611,6 +1695,142 @@ export namespace GetDataViewResponse {
   });
 }
 
+export interface GetPermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId: string | undefined;
+}
+
+export namespace GetPermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPermissionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PermissionGroupMembershipStatus {
+  ADDITION_IN_PROGRESS = "ADDITION_IN_PROGRESS",
+  ADDITION_SUCCESS = "ADDITION_SUCCESS",
+  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
+}
+
+/**
+ * <p>The structure for a permission group.</p>
+ */
+export interface PermissionGroup {
+  /**
+   * <p> The unique identifier for the permission group.</p>
+   */
+  permissionGroupId?: string;
+
+  /**
+   * <p>The name of the permission group.</p>
+   */
+  name?: string;
+
+  /**
+   * <p> A brief description for the permission group.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates the permissions that are granted to a specific group for accessing the FinSpace application.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateDataset</code> – Group members can create new datasets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ViewAuditData</code> – Group members can view audit data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p>
+   *             </li>
+   *          </ul>
+   */
+  applicationPermissions?: (ApplicationPermission | string)[];
+
+  /**
+   * <p>The timestamp at which the group was created in FinSpace. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  createTime?: number;
+
+  /**
+   * <p>Describes the last time the permission group was updated. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  lastModifiedTime?: number;
+
+  /**
+   * <p>Indicates the status of the user account within a permission group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVAL_IN_PROGRESS</code> – The user is currently being removed from the permission group.</p>
+   *             </li>
+   *          </ul>
+   */
+  membershipStatus?: PermissionGroupMembershipStatus | string;
+}
+
+export namespace PermissionGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PermissionGroup): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+  });
+}
+
+export interface GetPermissionGroupResponse {
+  /**
+   * <p>The structure for a permission group.</p>
+   */
+  permissionGroup?: PermissionGroup;
+}
+
+export namespace GetPermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPermissionGroupResponse): any => ({
+    ...obj,
+    ...(obj.permissionGroup && { permissionGroup: PermissionGroup.filterSensitiveLog(obj.permissionGroup) }),
+  });
+}
+
 /**
  * Request for GetProgrammaticAccessCredentials operation
  */
@@ -1761,7 +1981,7 @@ export interface GetUserResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group.</p>
    *             </li>
    *          </ul>
    */
@@ -2358,84 +2578,6 @@ export namespace ListPermissionGroupsRequest {
   });
 }
 
-/**
- * <p>The structure for a permission group.</p>
- */
-export interface PermissionGroup {
-  /**
-   * <p> The unique identifier for the permission group.</p>
-   */
-  permissionGroupId?: string;
-
-  /**
-   * <p>The name of the permission group.</p>
-   */
-  name?: string;
-
-  /**
-   * <p> A brief description for the permission group.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Indicates the permissions that are granted to a specific group for accessing the FinSpace application.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CreateDataset</code> – Group members can create new datasets.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ViewAuditData</code> – Group members can view audit data.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p>
-   *             </li>
-   *          </ul>
-   */
-  applicationPermissions?: (ApplicationPermission | string)[];
-
-  /**
-   * <p>The timestamp at which the group was created in FinSpace. The value is determined as epoch time in milliseconds.
-   *     </p>
-   */
-  createTime?: number;
-
-  /**
-   * <p>Describes the last time the permission group was updated. The value is determined as epoch time in milliseconds.
-   *     </p>
-   */
-  lastModifiedTime?: number;
-}
-
-export namespace PermissionGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionGroup): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListPermissionGroupsResponse {
   /**
    * <p>A list of all the permission groups.</p>
@@ -2456,6 +2598,100 @@ export namespace ListPermissionGroupsResponse {
     ...obj,
     ...(obj.permissionGroups && {
       permissionGroups: obj.permissionGroups.map((item) => PermissionGroup.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListPermissionGroupsByUserRequest {
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results per page.</p>
+   */
+  maxResults: number | undefined;
+}
+
+export namespace ListPermissionGroupsByUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionGroupsByUserRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure of a permission group associated with a user account.</p>
+ */
+export interface PermissionGroupByUser {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId?: string;
+
+  /**
+   * <p>The name of the permission group.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Indicates the status of the user account within a permission group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVAL_IN_PROGRESS</code> – The user is currently being removed from the permission group.</p>
+   *             </li>
+   *          </ul>
+   */
+  membershipStatus?: PermissionGroupMembershipStatus | string;
+}
+
+export namespace PermissionGroupByUser {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PermissionGroupByUser): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListPermissionGroupsByUserResponse {
+  /**
+   * <p>A list of returned permission groups.</p>
+   */
+  permissionGroups?: PermissionGroupByUser[];
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListPermissionGroupsByUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionGroupsByUserResponse): any => ({
+    ...obj,
+    ...(obj.permissionGroups && {
+      permissionGroups: obj.permissionGroups.map((item) => PermissionGroupByUser.filterSensitiveLog(item)),
     }),
   });
 }
@@ -2533,7 +2769,7 @@ export interface User {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group.</p>
    *             </li>
    *          </ul>
    */
@@ -2619,6 +2855,164 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
     ...(obj.users && { users: obj.users.map((item) => User.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListUsersByPermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId: string | undefined;
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results per page.</p>
+   */
+  maxResults: number | undefined;
+}
+
+export namespace ListUsersByPermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersByPermissionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure of a user account associated with a permission group.</p>
+ */
+export interface UserByPermissionGroup {
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>The current status of the user account. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: UserStatus | string;
+
+  /**
+   * <p>The first name of the user.</p>
+   */
+  firstName?: string;
+
+  /**
+   * <p>The last name of the user.</p>
+   */
+  lastName?: string;
+
+  /**
+   * <p>The email address of the user. The email address serves as a unique identifier for each user and cannot be changed after it's created.</p>
+   */
+  emailAddress?: string;
+
+  /**
+   * <p> Indicates the type of user.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUPER_USER</code> – A user with permission to all the functionality and data in FinSpace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group.</p>
+   *             </li>
+   *          </ul>
+   */
+  type?: UserType | string;
+
+  /**
+   * <p>Indicates whether the user can access FinSpace API operations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user has permissions to use the API operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> –  The user does not have permissions to use any API operations.</p>
+   *             </li>
+   *          </ul>
+   */
+  apiAccess?: ApiAccess | string;
+
+  /**
+   * <p>The IAM ARN identifier that is attached to FinSpace API calls.</p>
+   */
+  apiAccessPrincipalArn?: string;
+
+  /**
+   * <p>Indicates the status of the user account within a permission group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVAL_IN_PROGRESS</code> – The user is currently being removed from the permission group.</p>
+   *             </li>
+   *          </ul>
+   */
+  membershipStatus?: PermissionGroupMembershipStatus | string;
+}
+
+export namespace UserByPermissionGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserByPermissionGroup): any => ({
+    ...obj,
+    ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+    ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListUsersByPermissionGroupResponse {
+  /**
+   * <p>Lists details of all users in a specific permission group.</p>
+   */
+  users?: UserByPermissionGroup[];
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListUsersByPermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersByPermissionGroupResponse): any => ({
+    ...obj,
+    ...(obj.users && { users: obj.users.map((item) => UserByPermissionGroup.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2962,7 +3356,7 @@ export interface UpdateUserRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group.</p>
    *             </li>
    *          </ul>
    */

@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FinspaceDataClient` and
-the commands you need, for example `CreateChangesetCommand`:
+the commands you need, for example `AssociateUserToPermissionGroupCommand`:
 
 ```js
 // ES5 example
-const { FinspaceDataClient, CreateChangesetCommand } = require("@aws-sdk/client-finspace-data");
+const { FinspaceDataClient, AssociateUserToPermissionGroupCommand } = require("@aws-sdk/client-finspace-data");
 ```
 
 ```ts
 // ES6+ example
-import { FinspaceDataClient, CreateChangesetCommand } from "@aws-sdk/client-finspace-data";
+import { FinspaceDataClient, AssociateUserToPermissionGroupCommand } from "@aws-sdk/client-finspace-data";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new FinspaceDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateChangesetCommand(params);
+const command = new AssociateUserToPermissionGroupCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.FinspaceData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createChangeset(params);
+  const data = await client.associateUserToPermissionGroup(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createChangeset(params)
+  .associateUserToPermissionGroup(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createChangeset(params, (err, data) => {
+client.associateUserToPermissionGroup(params, (err, data) => {
   // process err and data.
 });
 ```
