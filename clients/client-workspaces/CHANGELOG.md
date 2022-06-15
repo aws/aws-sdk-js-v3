@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.110.0...v3.111.0) (2022-06-15)
+
+
+### Features
+
+* **client-workspaces:** Added new field "reason" to OperationNotSupportedException. Receiving this exception in the DeregisterWorkspaceDirectory API will now return a reason giving more context on the failure. ([3fb0a96](https://github.com/aws/aws-sdk-js-v3/commit/3fb0a96532ec46ca7cd8ba6c5232564a859abd4f))
+
+
+
+
+
 # [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

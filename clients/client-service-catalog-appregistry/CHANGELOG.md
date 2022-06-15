@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.110.0...v3.111.0) (2022-06-15)
+
+
+### Features
+
+* **client-service-catalog-appregistry:** This release adds a new API ListAttributeGroupsForApplication that returns associated attribute groups of an application. In addition, the UpdateApplication and UpdateAttributeGroup APIs will not allow users to update the 'Name' attribute. ([03773d1](https://github.com/aws/aws-sdk-js-v3/commit/03773d1bcb949f1472ebfb03dcf80c84599ef3f6))
+
+
+
+
+
 # [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
 
 **Note:** Version bump only for package @aws-sdk/client-service-catalog-appregistry

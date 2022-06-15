@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.110.0...v3.111.0) (2022-06-15)
+
+
+### Features
+
+* **client-finspace-data:** This release adds a new set of APIs, GetPermissionGroup, DisassociateUserFromPermissionGroup, AssociateUserToPermissionGroup, ListPermissionGroupsByUser, ListUsersByPermissionGroup. ([d29cb21](https://github.com/aws/aws-sdk-js-v3/commit/d29cb2142c918c38de45b34c57effb96e6790a9d))
+
+
+
+
+
 # [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace-data
