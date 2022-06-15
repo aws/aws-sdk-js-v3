@@ -6545,6 +6545,7 @@ const deserializeAws_json1_1OperationNotSupportedException = (
 ): OperationNotSupportedException => {
   return {
     message: __expectString(output.message),
+    reason: __expectString(output.reason),
   } as any;
 };
 

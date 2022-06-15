@@ -173,6 +173,11 @@ export class OperationNotSupportedException extends __BaseException {
   readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
   readonly $fault: "client" = "client";
   /**
+   * <p>The exception error reason.</p>
+   */
+  reason?: string;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
@@ -182,6 +187,7 @@ export class OperationNotSupportedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
+    this.reason = opts.reason;
   }
 }
 
@@ -1463,8 +1469,8 @@ export enum DedicatedTenancySupportEnum {
  */
 export interface DefaultClientBrandingAttributes {
   /**
-   * <p>The logo URL. This is the link where users can download the logo image. The only
-   *          supported image format is <code>.png</code>.</p>
+   * <p>The logo URL. The only image
+   *          format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    */
   LogoUrl?: string;
 
@@ -1536,8 +1542,8 @@ export namespace DefaultClientBrandingAttributes {
  */
 export interface DefaultImportClientBrandingAttributes {
   /**
-   * <p>The logo. This is the link where users can download the logo image. The only image
-   *          format accepted is <code>.png</code>.</p>
+   * <p>The logo. The only image
+   *          format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    */
   Logo?: Uint8Array;
 
@@ -1995,15 +2001,17 @@ export namespace DescribeClientBrandingRequest {
  */
 export interface IosClientBrandingAttributes {
   /**
-   * <p>The logo. This is the link where users can download the logo image. This is the
+   * <p>The logo. This is the
    *          standard-resolution display that has a 1:1 pixel density (or @1x), where one pixel is equal
-   *          to one point.</p>
+   *          to one point. The only image format accepted is a binary data object that is converted from
+   *          a <code>.png</code> file.</p>
    */
   LogoUrl?: string;
 
   /**
    * <p>The @2x version of the logo. This is the higher resolution display that offers a scale
-   *          factor of 2.0 (or @2x).</p>
+   *          factor of 2.0 (or @2x). The only image format accepted is a binary data object that is
+   *          converted from a <code>.png</code> file.</p>
    *          <note>
    *             <p> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image Size and Resolution </a> in the <i>Apple Human Interface
    *                Guidelines</i>.</p>
@@ -2013,7 +2021,8 @@ export interface IosClientBrandingAttributes {
 
   /**
    * <p>The @3x version of the logo. This is the higher resolution display that offers a scale
-   *          factor of 3.0 (or @3x).</p>
+   *          factor of 3.0 (or @3x).The only image format accepted is a binary data object that is
+   *          converted from a <code>.png</code> file.</p>
    *          <note>
    *             <p> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image Size and Resolution </a> in the <i>Apple Human Interface
    *                Guidelines</i>.</p>
@@ -3330,15 +3339,17 @@ export namespace FailedWorkspaceChangeRequest {
  */
 export interface IosImportClientBrandingAttributes {
   /**
-   * <p>The logo. This is the link where users can download the logo image. This is the
+   * <p>The logo. This is the
    *          standard-resolution display that has a 1:1 pixel density (or @1x), where one pixel is equal
-   *          to one point.</p>
+   *          to one point. The only image format accepted is a binary data object that is converted
+   *          from a <code>.png</code> file.</p>
    */
   Logo?: Uint8Array;
 
   /**
    * <p>The @2x version of the logo. This is the higher resolution display that offers a scale
-   *          factor of 2.0 (or @2x).</p>
+   *          factor of 2.0 (or @2x). The only image format accepted is a binary data object that is
+   *          converted from a <code>.png</code> file.</p>
    *          <note>
    *             <p> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image Size and Resolution </a> in the <i>Apple Human Interface
    *                Guidelines</i>.</p>
@@ -3348,7 +3359,8 @@ export interface IosImportClientBrandingAttributes {
 
   /**
    * <p>The @3x version of the logo. This is the higher resolution display that offers a scale
-   *          factor of 3.0 (or @3x).</p>
+   *          factor of 3.0 (or @3x). The only image format accepted is a binary data object that is
+   *          converted from a <code>.png</code> file.</p>
    *          <note>
    *             <p> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image Size and Resolution </a> in the <i>Apple Human Interface
    *                Guidelines</i>.</p>
@@ -3518,17 +3530,12 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming Protocol
-   *          (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP, specify a value
-   *          that does not end in <code>_WSP</code>. </p>
-   *
-   *          <p>For non-GPU-enabled images (bundles other than Graphics.g4dn, GraphicsPro.g4dn, Graphics,
-   *          or GraphicsPro), specify <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending
-   *          on the protocol.</p>
-   *          <note>
-   *             <p>Use <code>BYOL_GRAPHICS_G4DN</code> ingestion for both Graphics.g4dn and
-   *             GraphicsPro.g4dn.</p>
-   *          </note>
+   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
+   *          Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP,
+   *          specify a value that does not end in <code>_WSP</code>. </p>
+   *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
+   *             <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the
+   *          protocol.</p>
    */
   IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
 
@@ -3552,15 +3559,7 @@ export interface ImportWorkspaceImageRequest {
    *          BYOL images. For more information about subscribing to Office for BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring
    *             Your Own Windows Desktop Licenses</a>.</p>
    *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Although this parameter is an array, only one item is allowed at this time</p>
-   *                </li>
-   *                <li>
-   *                   <p>Microsoft Office 2016 application subscription through AWS is currently not supported
-   *                   for Graphics.g4dn Bring Your Own License (BYOL) images</p>
-   *                </li>
-   *             </ul>
+   *             <p>Although this parameter is an array, only one item is allowed at this time.</p>
    *          </note>
    */
   Applications?: (Application | string)[];
