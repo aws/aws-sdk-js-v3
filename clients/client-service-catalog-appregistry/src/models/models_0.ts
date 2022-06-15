@@ -140,6 +140,26 @@ export namespace AssociateAttributeGroupResponse {
 }
 
 /**
+ * <p>There was a conflict when processing the request (for example, a resource with the given name already
+ *       exists within the account).</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
  * <p>The service is experiencing internal problems.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -267,26 +287,6 @@ export namespace AssociateResourceResponse {
 }
 
 /**
- * <p>There was a conflict when processing the request (for example, a resource with the given name already
- *       exists within the account).</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * <p>Represents a Amazon Web Services Service Catalog AppRegistry attribute group that is rich metadata which describes an application and its components.</p>
  */
 export interface AttributeGroup {
@@ -331,6 +331,35 @@ export namespace AttributeGroup {
    * @internal
    */
   export const filterSensitiveLog = (obj: AttributeGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> The details related to a specific AttributeGroup. </p>
+ */
+export interface AttributeGroupDetails {
+  /**
+   * <p>The unique identifier of the attribute group.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the attribute group. </p>
+   */
+  name?: string;
+}
+
+export namespace AttributeGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributeGroupDetails): any => ({
     ...obj,
   });
 }
@@ -1143,6 +1172,53 @@ export namespace ListAttributeGroupsResponse {
   });
 }
 
+export interface ListAttributeGroupsForApplicationRequest {
+  /**
+   * <p>The name or ID of the application.</p>
+   */
+  application: string | undefined;
+
+  /**
+   * <p>This token retrieves the next page of results after a previous API call.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListAttributeGroupsForApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAttributeGroupsForApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAttributeGroupsForApplicationResponse {
+  /**
+   * <p> The details related to a specific AttributeGroup. </p>
+   */
+  attributeGroupsDetails?: AttributeGroupDetails[];
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAttributeGroupsForApplicationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAttributeGroupsForApplicationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
@@ -1300,7 +1376,8 @@ export interface UpdateApplicationRequest {
   /**
    * @deprecated
    *
-   * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
+   * <p>Deprecated: The new name of the application. The name must be unique in the region in which you are
+   *        updating the application. Please do not use this field as we have stopped supporting name updates.</p>
    */
   name?: string;
 
@@ -1344,8 +1421,8 @@ export interface UpdateAttributeGroupRequest {
   /**
    * @deprecated
    *
-   * <p>The new name of the attribute group. The name must be unique in the region in which you are
-   *        updating the attribute group.</p>
+   * <p>Deprecated: The new name of the attribute group. The name must be unique in the region in which you are
+   *        updating the attribute group. Please do not use this field as we have stopped supporting name updates.</p>
    */
   name?: string;
 

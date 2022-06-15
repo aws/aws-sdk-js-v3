@@ -59,6 +59,10 @@ import {
   ListAttributeGroupsCommandOutput,
 } from "../commands/ListAttributeGroupsCommand";
 import {
+  ListAttributeGroupsForApplicationCommandInput,
+  ListAttributeGroupsForApplicationCommandOutput,
+} from "../commands/ListAttributeGroupsForApplicationCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -74,6 +78,7 @@ import {
   Application,
   ApplicationSummary,
   AttributeGroup,
+  AttributeGroupDetails,
   AttributeGroupSummary,
   ConflictException,
   Integrations,
@@ -598,6 +603,41 @@ export const serializeAws_restJson1ListAttributeGroupsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAttributeGroupsForApplicationCommand = async (
+  input: ListAttributeGroupsForApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/attribute-group-details";
+  if (input.application !== undefined) {
+    const labelValue: string = input.application;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: application.");
+    }
+    resolvedPath = resolvedPath.replace("{application}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: application.");
+  }
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -834,6 +874,9 @@ const deserializeAws_restJson1AssociateAttributeGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.servicecatalogappregistry#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -903,6 +946,9 @@ const deserializeAws_restJson1AssociateResourceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.servicecatalogappregistry#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -953,6 +999,9 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.servicecatalogappregistry#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1211,6 +1260,9 @@ const deserializeAws_restJson1DisassociateResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1284,6 +1336,9 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.servicecatalogappregistry#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1412,6 +1467,9 @@ const deserializeAws_restJson1GetAttributeGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.servicecatalogappregistry#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1628,6 +1686,63 @@ const deserializeAws_restJson1ListAttributeGroupsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.servicecatalogappregistry#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListAttributeGroupsForApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttributeGroupsForApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAttributeGroupsForApplicationCommandError(output, context);
+  }
+  const contents: ListAttributeGroupsForApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    attributeGroupsDetails: undefined,
+    nextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.attributeGroupsDetails !== undefined && data.attributeGroupsDetails !== null) {
+    contents.attributeGroupsDetails = deserializeAws_restJson1AttributeGroupDetailsList(
+      data.attributeGroupsDetails,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAttributeGroupsForApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttributeGroupsForApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1881,6 +1996,9 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -2106,6 +2224,29 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1AttributeGroupDetails = (output: any, context: __SerdeContext): AttributeGroupDetails => {
+  return {
+    arn: __expectString(output.arn),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1AttributeGroupDetailsList = (
+  output: any,
+  context: __SerdeContext
+): AttributeGroupDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AttributeGroupDetails(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1AttributeGroupIds = (output: any, context: __SerdeContext): string[] => {

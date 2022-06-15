@@ -96,6 +96,10 @@ import {
   ListAttributeGroupsCommandOutput,
 } from "./commands/ListAttributeGroupsCommand";
 import {
+  ListAttributeGroupsForApplicationCommandInput,
+  ListAttributeGroupsForApplicationCommandOutput,
+} from "./commands/ListAttributeGroupsForApplicationCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -125,6 +129,7 @@ export type ServiceInputTypes =
   | ListAssociatedAttributeGroupsCommandInput
   | ListAssociatedResourcesCommandInput
   | ListAttributeGroupsCommandInput
+  | ListAttributeGroupsForApplicationCommandInput
   | ListTagsForResourceCommandInput
   | SyncResourceCommandInput
   | TagResourceCommandInput
@@ -148,6 +153,7 @@ export type ServiceOutputTypes =
   | ListAssociatedAttributeGroupsCommandOutput
   | ListAssociatedResourcesCommandOutput
   | ListAttributeGroupsCommandOutput
+  | ListAttributeGroupsForApplicationCommandOutput
   | ListTagsForResourceCommandOutput
   | SyncResourceCommandOutput
   | TagResourceCommandOutput

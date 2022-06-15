@@ -77,6 +77,11 @@ import {
   ListAttributeGroupsCommandOutput,
 } from "./commands/ListAttributeGroupsCommand";
 import {
+  ListAttributeGroupsForApplicationCommand,
+  ListAttributeGroupsForApplicationCommandInput,
+  ListAttributeGroupsForApplicationCommandOutput,
+} from "./commands/ListAttributeGroupsForApplicationCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -583,6 +588,38 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
     cb?: (err: any, data?: ListAttributeGroupsCommandOutput) => void
   ): Promise<ListAttributeGroupsCommandOutput> | void {
     const command = new ListAttributeGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>
+   */
+  public listAttributeGroupsForApplication(
+    args: ListAttributeGroupsForApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttributeGroupsForApplicationCommandOutput>;
+  public listAttributeGroupsForApplication(
+    args: ListAttributeGroupsForApplicationCommandInput,
+    cb: (err: any, data?: ListAttributeGroupsForApplicationCommandOutput) => void
+  ): void;
+  public listAttributeGroupsForApplication(
+    args: ListAttributeGroupsForApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttributeGroupsForApplicationCommandOutput) => void
+  ): void;
+  public listAttributeGroupsForApplication(
+    args: ListAttributeGroupsForApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttributeGroupsForApplicationCommandOutput) => void),
+    cb?: (err: any, data?: ListAttributeGroupsForApplicationCommandOutput) => void
+  ): Promise<ListAttributeGroupsForApplicationCommandOutput> | void {
+    const command = new ListAttributeGroupsForApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

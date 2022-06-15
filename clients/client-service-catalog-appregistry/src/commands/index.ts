@@ -14,6 +14,7 @@ export * from "./ListApplicationsCommand";
 export * from "./ListAssociatedAttributeGroupsCommand";
 export * from "./ListAssociatedResourcesCommand";
 export * from "./ListAttributeGroupsCommand";
+export * from "./ListAttributeGroupsForApplicationCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./SyncResourceCommand";
 export * from "./TagResourceCommand";
