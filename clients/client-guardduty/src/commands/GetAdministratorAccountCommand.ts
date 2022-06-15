@@ -13,42 +13,42 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_0";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateMembersCommand,
-  serializeAws_restJson1DisassociateMembersCommand,
+  deserializeAws_restJson1GetAdministratorAccountCommand,
+  serializeAws_restJson1GetAdministratorAccountCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
-export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
+export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
+export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
- *       specified by the account IDs.</p>
+ * <p>Provides the details for the GuardDuty administrator account associated with the current
+ *       GuardDuty member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DisassociateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DisassociateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetAdministratorAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const command = new DisassociateMembersCommand(input);
+ * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
- * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
+ * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
-export class DisassociateMembersCommand extends $Command<
-  DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput,
+export class GetAdministratorAccountCommand extends $Command<
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
   GuardDutyClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DisassociateMembersCommandInput) {
+  constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +61,20 @@ export class DisassociateMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateMembersCommandInput, DisassociateMembersCommandOutput> {
+  ): Handler<GetAdministratorAccountCommandInput, GetAdministratorAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GuardDutyClient";
-    const commandName = "DisassociateMembersCommand";
+    const commandName = "GetAdministratorAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAdministratorAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAdministratorAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +84,12 @@ export class DisassociateMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembersCommand(input, context);
+  private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
+    return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

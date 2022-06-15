@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./AcceptAdministratorInvitationCommand";
 export * from "./AcceptInvitationCommand";
 export * from "./ArchiveFindingsCommand";
 export * from "./CreateDetectorCommand";
@@ -19,9 +20,11 @@ export * from "./DeleteThreatIntelSetCommand";
 export * from "./DescribeOrganizationConfigurationCommand";
 export * from "./DescribePublishingDestinationCommand";
 export * from "./DisableOrganizationAdminAccountCommand";
+export * from "./DisassociateFromAdministratorAccountCommand";
 export * from "./DisassociateFromMasterAccountCommand";
 export * from "./DisassociateMembersCommand";
 export * from "./EnableOrganizationAdminAccountCommand";
+export * from "./GetAdministratorAccountCommand";
 export * from "./GetDetectorCommand";
 export * from "./GetFilterCommand";
 export * from "./GetFindingsCommand";
@@ -31,6 +34,7 @@ export * from "./GetInvitationsCountCommand";
 export * from "./GetMasterAccountCommand";
 export * from "./GetMemberDetectorsCommand";
 export * from "./GetMembersCommand";
+export * from "./GetRemainingFreeTrialDaysCommand";
 export * from "./GetThreatIntelSetCommand";
 export * from "./GetUsageStatisticsCommand";
 export * from "./InviteMembersCommand";

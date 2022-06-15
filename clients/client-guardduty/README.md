@@ -10,12 +10,14 @@
 AWS SDK for JavaScript GuardDuty Client for Node.js, Browser and React Native.
 
 <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
-the following data sources: VPC Flow Logs, Amazon Web Services CloudTrail event logs, and DNS logs. It uses
-threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
-identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services
-environment. This can include issues like escalations of privileges, uses of exposed
-credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
-detect compromised EC2 instances that serve malware or mine bitcoin. </p>
+the following data sources: VPC Flow Logs, AWS CloudTrail management event logs, CloudTrail S3 data event
+logs, EKS audit logs, and DNS logs.
+It uses threat intelligence
+feeds (such as lists of malicious IPs and domains) and machine learning to identify
+unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
+This can include issues like escalations of privileges, uses of exposed credentials, or
+communication with malicious IPs, URLs, or domains. For example, GuardDuty can detect
+compromised EC2 instances that serve malware or mine bitcoin. </p>
 <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise. Some examples
 of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
 that has never been used, or unusual API calls like a password policy change to reduce
@@ -42,16 +44,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GuardDutyClient` and
-the commands you need, for example `AcceptInvitationCommand`:
+the commands you need, for example `AcceptAdministratorInvitationCommand`:
 
 ```js
 // ES5 example
-const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty");
+const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty");
 ```
 
 ```ts
 // ES6+ example
-import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty";
+import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty";
 ```
 
 ### Usage
@@ -70,7 +72,7 @@ const client = new GuardDutyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInvitationCommand(params);
+const command = new AcceptAdministratorInvitationCommand(params);
 ```
 
 #### Async/await
@@ -149,7 +151,7 @@ const client = new AWS.GuardDuty({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInvitation(params);
+  const data = await client.acceptAdministratorInvitation(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -157,7 +159,7 @@ try {
 
 // Promises.
 client
-  .acceptInvitation(params)
+  .acceptAdministratorInvitation(params)
   .then((data) => {
     // process data.
   })
@@ -166,7 +168,7 @@ client
   });
 
 // callbacks.
-client.acceptInvitation(params, (err, data) => {
+client.acceptAdministratorInvitation(params, (err, data) => {
   // process err and data.
 });
 ```

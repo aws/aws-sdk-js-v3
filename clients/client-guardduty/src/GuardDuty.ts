@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AcceptAdministratorInvitationCommand,
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
+} from "./commands/AcceptAdministratorInvitationCommand";
+import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
@@ -94,6 +99,11 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import {
+  DisassociateFromAdministratorAccountCommand,
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommand,
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -108,6 +118,11 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
+import {
+  GetAdministratorAccountCommand,
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand";
 import { GetDetectorCommand, GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommand, GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -133,6 +148,11 @@ import {
   GetMemberDetectorsCommandOutput,
 } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  GetRemainingFreeTrialDaysCommand,
+  GetRemainingFreeTrialDaysCommandInput,
+  GetRemainingFreeTrialDaysCommandOutput,
+} from "./commands/GetRemainingFreeTrialDaysCommand";
 import {
   GetThreatIntelSetCommand,
   GetThreatIntelSetCommandInput,
@@ -247,12 +267,14 @@ import { GuardDutyClient } from "./GuardDutyClient";
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
- *       the following data sources: VPC Flow Logs, Amazon Web Services CloudTrail event logs, and DNS logs. It uses
- *       threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
- *       identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services
- *       environment. This can include issues like escalations of privileges, uses of exposed
- *       credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
- *       detect compromised EC2 instances that serve malware or mine bitcoin. </p>
+ *       the following data sources: VPC Flow Logs, AWS CloudTrail management event logs, CloudTrail S3 data event
+ *       logs, EKS audit logs, and DNS logs.
+ *       It uses threat intelligence
+ *       feeds (such as lists of malicious IPs and domains) and machine learning to identify
+ *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
+ *       This can include issues like escalations of privileges, uses of exposed credentials, or
+ *       communication with malicious IPs, URLs, or domains. For example, GuardDuty can detect
+ *       compromised EC2 instances that serve malware or mine bitcoin. </p>
  *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise. Some examples
  *       of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
  *       that has never been used, or unusual API calls like a password policy change to reduce
@@ -266,6 +288,40 @@ import { GuardDutyClient } from "./GuardDutyClient";
  */
 export class GuardDuty extends GuardDutyClient {
   /**
+   * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
+   */
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAdministratorInvitationCommandOutput>;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    cb: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): void;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): void;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptAdministratorInvitationCommandOutput) => void),
+    cb?: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): Promise<AcceptAdministratorInvitationCommandOutput> | void {
+    const command = new AcceptAdministratorInvitationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @deprecated
+   *
    * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
    */
   public acceptInvitation(
@@ -923,6 +979,40 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
    */
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput>;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput> | void {
+    const command = new DisassociateFromAdministratorAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @deprecated
+   *
+   * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
+   */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -954,8 +1044,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
-   *       specified by the account IDs. Member accounts added through <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html">Invitation</a> get deleted from the
-   *       current GuardDuty administrator account after 30 days of disassociation.</p>
+   *       specified by the account IDs.</p>
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -1009,6 +1098,39 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
   ): Promise<EnableOrganizationAdminAccountCommandOutput> | void {
     const command = new EnableOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides the details for the GuardDuty administrator account associated with the current
+   *       GuardDuty member account.</p>
+   */
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdministratorAccountCommandOutput>;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): Promise<GetAdministratorAccountCommandOutput> | void {
+    const command = new GetAdministratorAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1189,6 +1311,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Provides the details for the GuardDuty administrator account associated with the current
    *       GuardDuty member account.</p>
    */
@@ -1281,6 +1405,38 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * <p>Provides the number of days left for each data source used in the free trial period.</p>
+   */
+  public getRemainingFreeTrialDays(
+    args: GetRemainingFreeTrialDaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRemainingFreeTrialDaysCommandOutput>;
+  public getRemainingFreeTrialDays(
+    args: GetRemainingFreeTrialDaysCommandInput,
+    cb: (err: any, data?: GetRemainingFreeTrialDaysCommandOutput) => void
+  ): void;
+  public getRemainingFreeTrialDays(
+    args: GetRemainingFreeTrialDaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRemainingFreeTrialDaysCommandOutput) => void
+  ): void;
+  public getRemainingFreeTrialDays(
+    args: GetRemainingFreeTrialDaysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRemainingFreeTrialDaysCommandOutput) => void),
+    cb?: (err: any, data?: GetRemainingFreeTrialDaysCommandOutput) => void
+  ): Promise<GetRemainingFreeTrialDaysCommandOutput> | void {
+    const command = new GetRemainingFreeTrialDaysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
    */
   public getThreatIntelSet(
@@ -1314,9 +1470,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
-   *       ID. For newly enabled detectors or data sources the cost returned will include only the usage
-   *       so far under 30 days, this may differ from the cost metrics in the console, which projects
-   *       usage over 30 days to provide a monthly cost estimate. For more information see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
+   *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
+   *       so far under 30 days. This may differ from the cost metrics in the console, which project
+   *       usage over 30 days to provide a monthly cost estimate. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
    */
   public getUsageStatistics(
     args: GetUsageStatisticsCommandInput,

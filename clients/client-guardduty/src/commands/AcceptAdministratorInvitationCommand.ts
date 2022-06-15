@@ -13,45 +13,43 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
+import { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1DisassociateFromMasterAccountCommand,
+  deserializeAws_restJson1AcceptAdministratorInvitationCommand,
+  serializeAws_restJson1AcceptAdministratorInvitationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
-export interface DisassociateFromMasterAccountCommandOutput
-  extends DisassociateFromMasterAccountResponse,
+export interface AcceptAdministratorInvitationCommandInput extends AcceptAdministratorInvitationRequest {}
+export interface AcceptAdministratorInvitationCommandOutput
+  extends AcceptAdministratorInvitationResponse,
     __MetadataBearer {}
 
 /**
- * @deprecated
- *
- * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
+ * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DisassociateFromMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DisassociateFromMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const command = new DisassociateFromMasterAccountCommand(input);
+ * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
- * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
+ * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
+ * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
-export class DisassociateFromMasterAccountCommand extends $Command<
-  DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput,
+export class AcceptAdministratorInvitationCommand extends $Command<
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
   GuardDutyClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DisassociateFromMasterAccountCommandInput) {
+  constructor(readonly input: AcceptAdministratorInvitationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +62,20 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateFromMasterAccountCommandInput, DisassociateFromMasterAccountCommandOutput> {
+  ): Handler<AcceptAdministratorInvitationCommandInput, AcceptAdministratorInvitationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GuardDutyClient";
-    const commandName = "DisassociateFromMasterAccountCommand";
+    const commandName = "AcceptAdministratorInvitationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromMasterAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromMasterAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptAdministratorInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptAdministratorInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +85,15 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
-  private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
+  private serialize(input: AcceptAdministratorInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1AcceptAdministratorInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(output, context);
+  ): Promise<AcceptAdministratorInvitationCommandOutput> {
+    return deserializeAws_restJson1AcceptAdministratorInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

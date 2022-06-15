@@ -53,6 +53,10 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
+} from "./commands/AcceptAdministratorInvitationCommand";
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
 import { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./commands/ArchiveFindingsCommand";
 import { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
@@ -98,6 +102,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import {
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
@@ -109,6 +117,10 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
+import {
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -124,6 +136,10 @@ import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSet
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  GetRemainingFreeTrialDaysCommandInput,
+  GetRemainingFreeTrialDaysCommandOutput,
+} from "./commands/GetRemainingFreeTrialDaysCommand";
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
@@ -186,6 +202,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
   | ArchiveFindingsCommandInput
   | CreateDetectorCommandInput
@@ -206,9 +223,11 @@ export type ServiceInputTypes =
   | DescribeOrganizationConfigurationCommandInput
   | DescribePublishingDestinationCommandInput
   | DisableOrganizationAdminAccountCommandInput
+  | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
   | EnableOrganizationAdminAccountCommandInput
+  | GetAdministratorAccountCommandInput
   | GetDetectorCommandInput
   | GetFilterCommandInput
   | GetFindingsCommandInput
@@ -218,6 +237,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
   | GetMembersCommandInput
+  | GetRemainingFreeTrialDaysCommandInput
   | GetThreatIntelSetCommandInput
   | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
@@ -246,6 +266,7 @@ export type ServiceInputTypes =
   | UpdateThreatIntelSetCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
   | ArchiveFindingsCommandOutput
   | CreateDetectorCommandOutput
@@ -266,9 +287,11 @@ export type ServiceOutputTypes =
   | DescribeOrganizationConfigurationCommandOutput
   | DescribePublishingDestinationCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
+  | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
+  | GetAdministratorAccountCommandOutput
   | GetDetectorCommandOutput
   | GetFilterCommandOutput
   | GetFindingsCommandOutput
@@ -278,6 +301,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
   | GetMembersCommandOutput
+  | GetRemainingFreeTrialDaysCommandOutput
   | GetThreatIntelSetCommandOutput
   | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
@@ -460,12 +484,14 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
- *       the following data sources: VPC Flow Logs, Amazon Web Services CloudTrail event logs, and DNS logs. It uses
- *       threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
- *       identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services
- *       environment. This can include issues like escalations of privileges, uses of exposed
- *       credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
- *       detect compromised EC2 instances that serve malware or mine bitcoin. </p>
+ *       the following data sources: VPC Flow Logs, AWS CloudTrail management event logs, CloudTrail S3 data event
+ *       logs, EKS audit logs, and DNS logs.
+ *       It uses threat intelligence
+ *       feeds (such as lists of malicious IPs and domains) and machine learning to identify
+ *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
+ *       This can include issues like escalations of privileges, uses of exposed credentials, or
+ *       communication with malicious IPs, URLs, or domains. For example, GuardDuty can detect
+ *       compromised EC2 instances that serve malware or mine bitcoin. </p>
  *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise. Some examples
  *       of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
  *       that has never been used, or unusual API calls like a password policy change to reduce

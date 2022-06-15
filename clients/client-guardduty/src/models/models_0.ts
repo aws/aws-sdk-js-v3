@@ -3,7 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { GuardDutyServiceException as __BaseException } from "./GuardDutyServiceException";
 
-export interface AcceptInvitationRequest {
+export interface AcceptAdministratorInvitationRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
    */
@@ -12,7 +12,7 @@ export interface AcceptInvitationRequest {
   /**
    * <p>The account ID of the GuardDuty administrator account whose invitation you're accepting.</p>
    */
-  MasterId: string | undefined;
+  AdministratorId: string | undefined;
 
   /**
    * <p>The value that is used to validate the administrator account to the member account.</p>
@@ -20,22 +20,22 @@ export interface AcceptInvitationRequest {
   InvitationId: string | undefined;
 }
 
-export namespace AcceptInvitationRequest {
+export namespace AcceptAdministratorInvitationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationRequest): any => ({
     ...obj,
   });
 }
 
-export interface AcceptInvitationResponse {}
+export interface AcceptAdministratorInvitationResponse {}
 
-export namespace AcceptInvitationResponse {
+export namespace AcceptAdministratorInvitationResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
+  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationResponse): any => ({
     ...obj,
   });
 }
@@ -98,6 +98,43 @@ export class InternalServerErrorException extends __BaseException {
     this.Message = opts.Message;
     this.Type = opts.Type;
   }
+}
+
+export interface AcceptInvitationRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The account ID of the GuardDuty administrator account whose invitation you're accepting.</p>
+   */
+  MasterId: string | undefined;
+
+  /**
+   * <p>The value that is used to validate the administrator account to the member account.</p>
+   */
+  InvitationId: string | undefined;
+}
+
+export namespace AcceptInvitationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AcceptInvitationResponse {}
+
+export namespace AcceptInvitationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -180,6 +217,107 @@ export namespace AccountDetail {
    * @internal
    */
   export const filterSensitiveLog = (obj: AccountDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
+ */
+export interface DataSourceFreeTrial {
+  /**
+   * <p>A value that specifies the number of days left to use each enabled data source.</p>
+   */
+  FreeTrialDaysRemaining?: number;
+}
+
+export namespace DataSourceFreeTrial {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceFreeTrial): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the Kubernetes resources when it is enabled as a data source.</p>
+ */
+export interface KubernetesDataSourceFreeTrial {
+  /**
+   * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
+   */
+  AuditLogs?: DataSourceFreeTrial;
+}
+
+export namespace KubernetesDataSourceFreeTrial {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesDataSourceFreeTrial): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
+ */
+export interface DataSourcesFreeTrial {
+  /**
+   * <p>Describes whether any AWS CloudTrail management event logs are enabled as data sources.</p>
+   */
+  CloudTrail?: DataSourceFreeTrial;
+
+  /**
+   * <p>Describes whether any DNS logs are enabled as data sources.</p>
+   */
+  DnsLogs?: DataSourceFreeTrial;
+
+  /**
+   * <p>Describes whether any VPC Flow logs are enabled as data sources.</p>
+   */
+  FlowLogs?: DataSourceFreeTrial;
+
+  /**
+   * <p>Describes whether any S3 data event logs are enabled as data sources.</p>
+   */
+  S3Logs?: DataSourceFreeTrial;
+
+  /**
+   * <p>Describes whether any Kubernetes logs are enabled as data sources.</p>
+   */
+  Kubernetes?: KubernetesDataSourceFreeTrial;
+}
+
+export namespace DataSourcesFreeTrial {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourcesFreeTrial): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details of the GuardDuty member account that uses a free trial service.</p>
+ */
+export interface AccountFreeTrialInfo {
+  /**
+   * <p>The account identifier of the GuardDuty member account.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Describes the data source enabled for the GuardDuty member account.</p>
+   */
+  DataSources?: DataSourcesFreeTrial;
+}
+
+export namespace AccountFreeTrialInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccountFreeTrialInfo): any => ({
     ...obj,
   });
 }
@@ -268,7 +406,7 @@ export interface RemoteAccountDetails {
   AccountId?: string;
 
   /**
-   * <p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty environment.  If this value is <code>True</code> the API caller is affiliated to your account in some way. If it is <code>False</code> the API caller is from outside your environment.</p>
+   * <p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty environment. If this value is <code>True</code> the API caller is affiliated to your account in some way. If it is <code>False</code> the API caller is from outside your environment.</p>
    */
   Affiliated?: boolean;
 }
@@ -466,6 +604,11 @@ export interface AwsApiCallAction {
    * <p>The details of the Amazon Web Services account that made the API call. This field appears if the call was made from outside your account.</p>
    */
   RemoteAccountDetails?: RemoteAccountDetails;
+
+  /**
+   * <p>The details of the Amazon Web Services account that made the API call. This field identifies the resources that were affected by this API call.</p>
+   */
+  AffectedResources?: Record<string, string>;
 }
 
 export namespace AwsApiCallAction {
@@ -485,6 +628,16 @@ export interface DnsRequestAction {
    * <p>The domain information for the API request.</p>
    */
   Domain?: string;
+
+  /**
+   * <p>The network connection protocol observed in the activity that prompted GuardDuty to generate the finding.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>Indicates whether the targeted port is blocked.</p>
+   */
+  Blocked?: boolean;
 }
 
 export namespace DnsRequestAction {
@@ -784,6 +937,40 @@ export namespace AdminAccount {
    * @internal
    */
   export const filterSensitiveLog = (obj: AdminAccount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the administrator account and invitation.</p>
+ */
+export interface Administrator {
+  /**
+   * <p>The ID of the account used as the administrator account.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The value that is used to validate the administrator account to the member account.</p>
+   */
+  InvitationId?: string;
+
+  /**
+   * <p>The status of the relationship between the administrator and member accounts.</p>
+   */
+  RelationshipStatus?: string;
+
+  /**
+   * <p>The timestamp when the invitation was sent.</p>
+   */
+  InvitedAt?: string;
+}
+
+export namespace Administrator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Administrator): any => ({
     ...obj,
   });
 }
@@ -2525,6 +2712,33 @@ export namespace DisableOrganizationAdminAccountResponse {
   });
 }
 
+export interface DisassociateFromAdministratorAccountRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   */
+  DetectorId: string | undefined;
+}
+
+export namespace DisassociateFromAdministratorAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromAdministratorAccountResponse {}
+
+export namespace DisassociateFromAdministratorAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateFromMasterAccountRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -3296,6 +3510,30 @@ export namespace Resource {
 }
 
 /**
+ * <p>Additional information about the generated finding.</p>
+ */
+export interface ServiceAdditionalInfo {
+  /**
+   * <p>This field specifies the value of the additional information.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Describes the type of the additional information.</p>
+   */
+  Type?: string;
+}
+
+export namespace ServiceAdditionalInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceAdditionalInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains additional information about the generated finding.</p>
  */
 export interface Service {
@@ -3350,6 +3588,11 @@ export interface Service {
    * <p>Feedback that was submitted about the finding.</p>
    */
   UserFeedback?: string;
+
+  /**
+   * <p>Contains additional information about the generated finding.</p>
+   */
+  AdditionalInfo?: ServiceAdditionalInfo;
 }
 
 export namespace Service {
@@ -3473,6 +3716,38 @@ export namespace FindingStatistics {
 
 export enum FindingStatisticType {
   COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY",
+}
+
+export interface GetAdministratorAccountRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   */
+  DetectorId: string | undefined;
+}
+
+export namespace GetAdministratorAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAdministratorAccountResponse {
+  /**
+   * <p>The administrator account details.</p>
+   */
+  Administrator: Administrator | undefined;
+}
+
+export namespace GetAdministratorAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface GetDetectorRequest {
@@ -4002,6 +4277,11 @@ export interface Member {
    * <p>The last-updated timestamp of the member.</p>
    */
   UpdatedAt: string | undefined;
+
+  /**
+   * <p>The administrator account ID.</p>
+   */
+  AdministratorId?: string;
 }
 
 export namespace Member {
@@ -4031,6 +4311,48 @@ export namespace GetMembersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRemainingFreeTrialDaysRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account identifiers of the GuardDuty member account.</p>
+   */
+  AccountIds?: string[];
+}
+
+export namespace GetRemainingFreeTrialDaysRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRemainingFreeTrialDaysRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRemainingFreeTrialDaysResponse {
+  /**
+   * <p>The member accounts which were included in a request and were processed successfully.</p>
+   */
+  Accounts?: AccountFreeTrialInfo[];
+
+  /**
+   * <p>The member account that was included in a request but for which the request could not be processed.</p>
+   */
+  UnprocessedAccounts?: UnprocessedAccount[];
+}
+
+export namespace GetRemainingFreeTrialDaysResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRemainingFreeTrialDaysResponse): any => ({
     ...obj,
   });
 }
