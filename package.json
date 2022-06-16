@@ -56,7 +56,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@mixer/parallel-prettier": "^2.0.1",
+    "@mixer/parallel-prettier": "2.0.2",
     "@tsconfig/recommended": "1.0.1",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
@@ -98,7 +98,7 @@
     "lerna": "3.22.1",
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
-    "prettier": "2.5.1",
+    "prettier": "2.7.1",
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
