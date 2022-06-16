@@ -47,8 +47,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           concurrently: "7.0.0",
           "downlevel-dts": "0.7.0",
           rimraf: "3.0.2",
-          typedoc: "0.19.2",
-          typescript: "~4.6.2",
+          typedoc: "0.22.17",
+          typescript: "4.7.3",
         };
         fromContent[name] = Object.keys(fromContent[name])
           .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
