@@ -35,8 +35,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
  *       secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
  *       version. </p>
- *          <p>If you call this operation with a <code>VersionId</code> that matches an existing version's
- *       <code>ClientRequestToken</code>, the operation results in an error. You can't modify an existing
+ *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an existing version's
+ *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
  *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
  *     <a>UpdateSecretVersionStage</a>.</p>
  *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key

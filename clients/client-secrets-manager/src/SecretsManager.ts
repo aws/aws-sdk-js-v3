@@ -524,6 +524,8 @@ export class SecretsManager extends SecretsManagerClient {
   /**
    * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
    *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
+   *          <p>ListSecrets is eventually consistent, however it might not reflect changes from the last five minutes.
+   *       To get the latest information for a specific secret, use <a>DescribeSecret</a>.</p>
    *          <p>To list the versions of a secret, use <a>ListSecretVersionIds</a>.</p>
    *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
    *       call <a>GetSecretValue</a>.</p>
@@ -658,8 +660,8 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
    *       version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
    *       the version that <code>AWSCURRENT</code> was removed from.</p>
-   *          <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same
-   *       value as the <code>ClientRequestToken</code> parameter already exists, and you specify the
+   *          <p>This operation is idempotent. If you call this operation with a <code>ClientRequestToken</code>
+   *     that matches an existing version's VersionId, and you specify the
    *       same secret data, the operation succeeds but does nothing. However, if the secret data is
    *       different, then the operation fails because you can't modify an existing version; you can
    *       only create new ones.</p>
@@ -1039,8 +1041,8 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
    *       secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
    *       version. </p>
-   *          <p>If you call this operation with a <code>VersionId</code> that matches an existing version's
-   *       <code>ClientRequestToken</code>, the operation results in an error. You can't modify an existing
+   *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an existing version's
+   *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
    *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
    *     <a>UpdateSecretVersionStage</a>.</p>
    *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key

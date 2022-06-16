@@ -39,8 +39,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *          <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
  *       version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
  *       the version that <code>AWSCURRENT</code> was removed from.</p>
- *          <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same
- *       value as the <code>ClientRequestToken</code> parameter already exists, and you specify the
+ *          <p>This operation is idempotent. If you call this operation with a <code>ClientRequestToken</code>
+ *     that matches an existing version's VersionId, and you specify the
  *       same secret data, the operation succeeds but does nothing. However, if the secret data is
  *       different, then the operation fails because you can't modify an existing version; you can
  *       only create new ones.</p>
