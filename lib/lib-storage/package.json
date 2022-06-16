@@ -53,12 +53,12 @@
     }
   },
   "browser": {
-    "./runtimeConfig": "./src/runtimeConfig.browser",
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
     "fs": false,
     "stream": "stream-browserify"
   },
   "react-native": {
-    "./runtimeConfig": "./src/runtimeConfig.native"
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "files": [
     "dist-*"
