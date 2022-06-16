@@ -15,8 +15,10 @@ import {
   AwsAutoScalingAutoScalingGroupDetails,
   AwsAutoScalingLaunchConfigurationDetails,
   AwsCertificateManagerCertificateDetails,
+  AwsCloudFormationStackDetails,
   AwsCloudFrontDistributionDetails,
   AwsCloudTrailTrailDetails,
+  AwsCloudWatchAlarmDetails,
   AwsCodeBuildProjectDetails,
   AwsDynamoDbTableDetails,
   AwsEc2EipDetails,
@@ -25,15 +27,20 @@ import {
   AwsEc2NetworkInterfaceDetails,
   AwsEc2SecurityGroupDetails,
   AwsEc2SubnetDetails,
+  AwsEc2TransitGatewayDetails,
   AwsEc2VolumeDetails,
   AwsEc2VpcDetails,
   AwsEc2VpcEndpointServiceDetails,
+  AwsEc2VpcPeeringConnectionDetails,
   AwsEc2VpnConnectionDetails,
   AwsEcrContainerImageDetails,
   AwsEcrRepositoryDetails,
   AwsEcsClusterDetails,
+  AwsEcsContainerDetails,
   AwsEcsServiceDetails,
   AwsEcsTaskDefinitionDetails,
+  AwsEcsTaskDetails,
+  AwsEfsAccessPointDetails,
   AwsEksClusterDetails,
   AwsElasticBeanstalkEnvironmentDetails,
   AwsElasticsearchDomainDetails,
@@ -44,22 +51,1228 @@ import {
   AwsIamPolicyDetails,
   AwsIamRoleDetails,
   AwsIamUserDetails,
+  AwsKinesisStreamDetails,
   AwsKmsKeyDetails,
   AwsLambdaFunctionDetails,
   AwsLambdaLayerVersionDetails,
   AwsNetworkFirewallFirewallDetails,
   AwsNetworkFirewallFirewallPolicyDetails,
-  AwsNetworkFirewallRuleGroupDetails,
-  AwsOpenSearchServiceDomainDetails,
-  AwsRdsDbClusterDetails,
-  AwsRdsDbClusterSnapshotDetails,
-  AwsRdsDbDomainMembership,
-  AwsRdsDbInstanceAssociatedRole,
-  AwsRdsDbInstanceVpcSecurityGroup,
-  AwsRdsDbParameterGroup,
-  AwsRdsDbSubnetGroup,
+  RuleGroupSource,
+  RuleGroupVariablesIpSetsDetails,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>A list of port ranges.</p>
+ */
+export interface RuleGroupVariablesPortSetsDetails {
+  /**
+   * <p>The list of port ranges.</p>
+   */
+  Definition?: string[];
+}
+
+export namespace RuleGroupVariablesPortSetsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Additional settings to use in the specified rules.</p>
+ */
+export interface RuleGroupVariables {
+  /**
+   * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+   */
+  IpSets?: RuleGroupVariablesIpSetsDetails;
+
+  /**
+   * <p>A list of port ranges.</p>
+   */
+  PortSets?: RuleGroupVariablesPortSetsDetails;
+}
+
+export namespace RuleGroupVariables {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupVariables): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the rule group.</p>
+ */
+export interface RuleGroupDetails {
+  /**
+   * <p>Additional settings to use in the specified rules.</p>
+   */
+  RuleVariables?: RuleGroupVariables;
+
+  /**
+   * <p>The rules and actions for the rule group.</p>
+   *          <p>For stateful rule groups, can contain <code>RulesString</code>, <code>RulesSourceList</code>, or <code>StatefulRules</code>.</p>
+   *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
+   */
+  RulesSource?: RuleGroupSource;
+}
+
+export namespace RuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.</p>
+ *          <p>Rule groups are referenced in firewall policies.
+ *       </p>
+ */
+export interface AwsNetworkFirewallRuleGroupDetails {
+  /**
+   * <p>The maximum number of operating resources that this rule group can use.</p>
+   */
+  Capacity?: number;
+
+  /**
+   * <p>A description of the rule group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Details about the rule group.</p>
+   */
+  RuleGroup?: RuleGroupDetails;
+
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The identifier of the rule group.</p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * <p>The descriptive name of the rule group.</p>
+   */
+  RuleGroupName?: string;
+
+  /**
+   * <p>The type of rule group. A rule group can be stateful or stateless.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsNetworkFirewallRuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies information about the master user of the domain.
+ *       </p>
+ */
+export interface AwsOpenSearchServiceDomainMasterUserOptionsDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the master user.
+   *       </p>
+   */
+  MasterUserArn?: string;
+
+  /**
+   * <p>The username for the master user.
+   *       </p>
+   */
+  MasterUserName?: string;
+
+  /**
+   * <p>The password for the master user.
+   *       </p>
+   */
+  MasterUserPassword?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainMasterUserOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainMasterUserOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about domain access control options.
+ *       </p>
+ */
+export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
+  /**
+   * <p>Enables fine-grained access control.
+   *       </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Enables the internal user database.
+   *       </p>
+   */
+  InternalUserDatabaseEnabled?: boolean;
+
+  /**
+   * <p>Specifies information about the master user of the domain.
+   *       </p>
+   */
+  MasterUserOptions?: AwsOpenSearchServiceDomainMasterUserOptionsDetails;
+}
+
+export namespace AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration options for zone awareness.</p>
+ */
+export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * <p>The number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   */
+  AvailabilityZoneCount?: number;
+}
+
+export namespace AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the configuration of an OpenSearch cluster.</p>
+ */
+export interface AwsOpenSearchServiceDomainClusterConfigDetails {
+  /**
+   * <p>The number of data nodes to use in the OpenSearch domain.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>Whether UltraWarm is enabled.</p>
+   */
+  WarmEnabled?: boolean;
+
+  /**
+   * <p>The number of UltraWarm instances.</p>
+   */
+  WarmCount?: number;
+
+  /**
+   * <p>Whether to use a dedicated master node for the OpenSearch domain. A dedicated master node performs cluster management tasks, but does not hold data or respond to data upload requests.</p>
+   */
+  DedicatedMasterEnabled?: boolean;
+
+  /**
+   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   */
+  ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails;
+
+  /**
+   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   */
+  DedicatedMasterCount?: number;
+
+  /**
+   * <p>The instance type for your data nodes. </p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The type of UltraWarm instance.</p>
+   */
+  WarmType?: string;
+
+  /**
+   * <p>Whether to enable zone awareness for the OpenSearch domain. When zone awareness is enabled, OpenSearch Service allocates the cluster's nodes and replica index shards across Availability Zones (AZs) in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   */
+  ZoneAwarenessEnabled?: boolean;
+
+  /**
+   * <p>The hardware configuration of the computer that hosts the dedicated master node.</p>
+   *          <p>If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.
+   *       </p>
+   */
+  DedicatedMasterType?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainClusterConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about additional options for the domain endpoint.</p>
+ */
+export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
+  /**
+   * <p>The ARN for the security certificate. The certificate is managed in ACM.</p>
+   */
+  CustomEndpointCertificateArn?: string;
+
+  /**
+   * <p>Whether to enable a custom endpoint for the domain.</p>
+   */
+  CustomEndpointEnabled?: boolean;
+
+  /**
+   * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
+   */
+  EnforceHTTPS?: boolean;
+
+  /**
+   * <p>The fully qualified URL for the custom endpoint.</p>
+   */
+  CustomEndpoint?: string;
+
+  /**
+   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch domain.</p>
+   */
+  TLSSecurityPolicy?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
+  /**
+   * <p>Whether encryption at rest is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The KMS key ID.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration details for a log publishing option.</p>
+ */
+export interface AwsOpenSearchServiceDomainLogPublishingOption {
+  /**
+   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Whether the log publishing is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainLogPublishingOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
+  /**
+   * <p>Configures the OpenSearch index logs publishing.</p>
+   */
+  IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+
+  /**
+   * <p>Configures the OpenSearch search slow log publishing.</p>
+   */
+  SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+
+  /**
+   * <p>Configures the OpenSearch audit logs publishing.</p>
+   */
+  AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+}
+
+export namespace AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the configuration for node-to-node encryption.</p>
+ */
+export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
+  /**
+   * <p>Whether node-to-node encryption is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the state of the domain relative to the latest service software.</p>
+ */
+export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
+  /**
+   * <p>The epoch time when the deployment window closes for required updates. After this time, OpenSearch Service schedules the software upgrade automatically.</p>
+   */
+  AutomatedUpdateDate?: string;
+
+  /**
+   * <p>Whether a request to update the domain can be canceled.</p>
+   */
+  Cancellable?: boolean;
+
+  /**
+   * <p>The version of the service software that is currently installed on the domain.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>A more detailed description of the service software status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The most recent version of the service software.</p>
+   */
+  NewVersion?: string;
+
+  /**
+   * <p>Whether a service software update is available for the domain.</p>
+   */
+  UpdateAvailable?: boolean;
+
+  /**
+   * <p>The status of the service software update.</p>
+   */
+  UpdateStatus?: string;
+
+  /**
+   * <p>Whether the service software update is optional.</p>
+   */
+  OptionalDeployment?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
+  /**
+   * <p>The list of security group IDs that are associated with the VPC endpoints for the domain.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
+   */
+  SubnetIds?: string[];
+}
+
+export namespace AwsOpenSearchServiceDomainVpcOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainVpcOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Amazon OpenSearch Service domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainDetails {
+  /**
+   * <p>The ARN of the OpenSearch Service domain.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>IAM policy document that specifies the access policies for the OpenSearch Service domain.</p>
+   */
+  AccessPolicies?: string;
+
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The identifier of the domain.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The domain endpoint.</p>
+   */
+  DomainEndpoint?: string;
+
+  /**
+   * <p>The version of the domain engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Details about the configuration for encryption at rest.</p>
+   */
+  EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails;
+
+  /**
+   * <p>Details about the configuration for node-to-node encryption.</p>
+   */
+  NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails;
+
+  /**
+   * <p>Information about the status of a domain relative to the latest service software.</p>
+   */
+  ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails;
+
+  /**
+   * <p>Details about the configuration of an OpenSearch cluster.</p>
+   */
+  ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails;
+
+  /**
+   * <p>Additional options for the domain endpoint.</p>
+   */
+  DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
+
+  /**
+   * <p>Information that OpenSearch Service derives based on <code>VPCOptions</code> for the domain.</p>
+   */
+  VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
+
+  /**
+   * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+   */
+  LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
+
+  /**
+   * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
+   *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
+   */
+  DomainEndpoints?: Record<string, string>;
+
+  /**
+   * <p>Specifies options for fine-grained access control.
+   *       </p>
+   */
+  AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails;
+}
+
+export namespace AwsOpenSearchServiceDomainDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
+ */
+export interface AwsRdsDbClusterAssociatedRole {
+  /**
+   * <p>The ARN of the IAM role.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The status of the association between the IAM role and the DB cluster.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbClusterAssociatedRole {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbClusterAssociatedRole): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an instance in the DB cluster.</p>
+ */
+export interface AwsRdsDbClusterMember {
+  /**
+   * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
+   */
+  IsClusterWriter?: boolean;
+
+  /**
+   * <p>Specifies the order in which an Aurora replica is promoted to the primary instance when
+   *          the existing primary instance fails.</p>
+   */
+  PromotionTier?: number;
+
+  /**
+   * <p>The instance identifier for this member of the DB cluster.</p>
+   */
+  DbInstanceIdentifier?: string;
+
+  /**
+   * <p>The status of the DB cluster parameter group for this member of the DB cluster.</p>
+   */
+  DbClusterParameterGroupStatus?: string;
+}
+
+export namespace AwsRdsDbClusterMember {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbClusterMember): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an option group membership for a DB cluster.</p>
+ */
+export interface AwsRdsDbClusterOptionGroupMembership {
+  /**
+   * <p>The name of the DB cluster option group.</p>
+   */
+  DbClusterOptionGroupName?: string;
+
+  /**
+   * <p>The status of the DB cluster option group.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbClusterOptionGroupMembership {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbClusterOptionGroupMembership): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Active Directory domain membership record associated with the DB
+ *          instance.</p>
+ */
+export interface AwsRdsDbDomainMembership {
+  /**
+   * <p>The identifier of the Active Directory domain.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The status of the Active Directory Domain membership for the DB instance.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The fully qualified domain name of the Active Directory domain.</p>
+   */
+  Fqdn?: string;
+
+  /**
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   */
+  IamRoleName?: string;
+}
+
+export namespace AwsRdsDbDomainMembership {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbDomainMembership): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A VPC security groups that the DB instance belongs to.</p>
+ */
+export interface AwsRdsDbInstanceVpcSecurityGroup {
+  /**
+   * <p>The name of the VPC security group.</p>
+   */
+  VpcSecurityGroupId?: string;
+
+  /**
+   * <p>The status of the VPC security group.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbInstanceVpcSecurityGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Amazon RDS DB cluster.</p>
+ */
+export interface AwsRdsDbClusterDetails {
+  /**
+   * <p>For all database engines except Aurora, specifies the allocated storage size in
+   *          gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
+   *          created.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The number of days for which automated backups are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The name of the database.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The current status of this DB cluster.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The connection endpoint for the primary instance of the DB cluster.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The reader endpoint for the DB cluster.</p>
+   */
+  ReaderEndpoint?: string;
+
+  /**
+   * <p>A list of custom endpoints for the DB cluster.</p>
+   */
+  CustomEndpoints?: string[];
+
+  /**
+   * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
+   */
+  MultiAz?: boolean;
+
+  /**
+   * <p>The name of the database engine to use for this DB cluster.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version number of the database engine to use.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The name of the master user for the DB cluster.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>The range of time each day when automated backups are created, if automated backups are
+   *          enabled.</p>
+   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
+   */
+  PreferredBackupWindow?: string;
+
+  /**
+   * <p>The weekly time range during which system maintenance can occur, in Universal
+   *          Coordinated Time (UTC).</p>
+   *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
+   *          <p>For the day values, use
+   *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
+   *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
+   */
+  ReadReplicaIdentifiers?: string[];
+
+  /**
+   * <p>A list of VPC security groups that the DB cluster belongs to.</p>
+   */
+  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+
+  /**
+   * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
+   *          zone.</p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * <p>Whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
+   *          DB cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The identifier of the DB cluster. The identifier must be unique within each Amazon Web Services Region
+   *          and is immutable.</p>
+   */
+  DbClusterResourceId?: string;
+
+  /**
+   * <p>A list of the IAM roles that are associated with the DB cluster.</p>
+   */
+  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
+
+  /**
+   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ClusterCreateTime?: string;
+
+  /**
+   * <p>A list of log types that this DB cluster is configured to export to CloudWatch
+   *          Logs.</p>
+   */
+  EnabledCloudWatchLogsExports?: string[];
+
+  /**
+   * <p>The database engine mode of the DB cluster.</p>
+   */
+  EngineMode?: string;
+
+  /**
+   * <p>Whether the DB cluster has deletion protection enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
+   */
+  HttpEndpointEnabled?: boolean;
+
+  /**
+   * <p>The status of the database activity stream.</p>
+   */
+  ActivityStreamStatus?: string;
+
+  /**
+   * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>Whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services
+   *          account.</p>
+   */
+  CrossAccountClone?: boolean;
+
+  /**
+   * <p>The Active Directory domain membership records that are associated with the DB
+   *          cluster.</p>
+   */
+  DomainMemberships?: AwsRdsDbDomainMembership[];
+
+  /**
+   * <p>The name of the DB cluster parameter group for the DB cluster.</p>
+   */
+  DbClusterParameterGroup?: string;
+
+  /**
+   * <p>The subnet group that is associated with the DB cluster, including the name,
+   *          description, and subnets in the subnet group.</p>
+   */
+  DbSubnetGroup?: string;
+
+  /**
+   * <p>The list of option group memberships for this DB cluster.</p>
+   */
+  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
+
+  /**
+   * <p>The DB cluster identifier that the user assigned to the cluster. This identifier is the
+   *          unique key that identifies a DB cluster.</p>
+   */
+  DbClusterIdentifier?: string;
+
+  /**
+   * <p>The list of instances that make up the DB cluster.</p>
+   */
+  DbClusterMembers?: AwsRdsDbClusterMember[];
+
+  /**
+   * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
+   */
+  IamDatabaseAuthenticationEnabled?: boolean;
+}
+
+export namespace AwsRdsDbClusterDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbClusterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Amazon RDS DB cluster snapshot.</p>
+ */
+export interface AwsRdsDbClusterSnapshotDetails {
+  /**
+   * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>Indicates when the snapshot was taken.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  SnapshotCreateTime?: string;
+
+  /**
+   * <p>The name of the database engine that you want to use for this DB instance.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The status of this DB cluster snapshot.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ClusterCreateTime?: string;
+
+  /**
+   * <p>The name of the master user for the DB cluster.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>The version of the database engine to use.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The license model information for this DB cluster snapshot.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>The type of DB cluster snapshot.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
+   */
+  PercentProgress?: number;
+
+  /**
+   * <p>Whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
+   *          DB cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The DB cluster identifier.</p>
+   */
+  DbClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier of the DB cluster snapshot.</p>
+   */
+  DbClusterSnapshotIdentifier?: string;
+
+  /**
+   * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
+   */
+  IamDatabaseAuthenticationEnabled?: boolean;
+}
+
+export namespace AwsRdsDbClusterSnapshotDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbClusterSnapshotDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An IAM role associated with the DB instance.</p>
+ */
+export interface AwsRdsDbInstanceAssociatedRole {
+  /**
+   * <p>The ARN of the IAM role that is associated with the DB
+   *          instance.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The name of the feature associated with the IAM role.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>Describes the state of the association between the IAM role and the DB instance. The
+   *             <code>Status</code> property returns one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The IAM role ARN is associated with the DB instance and can
+   *                be used to access other Amazon Web Services services on your behalf.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The IAM role ARN is being associated with the DB
+   *                instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID</code> - The IAM role ARN is associated with the DB instance. But
+   *                the DB instance is unable to assume the IAM role in order to access other Amazon Web Services
+   *                services on your behalf. </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbInstanceAssociatedRole {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a parameter group for a DB instance.</p>
+ */
+export interface AwsRdsDbParameterGroup {
+  /**
+   * <p>The name of the parameter group.</p>
+   */
+  DbParameterGroupName?: string;
+
+  /**
+   * <p>The status of parameter updates.</p>
+   */
+  ParameterApplyStatus?: string;
+}
+
+export namespace AwsRdsDbParameterGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbParameterGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Availability Zone for a subnet in a subnet group.</p>
+ */
+export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
+  /**
+   * <p>The name of the Availability Zone for a subnet in the subnet group.</p>
+   */
+  Name?: string;
+}
+
+export namespace AwsRdsDbSubnetGroupSubnetAvailabilityZone {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnetAvailabilityZone): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a subnet in a subnet group.</p>
+ */
+export interface AwsRdsDbSubnetGroupSubnet {
+  /**
+   * <p>The identifier of a subnet in the subnet group.</p>
+   */
+  SubnetIdentifier?: string;
+
+  /**
+   * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
+   */
+  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
+
+  /**
+   * <p>The status of a subnet in the subnet group.</p>
+   */
+  SubnetStatus?: string;
+}
+
+export namespace AwsRdsDbSubnetGroupSubnet {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnet): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the subnet group for the database instance.</p>
+ */
+export interface AwsRdsDbSubnetGroup {
+  /**
+   * <p>The name of the subnet group.</p>
+   */
+  DbSubnetGroupName?: string;
+
+  /**
+   * <p>The description of the subnet group.</p>
+   */
+  DbSubnetGroupDescription?: string;
+
+  /**
+   * <p>The VPC ID of the subnet group.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The status of the subnet group.</p>
+   */
+  SubnetGroupStatus?: string;
+
+  /**
+   * <p>A list of subnets in the subnet group.</p>
+   */
+  Subnets?: AwsRdsDbSubnetGroupSubnet[];
+
+  /**
+   * <p>The ARN of the subnet group.</p>
+   */
+  DbSubnetGroupArn?: string;
+}
+
+export namespace AwsRdsDbSubnetGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Specifies the connection endpoint.</p>
@@ -1101,8 +2314,10 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   /**
    * <p>The number of days that manual snapshots are retained in the destination region after
    *          they are copied from a source region.</p>
-   *          <p>If the value is -1, then the manual snapshot is retained indefinitely.</p>
-   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
+   *          <p>If the value is <code>-1</code>,
+   *          then the manual snapshot is retained indefinitely.</p>
+   *          <p>Valid values: Either <code>-1</code>
+   *          or an integer between 1 and 3,653</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 
@@ -1701,9 +2916,9 @@ export interface AwsRedshiftClusterDetails {
 
   /**
    * <p>The default number of days to retain a manual snapshot.</p>
-   *          <p>If the value is -1, the snapshot is retained indefinitely.</p>
+   *          <p>If the value is <code>-1</code>, the snapshot is retained indefinitely.</p>
    *          <p>This setting doesn't change the retention period of existing snapshots.</p>
-   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
+   *          <p>Valid values: Either <code>-1</code> or an integer between 1 and 3,653</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 
@@ -3800,7 +5015,7 @@ export namespace AwsSnsTopicSubscription {
 }
 
 /**
- * <p>A wrapper type for the topic's ARN.</p>
+ * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
  */
 export interface AwsSnsTopicDetails {
   /**
@@ -3809,12 +5024,12 @@ export interface AwsSnsTopicDetails {
   KmsMasterKeyId?: string;
 
   /**
-   * <p>Subscription is an embedded property that describes the subscription endpoints of an SNS topic.</p>
+   * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
    */
   Subscription?: AwsSnsTopicSubscription[];
 
   /**
-   * <p>The name of the topic.</p>
+   * <p>The name of the Amazon SNS topic.</p>
    */
   TopicName?: string;
 
@@ -3822,6 +5037,47 @@ export interface AwsSnsTopicDetails {
    * <p>The subscription's owner.</p>
    */
   Owner?: string;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
+   *       </p>
+   */
+  SqsSuccessFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
+   *       </p>
+   */
+  SqsFailureFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
+   *       </p>
+   */
+  ApplicationSuccessFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
+   *       </p>
+   */
+  FirehoseSuccessFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
+   *       </p>
+   */
+  FirehoseFailureFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
+   *       </p>
+   */
+  HttpSuccessFeedbackRoleArn?: string;
+
+  /**
+   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
+   */
+  HttpFailureFeedbackRoleArn?: string;
 }
 
 export namespace AwsSnsTopicDetails {
@@ -4195,6 +5451,496 @@ export namespace AwsWafRegionalRateBasedRuleDetails {
 }
 
 /**
+ * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+ *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
+ *       </p>
+ */
+export interface AwsWafRegionalRulePredicateListDetails {
+  /**
+   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   *       </p>
+   */
+  DataId?: string;
+
+  /**
+   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
+   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
+   *       </p>
+   */
+  Negated?: boolean;
+
+  /**
+   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalRulePredicateListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRulePredicateListDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
+ */
+export interface AwsWafRegionalRuleDetails {
+  /**
+   * <p>A name for the metrics for the rule.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>A descriptive name for the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
+   *             <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
+   *             <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to
+   *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
+   */
+  PredicateList?: AwsWafRegionalRulePredicateListDetails[];
+
+  /**
+   * <p>The ID of the rule.
+   *       </p>
+   */
+  RuleId?: string;
+}
+
+export namespace AwsWafRegionalRuleDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRuleDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the action that AWS WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ */
+export interface AwsWafRegionalRuleGroupRulesActionDetails {
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
+   * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalRuleGroupRulesActionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupRulesActionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the rules attached to a rule group
+ *       </p>
+ */
+export interface AwsWafRegionalRuleGroupRulesDetails {
+  /**
+   * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
+   */
+  Action?: AwsWafRegionalRuleGroupRulesActionDetails;
+
+  /**
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
+   *          order based on the value of <code>Priority</code>. </p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ID for a rule.
+   *       </p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The type of rule in the rule group.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalRuleGroupRulesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupRulesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
+ *          requests. </p>
+ */
+export interface AwsWafRegionalRuleGroupDetails {
+  /**
+   * <p>A name for the metrics for this rule group.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The descriptive name of the rule group.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the rule group.
+   *       </p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
+   * count.
+   *       </p>
+   */
+  Rules?: AwsWafRegionalRuleGroupRulesDetails[];
+}
+
+export namespace AwsWafRegionalRuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The action that WAF takes when a web request matches all conditions in the
+ *          rule, such as allow, block, or count the request. </p>
+ */
+export interface AwsWafRegionalWebAclRulesListActionDetails {
+  /**
+   * <p>For actions that are associated with a rule, the action that WAF takes when a web request matches all conditions in a rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalWebAclRulesListActionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListActionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the action to use in the place of the action that results from the rule group
+ * evaluation.
+ *       </p>
+ */
+export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
+  /**
+   * <p>Overrides the rule evaluation result in the rule group.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalWebAclRulesListOverrideActionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListOverrideActionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
+ * objects that identify the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRegionalWebAclRulesListDetails {
+  /**
+   * <p>The action that AWS WAF takes when a web request matches all conditions in the rule, such as allow,
+   *          block, or count the request.
+   *       </p>
+   */
+  Action?: AwsWafRegionalWebAclRulesListActionDetails;
+
+  /**
+   * <p>Overrides the rule evaluation result in the rule group.
+   *       </p>
+   */
+  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails;
+
+  /**
+   * <p>The order in which WAF evaluates the rules in a web ACL.
+   *       </p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>For actions that are associated with a rule, the action that WAF takes when a web
+   * request matches all conditions in a rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalWebAclRulesListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
+ *          want to allow, block, or count. </p>
+ */
+export interface AwsWafRegionalWebAclDetails {
+  /**
+   * <p>The action to perform if none of the rules contained in the web ACL match.
+   *       </p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * <p>A name for the metrics for this web ACL.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>A descriptive name for the web ACL.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
+   * the rule.
+   *       </p>
+   */
+  RulesList?: AwsWafRegionalWebAclRulesListDetails[];
+
+  /**
+   * <p>The ID of the web ACL.
+   *       </p>
+   */
+  WebAclId?: string;
+}
+
+export namespace AwsWafRegionalWebAclDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+ *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+ * for each object, indicates whether you want to negate the settings.
+ *       </p>
+ */
+export interface AwsWafRulePredicateListDetails {
+  /**
+   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   *       </p>
+   */
+  DataId?: string;
+
+  /**
+   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
+   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
+   *       </p>
+   */
+  Negated?: boolean;
+
+  /**
+   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRulePredicateListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRulePredicateListDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleDetails {
+  /**
+   * <p>The name of the metrics for this rule.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>A descriptive name for the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+   *          for each object, indicates whether you want to negate the settings.
+   *       </p>
+   */
+  PredicateList?: AwsWafRulePredicateListDetails[];
+
+  /**
+   * <p>The ID of the WAF rule.
+   *       </p>
+   */
+  RuleId?: string;
+}
+
+export namespace AwsWafRuleDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRuleDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesActionDetails {
+  /**
+   * <p>The action that WAF should take on a web request when it matches the rule's
+   *          statement.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRuleGroupRulesActionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRuleGroupRulesActionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+ *          allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesDetails {
+  /**
+   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+   *       </p>
+   */
+  Action?: AwsWafRuleGroupRulesActionDetails;
+
+  /**
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
+   *          based on the value of <code>Priority</code>.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The rule ID for a rule.
+   *       </p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The type of rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRuleGroupRulesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRuleGroupRulesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *       </p>
+ */
+export interface AwsWafRuleGroupDetails {
+  /**
+   * <p>The name of the metrics for this rule group.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The name of the rule group.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the rule group.
+   *       </p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+   * allow, block, or count.
+   *       </p>
+   */
+  Rules?: AwsWafRuleGroupRulesDetails[];
+}
+
+export namespace AwsWafRuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about the action that CloudFront or WAF takes when a web request matches the
  *          conditions in the rule. </p>
  */
@@ -4214,10 +5960,10 @@ export interface WafAction {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COUNT</code> - WAF increments a counter of the requests that match all
-   *                of the conditions in the rule. WAF then continues to inspect the web request
-   *                based on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for
-   *                the default action for a WebACL.</p>
+   *                   <code>COUNT</code> - WAF increments a counter of the requests that
+   *                match all of the conditions in the rule. WAF then continues to inspect
+   *                the web request based on the remaining rules in the web ACL. You can't specify
+   *                   <code>COUNT</code> for the default action for a web ACL.</p>
    *             </li>
    *          </ul>
    */
@@ -4275,7 +6021,7 @@ export namespace WafOverrideAction {
 }
 
 /**
- * <p>Details for a rule in an WAF WebACL.</p>
+ * <p>Details for a rule in an WAF web ACL.</p>
  */
 export interface AwsWafWebAclRule {
   /**
@@ -4290,29 +6036,30 @@ export interface AwsWafWebAclRule {
   ExcludedRules?: WafExcludedRule[];
 
   /**
-   * <p>Use the <code>OverrideAction</code> to test your RuleGroup.</p>
-   *          <p>Any rule in a RuleGroup can potentially block a request. If you set the
-   *             <code>OverrideAction</code> to <code>None</code>, the RuleGroup blocks a request if any
-   *          individual rule in the RuleGroup matches the request and is configured to block that
-   *          request.</p>
-   *          <p>However, if you first want to test the RuleGroup, set the <code>OverrideAction</code> to
-   *             <code>Count</code>. The RuleGroup then overrides any block action specified by
-   *          individual rules contained within the group. Instead of blocking matching requests, those
-   *          requests are counted.</p>
+   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
+   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to
+   *             <code>None</code>, the <code>RuleGroup</code> blocks a request if any individual rule in the <code>RuleGroup</code>
+   *          matches the request and is configured to block that request.</p>
+   *          <p>However, if you first want to test the <code>RuleGroup</code>,
+   *          set the <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code>
+   *          then overrides any block action specified by individual rules contained within the group.
+   *          Instead of blocking matching requests, those requests are counted.</p>
    *          <p>
    *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
-   *          adding a RuleGroup to a WebACL. In this case you do not use
-   *             <code>ActivatedRule</code>|<code>Action</code>. For all other update requests,
-   *             <code>ActivatedRule</code>|<code>Action</code> is used instead of
-   *             <code>ActivatedRule</code>|<code>OverrideAction</code>. </p>
+   *          adding a <code>RuleGroup</code>
+   *          to a web ACL. In this case you do not use <code>ActivatedRule</code>
+   *             <code>Action</code>. For all other update requests,
+   *             <code>ActivatedRule</code>
+   *             <code>Action</code> is used instead of <code>ActivatedRule</code>
+   *             <code>OverrideAction</code>.</p>
    */
   OverrideAction?: WafOverrideAction;
 
   /**
-   * <p>Specifies the order in which the rules in a WebACL are evaluated. Rules with a lower
-   *          value for <code>Priority</code> are evaluated before rules with a higher value. The value
-   *          must be a unique integer. If you add multiple rules to a WebACL, the values do not need to
-   *          be consecutive.</p>
+   * <p>Specifies the order in which the rules in a web
+   *          ACL are evaluated. Rules with a lower value for <code>Priority</code> are
+   *          evaluated before rules with a higher value. The value must be a unique integer. If you add
+   *          multiple rules to a web ACL, the values do not need to be consecutive.</p>
    */
   Priority?: number;
 
@@ -4340,28 +6087,26 @@ export namespace AwsWafWebAclRule {
 }
 
 /**
- * <p>Details about an WAF WebACL.</p>
+ * <p>Provides information about an WAF web access control list (web ACL).</p>
  */
 export interface AwsWafWebAclDetails {
   /**
-   * <p>A friendly name or description of the WebACL. You can't change the name of a WebACL
-   *          after you create it.</p>
+   * <p>A friendly name or description of the web ACL. You can't change the name of a web ACL  after you create it.</p>
    */
   Name?: string;
 
   /**
-   * <p>The action to perform if none of the rules contained in the WebACL match.</p>
+   * <p>The action to perform if none of the rules contained in the web ACL match.</p>
    */
   DefaultAction?: string;
 
   /**
-   * <p>An array that contains the action for each rule in a WebACL, the priority of the rule,
-   *          and the ID of the rule.</p>
+   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.</p>
    */
   Rules?: AwsWafWebAclRule[];
 
   /**
-   * <p>A unique identifier for a WebACL.</p>
+   * <p>A unique identifier for a web ACL.</p>
    */
   WebAclId?: string;
 }
@@ -4405,21 +6150,54 @@ export namespace AwsXrayEncryptionConfigDetails {
 }
 
 /**
+ * <p>Describes the mounting of a volume in a container.
+ *       </p>
+ */
+export interface VolumeMount {
+  /**
+   * <p>The name of the volume.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The path in the container at which the volume should be mounted.
+   *       </p>
+   */
+  MountPath?: string;
+}
+
+export namespace VolumeMount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VolumeMount): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Container details related to a finding.</p>
  */
 export interface ContainerDetails {
+  /**
+   * <p>The runtime of the container.
+   *       </p>
+   */
+  ContainerRuntime?: string;
+
   /**
    * <p>The name of the container related to a finding.</p>
    */
   Name?: string;
 
   /**
-   * <p>The identifier of the image related to a finding.</p>
+   * <p>The identifier of the container image related to a finding.</p>
    */
   ImageId?: string;
 
   /**
-   * <p>The name of the image related to a finding.</p>
+   * <p>The name of the container image related to a finding.</p>
    */
   ImageName?: string;
 
@@ -4430,6 +6208,19 @@ export interface ContainerDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
+
+  /**
+   * <p>Provides information about the mounting of a volume in a container.
+   *       </p>
+   */
+  VolumeMounts?: VolumeMount[];
+
+  /**
+   * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the host
+   * container instance (similar to the root user).
+   *       </p>
+   */
+  Privileged?: boolean;
 }
 
 export namespace ContainerDetails {
@@ -4483,12 +6274,12 @@ export interface ResourceDetails {
   AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
 
   /**
-   * <p>Details for an EC2 volume.</p>
+   * <p>Details for an Amazon EC2 volume.</p>
    */
   AwsEc2Volume?: AwsEc2VolumeDetails;
 
   /**
-   * <p>Details for an EC2 VPC.</p>
+   * <p>Details for an Amazon EC2 VPC.</p>
    */
   AwsEc2Vpc?: AwsEc2VpcDetails;
 
@@ -4648,7 +6439,7 @@ export interface ResourceDetails {
   AwsSqsQueue?: AwsSqsQueueDetails;
 
   /**
-   * <p>Details for an WAF WebACL.</p>
+   * <p>Details for an WAF web ACL.</p>
    */
   AwsWafWebAcl?: AwsWafWebAclDetails;
 
@@ -4668,9 +6459,15 @@ export interface ResourceDetails {
   AwsRdsDbCluster?: AwsRdsDbClusterDetails;
 
   /**
-   * <p>Details about an ECS cluster.</p>
+   * <p>Details about an Amazon ECS cluster.</p>
    */
   AwsEcsCluster?: AwsEcsClusterDetails;
+
+  /**
+   * <p>Provides information about a Docker container that's part of a task.
+   *       </p>
+   */
+  AwsEcsContainer?: AwsEcsContainerDetails;
 
   /**
    * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
@@ -4716,7 +6513,7 @@ export interface ResourceDetails {
   AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
 
   /**
-   * <p>Details about an EC2 VPN connection.</p>
+   * <p>Details about an Amazon EC2 VPN connection.</p>
    */
   AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
 
@@ -4779,6 +6576,75 @@ export interface ResourceDetails {
    * <p>Details about an Amazon RDS DB security group.</p>
    */
   AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails;
+
+  /**
+   * <p>Details about an Amazon Kinesis data stream.</p>
+   */
+  AwsKinesisStream?: AwsKinesisStreamDetails;
+
+  /**
+   * <p>Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.</p>
+   */
+  AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails;
+
+  /**
+   * <p>Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that
+   * applies an operating system user and group, and a file system path, to any file system request made through the access point.
+   *       </p>
+   */
+  AwsEfsAccessPoint?: AwsEfsAccessPointDetails;
+
+  /**
+   * <p>Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.</p>
+   */
+  AwsCloudFormationStack?: AwsCloudFormationStackDetails;
+
+  /**
+   * <p>Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.</p>
+   */
+  AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails;
+
+  /**
+   * <p>Details about an Amazon EC2 VPC peering connection. A VPC peering connection is
+   *          a networking connection between two VPCs that enables you to route traffic between them
+   *          privately.
+   *       </p>
+   */
+  AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails;
+
+  /**
+   * <p>Details about an WAF rule group for Regional resources.
+   *       </p>
+   */
+  AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails;
+
+  /**
+   * <p>Details about an WAF rule for Regional resources.
+   *       </p>
+   */
+  AwsWafRegionalRule?: AwsWafRegionalRuleDetails;
+
+  /**
+   * <p>Details about an WAF web access control list (web ACL) for Regional resources. </p>
+   */
+  AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails;
+
+  /**
+   * <p>Details about an WAF rule for global resources.
+   *       </p>
+   */
+  AwsWafRule?: AwsWafRuleDetails;
+
+  /**
+   * <p>Details about an WAF rule group for global resources.
+   *       </p>
+   */
+  AwsWafRuleGroup?: AwsWafRuleGroupDetails;
+
+  /**
+   * <p>Details about a task in a cluster. </p>
+   */
+  AwsEcsTask?: AwsEcsTaskDetails;
 }
 
 export namespace ResourceDetails {
@@ -5039,6 +6905,84 @@ export namespace ThreatIntelIndicator {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the file paths that were affected by the threat.
+ * 		</p>
+ */
+export interface FilePaths {
+  /**
+   * <p>Path to the infected or suspicious file on the resource it was detected on.
+   * 		</p>
+   */
+  FilePath?: string;
+
+  /**
+   * <p>The name of the infected or suspicious file corresponding to the hash.
+   * 		</p>
+   */
+  FileName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
+   * 		</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The hash value for the infected or suspicious file.
+   * 		</p>
+   */
+  Hash?: string;
+}
+
+export namespace FilePaths {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FilePaths): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
+ * 		</p>
+ */
+export interface Threat {
+  /**
+   * <p>The name of the threat.
+   * 		</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The severity of the threat.
+   * 		</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>This total number of items in which the threat has been detected.
+   * 		</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>Provides information about the file paths that were affected by the threat.
+   * 		</p>
+   */
+  FilePaths?: FilePaths[];
+}
+
+export namespace Threat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Threat): any => ({
     ...obj,
   });
 }
@@ -5480,6 +7424,12 @@ export interface AwsSecurityFinding {
    * <p>The details of process-related information about a finding.</p>
    */
   Process?: ProcessDetails;
+
+  /**
+   * <p>Details about the threat detected in a security finding and the file paths that were affected by the threat.
+   *       </p>
+   */
+  Threats?: Threat[];
 
   /**
    * <p>Threat intelligence details related to a finding.</p>
@@ -9192,370 +11142,6 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to apply the tags to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource to remove the tags from.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateActionTargetRequest {
-  /**
-   * <p>The ARN of the custom action target to update.</p>
-   */
-  ActionTargetArn: string | undefined;
-
-  /**
-   * <p>The updated name of the custom action target.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The updated description for the custom action target.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateActionTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionTargetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateActionTargetResponse {}
-
-export namespace UpdateActionTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionTargetResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateFindingAggregatorRequest {
-  /**
-   * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
-   */
-  FindingAggregatorArn: string | undefined;
-
-  /**
-   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
-   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
-   *          <p>The options are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
-   *          </p>
-   *             </li>
-   *          </ul>
-   */
-  RegionLinkingMode: string | undefined;
-
-  /**
-   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
-   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.</p>
-   */
-  Regions?: string[];
-}
-
-export namespace UpdateFindingAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFindingAggregatorRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateFindingAggregatorResponse {
-  /**
-   * <p>The ARN of the finding aggregator.</p>
-   */
-  FindingAggregatorArn?: string;
-
-  /**
-   * <p>The aggregation Region.</p>
-   */
-  FindingAggregationRegion?: string;
-
-  /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
-   */
-  RegionLinkingMode?: string;
-
-  /**
-   * <p>The list of excluded Regions or included Regions.</p>
-   */
-  Regions?: string[];
-}
-
-export namespace UpdateFindingAggregatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFindingAggregatorResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateFindingsRequest {
-  /**
-   * <p>A collection of attributes that specify which findings you want to update.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The updated note for the finding.</p>
-   */
-  Note?: NoteUpdate;
-
-  /**
-   * <p>The updated record state for the finding.</p>
-   */
-  RecordState?: RecordState | string;
-}
-
-export namespace UpdateFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateFindingsResponse {}
-
-export namespace UpdateFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateInsightRequest {
-  /**
-   * <p>The ARN of the insight that you want to update.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The updated name for the insight.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The updated filters that define this insight.</p>
-   */
-  Filters?: AwsSecurityFindingFilters;
-
-  /**
-   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
-   */
-  GroupByAttribute?: string;
-}
-
-export namespace UpdateInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInsightRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateInsightResponse {}
-
-export namespace UpdateInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInsightResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOrganizationConfigurationRequest {
-  /**
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>By default, this is <code>false</code>, and new accounts are not added
-   *          automatically.</p>
-   *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
-   */
-  AutoEnable: boolean | undefined;
-
-  /**
-   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
-   *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
-   */
-  AutoEnableStandards?: AutoEnableStandards | string;
-}
-
-export namespace UpdateOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOrganizationConfigurationResponse {}
-
-export namespace UpdateOrganizationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSecurityHubConfigurationRequest {
-  /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>By default, this is set to <code>true</code>, and new controls are enabled
-   *          automatically. To not automatically enable new controls, set this to <code>false</code>.
-   *       </p>
-   */
-  AutoEnableControls?: boolean;
-}
-
-export namespace UpdateSecurityHubConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSecurityHubConfigurationResponse {}
-
-export namespace UpdateSecurityHubConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateStandardsControlRequest {
-  /**
-   * <p>The ARN of the security standard control to enable or disable.</p>
-   */
-  StandardsControlArn: string | undefined;
-
-  /**
-   * <p>The updated status of the security standard control.</p>
-   */
-  ControlStatus?: ControlStatus | string;
-
-  /**
-   * <p>A description of the reason why you are disabling a security standard control. If you
-   *          are disabling a control, then this is required.</p>
-   */
-  DisabledReason?: string;
-}
-
-export namespace UpdateStandardsControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStandardsControlRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateStandardsControlResponse {}
-
-export namespace UpdateStandardsControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStandardsControlResponse): any => ({
     ...obj,
   });
 }

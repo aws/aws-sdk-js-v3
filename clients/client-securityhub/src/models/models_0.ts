@@ -2400,6 +2400,166 @@ export namespace AwsCertificateManagerCertificateDetails {
 }
 
 /**
+ * <p>Provides information about the stack's conformity to its expected template configuration.
+ *       </p>
+ */
+export interface AwsCloudFormationStackDriftInformationDetails {
+  /**
+   * <p>Status of the stack's actual configuration compared to its expected template configuration.
+   *       </p>
+   */
+  StackDriftStatus?: string;
+}
+
+export namespace AwsCloudFormationStackDriftInformationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFormationStackDriftInformationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the CloudFormation stack output.
+ *       </p>
+ */
+export interface AwsCloudFormationStackOutputsDetails {
+  /**
+   * <p>A user-defined description associated with the output.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key associated with the output.
+   *       </p>
+   */
+  OutputKey?: string;
+
+  /**
+   * <p>The value associated with the output.
+   *       </p>
+   */
+  OutputValue?: string;
+}
+
+export namespace AwsCloudFormationStackOutputsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFormationStackOutputsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for
+ * another stack.</p>
+ */
+export interface AwsCloudFormationStackDetails {
+  /**
+   * <p>The capabilities allowed in the stack.
+   *       </p>
+   */
+  Capabilities?: string[];
+
+  /**
+   * <p>The time at which the stack was created. </p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>A user-defined description associated with the stack.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Boolean to enable or disable rollback on stack creation failures.
+   *       </p>
+   */
+  DisableRollback?: boolean;
+
+  /**
+   * <p>Information about whether a stack's actual configuration differs, or has drifted, from its expected
+   * configuration, as defined in the stack template and any values specified as template parameters.
+   *       </p>
+   */
+  DriftInformation?: AwsCloudFormationStackDriftInformationDetails;
+
+  /**
+   * <p>Whether termination protection is enabled for the stack.
+   *       </p>
+   */
+  EnableTerminationProtection?: boolean;
+
+  /**
+   * <p>The time the nested stack was last updated. This field will only be returned if the stack has been
+   * updated at least once.</p>
+   */
+  LastUpdatedTime?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Amazon SNS topic to which stack-related events are published.
+   *       </p>
+   */
+  NotificationArns?: string[];
+
+  /**
+   * <p>A list of output structures.
+   *       </p>
+   */
+  Outputs?: AwsCloudFormationStackOutputsDetails[];
+
+  /**
+   * <p>The ARN of an IAM role that's associated with the stack.
+   *       </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Unique identifier of the stack.
+   *       </p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>The name associated with the stack.
+   *       </p>
+   */
+  StackName?: string;
+
+  /**
+   * <p>Current status of the stack.
+   *       </p>
+   */
+  StackStatus?: string;
+
+  /**
+   * <p>Success or failure message associated with the stack status.
+   *       </p>
+   */
+  StackStatusReason?: string;
+
+  /**
+   * <p>The length of time, in minutes, that CloudFormation waits for the nested stack to reach
+   * the <code>CREATE_COMPLETE</code> state.
+   *       </p>
+   */
+  TimeoutInMinutes?: number;
+}
+
+export namespace AwsCloudFormationStackDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFormationStackDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a cache behavior for the distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehavior {
@@ -2437,7 +2597,7 @@ export namespace AwsCloudFrontDistributionCacheBehavior {
 }
 
 /**
- * <p>Provides information about caching for the distribution.</p>
+ * <p>Provides information about caching for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehaviors {
   /**
@@ -2456,7 +2616,7 @@ export namespace AwsCloudFrontDistributionCacheBehaviors {
 }
 
 /**
- * <p>Contains information about the default cache configuration for the distribution.</p>
+ * <p>Contains information about the default cache configuration for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionDefaultCacheBehavior {
   /**
@@ -2493,7 +2653,7 @@ export namespace AwsCloudFrontDistributionDefaultCacheBehavior {
 }
 
 /**
- * <p>A complex type that controls whether access logs are written for the distribution.</p>
+ * <p>A complex type that controls whether access logs are written for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionLogging {
   /**
@@ -2571,7 +2731,7 @@ export namespace AwsCloudFrontDistributionOriginGroupFailover {
 }
 
 /**
- * <p>Information about an origin group for the distribution.</p>
+ * <p>Information about an origin group for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroup {
   /**
@@ -2590,8 +2750,7 @@ export namespace AwsCloudFrontDistributionOriginGroup {
 }
 
 /**
- * <p>Provides information about origin groups that are associated with the
- *          distribution.</p>
+ * <p>Provides information about origin groups that are associated with the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroups {
   /**
@@ -2610,8 +2769,88 @@ export namespace AwsCloudFrontDistributionOriginGroups {
 }
 
 /**
- * <p>Information about an origin that is an S3 bucket that is not configured with static
- *          website hosting.</p>
+ * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
+ * when establishing an HTTPS connection with your origin.
+ *       </p>
+ */
+export interface AwsCloudFrontDistributionOriginSslProtocols {
+  /**
+   * <p>A list that contains allowed SSL/TLS protocols for this distribution.
+   *       </p>
+   */
+  Items?: string[];
+
+  /**
+   * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing
+   * an HTTPS connection with this origin.
+   *       </p>
+   */
+  Quantity?: number;
+}
+
+export namespace AwsCloudFrontDistributionOriginSslProtocols {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginSslProtocols): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with
+ *             static website hosting</a> is a custom origin. </p>
+ */
+export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
+  /**
+   * <p>The HTTP port that CloudFront uses to connect to the origin.
+   *       </p>
+   */
+  HttpPort?: number;
+
+  /**
+   * <p>The HTTPS port that CloudFront uses to connect to the origin.
+   *       </p>
+   */
+  HttpsPort?: number;
+
+  /**
+   * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin.
+   *       </p>
+   */
+  OriginKeepaliveTimeout?: number;
+
+  /**
+   * <p>Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+   *       </p>
+   */
+  OriginProtocolPolicy?: string;
+
+  /**
+   * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin.
+   *       </p>
+   */
+  OriginReadTimeout?: number;
+
+  /**
+   * <p>Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.
+   *       </p>
+   */
+  OriginSslProtocols?: AwsCloudFrontDistributionOriginSslProtocols;
+}
+
+export namespace AwsCloudFrontDistributionOriginCustomOriginConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginCustomOriginConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an origin that is an Amazon S3 bucket that is not configured with static website
+ *          hosting.</p>
  */
 export interface AwsCloudFrontDistributionOriginS3OriginConfig {
   /**
@@ -2630,13 +2869,13 @@ export namespace AwsCloudFrontDistributionOriginS3OriginConfig {
 }
 
 /**
- * <p>A complex type that describes the S3 bucket, HTTP server (for example, a web
- *          server), AWS Elemental MediaStore, or other server from which CloudFront gets your
- *          files.</p>
+ * <p>A complex type that describes the
+ *             Amazon S3 bucket, HTTP server (for example, a web server), AWS Elemental MediaStore, or other server from which CloudFront gets your files.</p>
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**
-   * <p>Amazon S3 origins: The DNS name of the S3 bucket from which you want CloudFront to get objects for this origin.</p>
+   * <p>Amazon S3 origins: The DNS name of the S3 bucket from which you want
+   *             CloudFront to get objects for this origin.</p>
    */
   DomainName?: string;
 
@@ -2646,7 +2885,8 @@ export interface AwsCloudFrontDistributionOriginItem {
   Id?: string;
 
   /**
-   * <p>An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.</p>
+   * <p>An optional element that causes CloudFront to request your content from a
+   *          directory in your Amazon S3 bucket or your custom origin.</p>
    */
   OriginPath?: string;
 
@@ -2655,6 +2895,14 @@ export interface AwsCloudFrontDistributionOriginItem {
    *          hosting.</p>
    */
   S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig;
+
+  /**
+   * <p>An origin that is not an Amazon S3 bucket, with one exception.
+   * If the Amazon S3 bucket is configured with static website hosting, use this attribute.
+   * If the Amazon S3 bucket is not configured with static website hosting, use the <code>S3OriginConfig</code> type instead.
+   *       </p>
+   */
+  CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig;
 }
 
 export namespace AwsCloudFrontDistributionOriginItem {
@@ -2667,7 +2915,7 @@ export namespace AwsCloudFrontDistributionOriginItem {
 }
 
 /**
- * <p>A complex type that contains information about origins and origin groups for this distribution.</p>
+ * <p>A complex type that contains information about origins and origin groups for this CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOrigins {
   /**
@@ -2686,7 +2934,7 @@ export namespace AwsCloudFrontDistributionOrigins {
 }
 
 /**
- * <p>Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.</p>
+ * <p>Provides information about the TLS/SSL configuration that the CloudFront distribution uses to communicate with viewers.</p>
  */
 export interface AwsCloudFrontDistributionViewerCertificate {
   /**
@@ -2735,7 +2983,7 @@ export namespace AwsCloudFrontDistributionViewerCertificate {
 }
 
 /**
- * <p>A distribution configuration.</p>
+ * <p>A CloudFront distribution configuration.</p>
  */
 export interface AwsCloudFrontDistributionDetails {
   /**
@@ -2903,6 +3151,191 @@ export namespace AwsCloudTrailTrailDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsCloudTrailTrailDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the dimensions for the metric associated with the alarm.
+ *       </p>
+ */
+export interface AwsCloudWatchAlarmDimensionsDetails {
+  /**
+   * <p>The name of a dimension.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of a dimension.
+   *       </p>
+   */
+  Value?: string;
+}
+
+export namespace AwsCloudWatchAlarmDimensionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudWatchAlarmDimensionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an alarm and associates it with the specified metric or metric math expression.
+ *       </p>
+ */
+export interface AwsCloudWatchAlarmDetails {
+  /**
+   * <p>Indicates whether actions should be executed during any changes to the alarm state.
+   *       </p>
+   */
+  ActionsEnabled?: boolean;
+
+  /**
+   * <p>The list of actions, specified as Amazon Resource Names (ARNs) to execute when this alarm transitions into an <code>ALARM</code> state from any other
+   *          state. </p>
+   */
+  AlarmActions?: string[];
+
+  /**
+   * <p>The ARN of the alarm.
+   *       </p>
+   */
+  AlarmArn?: string;
+
+  /**
+   * <p>The time stamp of the last update to the alarm configuration.
+   *       </p>
+   */
+  AlarmConfigurationUpdatedTimestamp?: string;
+
+  /**
+   * <p>The description of the alarm.
+   *       </p>
+   */
+  AlarmDescription?: string;
+
+  /**
+   * <p>The name of the alarm. If you don't specify a name, CloudFront generates a unique physical ID
+   * and uses that ID for the alarm name.
+   *       </p>
+   */
+  AlarmName?: string;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified statistic and threshold. The specified
+   * statistic value is used as the first operand.
+   *       </p>
+   */
+  ComparisonOperator?: string;
+
+  /**
+   * <p>The number of datapoints that must be breaching to trigger the alarm.
+   *       </p>
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * <p>The dimensions for the metric associated with the alarm.
+   *       </p>
+   */
+  Dimensions?: AwsCloudWatchAlarmDimensionsDetails[];
+
+  /**
+   * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change during
+   * periods with too few data points to be statistically significant. If <code>evaluate</code> or this parameter is not used,
+   * the alarm is always evaluated and possibly changes state no matter how many data points are available.
+   *       </p>
+   */
+  EvaluateLowSampleCountPercentile?: string;
+
+  /**
+   * <p>The number of periods over which data is compared to the specified threshold.
+   *       </p>
+   */
+  EvaluationPeriods?: number;
+
+  /**
+   * <p>The percentile statistic for the metric associated with the alarm.
+   *       </p>
+   */
+  ExtendedStatistic?: string;
+
+  /**
+   * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from
+   * any other state. Each action is specified as an ARN.
+   *       </p>
+   */
+  InsufficientDataActions?: string[];
+
+  /**
+   * <p>The name of the metric associated with the alarm. This is required for an alarm based on a metric.
+   * For an alarm based on a math expression, you use <code>Metrics</code> instead and you can't specify <code>MetricName</code>.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The namespace of the metric associated with the alarm. This is required for an alarm based on a
+   * metric. For an alarm based on a math expression, you can't specify <code>Namespace</code> and you use
+   * <code>Metrics</code> instead.
+   *       </p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The actions to execute when this alarm transitions to the <code>OK</code> state from any other state.
+   * Each action is specified as an ARN.
+   *       </p>
+   */
+  OkActions?: string[];
+
+  /**
+   * <p>The period, in seconds, over which the statistic is applied. This is required for an alarm based on a
+   * metric.
+   *       </p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>.</p>
+   *          <p>For an alarm based on a metric, you must specify either <code>Statistic</code> or <code>ExtendedStatistic</code> but not both.</p>
+   *          <p>For an alarm based on a math expression, you can't specify <code>Statistic</code>. Instead, you use <code>Metrics</code>.</p>
+   */
+  Statistic?: string;
+
+  /**
+   * <p>The value to compare with the specified statistic.
+   *       </p>
+   */
+  Threshold?: number;
+
+  /**
+   * <p>n an alarm based on an anomaly detection model, this is the ID of the <code>ANOMALY_DETECTION_BAND</code> function used as the threshold for the alarm.
+   *       </p>
+   */
+  ThresholdMetricId?: string;
+
+  /**
+   * <p>Sets how this alarm is to handle missing data points.
+   *       </p>
+   */
+  TreatMissingData?: string;
+
+  /**
+   * <p>The unit of the metric associated with the alarm.
+   *       </p>
+   */
+  Unit?: string;
+}
+
+export namespace AwsCloudWatchAlarmDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudWatchAlarmDetails): any => ({
     ...obj,
   });
 }
@@ -3994,7 +4427,52 @@ export namespace AwsEc2EipDetails {
 }
 
 /**
- * <p>Identifies a network interface for the EC2 instance.</p>
+ * <p>Metadata options that allow you to configure and secure the Amazon EC2 instance.</p>
+ */
+export interface AwsEc2InstanceMetadataOptions {
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on the instance.
+   *       </p>
+   */
+  HttpEndpoint?: string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
+   *       </p>
+   */
+  HttpProtocolIpv6?: string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests.
+   *          The larger the number, the further instance metadata requests can travel.
+   *       </p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests.
+   *       </p>
+   */
+  HttpTokens?: string;
+
+  /**
+   * <p>Specifies whether to allow access to instance tags from the instance metadata.
+   *       </p>
+   */
+  InstanceMetadataTags?: string;
+}
+
+export namespace AwsEc2InstanceMetadataOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2InstanceMetadataOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a network interface for the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceNetworkInterfacesDetails {
   /**
@@ -4013,7 +4491,7 @@ export namespace AwsEc2InstanceNetworkInterfacesDetails {
 }
 
 /**
- * <p>The details of an EC2 instance.</p>
+ * <p>The details of an Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceDetails {
   /**
@@ -4068,6 +4546,18 @@ export interface AwsEc2InstanceDetails {
    * <p>The identifiers of the network interfaces for the EC2 instance. The details for each network interface are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
    */
   NetworkInterfaces?: AwsEc2InstanceNetworkInterfacesDetails[];
+
+  /**
+   * <p>The virtualization type of the Amazon Machine Image (AMI) required to launch the instance.
+   *       </p>
+   */
+  VirtualizationType?: string;
+
+  /**
+   * <p>Details about the metadata options for the Amazon EC2 instance.
+   *       </p>
+   */
+  MetadataOptions?: AwsEc2InstanceMetadataOptions;
 }
 
 export namespace AwsEc2InstanceDetails {
@@ -4113,12 +4603,14 @@ export namespace AwsEc2NetworkAclAssociation {
  */
 export interface IcmpTypeCode {
   /**
-   * <p>The ICMP code for which to deny or allow access. To deny or allow all codes, use the value -1.</p>
+   * <p>The ICMP code for which to deny or allow access. To deny or allow all codes, use the
+   *          value <code>-1</code>.</p>
    */
   Code?: number;
 
   /**
-   * <p>The ICMP type for which to deny or allow access. To deny or allow all types, use the value -1.</p>
+   * <p>The ICMP type for which to deny or allow access. To deny or allow all types, use the
+   *          value <code>-1</code>.</p>
    */
   Type?: number;
 }
@@ -4186,7 +4678,8 @@ export interface AwsEc2NetworkAclEntry {
   PortRange?: PortRangeFromTo;
 
   /**
-   * <p>The protocol that the rule applies to. To deny or allow access to all protocols, use the value -1.</p>
+   * <p>The protocol that the rule applies to. To deny or allow access to all protocols, use the
+   *          value <code>-1</code>.</p>
    */
   Protocol?: string;
 
@@ -4211,7 +4704,7 @@ export namespace AwsEc2NetworkAclEntry {
 }
 
 /**
- * <p>Contains details about an EC2 network access control list (ACL).</p>
+ * <p>Contains details about an Amazon EC2 network access control list (ACL).</p>
  */
 export interface AwsEc2NetworkAclDetails {
   /**
@@ -4549,9 +5042,10 @@ export interface AwsEc2SecurityGroupIpPermission {
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
    *             <code>icmpv6</code>) or number.</p>
    *          <p>[VPC only] Use <code>-1</code> to specify all protocols.</p>
-   *          <p>When authorizing security group rules, specifying -1 or a protocol number other than
-   *             <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows
-   *          traffic on all ports, regardless of any port range you specify.</p>
+   *          <p>When authorizing security group rules, specifying <code>-1</code>
+   *          or a protocol number other than <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or
+   *             <code>icmpv6</code> allows traffic on all ports, regardless of any port range you
+   *          specify.</p>
    *          <p>For <code>tcp</code>, <code>udp</code>, and <code>icmp</code>, you must specify a port
    *          range.</p>
    *          <p>For <code>icmpv6</code>, the port range is optional. If you omit the port range, traffic
@@ -4569,8 +5063,8 @@ export interface AwsEc2SecurityGroupIpPermission {
 
   /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.</p>
-   *          <p>A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you
-   *          must specify all codes.</p>
+   *          <p>A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all
+   *          codes.</p>
    */
   ToPort?: number;
 
@@ -4607,7 +5101,7 @@ export namespace AwsEc2SecurityGroupIpPermission {
 }
 
 /**
- * <p>Details about an EC2 security group.</p>
+ * <p>Details about an Amazon EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupDetails {
   /**
@@ -4759,6 +5253,94 @@ export namespace AwsEc2SubnetDetails {
 }
 
 /**
+ * <p>Information about an Amazon Web Services Amazon EC2 Transit Gateway that interconnects
+ * virtual private clouds (VPCs) and on-premises networks.
+ *       </p>
+ */
+export interface AwsEc2TransitGatewayDetails {
+  /**
+   * <p>The ID of the transit gateway.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The description of the transit gateway.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Turn on or turn off automatic propagation of routes to the default propagation route table.
+   *       </p>
+   */
+  DefaultRouteTablePropagation?: string;
+
+  /**
+   * <p>Turn on or turn off automatic acceptance of attachment requests.
+   *       </p>
+   */
+  AutoAcceptSharedAttachments?: string;
+
+  /**
+   * <p>Turn on or turn off automatic association with the default association route table.
+   *       </p>
+   */
+  DefaultRouteTableAssociation?: string;
+
+  /**
+   * <p>The transit gateway Classless Inter-Domain Routing (CIDR) blocks.
+   *       </p>
+   */
+  TransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>The ID of the default association route table.
+   *       </p>
+   */
+  AssociationDefaultRouteTableId?: string;
+
+  /**
+   * <p>The ID of the default propagation route table.
+   *       </p>
+   */
+  PropagationDefaultRouteTableId?: string;
+
+  /**
+   * <p>Turn on or turn off Equal Cost Multipath Protocol (ECMP) support.
+   *       </p>
+   */
+  VpnEcmpSupport?: string;
+
+  /**
+   * <p>Turn on or turn off DNS support.
+   *       </p>
+   */
+  DnsSupport?: string;
+
+  /**
+   * <p>Indicates whether multicast is supported on the transit gateway.
+   *       </p>
+   */
+  MulticastSupport?: string;
+
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *       </p>
+   */
+  AmazonSideAsn?: number;
+}
+
+export namespace AwsEc2TransitGatewayDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2TransitGatewayDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An attachment to an Amazon EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
@@ -4805,7 +5387,13 @@ export interface AwsEc2VolumeDetails {
   CreateTime?: string;
 
   /**
-   * <p>Whether the volume is encrypted.</p>
+   * <p>The device name for the volume that is attached to the instance.
+   *       </p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Specifies whether the volume is encrypted.</p>
    */
   Encrypted?: boolean;
 
@@ -4834,6 +5422,24 @@ export interface AwsEc2VolumeDetails {
    * <p>The volume attachments.</p>
    */
   Attachments?: AwsEc2VolumeAttachment[];
+
+  /**
+   * <p>The ID of the volume.
+   *       </p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The volume type.
+   *       </p>
+   */
+  VolumeType?: string;
+
+  /**
+   * <p>Indicates whether the volume was scanned or skipped.
+   *       </p>
+   */
+  VolumeScanStatus?: string;
 }
 
 export namespace AwsEc2VolumeDetails {
@@ -4994,6 +5600,211 @@ export namespace AwsEc2VpcEndpointServiceDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEc2VpcEndpointServiceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the IPv4 CIDR blocks for the VPC.
+ *       </p>
+ */
+export interface VpcInfoCidrBlockSetDetails {
+  /**
+   * <p>The IPv4 CIDR block for the VPC.
+   *       </p>
+   */
+  CidrBlock?: string;
+}
+
+export namespace VpcInfoCidrBlockSetDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcInfoCidrBlockSetDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the IPv6 CIDR blocks for the VPC.
+ *       </p>
+ */
+export interface VpcInfoIpv6CidrBlockSetDetails {
+  /**
+   * <p>The IPv6 CIDR block for the VPC.
+   *       </p>
+   */
+  Ipv6CidrBlock?: string;
+}
+
+export namespace VpcInfoIpv6CidrBlockSetDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcInfoIpv6CidrBlockSetDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the VPC peering connection options for the accepter or requester VPC.
+ *       </p>
+ */
+export interface VpcInfoPeeringOptionsDetails {
+  /**
+   * <p>Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
+   *       </p>
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
+   *       </p>
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
+   *       </p>
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+export namespace VpcInfoPeeringOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcInfoPeeringOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a VPC in a VPC peering connection.
+ *       </p>
+ */
+export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
+  /**
+   * <p>The IPv4 CIDR block for the VPC.
+   *       </p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>Information about the IPv4 CIDR blocks for the VPC.
+   *       </p>
+   */
+  CidrBlockSet?: VpcInfoCidrBlockSetDetails[];
+
+  /**
+   * <p>The IPv6 CIDR block for the VPC.
+   *       </p>
+   */
+  Ipv6CidrBlockSet?: VpcInfoIpv6CidrBlockSetDetails[];
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the VPC.
+   *       </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Information about the VPC peering connection options for the accepter or requester VPC.
+   *       </p>
+   */
+  PeeringOptions?: VpcInfoPeeringOptionsDetails;
+
+  /**
+   * <p>The Amazon Web Services Region in which the VPC is located.
+   *       </p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The ID of the VPC.
+   *       </p>
+   */
+  VpcId?: string;
+}
+
+export namespace AwsEc2VpcPeeringConnectionVpcInfoDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionVpcInfoDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the status of the VPC peering connection.
+ *       </p>
+ */
+export interface AwsEc2VpcPeeringConnectionStatusDetails {
+  /**
+   * <p>The status of the VPC peering connection.
+   *       </p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A message that provides more information about the status, if applicable.
+   *       </p>
+   */
+  Message?: string;
+}
+
+export namespace AwsEc2VpcPeeringConnectionStatusDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionStatusDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a VPC peering connection between two VPCs: a requester VPC that you own and an
+ * accepter VPC with which to create the connection.
+ *       </p>
+ */
+export interface AwsEc2VpcPeeringConnectionDetails {
+  /**
+   * <p>Information about the accepter VPC.
+   *       </p>
+   */
+  AccepterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails;
+
+  /**
+   * <p>The time at which an unaccepted VPC peering connection will expire.
+   *       </p>
+   */
+  ExpirationTime?: string;
+
+  /**
+   * <p>Information about the requester VPC.
+   *       </p>
+   */
+  RequesterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails;
+
+  /**
+   * <p>The status of the VPC peering connection.
+   *       </p>
+   */
+  Status?: AwsEc2VpcPeeringConnectionStatusDetails;
+
+  /**
+   * <p>The ID of the VPC peering connection.
+   *       </p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+export namespace AwsEc2VpcPeeringConnectionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionDetails): any => ({
     ...obj,
   });
 }
@@ -5549,9 +6360,23 @@ export namespace AwsEcsClusterDefaultCapacityProviderStrategyDetails {
 }
 
 /**
- * <p>provides details about an ECS cluster.</p>
+ * <p>Provides details about an Amazon ECS cluster.</p>
  */
 export interface AwsEcsClusterDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the cluster.
+   *       </p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The number of services that are running on the cluster in an <code>ACTIVE</code> state. You can view these services with the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">
+   *                <code>ListServices</code>
+   *             </a> API operation.
+   *       </p>
+   */
+  ActiveServicesCount?: number;
+
   /**
    * <p>The short name of one or more capacity providers to associate with the cluster.</p>
    */
@@ -5571,6 +6396,30 @@ export interface AwsEcsClusterDetails {
    * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
    */
   DefaultCapacityProviderStrategy?: AwsEcsClusterDefaultCapacityProviderStrategyDetails[];
+
+  /**
+   * <p>A name that you use to identify your cluster.
+   *       </p>
+   */
+  ClusterName?: string;
+
+  /**
+   * <p>The number of container instances registered into the cluster. This includes container instances in both <code>ACTIVE</code> and <code>DRAINING</code> status.
+   *       </p>
+   */
+  RegisteredContainerInstancesCount?: number;
+
+  /**
+   * <p>The number of tasks in the cluster that are in the <code>RUNNING</code> state.
+   *       </p>
+   */
+  RunningTasksCount?: number;
+
+  /**
+   * <p>The status of the cluster.
+   *       </p>
+   */
+  Status?: string;
 }
 
 export namespace AwsEcsClusterDetails {
@@ -5578,6 +6427,74 @@ export namespace AwsEcsClusterDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for a volume mount point that's used in a container definition.
+ *       </p>
+ */
+export interface AwsMountPoint {
+  /**
+   * <p>The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter
+   * of task definition <code>volume</code>.
+   *       </p>
+   */
+  SourceVolume?: string;
+
+  /**
+   * <p>The path on the container to mount the host volume at.
+   *       </p>
+   */
+  ContainerPath?: string;
+}
+
+export namespace AwsMountPoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsMountPoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an Amazon ECS container.
+ *       </p>
+ */
+export interface AwsEcsContainerDetails {
+  /**
+   * <p>The name of the container.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The image used for the container.
+   *       </p>
+   */
+  Image?: string;
+
+  /**
+   * <p>The mount points for data volumes in your container.
+   *       </p>
+   */
+  MountPoints?: AwsMountPoint[];
+
+  /**
+   * <p>When this parameter is true, the container is given elevated privileges on the host container instance
+   * (similar to the root user).
+   *       </p>
+   */
+  Privileged?: boolean;
+}
+
+export namespace AwsEcsContainerDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsContainerDetails): any => ({
     ...obj,
   });
 }
@@ -7123,7 +8040,8 @@ export namespace AwsEcsTaskDefinitionVolumesDetails {
 }
 
 /**
- * <p>details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+ * <p>Details about a task definition. A task definition describes the container and volume definitions
+ *          of an Amazon Elastic Container Service task.</p>
  */
 export interface AwsEcsTaskDefinitionDetails {
   /**
@@ -7202,6 +8120,279 @@ export namespace AwsEcsTaskDefinitionDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details on a container instance bind mount host volume.
+ *       </p>
+ */
+export interface AwsEcsTaskVolumeHostDetails {
+  /**
+   * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
+   * on the host container instance that's presented to the container.
+   *       </p>
+   */
+  SourcePath?: string;
+}
+
+export namespace AwsEcsTaskVolumeHostDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeHostDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a data volume that's used in a task definition.
+ *       </p>
+ */
+export interface AwsEcsTaskVolumeDetails {
+  /**
+   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
+   * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
+   * determine whether your bind mount host volume persists on the host container instance and where it's stored.
+   *       </p>
+   */
+  Host?: AwsEcsTaskVolumeHostDetails;
+}
+
+export namespace AwsEcsTaskVolumeDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about a task in a cluster.
+ *       </p>
+ */
+export interface AwsEcsTaskDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
+   *       </p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The ARN of the task definition that creates the task.
+   *       </p>
+   */
+  TaskDefinitionArn?: string;
+
+  /**
+   * <p>The version counter for the task.
+   *       </p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
+   * the task entered the <code>PENDING</code> state.
+   *       </p>
+   */
+  CreatedAt?: string;
+
+  /**
+   * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
+   *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
+   *    </p>
+   */
+  StartedAt?: string;
+
+  /**
+   * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
+   *          <code>startedBy</code> parameter contains the deployment ID of that service.
+   *       </p>
+   */
+  StartedBy?: string;
+
+  /**
+   * <p>The name of the task group that's associated with the task.
+   *       </p>
+   */
+  Group?: string;
+
+  /**
+   * <p>Details about the data volume that is used in a task definition.
+   *       </p>
+   */
+  Volumes?: AwsEcsTaskVolumeDetails[];
+
+  /**
+   * <p>The containers that are associated with the task.
+   *       </p>
+   */
+  Containers?: AwsEcsContainerDetails[];
+}
+
+export namespace AwsEcsTaskDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details for all file system operations using this Amazon EFS access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointPosixUserDetails {
+  /**
+   * <p>The POSIX group ID used for all file system operations using this access point.
+   *       </p>
+   */
+  Gid?: string;
+
+  /**
+   * <p>Secondary POSIX group IDs used for all file system operations using this access point.
+   *       </p>
+   */
+  SecondaryGids?: string[];
+
+  /**
+   * <p>The POSIX user ID used for all file system operations using this access point.
+   *       </p>
+   */
+  Uid?: string;
+}
+
+export namespace AwsEfsAccessPointPosixUserDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEfsAccessPointPosixUserDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the settings that Amazon EFS uses to create the root directory
+ * when a client connects to an access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
+  /**
+   * <p>Specifies the POSIX group ID to apply to the root directory.
+   *       </p>
+   */
+  OwnerGid?: string;
+
+  /**
+   * <p>Specifies the POSIX user ID to apply to the root directory.
+   *       </p>
+   */
+  OwnerUid?: string;
+
+  /**
+   * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
+   * representing the file's mode bits.
+   *       </p>
+   */
+  Permissions?: string;
+}
+
+export namespace AwsEfsAccessPointRootDirectoryCreationInfoDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryCreationInfoDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
+ * as the root directory to NFS clients using the access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointRootDirectoryDetails {
+  /**
+   * <p>Specifies the POSIX IDs and permissions to apply to the access point's root directory.
+   *       </p>
+   */
+  CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails;
+
+  /**
+   * <p>Specifies the path on the Amazon EFS file system to expose as the root directory to NFS clients
+   * using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified
+   * path does not exist, you are required to provide <code>CreationInfo</code>.
+   *       </p>
+   */
+  Path?: string;
+}
+
+export namespace AwsEfsAccessPointRootDirectoryDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an Amazon EFS access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointDetails {
+  /**
+   * <p>The ID of the Amazon EFS access point.
+   *       </p>
+   */
+  AccessPointId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point. </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The opaque string specified in the request to ensure idempotent creation.
+   *       </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The ID of the Amazon EFS file system that the access point applies to.
+   *       </p>
+   */
+  FileSystemId?: string;
+
+  /**
+   * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point,
+   * that is used for all file operations by NFS clients using the access point.
+   *       </p>
+   */
+  PosixUser?: AwsEfsAccessPointPosixUserDetails;
+
+  /**
+   * <p>The directory on the Amazon EFS file system that the access point exposes as the root
+   * directory to NFS clients using the access point.
+   *       </p>
+   */
+  RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
+}
+
+export namespace AwsEfsAccessPointDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEfsAccessPointDetails): any => ({
     ...obj,
   });
 }
@@ -7630,7 +8821,7 @@ export interface AwsElasticsearchDomainEncryptionAtRestOptions {
   Enabled?: boolean;
 
   /**
-   * <p>The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.</p>
+   * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
    */
   KmsKeyId?: string;
 }
@@ -9224,6 +10415,79 @@ export namespace AwsIamUserDetails {
 }
 
 /**
+ * <p>Provides information about stream encryption.
+ *       </p>
+ */
+export interface AwsKinesisStreamStreamEncryptionDetails {
+  /**
+   * <p>The encryption type to use.
+   *       </p>
+   */
+  EncryptionType?: string;
+
+  /**
+   * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
+   */
+  KeyId?: string;
+}
+
+export namespace AwsKinesisStreamStreamEncryptionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsKinesisStreamStreamEncryptionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an Amazon Kinesis data stream.
+ *       </p>
+ */
+export interface AwsKinesisStreamDetails {
+  /**
+   * <p>The name of the Kinesis stream. If you don't specify a name, CloudFront generates a unique
+   * physical ID and uses that ID for the stream name.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
+   * Removing this property from your stack template and updating your stack disables encryption.
+   *       </p>
+   */
+  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
+
+  /**
+   * <p>The number of shards that the stream uses.
+   *       </p>
+   */
+  ShardCount?: number;
+
+  /**
+   * <p>The number of hours for the data records that are stored in shards to remain accessible.
+   *       </p>
+   */
+  RetentionPeriodHours?: number;
+}
+
+export namespace AwsKinesisStreamDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains metadata about an KMS key.</p>
  */
 export interface AwsKmsKeyDetails {
@@ -9265,7 +10529,7 @@ export interface AwsKmsKeyDetails {
   Origin?: string;
 
   /**
-   * <p>A description of the key.</p>
+   * <p>A description of the KMS key.</p>
    */
   Description?: string;
 
@@ -10316,1146 +11580,6 @@ export namespace RuleGroupVariablesIpSetsDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of port ranges.</p>
- */
-export interface RuleGroupVariablesPortSetsDetails {
-  /**
-   * <p>The list of port ranges.</p>
-   */
-  Definition?: string[];
-}
-
-export namespace RuleGroupVariablesPortSetsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Additional settings to use in the specified rules.</p>
- */
-export interface RuleGroupVariables {
-  /**
-   * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
-   */
-  IpSets?: RuleGroupVariablesIpSetsDetails;
-
-  /**
-   * <p>A list of port ranges.</p>
-   */
-  PortSets?: RuleGroupVariablesPortSetsDetails;
-}
-
-export namespace RuleGroupVariables {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariables): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the rule group.</p>
- */
-export interface RuleGroupDetails {
-  /**
-   * <p>Additional settings to use in the specified rules.</p>
-   */
-  RuleVariables?: RuleGroupVariables;
-
-  /**
-   * <p>The rules and actions for the rule group.</p>
-   *          <p>For stateful rule groups, can contain <code>RulesString</code>, <code>RulesSourceList</code>, or <code>StatefulRules</code>.</p>
-   *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
-   */
-  RulesSource?: RuleGroupSource;
-}
-
-export namespace RuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.</p>
- *          <p>Rule groups are referenced in firewall policies.
- *       </p>
- */
-export interface AwsNetworkFirewallRuleGroupDetails {
-  /**
-   * <p>The maximum number of operating resources that this rule group can use.</p>
-   */
-  Capacity?: number;
-
-  /**
-   * <p>A description of the rule group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Details about the rule group.</p>
-   */
-  RuleGroup?: RuleGroupDetails;
-
-  /**
-   * <p>The ARN of the rule group.</p>
-   */
-  RuleGroupArn?: string;
-
-  /**
-   * <p>The identifier of the rule group.</p>
-   */
-  RuleGroupId?: string;
-
-  /**
-   * <p>The descriptive name of the rule group.</p>
-   */
-  RuleGroupName?: string;
-
-  /**
-   * <p>The type of rule group. A rule group can be stateful or stateless.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsNetworkFirewallRuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration options for zone awareness.</p>
- */
-export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * <p>The number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
-   */
-  AvailabilityZoneCount?: number;
-}
-
-export namespace AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the configuration of an OpenSearch cluster.</p>
- */
-export interface AwsOpenSearchServiceDomainClusterConfigDetails {
-  /**
-   * <p>The number of data nodes to use in the OpenSearch domain.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>Whether UltraWarm is enabled.</p>
-   */
-  WarmEnabled?: boolean;
-
-  /**
-   * <p>The number of UltraWarm instances.</p>
-   */
-  WarmCount?: number;
-
-  /**
-   * <p>Whether to use a dedicated master node for the OpenSearch domain. A dedicated master node performs cluster management tasks, but does not hold data or respond to data upload requests.</p>
-   */
-  DedicatedMasterEnabled?: boolean;
-
-  /**
-   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
-   */
-  ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails;
-
-  /**
-   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
-   */
-  DedicatedMasterCount?: number;
-
-  /**
-   * <p>The instance type for your data nodes. </p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The type of UltraWarm instance.</p>
-   */
-  WarmType?: string;
-
-  /**
-   * <p>Whether to enable zone awareness for the OpenSearch domain. When zone awareness is enabled, OpenSearch Service allocates the cluster's nodes and replica index shards across Availability Zones (AZs) in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
-   */
-  ZoneAwarenessEnabled?: boolean;
-
-  /**
-   * <p>The hardware configuration of the computer that hosts the dedicated master node.</p>
-   *          <p>If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.
-   *       </p>
-   */
-  DedicatedMasterType?: string;
-}
-
-export namespace AwsOpenSearchServiceDomainClusterConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about additional options for the domain endpoint.</p>
- */
-export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
-  /**
-   * <p>The ARN for the security certificate. The certificate is managed in ACM.</p>
-   */
-  CustomEndpointCertificateArn?: string;
-
-  /**
-   * <p>Whether to enable a custom endpoint for the domain.</p>
-   */
-  CustomEndpointEnabled?: boolean;
-
-  /**
-   * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
-   */
-  EnforceHTTPS?: boolean;
-
-  /**
-   * <p>The fully qualified URL for the custom endpoint.</p>
-   */
-  CustomEndpoint?: string;
-
-  /**
-   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch domain.</p>
-   */
-  TLSSecurityPolicy?: string;
-}
-
-export namespace AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
- */
-export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
-  /**
-   * <p>Whether encryption at rest is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The KMS key ID.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration details for a log publishing option.</p>
- */
-export interface AwsOpenSearchServiceDomainLogPublishingOption {
-  /**
-   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
-
-  /**
-   * <p>Whether the log publishing is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace AwsOpenSearchServiceDomainLogPublishingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOption): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
- */
-export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
-  /**
-   * <p>Configures the OpenSearch index logs publishing.</p>
-   */
-  IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
-
-  /**
-   * <p>Configures the OpenSearch search slow log publishing.</p>
-   */
-  SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
-
-  /**
-   * <p>Configures the OpenSearch audit logs publishing.</p>
-   */
-  AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
-}
-
-export namespace AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about the configuration for node-to-node encryption.</p>
- */
-export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
-  /**
-   * <p>Whether node-to-node encryption is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the state of the domain relative to the latest service software.</p>
- */
-export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
-  /**
-   * <p>The epoch time when the deployment window closes for required updates. After this time, OpenSearch Service schedules the software upgrade automatically.</p>
-   */
-  AutomatedUpdateDate?: string;
-
-  /**
-   * <p>Whether a request to update the domain can be canceled.</p>
-   */
-  Cancellable?: boolean;
-
-  /**
-   * <p>The version of the service software that is currently installed on the domain.</p>
-   */
-  CurrentVersion?: string;
-
-  /**
-   * <p>A more detailed description of the service software status.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The most recent version of the service software.</p>
-   */
-  NewVersion?: string;
-
-  /**
-   * <p>Whether a service software update is available for the domain.</p>
-   */
-  UpdateAvailable?: boolean;
-
-  /**
-   * <p>The status of the service software update.</p>
-   */
-  UpdateStatus?: string;
-
-  /**
-   * <p>Whether the service software update is optional.</p>
-   */
-  OptionalDeployment?: boolean;
-}
-
-export namespace AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
- */
-export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
-  /**
-   * <p>The list of security group IDs that are associated with the VPC endpoints for the domain.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
-   */
-  SubnetIds?: string[];
-}
-
-export namespace AwsOpenSearchServiceDomainVpcOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainVpcOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an Amazon OpenSearch Service domain.</p>
- */
-export interface AwsOpenSearchServiceDomainDetails {
-  /**
-   * <p>The ARN of the OpenSearch Service domain.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>IAM policy document that specifies the access policies for the OpenSearch Service domain.</p>
-   */
-  AccessPolicies?: string;
-
-  /**
-   * <p>The name of the endpoint.</p>
-   */
-  DomainName?: string;
-
-  /**
-   * <p>The identifier of the domain.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The domain endpoint.</p>
-   */
-  DomainEndpoint?: string;
-
-  /**
-   * <p>The version of the domain engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>Details about the configuration for encryption at rest.</p>
-   */
-  EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails;
-
-  /**
-   * <p>Details about the configuration for node-to-node encryption.</p>
-   */
-  NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails;
-
-  /**
-   * <p>Information about the status of a domain relative to the latest service software.</p>
-   */
-  ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails;
-
-  /**
-   * <p>Details about the configuration of an OpenSearch cluster.</p>
-   */
-  ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails;
-
-  /**
-   * <p>Additional options for the domain endpoint.</p>
-   */
-  DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
-
-  /**
-   * <p>Information that OpenSearch Service derives based on <code>VPCOptions</code> for the domain.</p>
-   */
-  VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
-
-  /**
-   * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
-   */
-  LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
-
-  /**
-   * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
-   *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
-   */
-  DomainEndpoints?: Record<string, string>;
-}
-
-export namespace AwsOpenSearchServiceDomainDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
- */
-export interface AwsRdsDbClusterAssociatedRole {
-  /**
-   * <p>The ARN of the IAM role.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The status of the association between the IAM role and the DB cluster.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRdsDbClusterAssociatedRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterAssociatedRole): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an instance in the DB cluster.</p>
- */
-export interface AwsRdsDbClusterMember {
-  /**
-   * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
-   */
-  IsClusterWriter?: boolean;
-
-  /**
-   * <p>Specifies the order in which an Aurora replica is promoted to the primary instance when
-   *          the existing primary instance fails.</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>The instance identifier for this member of the DB cluster.</p>
-   */
-  DbInstanceIdentifier?: string;
-
-  /**
-   * <p>The status of the DB cluster parameter group for this member of the DB cluster.</p>
-   */
-  DbClusterParameterGroupStatus?: string;
-}
-
-export namespace AwsRdsDbClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterMember): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an option group membership for a DB cluster.</p>
- */
-export interface AwsRdsDbClusterOptionGroupMembership {
-  /**
-   * <p>The name of the DB cluster option group.</p>
-   */
-  DbClusterOptionGroupName?: string;
-
-  /**
-   * <p>The status of the DB cluster option group.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRdsDbClusterOptionGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterOptionGroupMembership): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an Active Directory domain membership record associated with the DB
- *          instance.</p>
- */
-export interface AwsRdsDbDomainMembership {
-  /**
-   * <p>The identifier of the Active Directory domain.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>The status of the Active Directory Domain membership for the DB instance.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The fully qualified domain name of the Active Directory domain.</p>
-   */
-  Fqdn?: string;
-
-  /**
-   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
-   */
-  IamRoleName?: string;
-}
-
-export namespace AwsRdsDbDomainMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbDomainMembership): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A VPC security groups that the DB instance belongs to.</p>
- */
-export interface AwsRdsDbInstanceVpcSecurityGroup {
-  /**
-   * <p>The name of the VPC security group.</p>
-   */
-  VpcSecurityGroupId?: string;
-
-  /**
-   * <p>The status of the VPC security group.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRdsDbInstanceVpcSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an Amazon RDS DB cluster.</p>
- */
-export interface AwsRdsDbClusterDetails {
-  /**
-   * <p>For all database engines except Aurora, specifies the allocated storage size in
-   *          gibibytes (GiB).</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
-   *          created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The number of days for which automated backups are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>The name of the database.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>The current status of this DB cluster.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The connection endpoint for the primary instance of the DB cluster.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The reader endpoint for the DB cluster.</p>
-   */
-  ReaderEndpoint?: string;
-
-  /**
-   * <p>A list of custom endpoints for the DB cluster.</p>
-   */
-  CustomEndpoints?: string[];
-
-  /**
-   * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
-   */
-  MultiAz?: boolean;
-
-  /**
-   * <p>The name of the database engine to use for this DB cluster.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The name of the master user for the DB cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The range of time each day when automated backups are created, if automated backups are
-   *          enabled.</p>
-   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>The weekly time range during which system maintenance can occur, in Universal
-   *          Coordinated Time (UTC).</p>
-   *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
-   *          <p>For the day values, use
-   *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
-   *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
-   */
-  ReadReplicaIdentifiers?: string[];
-
-  /**
-   * <p>A list of VPC security groups that the DB cluster belongs to.</p>
-   */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
-
-  /**
-   * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
-   *          zone.</p>
-   */
-  HostedZoneId?: string;
-
-  /**
-   * <p>Whether the DB cluster is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
-   *          DB cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The identifier of the DB cluster. The identifier must be unique within each Amazon Web Services Region
-   *          and is immutable.</p>
-   */
-  DbClusterResourceId?: string;
-
-  /**
-   * <p>A list of the IAM roles that are associated with the DB cluster.</p>
-   */
-  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
-
-  /**
-   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ClusterCreateTime?: string;
-
-  /**
-   * <p>A list of log types that this DB cluster is configured to export to CloudWatch
-   *          Logs.</p>
-   */
-  EnabledCloudWatchLogsExports?: string[];
-
-  /**
-   * <p>The database engine mode of the DB cluster.</p>
-   */
-  EngineMode?: string;
-
-  /**
-   * <p>Whether the DB cluster has deletion protection enabled.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
-   */
-  HttpEndpointEnabled?: boolean;
-
-  /**
-   * <p>The status of the database activity stream.</p>
-   */
-  ActivityStreamStatus?: string;
-
-  /**
-   * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>Whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services
-   *          account.</p>
-   */
-  CrossAccountClone?: boolean;
-
-  /**
-   * <p>The Active Directory domain membership records that are associated with the DB
-   *          cluster.</p>
-   */
-  DomainMemberships?: AwsRdsDbDomainMembership[];
-
-  /**
-   * <p>The name of the DB cluster parameter group for the DB cluster.</p>
-   */
-  DbClusterParameterGroup?: string;
-
-  /**
-   * <p>The subnet group that is associated with the DB cluster, including the name,
-   *          description, and subnets in the subnet group.</p>
-   */
-  DbSubnetGroup?: string;
-
-  /**
-   * <p>The list of option group memberships for this DB cluster.</p>
-   */
-  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
-
-  /**
-   * <p>The DB cluster identifier that the user assigned to the cluster. This identifier is the
-   *          unique key that identifies a DB cluster.</p>
-   */
-  DbClusterIdentifier?: string;
-
-  /**
-   * <p>The list of instances that make up the DB cluster.</p>
-   */
-  DbClusterMembers?: AwsRdsDbClusterMember[];
-
-  /**
-   * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
-   */
-  IamDatabaseAuthenticationEnabled?: boolean;
-}
-
-export namespace AwsRdsDbClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an Amazon RDS DB cluster snapshot.</p>
- */
-export interface AwsRdsDbClusterSnapshotDetails {
-  /**
-   * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>Indicates when the snapshot was taken.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  SnapshotCreateTime?: string;
-
-  /**
-   * <p>The name of the database engine that you want to use for this DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The status of this DB cluster snapshot.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ClusterCreateTime?: string;
-
-  /**
-   * <p>The name of the master user for the DB cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The version of the database engine to use.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The license model information for this DB cluster snapshot.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The type of DB cluster snapshot.</p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
-
-  /**
-   * <p>Whether the DB cluster is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
-   *          DB cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The DB cluster identifier.</p>
-   */
-  DbClusterIdentifier?: string;
-
-  /**
-   * <p>The identifier of the DB cluster snapshot.</p>
-   */
-  DbClusterSnapshotIdentifier?: string;
-
-  /**
-   * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
-   */
-  IamDatabaseAuthenticationEnabled?: boolean;
-}
-
-export namespace AwsRdsDbClusterSnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterSnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An IAM role associated with the DB instance.</p>
- */
-export interface AwsRdsDbInstanceAssociatedRole {
-  /**
-   * <p>The ARN of the IAM role that is associated with the DB
-   *          instance.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The name of the feature associated with the IAM role.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>Describes the state of the association between the IAM role and the DB instance. The
-   *             <code>Status</code> property returns one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> - The IAM role ARN is associated with the DB instance and can
-   *                be used to access other Amazon Web Services services on your behalf.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The IAM role ARN is being associated with the DB
-   *                instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INVALID</code> - The IAM role ARN is associated with the DB instance. But
-   *                the DB instance is unable to assume the IAM role in order to access other Amazon Web Services
-   *                services on your behalf. </p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: string;
-}
-
-export namespace AwsRdsDbInstanceAssociatedRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about a parameter group for a DB instance.</p>
- */
-export interface AwsRdsDbParameterGroup {
-  /**
-   * <p>The name of the parameter group.</p>
-   */
-  DbParameterGroupName?: string;
-
-  /**
-   * <p>The status of parameter updates.</p>
-   */
-  ParameterApplyStatus?: string;
-}
-
-export namespace AwsRdsDbParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbParameterGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An Availability Zone for a subnet in a subnet group.</p>
- */
-export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
-  /**
-   * <p>The name of the Availability Zone for a subnet in the subnet group.</p>
-   */
-  Name?: string;
-}
-
-export namespace AwsRdsDbSubnetGroupSubnetAvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnetAvailabilityZone): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a subnet in a subnet group.</p>
- */
-export interface AwsRdsDbSubnetGroupSubnet {
-  /**
-   * <p>The identifier of a subnet in the subnet group.</p>
-   */
-  SubnetIdentifier?: string;
-
-  /**
-   * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
-   */
-  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
-
-  /**
-   * <p>The status of a subnet in the subnet group.</p>
-   */
-  SubnetStatus?: string;
-}
-
-export namespace AwsRdsDbSubnetGroupSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnet): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the subnet group for the database instance.</p>
- */
-export interface AwsRdsDbSubnetGroup {
-  /**
-   * <p>The name of the subnet group.</p>
-   */
-  DbSubnetGroupName?: string;
-
-  /**
-   * <p>The description of the subnet group.</p>
-   */
-  DbSubnetGroupDescription?: string;
-
-  /**
-   * <p>The VPC ID of the subnet group.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The status of the subnet group.</p>
-   */
-  SubnetGroupStatus?: string;
-
-  /**
-   * <p>A list of subnets in the subnet group.</p>
-   */
-  Subnets?: AwsRdsDbSubnetGroupSubnet[];
-
-  /**
-   * <p>The ARN of the subnet group.</p>
-   */
-  DbSubnetGroupArn?: string;
-}
-
-export namespace AwsRdsDbSubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
     ...obj,
   });
 }
