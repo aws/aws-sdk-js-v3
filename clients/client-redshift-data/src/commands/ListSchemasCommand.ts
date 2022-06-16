@@ -30,12 +30,12 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *          <ul>
  *             <li>
  *                <p>Secrets Manager - when connecting to a cluster, specify the Amazon Resource Name (ARN) of the secret, the database name, and the cluster identifier that matches the cluster in the secret.
- * When connecting to a serverless endpoint, specify the Amazon Resource Name (ARN) of the secret and the database name. </p>
+ * When connecting to a serverless workgroup, specify the Amazon Resource Name (ARN) of the secret and the database name. </p>
  *             </li>
  *             <li>
  *                <p>Temporary credentials - when connecting to a cluster, specify the cluster identifier, the database name, and the database user name.
  * Also, permission to call the <code>redshift:GetClusterCredentials</code> operation is required.
- * When connecting to a serverless endpoint, specify the database name. </p>
+ * When connecting to a serverless workgroup, specify the workgroup name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code> operation is required. </p>
  *             </li>
  *          </ul>
  * @example

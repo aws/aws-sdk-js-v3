@@ -793,6 +793,7 @@ const serializeAws_json1_1BatchExecuteStatementInput = (
     ...(input.Sqls !== undefined && input.Sqls !== null && { Sqls: serializeAws_json1_1SqlList(input.Sqls, context) }),
     ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
     ...(input.WithEvent !== undefined && input.WithEvent !== null && { WithEvent: input.WithEvent }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -824,6 +825,7 @@ const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, c
     ...(input.Schema !== undefined && input.Schema !== null && { Schema: input.Schema }),
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -839,6 +841,7 @@ const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput,
     ...(input.Sql !== undefined && input.Sql !== null && { Sql: input.Sql }),
     ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
     ...(input.WithEvent !== undefined && input.WithEvent !== null && { WithEvent: input.WithEvent }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -861,6 +864,7 @@ const serializeAws_json1_1ListDatabasesRequest = (input: ListDatabasesRequest, c
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -876,6 +880,7 @@ const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, conte
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SchemaPattern !== undefined && input.SchemaPattern !== null && { SchemaPattern: input.SchemaPattern }),
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -902,6 +907,7 @@ const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context
     ...(input.SchemaPattern !== undefined && input.SchemaPattern !== null && { SchemaPattern: input.SchemaPattern }),
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.TablePattern !== undefined && input.TablePattern !== null && { TablePattern: input.TablePattern }),
+    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -967,6 +973,7 @@ const deserializeAws_json1_1BatchExecuteStatementOutput = (
     DbUser: __expectString(output.DbUser),
     Id: __expectString(output.Id),
     SecretArn: __expectString(output.SecretArn),
+    WorkgroupName: __expectString(output.WorkgroupName),
   } as any;
 };
 
@@ -1077,6 +1084,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
+    WorkgroupName: __expectString(output.WorkgroupName),
   } as any;
 };
 
@@ -1112,6 +1120,7 @@ const deserializeAws_json1_1ExecuteStatementOutput = (output: any, context: __Se
     DbUser: __expectString(output.DbUser),
     Id: __expectString(output.Id),
     SecretArn: __expectString(output.SecretArn),
+    WorkgroupName: __expectString(output.WorkgroupName),
   } as any;
 };
 

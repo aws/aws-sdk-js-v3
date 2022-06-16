@@ -85,6 +85,11 @@ export interface BatchExecuteStatementInput {
    * <p>The name of the SQL statements. You can name the SQL statements when you create them to identify the query. </p>
    */
   StatementName?: string;
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace BatchExecuteStatementInput {
@@ -109,7 +114,7 @@ export interface BatchExecuteStatementOutput {
   CreatedAt?: Date;
 
   /**
-   * <p>The cluster identifier. This parameter is not returned when connecting to a serverless endpoint. </p>
+   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
    */
   ClusterIdentifier?: string;
 
@@ -127,6 +132,11 @@ export interface BatchExecuteStatementOutput {
    * <p>The name or ARN of the secret that enables access to the database. </p>
    */
   SecretArn?: string;
+
+  /**
+   * <p>The serverless workgroup name. This element is not returned when connecting to a provisioned cluster.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace BatchExecuteStatementOutput {
@@ -607,6 +617,11 @@ export interface DescribeStatementResponse {
    * <p>The SQL statements from a multiple statement run.</p>
    */
   SubStatements?: SubStatementData[];
+
+  /**
+   * <p>The serverless workgroup name.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace DescribeStatementResponse {
@@ -666,6 +681,11 @@ export interface DescribeTableRequest {
    *       If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace DescribeTableRequest {
@@ -773,6 +793,11 @@ export interface ExecuteStatementInput {
    * <p>The parameters for the SQL statement.</p>
    */
   Parameters?: SqlParameter[];
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace ExecuteStatementInput {
@@ -796,7 +821,7 @@ export interface ExecuteStatementOutput {
   CreatedAt?: Date;
 
   /**
-   * <p>The cluster identifier. This parameter is not returned when connecting to a serverless endpoint. </p>
+   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup. </p>
    */
   ClusterIdentifier?: string;
 
@@ -814,6 +839,11 @@ export interface ExecuteStatementOutput {
    * <p>The name or ARN of the secret that enables access to the database. </p>
    */
   SecretArn?: string;
+
+  /**
+   * <p>The serverless workgroup name. This element is not returned when connecting to a provisioned cluster.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace ExecuteStatementOutput {
@@ -1048,6 +1078,11 @@ export interface ListDatabasesRequest {
    *        If more databases exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace ListDatabasesRequest {
@@ -1124,6 +1159,11 @@ export interface ListSchemasRequest {
    *        If more schemas exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace ListSchemasRequest {
@@ -1362,6 +1402,11 @@ export interface ListTablesRequest {
    *        If more tables exist than fit in one response, then <code>NextToken</code> is returned to page through the results. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   */
+  WorkgroupName?: string;
 }
 
 export namespace ListTablesRequest {
