@@ -84,6 +84,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "eu-north-1",
   },
+  "eu-south-1": {
+    variants: [
+      {
+        hostname: "portal.sso.eu-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "eu-south-1",
+  },
   "eu-west-1": {
     variants: [
       {
