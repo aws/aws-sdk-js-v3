@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
+
+
+### Features
+
+* **client-redshift-data:** This release adds a new --workgroup-name field to operations that connect to an endpoint. Customers can now execute queries against their serverless workgroups. ([e92c230](https://github.com/aws/aws-sdk-js-v3/commit/e92c2304c7548ae9d4974b5998fada5fb788fce3))
+* **client-redshiftserverless:** Add new API operations for Amazon Redshift Serverless, a new way of using Amazon Redshift without needing to manually manage provisioned clusters. The new operations let you interact with Redshift Serverless resources, such as create snapshots, list VPC endpoints, delete resource policies, and more. ([774e109](https://github.com/aws/aws-sdk-js-v3/commit/774e10911fb105702ea5293decd547ff3963754a))
+* **client-securityhub:** Added Threats field for security findings. Added new resource details for ECS Container, ECS Task, RDS SecurityGroup, Kinesis Stream, EC2 TransitGateway, EFS AccessPoint, CloudFormation Stack, CloudWatch Alarm, VPC Peering Connection and WAF Rules ([6962140](https://github.com/aws/aws-sdk-js-v3/commit/69621406d3171b77eaffffd246598cd66eac159f))
+* **clients:** update client endpoints as of 2022-06-16 ([f58e0e4](https://github.com/aws/aws-sdk-js-v3/commit/f58e0e431c4a093738469d4267d2e12738248214))
+
+
+
+
+
 # [3.111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.110.0...v3.111.0) (2022-06-15)
 
 
