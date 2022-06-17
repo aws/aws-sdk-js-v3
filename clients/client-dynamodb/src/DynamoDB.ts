@@ -226,11 +226,18 @@ import { DynamoDBClient } from "./DynamoDBClient";
 export class DynamoDB extends DynamoDBClient {
   /**
    * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
-   *             using PartiQL.</p>
+   *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify an equality
+   *             condition on all key attributes. This enforces that each <code>SELECT</code> statement in a
+   *             batch returns at most a single item.</p>
    *         <note>
    *             <p>The entire batch must consist of either read statements or write statements, you
    *                 cannot mix both in one batch.</p>
    *         </note>
+   *         <important>
+   *             <p>A HTTP 200 response does not mean that all statements in the BatchExecuteStatement
+   *                 succeeded. Error details for individual statements can be found under the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error">Error</a> field of the <code>BatchStatementResponse</code> for each
+   *                 statement.</p>
+   *         </important>
    */
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -340,9 +347,9 @@ export class DynamoDB extends DynamoDBClient {
    * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
    *             more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of
    *             data over the network, consisting of up to 25 item put or delete operations. While
-   *             individual items can be up to 400 KB once stored, it's important to
-   *             note that an item's representation might be greater than 400KB while being sent in
-   *             DynamoDB's JSON format for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
+   *             individual items can be up to 400 KB once stored, it's important to note that an item's
+   *             representation might be greater than 400KB while being sent in DynamoDB's JSON format
+   *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
    *         <note>
    *             <p>
    *                 <code>BatchWriteItem</code> cannot update items. To update items, use the
@@ -1650,58 +1657,6 @@ export class DynamoDB extends DynamoDBClient {
    *             a new item if one with the specified primary key doesn't exist), or replace an existing
    *             item if it has certain attribute values. You can return the item's attribute values in
    *             the same operation, using the <code>ReturnValues</code> parameter.</p>
-   *         <important>
-   *             <p>This topic provides general information about the <code>PutItem</code> API.</p>
-   *             <p>For information on how to call the <code>PutItem</code> API using the Amazon Web Services SDK in specific languages, see the following:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem in the Command Line Interface</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for .NET</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for C++</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for Go</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for Java</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for JavaScript</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for PHP V3</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem">
-   *                             PutItem in the SDK for Python (Boto)</a>
-   *                     </p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                         <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem"> PutItem in the SDK for Ruby V2</a>
-   *                     </p>
-   *                 </li>
-   *             </ul>
-   *         </important>
    *
    *         <p>When you add an item, the primary key attributes are the only required attributes.
    *             Attribute values cannot be null.</p>
@@ -2287,9 +2242,10 @@ export class DynamoDB extends DynamoDBClient {
    * <p>Updates the status for contributor insights for a specific table or index. CloudWatch
    *             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
    *             sort key of frequently accessed items and frequently throttled items in plaintext. If
-   *             you require the use of Amazon Web Services Key Management Service (KMS) to encrypt this table’s
-   *             partition key and sort key data with an Amazon Web Services managed key or customer managed key, you
-   *             should not enable CloudWatch Contributor Insights for DynamoDB for this table.</p>
+   *             you require the use of Amazon Web Services Key Management Service (KMS) to encrypt this
+   *             table’s partition key and sort key data with an Amazon Web Services managed key or
+   *             customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB
+   *             for this table.</p>
    */
   public updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
@@ -2446,9 +2402,6 @@ export class DynamoDB extends DynamoDBClient {
    *         <ul>
    *             <li>
    *                 <p>Modify the provisioned throughput settings of the table.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Enable or disable DynamoDB Streams on the table.</p>
    *             </li>
    *             <li>
    *                 <p>Remove a global secondary index from the table.</p>

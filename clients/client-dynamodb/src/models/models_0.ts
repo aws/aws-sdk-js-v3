@@ -338,7 +338,8 @@ export interface BackupDetails {
   BackupName: string | undefined;
 
   /**
-   * <p>Size of the backup in bytes.</p>
+   * <p>Size of the backup in bytes. DynamoDB updates this value approximately every six hours.
+   *          Recent changes might not be reflected in this value.</p>
    */
   BackupSizeBytes?: number;
 
@@ -593,7 +594,7 @@ export interface Projection {
   /**
    * <p>Represents the non-key attribute names which will be projected into the index.</p>
    *         <p>For local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
-   *             across all of the local secondary indexes, must not exceed 20. If you project the same
+   *             across all of the local secondary indexes, must not exceed 100. If you project the same
    *             attribute into two different indexes, this counts as two distinct attributes when
    *             determining the total.</p>
    */
@@ -1552,15 +1553,15 @@ export namespace CreateBackupOutput {
 
 /**
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *         <p>Up to 50 simultaneous table operations are allowed per account. These operations
+ *         <p>Up to 500 simultaneous table operations are allowed per account. These operations
  *             include <code>CreateTable</code>, <code>UpdateTable</code>,
  *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
  *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
  *         <p>The only exception is when you are creating a table with one or more secondary
- *             indexes. You can have up to 25 such requests running at a time; however, if the table or
+ *             indexes. You can have up to 250 such requests running at a time; however, if the table or
  *             index specifications are complex, DynamoDB might temporarily reduce the number
  *             of concurrent operations.</p>
- *         <p>There is a soft account quota of 256 tables.</p>
+ *         <p>There is a soft account quota of 2,500 tables.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1600,7 +1601,7 @@ export class TableInUseException extends __BaseException {
 
 /**
  * <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account.</p>
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  */
 export class TableNotFoundException extends __BaseException {
   readonly name: "TableNotFoundException" = "TableNotFoundException";
@@ -3024,7 +3025,7 @@ export interface TableDescription {
    *                             <code>NonKeyAttributes</code> - A list of one or more non-key attribute
    *                             names that are projected into the secondary index. The total count of
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
-   *                             of the secondary indexes, must not exceed 20. If you project the same
+   *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
    *                             attributes when determining the total.</p>
    *                     </li>
@@ -3145,7 +3146,7 @@ export interface TableDescription {
    *                             <code>NonKeyAttributes</code> - A list of one or more non-key attribute
    *                             names that are projected into the secondary index. The total count of
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
-   *                             of the secondary indexes, must not exceed 20. If you project the same
+   *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
    *                             attributes when determining the total.</p>
    *                     </li>
@@ -4600,8 +4601,9 @@ export interface ExportTableToPointInTimeInput {
   TableArn: string | undefined;
 
   /**
-   * <p>Time in the past from which to export table data. The table export will be a snapshot
-   *             of the table's state at this point in time.</p>
+   * <p>Time in the past from which to export table data, counted in seconds from the start of
+   *             the Unix epoch. The table export will be a snapshot of the table's state at this point
+   *             in time.</p>
    */
   ExportTime?: Date;
 
@@ -4770,7 +4772,7 @@ export interface ListBackupsInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>USER</code> - On-demand backup created by you.</p>
+   *                     <code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5956,6 +5958,11 @@ export namespace UpdateReplicationGroupMemberAction {
  *                     the replica and all if its items in the destination Region.</p>
  *             </li>
  *          </ul>
+ *         <note>
+ *             <p>When you manually remove a table or global table replica, you do not
+ *                 automatically remove any associated scalable targets, scaling policies, or
+ *                 CloudWatch alarms.</p>
+ *         </note>
  */
 export interface ReplicationGroupUpdate {
   /**
@@ -6481,7 +6488,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type List. For example:</p>
    *         <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N": "3.14159"}]</code>
    *          </p>
    */
   export interface LMember {
@@ -6722,9 +6729,9 @@ export interface AttributeValueUpdate {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ADD</code> - DynamoDB creates an item with the supplied primary key and
-   *                     number (or set of numbers) for the attribute value. The only data types allowed
-   *                     are number and number set; no other data types can be specified.</p>
+   *                     <code>ADD</code> - DynamoDB creates a new item with the supplied primary key and
+   *                     number (or set) for the attribute value. The only data types allowed
+   *                     are number, number set, string set or binary set.</p>
    *             </li>
    *          </ul>
    */
@@ -7777,8 +7784,8 @@ export interface ExecuteTransactionInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is
-   *             returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
    */
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
@@ -7908,7 +7915,7 @@ export namespace TransactGetItemsOutput {
  *             <p>If using Java, DynamoDB lists the cancellation reasons on the
  *                     <code>CancellationReasons</code> property. This property is not set for other
  *                 languages. Transaction cancellation reasons are ordered in the order of requested
- *                 items, if an item has no error it will have <code>NONE</code> code and
+ *                 items, if an item has no error it will have <code>None</code> code and
  *                     <code>Null</code> message.</p>
  *         </note>
  *         <p>Cancellation reason codes and possible error messages:</p>
@@ -7917,7 +7924,7 @@ export namespace TransactGetItemsOutput {
  *                 <p>No Errors:</p>
  *                 <ul>
  *                   <li>
- *                         <p>Code: <code>NONE</code>
+ *                         <p>Code: <code>None</code>
  *                         </p>
  *                     </li>
  *                   <li>
@@ -9539,8 +9546,8 @@ export interface ScanInput {
    *             <li>
    *                 <p>
    *                     <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
-   *                         <code>AttributesToGet</code>. This return value is equivalent to specifying
-   *                         <code>AttributesToGet</code> without specifying any value for
+   *                         <code>ProjectionExpression</code>. This return value is equivalent to
+   *                     specifying <code>ProjectionExpression</code> without specifying any value for
    *                         <code>Select</code>.</p>
    *                 <p>If you query or scan a local secondary index and request only attributes that
    *                     are projected into that index, the operation reads only the index and not the
@@ -9552,13 +9559,13 @@ export interface ScanInput {
    *                     attributes from the parent table.</p>
    *             </li>
    *          </ul>
-   *         <p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified,
+   *         <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified,
    *             DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and
    *                 <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both
-   *                 <code>Select</code> and <code>AttributesToGet</code> together in a single request,
-   *             unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This
-   *             usage is equivalent to specifying <code>AttributesToGet</code> without any value for
-   *                 <code>Select</code>.)</p>
+   *                 <code>Select</code> and <code>ProjectionExpression</code> together in a single
+   *             request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>.
+   *             (This usage is equivalent to specifying <code>ProjectionExpression</code> without any
+   *             value for <code>Select</code>.)</p>
    *         <note>
    *             <p>If you use the <code>ProjectionExpression</code> parameter, then the value for
    *                     <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other
@@ -9673,9 +9680,8 @@ export interface ScanInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults">Filter
-   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    */
   FilterExpression?: string;
 
@@ -9971,6 +9977,9 @@ export interface DeleteItemInput {
    *                     <code>ALL_OLD</code> - The content of the old item is returned.</p>
    *             </li>
    *          </ul>
+   *         <p>There is no additional cost associated with requesting a return value aside from the small
+   *             network and processing overhead of receiving a larger response. No read capacity units are
+   *             consumed.</p>
    *         <note>
    *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
    *                 however, <code>DeleteItem</code> does not recognize any values other than
@@ -10214,6 +10223,9 @@ export interface PutItemInput {
    *             </li>
    *          </ul>
    *         <p>The values returned are strongly consistent.</p>
+   *         <p>There is no additional cost associated with requesting a return value aside from the small
+   *             network and processing overhead of receiving a larger response. No read capacity units are
+   *             consumed.</p>
    *         <note>
    *             <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
    *                 however, <code>PutItem</code> does not recognize any values other than
@@ -10454,8 +10466,8 @@ export interface QueryInput {
    *             <li>
    *                 <p>
    *                     <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
-   *                         <code>AttributesToGet</code>. This return value is equivalent to specifying
-   *                         <code>AttributesToGet</code> without specifying any value for
+   *                         <code>ProjectionExpression</code>. This return value is equivalent to
+   *                     specifying <code>ProjectionExpression</code> without specifying any value for
    *                         <code>Select</code>.</p>
    *                 <p>If you query or scan a local secondary index and request only attributes that
    *                     are projected into that index, the operation will read only the index and not
@@ -10467,13 +10479,13 @@ export interface QueryInput {
    *                     attributes from the parent table.</p>
    *             </li>
    *          </ul>
-   *         <p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified,
+   *         <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified,
    *             DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and
    *                 <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both
-   *                 <code>Select</code> and <code>AttributesToGet</code> together in a single request,
-   *             unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This
-   *             usage is equivalent to specifying <code>AttributesToGet</code> without any value for
-   *                 <code>Select</code>.)</p>
+   *                 <code>Select</code> and <code>ProjectionExpression</code> together in a single
+   *             request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>.
+   *             (This usage is equivalent to specifying <code>ProjectionExpression</code> without any
+   *             value for <code>Select</code>.)</p>
    *         <note>
    *             <p>If you use the <code>ProjectionExpression</code> parameter, then the value for
    *                     <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other
@@ -10606,9 +10618,8 @@ export interface QueryInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults">Filter
-   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    */
   FilterExpression?: string;
 

@@ -31,9 +31,6 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *                 <p>Modify the provisioned throughput settings of the table.</p>
  *             </li>
  *             <li>
- *                 <p>Enable or disable DynamoDB Streams on the table.</p>
- *             </li>
- *             <li>
  *                 <p>Remove a global secondary index from the table.</p>
  *             </li>
  *             <li>
