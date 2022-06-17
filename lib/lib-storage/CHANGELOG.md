@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.112.0...v3.113.0) (2022-06-17)
+
+
+### Bug Fixes
+
+* **lib-storage:** repair package.json runtimeConfig path ([#3352](https://github.com/aws/aws-sdk-js-v3/issues/3352)) ([76ac9db](https://github.com/aws/aws-sdk-js-v3/commit/76ac9db16605eac185295662c9966109bb0d1519))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

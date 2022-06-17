@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.112.0...v3.113.0) (2022-06-17)
+
+
+### Bug Fixes
+
+* **lib-storage:** repair package.json runtimeConfig path ([#3352](https://github.com/aws/aws-sdk-js-v3/issues/3352)) ([76ac9db](https://github.com/aws/aws-sdk-js-v3/commit/76ac9db16605eac185295662c9966109bb0d1519))
+
+
+### Features
+
+* **client-connect:** This release updates these APIs: UpdateInstanceAttribute, DescribeInstanceAttribute and ListInstanceAttributes. You can use it to programmatically enable/disable High volume outbound communications using attribute type HIGH_VOLUME_OUTBOUND on the specified Amazon Connect instance. ([71bbaca](https://github.com/aws/aws-sdk-js-v3/commit/71bbacaad576f27a8de70f485d3b8c3db6e83c90))
+* **client-connectcampaigns:** Added Amazon Connect high volume outbound communications SDK. ([324a693](https://github.com/aws/aws-sdk-js-v3/commit/324a693bafc3fb532c5d28120a68f3402f8b446c))
+* **clients:** update client endpoints as of 2022-06-17 ([0a49ba7](https://github.com/aws/aws-sdk-js-v3/commit/0a49ba7fdb730b21a7ee758bb5ca961d36e26a41))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 
