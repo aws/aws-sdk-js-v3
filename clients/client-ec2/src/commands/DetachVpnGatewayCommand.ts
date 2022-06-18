@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachVpnGatewayRequest } from "../models/models_4";
+import { DetachVpnGatewayRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DetachVpnGatewayCommand,
   serializeAws_ec2DetachVpnGatewayCommand,

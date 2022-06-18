@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,

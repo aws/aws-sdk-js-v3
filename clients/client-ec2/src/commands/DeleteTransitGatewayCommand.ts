@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTransitGatewayRequest, DeleteTransitGatewayResult } from "../models/models_2";
+import { DeleteTransitGatewayRequest, DeleteTransitGatewayResult } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteTransitGatewayCommand,
   serializeAws_ec2DeleteTransitGatewayCommand,

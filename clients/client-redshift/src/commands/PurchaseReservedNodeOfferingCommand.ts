@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
+import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_0";
 import {
   deserializeAws_queryPurchaseReservedNodeOfferingCommand,
   serializeAws_queryPurchaseReservedNodeOfferingCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMembersRequest, GetMembersResponse } from "../models/models_1";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMembersCommand,
   serializeAws_restJson1GetMembersCommand,

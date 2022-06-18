@@ -1,463 +1,2740 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
-  AbortConfig,
-  Action,
-  ActiveViolation,
-  AggregationType,
-  AlertTarget,
-  AuditCheckConfiguration,
-  AuditCheckDetails,
-  AuditFinding,
+  AbortAction,
+  ActionType,
+  AddThingsToThingGroupParams,
+  AggregationTypeName,
+  Allowed,
+  AuditCheckRunStatus,
+  AuditFindingSeverity,
   AuditFrequency,
-  AuditMitigationActionExecutionMetadata,
   AuditMitigationActionsExecutionStatus,
-  AuditMitigationActionsTaskMetadata,
   AuditMitigationActionsTaskStatus,
-  AuditMitigationActionsTaskTarget,
-  AuditNotificationTarget,
-  AuditSuppression,
-  AuditTaskMetadata,
   AuditTaskStatus,
   AuditTaskType,
-  AuthorizerConfig,
-  AuthorizerDescription,
+  AuthDecision,
   AuthorizerStatus,
-  AuthorizerSummary,
   AutoRegistrationStatus,
-  AwsJobExecutionsRolloutConfig,
-  AwsJobPresignedUrlConfig,
-  Behavior,
-  BillingGroupProperties,
+  AwsJobAbortCriteria,
+  AwsJobExponentialRolloutRate,
+  BehaviorCriteria,
+  BehaviorCriteriaType,
+  CACertificateStatus,
+  CertificateMode,
+  CertificateStatus,
+  CertificateValidity,
+  CodeSigning,
   CustomMetricType,
   DayOfWeek,
+  Denied,
+  DetectMitigationActionExecutionStatus,
+  DetectMitigationActionsTaskStatistics,
+  DetectMitigationActionsTaskStatus,
+  DeviceDefenderIndexingMode,
   DimensionType,
-  DimensionValueOperator,
+  DomainConfigurationStatus,
+  DynamoKeyType,
+  EnableIoTLoggingParams,
+  ErrorInfo,
+  ExponentialRolloutRate,
+  Field,
+  FileLocation,
   FleetMetricUnit,
-  JobExecutionsRetryConfig,
-  JobExecutionsRolloutConfig,
+  HttpActionHeader,
+  HttpAuthorization,
+  HttpUrlDestinationConfiguration,
+  HttpUrlDestinationProperties,
+  HttpUrlDestinationSummary,
+  JobExecutionFailureType,
+  JobExecutionStatus,
+  JobExecutionStatusDetails,
+  JobExecutionSummary,
+  JobProcessDetails,
+  JobStatus,
+  KinesisAction,
+  LambdaAction,
   LogLevel,
-  MetricToRetain,
+  LogTargetType,
+  MetricDimension,
   MetricValue,
-  MitigationActionParams,
-  OTAUpdateFile,
+  ModelStatus,
+  NamedShadowIndexingMode,
+  NonCompliantResource,
+  OpenSearchAction,
   OTAUpdateStatus,
-  Policy,
-  PresignedUrlConfig,
-  Protocol,
-  ProvisioningHook,
-  ResourceIdentifier,
+  PolicyVersionIdentifier,
+  PublishFindingToSnsParams,
+  PutAssetPropertyValueEntry,
+  PutItemInput,
+  RelatedResource,
+  ReplaceDefaultPolicyVersionParams,
+  ReportType,
+  RepublishAction,
+  RetryCriteria,
+  S3Action,
+  S3Location,
+  SalesforceAction,
+  ServerCertificateStatus,
   ServiceType,
-  StreamFile,
-  Tag,
+  SnsAction,
+  SqsAction,
+  Status,
+  StepFunctionsAction,
   TargetSelection,
-  TaskStatisticsForAuditCheck,
-  ThingGroupProperties,
-  ThingTypeProperties,
-  TimeoutConfig,
-  TopicRuleDestination,
+  TermsAggregation,
+  ThingConnectivity,
+  ThingConnectivityIndexingMode,
+  ThingGroupIndexingMode,
+  ThingIndexingMode,
+  TimestreamAction,
+  TopicRuleDestinationStatus,
+  TransferData,
+  UpdateCACertificateParams,
+  UpdateDeviceCertificateParams,
   VerificationState,
-} from "./models_0";
+  ViolationEventAdditionalInfo,
+  ViolationEventType,
+  VpcDestinationConfiguration,
+  VpcDestinationProperties,
+  VpcDestinationSummary,
+} from "./models_2";
 
-export interface DeleteScheduledAuditRequest {
+/**
+ * <p>The criteria that determine when and how a job abort takes place.</p>
+ */
+export interface AbortCriteria {
   /**
-   * <p>The name of the scheduled audit you want to delete.</p>
+   * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  scheduledAuditName: string | undefined;
+  failureType: JobExecutionFailureType | string | undefined;
+
+  /**
+   * <p>The type of job action to take to initiate the job abort.</p>
+   */
+  action: AbortAction | string | undefined;
+
+  /**
+   * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
+   *         <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   */
+  thresholdPercentage: number | undefined;
+
+  /**
+   * <p>The minimum number of things which must receive job execution notifications before the job
+   *             can be aborted.</p>
+   */
+  minNumberOfExecutedThings: number | undefined;
 }
 
-export namespace DeleteScheduledAuditRequest {
+export namespace AbortCriteria {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteScheduledAuditResponse {}
-
-export namespace DeleteScheduledAuditResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityProfileRequest {
-  /**
-   * <p>The name of the security profile to be deleted.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityProfileResponse {}
-
-export namespace DeleteSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteStreamRequest {
-  /**
-   * <p>The stream ID.</p>
-   */
-  streamId: string | undefined;
-}
-
-export namespace DeleteStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteStreamResponse {}
-
-export namespace DeleteStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamResponse): any => ({
+  export const filterSensitiveLog = (obj: AbortCriteria): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The input for the DeleteThing operation.</p>
+ * <p>The criteria that determine when and how a job abort takes place.</p>
  */
-export interface DeleteThingRequest {
+export interface AbortConfig {
   /**
-   * <p>The name of the thing to delete.</p>
+   * <p>The list of criteria that determine when and how to abort the job.</p>
    */
-  thingName: string | undefined;
-
-  /**
-   * <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>DeleteThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   */
-  expectedVersion?: number;
+  criteriaList: AbortCriteria[] | undefined;
 }
 
-export namespace DeleteThingRequest {
+export namespace AbortConfig {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingRequest): any => ({
+  export const filterSensitiveLog = (obj: AbortConfig): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The output of the DeleteThing operation.</p>
+ * <p>An unexpected error has occurred.</p>
  */
-export interface DeleteThingResponse {}
-
-export namespace DeleteThingResponse {
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
-export interface DeleteThingGroupRequest {
-  /**
-   * <p>The name of the thing group to delete.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * <p>The expected version of the thing group to delete.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteThingGroupRequest {
+/**
+ * <p>The request is not valid.</p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingGroupRequest): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
-export interface DeleteThingGroupResponse {}
-
-export namespace DeleteThingGroupResponse {
+/**
+ * <p>The specified resource does not exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingGroupResponse): any => ({
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The service is temporarily unavailable.</p>
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * <p>The rate exceeds the limit.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>You can't revert the certificate transfer because the transfer is already
+ *          complete.</p>
+ */
+export class TransferAlreadyCompletedException extends __BaseException {
+  readonly name: "TransferAlreadyCompletedException" = "TransferAlreadyCompletedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransferAlreadyCompletedException, __BaseException>) {
+    super({
+      name: "TransferAlreadyCompletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransferAlreadyCompletedException.prototype);
+  }
+}
+
+/**
+ * <p>You are not authorized to perform this operation.</p>
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * <p>Describes an action that updates a CloudWatch alarm.</p>
+ */
+export interface CloudwatchAlarmAction {
+  /**
+   * <p>The IAM role that allows access to the CloudWatch alarm.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The CloudWatch alarm name.</p>
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The reason for the alarm change.</p>
+   */
+  stateReason: string | undefined;
+
+  /**
+   * <p>The value of the alarm state. Acceptable values are: OK, ALARM,
+   *          INSUFFICIENT_DATA.</p>
+   */
+  stateValue: string | undefined;
+}
+
+export namespace CloudwatchAlarmAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CloudwatchAlarmAction): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The input for the DeleteThingType operation.</p>
+ * <p>Describes an action that sends data to CloudWatch Logs.</p>
  */
-export interface DeleteThingTypeRequest {
+export interface CloudwatchLogsAction {
   /**
-   * <p>The name of the thing type.</p>
+   * <p>The IAM role that allows access to the CloudWatch log.</p>
    */
-  thingTypeName: string | undefined;
+  roleArn: string | undefined;
+
+  /**
+   * <p>The CloudWatch log group to which the action sends data.</p>
+   */
+  logGroupName: string | undefined;
 }
 
-export namespace DeleteThingTypeRequest {
+export namespace CloudwatchLogsAction {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingTypeRequest): any => ({
+  export const filterSensitiveLog = (obj: CloudwatchLogsAction): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The output for the DeleteThingType operation.</p>
+ * <p>Describes an action that captures a CloudWatch metric.</p>
  */
-export interface DeleteThingTypeResponse {}
+export interface CloudwatchMetricAction {
+  /**
+   * <p>The IAM role that allows access to the CloudWatch metric.</p>
+   */
+  roleArn: string | undefined;
 
-export namespace DeleteThingTypeResponse {
+  /**
+   * <p>The CloudWatch metric namespace name.</p>
+   */
+  metricNamespace: string | undefined;
+
+  /**
+   * <p>The CloudWatch metric name.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The CloudWatch metric value.</p>
+   */
+  metricValue: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
+   *             unit</a> supported by CloudWatch.</p>
+   */
+  metricUnit: string | undefined;
+
+  /**
+   * <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
+   */
+  metricTimestamp?: string;
+}
+
+export namespace CloudwatchMetricAction {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteThingTypeResponse): any => ({
+  export const filterSensitiveLog = (obj: CloudwatchMetricAction): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The input for the DeleteTopicRule operation.</p>
+ * <p>Describes an action to write to a DynamoDB table.</p>
+ *          <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code>
+ *          values must match the values used when you created the table.</p>
+ *          <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a
+ *          substitution template syntax. These templates provide data at runtime. The syntax is as
+ *          follows: ${<i>sql-expression</i>}.</p>
+ *          <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON
+ *          properties, comparisons, calculations, and functions. For example, the following field uses
+ *          the third level of the topic:</p>
+ *          <p>
+ *             <code>"hashKeyValue": "${topic(3)}"</code>
+ *          </p>
+ *          <p>The following field uses the timestamp:</p>
+ *          <p>
+ *             <code>"rangeKeyValue": "${timestamp()}"</code>
+ *          </p>
  */
-export interface DeleteTopicRuleRequest {
+export interface DynamoDBAction {
   /**
-   * <p>The name of the rule.</p>
+   * <p>The name of the DynamoDB table.</p>
    */
-  ruleName: string | undefined;
+  tableName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The type of operation to be performed. This follows the substitution template, so it
+   *          can be <code>${operation}</code>, but the substitution must result in one of the following:
+   *             <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
+   */
+  operation?: string;
+
+  /**
+   * <p>The hash key name.</p>
+   */
+  hashKeyField: string | undefined;
+
+  /**
+   * <p>The hash key value.</p>
+   */
+  hashKeyValue: string | undefined;
+
+  /**
+   * <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
+   */
+  hashKeyType?: DynamoKeyType | string;
+
+  /**
+   * <p>The range key name.</p>
+   */
+  rangeKeyField?: string;
+
+  /**
+   * <p>The range key value.</p>
+   */
+  rangeKeyValue?: string;
+
+  /**
+   * <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
+   */
+  rangeKeyType?: DynamoKeyType | string;
+
+  /**
+   * <p>The action payload. This name can be customized.</p>
+   */
+  payloadField?: string;
 }
 
-export namespace DeleteTopicRuleRequest {
+export namespace DynamoDBAction {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTopicRuleDestinationRequest {
-  /**
-   * <p>The ARN of the topic rule destination to delete.</p>
-   */
-  arn: string | undefined;
-}
-
-export namespace DeleteTopicRuleDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTopicRuleDestinationResponse {}
-
-export namespace DeleteTopicRuleDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum LogTargetType {
-  CLIENT_ID = "CLIENT_ID",
-  DEFAULT = "DEFAULT",
-  PRINCIPAL_ID = "PRINCIPAL_ID",
-  SOURCE_IP = "SOURCE_IP",
-  THING_GROUP = "THING_GROUP",
-}
-
-export interface DeleteV2LoggingLevelRequest {
-  /**
-   * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   */
-  targetType: LogTargetType | string | undefined;
-
-  /**
-   * <p>The name of the resource for which you are configuring logging.</p>
-   */
-  targetName: string | undefined;
-}
-
-export namespace DeleteV2LoggingLevelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteV2LoggingLevelRequest): any => ({
+  export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The input for the DeprecateThingType operation.</p>
+ * <p>Describes an action to write to a DynamoDB table.</p>
+ *          <p>This DynamoDB action writes each attribute in the message payload into it's own
+ *          column in the DynamoDB table.</p>
  */
-export interface DeprecateThingTypeRequest {
+export interface DynamoDBv2Action {
   /**
-   * <p>The name of the thing type to deprecate.</p>
+   * <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
    */
-  thingTypeName: string | undefined;
+  roleArn: string | undefined;
 
   /**
-   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
-   * 			associate it with things.</p>
+   * <p>Specifies the DynamoDB table to which the message data will be written. For
+   *          example:</p>
+   *          <p>
+   *             <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName":
+   *             "my-table" } } }</code>
+   *          </p>
+   *          <p>Each attribute in the message payload will be written to a separate column in the
+   *          DynamoDB database.</p>
    */
-  undoDeprecate?: boolean;
+  putItem: PutItemInput | undefined;
 }
 
-export namespace DeprecateThingTypeRequest {
+export namespace DynamoDBv2Action {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeprecateThingTypeRequest): any => ({
+  export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The output for the DeprecateThingType operation.</p>
+ * <p>Describes an action that writes data to an Amazon OpenSearch Service
+ *          domain.</p>
+ *          <note>
+ *             <p>The <code>Elasticsearch</code> action can only be used by existing rule actions. To create a
+ *          new rule action or to update an existing rule action, use the
+ *          <code>OpenSearch</code> rule action instead. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p>
+ *          </note>
  */
-export interface DeprecateThingTypeResponse {}
+export interface ElasticsearchAction {
+  /**
+   * <p>The IAM role ARN that has access to OpenSearch.</p>
+   */
+  roleArn: string | undefined;
 
-export namespace DeprecateThingTypeResponse {
+  /**
+   * <p>The endpoint of your OpenSearch domain.</p>
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The index where you want to store your data.</p>
+   */
+  index: string | undefined;
+
+  /**
+   * <p>The type of document you are storing.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The unique identifier for the document you are storing.</p>
+   */
+  id: string | undefined;
+}
+
+export namespace ElasticsearchAction {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeprecateThingTypeResponse): any => ({
+  export const filterSensitiveLog = (obj: ElasticsearchAction): any => ({
     ...obj,
   });
 }
 
-export interface DescribeAccountAuditConfigurationRequest {}
+/**
+ * <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
+ */
+export interface FirehoseAction {
+  /**
+   * <p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>
+   */
+  roleArn: string | undefined;
 
-export namespace DescribeAccountAuditConfigurationRequest {
+  /**
+   * <p>The delivery stream name.</p>
+   */
+  deliveryStreamName: string | undefined;
+
+  /**
+   * <p>A character separator that will be used to separate records written to the Firehose
+   *          stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ','
+   *          (comma).</p>
+   */
+  separator?: string;
+
+  /**
+   * <p>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html">
+   *                <code>PutRecordBatch</code>
+   *             </a>.  The default value is
+   *          <code>false</code>.</p>
+   *          <p>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement
+   *          evaluates to an Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html">
+   *                <code>PutRecordBatch</code>
+   *             </a> request. The resulting array can't have more
+   *          than 500 records.</p>
+   */
+  batchMode?: boolean;
+}
+
+export namespace FirehoseAction {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationRequest): any => ({
+  export const filterSensitiveLog = (obj: FirehoseAction): any => ({
     ...obj,
   });
 }
 
-export interface DescribeAccountAuditConfigurationResponse {
+/**
+ * <p>Send data to an HTTPS endpoint.</p>
+ */
+export interface HttpAction {
   /**
-   * <p>The ARN of the role that grants permission to IoT to access information
-   *             about your devices, policies, certificates, and other items as required when
-   *             performing an audit.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
-   *             this parameter is required.</p>
+   * <p>The endpoint URL. If substitution templates are used in the URL, you must also specify a
+   *             <code>confirmationUrl</code>. If this is a new destination, a new
+   *             <code>TopicRuleDestination</code> is created if possible.</p>
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The URL to which IoT sends a confirmation message. The value of the confirmation URL
+   *          must be a prefix of the endpoint URL. If you do not specify a confirmation URL IoT uses
+   *          the endpoint URL as the confirmation URL. If you use substitution templates in the
+   *          confirmationUrl, you must create and enable topic rule destinations that match each
+   *          possible value of the substitution template before traffic is allowed to your endpoint
+   *          URL.</p>
+   */
+  confirmationUrl?: string;
+
+  /**
+   * <p>The HTTP headers to send with the message data.</p>
+   */
+  headers?: HttpActionHeader[];
+
+  /**
+   * <p>The authentication method to use when sending data to an HTTPS endpoint.</p>
+   */
+  auth?: HttpAuthorization;
+}
+
+export namespace HttpAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Sends message data to an IoT Analytics channel.</p>
+ */
+export interface IotAnalyticsAction {
+  /**
+   * <p>(deprecated) The ARN of the IoT Analytics channel to which message data will be
+   *          sent.</p>
+   */
+  channelArn?: string;
+
+  /**
+   * <p>The name of the IoT Analytics channel to which message data will be sent.</p>
+   */
+  channelName?: string;
+
+  /**
+   * <p>Whether to process the action as a batch. The default value is
+   *          <code>false</code>.</p>
+   *          <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
+   *          to an Array, each Array element is delivered as a separate message when passed by <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html">
+   *                <code>BatchPutMessage</code>
+   *             </a> to the IoT Analytics channel. The resulting array can't have more
+   *          than 100 messages.</p>
+   */
+  batchMode?: boolean;
+
+  /**
+   * <p>The ARN of the role which has a policy that grants IoT Analytics permission to send
+   *          message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>
+   */
+  roleArn?: string;
+}
+
+export namespace IotAnalyticsAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotAnalyticsAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Sends an input to an IoT Events detector.</p>
+ */
+export interface IotEventsAction {
+  /**
+   * <p>The name of the IoT Events input.</p>
+   */
+  inputName: string | undefined;
+
+  /**
+   * <p>The ID of the message. The default <code>messageId</code> is a new UUID value.</p>
+   *          <p>When <code>batchMode</code> is <code>true</code>, you can't specify a
+   *         <code>messageId</code>--a new UUID value will be assigned.</p>
+   *          <p>Assign a value to this property to ensure that only one input (message) with a given
+   *             <code>messageId</code> will be processed by an IoT Events detector.</p>
+   */
+  messageId?: string;
+
+  /**
+   * <p>Whether to process the event actions as a batch. The default value is
+   *             <code>false</code>.</p>
+   *          <p>When <code>batchMode</code> is <code>true</code>, you can't specify a
+   *             <code>messageId</code>. </p>
+   *          <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
+   *          to an Array, each Array element is treated as a separate message when it's sent to IoT
+   *          Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html">
+   *                <code>BatchPutMessage</code>
+   *             </a>.  The resulting array can't have more
+   *          than 10 messages.</p>
+   */
+  batchMode?: boolean;
+
+  /**
+   * <p>The ARN of the role that grants IoT permission to send an input to an IoT
+   *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace IotEventsAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotEventsAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an action to send data from an MQTT message that triggered the rule to IoT
+ *       SiteWise asset properties.</p>
+ */
+export interface IotSiteWiseAction {
+  /**
+   * <p>A list of asset property value entries.</p>
+   */
+  putAssetPropertyValueEntries: PutAssetPropertyValueEntry[] | undefined;
+
+  /**
+   * <p>The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
+   *       policy can restrict access to specific asset hierarchy paths.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace IotSiteWiseAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+ */
+export interface KafkaAction {
+  /**
+   * <p>The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.</p>
+   */
+  destinationArn: string | undefined;
+
+  /**
+   * <p>The Kafka topic for messages to be sent to the Kafka broker.</p>
+   */
+  topic: string | undefined;
+
+  /**
+   * <p>The Kafka message key.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The Kafka message partition.</p>
+   */
+  partition?: string;
+
+  /**
+   * <p>Properties of the Apache Kafka producer client.</p>
+   */
+  clientProperties: Record<string, string> | undefined;
+}
+
+export namespace KafkaAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KafkaAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the actions associated with a rule.</p>
+ */
+export interface Action {
+  /**
+   * <p>Write to a DynamoDB table.</p>
+   */
+  dynamoDB?: DynamoDBAction;
+
+  /**
+   * <p>Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows
+   *          you to write each attribute in an MQTT message payload into a separate DynamoDB
+   *          column.</p>
+   */
+  dynamoDBv2?: DynamoDBv2Action;
+
+  /**
+   * <p>Invoke a Lambda function.</p>
+   */
+  lambda?: LambdaAction;
+
+  /**
+   * <p>Publish to an Amazon SNS topic.</p>
+   */
+  sns?: SnsAction;
+
+  /**
+   * <p>Publish to an Amazon SQS queue.</p>
+   */
+  sqs?: SqsAction;
+
+  /**
+   * <p>Write data to an Amazon Kinesis stream.</p>
+   */
+  kinesis?: KinesisAction;
+
+  /**
+   * <p>Publish to another MQTT topic.</p>
+   */
+  republish?: RepublishAction;
+
+  /**
+   * <p>Write to an Amazon S3 bucket.</p>
+   */
+  s3?: S3Action;
+
+  /**
+   * <p>Write to an Amazon Kinesis Firehose stream.</p>
+   */
+  firehose?: FirehoseAction;
+
+  /**
+   * <p>Capture a CloudWatch metric.</p>
+   */
+  cloudwatchMetric?: CloudwatchMetricAction;
+
+  /**
+   * <p>Change the state of a CloudWatch alarm.</p>
+   */
+  cloudwatchAlarm?: CloudwatchAlarmAction;
+
+  /**
+   * <p>Send data to CloudWatch Logs.</p>
+   */
+  cloudwatchLogs?: CloudwatchLogsAction;
+
+  /**
+   * <p>Write data to an Amazon OpenSearch Service domain.</p>
+   *          <note>
+   *             <p>The <code>Elasticsearch</code> action can only be used by existing rule actions.
+   *             To create a new rule action or to update an existing rule action, use the
+   *             <code>OpenSearch</code> rule action instead. For more information, see
+   *             <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p>
+   *          </note>
+   */
+  elasticsearch?: ElasticsearchAction;
+
+  /**
+   * <p>Send a message to a Salesforce IoT Cloud Input Stream.</p>
+   */
+  salesforce?: SalesforceAction;
+
+  /**
+   * <p>Sends message data to an IoT Analytics channel.</p>
+   */
+  iotAnalytics?: IotAnalyticsAction;
+
+  /**
+   * <p>Sends an input to an IoT Events detector.</p>
+   */
+  iotEvents?: IotEventsAction;
+
+  /**
+   * <p>Sends data from the MQTT message that triggered the rule to IoT SiteWise asset
+   *       properties.</p>
+   */
+  iotSiteWise?: IotSiteWiseAction;
+
+  /**
+   * <p>Starts execution of a Step Functions state machine.</p>
+   */
+  stepFunctions?: StepFunctionsAction;
+
+  /**
+   * <p>The Timestream rule action writes attributes (measures) from an MQTT message
+   *          into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a>
+   *             topic rule action documentation.</p>
+   */
+  timestream?: TimestreamAction;
+
+  /**
+   * <p>Send data to an HTTPS endpoint.</p>
+   */
+  http?: HttpAction;
+
+  /**
+   * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+   */
+  kafka?: KafkaAction;
+
+  /**
+   * <p>Write data to an Amazon OpenSearch Service domain.</p>
+   */
+  openSearch?: OpenSearchAction;
+}
+
+export namespace Action {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Action): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A Device Defender security profile behavior.</p>
+ */
+export interface Behavior {
+  /**
+   * <p>The name
+   *       you've given to the behavior.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>What is measured by the behavior.</p>
+   */
+  metric?: string;
+
+  /**
+   * <p>The dimension for a metric in your behavior. For example, using a
+   *                 <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. This can't be used with custom metrics.</p>
+   */
+  metricDimension?: MetricDimension;
+
+  /**
+   * <p>The criteria that determine if a device is behaving normally in regard to
+   *           the <code>metric</code>.</p>
+   */
+  criteria?: BehaviorCriteria;
+
+  /**
+   * <p>
+   *             Suppresses alerts.
+   *         </p>
+   */
+  suppressAlerts?: boolean;
+}
+
+export namespace Behavior {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Behavior): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an active Device Defender security profile behavior violation.</p>
+ */
+export interface ActiveViolation {
+  /**
+   * <p>The ID of the active violation.</p>
+   */
+  violationId?: string;
+
+  /**
+   * <p>The name of the thing responsible for the active violation.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The security profile with the behavior is in violation.</p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>The behavior that is being violated.</p>
+   */
+  behavior?: Behavior;
+
+  /**
+   * <p>The value of the metric (the measurement) that caused the most recent violation.</p>
+   */
+  lastViolationValue?: MetricValue;
+
+  /**
+   * <p>
+   *             The details of a violation event.
+   *         </p>
+   */
+  violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
+
+  /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
+   * <p>The description of the verification state of the violation.</p>
+   */
+  verificationStateDescription?: string;
+
+  /**
+   * <p>The time the most recent violation occurred.</p>
+   */
+  lastViolationTime?: Date;
+
+  /**
+   * <p>The time the violation started.</p>
+   */
+  violationStartTime?: Date;
+}
+
+export namespace ActiveViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ActiveViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metric you want to retain. Dimensions are optional.</p>
+ */
+export interface MetricToRetain {
+  /**
+   * <p>What is measured by the behavior.</p>
+   */
+  metric: string | undefined;
+
+  /**
+   * <p>The dimension of a metric. This can't be used with custom metrics.</p>
+   */
+  metricDimension?: MetricDimension;
+}
+
+export namespace MetricToRetain {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricToRetain): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The type of aggregation queries.</p>
+ */
+export interface AggregationType {
+  /**
+   * <p>The name of the aggregation type.</p>
+   */
+  name: AggregationTypeName | string | undefined;
+
+  /**
+   * <p>A list of the values of aggregation types.</p>
+   */
+  values?: string[];
+}
+
+export namespace AggregationType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregationType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing the alert target ARN and the role ARN.</p>
+ */
+export interface AlertTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification target to which alerts are sent.</p>
+   */
+  alertTargetArn: string | undefined;
+
+  /**
+   * <p>The ARN of the role that grants permission to send alerts to the
+   *         notification target.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace AlertTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlertTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IoT policy.</p>
+ */
+export interface Policy {
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName?: string;
+
+  /**
+   * <p>The policy ARN.</p>
+   */
+  policyArn?: string;
+}
+
+export namespace Policy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Policy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A limit has been exceeded.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
+ * <p>An exception thrown when the version of an entity specified with the
+ *             <code>expectedVersion</code> parameter does not match the latest version in the
+ *          system.</p>
+ */
+export class VersionConflictException extends __BaseException {
+  readonly name: "VersionConflictException" = "VersionConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VersionConflictException, __BaseException>) {
+    super({
+      name: "VersionConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The attribute payload.</p>
+ */
+export interface AttributePayload {
+  /**
+   * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
+   * 		       <p>
+   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   * 		       </p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
+   * 			the attributes stored in the registry, instead of overwriting them.</p>
+   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
+   * 		       <note>
+   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
+   * 		       </note>
+   */
+  merge?: boolean;
+}
+
+export namespace AttributePayload {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributePayload): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Which audit checks are enabled and disabled for this account.</p>
+ */
+export interface AuditCheckConfiguration {
+  /**
+   * <p>True if this audit check is enabled for this account.</p>
+   */
+  enabled?: boolean;
+}
+
+export namespace AuditCheckConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditCheckConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the audit check.</p>
+ */
+export interface AuditCheckDetails {
+  /**
+   * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
+   *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
+   */
+  checkRunStatus?: AuditCheckRunStatus | string;
+
+  /**
+   * <p>True if the check is complete and found all resources compliant.</p>
+   */
+  checkCompliant?: boolean;
+
+  /**
+   * <p>The number of resources on which the check was performed.</p>
+   */
+  totalResourcesCount?: number;
+
+  /**
+   * <p>The number of resources that were found noncompliant during the check.</p>
+   */
+  nonCompliantResourcesCount?: number;
+
+  /**
+   * <p>
+   *             Describes how many of the non-compliant resources created during the evaluation of an audit check were marked as suppressed.
+   *         </p>
+   */
+  suppressedNonCompliantResourcesCount?: number;
+
+  /**
+   * <p>The code of any error encountered when this check is performed during this audit.
+   *           One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>The message associated with any error encountered when this check is performed during this audit.</p>
+   */
+  message?: string;
+}
+
+export namespace AuditCheckDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditCheckDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information that identifies the noncompliant resource.</p>
+ */
+export interface ResourceIdentifier {
+  /**
+   * <p>The ID of the certificate attached to the resource.</p>
+   */
+  deviceCertificateId?: string;
+
+  /**
+   * <p>The ID of the CA certificate used to authorize the certificate.</p>
+   */
+  caCertificateId?: string;
+
+  /**
+   * <p>The ID of the Amazon Cognito identity pool.</p>
+   */
+  cognitoIdentityPoolId?: string;
+
+  /**
+   * <p>The client ID.</p>
+   */
+  clientId?: string;
+
+  /**
+   * <p>The version of the policy associated with the resource.</p>
+   */
+  policyVersionIdentifier?: PolicyVersionIdentifier;
+
+  /**
+   * <p>The account with which the resource is associated.</p>
+   */
+  account?: string;
+
+  /**
+   * <p>The ARN of the IAM role that has overly permissive actions.</p>
+   */
+  iamRoleArn?: string;
+
+  /**
+   * <p>The ARN of the role alias that has overly permissive actions.</p>
+   */
+  roleAliasArn?: string;
+}
+
+export namespace ResourceIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The findings (results) of the audit.</p>
+ */
+export interface AuditFinding {
+  /**
+   * <p>A unique identifier for this set of audit findings. This identifier is used to apply
+   *       mitigation tasks to one or more sets of findings.</p>
+   */
+  findingId?: string;
+
+  /**
+   * <p>The ID of the audit that generated this result (finding).</p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>The audit check that generated this result.</p>
+   */
+  checkName?: string;
+
+  /**
+   * <p>The time the audit started.</p>
+   */
+  taskStartTime?: Date;
+
+  /**
+   * <p>The time the result (finding) was discovered.</p>
+   */
+  findingTime?: Date;
+
+  /**
+   * <p>The severity of the result (finding).</p>
+   */
+  severity?: AuditFindingSeverity | string;
+
+  /**
+   * <p>The resource that was found to be noncompliant with the
+   *         audit check.</p>
+   */
+  nonCompliantResource?: NonCompliantResource;
+
+  /**
+   * <p>The list of related resources.</p>
+   */
+  relatedResources?: RelatedResource[];
+
+  /**
+   * <p>The reason the resource was noncompliant.</p>
+   */
+  reasonForNonCompliance?: string;
+
+  /**
+   * <p>A code that indicates the reason that the resource was noncompliant.</p>
+   */
+  reasonForNonComplianceCode?: string;
+
+  /**
+   * <p>
+   *             Indicates whether the audit finding was suppressed or not during reporting.
+   *         </p>
+   */
+  isSuppressed?: boolean;
+}
+
+export namespace AuditFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditFinding): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
+ */
+export interface AuditMitigationActionExecutionMetadata {
+  /**
+   * <p>The unique identifier for the task that applies the mitigation action.</p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>
+   */
+  findingId?: string;
+
+  /**
+   * <p>The friendly name of the mitigation action being applied by the task.</p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>The unique identifier for the mitigation action being applied by the task.</p>
+   */
+  actionId?: string;
+
+  /**
+   * <p>The current status of the task being executed.</p>
+   */
+  status?: AuditMitigationActionsExecutionStatus | string;
+
+  /**
+   * <p>The date and time when the task was started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>If an error occurred, the code that indicates which type of error occurred.</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>If an error occurred, a message that describes the error.</p>
+   */
+  message?: string;
+}
+
+export namespace AuditMitigationActionExecutionMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditMitigationActionExecutionMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
+ */
+export interface AuditMitigationActionsTaskMetadata {
+  /**
+   * <p>The unique identifier for the task.</p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>The time at which the audit mitigation actions task was started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The current state of the audit mitigation actions task.</p>
+   */
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
+}
+
+export namespace AuditMitigationActionsTaskMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditMitigationActionsTaskMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
+ */
+export interface TaskStatisticsForAuditCheck {
+  /**
+   * <p>The total number of findings to which a task is being applied.</p>
+   */
+  totalFindingsCount?: number;
+
+  /**
+   * <p>The number of findings for which at least one of the actions failed when applied.</p>
+   */
+  failedFindingsCount?: number;
+
+  /**
+   * <p>The number of findings for which all mitigation actions succeeded when applied.</p>
+   */
+  succeededFindingsCount?: number;
+
+  /**
+   * <p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>
+   */
+  skippedFindingsCount?: number;
+
+  /**
+   * <p>The number of findings to which the mitigation action task was canceled when applied.</p>
+   */
+  canceledFindingsCount?: number;
+}
+
+export namespace TaskStatisticsForAuditCheck {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaskStatisticsForAuditCheck): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
+ */
+export interface AuditMitigationActionsTaskTarget {
+  /**
+   * <p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>
+   */
+  auditTaskId?: string;
+
+  /**
+   * <p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>
+   */
+  findingIds?: string[];
+
+  /**
+   * <p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>
+   */
+  auditCheckToReasonCodeFilter?: Record<string, string[]>;
+}
+
+export namespace AuditMitigationActionsTaskTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuditMitigationActionsTaskTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the targets to which audit notifications are sent.</p>
+ */
+export interface AuditNotificationTarget {
+  /**
+   * <p>The ARN of the target (SNS topic) to which audit notifications are sent.</p>
+   */
+  targetArn?: string;
+
+  /**
+   * <p>The ARN of the role that grants permission to send notifications to the target.</p>
    */
   roleArn?: string;
 
   /**
-   * <p>Information about the targets to which audit notifications are sent for
-   *             this account.</p>
+   * <p>True if notifications to the target are enabled.</p>
    */
-  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
-
-  /**
-   * <p>Which audit checks are enabled and disabled for this account.</p>
-   */
-  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
+  enabled?: boolean;
 }
 
-export namespace DescribeAccountAuditConfigurationResponse {
+export namespace AuditNotificationTarget {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationResponse): any => ({
+  export const filterSensitiveLog = (obj: AuditNotificationTarget): any => ({
     ...obj,
   });
 }
 
-export interface DescribeAuditFindingRequest {
+/**
+ * <p> Filters out specific findings of a Device Defender audit. </p>
+ */
+export interface AuditSuppression {
   /**
-   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
    */
-  findingId: string | undefined;
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+
+  /**
+   * <p>
+   *             The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+   *         </p>
+   */
+  expirationDate?: Date;
+
+  /**
+   * <p>
+   *             Indicates whether a suppression should exist indefinitely or not.
+   *         </p>
+   */
+  suppressIndefinitely?: boolean;
+
+  /**
+   * <p>
+   *             The description of the audit suppression.
+   *         </p>
+   */
+  description?: string;
 }
 
-export namespace DescribeAuditFindingRequest {
+export namespace AuditSuppression {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAuditFindingRequest): any => ({
+  export const filterSensitiveLog = (obj: AuditSuppression): any => ({
     ...obj,
   });
 }
 
-export interface DescribeAuditFindingResponse {
+/**
+ * <p>The audits that were performed.</p>
+ */
+export interface AuditTaskMetadata {
   /**
-   * <p>The findings (results) of the audit.</p>
+   * <p>The ID of this audit.</p>
    */
-  finding?: AuditFinding;
+  taskId?: string;
+
+  /**
+   * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
+   *         "FAILED", or "CANCELED".</p>
+   */
+  taskStatus?: AuditTaskStatus | string;
+
+  /**
+   * <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
+   */
+  taskType?: AuditTaskType | string;
 }
 
-export namespace DescribeAuditFindingResponse {
+export namespace AuditTaskMetadata {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAuditFindingResponse): any => ({
+  export const filterSensitiveLog = (obj: AuditTaskMetadata): any => ({
     ...obj,
   });
 }
 
-export interface DescribeAuditMitigationActionsTaskRequest {
+/**
+ * <p>A collection of authorization information.</p>
+ */
+export interface AuthInfo {
   /**
-   * <p>The unique identifier for the audit mitigation task.</p>
+   * <p>The type of action for which the principal is being authorized.</p>
    */
-  taskId: string | undefined;
+  actionType?: ActionType | string;
+
+  /**
+   * <p>The resources for which the principal is being authorized to perform the specified
+   *          action.</p>
+   */
+  resources: string[] | undefined;
 }
 
-export namespace DescribeAuditMitigationActionsTaskRequest {
+export namespace AuthInfo {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskRequest): any => ({
+  export const filterSensitiveLog = (obj: AuthInfo): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>An object that specifies the authorization service for a domain.</p>
+ */
+export interface AuthorizerConfig {
+  /**
+   * <p>The name of the authorization service for a domain configuration.</p>
+   */
+  defaultAuthorizerName?: string;
+
+  /**
+   * <p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>
+   */
+  allowAuthorizerOverride?: boolean;
+}
+
+export namespace AuthorizerConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizerConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authorizer description.</p>
+ */
+export interface AuthorizerDescription {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
+
+  /**
+   * <p>The authorizer's Lambda function ARN.</p>
+   */
+  authorizerFunctionArn?: string;
+
+  /**
+   * <p>The key used to extract the token from the HTTP headers.</p>
+   */
+  tokenKeyName?: string;
+
+  /**
+   * <p>The public keys used to validate the token signature returned by your custom
+   *          authentication service.</p>
+   */
+  tokenSigningPublicKeys?: Record<string, string>;
+
+  /**
+   * <p>The status of the authorizer.</p>
+   */
+  status?: AuthorizerStatus | string;
+
+  /**
+   * <p>The UNIX timestamp of when the authorizer was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The UNIX timestamp of when the authorizer was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>Specifies whether IoT validates the token signature in an authorization request.</p>
+   */
+  signingDisabled?: boolean;
+
+  /**
+   * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
+   * 	  cached for the time specified in <code>refreshAfterInSeconds</code>. The cached
+   * 	  result is used while the device reuses the same HTTP connection.</p>
+   */
+  enableCachingForHttp?: boolean;
+}
+
+export namespace AuthorizerDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizerDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authorizer summary.</p>
+ */
+export interface AuthorizerSummary {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
+}
+
+export namespace AuthorizerSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizerSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authorizer result.</p>
+ */
+export interface AuthResult {
+  /**
+   * <p>Authorization information.</p>
+   */
+  authInfo?: AuthInfo;
+
+  /**
+   * <p>The policies and statements that allowed the specified action.</p>
+   */
+  allowed?: Allowed;
+
+  /**
+   * <p>The policies and statements that denied the specified action.</p>
+   */
+  denied?: Denied;
+
+  /**
+   * <p>The final authorization decision of this scenario. Multiple statements are taken into
+   *          account when determining the authorization decision. An explicit deny statement can
+   *          override multiple allow statements.</p>
+   */
+  authDecision?: AuthDecision | string;
+
+  /**
+   * <p>Contains any missing context values found while evaluating policy.</p>
+   */
+  missingContextValues?: string[];
+}
+
+export namespace AuthResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
+ *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
+ *          parameter.</p>
+ */
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+  }
+}
+
+/**
+ * <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ */
+export class ConflictingResourceUpdateException extends __BaseException {
+  readonly name: "ConflictingResourceUpdateException" = "ConflictingResourceUpdateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictingResourceUpdateException, __BaseException>) {
+    super({
+      name: "ConflictingResourceUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictingResourceUpdateException.prototype);
+  }
+}
+
+/**
+ * <p>An unexpected error has occurred.</p>
+ */
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
+}
+
+/**
+ * <p>The resource already exists.</p>
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that caused the exception.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The ARN of the resource that caused the exception.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceArn = opts.resourceArn;
+  }
+}
+
+/**
+ * <p>A set of key/value pairs that are used to manage the resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag's key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties of a billing group.</p>
+ */
+export interface BillingGroupProperties {
+  /**
+   * <p>The description of the billing group.</p>
+   */
+  billingGroupDescription?: string;
+}
+
+export namespace BillingGroupProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BillingGroupProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The certificate is invalid.</p>
+ */
+export class CertificateValidationException extends __BaseException {
+  readonly name: "CertificateValidationException" = "CertificateValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateValidationException, __BaseException>) {
+    super({
+      name: "CertificateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateValidationException.prototype);
+  }
+}
+
+/**
+ * <p>Thing group properties.</p>
+ */
+export interface ThingGroupProperties {
+  /**
+   * <p>The thing group description.</p>
+   */
+  thingGroupDescription?: string;
+
+  /**
+   * <p>The thing group attributes in JSON format.</p>
+   */
+  attributePayload?: AttributePayload;
+}
+
+export namespace ThingGroupProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingGroupProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The query is invalid.</p>
+ */
+export class InvalidQueryException extends __BaseException {
+  readonly name: "InvalidQueryException" = "InvalidQueryException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryException, __BaseException>) {
+    super({
+      name: "InvalidQueryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryException.prototype);
+  }
+}
+
+/**
+ * <p>The index is not ready.</p>
+ */
+export class IndexNotReadyException extends __BaseException {
+  readonly name: "IndexNotReadyException" = "IndexNotReadyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IndexNotReadyException, __BaseException>) {
+    super({
+      name: "IndexNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IndexNotReadyException.prototype);
+  }
+}
+
+/**
+ * <p>The aggregation is invalid.</p>
+ */
+export class InvalidAggregationException extends __BaseException {
+  readonly name: "InvalidAggregationException" = "InvalidAggregationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAggregationException, __BaseException>) {
+    super({
+      name: "InvalidAggregationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAggregationException.prototype);
+  }
+}
+
+/**
+ * <p>The configuration that determines how many retries are allowed for each failure
+ *             type for a job.</p>
+ */
+export interface JobExecutionsRetryConfig {
+  /**
+   * <p>The list of criteria that determines how many retries are allowed for each failure
+   *             type for a job.</p>
+   */
+  criteriaList: RetryCriteria[] | undefined;
+}
+
+export namespace JobExecutionsRetryConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Allows you to create a staged rollout of a job.</p>
+ */
+export interface JobExecutionsRolloutConfig {
+  /**
+   * <p>The maximum number of things that will be notified of a pending job, per minute.
+   *         This parameter allows you to create a staged rollout.</p>
+   */
+  maximumPerMinute?: number;
+
+  /**
+   * <p>The rate of increase for a job rollout.
+   *             This parameter allows you to define an exponential rate for a job rollout.</p>
+   */
+  exponentialRate?: ExponentialRolloutRate;
+}
+
+export namespace JobExecutionsRolloutConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobExecutionsRolloutConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for pre-signed S3 URLs.</p>
+ */
+export interface PresignedUrlConfig {
+  /**
+   * <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
+   *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600
+   *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
+   */
+  expiresInSec?: number;
+}
+
+export namespace PresignedUrlConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PresignedUrlConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+ *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+ *            execution status is not set to another terminal state before the timer expires, it will
+ *            be automatically set to <code>TIMED_OUT</code>.</p>
+ */
+export interface TimeoutConfig {
+  /**
+   * <p>Specifies the amount of time, in minutes, this device has to finish execution of this job.
+   *            The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The
+   *            in progress timer can't be updated and will apply to all job executions for the job. Whenever a job
+   *            execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail
+   *            and switch to the terminal <code>TIMED_OUT</code> status.</p>
+   */
+  inProgressTimeoutInMinutes?: number;
+}
+
+export namespace TimeoutConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource with the same name already exists.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>Describes a key pair.</p>
+ */
+export interface KeyPair {
+  /**
+   * <p>The public key.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>The private key.</p>
+   */
+  PrivateKey?: string;
+}
+
+export namespace KeyPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KeyPair): any => ({
+    ...obj,
+    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
+ */
+export interface MitigationActionParams {
+  /**
+   * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
+   */
+  updateDeviceCertificateParams?: UpdateDeviceCertificateParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
+   */
+  updateCACertificateParams?: UpdateCACertificateParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
+   */
+  addThingsToThingGroupParams?: AddThingsToThingGroupParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
+   */
+  replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that enables Amazon Web Services IoT Core logging at a specified level of detail.</p>
+   */
+  enableIoTLoggingParams?: EnableIoTLoggingParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
+   */
+  publishFindingToSnsParams?: PublishFindingToSnsParams;
+}
+
+export namespace MitigationActionParams {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MitigationActionParams): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The criteria that determine when and how a job abort takes place.</p>
+ */
+export interface AwsJobAbortConfig {
+  /**
+   * <p>The list of criteria that determine when and how to abort the job.</p>
+   */
+  abortCriteriaList: AwsJobAbortCriteria[] | undefined;
+}
+
+export namespace AwsJobAbortConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsJobAbortConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for the rollout of OTA updates.</p>
+ */
+export interface AwsJobExecutionsRolloutConfig {
+  /**
+   * <p>The maximum number of OTA update job executions started per minute.</p>
+   */
+  maximumPerMinute?: number;
+
+  /**
+   * <p>The rate of increase for a job rollout. This parameter allows you to define an exponential rate
+   *             increase for a job rollout.</p>
+   */
+  exponentialRate?: AwsJobExponentialRolloutRate;
+}
+
+export namespace AwsJobExecutionsRolloutConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsJobExecutionsRolloutConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
+ *            contains HTTP.</p>
+ */
+export interface AwsJobPresignedUrlConfig {
+  /**
+   * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800
+   *             seconds. Pre-signed URLs are generated when a request for the job document is received.</p>
+   */
+  expiresInSec?: number;
+}
+
+export namespace AwsJobPresignedUrlConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsJobPresignedUrlConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer is
+ *             started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution
+ *             status is not set to another terminal state before the timer expires, it will be automatically
+ *             set to <code>TIMED_OUT</code>.</p>
+ */
+export interface AwsJobTimeoutConfig {
+  /**
+   * <p>Specifies the amount of time, in minutes, this device has to finish execution of this job. The
+   *             timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress
+   *             timer can't be updated and will apply to all job executions for the job. Whenever a job execution
+   *             remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and
+   *             switch to the terminal <code>TIMED_OUT</code> status.</p>
+   */
+  inProgressTimeoutInMinutes?: number;
+}
+
+export namespace AwsJobTimeoutConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsJobTimeoutConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a file to be associated with an OTA update.</p>
+ */
+export interface OTAUpdateFile {
+  /**
+   * <p>The name of the file.</p>
+   */
+  fileName?: string;
+
+  /**
+   * <p>An integer value you can include in the job document to allow your devices to identify the type of file received
+   *             from the cloud.</p>
+   */
+  fileType?: number;
+
+  /**
+   * <p>The file version.</p>
+   */
+  fileVersion?: string;
+
+  /**
+   * <p>The location of the updated firmware.</p>
+   */
+  fileLocation?: FileLocation;
+
+  /**
+   * <p>The code signing method of the file.</p>
+   */
+  codeSigning?: CodeSigning;
+
+  /**
+   * <p>A list of name/attribute pairs.</p>
+   */
+  attributes?: Record<string, string>;
+}
+
+export namespace OTAUpdateFile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OTAUpdateFile): any => ({
+    ...obj,
+  });
+}
+
+export enum Protocol {
+  HTTP = "HTTP",
+  MQTT = "MQTT",
+}
+
+/**
+ * <p>The policy documentation is not valid.</p>
+ */
+export class MalformedPolicyException extends __BaseException {
+  readonly name: "MalformedPolicyException" = "MalformedPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyException, __BaseException>) {
+    super({
+      name: "MalformedPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyException.prototype);
+  }
+}
+
+/**
+ * <p>The number of policy versions exceeds the limit.</p>
+ */
+export class VersionsLimitExceededException extends __BaseException {
+  readonly name: "VersionsLimitExceededException" = "VersionsLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VersionsLimitExceededException, __BaseException>) {
+    super({
+      name: "VersionsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionsLimitExceededException.prototype);
+  }
+}
+
+/**
+ * <p>Structure that contains <code>payloadVersion</code> and
+ *          <code>targetArn</code>.</p>
+ */
+export interface ProvisioningHook {
+  /**
+   * <p>The payload that was sent to the target function.</p>
+   *          <p>
+   *             <i>Note:</i> Only Lambda functions are currently supported.</p>
+   */
+  payloadVersion?: string;
+
+  /**
+   * <p>The ARN of the target function.</p>
+   *          <p>
+   *             <i>Note:</i> Only Lambda functions are currently supported.</p>
+   */
+  targetArn: string | undefined;
+}
+
+export namespace ProvisioningHook {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProvisioningHook): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents a file to stream.</p>
+ */
+export interface StreamFile {
+  /**
+   * <p>The file ID.</p>
+   */
+  fileId?: number;
+
+  /**
+   * <p>The location of the file in S3.</p>
+   */
+  s3Location?: S3Location;
+}
+
+export namespace StreamFile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamFile): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
+ * 			and a list of searchable thing attribute names.</p>
+ */
+export interface ThingTypeProperties {
+  /**
+   * <p>The description of the thing type.</p>
+   */
+  thingTypeDescription?: string;
+
+  /**
+   * <p>A list of searchable thing attribute names.</p>
+   */
+  searchableAttributes?: string[];
+}
+
+export namespace ThingTypeProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingTypeProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a rule.</p>
+ */
+export interface TopicRulePayload {
+  /**
+   * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">IoT SQL
+   *             Reference</a> in the <i>IoT Developer Guide</i>.</p>
+   */
+  sql: string | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The actions associated with the rule.</p>
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
+
+  /**
+   * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   */
+  awsIotSqlVersion?: string;
+
+  /**
+   * <p>The action to take when an error occurs.</p>
+   */
+  errorAction?: Action;
+}
+
+export namespace TopicRulePayload {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TopicRulePayload): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Rule-SQL expression can't be parsed correctly.</p>
+ */
+export class SqlParseException extends __BaseException {
+  readonly name: "SqlParseException" = "SqlParseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SqlParseException, __BaseException>) {
+    super({
+      name: "SqlParseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SqlParseException.prototype);
+  }
+}
+
+/**
+ * <p>Configuration of the topic rule destination.</p>
+ */
+export interface TopicRuleDestinationConfiguration {
+  /**
+   * <p>Configuration of the HTTP URL.</p>
+   */
+  httpUrlConfiguration?: HttpUrlDestinationConfiguration;
+
+  /**
+   * <p>Configuration of the virtual private cloud (VPC) connection.</p>
+   */
+  vpcConfiguration?: VpcDestinationConfiguration;
+}
+
+export namespace TopicRuleDestinationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TopicRuleDestinationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A topic rule destination.</p>
+ */
+export interface TopicRuleDestination {
+  /**
+   * <p>The topic rule destination URL.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status?: TopicRuleDestinationStatus | string;
+
+  /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>Additional details or reason why the topic rule destination is in the current
+   *          status.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * <p>Properties of the HTTP URL.</p>
+   */
+  httpUrlProperties?: HttpUrlDestinationProperties;
+
+  /**
+   * <p>Properties of the virtual private cloud (VPC) connection.</p>
+   */
+  vpcProperties?: VpcDestinationProperties;
+}
+
+export namespace TopicRuleDestination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TopicRuleDestination): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ */
+export class DeleteConflictException extends __BaseException {
+  readonly name: "DeleteConflictException" = "DeleteConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeleteConflictException, __BaseException>) {
+    super({
+      name: "DeleteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeleteConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The certificate operation is not allowed.</p>
+ */
+export class CertificateStateException extends __BaseException {
+  readonly name: "CertificateStateException" = "CertificateStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateStateException, __BaseException>) {
+    super({
+      name: "CertificateStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateStateException.prototype);
+  }
 }
 
 /**
@@ -490,137 +2767,6 @@ export namespace MitigationAction {
    * @internal
    */
   export const filterSensitiveLog = (obj: MitigationAction): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditMitigationActionsTaskResponse {
-  /**
-   * <p>The current status of the task.</p>
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-
-  /**
-   * <p>The date and time when the task was started.</p>
-   */
-  startTime?: Date;
-
-  /**
-   * <p>The date and time when the task was completed or canceled.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
-   */
-  taskStatistics?: Record<string, TaskStatisticsForAuditCheck>;
-
-  /**
-   * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
-   */
-  target?: AuditMitigationActionsTaskTarget;
-
-  /**
-   * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
-   */
-  auditCheckToActionsMapping?: Record<string, string[]>;
-
-  /**
-   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
-   */
-  actionsDefinition?: MitigationAction[];
-}
-
-export namespace DescribeAuditMitigationActionsTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditSuppressionRequest {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName: string | undefined;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier: ResourceIdentifier | undefined;
-}
-
-export namespace DescribeAuditSuppressionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditSuppressionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditSuppressionResponse {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName?: string;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>
-   *       The epoch timestamp in seconds at which this suppression expires.
-   *     </p>
-   */
-  expirationDate?: Date;
-
-  /**
-   * <p>
-   *       Indicates whether a suppression should exist indefinitely or not.
-   *     </p>
-   */
-  suppressIndefinitely?: boolean;
-
-  /**
-   * <p>
-   *       The description of the audit suppression.
-   *     </p>
-   */
-  description?: string;
-}
-
-export namespace DescribeAuditSuppressionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditSuppressionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditTaskRequest {
-  /**
-   * <p>The ID of the audit whose information you want to get.</p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeAuditTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditTaskRequest): any => ({
     ...obj,
   });
 }
@@ -674,96 +2820,6 @@ export namespace TaskStatistics {
   });
 }
 
-export interface DescribeAuditTaskResponse {
-  /**
-   * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
-   *             "FAILED", or "CANCELED".</p>
-   */
-  taskStatus?: AuditTaskStatus | string;
-
-  /**
-   * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
-   */
-  taskType?: AuditTaskType | string;
-
-  /**
-   * <p>The time the audit started.</p>
-   */
-  taskStartTime?: Date;
-
-  /**
-   * <p>Statistical information about the audit.</p>
-   */
-  taskStatistics?: TaskStatistics;
-
-  /**
-   * <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
-   */
-  scheduledAuditName?: string;
-
-  /**
-   * <p>Detailed information about each check performed during this audit.</p>
-   */
-  auditDetails?: Record<string, AuditCheckDetails>;
-}
-
-export namespace DescribeAuditTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuthorizerRequest {
-  /**
-   * <p>The name of the authorizer to describe.</p>
-   */
-  authorizerName: string | undefined;
-}
-
-export namespace DescribeAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuthorizerResponse {
-  /**
-   * <p>The authorizer description.</p>
-   */
-  authorizerDescription?: AuthorizerDescription;
-}
-
-export namespace DescribeAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeBillingGroupRequest {
-  /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName: string | undefined;
-}
-
-export namespace DescribeBillingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional information about the billing group.</p>
  */
@@ -779,95 +2835,6 @@ export namespace BillingGroupMetadata {
    * @internal
    */
   export const filterSensitiveLog = (obj: BillingGroupMetadata): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeBillingGroupResponse {
-  /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName?: string;
-
-  /**
-   * <p>The ID of the billing group.</p>
-   */
-  billingGroupId?: string;
-
-  /**
-   * <p>The ARN of the billing group.</p>
-   */
-  billingGroupArn?: string;
-
-  /**
-   * <p>The version of the billing group.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The properties of the billing group.</p>
-   */
-  billingGroupProperties?: BillingGroupProperties;
-
-  /**
-   * <p>Additional information about the billing group.</p>
-   */
-  billingGroupMetadata?: BillingGroupMetadata;
-}
-
-export namespace DescribeBillingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DescribeCACertificate operation.</p>
- */
-export interface DescribeCACertificateRequest {
-  /**
-   * <p>The CA certificate identifier.</p>
-   */
-  certificateId: string | undefined;
-}
-
-export namespace DescribeCACertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCACertificateRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum CACertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
-/**
- * <p>When the certificate is valid.</p>
- */
-export interface CertificateValidity {
-  /**
-   * <p>The certificate is not valid before this date.</p>
-   */
-  notBefore?: Date;
-
-  /**
-   * <p>The certificate is not valid after this date.</p>
-   */
-  notAfter?: Date;
-}
-
-export namespace CertificateValidity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateValidity): any => ({
     ...obj,
   });
 }
@@ -967,103 +2934,6 @@ export namespace RegistrationConfig {
 }
 
 /**
- * <p>The output from the DescribeCACertificate operation.</p>
- */
-export interface DescribeCACertificateResponse {
-  /**
-   * <p>The CA certificate description.</p>
-   */
-  certificateDescription?: CACertificateDescription;
-
-  /**
-   * <p>Information about the registration configuration.</p>
-   */
-  registrationConfig?: RegistrationConfig;
-}
-
-export namespace DescribeCACertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCACertificateResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DescribeCertificate operation.</p>
- */
-export interface DescribeCertificateRequest {
-  /**
-   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   */
-  certificateId: string | undefined;
-}
-
-export namespace DescribeCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum CertificateMode {
-  DEFAULT = "DEFAULT",
-  SNI_ONLY = "SNI_ONLY",
-}
-
-export enum CertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-  PENDING_TRANSFER = "PENDING_TRANSFER",
-  REGISTER_INACTIVE = "REGISTER_INACTIVE",
-  REVOKED = "REVOKED",
-}
-
-/**
- * <p>Data used to transfer a certificate to an Amazon Web Services account.</p>
- */
-export interface TransferData {
-  /**
-   * <p>The transfer message.</p>
-   */
-  transferMessage?: string;
-
-  /**
-   * <p>The reason why the transfer was rejected.</p>
-   */
-  rejectReason?: string;
-
-  /**
-   * <p>The date the transfer took place.</p>
-   */
-  transferDate?: Date;
-
-  /**
-   * <p>The date the transfer was accepted.</p>
-   */
-  acceptDate?: Date;
-
-  /**
-   * <p>The date the transfer was rejected.</p>
-   */
-  rejectDate?: Date;
-}
-
-export namespace TransferData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferData): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Describes a certificate.</p>
  */
 export interface CertificateDescription {
@@ -1148,142 +3018,6 @@ export namespace CertificateDescription {
 }
 
 /**
- * <p>The output of the DescribeCertificate operation.</p>
- */
-export interface DescribeCertificateResponse {
-  /**
-   * <p>The description of the certificate.</p>
-   */
-  certificateDescription?: CertificateDescription;
-}
-
-export namespace DescribeCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCustomMetricRequest {
-  /**
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
-   */
-  metricName: string | undefined;
-}
-
-export namespace DescribeCustomMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomMetricRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCustomMetricResponse {
-  /**
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
-   */
-  metricName?: string;
-
-  /**
-   * <p>
-   *       The Amazon Resource Number (ARN) of the custom metric.
-   *     </p>
-   */
-  metricArn?: string;
-
-  /**
-   * <p> The type of the custom metric. </p>
-   *          <important>
-   *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
-   *          </important>
-   */
-  metricType?: CustomMetricType | string;
-
-  /**
-   * <p>
-   *       Field represents a friendly name in the console for the custom metric; doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated.
-   *     </p>
-   */
-  displayName?: string;
-
-  /**
-   * <p>
-   *       The creation date of the custom metric in milliseconds since epoch.
-   *     </p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>
-   *       The time the custom metric was last modified in milliseconds since epoch.
-   *     </p>
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeCustomMetricResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomMetricResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDefaultAuthorizerRequest {}
-
-export namespace DescribeDefaultAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDefaultAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDefaultAuthorizerResponse {
-  /**
-   * <p>The default authorizer's description.</p>
-   */
-  authorizerDescription?: AuthorizerDescription;
-}
-
-export namespace DescribeDefaultAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDefaultAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDetectMitigationActionsTaskRequest {
-  /**
-   * <p>
-   *       The unique identifier of the task.
-   *     </p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeDetectMitigationActionsTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectMitigationActionsTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>
  *             The target of a mitigation action task.
  *         </p>
@@ -1318,50 +3052,6 @@ export namespace DetectMitigationActionsTaskTarget {
   export const filterSensitiveLog = (obj: DetectMitigationActionsTaskTarget): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>
- *             The statistics of a mitigation action task.
- *         </p>
- */
-export interface DetectMitigationActionsTaskStatistics {
-  /**
-   * <p>
-   *             The actions that were performed.
-   *         </p>
-   */
-  actionsExecuted?: number;
-
-  /**
-   * <p>
-   *             The actions that were skipped.
-   *         </p>
-   */
-  actionsSkipped?: number;
-
-  /**
-   * <p>
-   *             The actions that failed.
-   *         </p>
-   */
-  actionsFailed?: number;
-}
-
-export namespace DetectMitigationActionsTaskStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectMitigationActionsTaskStatistics): any => ({
-    ...obj,
-  });
-}
-
-export enum DetectMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESSFUL = "SUCCESSFUL",
 }
 
 /**
@@ -1480,116 +3170,6 @@ export namespace DetectMitigationActionsTaskSummary {
   });
 }
 
-export interface DescribeDetectMitigationActionsTaskResponse {
-  /**
-   * <p>
-   *       The description of a task.
-   *     </p>
-   */
-  taskSummary?: DetectMitigationActionsTaskSummary;
-}
-
-export namespace DescribeDetectMitigationActionsTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDimensionRequest {
-  /**
-   * <p>The unique identifier for the dimension.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace DescribeDimensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDimensionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDimensionResponse {
-  /**
-   * <p>The unique identifier for the dimension.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name
-   *       (ARN)
-   *       for
-   *       the dimension.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The type of the dimension.</p>
-   */
-  type?: DimensionType | string;
-
-  /**
-   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
-   */
-  stringValues?: string[];
-
-  /**
-   * <p>The date the dimension was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the dimension was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeDimensionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDimensionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDomainConfigurationRequest {
-  /**
-   * <p>The name of the domain configuration.</p>
-   */
-  domainConfigurationName: string | undefined;
-}
-
-export namespace DescribeDomainConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DomainConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum DomainType {
-  AWS_MANAGED = "AWS_MANAGED",
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
-  ENDPOINT = "ENDPOINT",
-}
-
-export enum ServerCertificateStatus {
-  INVALID = "INVALID",
-  VALID = "VALID",
-}
-
 /**
  * <p>An object that contains information about a server certificate.</p>
  */
@@ -1619,154 +3199,6 @@ export namespace ServerCertificateSummary {
   });
 }
 
-export interface DescribeDomainConfigurationResponse {
-  /**
-   * <p>The name of the domain configuration.</p>
-   */
-  domainConfigurationName?: string;
-
-  /**
-   * <p>The ARN of the domain configuration.</p>
-   */
-  domainConfigurationArn?: string;
-
-  /**
-   * <p>The name of the domain.</p>
-   */
-  domainName?: string;
-
-  /**
-   * <p>A list containing summary information about the server certificate included in the domain configuration.</p>
-   */
-  serverCertificates?: ServerCertificateSummary[];
-
-  /**
-   * <p>An object that specifies the authorization service for a domain.</p>
-   */
-  authorizerConfig?: AuthorizerConfig;
-
-  /**
-   * <p>A Boolean value that specifies the current state of the domain configuration.</p>
-   */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
-
-  /**
-   * <p>The type of service delivered by the endpoint.</p>
-   */
-  serviceType?: ServiceType | string;
-
-  /**
-   * <p>The type of the domain.</p>
-   */
-  domainType?: DomainType | string;
-
-  /**
-   * <p>The date and time the domain configuration's status was last changed.</p>
-   */
-  lastStatusChangeDate?: Date;
-}
-
-export namespace DescribeDomainConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DescribeEndpoint operation.</p>
- */
-export interface DescribeEndpointRequest {
-  /**
-   * <p>The endpoint type. Valid endpoint types include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>iot:Data</code> - Returns a VeriSign signed data endpoint.</p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>iot:CredentialProvider</code> - Returns an IoT credentials provider API
-   *                endpoint.</p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>iot:Jobs</code> - Returns an IoT device management Jobs API
-   *                endpoint.</p>
-   *             </li>
-   *          </ul>
-   *          <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid
-   *          issues related to the widespread distrust of Symantec certificate authorities.</p>
-   */
-  endpointType?: string;
-}
-
-export namespace DescribeEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the DescribeEndpoint operation.</p>
- */
-export interface DescribeEndpointResponse {
-  /**
-   * <p>The endpoint. The format of the endpoint is as follows:
-   *             <i>identifier</i>.iot.<i>region</i>.amazonaws.com.</p>
-   */
-  endpointAddress?: string;
-}
-
-export namespace DescribeEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEventConfigurationsRequest {}
-
-export namespace DescribeEventConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum EventType {
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CERTIFICATE = "CERTIFICATE",
-  JOB = "JOB",
-  JOB_EXECUTION = "JOB_EXECUTION",
-  POLICY = "POLICY",
-  THING = "THING",
-  THING_GROUP = "THING_GROUP",
-  THING_GROUP_HIERARCHY = "THING_GROUP_HIERARCHY",
-  THING_GROUP_MEMBERSHIP = "THING_GROUP_MEMBERSHIP",
-  THING_TYPE = "THING_TYPE",
-  THING_TYPE_ASSOCIATION = "THING_TYPE_ASSOCIATION",
-}
-
 /**
  * <p>Configuration.</p>
  */
@@ -1784,277 +3216,6 @@ export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
   });
-}
-
-export interface DescribeEventConfigurationsResponse {
-  /**
-   * <p>The event configurations.</p>
-   */
-  eventConfigurations?: Record<string, Configuration>;
-
-  /**
-   * <p>The creation date of the event configuration.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the event configurations were last modified.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeEventConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetMetricRequest {
-  /**
-   * <p>The name of the fleet metric to describe.</p>
-   */
-  metricName: string | undefined;
-}
-
-export namespace DescribeFleetMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetricRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetMetricResponse {
-  /**
-   * <p>The name of the fleet metric to describe.</p>
-   */
-  metricName?: string;
-
-  /**
-   * <p>The search query string.</p>
-   */
-  queryString?: string;
-
-  /**
-   * <p>The type of the aggregation query.</p>
-   */
-  aggregationType?: AggregationType;
-
-  /**
-   * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
-   */
-  period?: number;
-
-  /**
-   * <p>The field to aggregate.</p>
-   */
-  aggregationField?: string;
-
-  /**
-   * <p>The fleet metric description.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The query version.</p>
-   */
-  queryVersion?: string;
-
-  /**
-   * <p>The name of the index to search.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The date when the fleet metric is created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the fleet metric is last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
-   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
-   */
-  unit?: FleetMetricUnit | string;
-
-  /**
-   * <p>The version of the fleet metric.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The ARN of the fleet metric to describe.</p>
-   */
-  metricArn?: string;
-}
-
-export namespace DescribeFleetMetricResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetricResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIndexRequest {
-  /**
-   * <p>The index name.</p>
-   */
-  indexName: string | undefined;
-}
-
-export namespace DescribeIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
-
-export interface DescribeIndexResponse {
-  /**
-   * <p>The index name.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The index status.</p>
-   */
-  indexStatus?: IndexStatus | string;
-
-  /**
-   * <p>Contains a value that specifies the type of indexing performed. Valid values
-   *       are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>REGISTRY – Your thing index contains only registry data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and
-   *           thing connectivity status data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry
-   *           data, shadow data, and thing connectivity status data.</p>
-   *             </li>
-   *             <li>
-   *                <p>MULTI_INDEXING_MODE - Your thing index contains multiple data sources. For more information, see
-   *           <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html">GetIndexingConfiguration</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  schema?: string;
-}
-
-export namespace DescribeIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeJobRequest {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
-}
-
-export namespace DescribeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The job process details.</p>
- */
-export interface JobProcessDetails {
-  /**
-   * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
-   */
-  processingTargets?: string[];
-
-  /**
-   * <p>The number of things that cancelled the job.</p>
-   */
-  numberOfCanceledThings?: number;
-
-  /**
-   * <p>The number of things which successfully completed the job.</p>
-   */
-  numberOfSucceededThings?: number;
-
-  /**
-   * <p>The number of things that failed executing the job.</p>
-   */
-  numberOfFailedThings?: number;
-
-  /**
-   * <p>The number of things that rejected the job.</p>
-   */
-  numberOfRejectedThings?: number;
-
-  /**
-   * <p>The number of things that are awaiting execution of the job.</p>
-   */
-  numberOfQueuedThings?: number;
-
-  /**
-   * <p>The number of things currently executing the job.</p>
-   */
-  numberOfInProgressThings?: number;
-
-  /**
-   * <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
-   *             have been removed from the group that was a target of the job.</p>
-   */
-  numberOfRemovedThings?: number;
-
-  /**
-   * <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
-   */
-  numberOfTimedOutThings?: number;
-}
-
-export namespace JobProcessDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobProcessDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
@@ -2208,84 +3369,6 @@ export namespace Job {
   });
 }
 
-export interface DescribeJobResponse {
-  /**
-   * <p>An S3 link to the job document.</p>
-   */
-  documentSource?: string;
-
-  /**
-   * <p>Information about the job.</p>
-   */
-  job?: Job;
-}
-
-export namespace DescribeJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeJobExecutionRequest {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The name of the thing on which the job execution is running.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
-   *             on a particular device.</p>
-   */
-  executionNumber?: number;
-}
-
-export namespace DescribeJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
-
-/**
- * <p>Details of the job execution status.</p>
- */
-export interface JobExecutionStatusDetails {
-  /**
-   * <p>The job execution status.</p>
-   */
-  detailsMap?: Record<string, string>;
-}
-
-export namespace JobExecutionStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionStatusDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The job execution object represents the execution of a job on a particular device.</p>
  */
@@ -2363,130 +3446,6 @@ export namespace JobExecution {
   });
 }
 
-export interface DescribeJobExecutionResponse {
-  /**
-   * <p>Information about the job execution.</p>
-   */
-  execution?: JobExecution;
-}
-
-export namespace DescribeJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeJobTemplateRequest {
-  /**
-   * <p>The unique identifier of the job template.</p>
-   */
-  jobTemplateId: string | undefined;
-}
-
-export namespace DescribeJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeJobTemplateResponse {
-  /**
-   * <p>The ARN of the job template.</p>
-   */
-  jobTemplateArn?: string;
-
-  /**
-   * <p>The unique identifier of the job template.</p>
-   */
-  jobTemplateId?: string;
-
-  /**
-   * <p>A description of the job template.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An S3 link to the job document.</p>
-   */
-  documentSource?: string;
-
-  /**
-   * <p>The job document.</p>
-   */
-  document?: string;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job template was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>Configuration for pre-signed S3 URLs.</p>
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   * <p>Allows you to create a staged rollout of a job.</p>
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
-
-  /**
-   * <p>The criteria that determine when and how a job abort takes place.</p>
-   */
-  abortConfig?: AbortConfig;
-
-  /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
-   */
-  timeoutConfig?: TimeoutConfig;
-
-  /**
-   * <p>The configuration that determines how many retries are allowed for each failure type
-   *             for a job.</p>
-   */
-  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
-}
-
-export namespace DescribeJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeManagedJobTemplateRequest {
-  /**
-   * <p>The unique name of a managed job template, which is required.</p>
-   */
-  templateName: string | undefined;
-
-  /**
-   * <p>An optional parameter to specify version of a managed template. If not specified, the
-   *             pre-defined default version is returned.</p>
-   */
-  templateVersion?: string;
-}
-
-export namespace DescribeManagedJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
  *             template job document schema. You can use the description of each key as a guidance to specify
@@ -2539,59 +3498,6 @@ export namespace DocumentParameter {
   });
 }
 
-export interface DescribeManagedJobTemplateResponse {
-  /**
-   * <p>The unique name of a managed template, such as <code>AWS-Reboot</code>.</p>
-   */
-  templateName?: string;
-
-  /**
-   * <p>The unique Amazon Resource Name (ARN) of the managed template.</p>
-   */
-  templateArn?: string;
-
-  /**
-   * <p>The unique description of a managed template.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The version for a managed template.</p>
-   */
-  templateVersion?: string;
-
-  /**
-   * <p>A list of environments that are supported with the managed job template.</p>
-   */
-  environments?: string[];
-
-  /**
-   * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
-   *             a job from a managed template.</p>
-   *         <note>
-   *             <p>
-   *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
-   *                 managed templates. This parameter can't be used with custom job templates or to
-   *                 create jobs from them.</p>
-   *         </note>
-   */
-  documentParameters?: DocumentParameter[];
-
-  /**
-   * <p>The document schema for a managed job template.</p>
-   */
-  document?: string;
-}
-
-export namespace DescribeManagedJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>
@@ -2610,228 +3516,6 @@ export class InternalServerException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
   }
-}
-
-export interface DescribeMitigationActionRequest {
-  /**
-   * <p>The friendly name that uniquely identifies the mitigation action.</p>
-   */
-  actionName: string | undefined;
-}
-
-export namespace DescribeMitigationActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMitigationActionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum MitigationActionType {
-  ADD_THINGS_TO_THING_GROUP = "ADD_THINGS_TO_THING_GROUP",
-  ENABLE_IOT_LOGGING = "ENABLE_IOT_LOGGING",
-  PUBLISH_FINDING_TO_SNS = "PUBLISH_FINDING_TO_SNS",
-  REPLACE_DEFAULT_POLICY_VERSION = "REPLACE_DEFAULT_POLICY_VERSION",
-  UPDATE_CA_CERTIFICATE = "UPDATE_CA_CERTIFICATE",
-  UPDATE_DEVICE_CERTIFICATE = "UPDATE_DEVICE_CERTIFICATE",
-}
-
-export interface DescribeMitigationActionResponse {
-  /**
-   * <p>The friendly name that uniquely identifies the mitigation action.</p>
-   */
-  actionName?: string;
-
-  /**
-   * <p>The type of mitigation action.</p>
-   */
-  actionType?: MitigationActionType | string;
-
-  /**
-   * <p>The ARN that identifies this migration action.</p>
-   */
-  actionArn?: string;
-
-  /**
-   * <p>A unique identifier for this action.</p>
-   */
-  actionId?: string;
-
-  /**
-   * <p>The ARN of the IAM role used to apply this action.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
-   */
-  actionParams?: MitigationActionParams;
-
-  /**
-   * <p>The date and time when the mitigation action was added to your Amazon Web Services accounts.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date and time when the mitigation action was last changed.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeMitigationActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMitigationActionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProvisioningTemplateRequest {
-  /**
-   * <p>The name of the fleet provisioning template.</p>
-   */
-  templateName: string | undefined;
-}
-
-export namespace DescribeProvisioningTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProvisioningTemplateResponse {
-  /**
-   * <p>The ARN of the fleet provisioning template.</p>
-   */
-  templateArn?: string;
-
-  /**
-   * <p>The name of the fleet provisioning template.</p>
-   */
-  templateName?: string;
-
-  /**
-   * <p>The description of the fleet provisioning template.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The date when the fleet provisioning template was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the fleet provisioning template was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The default fleet template version ID.</p>
-   */
-  defaultVersionId?: number;
-
-  /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
-   */
-  templateBody?: string;
-
-  /**
-   * <p>True if the fleet provisioning template is enabled, otherwise false.</p>
-   */
-  enabled?: boolean;
-
-  /**
-   * <p>The ARN of the role associated with the provisioning template. This IoT role grants
-   *          permission to provision a device.</p>
-   */
-  provisioningRoleArn?: string;
-
-  /**
-   * <p>Gets information about a pre-provisioned hook.</p>
-   */
-  preProvisioningHook?: ProvisioningHook;
-}
-
-export namespace DescribeProvisioningTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProvisioningTemplateVersionRequest {
-  /**
-   * <p>The template name.</p>
-   */
-  templateName: string | undefined;
-
-  /**
-   * <p>The fleet provisioning template version ID.</p>
-   */
-  versionId: number | undefined;
-}
-
-export namespace DescribeProvisioningTemplateVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningTemplateVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProvisioningTemplateVersionResponse {
-  /**
-   * <p>The fleet provisioning template version ID.</p>
-   */
-  versionId?: number;
-
-  /**
-   * <p>The date when the fleet provisioning template version was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The JSON formatted contents of the fleet provisioning template version.</p>
-   */
-  templateBody?: string;
-
-  /**
-   * <p>True if the fleet provisioning template version is the default version.</p>
-   */
-  isDefaultVersion?: boolean;
-}
-
-export namespace DescribeProvisioningTemplateVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningTemplateVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeRoleAliasRequest {
-  /**
-   * <p>The role alias to describe.</p>
-   */
-  roleAlias: string | undefined;
-}
-
-export namespace DescribeRoleAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoleAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2879,205 +3563,6 @@ export namespace RoleAliasDescription {
    * @internal
    */
   export const filterSensitiveLog = (obj: RoleAliasDescription): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeRoleAliasResponse {
-  /**
-   * <p>The role alias description.</p>
-   */
-  roleAliasDescription?: RoleAliasDescription;
-}
-
-export namespace DescribeRoleAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoleAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeScheduledAuditRequest {
-  /**
-   * <p>The name of the scheduled audit whose information you want to get.</p>
-   */
-  scheduledAuditName: string | undefined;
-}
-
-export namespace DescribeScheduledAuditRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledAuditRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeScheduledAuditResponse {
-  /**
-   * <p>How often the scheduled audit takes
-   *       place, either
-   *       one of <code>DAILY</code>,
-   *             <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
-   *       system.</p>
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
-   * <p>The day of the month on which the scheduled audit takes place.
-   *       This is
-   *       will be <code>1</code>
-   *             through <code>31</code> or <code>LAST</code>. If days
-   *       <code>29</code>-<code>31</code>
-   *       are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code>
-   *       day of the month.</p>
-   */
-  dayOfMonth?: string;
-
-  /**
-   * <p>The day of the week on which the scheduled audit takes
-   *       place,
-   *       either one of
-   *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
-   */
-  dayOfWeek?: DayOfWeek | string;
-
-  /**
-   * <p>Which checks are performed during the scheduled audit. Checks must be
-   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
-   */
-  targetCheckNames?: string[];
-
-  /**
-   * <p>The name of the scheduled audit.</p>
-   */
-  scheduledAuditName?: string;
-
-  /**
-   * <p>The ARN of the scheduled audit.</p>
-   */
-  scheduledAuditArn?: string;
-}
-
-export namespace DescribeScheduledAuditResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledAuditResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSecurityProfileRequest {
-  /**
-   * <p>The name of the security profile
-   *       whose information you want to get.</p>
-   */
-  securityProfileName: string | undefined;
-}
-
-export namespace DescribeSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSecurityProfileResponse {
-  /**
-   * <p>The name of the security profile.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>The ARN of the security profile.</p>
-   */
-  securityProfileArn?: string;
-
-  /**
-   * <p>A description of the security profile (associated with the security profile
-   *         when it was created or updated).</p>
-   */
-  securityProfileDescription?: string;
-
-  /**
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
-   */
-  behaviors?: Behavior[];
-
-  /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
-   */
-  alertTargets?: Record<string, AlertTarget>;
-
-  /**
-   * @deprecated
-   *
-   * <p>
-   *             <i>Please use
-   *           <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a>
-   *         instead.</i>
-   *          </p>
-   *          <p>A list of metrics
-   *       whose data is retained (stored). By default, data is retained for any metric
-   *       used in the profile's <code>behaviors</code>, but
-   *       it is
-   *       also retained for any metric specified here.</p>
-   */
-  additionalMetricsToRetain?: string[];
-
-  /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any
-   *       metric used in the profile's behaviors, but
-   *       it is
-   *       also retained for any metric specified here.</p>
-   */
-  additionalMetricsToRetainV2?: MetricToRetain[];
-
-  /**
-   * <p>The version of the security profile. A new version is generated whenever the
-   *         security profile is updated.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The time the security profile was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The time the security profile was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStreamRequest {
-  /**
-   * <p>The stream ID.</p>
-   */
-  streamId: string | undefined;
-}
-
-export namespace DescribeStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamRequest): any => ({
     ...obj,
   });
 }
@@ -3136,125 +3621,6 @@ export namespace StreamInfo {
   });
 }
 
-export interface DescribeStreamResponse {
-  /**
-   * <p>Information about the stream.</p>
-   */
-  streamInfo?: StreamInfo;
-}
-
-export namespace DescribeStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DescribeThing operation.</p>
- */
-export interface DescribeThingRequest {
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-}
-
-export namespace DescribeThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the DescribeThing operation.</p>
- */
-export interface DescribeThingResponse {
-  /**
-   * <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID.
-   * 			Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or
-   * 			shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p>
-   * 		       <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
-   */
-  defaultClientId?: string;
-
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The ID of the thing to describe.</p>
-   */
-  thingId?: string;
-
-  /**
-   * <p>The ARN of the thing to describe.</p>
-   */
-  thingArn?: string;
-
-  /**
-   * <p>The thing type name.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>The thing attributes.</p>
-   */
-  attributes?: Record<string, string>;
-
-  /**
-   * <p>The current version of the thing record in the registry.</p>
-   * 		       <note>
-   * 			         <p>To avoid unintentional changes to the information in the registry, you can pass
-   * 				the version information in the <code>expectedVersion</code> parameter of the
-   * 					<code>UpdateThing</code> and <code>DeleteThing</code> calls.</p>
-   * 		       </note>
-   */
-  version?: number;
-
-  /**
-   * <p>The name of the billing group the thing belongs to.</p>
-   */
-  billingGroupName?: string;
-}
-
-export namespace DescribeThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThingGroupRequest {
-  /**
-   * <p>The name of the thing group.</p>
-   */
-  thingGroupName: string | undefined;
-}
-
-export namespace DescribeThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DynamicGroupStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
-
 /**
  * <p>The name and ARN of a group.</p>
  */
@@ -3308,181 +3674,6 @@ export namespace ThingGroupMetadata {
   });
 }
 
-export interface DescribeThingGroupResponse {
-  /**
-   * <p>The name of the thing group.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>The thing group ID.</p>
-   */
-  thingGroupId?: string;
-
-  /**
-   * <p>The thing group ARN.</p>
-   */
-  thingGroupArn?: string;
-
-  /**
-   * <p>The version of the thing group.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The thing group properties.</p>
-   */
-  thingGroupProperties?: ThingGroupProperties;
-
-  /**
-   * <p>Thing group metadata.</p>
-   */
-  thingGroupMetadata?: ThingGroupMetadata;
-
-  /**
-   * <p>The dynamic thing group index name.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The dynamic thing group search query string.</p>
-   */
-  queryString?: string;
-
-  /**
-   * <p>The dynamic thing group query version.</p>
-   */
-  queryVersion?: string;
-
-  /**
-   * <p>The dynamic thing group status.</p>
-   */
-  status?: DynamicGroupStatus | string;
-}
-
-export namespace DescribeThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThingRegistrationTaskRequest {
-  /**
-   * <p>The task ID.</p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeThingRegistrationTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingRegistrationTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum Status {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Completed = "Completed",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
-
-export interface DescribeThingRegistrationTaskResponse {
-  /**
-   * <p>The task ID.</p>
-   */
-  taskId?: string;
-
-  /**
-   * <p>The task creation date.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the task was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The task's template.</p>
-   */
-  templateBody?: string;
-
-  /**
-   * <p>The S3 bucket that contains the input file.</p>
-   */
-  inputFileBucket?: string;
-
-  /**
-   * <p>The input file key.</p>
-   */
-  inputFileKey?: string;
-
-  /**
-   * <p>The role ARN that grants access to the input file bucket.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The status of the bulk thing provisioning task.</p>
-   */
-  status?: Status | string;
-
-  /**
-   * <p>The message.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The number of things successfully provisioned.</p>
-   */
-  successCount?: number;
-
-  /**
-   * <p>The number of things that failed to be provisioned.</p>
-   */
-  failureCount?: number;
-
-  /**
-   * <p>The progress of the bulk provisioning task expressed as a percentage.</p>
-   */
-  percentageProgress?: number;
-}
-
-export namespace DescribeThingRegistrationTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingRegistrationTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DescribeThingType operation.</p>
- */
-export interface DescribeThingTypeRequest {
-  /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName: string | undefined;
-}
-
-export namespace DescribeThingTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ThingTypeMetadata contains additional information about the thing type including: creation date and
  * 			time, a value indicating whether the thing type is deprecated, and a date and time when time was
@@ -3513,242 +3704,6 @@ export namespace ThingTypeMetadata {
   export const filterSensitiveLog = (obj: ThingTypeMetadata): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The output for the DescribeThingType operation.</p>
- */
-export interface DescribeThingTypeResponse {
-  /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>The thing type ID.</p>
-   */
-  thingTypeId?: string;
-
-  /**
-   * <p>The thing type ARN.</p>
-   */
-  thingTypeArn?: string;
-
-  /**
-   * <p>The ThingTypeProperties contains information about the thing type including
-   * 			description, and a list of searchable thing attribute names.</p>
-   */
-  thingTypeProperties?: ThingTypeProperties;
-
-  /**
-   * <p>The ThingTypeMetadata contains additional information about the thing type
-   * 			including: creation date and time, a value indicating whether the thing type is
-   * 			deprecated, and a date and time when it was deprecated.</p>
-   */
-  thingTypeMetadata?: ThingTypeMetadata;
-}
-
-export namespace DescribeThingTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThingTypeResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachPolicyRequest {
-  /**
-   * <p>The policy to detach.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The target from which the policy will be detached.</p>
-   */
-  target: string | undefined;
-}
-
-export namespace DetachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DetachPrincipalPolicy operation.</p>
- */
-export interface DetachPrincipalPolicyRequest {
-  /**
-   * <p>The name of the policy to detach.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The principal.</p>
-   *          <p>Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal: string | undefined;
-}
-
-export namespace DetachPrincipalPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachPrincipalPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachSecurityProfileRequest {
-  /**
-   * <p>The security profile that is detached.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The ARN of the thing group from which the security profile is detached.</p>
-   */
-  securityProfileTargetArn: string | undefined;
-}
-
-export namespace DetachSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachSecurityProfileResponse {}
-
-export namespace DetachSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DetachThingPrincipal operation.</p>
- */
-export interface DetachThingPrincipalRequest {
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>If the principal is a certificate, this value must be ARN of the certificate. If
-   * 			the principal is an Amazon Cognito identity, this value must be the ID of the Amazon
-   * 			Cognito identity.</p>
-   */
-  principal: string | undefined;
-}
-
-export namespace DetachThingPrincipalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachThingPrincipalRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the DetachThingPrincipal operation.</p>
- */
-export interface DetachThingPrincipalResponse {}
-
-export namespace DetachThingPrincipalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachThingPrincipalResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DisableTopicRuleRequest operation.</p>
- */
-export interface DisableTopicRuleRequest {
-  /**
-   * <p>The name of the rule to disable.</p>
-   */
-  ruleName: string | undefined;
-}
-
-export namespace DisableTopicRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the EnableTopicRuleRequest operation.</p>
- */
-export interface EnableTopicRuleRequest {
-  /**
-   * <p>The name of the topic rule to enable.</p>
-   */
-  ruleName: string | undefined;
-}
-
-export namespace EnableTopicRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetBehaviorModelTrainingSummariesRequest {
-  /**
-   * <p>
-   *       The name of the security profile.
-   *     </p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBehaviorModelTrainingSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBehaviorModelTrainingSummariesRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ModelStatus {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING_BUILD = "PENDING_BUILD",
 }
 
 /**
@@ -3809,50 +3764,6 @@ export namespace BehaviorModelTrainingSummary {
   });
 }
 
-export interface GetBehaviorModelTrainingSummariesResponse {
-  /**
-   * <p>
-   *       A list of all ML Detect behaviors and their model status for a given Security Profile.
-   *     </p>
-   */
-  summaries?: BehaviorModelTrainingSummary[];
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace GetBehaviorModelTrainingSummariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBehaviorModelTrainingSummariesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.</p>
- */
-export interface TermsAggregation {
-  /**
-   * <p>The number of buckets to return in the response. Default to 10.</p>
-   */
-  maxBuckets?: number;
-}
-
-export namespace TermsAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TermsAggregation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type of bucketed aggregation performed.</p>
  */
@@ -3868,42 +3779,6 @@ export namespace BucketsAggregationType {
    * @internal
    */
   export const filterSensitiveLog = (obj: BucketsAggregationType): any => ({
-    ...obj,
-  });
-}
-
-export interface GetBucketsAggregationRequest {
-  /**
-   * <p>The name of the index to search.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The search query string.</p>
-   */
-  queryString: string | undefined;
-
-  /**
-   * <p>The aggregation field.</p>
-   */
-  aggregationField: string | undefined;
-
-  /**
-   * <p>The version of the query.</p>
-   */
-  queryVersion?: string;
-
-  /**
-   * <p>The basic control of the response shape and the bucket aggregation type to perform. </p>
-   */
-  bucketsAggregationType: BucketsAggregationType | undefined;
-}
-
-export namespace GetBucketsAggregationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketsAggregationRequest): any => ({
     ...obj,
   });
 }
@@ -3928,104 +3803,6 @@ export namespace Bucket {
    * @internal
    */
   export const filterSensitiveLog = (obj: Bucket): any => ({
-    ...obj,
-  });
-}
-
-export interface GetBucketsAggregationResponse {
-  /**
-   * <p>The total number of things that fit the query string criteria.</p>
-   */
-  totalCount?: number;
-
-  /**
-   * <p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p>
-   *          <p>
-   *             <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p>
-   *          <p>
-   *             <code>count</code>: The number of documents that have that value.</p>
-   */
-  buckets?: Bucket[];
-}
-
-export namespace GetBucketsAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketsAggregationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCardinalityRequest {
-  /**
-   * <p>The name of the index to search.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The search query string.</p>
-   */
-  queryString: string | undefined;
-
-  /**
-   * <p>The field to aggregate.</p>
-   */
-  aggregationField?: string;
-
-  /**
-   * <p>The query version.</p>
-   */
-  queryVersion?: string;
-}
-
-export namespace GetCardinalityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCardinalityRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCardinalityResponse {
-  /**
-   * <p>The approximate count of unique values that match the query.</p>
-   */
-  cardinality?: number;
-}
-
-export namespace GetCardinalityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCardinalityResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEffectivePoliciesRequest {
-  /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal?: string;
-
-  /**
-   * <p>The Cognito identity pool ID.</p>
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   * <p>The thing name.</p>
-   */
-  thingName?: string;
-}
-
-export namespace GetEffectivePoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectivePoliciesRequest): any => ({
     ...obj,
   });
 }
@@ -4059,68 +3836,6 @@ export namespace EffectivePolicy {
   });
 }
 
-export interface GetEffectivePoliciesResponse {
-  /**
-   * <p>The effective policies.</p>
-   */
-  effectivePolicies?: EffectivePolicy[];
-}
-
-export namespace GetEffectivePoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectivePoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIndexingConfigurationRequest {}
-
-export namespace GetIndexingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIndexingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  NUMBER = "Number",
-  STRING = "String",
-}
-
-/**
- * <p>Describes the name and data type at a field.</p>
- */
-export interface Field {
-  /**
-   * <p>The name of the field.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The data type of the field.</p>
-   */
-  type?: FieldType | string;
-}
-
-export namespace Field {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Field): any => ({
-    ...obj,
-  });
-}
-
-export enum ThingGroupIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
-
 /**
  * <p>Thing group indexing configuration.</p>
  */
@@ -4151,27 +3866,6 @@ export namespace ThingGroupIndexingConfiguration {
   export const filterSensitiveLog = (obj: ThingGroupIndexingConfiguration): any => ({
     ...obj,
   });
-}
-
-export enum DeviceDefenderIndexingMode {
-  OFF = "OFF",
-  VIOLATIONS = "VIOLATIONS",
-}
-
-export enum NamedShadowIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
-
-export enum ThingConnectivityIndexingMode {
-  OFF = "OFF",
-  STATUS = "STATUS",
-}
-
-export enum ThingIndexingMode {
-  OFF = "OFF",
-  REGISTRY = "REGISTRY",
-  REGISTRY_AND_SHADOW = "REGISTRY_AND_SHADOW",
 }
 
 /**
@@ -4261,137 +3955,6 @@ export namespace ThingIndexingConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThingIndexingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIndexingConfigurationResponse {
-  /**
-   * <p>Thing indexing configuration.</p>
-   */
-  thingIndexingConfiguration?: ThingIndexingConfiguration;
-
-  /**
-   * <p>The index configuration.</p>
-   */
-  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
-}
-
-export namespace GetIndexingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIndexingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobDocumentRequest {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
-}
-
-export namespace GetJobDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobDocumentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobDocumentResponse {
-  /**
-   * <p>The job document content.</p>
-   */
-  document?: string;
-}
-
-export namespace GetJobDocumentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobDocumentResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the GetLoggingOptions operation.</p>
- */
-export interface GetLoggingOptionsRequest {}
-
-export namespace GetLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the GetLoggingOptions operation.</p>
- */
-export interface GetLoggingOptionsResponse {
-  /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The logging level.</p>
-   */
-  logLevel?: LogLevel | string;
-}
-
-export namespace GetLoggingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetOTAUpdateRequest {
-  /**
-   * <p>The OTA update ID.</p>
-   */
-  otaUpdateId: string | undefined;
-}
-
-export namespace GetOTAUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOTAUpdateRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Error information.</p>
- */
-export interface ErrorInfo {
-  /**
-   * <p>The error code.</p>
-   */
-  code?: string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  message?: string;
-}
-
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
     ...obj,
   });
 }
@@ -4496,58 +4059,6 @@ export namespace OTAUpdateInfo {
   });
 }
 
-export interface GetOTAUpdateResponse {
-  /**
-   * <p>The OTA update info.</p>
-   */
-  otaUpdateInfo?: OTAUpdateInfo;
-}
-
-export namespace GetOTAUpdateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOTAUpdateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPercentilesRequest {
-  /**
-   * <p>The name of the index to search.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The search query string.</p>
-   */
-  queryString: string | undefined;
-
-  /**
-   * <p>The field to aggregate.</p>
-   */
-  aggregationField?: string;
-
-  /**
-   * <p>The query version.</p>
-   */
-  queryVersion?: string;
-
-  /**
-   * <p>The percentile groups returned.</p>
-   */
-  percents?: number[];
-}
-
-export namespace GetPercentilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPercentilesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the percentile and percentile value.</p>
  */
@@ -4568,233 +4079,6 @@ export namespace PercentPair {
    * @internal
    */
   export const filterSensitiveLog = (obj: PercentPair): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPercentilesResponse {
-  /**
-   * <p>The percentile values of the aggregated fields.</p>
-   */
-  percentiles?: PercentPair[];
-}
-
-export namespace GetPercentilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPercentilesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the GetPolicy operation.</p>
- */
-export interface GetPolicyRequest {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  policyName: string | undefined;
-}
-
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the GetPolicy operation.</p>
- */
-export interface GetPolicyResponse {
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName?: string;
-
-  /**
-   * <p>The policy ARN.</p>
-   */
-  policyArn?: string;
-
-  /**
-   * <p>The JSON document that describes the policy.</p>
-   */
-  policyDocument?: string;
-
-  /**
-   * <p>The default policy version ID.</p>
-   */
-  defaultVersionId?: string;
-
-  /**
-   * <p>The date the policy was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the policy was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The generation ID of the policy.</p>
-   */
-  generationId?: string;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the GetPolicyVersion operation.</p>
- */
-export interface GetPolicyVersionRequest {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId: string | undefined;
-}
-
-export namespace GetPolicyVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the GetPolicyVersion operation.</p>
- */
-export interface GetPolicyVersionResponse {
-  /**
-   * <p>The policy ARN.</p>
-   */
-  policyArn?: string;
-
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName?: string;
-
-  /**
-   * <p>The JSON document that describes the policy.</p>
-   */
-  policyDocument?: string;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId?: string;
-
-  /**
-   * <p>Specifies whether the policy version is the default.</p>
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   * <p>The date the policy was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the policy was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The generation ID of the policy version.</p>
-   */
-  generationId?: string;
-}
-
-export namespace GetPolicyVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input to the GetRegistrationCode operation.</p>
- */
-export interface GetRegistrationCodeRequest {}
-
-export namespace GetRegistrationCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegistrationCodeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the GetRegistrationCode operation.</p>
- */
-export interface GetRegistrationCodeResponse {
-  /**
-   * <p>The CA certificate registration code.</p>
-   */
-  registrationCode?: string;
-}
-
-export namespace GetRegistrationCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegistrationCodeResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetStatisticsRequest {
-  /**
-   * <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The query used to search. You can specify "*" for the query string to get the count of all
-   *       indexed things in your Amazon Web Services account.</p>
-   */
-  queryString: string | undefined;
-
-  /**
-   * <p>The aggregation field name.</p>
-   */
-  aggregationField?: string;
-
-  /**
-   * <p>The version of the query used to search.</p>
-   */
-  queryVersion?: string;
-}
-
-export namespace GetStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStatisticsRequest): any => ({
     ...obj,
   });
 }
@@ -4855,42 +4139,6 @@ export namespace Statistics {
   });
 }
 
-export interface GetStatisticsResponse {
-  /**
-   * <p>The statistics returned by the Fleet Indexing service based on the query and aggregation
-   *       field.</p>
-   */
-  statistics?: Statistics;
-}
-
-export namespace GetStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the GetTopicRule operation.</p>
- */
-export interface GetTopicRuleRequest {
-  /**
-   * <p>The name of the rule.</p>
-   */
-  ruleName: string | undefined;
-}
-
-export namespace GetTopicRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a rule.</p>
  */
@@ -4947,99 +4195,6 @@ export namespace TopicRule {
 }
 
 /**
- * <p>The output from the GetTopicRule operation.</p>
- */
-export interface GetTopicRuleResponse {
-  /**
-   * <p>The rule ARN.</p>
-   */
-  ruleArn?: string;
-
-  /**
-   * <p>The rule.</p>
-   */
-  rule?: TopicRule;
-}
-
-export namespace GetTopicRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicRuleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTopicRuleDestinationRequest {
-  /**
-   * <p>The ARN of the topic rule destination.</p>
-   */
-  arn: string | undefined;
-}
-
-export namespace GetTopicRuleDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicRuleDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTopicRuleDestinationResponse {
-  /**
-   * <p>The topic rule destination.</p>
-   */
-  topicRuleDestination?: TopicRuleDestination;
-}
-
-export namespace GetTopicRuleDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicRuleDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetV2LoggingOptionsRequest {}
-
-export namespace GetV2LoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetV2LoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetV2LoggingOptionsResponse {
-  /**
-   * <p>The IAM role ARN IoT uses to write to your CloudWatch logs.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The default log level.</p>
-   */
-  defaultLogLevel?: LogLevel | string;
-
-  /**
-   * <p>Disables all logs.</p>
-   */
-  disableAllLogs?: boolean;
-}
-
-export namespace GetV2LoggingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetV2LoggingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The resource is not configured.</p>
  */
 export class NotConfiguredException extends __BaseException {
@@ -5056,606 +4211,6 @@ export class NotConfiguredException extends __BaseException {
     });
     Object.setPrototypeOf(this, NotConfiguredException.prototype);
   }
-}
-
-export enum BehaviorCriteriaType {
-  MACHINE_LEARNING = "MACHINE_LEARNING",
-  STATIC = "STATIC",
-  STATISTICAL = "STATISTICAL",
-}
-
-export interface ListActiveViolationsRequest {
-  /**
-   * <p>The name of the thing whose active violations are listed.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The name of the Device Defender security profile for which violations are listed.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>
-   *       The criteria for a behavior.
-   *     </p>
-   */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
-
-  /**
-   * <p>
-   *       A list of all suppressed alerts.
-   *     </p>
-   */
-  listSuppressedAlerts?: boolean;
-
-  /**
-   * <p>The verification state of the violation (detect alarm).</p>
-   */
-  verificationState?: VerificationState | string;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListActiveViolationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActiveViolationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListActiveViolationsResponse {
-  /**
-   * <p>The list of active violations.</p>
-   */
-  activeViolations?: ActiveViolation[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results,
-   *             or <code>null</code> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListActiveViolationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActiveViolationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAttachedPoliciesRequest {
-  /**
-   * <p>The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  target: string | undefined;
-
-  /**
-   * <p>When true, recursively list attached policies.</p>
-   */
-  recursive?: boolean;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  pageSize?: number;
-}
-
-export namespace ListAttachedPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttachedPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAttachedPoliciesResponse {
-  /**
-   * <p>The policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
-   * <p>The token to retrieve the next set of results, or ``null`` if there are no more
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListAttachedPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttachedPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditFindingsRequest {
-  /**
-   * <p>A filter to limit results to the audit with the specified ID. You must
-   *             specify either the taskId or the startTime and endTime, but not both.</p>
-   */
-  taskId?: string;
-
-  /**
-   * <p>A filter to limit results to the findings for the specified audit check.</p>
-   */
-  checkName?: string;
-
-  /**
-   * <p>Information identifying the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A filter to limit results to those found after the specified time. You must
-   *             specify either the startTime and endTime or the taskId, but not both.</p>
-   */
-  startTime?: Date;
-
-  /**
-   * <p>A filter to limit results to those found before the specified time. You must
-   *             specify either the startTime and endTime or the taskId, but not both.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>
-   *       Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
-   *     </p>
-   */
-  listSuppressedFindings?: boolean;
-}
-
-export namespace ListAuditFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditFindingsResponse {
-  /**
-   * <p>The findings (results) of the audit.</p>
-   */
-  findings?: AuditFinding[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *             if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditMitigationActionsExecutionsRequest {
-  /**
-   * <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>Specify this filter to limit results to those with a specific status.</p>
-   */
-  actionStatus?: AuditMitigationActionsExecutionStatus | string;
-
-  /**
-   * <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
-   */
-  findingId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditMitigationActionsExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditMitigationActionsExecutionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditMitigationActionsExecutionsResponse {
-  /**
-   * <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
-   */
-  actionsExecutions?: AuditMitigationActionExecutionMetadata[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditMitigationActionsExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditMitigationActionsExecutionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditMitigationActionsTasksRequest {
-  /**
-   * <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
-   */
-  auditTaskId?: string;
-
-  /**
-   * <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
-   */
-  findingId?: string;
-
-  /**
-   * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
-   */
-  endTime: Date | undefined;
-}
-
-export namespace ListAuditMitigationActionsTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditMitigationActionsTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditMitigationActionsTasksResponse {
-  /**
-   * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
-   */
-  tasks?: AuditMitigationActionsTaskMetadata[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditMitigationActionsTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditMitigationActionsTasksResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditSuppressionsRequest {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName?: string;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>
-   *       Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, <code>ascendingOrder=true</code>.
-   *     </p>
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListAuditSuppressionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditSuppressionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditSuppressionsResponse {
-  /**
-   * <p>
-   *       List of audit suppressions.
-   *     </p>
-   */
-  suppressions?: AuditSuppression[];
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditSuppressionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditSuppressionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditTasksRequest {
-  /**
-   * <p>The beginning of the time period. Audit information is retained for a
-   *               limited time (90 days). Requesting a start time prior to what is retained
-   *               results in an "InvalidRequestException".</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end of the time period.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>A filter to limit the output to the specified type of audit: can be one of
-   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
-   */
-  taskType?: AuditTaskType | string;
-
-  /**
-   * <p>A filter to limit the output to audits with the specified completion
-   *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
-   */
-  taskStatus?: AuditTaskStatus | string;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListAuditTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuditTasksResponse {
-  /**
-   * <p>The audits that were performed during the specified time period.</p>
-   */
-  tasks?: AuditTaskMetadata[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *             if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuditTasksResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuthorizersRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Return the list of authorizers in ascending alphabetical order.</p>
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   * <p>The status of the list authorizers request.</p>
-   */
-  status?: AuthorizerStatus | string;
-}
-
-export namespace ListAuthorizersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuthorizersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAuthorizersResponse {
-  /**
-   * <p>The authorizers.</p>
-   */
-  authorizers?: AuthorizerSummary[];
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListAuthorizersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAuthorizersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBillingGroupsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Limit the results to billing groups whose names have the given prefix.</p>
-   */
-  namePrefixFilter?: string;
-}
-
-export namespace ListBillingGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBillingGroupsResponse {
-  /**
-   * <p>The list of billing groups.</p>
-   */
-  billingGroups?: GroupNameAndArn[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBillingGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Input for the ListCACertificates operation.</p>
- */
-export interface ListCACertificatesRequest {
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Determines the order of the results.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-export namespace ListCACertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCACertificatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5689,60 +4244,6 @@ export namespace CACertificate {
    * @internal
    */
   export const filterSensitiveLog = (obj: CACertificate): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListCACertificates operation.</p>
- */
-export interface ListCACertificatesResponse {
-  /**
-   * <p>The CA certificates registered in your Amazon Web Services account.</p>
-   */
-  certificates?: CACertificate[];
-
-  /**
-   * <p>The current position within the list of CA certificates.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCACertificatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCACertificatesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ListCertificates operation.</p>
- */
-export interface ListCertificatesRequest {
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-export namespace ListCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
     ...obj,
   });
 }
@@ -5786,211 +4287,6 @@ export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The output of the ListCertificates operation.</p>
- */
-export interface ListCertificatesResponse {
-  /**
-   * <p>The descriptions of the certificates.</p>
-   */
-  certificates?: Certificate[];
-
-  /**
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCertificatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input to the ListCertificatesByCA operation.</p>
- */
-export interface ListCertificatesByCARequest {
-  /**
-   * <p>The ID of the CA certificate. This operation will list all registered device
-   *          certificate that were signed by this CA certificate.</p>
-   */
-  caCertificateId: string | undefined;
-
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-export namespace ListCertificatesByCARequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesByCARequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output of the ListCertificatesByCA operation.</p>
- */
-export interface ListCertificatesByCAResponse {
-  /**
-   * <p>The device certificates signed by the specified CA certificate.</p>
-   */
-  certificates?: Certificate[];
-
-  /**
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCertificatesByCAResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesByCAResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListCustomMetricsRequest {
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListCustomMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomMetricsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListCustomMetricsResponse {
-  /**
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
-   */
-  metricNames?: string[];
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results,
-   *       or <code>null</code> if there are no additional results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListCustomMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDetectMitigationActionsExecutionsRequest {
-  /**
-   * <p>
-   *       The unique identifier of the task.
-   *     </p>
-   */
-  taskId?: string;
-
-  /**
-   * <p>
-   *       The unique identifier of the violation.
-   *     </p>
-   */
-  violationId?: string;
-
-  /**
-   * <p>
-   *       The name of the thing whose mitigation actions are listed.
-   *     </p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>
-   *       A filter to limit results to those found after the specified time. You must
-   *       specify either the startTime and endTime or the taskId, but not both.
-   *     </p>
-   */
-  startTime?: Date;
-
-  /**
-   * <p>
-   *       The end of the time period for which ML Detect mitigation actions executions are returned.
-   *     </p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDetectMitigationActionsExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectMitigationActionsExecutionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DetectMitigationActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SKIPPED = "SKIPPED",
-  SUCCESSFUL = "SUCCESSFUL",
 }
 
 /**
@@ -6072,162 +4368,6 @@ export namespace DetectMitigationActionExecution {
   });
 }
 
-export interface ListDetectMitigationActionsExecutionsResponse {
-  /**
-   * <p>
-   *       List of actions executions.
-   *     </p>
-   */
-  actionsExecutions?: DetectMitigationActionExecution[];
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDetectMitigationActionsExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectMitigationActionsExecutionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDetectMitigationActionsTasksRequest {
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       A filter to limit results to those found after the specified time. You must
-   *       specify either the startTime and endTime or the taskId, but not both.
-   *     </p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>
-   *       The end of the time period for which ML Detect mitigation actions tasks are returned.
-   *     </p>
-   */
-  endTime: Date | undefined;
-}
-
-export namespace ListDetectMitigationActionsTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectMitigationActionsTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDetectMitigationActionsTasksResponse {
-  /**
-   * <p>
-   *       The collection of ML Detect mitigation tasks that matched the filter criteria.
-   *     </p>
-   */
-  tasks?: DetectMitigationActionsTaskSummary[];
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDetectMitigationActionsTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectMitigationActionsTasksResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDimensionsRequest {
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to retrieve at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListDimensionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDimensionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDimensionsResponse {
-  /**
-   * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
-   */
-  dimensionNames?: string[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListDimensionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDimensionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDomainConfigurationsRequest {
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>The type of service delivered by the endpoint.</p>
-   */
-  serviceType?: ServiceType | string;
-}
-
-export namespace ListDomainConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
  *          A domain configuration can be associated with an Amazon Web Services-managed domain
@@ -6270,49 +4410,6 @@ export namespace DomainConfigurationSummary {
   });
 }
 
-export interface ListDomainConfigurationsResponse {
-  /**
-   * <p>A list of objects that contain summary information about the user's domain configurations.</p>
-   */
-  domainConfigurations?: DomainConfigurationSummary[];
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListDomainConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFleetMetricsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
-   *        otherwise <code>null</code> to receive the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListFleetMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetMetricsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name and ARN of a fleet metric.</p>
  */
@@ -6333,150 +4430,6 @@ export namespace FleetMetricNameAndArn {
    * @internal
    */
   export const filterSensitiveLog = (obj: FleetMetricNameAndArn): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFleetMetricsResponse {
-  /**
-   * <p>The list of fleet metrics objects.</p>
-   */
-  fleetMetrics?: FleetMetricNameAndArn[];
-
-  /**
-   * <p>The token for the next set of results. Will not be returned if the operation has returned
-   *       all results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListFleetMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIndicesRequest {
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListIndicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndicesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIndicesResponse {
-  /**
-   * <p>The index names.</p>
-   */
-  indexNames?: string[];
-
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListIndicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobExecutionsForJobRequest {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobExecutionsForJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobExecutionsForJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The job execution summary.</p>
- */
-export interface JobExecutionSummary {
-  /**
-   * <p>The status of the job execution.</p>
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
-   */
-  queuedAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution started.</p>
-   */
-  startedAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used later in commands which return or update job execution
-   *             information.</p>
-   */
-  executionNumber?: number;
-
-  /**
-   * <p>The number that indicates how many retry attempts have been completed for this
-   *         job on this device.</p>
-   */
-  retryAttempt?: number;
-}
-
-export namespace JobExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
     ...obj,
   });
 }
@@ -6505,77 +4458,6 @@ export namespace JobExecutionSummaryForJob {
   });
 }
 
-export interface ListJobExecutionsForJobResponse {
-  /**
-   * <p>A list of job execution summaries.</p>
-   */
-  executionSummaries?: JobExecutionSummaryForJob[];
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobExecutionsForJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobExecutionsForJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobExecutionsForThingRequest {
-  /**
-   * <p>The thing name.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *         <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *         <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId?: string;
-}
-
-export namespace ListJobExecutionsForThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobExecutionsForThingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The job execution summary for a thing.</p>
  */
@@ -6596,90 +4478,6 @@ export namespace JobExecutionSummaryForThing {
    * @internal
    */
   export const filterSensitiveLog = (obj: JobExecutionSummaryForThing): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobExecutionsForThingResponse {
-  /**
-   * <p>A list of job execution summaries.</p>
-   */
-  executionSummaries?: JobExecutionSummaryForThing[];
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobExecutionsForThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobExecutionsForThingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobsRequest {
-  /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   */
-  status?: JobStatus | string;
-
-  /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group. </p>
-   *         <note>
-   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
-   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
-   *                 been created.</p>
-   *         </note>
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   */
-  thingGroupId?: string;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *         <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *         <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-}
-
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
 }
@@ -6748,49 +4546,6 @@ export namespace JobSummary {
   });
 }
 
-export interface ListJobsResponse {
-  /**
-   * <p>A list of jobs.</p>
-   */
-  jobs?: JobSummary[];
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobTemplatesRequest {
-  /**
-   * <p>The maximum number of results to return in the list.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token to use to return the next set of results in the list.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about the job template.</p>
  */
@@ -6821,55 +4576,6 @@ export namespace JobTemplateSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: JobTemplateSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListJobTemplatesResponse {
-  /**
-   * <p>A list of objects that contain information about the job templates.</p>
-   */
-  jobTemplates?: JobTemplateSummary[];
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListManagedJobTemplatesRequest {
-  /**
-   * <p>An optional parameter for template name. If specified, only the versions of the
-   *             managed job templates that have the specified template name will be returned.</p>
-   */
-  templateName?: string;
-
-  /**
-   * <p>Maximum number of entries that can be returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListManagedJobTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedJobTemplatesRequest): any => ({
     ...obj,
   });
 }
@@ -6913,78 +4619,6 @@ export namespace ManagedJobTemplateSummary {
   });
 }
 
-export interface ListManagedJobTemplatesResponse {
-  /**
-   * <p>A list of managed job templates that are returned.</p>
-   */
-  managedJobTemplates?: ManagedJobTemplateSummary[];
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListManagedJobTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedJobTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListMetricValuesRequest {
-  /**
-   * <p>The name of the thing for which security profile metric values are returned.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>The name of the security profile metric for which values are returned.</p>
-   */
-  metricName: string | undefined;
-
-  /**
-   * <p>The dimension name.</p>
-   */
-  dimensionName?: string;
-
-  /**
-   * <p>The dimension value operator.</p>
-   */
-  dimensionValueOperator?: DimensionValueOperator | string;
-
-  /**
-   * <p>The start of the time period for which metric values are returned.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end of the time period for which metric values are returned.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMetricValuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMetricValuesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A metric.</p>
  */
@@ -7005,54 +4639,6 @@ export namespace MetricDatum {
    * @internal
    */
   export const filterSensitiveLog = (obj: MetricDatum): any => ({
-    ...obj,
-  });
-}
-
-export interface ListMetricValuesResponse {
-  /**
-   * <p>The data the thing reports for the metric during the specified time period.</p>
-   */
-  metricDatumList?: MetricDatum[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *         if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMetricValuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMetricValuesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListMitigationActionsRequest {
-  /**
-   * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
-   */
-  actionType?: MitigationActionType | string;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMitigationActionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMitigationActionsRequest): any => ({
     ...obj,
   });
 }
@@ -7086,53 +4672,6 @@ export namespace MitigationActionIdentifier {
   });
 }
 
-export interface ListMitigationActionsResponse {
-  /**
-   * <p>A set of actions that matched the specified filter criteria.</p>
-   */
-  actionIdentifiers?: MitigationActionIdentifier[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListMitigationActionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMitigationActionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListOTAUpdatesRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token used to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The OTA update job status.</p>
-   */
-  otaUpdateStatus?: OTAUpdateStatus | string;
-}
-
-export namespace ListOTAUpdatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOTAUpdatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An OTA update summary.</p>
  */
@@ -7158,57 +4697,6 @@ export namespace OTAUpdateSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: OTAUpdateSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListOTAUpdatesResponse {
-  /**
-   * <p>A list of OTA update jobs.</p>
-   */
-  otaUpdates?: OTAUpdateSummary[];
-
-  /**
-   * <p>A token to use to get the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListOTAUpdatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOTAUpdatesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input to the ListOutgoingCertificates operation.</p>
- */
-export interface ListOutgoingCertificatesRequest {
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-export namespace ListOutgoingCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutgoingCertificatesRequest): any => ({
     ...obj,
   });
 }
@@ -7253,60 +4741,6 @@ export namespace OutgoingCertificate {
    * @internal
    */
   export const filterSensitiveLog = (obj: OutgoingCertificate): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListOutgoingCertificates operation.</p>
- */
-export interface ListOutgoingCertificatesResponse {
-  /**
-   * <p>The certificates that are being transferred but not yet accepted.</p>
-   */
-  outgoingCertificates?: OutgoingCertificate[];
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export namespace ListOutgoingCertificatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutgoingCertificatesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ListPolicies operation.</p>
- */
-export interface ListPoliciesRequest {
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-export namespace ListPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
 }
@@ -8375,6 +5809,3784 @@ export namespace ListThingGroupsForThingResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListThingPrincipal operation.</p>
+ */
+export interface ListThingPrincipalsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace ListThingPrincipalsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the ListThingPrincipals operation.</p>
+ */
+export interface ListThingPrincipalsResponse {
+  /**
+   * <p>The principals associated with the thing.</p>
+   */
+  principals?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingPrincipalsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTaskReportsRequest {
+  /**
+   * <p>The id of the task.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The type of task report.</p>
+   */
+  reportType: ReportType | string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 		the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingRegistrationTaskReportsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTaskReportsResponse {
+  /**
+   * <p>Links to the task resources.</p>
+   */
+  resourceLinks?: string[];
+
+  /**
+   * <p>The type of task report.</p>
+   */
+  reportType?: ReportType | string;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingRegistrationTaskReportsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTasksRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The status of the bulk thing provisioning task.</p>
+   */
+  status?: Status | string;
+}
+
+export namespace ListThingRegistrationTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTasksResponse {
+  /**
+   * <p>A list of bulk thing provisioning task IDs.</p>
+   */
+  taskIds?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingRegistrationTasksResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTasksResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListThings operation.</p>
+ */
+export interface ListThingsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The attribute name used to search for things.</p>
+   */
+  attributeName?: string;
+
+  /**
+   * <p>The attribute value used to search for things.</p>
+   */
+  attributeValue?: string;
+
+  /**
+   * <p>The name of the thing type used to search for things.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>When <code>true</code>, the action returns the thing resources with attribute values
+   *                      that start with the <code>attributeValue</code> provided.</p>
+   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   * 			resources with attribute values that match the entire <code>attributeValue</code>
+   * 			provided. </p>
+   */
+  usePrefixAttributeValue?: boolean;
+}
+
+export namespace ListThingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties of the thing, including thing name, thing type name, and a list of thing
+ * 			attributes.</p>
+ */
+export interface ThingAttribute {
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The name of the thing type, if the thing has been associated with a type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>The thing ARN.</p>
+   */
+  thingArn?: string;
+
+  /**
+   * <p>A list of thing attributes which are name-value pairs.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>The version of the thing record in the registry.</p>
+   */
+  version?: number;
+}
+
+export namespace ThingAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingAttribute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the ListThings operation.</p>
+ */
+export interface ListThingsResponse {
+  /**
+   * <p>The things.</p>
+   */
+  things?: ThingAttribute[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingsInBillingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInBillingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInBillingGroupResponse {
+  /**
+   * <p>A list of things in the billing group.</p>
+   */
+  things?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsInBillingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInBillingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInThingGroupRequest {
+  /**
+   * <p>The thing group name.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>When true, list things in this thing group and in all child groups as
+   * 			well.</p>
+   */
+  recursive?: boolean;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingsInThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInThingGroupResponse {
+  /**
+   * <p>The things in the specified thing group.</p>
+   */
+  things?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsInThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListThingTypes operation.</p>
+ */
+export interface ListThingTypesRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+}
+
+export namespace ListThingTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The definition of the thing type, including thing type name and description.</p>
+ */
+export interface ThingTypeDefinition {
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>The thing type ARN.</p>
+   */
+  thingTypeArn?: string;
+
+  /**
+   * <p>The ThingTypeProperties for the thing type.</p>
+   */
+  thingTypeProperties?: ThingTypeProperties;
+
+  /**
+   * <p>The ThingTypeMetadata contains additional information about the thing type including: creation date and
+   * 			time, a value indicating whether the thing type is deprecated, and a date and time when it was
+   * 			deprecated.</p>
+   */
+  thingTypeMetadata?: ThingTypeMetadata;
+}
+
+export namespace ThingTypeDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingTypeDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output for the ListThingTypes operation.</p>
+ */
+export interface ListThingTypesResponse {
+  /**
+   * <p>The thing types.</p>
+   */
+  thingTypes?: ThingTypeDefinition[];
+
+  /**
+   * <p>The token for the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingTypesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTopicRuleDestinationsRequest {
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   *          value from a previous response; otherwise <b>null</b> to receive
+   *          the first set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTopicRuleDestinationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTopicRuleDestinationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the topic rule destination.</p>
+ */
+export interface TopicRuleDestinationSummary {
+  /**
+   * <p>The topic rule destination ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status?: TopicRuleDestinationStatus | string;
+
+  /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The reason the topic rule destination is in the current status.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * <p>Information about the HTTP URL.</p>
+   */
+  httpUrlSummary?: HttpUrlDestinationSummary;
+
+  /**
+   * <p>Information about the virtual private cloud (VPC) connection.</p>
+   */
+  vpcDestinationSummary?: VpcDestinationSummary;
+}
+
+export namespace TopicRuleDestinationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TopicRuleDestinationSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTopicRuleDestinationsResponse {
+  /**
+   * <p>Information about a topic rule destination.</p>
+   */
+  destinationSummaries?: TopicRuleDestinationSummary[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTopicRuleDestinationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTopicRuleDestinationsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListTopicRules operation.</p>
+ */
+export interface ListTopicRulesRequest {
+  /**
+   * <p>The topic.</p>
+   */
+  topic?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   *          value from a previous response; otherwise <b>null</b> to receive
+   *          the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
+}
+
+export namespace ListTopicRulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTopicRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a rule.</p>
+ */
+export interface TopicRuleListItem {
+  /**
+   * <p>The rule ARN.</p>
+   */
+  ruleArn?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  ruleName?: string;
+
+  /**
+   * <p>The pattern for the topic names that apply.</p>
+   */
+  topicPattern?: string;
+
+  /**
+   * <p>The date and time the rule was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
+}
+
+export namespace TopicRuleListItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TopicRuleListItem): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the ListTopicRules operation.</p>
+ */
+export interface ListTopicRulesResponse {
+  /**
+   * <p>The rules.</p>
+   */
+  rules?: TopicRuleListItem[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTopicRulesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTopicRulesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListV2LoggingLevelsRequest {
+  /**
+   * <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   */
+  targetType?: LogTargetType | string;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   *          value from a previous response; otherwise <b>null</b> to receive
+   *          the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListV2LoggingLevelsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListV2LoggingLevelsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A log target.</p>
+ */
+export interface LogTarget {
+  /**
+   * <p>The target type.</p>
+   */
+  targetType: LogTargetType | string | undefined;
+
+  /**
+   * <p>The target name.</p>
+   */
+  targetName?: string;
+}
+
+export namespace LogTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The target configuration.</p>
+ */
+export interface LogTargetConfiguration {
+  /**
+   * <p>A log target</p>
+   */
+  logTarget?: LogTarget;
+
+  /**
+   * <p>The logging level.</p>
+   */
+  logLevel?: LogLevel | string;
+}
+
+export namespace LogTargetConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogTargetConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface ListV2LoggingLevelsResponse {
+  /**
+   * <p>The logging configuration for a target.</p>
+   */
+  logTargetConfigurations?: LogTargetConfiguration[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListV2LoggingLevelsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListV2LoggingLevelsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListViolationEventsRequest {
+  /**
+   * <p>The start time for the alerts to be listed.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time for the alerts to be listed.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>A filter to limit results to those alerts caused by the specified thing.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>A filter to limit results to those alerts generated by the specified security profile.</p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>
+   *       The criteria for a behavior.
+   *     </p>
+   */
+  behaviorCriteriaType?: BehaviorCriteriaType | string;
+
+  /**
+   * <p>
+   *       A list of all suppressed alerts.
+   *     </p>
+   */
+  listSuppressedAlerts?: boolean;
+
+  /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListViolationEventsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListViolationEventsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a Device Defender security profile behavior violation.</p>
+ */
+export interface ViolationEvent {
+  /**
+   * <p>The ID of the violation event.</p>
+   */
+  violationId?: string;
+
+  /**
+   * <p>The name of the thing responsible for the violation event.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The name of the security profile whose behavior was violated.</p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>The behavior that was violated.</p>
+   */
+  behavior?: Behavior;
+
+  /**
+   * <p>The value of the metric (the measurement).</p>
+   */
+  metricValue?: MetricValue;
+
+  /**
+   * <p>
+   *             The details of a violation event.
+   *         </p>
+   */
+  violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
+
+  /**
+   * <p>The type of violation event.</p>
+   */
+  violationEventType?: ViolationEventType | string;
+
+  /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
+   * <p>The description of the verification state of the violation.</p>
+   */
+  verificationStateDescription?: string;
+
+  /**
+   * <p>The time the violation event occurred.</p>
+   */
+  violationEventTime?: Date;
+}
+
+export namespace ViolationEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ViolationEvent): any => ({
+    ...obj,
+  });
+}
+
+export interface ListViolationEventsResponse {
+  /**
+   * <p>The security profile violation alerts issued for this account during the given time period,
+   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
+   */
+  violationEvents?: ViolationEvent[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListViolationEventsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutVerificationStateOnViolationRequest {
+  /**
+   * <p>The violation ID.</p>
+   */
+  violationId: string | undefined;
+
+  /**
+   * <p>The verification state of the violation.</p>
+   */
+  verificationState: VerificationState | string | undefined;
+
+  /**
+   * <p>The description of the verification state of the violation (detect alarm).</p>
+   */
+  verificationStateDescription?: string;
+}
+
+export namespace PutVerificationStateOnViolationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutVerificationStateOnViolationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutVerificationStateOnViolationResponse {}
+
+export namespace PutVerificationStateOnViolationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutVerificationStateOnViolationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input to the RegisterCACertificate operation.</p>
+ */
+export interface RegisterCACertificateRequest {
+  /**
+   * <p>The CA certificate.</p>
+   */
+  caCertificate: string | undefined;
+
+  /**
+   * <p>The private key verification certificate.</p>
+   */
+  verificationCertificate: string | undefined;
+
+  /**
+   * <p>A boolean value that specifies if the CA certificate is set to active.</p>
+   *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
+   *          </p>
+   */
+  setAsActive?: boolean;
+
+  /**
+   * <p>Allows this CA certificate to be used for auto registration of device
+   *          certificates.</p>
+   */
+  allowAutoRegistration?: boolean;
+
+  /**
+   * <p>Information about the registration configuration.</p>
+   */
+  registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>Metadata which can be used to manage the CA certificate.</p>
+   *          <note>
+   *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
+   *             <p>For the CLI command-line parameter use format: &&tags
+   *             "key1=value1&key2=value2..."</p>
+   *             <p>For the cli-input-json file use format: "tags":
+   *             "key1=value1&key2=value2..."</p>
+   *          </note>
+   */
+  tags?: Tag[];
+}
+
+export namespace RegisterCACertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCACertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the RegisterCACertificateResponse operation.</p>
+ */
+export interface RegisterCACertificateResponse {
+  /**
+   * <p>The CA certificate ARN.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The CA certificate identifier.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCACertificateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCACertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The registration code is invalid.</p>
+ */
+export class RegistrationCodeValidationException extends __BaseException {
+  readonly name: "RegistrationCodeValidationException" = "RegistrationCodeValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RegistrationCodeValidationException, __BaseException>) {
+    super({
+      name: "RegistrationCodeValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegistrationCodeValidationException.prototype);
+  }
+}
+
+/**
+ * <p>Unable to verify the CA certificate used to sign the device certificate you are
+ *          attempting to register. This is happens when you have registered more than one CA
+ *          certificate that has the same subject field and public key.</p>
+ */
+export class CertificateConflictException extends __BaseException {
+  readonly name: "CertificateConflictException" = "CertificateConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateConflictException, __BaseException>) {
+    super({
+      name: "CertificateConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The input to the RegisterCertificate operation.</p>
+ */
+export interface RegisterCertificateRequest {
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem: string | undefined;
+
+  /**
+   * <p>The CA certificate used to sign the device certificate being registered.</p>
+   */
+  caCertificatePem?: string;
+
+  /**
+   * @deprecated
+   *
+   * <p>A boolean value that specifies if the certificate is set to active.</p>
+   *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
+   *          </p>
+   */
+  setAsActive?: boolean;
+
+  /**
+   * <p>The status of the register certificate request. Valid values that you can use include
+   *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
+   */
+  status?: CertificateStatus | string;
+}
+
+export namespace RegisterCertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the RegisterCertificate operation.</p>
+ */
+export interface RegisterCertificateResponse {
+  /**
+   * <p>The certificate ARN.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The certificate identifier.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCertificateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterCertificateWithoutCARequest {
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem: string | undefined;
+
+  /**
+   * <p>The status of the register certificate request.</p>
+   */
+  status?: CertificateStatus | string;
+}
+
+export namespace RegisterCertificateWithoutCARequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCARequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterCertificateWithoutCAResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The ID of the registered certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCertificateWithoutCAResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCAResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterThingRequest {
+  /**
+   * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
+   */
+  templateBody: string | undefined;
+
+  /**
+   * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
+   */
+  parameters?: Record<string, string>;
+}
+
+export namespace RegisterThingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterThingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterThingResponse {
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem?: string;
+
+  /**
+   * <p>ARNs for the generated resources.</p>
+   */
+  resourceArns?: Record<string, string>;
+}
+
+export namespace RegisterThingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterThingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource registration failed.</p>
+ */
+export class ResourceRegistrationFailureException extends __BaseException {
+  readonly name: "ResourceRegistrationFailureException" = "ResourceRegistrationFailureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceRegistrationFailureException, __BaseException>) {
+    super({
+      name: "ResourceRegistrationFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceRegistrationFailureException.prototype);
+  }
+}
+
+/**
+ * <p>The input for the RejectCertificateTransfer operation.</p>
+ */
+export interface RejectCertificateTransferRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>The reason the certificate transfer was rejected.</p>
+   */
+  rejectReason?: string;
+}
+
+export namespace RejectCertificateTransferRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectCertificateTransferRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveThingFromBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   */
+  billingGroupName?: string;
+
+  /**
+   * <p>The ARN of the billing group.</p>
+   */
+  billingGroupArn?: string;
+
+  /**
+   * <p>The name of the thing to be removed from the billing group.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The ARN of the thing to be removed from the billing group.</p>
+   */
+  thingArn?: string;
+}
+
+export namespace RemoveThingFromBillingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveThingFromBillingGroupResponse {}
+
+export namespace RemoveThingFromBillingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveThingFromThingGroupRequest {
+  /**
+   * <p>The group name.</p>
+   */
+  thingGroupName?: string;
+
+  /**
+   * <p>The group ARN.</p>
+   */
+  thingGroupArn?: string;
+
+  /**
+   * <p>The name of the thing to remove from the group.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The ARN of the thing to remove from the group.</p>
+   */
+  thingArn?: string;
+}
+
+export namespace RemoveThingFromThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveThingFromThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveThingFromThingGroupResponse {}
+
+export namespace RemoveThingFromThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveThingFromThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ReplaceTopicRule operation.</p>
+ */
+export interface ReplaceTopicRuleRequest {
+  /**
+   * <p>The name of the rule.</p>
+   */
+  ruleName: string | undefined;
+
+  /**
+   * <p>The rule payload.</p>
+   */
+  topicRulePayload: TopicRulePayload | undefined;
+}
+
+export namespace ReplaceTopicRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceTopicRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchIndexRequest {
+  /**
+   * <p>The search index name.</p>
+   */
+  indexName?: string;
+
+  /**
+   * <p>The search query string.</p>
+   */
+  queryString: string | undefined;
+
+  /**
+   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The query version.</p>
+   */
+  queryVersion?: string;
+}
+
+export namespace SearchIndexRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The thing group search index document.</p>
+ */
+export interface ThingGroupDocument {
+  /**
+   * <p>The thing group name.</p>
+   */
+  thingGroupName?: string;
+
+  /**
+   * <p>The thing group ID.</p>
+   */
+  thingGroupId?: string;
+
+  /**
+   * <p>The thing group description.</p>
+   */
+  thingGroupDescription?: string;
+
+  /**
+   * <p>The thing group attributes.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>Parent group names.</p>
+   */
+  parentGroupNames?: string[];
+}
+
+export namespace ThingGroupDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingGroupDocument): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The thing search index document.</p>
+ */
+export interface ThingDocument {
+  /**
+   * <p>The thing name.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The thing ID.</p>
+   */
+  thingId?: string;
+
+  /**
+   * <p>The thing type name.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>Thing group names.</p>
+   */
+  thingGroupNames?: string[];
+
+  /**
+   * <p>The attributes.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>The unnamed shadow and named shadow.</p>
+   *          <p>For more information about shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
+   *          </p>
+   */
+  shadow?: string;
+
+  /**
+   * <p>Contains Device Defender data.</p>
+   *          <p>For more information about Device Defender, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html">Device Defender</a>. </p>
+   */
+  deviceDefender?: string;
+
+  /**
+   * <p>Indicates whether the thing is connected to the Amazon Web Services IoT Core service.</p>
+   */
+  connectivity?: ThingConnectivity;
+}
+
+export namespace ThingDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingDocument): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchIndexResponse {
+  /**
+   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The things that match the search query.</p>
+   */
+  things?: ThingDocument[];
+
+  /**
+   * <p>The thing groups that match the search query.</p>
+   */
+  thingGroups?: ThingGroupDocument[];
+}
+
+export namespace SearchIndexResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SetDefaultAuthorizerRequest {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+}
+
+export namespace SetDefaultAuthorizerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetDefaultAuthorizerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SetDefaultAuthorizerResponse {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
+}
+
+export namespace SetDefaultAuthorizerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetDefaultAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the SetDefaultPolicyVersion operation.</p>
+ */
+export interface SetDefaultPolicyVersionRequest {
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>The policy version ID.</p>
+   */
+  policyVersionId: string | undefined;
+}
+
+export namespace SetDefaultPolicyVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the logging options payload.</p>
+ */
+export interface LoggingOptionsPayload {
+  /**
+   * <p>The ARN of the IAM role that grants access.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The log level.</p>
+   */
+  logLevel?: LogLevel | string;
+}
+
+export namespace LoggingOptionsPayload {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoggingOptionsPayload): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the SetLoggingOptions operation.</p>
+ */
+export interface SetLoggingOptionsRequest {
+  /**
+   * <p>The logging options payload.</p>
+   */
+  loggingOptionsPayload: LoggingOptionsPayload | undefined;
+}
+
+export namespace SetLoggingOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetLoggingOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SetV2LoggingLevelRequest {
+  /**
+   * <p>The log target.</p>
+   */
+  logTarget: LogTarget | undefined;
+
+  /**
+   * <p>The log level.</p>
+   */
+  logLevel: LogLevel | string | undefined;
+}
+
+export namespace SetV2LoggingLevelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetV2LoggingLevelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SetV2LoggingOptionsRequest {
+  /**
+   * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The default logging level.</p>
+   */
+  defaultLogLevel?: LogLevel | string;
+
+  /**
+   * <p>If true all logs are disabled. The default is false.</p>
+   */
+  disableAllLogs?: boolean;
+}
+
+export namespace SetV2LoggingOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetV2LoggingOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartAuditMitigationActionsTaskRequest {
+  /**
+   * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply
+   *       them to a type of audit check, to all findings from an audit, or to a
+   *       specific set of
+   *       findings.</p>
+   */
+  target: AuditMitigationActionsTaskTarget | undefined;
+
+  /**
+   * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your Amazon Web Services accounts.</p>
+   */
+  auditCheckToActionsMapping: Record<string, string[]> | undefined;
+
+  /**
+   * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace StartAuditMitigationActionsTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartAuditMitigationActionsTaskResponse {
+  /**
+   * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
+   */
+  taskId?: string;
+}
+
+export namespace StartAuditMitigationActionsTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
+ *         </p>
+ */
+export class TaskAlreadyExistsException extends __BaseException {
+  readonly name: "TaskAlreadyExistsException" = "TaskAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TaskAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskAlreadyExistsException.prototype);
+  }
+}
+
+export interface StartDetectMitigationActionsTaskRequest {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>
+   *       Specifies the ML Detect findings to which the mitigation actions are applied.
+   *     </p>
+   */
+  target: DetectMitigationActionsTaskTarget | undefined;
+
+  /**
+   * <p>
+   *       The actions to be performed when a device has unexpected behavior.
+   *     </p>
+   */
+  actions: string[] | undefined;
+
+  /**
+   * <p>
+   *       Specifies the time period of which violation events occurred between.
+   *     </p>
+   */
+  violationEventOccurrenceRange?: ViolationEventOccurrenceRange;
+
+  /**
+   * <p>
+   *       Specifies to list only active violations.
+   *     </p>
+   */
+  includeOnlyActiveViolations?: boolean;
+
+  /**
+   * <p>
+   *       Specifies to include suppressed alerts.
+   *     </p>
+   */
+  includeSuppressedAlerts?: boolean;
+
+  /**
+   * <p>
+   *       Each mitigation action task must have a unique client request token. If you try to create a new task with the same token as a task that already exists, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.
+   *     </p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace StartDetectMitigationActionsTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartDetectMitigationActionsTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartDetectMitigationActionsTaskResponse {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   */
+  taskId?: string;
+}
+
+export namespace StartDetectMitigationActionsTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartDetectMitigationActionsTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartOnDemandAuditTaskRequest {
+  /**
+   * <p>Which checks are performed during the audit. The checks you specify must be enabled
+   *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
+   *             to see the list of all checks, including those that are enabled or
+   *             <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
+   */
+  targetCheckNames: string[] | undefined;
+}
+
+export namespace StartOnDemandAuditTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOnDemandAuditTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartOnDemandAuditTaskResponse {
+  /**
+   * <p>The ID of the on-demand audit you started.</p>
+   */
+  taskId?: string;
+}
+
+export namespace StartOnDemandAuditTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOnDemandAuditTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartThingRegistrationTaskRequest {
+  /**
+   * <p>The provisioning template.</p>
+   */
+  templateBody: string | undefined;
+
+  /**
+   * <p>The S3 bucket that contains the input file.</p>
+   */
+  inputFileBucket: string | undefined;
+
+  /**
+   * <p>The name of input file within the S3 bucket. This file contains a newline delimited
+   * 			JSON file. Each line contains the parameter values to provision one device
+   * 			(thing).</p>
+   */
+  inputFileKey: string | undefined;
+
+  /**
+   * <p>The IAM role ARN that grants permission the input file.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace StartThingRegistrationTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartThingRegistrationTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartThingRegistrationTaskResponse {
+  /**
+   * <p>The bulk thing provisioning task ID.</p>
+   */
+  taskId?: string;
+}
+
+export namespace StartThingRegistrationTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartThingRegistrationTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopThingRegistrationTaskRequest {
+  /**
+   * <p>The bulk thing provisioning task ID.</p>
+   */
+  taskId: string | undefined;
+}
+
+export namespace StopThingRegistrationTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopThingRegistrationTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopThingRegistrationTaskResponse {}
+
+export namespace StopThingRegistrationTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopThingRegistrationTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The new or modified tags for the resource.</p>
+   */
+  tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TestAuthorizationRequest {
+  /**
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   */
+  principal?: string;
+
+  /**
+   * <p>The Cognito identity pool ID.</p>
+   */
+  cognitoIdentityPoolId?: string;
+
+  /**
+   * <p>A list of authorization info objects. Simulating authorization will create a response
+   *          for each <code>authInfo</code> object in the list.</p>
+   */
+  authInfos: AuthInfo[] | undefined;
+
+  /**
+   * <p>The MQTT client ID.</p>
+   */
+  clientId?: string;
+
+  /**
+   * <p>When testing custom authorization, the policies specified here are treated as if they
+   *          are attached to the principal being authorized.</p>
+   */
+  policyNamesToAdd?: string[];
+
+  /**
+   * <p>When testing custom authorization, the policies specified here are treated as if they
+   *          are not attached to the principal being authorized.</p>
+   */
+  policyNamesToSkip?: string[];
+}
+
+export namespace TestAuthorizationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestAuthorizationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TestAuthorizationResponse {
+  /**
+   * <p>The authentication results.</p>
+   */
+  authResults?: AuthResult[];
+}
+
+export namespace TestAuthorizationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestAuthorizationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The response is invalid.</p>
+ */
+export class InvalidResponseException extends __BaseException {
+  readonly name: "InvalidResponseException" = "InvalidResponseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResponseException, __BaseException>) {
+    super({
+      name: "InvalidResponseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResponseException.prototype);
+  }
+}
+
+/**
+ * <p>Specifies the HTTP context to use for the test authorizer request.</p>
+ */
+export interface HttpContext {
+  /**
+   * <p>The header keys and values in an HTTP authorization request.</p>
+   */
+  headers?: Record<string, string>;
+
+  /**
+   * <p>The query string keys and values in an HTTP authorization request.</p>
+   */
+  queryString?: string;
+}
+
+export namespace HttpContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpContext): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the MQTT context to use for the test authorizer request</p>
+ */
+export interface MqttContext {
+  /**
+   * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
+   */
+  username?: string;
+
+  /**
+   * <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
+   */
+  password?: Uint8Array;
+
+  /**
+   * <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
+   */
+  clientId?: string;
+}
+
+export namespace MqttContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MqttContext): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the TLS context to use for the test authorizer request.</p>
+ */
+export interface TlsContext {
+  /**
+   * <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
+   */
+  serverName?: string;
+}
+
+export namespace TlsContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TlsContext): any => ({
+    ...obj,
+  });
+}
+
+export interface TestInvokeAuthorizerRequest {
+  /**
+   * <p>The custom authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+
+  /**
+   * <p>The token returned by your custom authentication service.</p>
+   */
+  token?: string;
+
+  /**
+   * <p>The signature made with the token and your custom authentication service's private
+   *          key. This value must be Base-64-encoded.</p>
+   */
+  tokenSignature?: string;
+
+  /**
+   * <p>Specifies a test HTTP authorization request.</p>
+   */
+  httpContext?: HttpContext;
+
+  /**
+   * <p>Specifies a test MQTT authorization request.</p>
+   */
+  mqttContext?: MqttContext;
+
+  /**
+   * <p>Specifies a test TLS authorization request.</p>
+   */
+  tlsContext?: TlsContext;
+}
+
+export namespace TestInvokeAuthorizerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TestInvokeAuthorizerResponse {
+  /**
+   * <p>True if the token is authenticated, otherwise false.</p>
+   */
+  isAuthenticated?: boolean;
+
+  /**
+   * <p>The principal ID.</p>
+   */
+  principalId?: string;
+
+  /**
+   * <p>IAM policy documents.</p>
+   */
+  policyDocuments?: string[];
+
+  /**
+   * <p>The number of seconds after which the temporary credentials are refreshed.</p>
+   */
+  refreshAfterInSeconds?: number;
+
+  /**
+   * <p>The number of seconds after which the connection is terminated.</p>
+   */
+  disconnectAfterInSeconds?: number;
+}
+
+export namespace TestInvokeAuthorizerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the TransferCertificate operation.</p>
+ */
+export interface TransferCertificateRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account.</p>
+   */
+  targetAwsAccount: string | undefined;
+
+  /**
+   * <p>The transfer message.</p>
+   */
+  transferMessage?: string;
+}
+
+export namespace TransferCertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransferCertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the TransferCertificate operation.</p>
+ */
+export interface TransferCertificateResponse {
+  /**
+   * <p>The ARN of the certificate.</p>
+   */
+  transferredCertificateArn?: string;
+}
+
+export namespace TransferCertificateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransferCertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You can't transfer the certificate because authorization policies are still
+ *          attached.</p>
+ */
+export class TransferConflictException extends __BaseException {
+  readonly name: "TransferConflictException" = "TransferConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransferConflictException, __BaseException>) {
+    super({
+      name: "TransferConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransferConflictException.prototype);
+  }
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of the keys of the tags to be removed from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountAuditConfigurationRequest {
+  /**
+   * <p>The Amazon
+   *       Resource Name
+   *       (ARN)
+   *       of the role that grants permission
+   *       to
+   *       IoT to access information about your devices, policies,
+   *       certificates,
+   *       and other items as required when performing an audit.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent.</p>
+   */
+  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
+
+  /**
+   * <p>Specifies which audit checks are enabled and disabled for this account. Use
+   *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
+   *             that are currently enabled.</p>
+   *           <p>Some data collection might start immediately when certain checks are enabled.
+   *             When a check is disabled, any data collected so far in relation to the check is deleted.</p>
+   *           <p>You
+   *       cannot
+   *       disable a check if
+   *       it's
+   *       used by any scheduled audit. You must first delete the check from the scheduled audit or
+   *       delete the scheduled audit itself.</p>
+   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required and must specify at least one enabled check.</p>
+   */
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
+}
+
+export namespace UpdateAccountAuditConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountAuditConfigurationResponse {}
+
+export namespace UpdateAccountAuditConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuditSuppressionRequest {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+
+  /**
+   * <p>
+   *       The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+   *     </p>
+   */
+  expirationDate?: Date;
+
+  /**
+   * <p>
+   *       Indicates whether a suppression should exist indefinitely or not.
+   *     </p>
+   */
+  suppressIndefinitely?: boolean;
+
+  /**
+   * <p>
+   *       The description of the audit suppression.
+   *     </p>
+   */
+  description?: string;
+}
+
+export namespace UpdateAuditSuppressionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAuditSuppressionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuditSuppressionResponse {}
+
+export namespace UpdateAuditSuppressionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAuditSuppressionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuthorizerRequest {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+
+  /**
+   * <p>The ARN of the authorizer's Lambda function.</p>
+   */
+  authorizerFunctionArn?: string;
+
+  /**
+   * <p>The key used to extract the token from the HTTP headers. </p>
+   */
+  tokenKeyName?: string;
+
+  /**
+   * <p>The public keys used to verify the token signature.</p>
+   */
+  tokenSigningPublicKeys?: Record<string, string>;
+
+  /**
+   * <p>The status of the update authorizer request.</p>
+   */
+  status?: AuthorizerStatus | string;
+
+  /**
+   * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
+   * 	  cached for the time specified in <code>refreshAfterInSeconds</code>. The cached
+   * 	  result is used while the device reuses the same HTTP connection.</p>
+   */
+  enableCachingForHttp?: boolean;
+}
+
+export namespace UpdateAuthorizerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuthorizerResponse {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
+}
+
+export namespace UpdateAuthorizerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   * <p>The properties of the billing group.</p>
+   */
+  billingGroupProperties: BillingGroupProperties | undefined;
+
+  /**
+   * <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>UpdateBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace UpdateBillingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBillingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBillingGroupResponse {
+  /**
+   * <p>The latest version of the billing group.</p>
+   */
+  version?: number;
+}
+
+export namespace UpdateBillingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBillingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input to the UpdateCACertificate operation.</p>
+ */
+export interface UpdateCACertificateRequest {
+  /**
+   * <p>The CA certificate identifier.</p>
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>The updated status of the CA certificate.</p>
+   *          <p>
+   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
+   *          should not be used.</p>
+   */
+  newStatus?: CACertificateStatus | string;
+
+  /**
+   * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
+   *          "DISABLE".</p>
+   */
+  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
+
+  /**
+   * <p>Information about the registration configuration.</p>
+   */
+  registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>If true, removes auto registration.</p>
+   */
+  removeAutoRegistration?: boolean;
+}
+
+export namespace UpdateCACertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCACertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the UpdateCertificate operation.</p>
+ */
+export interface UpdateCertificateRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>The new status.</p>
+   *          <p>
+   *             <b>Note:</b> Setting the status to PENDING_TRANSFER  or PENDING_ACTIVATION will result
+   *          in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by IoT. They
+   *          are not intended for developer use.</p>
+   *          <p>
+   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
+   *          should not be used.</p>
+   */
+  newStatus: CertificateStatus | string | undefined;
+}
+
+export namespace UpdateCertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCustomMetricRequest {
+  /**
+   * <p> The name of the custom metric.
+   *       Cannot be updated. </p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>
+   *       Field
+   *       represents a friendly name in the console for the custom metric,
+   *       it
+   *       doesn't have to be unique. Don't use this name as the metric identifier in
+   *       the device metric report.
+   *       Can
+   *       be updated. </p>
+   */
+  displayName: string | undefined;
+}
+
+export namespace UpdateCustomMetricRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCustomMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCustomMetricResponse {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>
+   *       The Amazon Resource Number (ARN) of the custom metric.
+   *     </p>
+   */
+  metricArn?: string;
+
+  /**
+   * <p> The type of the custom metric. </p>
+   *          <important>
+   *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
+   *          </important>
+   */
+  metricType?: CustomMetricType | string;
+
+  /**
+   * <p>
+   *       A friendly name in the console for the custom metric
+   *     </p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>
+   *       The creation date of the custom metric in milliseconds since epoch.
+   *     </p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>
+   *       The time the custom metric was last modified in milliseconds since epoch.
+   *     </p>
+   */
+  lastModifiedDate?: Date;
+}
+
+export namespace UpdateCustomMetricResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCustomMetricResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDimensionRequest {
+  /**
+   * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
+   */
+  stringValues: string[] | undefined;
+}
+
+export namespace UpdateDimensionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDimensionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDimensionResponse {
+  /**
+   * <p>A unique identifier for the dimension.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource
+   *       Name (ARN)of
+   *       the created dimension.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The type of the dimension.</p>
+   */
+  type?: DimensionType | string;
+
+  /**
+   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
+   */
+  stringValues?: string[];
+
+  /**
+   * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date and time, in milliseconds since epoch, when the dimension was most recently updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+export namespace UpdateDimensionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDimensionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainConfigurationRequest {
+  /**
+   * <p>The name of the domain configuration to be updated.</p>
+   */
+  domainConfigurationName: string | undefined;
+
+  /**
+   * <p>An object that specifies the authorization service for a domain.</p>
+   */
+  authorizerConfig?: AuthorizerConfig;
+
+  /**
+   * <p>The status to which the domain configuration should be updated.</p>
+   */
+  domainConfigurationStatus?: DomainConfigurationStatus | string;
+
+  /**
+   * <p>Removes the authorization configuration from a domain.</p>
+   */
+  removeAuthorizerConfig?: boolean;
+}
+
+export namespace UpdateDomainConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainConfigurationResponse {
+  /**
+   * <p>The name of the domain configuration that was updated.</p>
+   */
+  domainConfigurationName?: string;
+
+  /**
+   * <p>The ARN of the domain configuration that was updated.</p>
+   */
+  domainConfigurationArn?: string;
+}
+
+export namespace UpdateDomainConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDynamicThingGroupRequest {
+  /**
+   * <p>The name of the dynamic thing group to update.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>The dynamic thing group properties to update.</p>
+   */
+  thingGroupProperties: ThingGroupProperties | undefined;
+
+  /**
+   * <p>The expected version of the dynamic thing group to update.</p>
+   */
+  expectedVersion?: number;
+
+  /**
+   * <p>The dynamic thing group index to update.</p>
+   * 		       <note>
+   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
+   * 		       </note>
+   */
+  indexName?: string;
+
+  /**
+   * <p>The dynamic thing group search query string to update.</p>
+   */
+  queryString?: string;
+
+  /**
+   * <p>The dynamic thing group query version to update.</p>
+   * 		       <note>
+   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   * 				query version defaults to this value.</p>
+   * 		       </note>
+   */
+  queryVersion?: string;
+}
+
+export namespace UpdateDynamicThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDynamicThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDynamicThingGroupResponse {
+  /**
+   * <p>The dynamic thing group version.</p>
+   */
+  version?: number;
+}
+
+export namespace UpdateDynamicThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDynamicThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventConfigurationsRequest {
+  /**
+   * <p>The new event configuration values.</p>
+   */
+  eventConfigurations?: Record<string, Configuration>;
+}
+
+export namespace UpdateEventConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventConfigurationsResponse {}
+
+export namespace UpdateEventConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to update.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The search query string.</p>
+   */
+  queryString?: string;
+
+  /**
+   * <p>The type of the aggregation query.</p>
+   */
+  aggregationType?: AggregationType;
+
+  /**
+   * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
+   */
+  period?: number;
+
+  /**
+   * <p>The field to aggregate.</p>
+   */
+  aggregationField?: string;
+
+  /**
+   * <p>The description of the fleet metric.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The version of the query.</p>
+   */
+  queryVersion?: string;
+
+  /**
+   * <p>The name of the index to search.</p>
+   */
+  indexName: string | undefined;
+
+  /**
+   * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
+   *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
+   */
+  unit?: FleetMetricUnit | string;
+
+  /**
+   * <p>The expected version of the fleet metric record in the registry.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace UpdateFleetMetricRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFleetMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIndexingConfigurationRequest {
+  /**
+   * <p>Thing indexing configuration.</p>
+   */
+  thingIndexingConfiguration?: ThingIndexingConfiguration;
+
+  /**
+   * <p>Thing group indexing configuration.</p>
+   */
+  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
+}
+
+export namespace UpdateIndexingConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIndexingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIndexingConfigurationResponse {}
+
+export namespace UpdateIndexingConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIndexingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateJobRequest {
+  /**
+   * <p>The ID of the job to be updated.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>A short text description of the job.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Configuration information for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>Allows you to create a staged rollout of the job.</p>
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   * <p>Allows you to create criteria to abort a job.</p>
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
+   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
+   */
+  timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *         <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *         <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+}
+
+export namespace UpdateJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMitigationActionRequest {
+  /**
+   * <p>The friendly name for the mitigation action. You cannot change the name by using
+   *         <code>UpdateMitigationAction</code>. Instead, you must delete and
+   *       recreate the
+   *       mitigation action with the new name.</p>
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>Defines the type of action and the parameters for that action.</p>
+   */
+  actionParams?: MitigationActionParams;
+}
+
+export namespace UpdateMitigationActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMitigationActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMitigationActionResponse {
+  /**
+   * <p>The ARN for the new mitigation action.</p>
+   */
+  actionArn?: string;
+
+  /**
+   * <p>A unique identifier for the mitigation action.</p>
+   */
+  actionId?: string;
+}
+
+export namespace UpdateMitigationActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMitigationActionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProvisioningTemplateRequest {
+  /**
+   * <p>The name of the fleet provisioning template.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The description of the fleet provisioning template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>True to enable the fleet provisioning template, otherwise false.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The ID of the default provisioning template version.</p>
+   */
+  defaultVersionId?: number;
+
+  /**
+   * <p>The ARN of the role associated with the provisioning template. This IoT role grants
+   *          permission to provision a device.</p>
+   */
+  provisioningRoleArn?: string;
+
+  /**
+   * <p>Updates the pre-provisioning hook template.</p>
+   */
+  preProvisioningHook?: ProvisioningHook;
+
+  /**
+   * <p>Removes pre-provisioning hook template.</p>
+   */
+  removePreProvisioningHook?: boolean;
+}
+
+export namespace UpdateProvisioningTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateProvisioningTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProvisioningTemplateResponse {}
+
+export namespace UpdateProvisioningTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateProvisioningTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRoleAliasRequest {
+  /**
+   * <p>The role alias to update.</p>
+   */
+  roleAlias: string | undefined;
+
+  /**
+   * <p>The role ARN.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The number of seconds the credential will be valid.</p>
+   *          <p>This value must be less than or equal to the maximum session duration of the IAM role
+   *          that the role alias references.</p>
+   */
+  credentialDurationSeconds?: number;
+}
+
+export namespace UpdateRoleAliasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRoleAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRoleAliasResponse {
+  /**
+   * <p>The role alias.</p>
+   */
+  roleAlias?: string;
+
+  /**
+   * <p>The role alias ARN.</p>
+   */
+  roleAliasArn?: string;
+}
+
+export namespace UpdateRoleAliasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRoleAliasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateScheduledAuditRequest {
+  /**
+   * <p>How often the scheduled audit takes
+   *       place,
+   *       either <code>DAILY</code>,
+   *       <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
+   *       system.</p>
+   */
+  frequency?: AuditFrequency | string;
+
+  /**
+   * <p>The day of the month on which the scheduled audit takes place.
+   *       This
+   *       can
+   *       be <code>1</code> through <code>31</code> or <code>LAST</code>. This field is required if the <code>frequency</code> parameter is set to
+   *             <code>MONTHLY</code>. If days 29-31 are specified, and the month does not have that many days, the audit
+   *       takes place on the "LAST" day of the month.</p>
+   */
+  dayOfMonth?: string;
+
+  /**
+   * <p>The day of the week on which the scheduled audit takes place.
+   *       This
+   *       can
+   *       be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the
+   *             "frequency" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
+   */
+  dayOfWeek?: DayOfWeek | string;
+
+  /**
+   * <p>Which checks are performed during the scheduled audit. Checks must be enabled
+   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
+   */
+  targetCheckNames?: string[];
+
+  /**
+   * <p>The name of the scheduled audit. (Max. 128 chars)</p>
+   */
+  scheduledAuditName: string | undefined;
+}
+
+export namespace UpdateScheduledAuditRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateScheduledAuditRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateScheduledAuditResponse {
+  /**
+   * <p>The ARN of the scheduled audit.</p>
+   */
+  scheduledAuditArn?: string;
+}
+
+export namespace UpdateScheduledAuditResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateScheduledAuditResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityProfileRequest {
+  /**
+   * <p>The name of the security profile you want to update.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>A description of the security profile.</p>
+   */
+  securityProfileDescription?: string;
+
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors?: Behavior[];
+
+  /**
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   */
+  alertTargets?: Record<string, AlertTarget>;
+
+  /**
+   * @deprecated
+   *
+   * <p>
+   *             <i>Please use
+   *           <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a>
+   *         instead.</i>
+   *          </p>
+   *          <p>A list of metrics
+   *      whose data is retained (stored). By default, data is retained for any metric
+   *       used in the profile's <code>behaviors</code>, but
+   *       it is
+   *       also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   */
+  additionalMetricsToRetain?: string[];
+
+  /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
+
+  /**
+   * <p>If true, delete all <code>behaviors</code> defined for this security profile.
+   *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
+   */
+  deleteBehaviors?: boolean;
+
+  /**
+   * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
+   *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
+   */
+  deleteAlertTargets?: boolean;
+
+  /**
+   * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
+   *         security profile. If any <code>additionalMetricsToRetain</code> are defined in the current
+   *         invocation, an exception occurs.</p>
+   */
+  deleteAdditionalMetricsToRetain?: boolean;
+
+  /**
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace UpdateSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityProfileResponse {
+  /**
+   * <p>The name of the security profile that was updated.</p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>The ARN of the security profile that was updated.</p>
+   */
+  securityProfileArn?: string;
+
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  securityProfileDescription?: string;
+
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors?: Behavior[];
+
+  /**
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   */
+  alertTargets?: Record<string, AlertTarget>;
+
+  /**
+   * @deprecated
+   *
+   * <p>
+   *             <i>Please use
+   *           <a>UpdateSecurityProfileResponse$additionalMetricsToRetainV2</a>
+   *         instead.</i>
+   *          </p>
+   *          <p>A list of metrics
+   *       whose data is retained (stored). By default, data is retained for any metric
+   *       used in the security profile's <code>behaviors</code>, but
+   *       it is
+   *       also retained for any metric specified here.</p>
+   */
+  additionalMetricsToRetain?: string[];
+
+  /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
+
+  /**
+   * <p>The updated version of the security profile.</p>
+   */
+  version?: number;
+
+  /**
+   * <p>The time the security profile was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The time the security profile was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+export namespace UpdateSecurityProfileResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityProfileResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateStreamRequest {
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId: string | undefined;
+
+  /**
+   * <p>The description of the stream.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The files associated with the stream.</p>
+   */
+  files?: StreamFile[];
+
+  /**
+   * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
+   */
+  roleArn?: string;
+}
+
+export namespace UpdateStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStreamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateStreamResponse {
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>The stream ARN.</p>
+   */
+  streamArn?: string;
+
+  /**
+   * <p>A description of the stream.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The stream version.</p>
+   */
+  streamVersion?: number;
+}
+
+export namespace UpdateStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStreamResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the UpdateThing operation.</p>
+ */
+export interface UpdateThingRequest {
+  /**
+   * <p>The name of the thing to update.</p>
+   * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
+   * 			new thing, give it the new name, and then delete the old thing.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>A list of thing attributes, a JSON string containing name-value pairs. For
+   * 			example:</p>
+   * 		       <p>
+   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
+   * 		       </p>
+   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
+   */
+  attributePayload?: AttributePayload;
+
+  /**
+   * <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>UpdateThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   */
+  expectedVersion?: number;
+
+  /**
+   * <p>Remove a thing type association. If <b>true</b>, the
+   * 			association is removed.</p>
+   */
+  removeThingType?: boolean;
+}
+
+export namespace UpdateThingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the UpdateThing operation.</p>
+ */
+export interface UpdateThingResponse {}
+
+export namespace UpdateThingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThingGroupRequest {
+  /**
+   * <p>The thing group to update.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>The thing group properties.</p>
+   */
+  thingGroupProperties: ThingGroupProperties | undefined;
+
+  /**
+   * <p>The expected version of the thing group. If this does not match the version of the
+   * 			thing group being updated, the update will fail.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace UpdateThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThingGroupResponse {
+  /**
+   * <p>The version of the updated thing group.</p>
+   */
+  version?: number;
+}
+
+export namespace UpdateThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThingGroupsForThingRequest {
+  /**
+   * <p>The thing whose group memberships will be updated.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The groups to which the thing will be added.</p>
+   */
+  thingGroupsToAdd?: string[];
+
+  /**
+   * <p>The groups from which the thing will be removed.</p>
+   */
+  thingGroupsToRemove?: string[];
+
+  /**
+   * <p>Override dynamic thing groups with static thing groups when 10-group limit is
+   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
+   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
+   * 			dynamic group.</p>
+   */
+  overrideDynamicGroups?: boolean;
+}
+
+export namespace UpdateThingGroupsForThingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingGroupsForThingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThingGroupsForThingResponse {}
+
+export namespace UpdateThingGroupsForThingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThingGroupsForThingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTopicRuleDestinationRequest {
+  /**
+   * <p>The ARN of the topic rule destination.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   */
+  status: TopicRuleDestinationStatus | string | undefined;
+}
+
+export namespace UpdateTopicRuleDestinationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTopicRuleDestinationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTopicRuleDestinationResponse {}
+
+export namespace UpdateTopicRuleDestinationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTopicRuleDestinationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ValidateSecurityProfileBehaviorsRequest {
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors: Behavior[] | undefined;
+}
+
+export namespace ValidateSecurityProfileBehaviorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidateSecurityProfileBehaviorsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an error found in a behavior specification.</p>
+ */
+export interface ValidationError {
+  /**
+   * <p>The description of an error found in the behaviors.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace ValidationError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationError): any => ({
+    ...obj,
+  });
+}
+
+export interface ValidateSecurityProfileBehaviorsResponse {
+  /**
+   * <p>True if the behaviors were valid.</p>
+   */
+  valid?: boolean;
+
+  /**
+   * <p>The list of any errors found in the behaviors.</p>
+   */
+  validationErrors?: ValidationError[];
+}
+
+export namespace ValidateSecurityProfileBehaviorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidateSecurityProfileBehaviorsResponse): any => ({
     ...obj,
   });
 }

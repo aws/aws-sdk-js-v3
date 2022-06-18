@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserIdentityInfoRequest } from "../models/models_1";
+import { UpdateUserIdentityInfoRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUserIdentityInfoCommand,
   serializeAws_restJson1UpdateUserIdentityInfoCommand,

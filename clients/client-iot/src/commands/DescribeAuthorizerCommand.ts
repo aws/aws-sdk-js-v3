@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuthorizerRequest, DescribeAuthorizerResponse } from "../models/models_1";
+import { DescribeAuthorizerRequest, DescribeAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAuthorizerCommand,
   serializeAws_restJson1DescribeAuthorizerCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetOpsItemRequest, GetOpsItemResponse } from "../models/models_1";
+import { GetOpsItemRequest, GetOpsItemResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOpsItemCommand,
   serializeAws_json1_1GetOpsItemCommand,

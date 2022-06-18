@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UploadServerCertificateRequest, UploadServerCertificateResponse } from "../models/models_1";
+import { UploadServerCertificateRequest, UploadServerCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_queryUploadServerCertificateCommand,
   serializeAws_queryUploadServerCertificateCommand,

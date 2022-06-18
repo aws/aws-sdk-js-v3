@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ExportImageRequest, ExportImageResult } from "../models/models_4";
+import { ExportImageRequest, ExportImageResult } from "../models/models_2";
 import { deserializeAws_ec2ExportImageCommand, serializeAws_ec2ExportImageCommand } from "../protocols/Aws_ec2";
 
 export interface ExportImageCommandInput extends ExportImageRequest {}

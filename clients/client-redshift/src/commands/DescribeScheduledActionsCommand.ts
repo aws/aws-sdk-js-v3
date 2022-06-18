@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/models_1";
+import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
   serializeAws_queryDescribeScheduledActionsCommand,

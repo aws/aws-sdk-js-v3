@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBEngineVersion } from "../models/models_0";
-import { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
+import { DBEngineVersion, ModifyCustomDBEngineVersionMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyCustomDBEngineVersionCommand,
   serializeAws_queryModifyCustomDBEngineVersionCommand,

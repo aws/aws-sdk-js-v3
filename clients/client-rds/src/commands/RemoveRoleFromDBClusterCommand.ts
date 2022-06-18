@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveRoleFromDBClusterMessage } from "../models/models_1";
+import { RemoveRoleFromDBClusterMessage } from "../models/models_0";
 import {
   deserializeAws_queryRemoveRoleFromDBClusterCommand,
   serializeAws_queryRemoveRoleFromDBClusterCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_1";
+import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_0";
 import {
   deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
   serializeAws_queryModifySnapshotCopyRetentionPeriodCommand,

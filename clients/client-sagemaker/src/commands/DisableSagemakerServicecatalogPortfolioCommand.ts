@@ -15,7 +15,7 @@ import {
 import {
   DisableSagemakerServicecatalogPortfolioInput,
   DisableSagemakerServicecatalogPortfolioOutput,
-} from "../models/models_2";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
   serializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,

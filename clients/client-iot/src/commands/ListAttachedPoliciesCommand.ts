@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListAttachedPoliciesRequest, ListAttachedPoliciesResponse } from "../models/models_1";
+import { ListAttachedPoliciesRequest, ListAttachedPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAttachedPoliciesCommand,
   serializeAws_restJson1ListAttachedPoliciesCommand,

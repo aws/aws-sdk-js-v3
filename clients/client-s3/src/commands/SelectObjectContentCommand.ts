@@ -15,7 +15,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
+import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlSelectObjectContentCommand,
   serializeAws_restXmlSelectObjectContentCommand,

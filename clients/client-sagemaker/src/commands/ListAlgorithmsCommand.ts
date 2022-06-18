@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAlgorithmsInput, ListAlgorithmsOutput } from "../models/models_2";
+import { ListAlgorithmsInput, ListAlgorithmsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAlgorithmsCommand,
   serializeAws_json1_1ListAlgorithmsCommand,

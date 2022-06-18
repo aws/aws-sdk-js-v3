@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_6";
+import { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_3";
 import {
   deserializeAws_ec2ResetAddressAttributeCommand,
   serializeAws_ec2ResetAddressAttributeCommand,

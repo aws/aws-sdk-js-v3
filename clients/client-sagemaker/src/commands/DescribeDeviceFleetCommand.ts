@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDeviceFleetRequest, DescribeDeviceFleetResponse } from "../models/models_1";
+import { DescribeDeviceFleetRequest, DescribeDeviceFleetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDeviceFleetCommand,
   serializeAws_json1_1DescribeDeviceFleetCommand,

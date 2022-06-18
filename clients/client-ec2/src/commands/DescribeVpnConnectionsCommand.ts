@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_4";
+import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeVpnConnectionsCommand,
   serializeAws_ec2DescribeVpnConnectionsCommand,

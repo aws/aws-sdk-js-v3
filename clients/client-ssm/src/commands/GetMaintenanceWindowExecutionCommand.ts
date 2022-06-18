@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult } from "../models/models_1";
+import { GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMaintenanceWindowExecutionCommand,
   serializeAws_json1_1GetMaintenanceWindowExecutionCommand,

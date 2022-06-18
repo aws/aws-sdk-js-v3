@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAssociationRequest, UpdateAssociationResult } from "../models/models_1";
+import { UpdateAssociationRequest, UpdateAssociationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAssociationCommand,
   serializeAws_json1_1UpdateAssociationCommand,

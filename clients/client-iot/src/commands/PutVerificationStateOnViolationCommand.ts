@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { PutVerificationStateOnViolationRequest, PutVerificationStateOnViolationResponse } from "../models/models_2";
+import { PutVerificationStateOnViolationRequest, PutVerificationStateOnViolationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1PutVerificationStateOnViolationCommand,
   serializeAws_restJson1PutVerificationStateOnViolationCommand,

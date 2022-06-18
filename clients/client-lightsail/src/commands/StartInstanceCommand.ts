@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StartInstanceRequest, StartInstanceResult } from "../models/models_1";
+import { StartInstanceRequest, StartInstanceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartInstanceCommand,
   serializeAws_json1_1StartInstanceCommand,

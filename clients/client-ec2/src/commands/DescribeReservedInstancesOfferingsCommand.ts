@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
-} from "../models/models_4";
+} from "../models/models_1";
 import {
   deserializeAws_ec2DescribeReservedInstancesOfferingsCommand,
   serializeAws_ec2DescribeReservedInstancesOfferingsCommand,

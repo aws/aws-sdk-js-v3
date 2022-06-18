@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EndpointAuthorization } from "../models/models_0";
-import { RevokeEndpointAccessMessage } from "../models/models_1";
+import { EndpointAuthorization, RevokeEndpointAccessMessage } from "../models/models_0";
 import {
   deserializeAws_queryRevokeEndpointAccessCommand,
   serializeAws_queryRevokeEndpointAccessCommand,

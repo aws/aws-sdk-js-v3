@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMonitoringScheduleRequest } from "../models/models_3";
+import { StartMonitoringScheduleRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StartMonitoringScheduleCommand,
   serializeAws_json1_1StartMonitoringScheduleCommand,

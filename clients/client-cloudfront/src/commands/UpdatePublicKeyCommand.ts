@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_1";
+import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_0";
 import {
   deserializeAws_restXmlUpdatePublicKeyCommand,
   serializeAws_restXmlUpdatePublicKeyCommand,

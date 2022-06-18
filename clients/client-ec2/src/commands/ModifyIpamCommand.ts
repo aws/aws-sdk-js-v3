@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIpamRequest, ModifyIpamResult } from "../models/models_5";
+import { ModifyIpamRequest, ModifyIpamResult } from "../models/models_2";
 import { deserializeAws_ec2ModifyIpamCommand, serializeAws_ec2ModifyIpamCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyIpamCommandInput extends ModifyIpamRequest {}

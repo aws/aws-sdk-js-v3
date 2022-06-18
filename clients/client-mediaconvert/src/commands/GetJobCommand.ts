@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetJobRequest, GetJobResponse } from "../models/models_1";
+import { GetJobRequest, GetJobResponse } from "../models/models_0";
 import { deserializeAws_restJson1GetJobCommand, serializeAws_restJson1GetJobCommand } from "../protocols/Aws_restJson1";
 
 export interface GetJobCommandInput extends GetJobRequest {}

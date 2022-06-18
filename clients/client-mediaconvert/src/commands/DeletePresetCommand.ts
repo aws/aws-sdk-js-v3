@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/models_1";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePresetCommand,
   serializeAws_restJson1DeletePresetCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteMultiplexRequest, DeleteMultiplexResponse } from "../models/models_1";
+import { DeleteMultiplexRequest, DeleteMultiplexResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMultiplexCommand,
   serializeAws_restJson1DeleteMultiplexCommand,

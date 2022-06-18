@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSecurityHubConfigurationRequest, UpdateSecurityHubConfigurationResponse } from "../models/models_2";
+import { UpdateSecurityHubConfigurationRequest, UpdateSecurityHubConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSecurityHubConfigurationCommand,
   serializeAws_restJson1UpdateSecurityHubConfigurationCommand,

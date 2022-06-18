@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
+import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_0";
 import {
   deserializeAws_queryRestoreDBClusterFromS3Command,
   serializeAws_queryRestoreDBClusterFromS3Command,

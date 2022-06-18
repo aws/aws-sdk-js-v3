@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_3";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand,

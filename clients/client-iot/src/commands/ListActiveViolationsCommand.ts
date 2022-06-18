@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_1";
+import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListActiveViolationsCommand,
   serializeAws_restJson1ListActiveViolationsCommand,

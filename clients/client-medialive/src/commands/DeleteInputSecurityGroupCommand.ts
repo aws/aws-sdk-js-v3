@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/models_1";
+import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInputSecurityGroupCommand,
   serializeAws_restJson1DeleteInputSecurityGroupCommand,

@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
-} from "../models/models_4";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
   serializeAws_ec2DisableIpamOrganizationAdminAccountCommand,

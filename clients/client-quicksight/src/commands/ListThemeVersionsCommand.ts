@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_1";
+import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListThemeVersionsCommand,
   serializeAws_restJson1ListThemeVersionsCommand,

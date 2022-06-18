@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_2";
+import { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_0";
 import {
   deserializeAws_ec2DeletePublicIpv4PoolCommand,
   serializeAws_ec2DeletePublicIpv4PoolCommand,

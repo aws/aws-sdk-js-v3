@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_4";
+import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeScheduledInstancesCommand,
   serializeAws_ec2DescribeScheduledInstancesCommand,

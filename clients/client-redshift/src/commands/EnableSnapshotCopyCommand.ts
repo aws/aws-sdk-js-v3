@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/models_1";
+import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/models_0";
 import {
   deserializeAws_queryEnableSnapshotCopyCommand,
   serializeAws_queryEnableSnapshotCopyCommand,

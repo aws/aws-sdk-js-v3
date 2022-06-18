@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { SelectAggregateResourceConfigRequest, SelectAggregateResourceConfigResponse } from "../models/models_1";
+import { SelectAggregateResourceConfigRequest, SelectAggregateResourceConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SelectAggregateResourceConfigCommand,
   serializeAws_json1_1SelectAggregateResourceConfigCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTagsRequest } from "../models/models_1";
+import { CreateTagsRequest } from "../models/models_0";
 import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
 
 export interface CreateTagsCommandInput extends CreateTagsRequest {}

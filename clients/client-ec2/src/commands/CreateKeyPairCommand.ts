@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateKeyPairRequest, KeyPair } from "../models/models_1";
+import { CreateKeyPairRequest, KeyPair } from "../models/models_0";
 import { deserializeAws_ec2CreateKeyPairCommand, serializeAws_ec2CreateKeyPairCommand } from "../protocols/Aws_ec2";
 
 export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}

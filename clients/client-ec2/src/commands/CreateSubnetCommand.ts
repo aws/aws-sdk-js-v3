@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateSubnetRequest, CreateSubnetResult } from "../models/models_1";
+import { CreateSubnetRequest, CreateSubnetResult } from "../models/models_0";
 import { deserializeAws_ec2CreateSubnetCommand, serializeAws_ec2CreateSubnetCommand } from "../protocols/Aws_ec2";
 
 export interface CreateSubnetCommandInput extends CreateSubnetRequest {}

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListChannelModeratorsRequest, ListChannelModeratorsResponse } from "../models/models_1";
+import { ListChannelModeratorsRequest, ListChannelModeratorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListChannelModeratorsCommand,
   serializeAws_restJson1ListChannelModeratorsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListAuditTasksRequest, ListAuditTasksResponse } from "../models/models_1";
+import { ListAuditTasksRequest, ListAuditTasksResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAuditTasksCommand,
   serializeAws_restJson1ListAuditTasksCommand,

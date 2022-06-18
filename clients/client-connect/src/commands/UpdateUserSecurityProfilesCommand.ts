@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserSecurityProfilesRequest } from "../models/models_1";
+import { UpdateUserSecurityProfilesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUserSecurityProfilesCommand,
   serializeAws_restJson1UpdateUserSecurityProfilesCommand,

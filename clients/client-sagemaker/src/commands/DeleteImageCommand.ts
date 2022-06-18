@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteImageRequest, DeleteImageResponse } from "../models/models_1";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteImageCommand,
   serializeAws_json1_1DeleteImageCommand,

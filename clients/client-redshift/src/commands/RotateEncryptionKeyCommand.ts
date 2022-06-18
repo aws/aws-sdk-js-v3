@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_1";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_0";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
   serializeAws_queryRotateEncryptionKeyCommand,

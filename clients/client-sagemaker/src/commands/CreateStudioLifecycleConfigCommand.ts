@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse } from "../models/models_1";
+import { CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStudioLifecycleConfigCommand,
   serializeAws_json1_1CreateStudioLifecycleConfigCommand,

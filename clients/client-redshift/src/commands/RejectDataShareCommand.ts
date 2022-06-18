@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DataShare } from "../models/models_0";
-import { RejectDataShareMessage } from "../models/models_1";
+import { DataShare, RejectDataShareMessage } from "../models/models_0";
 import {
   deserializeAws_queryRejectDataShareCommand,
   serializeAws_queryRejectDataShareCommand,

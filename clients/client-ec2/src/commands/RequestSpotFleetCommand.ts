@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RequestSpotFleetRequest, RequestSpotFleetResponse } from "../models/models_6";
+import { RequestSpotFleetRequest, RequestSpotFleetResponse } from "../models/models_3";
 import {
   deserializeAws_ec2RequestSpotFleetCommand,
   serializeAws_ec2RequestSpotFleetCommand,

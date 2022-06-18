@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/models_1";
+import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/models_0";
 import { deserializeAws_ec2CreateFpgaImageCommand, serializeAws_ec2CreateFpgaImageCommand } from "../protocols/Aws_ec2";
 
 export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}

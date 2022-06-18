@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CancelJobRequest, CancelJobResponse } from "../models/models_1";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,

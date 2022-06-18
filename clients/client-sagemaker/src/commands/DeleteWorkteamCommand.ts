@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkteamRequest, DeleteWorkteamResponse } from "../models/models_1";
+import { DeleteWorkteamRequest, DeleteWorkteamResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkteamCommand,
   serializeAws_json1_1DeleteWorkteamCommand,

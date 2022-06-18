@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTablesRequest, GetTablesResponse } from "../models/models_1";
+import { GetTablesRequest, GetTablesResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetTablesCommand, serializeAws_json1_1GetTablesCommand } from "../protocols/Aws_json1_1";
 
 export interface GetTablesCommandInput extends GetTablesRequest {}

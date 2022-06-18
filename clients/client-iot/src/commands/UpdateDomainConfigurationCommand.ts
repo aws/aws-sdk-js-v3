@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_2";
+import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateDomainConfigurationCommand,
   serializeAws_restJson1UpdateDomainConfigurationCommand,

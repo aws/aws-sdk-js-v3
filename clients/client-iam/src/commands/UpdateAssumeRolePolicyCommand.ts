@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAssumeRolePolicyRequest } from "../models/models_1";
+import { UpdateAssumeRolePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryUpdateAssumeRolePolicyCommand,
   serializeAws_queryUpdateAssumeRolePolicyCommand,

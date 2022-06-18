@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_1";
+import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateStoreImageTaskCommand,
   serializeAws_ec2CreateStoreImageTaskCommand,

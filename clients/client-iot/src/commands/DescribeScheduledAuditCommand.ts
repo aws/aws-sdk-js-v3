@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeScheduledAuditRequest, DescribeScheduledAuditResponse } from "../models/models_1";
+import { DescribeScheduledAuditRequest, DescribeScheduledAuditResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeScheduledAuditCommand,
   serializeAws_restJson1DescribeScheduledAuditCommand,

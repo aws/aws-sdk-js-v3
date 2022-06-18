@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListChannelBansRequest, ListChannelBansResponse } from "../models/models_1";
+import { ListChannelBansRequest, ListChannelBansResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListChannelBansCommand,
   serializeAws_restJson1ListChannelBansCommand,

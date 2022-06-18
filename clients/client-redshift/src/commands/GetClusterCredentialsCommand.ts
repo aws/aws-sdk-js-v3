@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ClusterCredentials } from "../models/models_0";
-import { GetClusterCredentialsMessage } from "../models/models_1";
+import { ClusterCredentials, GetClusterCredentialsMessage } from "../models/models_0";
 import {
   deserializeAws_queryGetClusterCredentialsCommand,
   serializeAws_queryGetClusterCredentialsCommand,

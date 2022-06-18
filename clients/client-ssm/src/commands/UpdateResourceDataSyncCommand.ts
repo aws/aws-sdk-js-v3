@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/models_2";
+import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateResourceDataSyncCommand,
   serializeAws_json1_1UpdateResourceDataSyncCommand,

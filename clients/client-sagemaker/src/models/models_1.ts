@@ -1,200 +1,4135 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import {
-  ActionSource,
   ActionStatus,
-  AdditionalInferenceSpecificationDefinition,
-  AlgorithmSpecification,
-  AlgorithmStatus,
-  AlgorithmStatusDetails,
-  AlgorithmValidationSpecification,
-  AnnotationConsolidationConfig,
-  AppNetworkAccessType,
-  AppSecurityGroupManagement,
-  AppSpecification,
-  AppStatus,
-  AppType,
-  ArtifactSource,
-  AsyncInferenceConfig,
-  AthenaDatasetDefinition,
-  AuthMode,
-  AutoMLCandidate,
-  AutoMLChannel,
-  AutoMLJobArtifacts,
-  AutoMLJobCompletionCriteria,
-  AutoMLJobConfig,
-  AutoMLJobObjective,
-  AutoMLJobSecondaryStatus,
-  AutoMLJobStatus,
-  AutoMLOutputDataConfig,
-  AutoMLPartialFailureReason,
+  AppInstanceType,
+  ArtifactSourceIdType,
+  AthenaResultCompressionType,
+  AthenaResultFormat,
+  AutoMLChannelType,
+  AutoMLMetricEnum,
+  AutoMLS3DataType,
+  AwsManagedHumanLoopRequestSource,
   BatchStrategy,
-  Bias,
-  CaptureStatus,
-  CategoricalParameter,
-  Channel,
-  CheckpointConfig,
-  CognitoConfig,
-  CognitoMemberDefinition,
-  CollectionConfiguration,
-  CompilationJobStatus,
-  ContainerDefinition,
-  ContentClassifier,
-  ContextSource,
-  DataCaptureConfig,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
-  DataQualityJobInput,
-  DeploymentConfig,
-  DomainSettings,
-  EdgeOutputConfig,
-  EdgePresetDeploymentType,
+  DataCatalogConfig,
+  DatasetDefinition,
+  DesiredWeightAndCapacity,
+  Device,
+  DomainSettingsForUpdate,
+  DriftCheckBias,
+  DriftCheckExplainability,
+  DriftCheckModelDataQuality,
+  DriftCheckModelQuality,
+  Edge,
   EndpointInput,
-  FeatureDefinition,
-  FlowDefinitionOutputConfig,
-  GitConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningJobConfig,
-  HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobWarmStartConfig,
-  InferenceSpecification,
-  InputConfig,
-  KernelGatewayImageConfig,
-  MetadataProperties,
-  MetricsSource,
+  EndpointInputConfiguration,
+  EndpointSummary,
+  ExperimentSummary,
+  Explainability,
+  FeatureGroupSummary,
+  FileSystemConfig,
+  FileSystemDataSource,
+  FlowDefinitionSummary,
+  GitConfigForUpdate,
+  HumanLoopActivationConditionsConfig,
+  HumanTaskUiSummary,
+  HyperParameterAlgorithmSpecification,
+  HyperParameterSpecification,
+  HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobObjective,
+  HyperParameterTuningJobSummary,
+  Image,
+  ImageVersion,
+  InferenceRecommendationsJob,
+  JupyterServerAppSettings,
+  KernelGatewayAppSettings,
+  KernelSpec,
+  LabelingJobDataAttributes,
+  LabelingJobDataSource,
+  LabelingJobForWorkteamSummary,
+  LabelingJobResourceConfig,
+  LabelingJobSummary,
+  LineageGroupSummary,
+  MemberDefinition,
   ModelApprovalStatus,
-  ModelDeployConfig,
+  ModelDataQuality,
+  ModelInput,
+  ModelLatencyThreshold,
+  ModelMetadataSearchExpression,
+  ModelMetadataSummary,
+  ModelPackageGroupSummary,
+  ModelPackageSummary,
+  ModelPackageValidationProfile,
+  ModelQuality,
+  ModelSummary,
+  MonitoringClusterConfig,
   MonitoringConstraintsResource,
-  MonitoringNetworkConfig,
-  MonitoringOutputConfig,
-  MonitoringResources,
+  MonitoringExecutionSummary,
+  MonitoringGroundTruthS3Input,
+  MonitoringJobDefinition,
+  MonitoringJobDefinitionSummary,
+  MonitoringOutput,
+  MonitoringScheduleSummary,
   MonitoringStatisticsResource,
-  MonitoringStoppingCondition,
-  NeoVpcConfig,
-  ObjectiveStatus,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
-  OutputConfig,
-  OutputDataConfig,
-  ProblemType,
-  ProcessingInstanceType,
-  ProcessingS3DataDistributionType,
-  ProcessingS3InputMode,
-  ProcessingS3UploadMode,
-  ProductionVariant,
-  ProductionVariantAcceleratorType,
-  ProductionVariantInstanceType,
+  NotebookInstanceLifecycleConfigSummary,
+  NotebookInstanceSummary,
+  NotificationConfiguration,
+  OidcConfig,
+  OnlineStoreSecurityConfig,
+  OutputParameter,
+  Parameter,
+  ParameterRanges,
+  ParentHyperParameterTuningJob,
+  PipelineExecutionStep,
+  PipelineExecutionSummary,
+  PipelineSummary,
+  ProcessingClusterConfig,
+  ProcessingJobSummary,
+  ProcessingOutput,
+  ProcessingS3Input,
+  ProductionVariantCoreDumpConfig,
   ProductionVariantServerlessConfig,
+  ProfilerConfigForUpdate,
+  ProjectSummary,
+  ProvisioningParameter,
   PublicWorkforceTaskPrice,
+  QueryFilters,
+  RecommendationJobCompiledOutputConfig,
+  RecommendationJobResourceLimit,
+  RecordWrapper,
+  RenderableTask,
+  RenderingError,
+  RepositoryAuthConfig,
   ResourceConfig,
-  ResourceSpec,
+  ResourceLimits,
   RetryStrategy,
-  StoppingCondition,
-  Tag,
-  TrainingSpecification,
+  RSessionAppSettings,
+  RStudioServerProAppSettings,
+  RStudioServerProDomainSettings,
+  S3DataSource,
+  S3StorageConfig,
+  ScheduleConfig,
+  SearchExpression,
+  SearchRecord,
+  ServiceCatalogProvisioningUpdateDetails,
+  SharingSettings,
+  SourceAlgorithm,
+  SourceIpConfig,
+  StudioLifecycleConfigDetails,
+  SubscribedWorkteam,
+  TargetPlatform,
+  TensorBoardAppSettings,
+  TrafficPattern,
+  TrainingInstanceType,
+  TrainingJobSummary,
   TransformInput,
-  TransformJobDefinition,
+  TransformJobSummary,
   TransformOutput,
   TransformResources,
-  UserContext,
-  UserSettings,
-  VpcConfig,
-} from "./models_0";
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
+  TrialComponentSummary,
+  TrialSummary,
+  TuningJobCompletionCriteria,
+  UiConfig,
+  UserProfileDetails,
+  VariantProperty,
+  Vertex,
+  Workforce,
+  Workteam,
+} from "./models_2";
+import {
+  _InstanceType,
+  CapacitySizeType,
+  CaptureMode,
+  ContainerMode,
+  Direction,
+  EdgePresetDeploymentType,
+  EndpointSortKey,
+  EndpointStatus,
+  ExecutionStatus,
+  FeatureGroupSortBy,
+  FeatureGroupSortOrder,
+  FeatureGroupStatus,
+  FeatureType,
+  Framework,
+  HyperParameterScalingType,
+  HyperParameterTuningJobSortByOptions,
+  HyperParameterTuningJobStatus,
+  HyperParameterTuningJobStrategyType,
+  HyperParameterTuningJobWarmStartType,
+  ImageSortBy,
+  ImageSortOrder,
+  ImageVersionSortBy,
+  ImageVersionSortOrder,
+  InferenceExecutionMode,
+  LabelingJobStatus,
+  ListInferenceRecommendationsJobsSortBy,
+  ListLabelingJobsForWorkteamSortByOptions,
+  ListWorkforcesSortByOptions,
+  ListWorkteamsSortByOptions,
+  ModelCacheSetting,
+  ModelPackageGroupSortBy,
+  ModelPackageSortBy,
+  ModelPackageType,
+  ModelSortKey,
+  MonitoringExecutionSortKey,
+  MonitoringJobDefinitionSortKey,
+  MonitoringProblemType,
+  MonitoringScheduleSortKey,
+  MonitoringType,
+  NotebookInstanceLifecycleConfigSortKey,
+  NotebookInstanceLifecycleConfigSortOrder,
+  NotebookInstanceSortKey,
+  NotebookInstanceSortOrder,
+  NotebookInstanceStatus,
+  OfflineStoreStatusValue,
+  OrderKey,
+  ProcessingInstanceType,
+  ProcessingJobStatus,
+  ProductionVariantAcceleratorType,
+  ProjectSortBy,
+  ProjectSortOrder,
+  RecommendationJobStatus,
+  RepositoryAccessMode,
+  ResourceType,
+  RootAccess,
+  ScheduleStatus,
+  SearchSortOrder,
+  SortBy,
+  SortExperimentsBy,
+  SortLineageGroupsBy,
+  SortOrder,
+  SortPipelineExecutionsBy,
+  SortPipelinesBy,
+  SortTrialComponentsBy,
+  SortTrialsBy,
+  StudioLifecycleConfigAppType,
+  StudioLifecycleConfigSortKey,
+  TargetDevice,
+  TrafficRoutingConfigType,
+  TrainingJobEarlyStoppingType,
+  TrainingJobSortByOptions,
+  TrainingJobStatus,
+  TransformJobStatus,
+  UserProfileSortKey,
+} from "./models_3";
+import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
 
-export interface CreateImageResponse {
+/**
+ * <p>A structure describing the source of an action.</p>
+ */
+export interface ActionSource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The URI of the source.</p>
    */
-  ImageArn?: string;
+  SourceUri: string | undefined;
+
+  /**
+   * <p>The type of the source.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The ID of the source.</p>
+   */
+  SourceId?: string;
 }
 
-export namespace CreateImageResponse {
+export namespace ActionSource {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
+  export const filterSensitiveLog = (obj: ActionSource): any => ({
     ...obj,
   });
 }
 
-export interface CreateImageVersionRequest {
+/**
+ * <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ */
+export class ResourceLimitExceeded extends __BaseException {
+  readonly name: "ResourceLimitExceeded" = "ResourceLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
-   * <p>The registry path of the container image to use as the starting point for this
-   *         version. The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</p>
-   *          <p>
-   *             <code><acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]></code>
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceeded, __BaseException>) {
+    super({
+      name: "ResourceLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Resource being access is not found.</p>
+ */
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Describes the Docker container for the model package.</p>
+ */
+export interface ModelPackageContainerDefinition {
+  /**
+   * <p>The DNS host name for the Docker container.</p>
+   */
+  ContainerHostname?: string;
+
+  /**
+   * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
+   *         <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
+   *             the inference code must meet SageMaker requirements. SageMaker supports both
+   *             <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
+   *                 SageMaker</a>.</p>
+   */
+  Image: string | undefined;
+
+  /**
+   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
+   *             training.</p>
+   */
+  ImageDigest?: string;
+
+  /**
+   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single <code>gzip</code> compressed tar archive
+   *             (<code>.tar.gz</code> suffix).</p>
+   *         <note>
+   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
+   *                 model package.</p>
+   *         </note>
+   */
+  ModelDataUrl?: string;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product ID of the model package.</p>
+   */
+  ProductId?: string;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Each key and value in the
+   *             <code>Environment</code> string to string map can have length of up to 1024. We
+   *             support up to 16 entries in the map.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * <p>A structure with Model Input details.</p>
+   */
+  ModelInput?: ModelInput;
+
+  /**
+   * <p>The machine learning framework of the model package container image.</p>
+   */
+  Framework?: string;
+
+  /**
+   * <p>The framework version of the Model Package Container Image.</p>
+   */
+  FrameworkVersion?: string;
+
+  /**
+   * <p>The name of a pre-trained machine learning benchmarked by
+   *            Amazon SageMaker Inference Recommender model that matches your model.
+   *            You can find a list of benchmarked models by calling <code>ListModelMetadata</code>.</p>
+   */
+  NearestModelName?: string;
+}
+
+export namespace ModelPackageContainerDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackageContainerDefinition): any => ({
+    ...obj,
+  });
+}
+
+export enum ProductionVariantInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_LARGE = "ml.c4.large",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
+  ML_C5D_LARGE = "ml.c5d.large",
+  ML_C5D_XLARGE = "ml.c5d.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_LARGE = "ml.c5.large",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
+  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
+  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
+  ML_INF1_XLARGE = "ml.inf1.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
+  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
+  ML_M5D_LARGE = "ml.m5d.large",
+  ML_M5D_XLARGE = "ml.m5d.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
+  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
+  ML_R5D_LARGE = "ml.r5d.large",
+  ML_R5D_XLARGE = "ml.r5d.xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_T2_2XLARGE = "ml.t2.2xlarge",
+  ML_T2_LARGE = "ml.t2.large",
+  ML_T2_MEDIUM = "ml.t2.medium",
+  ML_T2_XLARGE = "ml.t2.xlarge",
+}
+
+export enum TransformInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+}
+
+/**
+ * <p>A structure of additional Inference Specification. Additional Inference Specification
+ *             specifies details about inference jobs that can be run with models based on
+ *             this model package</p>
+ */
+export interface AdditionalInferenceSpecificationDefinition {
+  /**
+   * <p>A unique name to identify the additional inference specification. The name must
+   *            be unique within the list of your additional inference specifications for a
+   *            particular model package.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the additional Inference specification</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
+   */
+  Containers: ModelPackageContainerDefinition[] | undefined;
+
+  /**
+   * <p>A list of the instance types on which a transformation job can be run
+   *            or on which an endpoint can be deployed.</p>
+   */
+  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+
+  /**
+   * <p>A list of the instance types that are used to generate inferences in real-time.</p>
+   */
+  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+
+  /**
+   * <p>The supported MIME types for the input data.</p>
+   */
+  SupportedContentTypes?: string[];
+
+  /**
+   * <p>The supported MIME types for the output data.</p>
+   */
+  SupportedResponseMIMETypes?: string[];
+}
+
+export namespace AdditionalInferenceSpecificationDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdditionalInferenceSpecificationDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A tag object that consists of a key and an optional value, used to manage metadata
+ *             for SageMaker Amazon Web Services resources.</p>
+ *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
+ *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
+ *             endpoints. For more information on adding tags to SageMaker resources, see <a>AddTags</a>.</p>
+ *         <p>For more information on adding metadata to your Amazon Web Services resources with tagging, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *                 resources</a>. For advice on best practices for managing Amazon Web Services resources with
+ *             tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+ *                 Best Practices: Implement an Effective Amazon Web Services Resource Tagging Strategy</a>.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag key. Tag keys must be unique per resource.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.</p>
+ */
+export interface Alarm {
+  /**
+   * <p>The name of a CloudWatch alarm in your account.</p>
+   */
+  AlarmName?: string;
+}
+
+export namespace Alarm {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Alarm): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a metric that the training algorithm
+ *             writes
+ *             to <code>stderr</code> or <code>stdout</code>. SageMakerhyperparameter
+ *             tuning captures
+ *             all
+ *             defined metrics.
+ *             You
+ *             specify one metric that a hyperparameter tuning job uses as its
+ *             objective metric to choose the best training job.</p>
+ */
+export interface MetricDefinition {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A regular expression that searches the output of a training job and gets the value of
+   *             the metric. For more information about using regular expressions to define metrics, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Defining
+   *                 Objective Metrics</a>.</p>
+   */
+  Regex: string | undefined;
+}
+
+export namespace MetricDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDefinition): any => ({
+    ...obj,
+  });
+}
+
+export enum TrainingInputMode {
+  FASTFILE = "FastFile",
+  FILE = "File",
+  PIPE = "Pipe",
+}
+
+/**
+ * <p>Specifies the training algorithm to use in a <a>CreateTrainingJob</a>
+ *             request.</p>
+ *         <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
+ *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
+ *                 SageMaker</a>. </p>
+ */
+export interface AlgorithmSpecification {
+  /**
+   * <p>The registry path of the Docker image
+   *              that contains the training algorithm.
+   *             For information about docker registry paths for SageMaker built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Docker Registry Paths and Example Code</a> in the <i>Amazon SageMaker developer guide</i>.
+   *                 SageMaker supports both <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information about using your custom training container, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.</p>
+   *         <note>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
+   *                 or the image URI of the algorithm container
+   *                 to the <code>TrainingImage</code> parameter.</p>
+   *             <p>For more information, see the note in the <code>AlgorithmName</code> parameter description.</p>
+   *         </note>
+   */
+  TrainingImage?: string;
+
+  /**
+   * <p>The name of the algorithm resource to use for the training job. This must be an
+   *             algorithm resource that you created or subscribe to on Amazon Web Services Marketplace.</p>
+   *         <note>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
+   *                 or the image URI of the algorithm container
+   *                 to the <code>TrainingImage</code> parameter.</p>
+   *             <p>Note that the <code>AlgorithmName</code> parameter is mutually exclusive
+   *                 with the <code>TrainingImage</code> parameter.
+   *                 If you specify a value for the <code>AlgorithmName</code> parameter,
+   *                 you can't specify a value for <code>TrainingImage</code>, and vice versa.</p>
+   *             <p>If you specify values for both parameters, the training job might break; if you don't specify
+   *                 any value for both parameters, the training job might raise a <code>null</code> error.</p>
+   *         </note>
+   */
+  AlgorithmName?: string;
+
+  /**
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
    *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
    */
-  BaseImage: string | undefined;
+  TrainingInputMode: TrainingInputMode | string | undefined;
 
   /**
-   * <p>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services SDKs, such as the SDK for Python
-   *         (Boto3), add a unique value to the call.</p>
+   * <p>A list of metric definition objects. Each object specifies the metric name and regular
+   *             expressions used to parse algorithm logs. SageMaker publishes each metric to Amazon CloudWatch.</p>
    */
-  ClientToken?: string;
+  MetricDefinitions?: MetricDefinition[];
 
   /**
-   * <p>The <code>ImageName</code> of the <code>Image</code> to create a version of.</p>
+   * <p>To generate and save time-series metrics during training, set to <code>true</code>.
+   *             The default is <code>false</code> and time-series metrics aren't generated except in the
+   *             following cases:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>You use one of the SageMaker built-in algorithms</p>
+   *             </li>
+   *             <li>
+   *                 <p>You use one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html">Prebuilt SageMaker Docker Images</a>:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Tensorflow (version >= 1.15)</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>MXNet (version >= 1.6)</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>PyTorch (version >= 1.3)</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>You specify at least one <a>MetricDefinition</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  ImageName: string | undefined;
+  EnableSageMakerMetricsTimeSeries?: boolean;
 }
 
-export namespace CreateImageVersionRequest {
+export namespace AlgorithmSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateImageVersionRequest): any => ({
+  export const filterSensitiveLog = (obj: AlgorithmSpecification): any => ({
     ...obj,
   });
 }
 
-export interface CreateImageVersionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image version.</p>
-   */
-  ImageVersionArn?: string;
+export enum CompressionType {
+  GZIP = "Gzip",
+  NONE = "None",
 }
 
-export namespace CreateImageVersionResponse {
+/**
+ * <p>Describes the location of the channel data.</p>
+ */
+export interface DataSource {
+  /**
+   * <p>The S3 location of the data source that is associated with a channel.</p>
+   */
+  S3DataSource?: S3DataSource;
+
+  /**
+   * <p>The file system that is associated with a channel.</p>
+   */
+  FileSystemDataSource?: FileSystemDataSource;
+}
+
+export namespace DataSource {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateImageVersionResponse): any => ({
+  export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Specifies the range of environment parameters</p>
+ * <p>A configuration for a shuffle option for input data in a channel. If you use
+ *                 <code>S3Prefix</code> for <code>S3DataType</code>, the results of the S3 key prefix
+ *             matches are shuffled. If you use <code>ManifestFile</code>, the order of the S3 object
+ *             references in the <code>ManifestFile</code> is shuffled. If you use
+ *                 <code>AugmentedManifestFile</code>, the order of the JSON lines in the
+ *                 <code>AugmentedManifestFile</code> is shuffled. The shuffling order is determined
+ *             using the <code>Seed</code> value.</p>
+ *         <p>For Pipe input mode, when <code>ShuffleConfig</code> is specified shuffling is done at
+ *             the start of every epoch. With large datasets, this ensures that the order of the
+ *             training data is different for each epoch, and it helps reduce bias and possible
+ *             overfitting. In a multi-node training job when <code>ShuffleConfig</code> is combined
+ *             with <code>S3DataDistributionType</code> of <code>ShardedByS3Key</code>, the data is
+ *             shuffled across nodes so that the content sent to a particular node on the first epoch
+ *             might be sent to a different node on the second epoch.</p>
  */
-export interface EnvironmentParameterRanges {
+export interface ShuffleConfig {
   /**
-   * <p>Specified a list of parameters for each category.</p>
+   * <p>Determines the shuffling order in <code>ShuffleConfig</code> value.</p>
    */
-  CategoricalParameterRanges?: CategoricalParameter[];
+  Seed: number | undefined;
 }
 
-export namespace EnvironmentParameterRanges {
+export namespace ShuffleConfig {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EnvironmentParameterRanges): any => ({
+  export const filterSensitiveLog = (obj: ShuffleConfig): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The endpoint configuration for the load test.</p>
+ * <p>A channel is a named input source that training algorithms can consume. </p>
  */
-export interface EndpointInputConfiguration {
+export interface Channel {
   /**
-   * <p>The instance types to use for the load test.</p>
+   * <p>The name of the channel. </p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The location of the channel data.</p>
+   */
+  DataSource: DataSource | undefined;
+
+  /**
+   * <p>The MIME type of the data.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>If training data is compressed, the compression type. The default value is
+   *                 <code>None</code>. <code>CompressionType</code> is used only in Pipe input mode. In
+   *             File mode, leave this field unset or set it to None.</p>
+   */
+  CompressionType?: CompressionType | string;
+
+  /**
+   * <p></p>
+   *         <p>Specify RecordIO as the value when input data is in raw format but the training
+   *             algorithm requires the RecordIO format. In this case, SageMaker wraps each individual S3
+   *             object in a RecordIO record. If the input data is already in RecordIO format, you don't
+   *             need to set this attribute. For more information, see <a href="https://mxnet.apache.org/api/architecture/note_data_loading#data-format">Create
+   *                 a Dataset Using RecordIO</a>. </p>
+   *         <p>In File mode, leave this field unset or set it to None.</p>
+   */
+  RecordWrapperType?: RecordWrapper | string;
+
+  /**
+   * <p>(Optional) The input mode to use for the data channel in a training job. If you don't
+   *             set a value for <code>InputMode</code>, SageMaker uses the value set for
+   *                 <code>TrainingInputMode</code>. Use this parameter to override the
+   *                 <code>TrainingInputMode</code> setting in a <a>AlgorithmSpecification</a>
+   *             request when you have a channel that needs a different input mode from the training
+   *             job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML
+   *             storage volume, and mount the directory to a Docker volume, use <code>File</code> input
+   *             mode. To stream data directly from Amazon S3 to the container, choose <code>Pipe</code> input
+   *             mode.</p>
+   *         <p>To use a model for incremental training, choose <code>File</code> input model.</p>
+   */
+  InputMode?: TrainingInputMode | string;
+
+  /**
+   * <p>A configuration for a shuffle option for input data in a channel. If you use
+   *                 <code>S3Prefix</code> for <code>S3DataType</code>, this shuffles the results of the
+   *             S3 key prefix matches. If you use <code>ManifestFile</code>, the order of the S3 object
+   *             references in the <code>ManifestFile</code> is shuffled. If you use
+   *                 <code>AugmentedManifestFile</code>, the order of the JSON lines in the
+   *                 <code>AugmentedManifestFile</code> is shuffled. The shuffling order is determined
+   *             using the <code>Seed</code> value.</p>
+   *         <p>For Pipe input mode, shuffling is done at the start of every epoch. With large
+   *             datasets this ensures that the order of the training data is different for each epoch,
+   *             it helps reduce bias and possible overfitting. In a multi-node training job when
+   *             ShuffleConfig is combined with <code>S3DataDistributionType</code> of
+   *                 <code>ShardedByS3Key</code>, the data is shuffled across nodes so that the content
+   *             sent to a particular node on the first epoch might be sent to a different node on the
+   *             second epoch.</p>
+   */
+  ShuffleConfig?: ShuffleConfig;
+}
+
+export namespace Channel {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Channel): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about how to store model training results (model
+ *             artifacts).</p>
+ */
+export interface OutputDataConfig {
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the model artifacts at rest using
+   *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
+   *             formats: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>// KMS Key ID</p>
+   *                 <p>
+   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                 <p>
+   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>// KMS Key Alias</p>
+   *                 <p>
+   *                     <code>"alias/ExampleAlias"</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                 <p>
+   *                     <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
+   *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
+   *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
+   *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
+   *             policy with an <code>s3:PutObject</code> permission that only allows objects with
+   *             server-side encryption, set the condition key of
+   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
+   *          </p>
+   *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
+   *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+   *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Identifies the S3 path where you want SageMaker to store the model artifacts. For
+   *             example, <code>s3://bucket-name/key-name-prefix</code>. </p>
+   */
+  S3OutputPath: string | undefined;
+}
+
+export namespace OutputDataConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a limit to how long a model training job or model compilation job
+ *             can run. It also specifies how long a managed spot training
+ *             job has to complete. When the job reaches the time limit, SageMaker ends the training or
+ *             compilation job. Use this API to cap model training costs.</p>
+ *         <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+ *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
+ *             model artifacts, so the results of training are not lost. </p>
+ *         <p>The training algorithms provided by SageMaker automatically save the intermediate results
+ *             of a model training job when possible. This attempt to save artifacts is only a best
+ *             effort case as model might not be in a state from which it can be saved. For example, if
+ *             training has just started, the model might not be ready to save. When saved, this
+ *             intermediate data is a valid model artifact. You can use it to create a model with
+ *                 <code>CreateModel</code>.</p>
+ *         <note>
+ *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
+ *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
+ *                 the training job to complete.</p>
+ *         </note>
+ */
+export interface StoppingCondition {
+  /**
+   * <p>The maximum length of time, in seconds, that a training or compilation job can run.</p>
+   *         <p>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code> error
+   *             is generated. We recommend starting with 900 seconds and increasing as
+   *             necessary based on your model.</p>
+   *         <p>For all other jobs, if the job does not complete during this time, SageMaker ends the job. When
+   *             <code>RetryStrategy</code> is specified in the job request,
+   *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
+   *             in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.</p>
+   */
+  MaxRuntimeInSeconds?: number;
+
+  /**
+   * <p>The maximum length of time, in seconds, that a managed Spot training job has to
+   *             complete. It is the amount of time spent waiting for Spot capacity plus the amount of
+   *             time the job can run. It must be equal to or greater than
+   *                 <code>MaxRuntimeInSeconds</code>. If the job does not complete during this time,
+   *             SageMaker ends the job.</p>
+   *         <p>When <code>RetryStrategy</code> is specified in the job request,
+   *                 <code>MaxWaitTimeInSeconds</code> specifies the maximum time for all of the attempts
+   *             in total, not each individual attempt.</p>
+   */
+  MaxWaitTimeInSeconds?: number;
+}
+
+export namespace StoppingCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StoppingCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the input needed to run a training job using the algorithm.</p>
+ */
+export interface TrainingJobDefinition {
+  /**
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
+   */
+  TrainingInputMode: TrainingInputMode | string | undefined;
+
+  /**
+   * <p>The hyperparameters used for the training job.</p>
+   */
+  HyperParameters?: Record<string, string>;
+
+  /**
+   * <p>An array of <code>Channel</code> objects, each of which specifies an input
+   *             source.</p>
+   */
+  InputDataConfig: Channel[] | undefined;
+
+  /**
+   * <p>the path to the S3 bucket where you want to store model artifacts. SageMaker creates
+   *             subfolders for the artifacts.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The resources, including the ML compute instances and ML storage volumes, to use for
+   *             model training.</p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
+   *         <p>To stop a job, SageMaker sends the algorithm the SIGTERM signal, which delays job
+   *             termination for 120 seconds. Algorithms can use this 120-second window to save the model
+   *             artifacts.</p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+}
+
+export namespace TrainingJobDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingJobDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the input needed to run a transform job using the inference specification
+ *             specified in the algorithm.</p>
+ */
+export interface TransformJobDefinition {
+  /**
+   * <p>The maximum number of parallel requests that can be sent to each instance in a
+   *             transform job. The default value is 1.</p>
+   */
+  MaxConcurrentTransforms?: number;
+
+  /**
+   * <p>The maximum payload size allowed, in MB. A payload is the data portion of a record
+   *             (without metadata).</p>
+   */
+  MaxPayloadInMB?: number;
+
+  /**
+   * <p>A string that determines the number of records included in a single mini-batch.</p>
+   *         <p>
+   *             <code>SingleRecord</code> means only one record is used per mini-batch.
+   *                 <code>MultiRecord</code> means a mini-batch is set to contain as many records that
+   *             can fit within the <code>MaxPayloadInMB</code> limit.</p>
+   */
+  BatchStrategy?: BatchStrategy | string;
+
+  /**
+   * <p>The environment variables to set in the Docker container. We support up to 16 key and
+   *             values entries in the map.</p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * <p>A description of the input source and the way the transform job consumes it.</p>
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results
+   *             from the transform job.</p>
+   */
+  TransformOutput: TransformOutput | undefined;
+
+  /**
+   * <p>Identifies the ML compute instances for the transform job.</p>
+   */
+  TransformResources: TransformResources | undefined;
+}
+
+export namespace TransformJobDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransformJobDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a training job and a batch transform job that SageMaker runs to validate your
+ *             algorithm.</p>
+ *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
+ *             Marketplace.</p>
+ */
+export interface AlgorithmValidationProfile {
+  /**
+   * <p>The name of the profile for the algorithm. The name must have 1 to 63 characters.
+   *             Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   */
+  ProfileName: string | undefined;
+
+  /**
+   * <p>The <code>TrainingJobDefinition</code> object that describes the training job that
+   *             SageMaker runs to validate your algorithm.</p>
+   */
+  TrainingJobDefinition: TrainingJobDefinition | undefined;
+
+  /**
+   * <p>The <code>TransformJobDefinition</code> object that describes the transform job that
+   *             SageMaker runs to validate your algorithm.</p>
+   */
+  TransformJobDefinition?: TransformJobDefinition;
+}
+
+export namespace AlgorithmValidationProfile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlgorithmValidationProfile): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configurations for one or more training jobs that SageMaker runs to test the
+ *             algorithm.</p>
+ */
+export interface AlgorithmValidationSpecification {
+  /**
+   * <p>The IAM roles that SageMaker uses to run the training jobs.</p>
+   */
+  ValidationRole: string | undefined;
+
+  /**
+   * <p>An array of <code>AlgorithmValidationProfile</code> objects, each of which specifies a
+   *             training job and batch transform job that SageMaker runs to validate your algorithm.</p>
+   */
+  ValidationProfiles: AlgorithmValidationProfile[] | undefined;
+}
+
+export namespace AlgorithmValidationSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlgorithmValidationSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures how labels are consolidated across human workers and processes output data.
+ *          </p>
+ */
+export interface AnnotationConsolidationConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">annotation consolidation</a> and to process output data.</p>
+   *         <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
+   *             of the following Amazon SageMaker Ground Truth Lambda function ARNs for
+   *                 <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>. </p>
+   *
+   *         <p>
+   *             <b>Bounding box</b> - Finds the most similar boxes from
+   *             different workers based on the Jaccard index of the boxes.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Image classification</b> - Uses a variant of the
+   *             Expectation Maximization approach to estimate the true class of an image based on
+   *             annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Multi-label image classification</b> - Uses a variant of
+   *             the Expectation Maximization approach to estimate the true classes of an image based on
+   *             annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Semantic segmentation</b> - Treats each pixel in an image
+   *             as a multi-class classification and treats pixel annotations from workers as "votes" for
+   *             the correct label.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-SemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Text classification</b> - Uses a variant of the
+   *             Expectation Maximization approach to estimate the true class of text based on
+   *             annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClass</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Multi-label text classification</b> - Uses a variant of
+   *             the Expectation Maximization approach to estimate the true classes of text based on
+   *             annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Named entity recognition</b> - Groups similar selections
+   *             and calculates aggregate boundaries, resolving to most-assigned label.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-NamedEntityRecognition</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   *
+   *         <p>
+   *             <b>Video Classification</b> - Use this task type when you need workers to classify videos using
+   *             predefined labels that you specify. Workers are shown videos and are asked to choose one
+   *             label for each video.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VideoMultiClass</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Video Frame Object Detection</b> - Use this task type to
+   *             have workers identify and locate objects in a sequence of video frames (images extracted
+   *             from a video) using bounding boxes. For example, you can use this task to ask workers to
+   *             identify and localize various objects in a series of video frames, such as cars, bikes,
+   *             and pedestrians.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Video Frame Object Tracking</b> - Use this task type to
+   *             have workers track the movement of objects in a sequence of video frames (images
+   *             extracted from a video) using bounding boxes. For example, you can use this task to ask
+   *             workers to track the movement of objects, such as cars, bikes, and pedestrians. </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *         <p>
+   *             <b>3D Point Cloud Object Detection</b> - Use this task type
+   *             when you want workers to classify objects in a 3D point cloud by drawing 3D cuboids
+   *             around objects. For example, you can use this task type to ask workers to identify
+   *             different types of objects in a point cloud, such as cars, bikes, and
+   *             pedestrians.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>3D Point Cloud Object Tracking</b> - Use this task type
+   *             when you want workers to draw 3D cuboids around objects that appear in a sequence of 3D
+   *             point cloud frames. For example, you can use this task type to ask workers to track the
+   *             movement of vehicles across multiple point cloud frames. </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>3D Point Cloud Semantic Segmentation</b> - Use this task
+   *             type when you want workers to create a point-level semantic segmentation masks by
+   *             painting objects in a 3D point cloud using different colors where each color is assigned
+   *             to one of the classes you specify.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *         <p>
+   *             <b>Use the following ARNs for Label Verification and Adjustment Jobs</b>
+   *          </p>
+   *         <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels </a>.</p>
+   *
+   *         <p>
+   *             <b>Semantic Segmentation Adjustment</b> - Treats each pixel
+   *             in an image as a multi-class classification and treats pixel adjusted annotations from
+   *             workers as "votes" for the correct label.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Semantic Segmentation Verification</b> - Uses a variant
+   *             of the Expectation Maximization approach to estimate the true class of verification
+   *             judgment for semantic segmentation labels based on annotations from individual
+   *             workers.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VerificationSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Bounding Box Adjustment</b> - Finds the most similar
+   *             boxes from different workers based on the Jaccard index of the adjusted
+   *             annotations.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentBoundingBox</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Bounding Box Verification</b> - Uses a variant of the
+   *             Expectation Maximization approach to estimate the true class of verification judgement
+   *             for bounding box labels based on annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *         <p>
+   *             <b>Video Frame Object Detection Adjustment</b> -
+   *             Use this task type when you want workers to adjust bounding boxes that workers have added
+   *             to video frames to classify and localize objects in a sequence of video frames.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentVideoObjectDetection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>Video Frame Object Tracking Adjustment</b> -
+   *             Use this task type when you want workers to adjust bounding boxes that workers have added
+   *             to video frames to track object movement across a sequence of video frames.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-AdjustmentVideoObjectTracking</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *         <p>
+   *             <b>3D Point Cloud Object Detection Adjustment</b> - Use this
+   *             task type when you want workers to adjust 3D cuboids around objects in a 3D point cloud. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>3D Point Cloud Object Tracking Adjustment</b> - Use this
+   *             task type when you want workers to adjust 3D cuboids around objects that appear in a
+   *             sequence of 3D point cloud frames.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>3D Point Cloud Semantic Segmentation Adjustment</b> - Use this task
+   *             type when you want workers to adjust a point-level semantic segmentation masks using a paint tool.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  AnnotationConsolidationLambdaArn: string | undefined;
+}
+
+export namespace AnnotationConsolidationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnnotationConsolidationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for the file system and kernels in a SageMaker image running as a
+ *         KernelGateway app.</p>
+ */
+export interface KernelGatewayImageConfig {
+  /**
+   * <p>The specification of the Jupyter kernels in the image.</p>
+   */
+  KernelSpecs: KernelSpec[] | undefined;
+
+  /**
+   * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
+   */
+  FileSystemConfig?: FileSystemConfig;
+}
+
+export namespace KernelGatewayImageConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KernelGatewayImageConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration to run a processing job in a specified container image.</p>
+ */
+export interface AppSpecification {
+  /**
+   * <p>The container image to be run by the processing job.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>The entrypoint for a container used to run a processing job.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * <p>The arguments for a container used to run a processing job.</p>
+   */
+  ContainerArguments?: string[];
+}
+
+export namespace AppSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The ID and ID type of an artifact source.</p>
+ */
+export interface ArtifactSourceType {
+  /**
+   * <p>The type of ID.</p>
+   */
+  SourceIdType: ArtifactSourceIdType | string | undefined;
+
+  /**
+   * <p>The ID.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace ArtifactSourceType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ArtifactSourceType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure describing the source of an artifact.</p>
+ */
+export interface ArtifactSource {
+  /**
+   * <p>The URI of the source.</p>
+   */
+  SourceUri: string | undefined;
+
+  /**
+   * <p>A list of source types.</p>
+   */
+  SourceTypes?: ArtifactSourceType[];
+}
+
+export namespace ArtifactSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ArtifactSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures the behavior of the client used by SageMaker to interact with the
+ *             model container during asynchronous inference.</p>
+ */
+export interface AsyncInferenceClientConfig {
+  /**
+   * <p>The maximum number of concurrent requests sent by the SageMaker client to the
+   *             model container. If no value is provided, SageMaker chooses an optimal value.</p>
+   */
+  MaxConcurrentInvocationsPerInstance?: number;
+}
+
+export namespace AsyncInferenceClientConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceClientConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+ */
+export interface AsyncInferenceNotificationConfig {
+  /**
+   * <p>Amazon SNS topic to post a notification to when inference completes successfully.
+   *             If no topic is provided, no notification is sent on success.</p>
+   */
+  SuccessTopic?: string;
+
+  /**
+   * <p>Amazon SNS topic to post a notification to when inference fails.
+   *             If no topic is provided, no notification is sent on failure.</p>
+   */
+  ErrorTopic?: string;
+}
+
+export namespace AsyncInferenceNotificationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceNotificationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
+ */
+export interface AsyncInferenceOutputConfig {
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+   *             SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</p>
+   *         <p></p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon S3 location to upload inference responses to.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+   */
+  NotificationConfig?: AsyncInferenceNotificationConfig;
+}
+
+export namespace AsyncInferenceOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration for how an endpoint performs asynchronous inference.</p>
+ */
+export interface AsyncInferenceConfig {
+  /**
+   * <p>Configures the behavior of the client used by SageMaker to interact
+   *             with the model container during asynchronous inference.</p>
+   */
+  ClientConfig?: AsyncInferenceClientConfig;
+
+  /**
+   * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
+   */
+  OutputConfig: AsyncInferenceOutputConfig | undefined;
+}
+
+export namespace AsyncInferenceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for Athena Dataset Definition input.</p>
+ */
+export interface AthenaDatasetDefinition {
+  /**
+   * <p>The name of the data catalog used in Athena query execution.</p>
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The name of the database used in the Athena query execution.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The SQL query statements, to be executed.</p>
+   */
+  QueryString: string | undefined;
+
+  /**
+   * <p>The name of the workgroup in which the Athena query is being started.</p>
+   */
+  WorkGroup?: string;
+
+  /**
+   * <p>The location in Amazon S3 where Athena query results are stored.</p>
+   */
+  OutputS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data generated from
+   *             an Athena query execution.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The data storage format for Athena query results.</p>
+   */
+  OutputFormat: AthenaResultFormat | string | undefined;
+
+  /**
+   * <p>The compression used for Athena query results.</p>
+   */
+  OutputCompression?: AthenaResultCompressionType | string;
+}
+
+export namespace AthenaDatasetDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AthenaDatasetDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Stores the config information for how a candidate is generated (optional).</p>
+ */
+export interface AutoMLCandidateGenerationConfig {
+  /**
+   * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
+   *          run an Autopilot job (optional). This file should be in json format as shown below: </p>
+   *          <p>
+   *             <code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</p>
+   *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
+   *             <code>["col1", "col2", ...]</code> is case sensitive and should be a list of strings
+   *          containing unique values that are a subset of the column names in the input data. The list
+   *          of columns provided must not include the target column.</p>
+   */
+  FeatureSpecificationS3Uri?: string;
+}
+
+export namespace AutoMLCandidateGenerationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLCandidateGenerationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon S3 data source.</p>
+ */
+export interface AutoMLS3DataSource {
+  /**
+   * <p>The data type.</p>
+   */
+  S3DataType: AutoMLS3DataType | string | undefined;
+
+  /**
+   * <p>The URL to the Amazon S3 data source.</p>
+   */
+  S3Uri: string | undefined;
+}
+
+export namespace AutoMLS3DataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLS3DataSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The data source for the Autopilot job.</p>
+ */
+export interface AutoMLDataSource {
+  /**
+   * <p>The Amazon S3 location of the input data.</p>
+   *          <note>
+   *             <p>The input data must be in CSV format and contain at least 500 rows.</p>
+   *          </note>
+   */
+  S3DataSource: AutoMLS3DataSource | undefined;
+}
+
+export namespace AutoMLDataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLDataSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A channel is a named input source that training algorithms can consume. The validation
+ *          dataset size is limited to less than 2 GB. The training dataset size must be less than 100
+ *          GB. For more information, see .</p>
+ *          <note>
+ *             <p>A validation dataset must contain the same headers as the training dataset.</p>
+ *          </note>
+ *          <p></p>
+ */
+export interface AutoMLChannel {
+  /**
+   * <p>The data source for an AutoML channel.</p>
+   */
+  DataSource: AutoMLDataSource | undefined;
+
+  /**
+   * <p>You can use <code>Gzip</code> or <code>None</code>. The default value is
+   *             <code>None</code>.</p>
+   */
+  CompressionType?: CompressionType | string;
+
+  /**
+   * <p>The name of the target variable in supervised learning, usually represented by
+   *          'y'.</p>
+   */
+  TargetAttributeName: string | undefined;
+
+  /**
+   * <p>The content type of the data from the input source. You can use
+   *             <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
+   *          The default value is <code>text/csv;header=present</code>.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The channel type (optional) is an <code>enum</code> string. The default value is
+   *             <code>training</code>. Channels for training and validation must share the same
+   *             <code>ContentType</code> and <code>TargetAttributeName</code>. For information on
+   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">
+   *                <code>How to specify training and validation datasets</code>
+   *             </a>.</p>
+   */
+  ChannelType?: AutoMLChannelType | string;
+}
+
+export namespace AutoMLChannel {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLChannel): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure specifies how to split the data into train and test datasets. The
+ *          validation and training datasets must contain the same headers. The validation dataset must
+ *          be less than 2 GB in size.</p>
+ */
+export interface AutoMLDataSplitConfig {
+  /**
+   * <p>The validation fraction (optional) is a float that specifies the portion of the training
+   *          dataset to be used for validation. The default value is 0.2, and values must be greater
+   *          than 0 and less than 1. We recommend setting this value to be less than 0.5.</p>
+   */
+  ValidationFraction?: number;
+}
+
+export namespace AutoMLDataSplitConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLDataSplitConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+ *          generate.</p>
+ */
+export interface AutoMLJobCompletionCriteria {
+  /**
+   * <p>The maximum number of times a training job is allowed to run.</p>
+   */
+  MaxCandidates?: number;
+
+  /**
+   * <p>The maximum time, in seconds, that each training job is allowed to run as part of a
+   *          hyperparameter tuning job. For more information, see the  used by the  action.</p>
+   */
+  MaxRuntimePerTrainingJobInSeconds?: number;
+
+  /**
+   * <p>The maximum runtime, in seconds, an AutoML job has to complete.</p>
+   *          <p>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and its
+   *          processing is ended gracefully. The AutoML job identifies the best model whose training was
+   *          completed and marks it as the best-performing model. Any unfinished steps of the job, such
+   *          as automatic one-click Autopilot model deployment, will not be completed. </p>
+   */
+  MaxAutoMLJobRuntimeInSeconds?: number;
+}
+
+export namespace AutoMLJobCompletionCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLJobCompletionCriteria): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
+ *             access to and from your training and model containers by configuring the VPC. For more
+ *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+ *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+ */
+export interface VpcConfig {
+  /**
+   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
+   *             the VPC that is specified in the <code>Subnets</code> field.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC to which you want to connect your training job or
+   *             model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
+   *                 Instance Types and Availability Zones</a>.</p>
+   */
+  Subnets: string[] | undefined;
+}
+
+export namespace VpcConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Security options.</p>
+ */
+export interface AutoMLSecurityConfig {
+  /**
+   * <p>The key used to encrypt stored data.</p>
+   */
+  VolumeKmsKeyId?: string;
+
+  /**
+   * <p>Whether to use traffic encryption between the container layers.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>The VPC configuration.</p>
+   */
+  VpcConfig?: VpcConfig;
+}
+
+export namespace AutoMLSecurityConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLSecurityConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings used for an AutoML job.</p>
+ */
+export interface AutoMLJobConfig {
+  /**
+   * <p>How long an AutoML job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>The configuration for splitting the input training dataset.</p>
+   *          <p>Type: AutoMLDataSplitConfig</p>
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+
+  /**
+   * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
+   */
+  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
+}
+
+export namespace AutoMLJobConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLJobConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+ */
+export interface AutoMLJobObjective {
+  /**
+   * <p>The name of the objective metric used to measure the predictive quality of a machine
+   *          learning system. This metric is optimized during training to provide the best estimate for
+   *          model parameter values from data.</p>
+   *          <p>Here are the options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MSE</code>: The mean squared error (MSE) is the average of the squared
+   *                differences between the predicted and actual values. It is used for regression. MSE
+   *                values are always positive: the better a model is at predicting the actual values,
+   *                the smaller the MSE value is. When the data contains outliers, they tend to dominate
+   *                the MSE, which might cause subpar prediction performance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Accuracy</code>: The ratio of the number of correctly classified items to
+   *                the total number of (correctly and incorrectly) classified items. It is used for
+   *                binary and multiclass classification. It measures how close the predicted class
+   *                values are to the actual values. Accuracy values vary between zero and one: one
+   *                indicates perfect accuracy and zero indicates perfect inaccuracy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>F1</code>: The F1 score is the harmonic mean of the precision and recall. It
+   *                is used for binary classification into classes traditionally referred to as positive
+   *                and negative. Predictions are said to be true when they match their actual (correct)
+   *                class and false when they do not. Precision is the ratio of the true positive
+   *                predictions to all positive predictions (including the false positives) in a data set
+   *                and measures the quality of the prediction when it predicts the positive class.
+   *                Recall (or sensitivity) is the ratio of the true positive predictions to all actual
+   *                positive instances and measures how completely a model predicts the actual class
+   *                members in a data set. The standard F1 score weighs precision and recall equally. But
+   *                which metric is paramount typically depends on specific aspects of a problem. F1
+   *                scores vary between zero and one: one indicates the best possible performance and
+   *                zero the worst.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUC</code>: The area under the curve (AUC) metric is used to compare and
+   *                evaluate binary classification by algorithms such as logistic regression that return
+   *                probabilities. A threshold is needed to map the probabilities into classifications.
+   *                The relevant curve is the receiver operating characteristic curve that plots the true
+   *                positive rate (TPR) of predictions (or recall) against the false positive rate (FPR)
+   *                as a function of the threshold value, above which a prediction is considered
+   *                positive. Increasing the threshold results in fewer false positives but more false
+   *                negatives. AUC is the area under this receiver operating characteristic curve and so
+   *                provides an aggregated measure of the model performance across all possible
+   *                classification thresholds. The AUC score can also be interpreted as the probability
+   *                that a randomly selected positive data point is more likely to be predicted positive
+   *                than a randomly selected negative example. AUC scores vary between zero and one: a
+   *                score of one indicates perfect accuracy and a score of one half indicates that the
+   *                prediction is not better than a random classifier. Values under one half predict less
+   *                accurately than a random predictor. But such consistently bad predictors can simply
+   *                be inverted to obtain better than random predictors.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>F1macro</code>: The F1macro score applies F1 scoring to multiclass
+   *                classification. In this context, you have multiple classes to predict. You just
+   *                calculate the precision and recall for each class as you did for the positive class
+   *                in binary classification. Then, use these values to calculate the F1 score for each
+   *                class and average them to obtain the F1macro score. F1macro scores vary between zero
+   *                and one: one indicates the best possible performance and zero the worst.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you do not specify a metric explicitly, the default behavior is to automatically
+   *          use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MSE</code>: for regression.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>F1</code>: for binary classification</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Accuracy</code>: for multiclass classification.</p>
+   *             </li>
+   *          </ul>
+   */
+  MetricName: AutoMLMetricEnum | string | undefined;
+}
+
+export namespace AutoMLJobObjective {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLJobObjective): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output data configuration.</p>
+ */
+export interface AutoMLOutputDataConfig {
+  /**
+   * <p>The Amazon Web Services KMS encryption key ID.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon S3 output path. Must be 128 characters or less.</p>
+   */
+  S3OutputPath: string | undefined;
+}
+
+export namespace AutoMLOutputDataConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMLOutputDataConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+ */
+export interface AutoRollbackConfig {
+  /**
+   * <p>List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint.
+   *             If any alarms are tripped during a deployment, SageMaker rolls back the deployment.</p>
+   */
+  Alarms?: Alarm[];
+}
+
+export namespace AutoRollbackConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoRollbackConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines how to perform inference generation after a training job is run.</p>
+ */
+export interface InferenceSpecification {
+  /**
+   * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
+   */
+  Containers: ModelPackageContainerDefinition[] | undefined;
+
+  /**
+   * <p>A list of the instance types on which a transformation job can be run or on which an
+   *             endpoint can be deployed.</p>
+   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *             models.</p>
+   */
+  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+
+  /**
+   * <p>A list of the instance types that are used to generate inferences in real-time.</p>
+   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *             models.</p>
+   */
+  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+
+  /**
+   * <p>The supported MIME types for the input data.</p>
+   */
+  SupportedContentTypes: string[] | undefined;
+
+  /**
+   * <p>The supported MIME types for the output data.</p>
+   */
+  SupportedResponseMIMETypes: string[] | undefined;
+}
+
+export namespace InferenceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface MetricsSource {
+  /**
+   * <p></p>
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  ContentDigest?: string;
+
+  /**
+   * <p></p>
+   */
+  S3Uri: string | undefined;
+}
+
+export namespace MetricsSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricsSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains bias metrics for a model.</p>
+ */
+export interface Bias {
+  /**
+   * <p>The bias report for a model</p>
+   */
+  Report?: MetricsSource;
+
+  /**
+   * <p></p>
+   */
+  PreTrainingReport?: MetricsSource;
+
+  /**
+   * <p></p>
+   */
+  PostTrainingReport?: MetricsSource;
+}
+
+export namespace Bias {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Bias): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the endpoint capacity to activate for production.</p>
+ */
+export interface CapacitySize {
+  /**
+   * <p>Specifies the endpoint capacity type.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INSTANCE_COUNT</code>: The endpoint activates based on
+   *                 the number of instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CAPACITY_PERCENT</code>: The endpoint activates based on
+   *                 the specified percentage of capacity.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: CapacitySizeType | string | undefined;
+
+  /**
+   * <p>Defines the capacity size, either as a number of instances or a capacity percentage.</p>
+   */
+  Value: number | undefined;
+}
+
+export namespace CapacitySize {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacitySize): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic from the
+ *             old fleet to the new fleet.</p>
+ */
+export interface TrafficRoutingConfig {
+  /**
+   * <p>Traffic routing strategy type.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet
+   *                 in a single step.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet
+   *                 in two steps. The first step is the canary, which is a small portion of the traffic. The
+   *                 second step is the remainder of the traffic.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in
+   *                 n steps of a configurable size.
+   *             </p>
+   *             </li>
+   *          </ul>
+   */
+  Type: TrafficRoutingConfigType | string | undefined;
+
+  /**
+   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the
+   *             new endpoint fleet.</p>
+   */
+  WaitIntervalInSeconds: number | undefined;
+
+  /**
+   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet. <code>Value</code> must be less than
+   *             or equal to 50% of the variant's total instance count.</p>
+   */
+  CanarySize?: CapacitySize;
+
+  /**
+   * <p>Batch size for each step to turn on traffic on the new endpoint fleet. <code>Value</code> must be
+   *             10-50% of the variant's total instance count.</p>
+   */
+  LinearStepSize?: CapacitySize;
+}
+
+export namespace TrafficRoutingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
+ *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
+ *             traffic to the new fleet according to the specified traffic routing configuration. Only
+ *             one update policy should be used in the deployment configuration. If no update policy is
+ *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
+ *             by default.</p>
+ */
+export interface BlueGreenUpdatePolicy {
+  /**
+   * <p>Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet
+   *             during an endpoint deployment.</p>
+   */
+  TrafficRoutingConfiguration: TrafficRoutingConfig | undefined;
+
+  /**
+   * <p>Additional waiting time in seconds after the completion of an endpoint deployment
+   *             before terminating the old endpoint fleet. Default is 0.</p>
+   */
+  TerminationWaitInSeconds?: number;
+
+  /**
+   * <p>Maximum execution timeout for the deployment. Note that the timeout value should be larger
+   *             than the total waiting time specified in <code>TerminationWaitInSeconds</code> and <code>WaitIntervalInSeconds</code>.</p>
+   */
+  MaximumExecutionTimeoutInSeconds?: number;
+}
+
+export namespace BlueGreenUpdatePolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlueGreenUpdatePolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker
+ *          will by default base64 encode when capturing the data.</p>
+ */
+export interface CaptureContentTypeHeader {
+  /**
+   * <p>The list of all content type headers that SageMaker will treat as CSV and capture accordingly.</p>
+   */
+  CsvContentTypes?: string[];
+
+  /**
+   * <p>The list of all content type headers that SageMaker will treat as JSON and capture accordingly.</p>
+   */
+  JsonContentTypes?: string[];
+}
+
+export namespace CaptureContentTypeHeader {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CaptureContentTypeHeader): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies data Model Monitor will capture.</p>
+ */
+export interface CaptureOption {
+  /**
+   * <p>Specify the boundary of data to capture.</p>
+   */
+  CaptureMode: CaptureMode | string | undefined;
+}
+
+export namespace CaptureOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CaptureOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Environment parameters you want to benchmark your load test against.</p>
+ */
+export interface CategoricalParameter {
+  /**
+   * <p>The Name of the environment variable.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The list of values you can pass.</p>
+   */
+  Value: string[] | undefined;
+}
+
+export namespace CategoricalParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CategoricalParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of categorical hyperparameters to tune.</p>
+ */
+export interface CategoricalParameterRange {
+  /**
+   * <p>The name of the categorical hyperparameter to tune.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the categories
+   *             for
+   *             the hyperparameter.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace CategoricalParameterRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CategoricalParameterRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the possible values for a categorical hyperparameter.</p>
+ */
+export interface CategoricalParameterRangeSpecification {
+  /**
+   * <p>The allowed categories for the hyperparameter.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace CategoricalParameterRangeSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CategoricalParameterRangeSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a named input source, called a channel, to be used by an algorithm.</p>
+ */
+export interface ChannelSpecification {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A brief description of the channel.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the channel is required by the algorithm.</p>
+   */
+  IsRequired?: boolean;
+
+  /**
+   * <p>The supported MIME types for the data.</p>
+   */
+  SupportedContentTypes: string[] | undefined;
+
+  /**
+   * <p>The allowed compression types, if data compression is used.</p>
+   */
+  SupportedCompressionTypes?: (CompressionType | string)[];
+
+  /**
+   * <p>The allowed input mode, either FILE or PIPE.</p>
+   *         <p>In FILE mode, Amazon SageMaker copies the data from the input source onto the local
+   *             Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm.
+   *             This is the most commonly used input mode.</p>
+   *         <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
+   *             algorithm without using the EBS volume.</p>
+   */
+  SupportedInputModes: (TrainingInputMode | string)[] | undefined;
+}
+
+export namespace ChannelSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the output location for managed spot training checkpoint
+ *             data. </p>
+ */
+export interface CheckpointConfig {
+  /**
+   * <p>Identifies the S3 path where you want SageMaker to store checkpoints. For example,
+   *                 <code>s3://bucket-name/key-name-prefix</code>.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>(Optional) The local directory where checkpoints are written. The default directory is
+   *                 <code>/opt/ml/checkpoints/</code>. </p>
+   */
+  LocalPath?: string;
+}
+
+export namespace CheckpointConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CheckpointConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
+ */
+export interface GitConfig {
+  /**
+   * <p>The URL where the Git repository is located.</p>
+   */
+  RepositoryUrl: string | undefined;
+
+  /**
+   * <p>The default branch for the Git repository.</p>
+   */
+  Branch?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials used to access the git repository. The secret must have a staging label of
+   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   *         <p>
+   *             <code>{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>}</code>
+   *         </p>
+   */
+  SecretArn?: string;
+}
+
+export namespace GitConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GitConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Use this parameter to configure your Amazon Cognito workforce.
+ *       A single Cognito workforce is created using and corresponds to a single
+ *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
+ *       Amazon Cognito user pool</a>.</p>
+ */
+export interface CognitoConfig {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
+   *       user pool</a> is a user directory in Amazon Cognito.
+   *       With a user pool, your users can sign in to your web or mobile app through Amazon Cognito.
+   *       Your users can also sign in through social identity providers like
+   *       Google, Facebook, Amazon, or Apple, and through SAML identity providers.</p>
+   */
+  UserPool: string | undefined;
+
+  /**
+   * <p>The client ID for your Amazon Cognito user pool.</p>
+   */
+  ClientId: string | undefined;
+}
+
+export namespace CognitoConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CognitoConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a Amazon Cognito user group. A user group can be used in on or more work
+ *             teams.</p>
+ */
+export interface CognitoMemberDefinition {
+  /**
+   * <p>An identifier for a user pool. The user pool must be in the same region as the service
+   *             that you are calling.</p>
+   */
+  UserPool: string | undefined;
+
+  /**
+   * <p>An identifier for a user group.</p>
+   */
+  UserGroup: string | undefined;
+
+  /**
+   * <p>An identifier for an application client. You must create the app client ID using
+   *             Amazon Cognito.</p>
+   */
+  ClientId: string | undefined;
+}
+
+export namespace CognitoMemberDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CognitoMemberDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information for the Debugger output tensor collections.</p>
+ */
+export interface CollectionConfiguration {
+  /**
+   * <p>The name of the tensor collection. The name must be unique relative to other rule configuration names.</p>
+   */
+  CollectionName?: string;
+
+  /**
+   * <p>Parameter values for the tensor collection. The allowed parameters are
+   *                 <code>"name"</code>, <code>"include_regex"</code>, <code>"reduction_config"</code>,
+   *                 <code>"save_config"</code>, <code>"tensor_names"</code>, and
+   *                 <code>"save_histogram"</code>.</p>
+   */
+  CollectionParameters?: Record<string, string>;
+}
+
+export namespace CollectionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CollectionConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
+ *             accessible from your Amazon Virtual Private Cloud (VPC).</p>
+ */
+export interface ImageConfig {
+  /**
+   * <p>Set this to one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Platform</code> - The model image is hosted in Amazon ECR.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Vpc</code> - The model image is hosted in a private Docker registry in
+   *                     your VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  RepositoryAccessMode: RepositoryAccessMode | string | undefined;
+
+  /**
+   * <p>(Optional) Specifies an authentication configuration for the private docker registry
+   *             where your model image is hosted. Specify a value for this property only if you
+   *             specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field,
+   *             and the private Docker registry where the model image is hosted requires
+   *             authentication.</p>
+   */
+  RepositoryAuthConfig?: RepositoryAuthConfig;
+}
+
+export namespace ImageConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
+ */
+export interface MultiModelConfig {
+  /**
+   * <p>Whether to cache models for a multi-model endpoint. By default, multi-model endpoints
+   *             cache models so that a model does not have to be loaded into memory each time it is
+   *             invoked. Some use cases do not benefit from model caching. For example, if an endpoint
+   *             hosts a large number of models that are each invoked infrequently, the endpoint might
+   *             perform better if you disable model caching. To disable model caching, set the value of
+   *             this parameter to <code>Disabled</code>.</p>
+   */
+  ModelCacheSetting?: ModelCacheSetting | string;
+}
+
+export namespace MultiModelConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiModelConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the container, as part of model definition.</p>
+ */
+export interface ContainerDefinition {
+  /**
+   * <p>This parameter is ignored for models that contain only a
+   *             <code>PrimaryContainer</code>.</p>
+   *         <p>When a <code>ContainerDefinition</code> is part of an inference pipeline, the value of
+   *             the parameter uniquely identifies the container for the purposes of logging and metrics.
+   *             For information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html">Use Logs and Metrics
+   *                 to Monitor an Inference Pipeline</a>. If you don't specify a value for this
+   *             parameter for a <code>ContainerDefinition</code> that is part of an inference pipeline,
+   *             a unique name is automatically assigned based on the position of the
+   *                 <code>ContainerDefinition</code> in the pipeline. If you specify a value for the
+   *                 <code>ContainerHostName</code> for any <code>ContainerDefinition</code> that is part
+   *             of an inference pipeline, you must specify a value for the
+   *                 <code>ContainerHostName</code> parameter of every <code>ContainerDefinition</code>
+   *             in that pipeline.</p>
+   */
+  ContainerHostname?: string;
+
+  /**
+   * <p>The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a
+   *             Docker registry that is accessible from the same VPC that you configure for your
+   *             endpoint. If you are using your own custom algorithm instead of an algorithm provided by
+   *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
+   *                 SageMaker</a>
+   *         </p>
+   */
+  Image?: string;
+
+  /**
+   * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
+   *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
+   *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
+   *                 Private Docker Registry for Real-Time Inference Containers</a>
+   *         </p>
+   */
+  ImageConfig?: ImageConfig;
+
+  /**
+   * <p>Whether the container hosts a single model or multiple models.</p>
+   */
+  Mode?: ContainerMode | string;
+
+  /**
+   * <p>The S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3
+   *             path is required for SageMaker built-in algorithms, but not if you use your own algorithms.
+   *             For more information on built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Common
+   *                 Parameters</a>. </p>
+   *         <note>
+   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
+   *                 model or endpoint you are creating.</p>
+   *         </note>
+   *         <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token Service to
+   *             download model artifacts from the S3 path you provide. Amazon Web Services STS is activated in your
+   *             IAM user account by default. If you previously deactivated Amazon Web Services STS for a region, you
+   *             need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
+   *                 Guide</i>.</p>
+   *         <important>
+   *             <p>If you use a built-in algorithm to create a model, SageMaker requires that you provide
+   *                 a S3 path to the model artifacts in <code>ModelDataUrl</code>.</p>
+   *         </important>
+   */
+  ModelDataUrl?: string;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Each key and value in the
+   *                 <code>Environment</code> string to string map can have length of up to 1024. We
+   *             support up to 16 entries in the map. </p>
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model package to use to create the
+   *             model.</p>
+   */
+  ModelPackageName?: string;
 
   /**
    * <p>The inference specification name in the model package version.</p>
@@ -202,98 +4137,2385 @@ export interface EndpointInputConfiguration {
   InferenceSpecificationName?: string;
 
   /**
-   * <p> The parameter you want to benchmark against.</p>
+   * <p>Specifies additional configuration for multi-model endpoints.</p>
    */
-  EnvironmentParameterRanges?: EnvironmentParameterRanges;
+  MultiModelConfig?: MultiModelConfig;
 }
 
-export namespace EndpointInputConfiguration {
+export namespace ContainerDefinition {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EndpointInputConfiguration): any => ({
+  export const filterSensitiveLog = (obj: ContainerDefinition): any => ({
+    ...obj,
+  });
+}
+
+export enum ContentClassifier {
+  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
+}
+
+/**
+ * <p>A structure describing the source of a context.</p>
+ */
+export interface ContextSource {
+  /**
+   * <p>The URI of the source.</p>
+   */
+  SourceUri: string | undefined;
+
+  /**
+   * <p>The type of the source.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The ID of the source.</p>
+   */
+  SourceId?: string;
+}
+
+export namespace ContextSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContextSource): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Specifies the maximum number of jobs that can run in parallel
- *     and the maximum number of jobs that can run.</p>
+ * <p>A list of continuous hyperparameters to tune.</p>
  */
-export interface RecommendationJobResourceLimit {
+export interface ContinuousParameterRange {
   /**
-   * <p>Defines the maximum number of load tests.</p>
+   * <p>The name of the continuous hyperparameter to tune.</p>
    */
-  MaxNumberOfTests?: number;
+  Name: string | undefined;
 
   /**
-   * <p>Defines the maximum number of parallel load tests.</p>
+   * <p>The minimum value for the hyperparameter.
+   *             The
+   *             tuning job uses floating-point values between this value and <code>MaxValue</code>for
+   *             tuning.</p>
    */
-  MaxParallelOfTests?: number;
+  MinValue: string | undefined;
+
+  /**
+   * <p>The maximum value for the hyperparameter. The tuning job uses floating-point values
+   *             between <code>MinValue</code> value and this value for tuning.</p>
+   */
+  MaxValue: string | undefined;
+
+  /**
+   * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
+   *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
+   *         <dl>
+   *             <dt>Auto</dt>
+   *             <dd>
+   *                     <p>SageMaker hyperparameter tuning chooses the best scale for the
+   *                         hyperparameter.</p>
+   *                 </dd>
+   *             <dt>Linear</dt>
+   *             <dd>
+   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a linear scale.</p>
+   *                 </dd>
+   *             <dt>Logarithmic</dt>
+   *             <dd>
+   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a logarithmic scale.</p>
+   *                     <p>Logarithmic scaling works only for ranges that have only values greater
+   *                         than 0.</p>
+   *                 </dd>
+   *             <dt>ReverseLogarithmic</dt>
+   *             <dd>
+   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a reverse logarithmic scale.</p>
+   *                     <p>Reverse logarithmic scaling works only for ranges that are entirely within
+   *                         the range 0<=x<1.0.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  ScalingType?: HyperParameterScalingType | string;
 }
 
-export namespace RecommendationJobResourceLimit {
+export namespace ContinuousParameterRange {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RecommendationJobResourceLimit): any => ({
+  export const filterSensitiveLog = (obj: ContinuousParameterRange): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Defines the traffic pattern.</p>
+ * <p>Defines the possible values for a continuous hyperparameter.</p>
  */
-export interface Phase {
+export interface ContinuousParameterRangeSpecification {
   /**
-   * <p>Specifies how many concurrent users to start with.</p>
+   * <p>The minimum floating-point value allowed.</p>
    */
-  InitialNumberOfUsers?: number;
+  MinValue: string | undefined;
 
   /**
-   * <p>Specified how many new users to spawn in a minute.</p>
+   * <p>The maximum floating-point value allowed.</p>
    */
-  SpawnRate?: number;
-
-  /**
-   * <p>Specifies how long traffic phase should be.</p>
-   */
-  DurationInSeconds?: number;
+  MaxValue: string | undefined;
 }
 
-export namespace Phase {
+export namespace ContinuousParameterRangeSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: Phase): any => ({
+  export const filterSensitiveLog = (obj: ContinuousParameterRangeSpecification): any => ({
     ...obj,
   });
 }
 
-export enum TrafficType {
-  PHASES = "PHASES",
-}
-
 /**
- * <p>Defines the traffic pattern of the load test.</p>
+ * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
  */
-export interface TrafficPattern {
+export interface MetadataProperties {
   /**
-   * <p>Defines the traffic patterns.</p>
+   * <p>The commit ID.</p>
    */
-  TrafficType?: TrafficType | string;
+  CommitId?: string;
 
   /**
-   * <p>Defines the phases traffic specification.</p>
+   * <p>The repository.</p>
    */
-  Phases?: Phase[];
+  Repository?: string;
+
+  /**
+   * <p>The entity this entity was generated by.</p>
+   */
+  GeneratedBy?: string;
+
+  /**
+   * <p>The project ID.</p>
+   */
+  ProjectId?: string;
 }
 
-export namespace TrafficPattern {
+export namespace MetadataProperties {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TrafficPattern): any => ({
+  export const filterSensitiveLog = (obj: MetadataProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines how the algorithm is used for a training job.</p>
+ */
+export interface TrainingSpecification {
+  /**
+   * <p>The Amazon ECR registry path of the Docker image that contains the training
+   *             algorithm.</p>
+   */
+  TrainingImage: string | undefined;
+
+  /**
+   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
+   *             training.</p>
+   */
+  TrainingImageDigest?: string;
+
+  /**
+   * <p>A list of the <code>HyperParameterSpecification</code> objects, that define the
+   *             supported hyperparameters. This is required if the algorithm supports automatic model
+   *             tuning.></p>
+   */
+  SupportedHyperParameters?: HyperParameterSpecification[];
+
+  /**
+   * <p>A list of the instance types that this algorithm can use for training.</p>
+   */
+  SupportedTrainingInstanceTypes: (TrainingInstanceType | string)[] | undefined;
+
+  /**
+   * <p>Indicates whether the algorithm supports distributed training. If set to false, buyers
+   *             can't request more than one instance during training.</p>
+   */
+  SupportsDistributedTraining?: boolean;
+
+  /**
+   * <p>A list of <code>MetricDefinition</code> objects, which are used for parsing metrics
+   *             generated by the algorithm.</p>
+   */
+  MetricDefinitions?: MetricDefinition[];
+
+  /**
+   * <p>A list of <code>ChannelSpecification</code> objects, which specify the input sources
+   *             to be used by the algorithm.</p>
+   */
+  TrainingChannels: ChannelSpecification[] | undefined;
+
+  /**
+   * <p>A list of the metrics that the algorithm emits that can be used as the objective
+   *             metric in a hyperparameter tuning job.</p>
+   */
+  SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[];
+}
+
+export namespace TrainingSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+ *      the version runs on.</p>
+ */
+export interface ResourceSpec {
+  /**
+   * <p>The ARN of the SageMaker image that the image version belongs to.</p>
+   */
+  SageMakerImageArn?: string;
+
+  /**
+   * <p>The ARN of the image version created on the instance.</p>
+   */
+  SageMakerImageVersionArn?: string;
+
+  /**
+   * <p>The instance type that the image version runs on.</p>
+   *          <note>
+   *             <p>JupyterServer Apps only support the <code>system</code> value. KernelGateway Apps do not support the <code>system</code> value, but support all other values for available instance types.</p>
+   *          </note>
+   */
+  InstanceType?: AppInstanceType | string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
+   */
+  LifecycleConfigArn?: string;
+}
+
+export namespace ResourceSpec {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceSpec): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Resource being accessed is in use.</p>
+ */
+export class ResourceInUse extends __BaseException {
+  readonly name: "ResourceInUse" = "ResourceInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
+    super({
+      name: "ResourceInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+ *          deployment.</p>
+ */
+export interface ModelDeployConfig {
+  /**
+   * <p>Set to <code>True</code> to automatically generate an endpoint name for a one-click
+   *          Autopilot model deployment; set to <code>False</code> otherwise. The default value is
+   *             <code>False</code>.</p>
+   *          <note>
+   *             <p>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
+   *             the <code>EndpointName</code>; otherwise a 400 error is thrown.</p>
+   *          </note>
+   */
+  AutoGenerateEndpointName?: boolean;
+
+  /**
+   * <p>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
+   *          endpoint name is not generated automatically.</p>
+   *          <note>
+   *             <p>Specify the <code>EndpointName</code> if and only if you set
+   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error is
+   *             thrown.</p>
+   *          </note>
+   */
+  EndpointName?: string;
+}
+
+export namespace ModelDeployConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelDeployConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the location of input model artifacts, the name and
+ *             shape
+ *             of the expected data inputs, and the framework in which the model was trained.</p>
+ */
+export interface InputConfig {
+  /**
+   * <p>The S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>Specifies the name and shape of the expected data inputs for your trained model with a
+   *             JSON dictionary form. The data inputs are <a>InputConfig$Framework</a>
+   *             specific. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>TensorFlow</code>: You must specify the name and shape (NHWC format) of
+   *                     the expected data inputs using a dictionary format for your trained model. The
+   *                     dictionary formats required for the console and CLI are different.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Examples for one input:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console,
+   *                                     <code>{"input":[1,1024,1024,3]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI,
+   *                                     <code>{\"input\":[1,1024,1024,3]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                   <li>
+   *                         <p>Examples for two inputs:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console, <code>{"data1": [1,28,28,1],
+   *                                         "data2":[1,28,28,1]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI, <code>{\"data1\": [1,28,28,1],
+   *                                         \"data2\":[1,28,28,1]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>KERAS</code>: You must specify the name and shape (NCHW format) of
+   *                     expected data inputs using a dictionary format for your trained model. Note that
+   *                     while Keras model artifacts should be uploaded in NHWC (channel-last) format,
+   *                         <code>DataInputConfig</code> should be specified in NCHW (channel-first)
+   *                     format. The dictionary formats required for the console and CLI are
+   *                     different.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Examples for one input:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console,
+   *                                     <code>{"input_1":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI,
+   *                                     <code>{\"input_1\":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                   <li>
+   *                         <p>Examples for two inputs:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console, <code>{"input_1": [1,3,224,224],
+   *                                         "input_2":[1,3,224,224]} </code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI, <code>{\"input_1\": [1,3,224,224],
+   *                                         \"input_2\":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW format) of
+   *                     the expected data inputs in order using a dictionary format for your trained
+   *                     model. The dictionary formats required for the console and CLI are
+   *                     different.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Examples for one input:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console,
+   *                                     <code>{"data":[1,3,1024,1024]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI,
+   *                                     <code>{\"data\":[1,3,1024,1024]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                   <li>
+   *                         <p>Examples for two inputs:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console, <code>{"var1": [1,1,28,28],
+   *                                         "var2":[1,1,28,28]} </code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI, <code>{\"var1\": [1,1,28,28],
+   *                                         \"var2\":[1,1,28,28]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PyTorch</code>: You can either specify the name and shape (NCHW format)
+   *                     of expected data inputs in order using a dictionary format for your trained
+   *                     model or you can specify the shape only using a list format. The dictionary
+   *                     formats required for the console and CLI are different. The list formats for the
+   *                     console and CLI are the same.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Examples for one input in dictionary format:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console,
+   *                                     <code>{"input0":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI,
+   *                                     <code>{\"input0\":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                   <li>
+   *                         <p>Example for one input in list format:
+   *                             <code>[[1,3,224,224]]</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Examples for two inputs in dictionary format:</p>
+   *                         <ul>
+   *                         <li>
+   *                                 <p>If using the console, <code>{"input0":[1,3,224,224],
+   *                                         "input1":[1,3,224,224]}</code>
+   *                            </p>
+   *                             </li>
+   *                         <li>
+   *                                 <p>If using the CLI, <code>{\"input0\":[1,3,224,224],
+   *                                         \"input1\":[1,3,224,224]} </code>
+   *                            </p>
+   *                             </li>
+   *                      </ul>
+   *                     </li>
+   *                   <li>
+   *                         <p>Example for two inputs in list format: <code>[[1,3,224,224],
+   *                                 [1,3,224,224]]</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>XGBOOST</code>: input data name and shape are not needed.</p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <code>DataInputConfig</code> supports the following parameters for <code>CoreML</code>
+   *             <a>OutputConfig$TargetDevice</a> (ML Model format):</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
+   *                     In addition to static input shapes, CoreML converter supports Flexible input shapes:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Range Dimension. You can use the Range Dimension feature if you know the input shape
+   *                             will be within some specific interval in that dimension,
+   *                             for example: <code>{"input_1": {"shape": ["1..10", 224, 224, 3]}}</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Enumerated shapes. Sometimes, the models are trained to work only on a select
+   *                             set of inputs. You can enumerate all supported input shapes,
+   *                             for example: <code>{"input_1": {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>default_shape</code>: Default input shape. You can set a default shape during
+   *                     conversion for both Range Dimension and Enumerated Shapes. For example
+   *                     <code>{"input_1": {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
+   *                     By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
+   *                     User can set input type to be Image. Image input type requires additional input parameters
+   *                     such as <code>bias</code> and <code>scale</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>bias</code>: If the input type is an Image, you need to provide the bias vector.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>scale</code>: If the input type is an Image, you need to provide a scale factor.</p>
+   *             </li>
+   *          </ul>
+   *         <p>CoreML <code>ClassifierConfig</code> parameters can be specified using
+   *             <a>OutputConfig$CompilerOptions</a>. CoreML converter supports Tensorflow and PyTorch models.
+   *             CoreML conversion examples:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Tensor type input:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+   *                             [1,224,224,3]}}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>Tensor type input without input name (PyTorch):</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+   *                             [1,3,224,224]}]</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>Image type input:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+   *                             [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>Image type input without input name (PyTorch):</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+   *                             [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *         <p>Depending on the model format, <code>DataInputConfig</code> requires the following parameters for
+   *             <code>ml_eia2</code>
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>For TensorFlow models saved in the SavedModel format, specify the input names
+   *                 from <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
+   *                 Specify the <code>signature_def_key</code> in
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                      <code>OutputConfig:CompilerOptions</code>
+   *                   </a> if
+   *                 the model does not use TensorFlow's default signature def key. For example:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For TensorFlow models saved as a frozen graph, specify the input tensor names and shapes
+   *                 in <code>DataInputConfig</code> and the output tensor names for <code>output_names</code> in
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                      <code>OutputConfig:CompilerOptions</code>
+   *                   </a>.
+   *                 For example:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  DataInputConfig: string | undefined;
+
+  /**
+   * <p>Identifies the framework in which the model was trained. For example:
+   *             TENSORFLOW.</p>
+   */
+  Framework: Framework | string | undefined;
+
+  /**
+   * <p>Specifies the framework version to use. This API field is only supported for the PyTorch and TensorFlow frameworks.</p>
+   *         <p>For information about framework versions supported for cloud targets and edge devices, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud Supported Instance Types and Frameworks</a> and
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported Frameworks</a>.</p>
+   */
+  FrameworkVersion?: string;
+}
+
+export namespace InputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the output location for the compiled model and the target
+ *             device that the model runs on. <code>TargetDevice</code> and <code>TargetPlatform</code>
+ *             are mutually exclusive, so you need to choose one between the two to specify your target
+ *             device or platform. If you cannot find your device you want to use from the
+ *                 <code>TargetDevice</code> list, use <code>TargetPlatform</code> to describe the
+ *             platform of your edge device and <code>CompilerOptions</code> if there are specific
+ *             settings that are required or recommended to use for particular TargetPlatform.</p>
+ */
+export interface OutputConfig {
+  /**
+   * <p>Identifies the S3 bucket where you want Amazon SageMaker to store the model artifacts. For
+   *             example, <code>s3://bucket-name/key-name-prefix</code>.</p>
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * <p>Identifies the target device or the machine learning instance that you want to run
+   *             your model on after the compilation has completed. Alternatively, you can specify OS,
+   *             architecture, and accelerator using <a>TargetPlatform</a> fields. It can be
+   *             used instead of <code>TargetPlatform</code>.</p>
+   */
+  TargetDevice?: TargetDevice | string;
+
+  /**
+   * <p>Contains information about a target platform that you want your model to run on, such
+   *             as OS, architecture, and accelerators. It is an alternative of
+   *             <code>TargetDevice</code>.</p>
+   *         <p>The following examples show how to configure the <code>TargetPlatform</code> and
+   *                 <code>CompilerOptions</code> JSON strings for popular target platforms: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Raspberry Pi 3 Model B+</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM_EABIHF"},</code>
+   *                </p>
+   *                 <p>
+   *                   <code> "CompilerOptions": {'mattr': ['+neon']}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Jetson TX2</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
+   *                         "NVIDIA"},</code>
+   *                </p>
+   *                 <p>
+   *                   <code> "CompilerOptions": {'gpu-code': 'sm_62', 'trt-ver': '6.0.1',
+   *                         'cuda-ver': '10.0'}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>EC2 m5.2xlarge instance OS</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "X86_64", "Accelerator":
+   *                         "NVIDIA"},</code>
+   *                </p>
+   *                 <p>
+   *                   <code> "CompilerOptions": {'mcpu': 'skylake-avx512'}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>RK3399</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
+   *                         "MALI"}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>ARMv7 phone (CPU)</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM_EABI"},</code>
+   *                </p>
+   *                 <p>
+   *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 25, 'mattr':
+   *                     ['+neon']}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>ARMv8 phone (CPU)</p>
+   *                 <p>
+   *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM64"},</code>
+   *                </p>
+   *                 <p>
+   *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 29}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TargetPlatform?: TargetPlatform;
+
+  /**
+   * <p>Specifies additional parameters for compiler options in JSON format. The compiler
+   *             options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators
+   *             and highly recommended for CPU compilations. For any other cases, it is optional to
+   *             specify <code>CompilerOptions.</code>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DTYPE</code>: Specifies the data type for the input. When compiling for
+   *                     <code>ml_*</code> (except for <code>ml_inf</code>) instances using PyTorch
+   *                     framework, provide the data type (dtype) of the model's input.
+   *                         <code>"float32"</code> is used if <code>"DTYPE"</code> is not specified.
+   *                     Options for data type are:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>float32: Use either <code>"float"</code> or <code>"float32"</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>int64: Use either <code>"int64"</code> or <code>"long"</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                 <p> For example, <code>{"dtype" : "float32"}</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CPU</code>: Compilation for CPU supports the following compiler
+   *                     options.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu':
+   *                                 'skylake-avx512'}</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon',
+   *                                 '+vfpv4']}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ARM</code>: Details of ARM CPU compilations.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>NEON</code>: NEON is an implementation of the Advanced SIMD
+   *                             extension used in ARMv7 processors.</p>
+   *                         <p>For example, add <code>{'mattr': ['+neon']}</code> to the compiler
+   *                             options if compiling for ARM 32-bit platform with the NEON
+   *                             support.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following
+   *                     compiler options.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>gpu_code</code>: Specifies the targeted architecture.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>trt-ver</code>: Specifies the TensorRT versions in x.y.z.
+   *                             format.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>cuda-ver</code>: Specifies the CUDA version in x.y
+   *                             format.</p>
+   *                     </li>
+   *                </ul>
+   *                 <p>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver':
+   *                         '10.1'}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ANDROID</code>: Compilation for the Android OS supports the following
+   *                     compiler options:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>ANDROID_PLATFORM</code>: Specifies the Android API levels.
+   *                             Available levels range from 21 to 29. For example,
+   *                                 <code>{'ANDROID_PLATFORM': 28}</code>.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler
+   *                             options if compiling for ARM 32-bit platform with NEON support.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options
+   *                     passed in as a JSON string. For example,
+   *                     <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores 2 -O2\""</code>.
+   *                 </p>
+   *                 <p>For information about supported compiler options, see
+   *                     <a href="https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md">
+   *                         Neuron Compiler CLI</a>.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
+   *                     supports the following compiler options:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>class_labels</code>: Specifies the classification labels file
+   *                             name inside input tar.gz file. For example,
+   *                                 <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
+   *                             Labels inside the txt file should be separated by newlines.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the following
+   *                     compiler options:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported values
+   *                         are <code>"FP16"</code> and <code>"FP32"</code>. Default is
+   *                         <code>"FP32"</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>signature_def_key</code>: Specifies the signature to use for models in SavedModel
+   *                         format. Defaults is TensorFlow's default signature def key.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>output_names</code>: Specifies a list of output tensor names for
+   *                         models in FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code> or <code>output_names</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                 <p>For example:
+   *                     <code>{"precision_mode": "FP32",  "output_names": ["output:0"]}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CompilerOptions?: string;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
+   *         after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+   *         For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
+   *         </p>
+   * 	        <p>The KmsKeyId can be any of the following formats: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace OutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <a>VpcConfig</a> configuration object that specifies the VPC that you
+ *             want the compilation jobs to connect to. For more information on
+ *             controlling access to your Amazon S3 buckets used for compilation job, see
+ *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to Resources in Your Amazon VPC</a>.</p>
+ */
+export interface NeoVpcConfig {
+  /**
+   * <p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>.
+   *             Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC that you want to connect the
+   *             compilation job to for accessing the model in Amazon S3.</p>
+   */
+  Subnets: string[] | undefined;
+}
+
+export namespace NeoVpcConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NeoVpcConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the container that a data quality monitoring job runs.</p>
+ */
+export interface DataQualityAppSpecification {
+  /**
+   * <p>The container image that the data quality monitoring job runs.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>The entrypoint for a container used to run a monitoring job.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * <p>The arguments to send to the container that the monitoring job runs.</p>
+   */
+  ContainerArguments?: string[];
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
+   *          base64 decode the payload and convert it into a flatted json so that the built-in container
+   *          can use the converted data. Applicable only for the built-in (first party)
+   *          containers.</p>
+   */
+  RecordPreprocessorSourceUri?: string;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
+   *          Applicable only for the built-in (first party) containers.</p>
+   */
+  PostAnalyticsProcessorSourceUri?: string;
+
+  /**
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   */
+  Environment?: Record<string, string>;
+}
+
+export namespace DataQualityAppSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataQualityAppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
+ *          resources are compared against the results of the current job from the series of jobs
+ *          scheduled to collect data periodically.</p>
+ */
+export interface DataQualityBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+
+  /**
+   * <p>The statistics resource for a monitoring job.</p>
+   */
+  StatisticsResource?: MonitoringStatisticsResource;
+}
+
+export namespace DataQualityBaselineConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataQualityBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the data quality monitoring job. Currently endpoints are supported for
+ *          input.</p>
+ */
+export interface DataQualityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+}
+
+export namespace DataQualityJobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataQualityJobInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output configuration for monitoring jobs.</p>
+ */
+export interface MonitoringOutputConfig {
+  /**
+   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
+   *          monitoring jobs is uploaded.</p>
+   */
+  MonitoringOutputs: MonitoringOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model
+   *          artifacts at rest using Amazon S3 server-side encryption.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace MonitoringOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies the resources to deploy for a monitoring job.</p>
+ */
+export interface MonitoringResources {
+  /**
+   * <p>The configuration for the cluster resources used to run the processing job.</p>
+   */
+  ClusterConfig: MonitoringClusterConfig | undefined;
+}
+
+export namespace MonitoringResources {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoringResources): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The networking configuration for the monitoring job.</p>
+ */
+export interface MonitoringNetworkConfig {
+  /**
+   * <p>Whether to encrypt all communications between the instances used for the monitoring
+   *          jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater
+   *          security for distributed jobs, but the processing might take longer.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for
+   *          the monitoring job.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
+   *             access to and from your training and model containers by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+}
+
+export namespace MonitoringNetworkConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoringNetworkConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+ */
+export interface MonitoringStoppingCondition {
+  /**
+   * <p>The maximum runtime allowed in seconds.</p>
+   *          <note>
+   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data quality and
+   *             model explainability, this can be up to 3600 seconds for an hourly schedule. For model
+   *             bias and model quality hourly schedules, this can be up to 1800 seconds.</p>
+   *          </note>
+   */
+  MaxRuntimeInSeconds: number | undefined;
+}
+
+export namespace MonitoringStoppingCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoringStoppingCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output configuration.</p>
+ */
+export interface EdgeOutputConfig {
+  /**
+   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
+   *      If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The deployment type SageMaker Edge Manager will create.
+   *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
+   */
+  PresetDeploymentType?: EdgePresetDeploymentType | string;
+
+  /**
+   * <p>The configuration used to create deployment artifacts.
+   *       Specify configuration options with a JSON string. The available configuration options for each type are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified,
+   *      the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager
+   *      packaging job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentDescription</code> (optional) - Description of the component.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentVersion</code> (optional) - The version of the component.</p>
+   *                <note>
+   *                   <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
+   *        major.minor.patch</i> number system. For example, version 1.0.0 represents the first
+   *         major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformOS</code> (optional) - The name of the operating system for the platform.
+   *      Supported platforms include Windows and Linux.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p>
+   *                <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p>
+   *                <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p>
+   *             </li>
+   *          </ul>
+   */
+  PresetDeploymentConfig?: string;
+}
+
+export namespace EdgeOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EdgeOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings that apply to users of Amazon SageMaker Studio. These settings are
+ *       specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
+ *       when the <code>CreateDomain</code> API is called.</p>
+ *          <p>
+ *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
+ *      settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+ *      take precedence over those specified in <code>CreateDomain</code>.</p>
+ */
+export interface UserSettings {
+  /**
+   * <p>The execution role for the user.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
+   *          <code>PublicInternetOnly</code>.</p>
+   *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
+   *          <code>VpcOnly</code>.</p>
+   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the
+   *          number of security groups that you can specify is one less than the maximum number shown.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>Specifies options for sharing SageMaker Studio notebooks.</p>
+   */
+  SharingSettings?: SharingSettings;
+
+  /**
+   * <p>The Jupyter server's app settings.</p>
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * <p>The kernel gateway app settings.</p>
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
+
+  /**
+   * <p>The TensorBoard app settings.</p>
+   */
+  TensorBoardAppSettings?: TensorBoardAppSettings;
+
+  /**
+   * <p>A collection of settings that configure user interaction with the <code>RStudioServerPro</code> app.</p>
+   */
+  RStudioServerProAppSettings?: RStudioServerProAppSettings;
+
+  /**
+   * <p>A collection of settings that configure the <code>RSessionGateway</code> app.</p>
+   */
+  RSessionAppSettings?: RSessionAppSettings;
+}
+
+export namespace UserSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These settings are specified through the <code>CreateDomain</code> API call.</p>
+ */
+export interface DomainSettings {
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication between Domain-level apps and user apps.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
+   */
+  RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
+}
+
+export namespace DomainSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The deployment configuration for an endpoint, which contains the desired deployment
+ *             strategy and rollback configurations.</p>
+ */
+export interface DeploymentConfig {
+  /**
+   * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
+   *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
+   *             traffic to the new fleet according to the specified traffic routing configuration. Only
+   *             one update policy should be used in the deployment configuration. If no update policy is
+   *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
+   *             by default.</p>
+   */
+  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
+
+  /**
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+   */
+  AutoRollbackConfiguration?: AutoRollbackConfig;
+}
+
+export namespace DeploymentConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeploymentConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration to control how SageMaker captures inference data.</p>
+ */
+export interface DataCaptureConfig {
+  /**
+   * <p>Whether data capture should be enabled or disabled (defaults to enabled).</p>
+   */
+  EnableCapture?: boolean;
+
+  /**
+   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
+   *          Endpoints with high traffic.</p>
+   */
+  InitialSamplingPercentage: number | undefined;
+
+  /**
+   * <p>The Amazon S3 location used to capture the data.</p>
+   */
+  DestinationS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
+   *          the storage volume attached to the ML compute instance that hosts the endpoint.</p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies data Model Monitor will capture. You can configure whether to
+   *          collect only input, only output, or both</p>
+   */
+  CaptureOptions: CaptureOption[] | undefined;
+
+  /**
+   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
+   *          by default base64 encode when capturing the data.</p>
+   */
+  CaptureContentTypeHeader?: CaptureContentTypeHeader;
+}
+
+export namespace DataCaptureConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataCaptureConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a model that you want to host and the resources chosen to deploy for
+ *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
+ *             among the models by specifying variant weights. </p>
+ */
+export interface ProductionVariant {
+  /**
+   * <p>The name of the production variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The name of the model that you want to host. This is the name that you specified
+   *             when creating the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>Number of instances to launch initially.</p>
+   */
+  InitialInstanceCount?: number;
+
+  /**
+   * <p>The ML compute instance type.</p>
+   */
+  InstanceType?: ProductionVariantInstanceType | string;
+
+  /**
+   * <p>Determines initial traffic distribution among all of the models that you specify in
+   *             the endpoint configuration. The traffic to a production variant is determined by the
+   *             ratio of the <code>VariantWeight</code> to the sum of all <code>VariantWeight</code>
+   *             values across all ProductionVariants. If unspecified, it defaults to 1.0.
+   *             </p>
+   */
+  InitialVariantWeight?: number;
+
+  /**
+   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
+   *             instances provide on-demand GPU computing for inference. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | string;
+
+  /**
+   * <p>Specifies configuration for a core dump from the model container when the process
+   *             crashes.</p>
+   */
+  CoreDumpConfig?: ProductionVariantCoreDumpConfig;
+
+  /**
+   * <p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>
+   */
+  ServerlessConfig?: ProductionVariantServerlessConfig;
+}
+
+export namespace ProductionVariant {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProductionVariant): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of features. You must include <code>FeatureName</code> and
+ *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
+ *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
+ */
+export interface FeatureDefinition {
+  /**
+   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
+   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
+   *             <code>api_invocation_time</code>.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
+   */
+  FeatureType?: FeatureType | string;
+}
+
+export namespace FeatureDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FeatureDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration of an <code>OfflineStore</code>.</p>
+ *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
+ *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
+ *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
+ *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
+ *          <code>S3StorageConfig</code>.</p>
+ */
+export interface OfflineStoreConfig {
+  /**
+   * <p>The Amazon Simple Storage (Amazon S3) location of <code>OfflineStore</code>.</p>
+   */
+  S3StorageConfig: S3StorageConfig | undefined;
+
+  /**
+   * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when
+   *        configuring an <code>OfflineStore</code>.</p>
+   */
+  DisableGlueTableCreation?: boolean;
+
+  /**
+   * <p>The meta data of the Glue table that is autogenerated when an <code>OfflineStore</code>
+   *          is created. </p>
+   */
+  DataCatalogConfig?: DataCatalogConfig;
+}
+
+export namespace OfflineStoreConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OfflineStoreConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
+ *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
+ *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
+ *          at General Assembly; the default value is <code>False</code>.</p>
+ */
+export interface OnlineStoreConfig {
+  /**
+   * <p>Use to specify KMS Key ID (<code>KMSKeyId</code>) for at-rest encryption of your
+   *             <code>OnlineStore</code>.</p>
+   */
+  SecurityConfig?: OnlineStoreSecurityConfig;
+
+  /**
+   * <p>Turn <code>OnlineStore</code> off by specifying <code>False</code>
+   *       for the <code>EnableOnlineStore</code> flag. Turn <code>OnlineStore</code>
+   *       on by specifying <code>True</code>
+   *       for the <code>EnableOnlineStore</code> flag. </p>
+   *          <p>The default value is <code>False</code>.</p>
+   */
+  EnableOnlineStore?: boolean;
+}
+
+export namespace OnlineStoreConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OnlineStoreConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about how and under what conditions SageMaker creates a human loop. If <code>HumanLoopActivationConfig</code> is not given, then all requests go to humans.</p>
+ */
+export interface HumanLoopActivationConfig {
+  /**
+   * <p>Container structure for defining under what conditions SageMaker creates a human
+   *          loop.</p>
+   */
+  HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig | undefined;
+}
+
+export namespace HumanLoopActivationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HumanLoopActivationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the work to be performed by human workers.</p>
+ */
+export interface HumanLoopConfig {
+  /**
+   * <p>Amazon Resource Name (ARN) of a team of workers. To learn more about the types of
+   *          workforces and work teams you can create and use with Amazon A2I, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html">Create
+   *             and Manage Workforces</a>.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
+   *          <p>You can use standard HTML and Crowd HTML Elements to create a custom worker task
+   *          template. You use this template to create a human task UI.</p>
+   *          <p>To learn how to create a custom HTML template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-custom-templates.html">Create Custom Worker
+   *             Task Template</a>.</p>
+   *          <p>To learn how to create a human task UI, which is a worker task template that can be used
+   *          in a flow definition, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-worker-template-console.html">Create and Delete a Worker Task Templates</a>.</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>A title for the human worker task.</p>
+   */
+  TaskTitle: string | undefined;
+
+  /**
+   * <p>A description for the human worker task.</p>
+   */
+  TaskDescription: string | undefined;
+
+  /**
+   * <p>The number of distinct workers who will perform the same task on each object.
+   *       For example, if <code>TaskCount</code> is set to <code>3</code> for an image classification
+   *       labeling job, three workers will classify each input image.
+   *       Increasing <code>TaskCount</code> can improve label accuracy.</p>
+   */
+  TaskCount: number | undefined;
+
+  /**
+   * <p>The length of time that a task remains available for review by human workers.</p>
+   */
+  TaskAvailabilityLifetimeInSeconds?: number;
+
+  /**
+   * <p>The amount of time that a worker has to complete a task. The default value is 3,600
+   *          seconds (1 hour).</p>
+   */
+  TaskTimeLimitInSeconds?: number;
+
+  /**
+   * <p>Keywords used to describe the task so that workers can discover the task.</p>
+   */
+  TaskKeywords?: string[];
+
+  /**
+   * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
+   *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
+   *             should be based on the complexity of the task; the longer it takes in your initial
+   *             testing, the more you should offer.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.036</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for image classification, text classification, and
+   *             custom tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.012</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
+   *             dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
+   *             Augmented AI review tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>2.400 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.280 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.160 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.040 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.920 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.800 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.680 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.560 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.440 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.320 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
+   *             Augmented AI review tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
+   *             Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   */
+  PublicWorkforceTaskPrice?: PublicWorkforceTaskPrice;
+}
+
+export namespace HumanLoopConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container for configuring the source of human task requests.</p>
+ */
+export interface HumanLoopRequestSource {
+  /**
+   * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
+   *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
+   */
+  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
+}
+
+export namespace HumanLoopRequestSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HumanLoopRequestSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about where human output will be stored.</p>
+ */
+export interface FlowDefinitionOutputConfig {
+  /**
+   * <p>The Amazon S3 path where the object containing human output will be made available.</p>
+   *          <p>To learn more about the format of Amazon A2I output data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html">Amazon A2I
+   *             Output Data</a>.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace FlowDefinitionOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FlowDefinitionOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Liquid template for the worker user interface.</p>
+ */
+export interface UiTemplate {
+  /**
+   * <p>The content of the Liquid template for the worker user interface.</p>
+   */
+  Content: string | undefined;
+}
+
+export namespace UiTemplate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UiTemplate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobConfig {
+  /**
+   * <p>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
+   *             to use for the training job it launches. To use the Bayesian search strategy, set this
+   *             to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>. For
+   *             information about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+   *                 Hyperparameter Tuning Works</a>.</p>
+   */
+  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+
+  /**
+   * <p>The <a>HyperParameterTuningJobObjective</a> object that specifies the
+   *             objective
+   *             metric for this tuning job.</p>
+   */
+  HyperParameterTuningJobObjective?: HyperParameterTuningJobObjective;
+
+  /**
+   * <p>The <a>ResourceLimits</a> object that specifies the
+   *             maximum
+   *             number of training jobs and parallel training jobs for this tuning
+   *             job.</p>
+   */
+  ResourceLimits: ResourceLimits | undefined;
+
+  /**
+   * <p>The <a>ParameterRanges</a> object that specifies the ranges of
+   *             hyperparameters
+   *             that this tuning job searches.</p>
+   */
+  ParameterRanges?: ParameterRanges;
+
+  /**
+   * <p>Specifies whether to use early stopping for training jobs launched by the
+   *             hyperparameter tuning job. This can be one of the following values (the default value is
+   *                 <code>OFF</code>):</p>
+   *         <dl>
+   *             <dt>OFF</dt>
+   *             <dd>
+   *                     <p>Training jobs launched by the hyperparameter tuning job do not use early
+   *                         stopping.</p>
+   *                 </dd>
+   *             <dt>AUTO</dt>
+   *             <dd>
+   *                     <p>SageMaker stops training jobs launched by the hyperparameter tuning job when
+   *                         they are unlikely to perform better than previously completed training jobs.
+   *                         For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop Training Jobs Early</a>.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType | string;
+
+  /**
+   * <p>The tuning job's completion criteria.</p>
+   */
+  TuningJobCompletionCriteria?: TuningJobCompletionCriteria;
+}
+
+export namespace HyperParameterTuningJobConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines
+ *             the training jobs launched by a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTrainingJobDefinition {
+  /**
+   * <p>The job definition name.</p>
+   */
+  DefinitionName?: string;
+
+  /**
+   * <p>Defines the objective metric for a hyperparameter tuning job.
+   *             Hyperparameter
+   *             tuning uses the value of this metric to evaluate the training jobs it launches, and
+   *             returns the training job that results in either the highest or lowest value for this
+   *             metric, depending on the value you specify for the <code>Type</code>
+   *             parameter.</p>
+   */
+  TuningObjective?: HyperParameterTuningJobObjective;
+
+  /**
+   * <p>Specifies ranges of integer, continuous, and categorical hyperparameters that a
+   *             hyperparameter tuning job searches. The hyperparameter tuning job launches training jobs
+   *             with hyperparameter values within these ranges to find the combination of values that
+   *             result in the training job with the best performance as measured by the objective metric
+   *             of the hyperparameter tuning job.</p>
+   *         <note>
+   *             <p>You can specify a maximum of 20 hyperparameters that a hyperparameter tuning job
+   *                 can search over. Every possible value of a categorical parameter range counts
+   *                 against this limit.</p>
+   *         </note>
+   */
+  HyperParameterRanges?: ParameterRanges;
+
+  /**
+   * <p>Specifies the values of hyperparameters
+   *             that
+   *             do not change for the tuning job.</p>
+   */
+  StaticHyperParameters?: Record<string, string>;
+
+  /**
+   * <p>The <a>HyperParameterAlgorithmSpecification</a> object that
+   *             specifies
+   *             the resource algorithm to use for the training jobs that the tuning
+   *             job launches.</p>
+   */
+  AlgorithmSpecification: HyperParameterAlgorithmSpecification | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the
+   *             IAM
+   *             role associated with the training jobs that the tuning job
+   *             launches.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of <a>Channel</a> objects that specify
+   *             the
+   *             input for the training jobs that the tuning job launches.</p>
+   */
+  InputDataConfig?: Channel[];
+
+  /**
+   * <p>The <a>VpcConfig</a> object that
+   *             specifies
+   *             the VPC that you want the training jobs that this hyperparameter
+   *             tuning job launches to connect to. Control access to and from your
+   *             training
+   *             container by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Specifies the path to the Amazon S3 bucket where you
+   *             store
+   *             model artifacts from the training jobs that the tuning job
+   *             launches.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The resources,
+   *             including
+   *             the compute instances and storage volumes, to use for the training
+   *             jobs that the tuning job launches.</p>
+   *         <p>Storage volumes store model artifacts and
+   *             incremental
+   *             states. Training algorithms might also use storage volumes for
+   *             scratch
+   *             space. If you want SageMaker to use the storage volume to store the
+   *             training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the
+   *             algorithm specification. For distributed training algorithms, specify an instance count
+   *             greater than 1.</p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
+   *             specifies how long a managed spot training job has to complete. When the job reaches the
+   *             time limit, SageMaker ends the training job. Use this API to cap model training costs.</p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>Isolates the training container. No inbound or outbound network calls can be made,
+   *             except for calls between peers within a training cluster for distributed training. If
+   *             network isolation is used for training jobs that are configured to use a VPC, SageMaker
+   *             downloads and uploads customer data and model artifacts through the specified VPC, but
+   *             the training container does not have network access.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>To encrypt all communications between ML compute instances in distributed training,
+   *             choose <code>True</code>. Encryption provides greater security for distributed training,
+   *             but training might take longer. How long it takes depends on the amount of communication
+   *             between compute instances, especially if you use a deep learning algorithm in
+   *             distributed training.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>A Boolean indicating whether managed spot training is enabled (<code>True</code>) or
+   *             not (<code>False</code>).</p>
+   */
+  EnableManagedSpotTraining?: boolean;
+
+  /**
+   * <p>Contains information about the output location for managed spot training checkpoint
+   *             data. </p>
+   */
+  CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
+}
+
+export namespace HyperParameterTrainingJobDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTrainingJobDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more
+ *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
+ *             jobs are used to inform which combinations of hyperparameters to search over in the new
+ *             tuning job.</p>
+ *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+ *             the objective metric, and the training job that performs the best is compared to the
+ *             best training jobs from the parent tuning jobs. From these, the training job that
+ *             performs the best as measured by the objective metric is returned as the overall best
+ *             training job.</p>
+ *         <note>
+ *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+ *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+ *                 job.</p>
+ *         </note>
+ */
+export interface HyperParameterTuningJobWarmStartConfig {
+  /**
+   * <p>An array of hyperparameter tuning jobs that are used as the starting point for the new
+   *             hyperparameter tuning job. For more information about warm starting a hyperparameter
+   *             tuning job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html">Using a Previous
+   *                 Hyperparameter Tuning Job as a Starting Point</a>.</p>
+   *         <p>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
+   *             jobs for warm start tuning jobs.</p>
+   */
+  ParentHyperParameterTuningJobs: ParentHyperParameterTuningJob[] | undefined;
+
+  /**
+   * <p>Specifies one of the following:</p>
+   *         <dl>
+   *             <dt>IDENTICAL_DATA_AND_ALGORITHM</dt>
+   *             <dd>
+   *                     <p>The new hyperparameter tuning job uses the same input data and training
+   *                         image as the parent tuning jobs. You can change the hyperparameter ranges to
+   *                         search and the maximum number of training jobs that the hyperparameter
+   *                         tuning job launches. You cannot use a new version of the training algorithm,
+   *                         unless the changes in the new version do not affect the algorithm itself.
+   *                         For example, changes that improve logging or adding support for a different
+   *                         data format are allowed. You can also change hyperparameters from tunable to
+   *                         static, and from static to tunable, but the total number of static plus
+   *                         tunable hyperparameters must remain the same as it is in all parent jobs.
+   *                         The objective metric for the new tuning job must be the same as for all
+   *                         parent jobs.</p>
+   *                 </dd>
+   *             <dt>TRANSFER_LEARNING</dt>
+   *             <dd>
+   *                     <p>The new hyperparameter tuning job can include input data, hyperparameter
+   *                         ranges, maximum number of concurrent training jobs, and maximum number of
+   *                         training jobs that are different than those of its parent hyperparameter
+   *                         tuning jobs. The training image can also be a different version from the
+   *                         version used in the parent hyperparameter tuning job. You can also change
+   *                         hyperparameters from tunable to static, and from static to tunable, but the
+   *                         total number of static plus tunable hyperparameters must remain the same as
+   *                         it is in all parent jobs. The objective metric for the new tuning job must
+   *                         be the same as for all parent jobs.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  WarmStartType: HyperParameterTuningJobWarmStartType | string | undefined;
+}
+
+export namespace HyperParameterTuningJobWarmStartConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobWarmStartConfig): any => ({
     ...obj,
   });
 }
@@ -380,32 +6602,6 @@ export namespace RecommendationJobInputConfig {
   });
 }
 
-export enum RecommendationJobType {
-  ADVANCED = "Advanced",
-  DEFAULT = "Default",
-}
-
-/**
- * <p>Provides information about the output configuration for the compiled
- *          model.</p>
- */
-export interface RecommendationJobCompiledOutputConfig {
-  /**
-   * <p>Identifies the Amazon S3 bucket where you want SageMaker to store the
-   *          compiled model artifacts.</p>
-   */
-  S3OutputUri?: string;
-}
-
-export namespace RecommendationJobCompiledOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationJobCompiledOutputConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the output configuration for the compiled model.</p>
  */
@@ -465,30 +6661,6 @@ export namespace RecommendationJobOutputConfig {
 }
 
 /**
- * <p>The model latency threshold.</p>
- */
-export interface ModelLatencyThreshold {
-  /**
-   * <p>The model latency percentile threshold.</p>
-   */
-  Percentile?: string;
-
-  /**
-   * <p>The model latency percentile value in milliseconds.</p>
-   */
-  ValueInMilliseconds?: number;
-}
-
-export namespace ModelLatencyThreshold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelLatencyThreshold): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Specifies conditions for stopping a job. When a job reaches a
  *            stopping condition limit, SageMaker ends the job.</p>
  */
@@ -512,190 +6684,6 @@ export namespace RecommendationJobStoppingConditions {
    * @internal
    */
   export const filterSensitiveLog = (obj: RecommendationJobStoppingConditions): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInferenceRecommendationsJobRequest {
-  /**
-   * <p>A name for the recommendation job. The name must be unique within
-   *            the Amazon Web Services Region and within your Amazon Web Services account.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>Defines the type of recommendation job. Specify <code>Default</code> to initiate an instance
-   *            recommendation and <code>Advanced</code> to initiate a load test. If left unspecified,
-   *            Amazon SageMaker Inference Recommender will run an instance recommendation (<code>DEFAULT</code>) job.</p>
-   */
-  JobType: RecommendationJobType | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
-   *     to perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Provides information about the versioned model package Amazon Resource Name (ARN),
-   *     the traffic pattern, and endpoint configurations.</p>
-   */
-  InputConfig: RecommendationJobInputConfig | undefined;
-
-  /**
-   * <p>Description of the recommendation job.</p>
-   */
-  JobDescription?: string;
-
-  /**
-   * <p>A set of conditions for stopping a recommendation job.  If any of
-   *           the conditions are met, the job is automatically stopped.</p>
-   */
-  StoppingConditions?: RecommendationJobStoppingConditions;
-
-  /**
-   * <p>Provides information about the output artifacts and the KMS key
-   *          to use for Amazon S3 server-side encryption.</p>
-   */
-  OutputConfig?: RecommendationJobOutputConfig;
-
-  /**
-   * <p>The metadata that you apply to Amazon Web Services resources to help you
-   *            categorize and organize them. Each tag consists of a key and a value, both of
-   *            which you define. For more information, see
-   *            <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>
-   *            in the Amazon Web Services General Reference.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateInferenceRecommendationsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInferenceRecommendationsJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInferenceRecommendationsJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation job.</p>
-   */
-  JobArn: string | undefined;
-}
-
-export namespace CreateInferenceRecommendationsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInferenceRecommendationsJobResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provided configuration information for the worker UI for a labeling job. Provide
- *             either <code>HumanTaskUiArn</code> or <code>UiTemplateS3Uri</code>.</p>
- *         <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use
- *                 <code>HumanTaskUiArn</code>.</p>
- *         <p>For all other Ground Truth built-in task types and custom task types, use
- *                 <code>UiTemplateS3Uri</code> to specify the location of a worker task template in
- *             Amazon S3.</p>
- */
-export interface UiConfig {
-  /**
-   * <p>The Amazon S3 bucket location of the UI template, or worker task template. This is the
-   *             template used to render the worker UI and tools for labeling job tasks. For more
-   *             information about the contents of a UI template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html"> Creating Your Custom
-   *                 Labeling Task Template</a>.</p>
-   */
-  UiTemplateS3Uri?: string;
-
-  /**
-   * <p>The ARN of the worker task template used to render the worker UI and tools for
-   *             labeling job tasks.</p>
-   *         <p>Use this parameter when you are creating a labeling job for named entity recognition,
-   *             3D point cloud and video frame labeling jobs. Use your labeling job task type to select
-   *             one of the following ARNs and use it with this parameter when you create a labeling job.
-   *             Replace <code>aws-region</code> with the Amazon Web Services Region you are creating your labeling job
-   *             in. For example, replace <code>aws-region</code> with <code>us-west-1</code> if you
-   *             create a labeling job in US West (N. California).</p>
-   *         <p>
-   *             <b>Named Entity Recognition</b>
-   *          </p>
-   *         <p>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
-   *             jobs:</p>
-   *         <p>
-   *             <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/NamedEntityRecognition</code>
-   *          </p>
-   *
-   *         <p>
-   *             <b>3D Point Cloud HumanTaskUiArns</b>
-   *          </p>
-   *
-   *         <p>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
-   *             cloud object detection adjustment labeling jobs. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
-   *             cloud object tracking adjustment labeling jobs. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and 3D
-   *             point cloud semantic segmentation adjustment labeling jobs.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>
-   *             <b>Video Frame HumanTaskUiArns</b>
-   *          </p>
-   *
-   *         <p>Use this <code>HumanTaskUiArn</code> for video frame object detection and video frame
-   *             object detection adjustment labeling jobs. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for video frame object tracking and video frame
-   *             object tracking adjustment labeling jobs. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  HumanTaskUiArn?: string;
-}
-
-export namespace UiConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UiConfig): any => ({
     ...obj,
   });
 }
@@ -2323,117 +8311,6 @@ export namespace HumanTaskConfig {
 }
 
 /**
- * <p>Attributes of the data specified by the customer. Use these to describe the data to be
- *             labeled.</p>
- */
-export interface LabelingJobDataAttributes {
-  /**
-   * <p>Declares that your content is free of personally identifiable information or adult
-   *             content. SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
-   *             based on this information.</p>
-   */
-  ContentClassifiers?: (ContentClassifier | string)[];
-}
-
-export namespace LabelingJobDataAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobDataAttributes): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The Amazon S3 location of the input data objects.</p>
- */
-export interface LabelingJobS3DataSource {
-  /**
-   * <p>The Amazon S3 location of the manifest file that describes the input data objects. </p>
-   *         <p>The input manifest file referenced in <code>ManifestS3Uri</code> must contain one of
-   *             the following keys: <code>source-ref</code> or <code>source</code>. The value of the
-   *             keys are interpreted as follows:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>source-ref</code>: The source of the object is the Amazon S3 object
-   *                     specified in the value. Use this value when the object is a binary object, such
-   *                     as an image.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>source</code>: The source of the object is the value. Use this
-   *                     value when the object is a text value.</p>
-   *             </li>
-   *          </ul>
-   *         <p>If you are a new user of Ground Truth, it is recommended you review <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html">Use an Input Manifest File </a> in the Amazon SageMaker Developer Guide to learn how to
-   *             create an input manifest file.</p>
-   */
-  ManifestS3Uri: string | undefined;
-}
-
-export namespace LabelingJobS3DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobS3DataSource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An Amazon SNS data source used for streaming labeling jobs.</p>
- */
-export interface LabelingJobSnsDataSource {
-  /**
-   * <p>The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic
-   *       you will use to send new data objects to a streaming labeling job.</p>
-   */
-  SnsTopicArn: string | undefined;
-}
-
-export namespace LabelingJobSnsDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobSnsDataSource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the location of input data.</p>
- *
- *          <p>You must specify at least one of the following: <code>S3DataSource</code> or <code>SnsDataSource</code>.</p>
- *          <p>Use <code>SnsDataSource</code> to specify an SNS input topic
- *     for a streaming labeling job. If you do not specify
- *     and SNS input topic ARN, Ground Truth will create a one-time labeling job.</p>
- *          <p>Use <code>S3DataSource</code> to specify an input
- *     manifest file for both streaming and one-time labeling jobs.
- *     Adding an <code>S3DataSource</code> is optional if you use <code>SnsDataSource</code> to create a streaming labeling job.</p>
- */
-export interface LabelingJobDataSource {
-  /**
-   * <p>The Amazon S3 location of the input data objects.</p>
-   */
-  S3DataSource?: LabelingJobS3DataSource;
-
-  /**
-   * <p>An Amazon SNS data source used for streaming labeling jobs. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data">Send Data to a Streaming Labeling Job</a>. </p>
-   */
-  SnsDataSource?: LabelingJobSnsDataSource;
-}
-
-export namespace LabelingJobDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobDataSource): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Input configuration information for a labeling job.</p>
  */
 export interface LabelingJobInputConfig {
@@ -2453,49 +8330,6 @@ export namespace LabelingJobInputConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: LabelingJobInputConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configure encryption on the storage volume attached to the ML compute instance used to
- *             run automated data labeling model training and inference. </p>
- */
-export interface LabelingJobResourceConfig {
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
-   *             attached to the ML compute instance(s) that run the training and inference jobs used for
-   *             automated data labeling. </p>
-   *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
-   *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
-   *             You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for
-   *             automated data labeling model training and inference when you create a labeling job
-   *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
-   *                 Encryption</a>.</p>
-   *         <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  VolumeKmsKeyId?: string;
-}
-
-export namespace LabelingJobResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobResourceConfig): any => ({
     ...obj,
   });
 }
@@ -2643,222 +8477,6 @@ export namespace LabelingJobStoppingConditions {
   });
 }
 
-export interface CreateLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job. This name is used to identify the job in a list of
-   *             labeling jobs. Labeling job names must be unique within an Amazon Web Services account and region.
-   *                 <code>LabelingJobName</code> is not case sensitive. For example, Example-job and
-   *             example-job are considered the same labeling job name by Ground Truth.</p>
-   */
-  LabelingJobName: string | undefined;
-
-  /**
-   * <p>The attribute name to use for the label in the output manifest file. This is the key
-   *             for the key/value pair formed with the label that a worker assigns to the object. The
-   *                 <code>LabelAttributeName</code> must meet the following requirements.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>The name can't end with "-metadata". </p>
-   *             </li>
-   *             <li>
-   *                 <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>,
-   *                     the attribute name <i>must</i> end with "-ref". If the task type
-   *                     you are using is not listed below, the attribute name <i>must
-   *                         not</i> end with "-ref".</p>
-   *                 <ul>
-   *                   <li>
-   *                         <p>Image semantic segmentation (<code>SemanticSegmentation)</code>, and
-   *                             adjustment (<code>AdjustmentSemanticSegmentation</code>) and
-   *                             verification (<code>VerificationSemanticSegmentation</code>) labeling
-   *                             jobs for this task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>Video frame object detection (<code>VideoObjectDetection</code>), and
-   *                             adjustment and verification
-   *                             (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this
-   *                             task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>Video frame object tracking (<code>VideoObjectTracking</code>), and
-   *                             adjustment and verification (<code>AdjustmentVideoObjectTracking</code>)
-   *                             labeling jobs for this task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>3D point cloud semantic segmentation
-   *                                 (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and
-   *                             verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>)
-   *                             labeling jobs for this task type. </p>
-   *                     </li>
-   *                   <li>
-   *                         <p>3D point cloud object tracking
-   *                                 (<code>3DPointCloudObjectTracking</code>), and adjustment and
-   *                             verification (<code>Adjustment3DPointCloudObjectTracking</code>)
-   *                             labeling jobs for this task type. </p>
-   *                     </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *         <p></p>
-   *         <important>
-   *             <p>If you are creating an adjustment or verification labeling job, you must use a
-   *                     <i>different</i>
-   *                 <code>LabelAttributeName</code> than the one used in the original labeling job. The
-   *                 original labeling job is the Ground Truth labeling job that produced the labels that you
-   *                 want verified or adjusted. To learn more about adjustment and verification labeling
-   *                 jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust
-   *                     Labels</a>.</p>
-   *         </important>
-   */
-  LabelAttributeName: string | undefined;
-
-  /**
-   * <p>Input data for the labeling job, such as the Amazon S3 location of the data objects and the
-   *             location of the manifest file that describes the data objects.</p>
-   *         <p>You must specify at least one of the following: <code>S3DataSource</code> or
-   *                 <code>SnsDataSource</code>. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>Use <code>SnsDataSource</code> to specify an SNS input topic for a streaming
-   *                     labeling job. If you do not specify and SNS input topic ARN, Ground Truth will
-   *                     create a one-time labeling job that stops after all data objects in the input
-   *                     manifest file have been labeled.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Use <code>S3DataSource</code> to specify an input manifest file for both
-   *                     streaming and one-time labeling jobs. Adding an <code>S3DataSource</code> is
-   *                     optional if you use <code>SnsDataSource</code> to create a streaming labeling
-   *                     job.</p>
-   *             </li>
-   *          </ul>
-   *         <p>If you use the Amazon Mechanical Turk workforce, your input data should not include
-   *             confidential information, personal information or protected health information. Use
-   *                 <code>ContentClassifiers</code> to specify that your data is free of personally
-   *             identifiable information and adult content.</p>
-   */
-  InputConfig: LabelingJobInputConfig | undefined;
-
-  /**
-   * <p>The location of the output data and the Amazon Web Services Key Management Service key ID for the key used to encrypt
-   *             the output data, if any.</p>
-   */
-  OutputConfig: LabelingJobOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf
-   *             during data labeling. You must grant this role the necessary permissions so that Amazon SageMaker
-   *             can successfully complete data labeling.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The S3 URI of the file, referred to as a <i>label category configuration
-   *                 file</i>, that defines the categories used to label the data objects.</p>
-   *         <p>For 3D point cloud and video frame task types, you can add label category attributes
-   *             and frame attributes to your label category configuration file. To learn how, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create a
-   *                 Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </p>
-   *         <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
-   *             provide worker instructions in the label category configuration file using the
-   *                 <code>"instructions"</code> parameter: <code>"instructions":
-   *                 {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>",
-   *                 "fullInstruction":"<p>Add additional instructions.</p>"}</code>. For details
-   *             and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create a
-   *                 Named Entity Recognition Labeling Job (API) </a>.</p>
-   *         <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
-   *                 tasks</a>, your label category configuration file must be a JSON file in the
-   *             following format. Identify the labels you want to use by replacing <code>label_1</code>,
-   *                 <code>label_2</code>,<code>...</code>,<code>label_n</code> with your label
-   *             categories.</p>
-   *         <p>
-   *             <code>{ </code>
-   *          </p>
-   *         <p>
-   *             <code>"document-version": "2018-11-28",</code>
-   *          </p>
-   *         <p>
-   *             <code>"labels": [{"label": "label_1"},{"label": "label_2"},...{"label":
-   *                 "label_n"}]</code>
-   *          </p>
-   *         <p>
-   *             <code>}</code>
-   *          </p>
-   *         <p>Note the following about the label category configuration file:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For image classification and text classification (single and multi-label) you
-   *                     must specify at least two label categories. For all other task types, the
-   *                     minimum number of label categories required is one. </p>
-   *             </li>
-   *             <li>
-   *                 <p>Each label category must be unique, you cannot specify duplicate label
-   *                     categories.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If you create a 3D point cloud or video frame adjustment or verification
-   *                     labeling job, you must include <code>auditLabelAttributeName</code> in the label
-   *                     category configuration. Use this parameter to enter the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName">
-   *                      <code>LabelAttributeName</code>
-   *                   </a> of the labeling job you want to
-   *                     adjust or verify annotations of.</p>
-   *             </li>
-   *          </ul>
-   */
-  LabelCategoryConfigS3Uri?: string;
-
-  /**
-   * <p>A set of conditions for stopping the labeling job. If any of the conditions are met,
-   *             the job is automatically stopped. You can use these conditions to control the cost of
-   *             data labeling.</p>
-   */
-  StoppingConditions?: LabelingJobStoppingConditions;
-
-  /**
-   * <p>Configures the information required to perform automated data labeling.</p>
-   */
-  LabelingJobAlgorithmsConfig?: LabelingJobAlgorithmsConfig;
-
-  /**
-   * <p>Configures the labeling task and how it is presented to workers; including, but not limited to price, keywords, and batch size (task count).</p>
-   */
-  HumanTaskConfig: HumanTaskConfig | undefined;
-
-  /**
-   * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateLabelingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateLabelingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the
-   *             labeling job.</p>
-   */
-  LabelingJobArn: string | undefined;
-}
-
-export namespace CreateLabelingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum InferenceExecutionMode {
-  DIRECT = "Direct",
-  SERIAL = "Serial",
-}
-
 /**
  * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
  */
@@ -2885,91 +8503,6 @@ export namespace InferenceExecutionConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: InferenceExecutionConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelInput {
-  /**
-   * <p>The name of the new model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The location of the primary docker image containing inference code, associated
-   *             artifacts, and custom environment map that the inference code uses when the model is
-   *             deployed for predictions. </p>
-   */
-  PrimaryContainer?: ContainerDefinition;
-
-  /**
-   * <p>Specifies the containers in the inference pipeline.</p>
-   */
-  Containers?: ContainerDefinition[];
-
-  /**
-   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model
-   *             artifacts and docker image for deployment on ML compute instances or for batch transform
-   *             jobs. Deploying on ML compute instances is part of model hosting. For more information,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-   *                 Roles</a>. </p>
-   *         <note>
-   *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
-   */
-  ExecutionRoleArn: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your model
-   *             to connect to. Control access to and from your model container by configuring the VPC.
-   *                 <code>VpcConfig</code> is used in hosting services and in batch transform. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch
-   *                 Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>Isolates the model container. No inbound or outbound network calls can be made to or
-   *             from the model container.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-}
-
-export namespace CreateModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelOutput {
-  /**
-   * <p>The ARN of the model created in SageMaker.</p>
-   */
-  ModelArn: string | undefined;
-}
-
-export namespace CreateModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelOutput): any => ({
     ...obj,
   });
 }
@@ -3030,25 +8563,6 @@ export namespace ModelBiasBaselineConfig {
 }
 
 /**
- * <p>The ground truth labels for the dataset used for the monitoring job.</p>
- */
-export interface MonitoringGroundTruthS3Input {
-  /**
-   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
-   */
-  S3Uri?: string;
-}
-
-export namespace MonitoringGroundTruthS3Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringGroundTruthS3Input): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Inputs for the model bias job.</p>
  */
 export interface ModelBiasJobInput {
@@ -3068,86 +8582,6 @@ export namespace ModelBiasJobInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModelBiasJobInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
-   *          Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model bias job.</p>
-   */
-  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
-
-  /**
-   * <p>Configures the model bias job to run a specified Docker container image.</p>
-   */
-  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model bias job.</p>
-   */
-  ModelBiasJobInput: ModelBiasJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model bias job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelBiasJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelBiasJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-export namespace CreateModelBiasJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionResponse): any => ({
     ...obj,
   });
 }
@@ -3226,221 +8660,6 @@ export namespace ModelExplainabilityJobInput {
   });
 }
 
-export interface CreateModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p> The name of the model explainability job definition. The name must be unique within an
-   *          Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model explainability job.</p>
-   */
-  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
-
-  /**
-   * <p>Configures the model explainability job to run a specified Docker container
-   *          image.</p>
-   */
-  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model explainability job.</p>
-   */
-  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model explainability job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelExplainabilityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelExplainabilityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-export namespace CreateModelExplainabilityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains details regarding the file source.</p>
- */
-export interface FileSource {
-  /**
-   * <p>The type of content stored in the file source.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>The digest of the file source.</p>
-   */
-  ContentDigest?: string;
-
-  /**
-   * <p>The Amazon S3 URI for the file source.</p>
-   */
-  S3Uri: string | undefined;
-}
-
-export namespace FileSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the
- *             model package.</p>
- */
-export interface DriftCheckBias {
-  /**
-   * <p>The bias config file for a model.</p>
-   */
-  ConfigFile?: FileSource;
-
-  /**
-   * <p></p>
-   */
-  PreTrainingConstraints?: MetricsSource;
-
-  /**
-   * <p></p>
-   */
-  PostTrainingConstraints?: MetricsSource;
-}
-
-export namespace DriftCheckBias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DriftCheckBias): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the drift check explainability baselines that can be used when the model monitor is set
- *             using the model package. </p>
- */
-export interface DriftCheckExplainability {
-  /**
-   * <p></p>
-   */
-  Constraints?: MetricsSource;
-
-  /**
-   * <p>The explainability config file for the model.</p>
-   */
-  ConfigFile?: FileSource;
-}
-
-export namespace DriftCheckExplainability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DriftCheckExplainability): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using
- *             the model package. </p>
- */
-export interface DriftCheckModelDataQuality {
-  /**
-   * <p></p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p></p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace DriftCheckModelDataQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DriftCheckModelDataQuality): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using
- *             the model package. </p>
- */
-export interface DriftCheckModelQuality {
-  /**
-   * <p></p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p></p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace DriftCheckModelQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DriftCheckModelQuality): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the drift check baselines that can be used when the model monitor is set using the model
  *             package. </p>
@@ -3481,73 +8700,6 @@ export namespace DriftCheckBaselines {
 }
 
 /**
- * <p>Contains explainability metrics for a model.</p>
- */
-export interface Explainability {
-  /**
-   * <p>The explainability report for a model.</p>
-   */
-  Report?: MetricsSource;
-}
-
-export namespace Explainability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Explainability): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Data quality constraints and statistics for a model.</p>
- */
-export interface ModelDataQuality {
-  /**
-   * <p>Data quality statistics for a model.</p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p>Data quality constraints for a model.</p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace ModelDataQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelDataQuality): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Model quality statistics and constraints.</p>
- */
-export interface ModelQuality {
-  /**
-   * <p>Model quality statistics.</p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p>Model quality constraints.</p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace ModelQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelQuality): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Contains metrics captured from a model.</p>
  */
 export interface ModelMetrics {
@@ -3582,40 +8734,6 @@ export namespace ModelMetrics {
 }
 
 /**
- * <p>Specifies an algorithm that was used to create the model package. The algorithm must
- *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you
- *             are subscribed to.</p>
- */
-export interface SourceAlgorithm {
-  /**
-   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
-   *             This path must point to a single <code>gzip</code> compressed tar archive
-   *                 (<code>.tar.gz</code> suffix).</p>
-   *         <note>
-   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
-   *                 algorithm.</p>
-   *         </note>
-   */
-  ModelDataUrl?: string;
-
-  /**
-   * <p>The name of an algorithm that was used to create the model package. The algorithm must
-   *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you
-   *             are subscribed to.</p>
-   */
-  AlgorithmName: string | undefined;
-}
-
-export namespace SourceAlgorithm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceAlgorithm): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A list of algorithms that were used to create a model package.</p>
  */
 export interface SourceAlgorithmSpecification {
@@ -3630,34 +8748,6 @@ export namespace SourceAlgorithmSpecification {
    * @internal
    */
   export const filterSensitiveLog = (obj: SourceAlgorithmSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains data, such as the inputs and targeted instance types that are used in the
- *             process of validating the model package.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
- *             Marketplace.</p>
- */
-export interface ModelPackageValidationProfile {
-  /**
-   * <p>The name of the profile for the model package.</p>
-   */
-  ProfileName: string | undefined;
-
-  /**
-   * <p>The <code>TransformJobDefinition</code> object that describes the transform job used
-   *             for the validation of the model package.</p>
-   */
-  TransformJobDefinition: TransformJobDefinition | undefined;
-}
-
-export namespace ModelPackageValidationProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelPackageValidationProfile): any => ({
     ...obj,
   });
 }
@@ -3685,213 +8775,6 @@ export namespace ModelPackageValidationSpecification {
   export const filterSensitiveLog = (obj: ModelPackageValidationSpecification): any => ({
     ...obj,
   });
-}
-
-export interface CreateModelPackageInput {
-  /**
-   * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters
-   *             are a-z, A-Z, 0-9, and - (hyphen).</p>
-   *         <p>This parameter is required for unversioned models. It is not applicable to versioned
-   *             models.</p>
-   */
-  ModelPackageName?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p>
-   *         <p>This parameter is required for versioned models, and does not apply to unversioned
-   *             models.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>A description of the model package.</p>
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>Specifies details about inference jobs that can be run with models based on this model
-   *             package, including the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>The Amazon ECR paths of containers that contain the inference code and model
-   *                     artifacts.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The instance types that the model package supports for transform jobs and
-   *                     real-time endpoints used for inference.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The input and output content formats that the model package supports for
-   *                     inference.</p>
-   *             </li>
-   *          </ul>
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Specifies configurations for one or more transform jobs that SageMaker runs to test the
-   *             model package.</p>
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification;
-
-  /**
-   * <p>Details about the algorithm that was used to create the model package.</p>
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
-
-  /**
-   * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p>
-   *         <p>This parameter is optional for unversioned models, and does not apply to versioned
-   *             models.</p>
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Whether the model is approved for deployment.</p>
-   *         <p>This parameter is optional for versioned models, and does not apply to unversioned
-   *             models.</p>
-   *         <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
-   *         to deploy the model.</p>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A structure that contains model metrics reports.</p>
-   */
-  ModelMetrics?: ModelMetrics;
-
-  /**
-   * <p>A unique token that guarantees that the call to this API is idempotent.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The metadata properties associated with the model package versions.</p>
-   */
-  CustomerMetadataProperties?: Record<string, string>;
-
-  /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
-   */
-  DriftCheckBaselines?: DriftCheckBaselines;
-
-  /**
-   * <p>The machine learning domain of your model package and its components. Common
-   *     machine learning domains include computer vision and natural language processing.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>The machine learning task your model package accomplishes. Common machine
-   *     learning tasks include object detection and image classification. The following
-   *     tasks are supported by Inference Recommender:
-   *    <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> |
-   *    <code>"FILL_MASK"</code> | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</p>
-   *          <p>Specify "OTHER" if none of the tasks listed fit your use case.</p>
-   */
-  Task?: string;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path must point
-   *     to a single gzip compressed tar archive (.tar.gz suffix).</p>
-   */
-  SamplePayloadUrl?: string;
-
-  /**
-   * <p>An array of additional Inference Specification objects. Each additional
-   *     Inference Specification specifies artifacts based on this model package that can
-   *     be used on inference endpoints. Generally used with SageMaker Neo to store the
-   *     compiled artifacts. </p>
-   */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
-}
-
-export namespace CreateModelPackageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelPackageInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelPackageOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new model package.</p>
-   */
-  ModelPackageArn: string | undefined;
-}
-
-export namespace CreateModelPackageOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelPackageOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelPackageGroupInput {
-  /**
-   * <p>The name of the model group.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>A description for the model group.</p>
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>A list of key value pairs associated with the model group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelPackageGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelPackageGroupInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelPackageGroupOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   */
-  ModelPackageGroupArn: string | undefined;
-}
-
-export namespace CreateModelPackageGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelPackageGroupOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum MonitoringProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression",
 }
 
 /**
@@ -3998,180 +8881,6 @@ export namespace ModelQualityJobInput {
   });
 }
 
-export interface CreateModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the monitoring job definition.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>Specifies the constraints and baselines for the monitoring job.</p>
-   */
-  ModelQualityBaselineConfig?: ModelQualityBaselineConfig;
-
-  /**
-   * <p>The container that runs the monitoring job.</p>
-   */
-  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
-
-  /**
-   * <p>A list of the inputs that are monitored. Currently endpoints are supported.</p>
-   */
-  ModelQualityJobInput: ModelQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Specifies the network configuration for the monitoring job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelQualityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelQualityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model quality monitoring job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-export namespace CreateModelQualityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelQualityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
- */
-export interface MonitoringBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   */
-  BaseliningJobName?: string;
-
-  /**
-   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should
-   *          validated against.</p>
-   */
-  ConstraintsResource?: MonitoringConstraintsResource;
-
-  /**
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be
-   *          validated against.</p>
-   */
-  StatisticsResource?: MonitoringStatisticsResource;
-}
-
-export namespace MonitoringBaselineConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringBaselineConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- */
-export interface MonitoringAppSpecification {
-  /**
-   * <p>The container image to be run by the monitoring job.</p>
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
-   */
-  ContainerEntrypoint?: string[];
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   */
-  ContainerArguments?: string[];
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
-   */
-  RecordPreprocessorSourceUri?: string;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
-   */
-  PostAnalyticsProcessorSourceUri?: string;
-}
-
-export namespace MonitoringAppSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringAppSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The inputs for a monitoring job.</p>
- */
-export interface MonitoringInput {
-  /**
-   * <p>The endpoint for a monitoring job.</p>
-   */
-  EndpointInput: EndpointInput | undefined;
-}
-
-export namespace MonitoringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Networking options for a job, such as network traffic encryption between containers,
  *          whether to allow inbound and outbound network calls to and from containers, and the VPC
@@ -4210,153 +8919,6 @@ export namespace NetworkConfig {
 }
 
 /**
- * <p>Defines the monitoring job.</p>
- */
-export interface MonitoringJobDefinition {
-  /**
-   * <p>Baseline configuration used to validate that the data conforms to the specified
-   *          constraints and statistics</p>
-   */
-  BaselineConfig?: MonitoringBaselineConfig;
-
-  /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker
-   *          Endpoint.</p>
-   */
-  MonitoringInputs: MonitoringInput[] | undefined;
-
-  /**
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage
-   *          Service (Amazon S3).</p>
-   */
-  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *          monitoring job. In distributed processing, you specify more than one instance.</p>
-   */
-  MonitoringResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Configures the monitoring job to run a specified Docker container image.</p>
-   */
-  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
-
-  /**
-   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * <p>Specifies networking options for an monitoring job.</p>
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *          your behalf.</p>
-   */
-  RoleArn: string | undefined;
-}
-
-export namespace MonitoringJobDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringJobDefinition): any => ({
-    ...obj,
-  });
-}
-
-export enum MonitoringType {
-  DATA_QUALITY = "DataQuality",
-  MODEL_BIAS = "ModelBias",
-  MODEL_EXPLAINABILITY = "ModelExplainability",
-  MODEL_QUALITY = "ModelQuality",
-}
-
-/**
- * <p>Configuration details about the monitoring schedule.</p>
- */
-export interface ScheduleConfig {
-  /**
-   * <p>A cron expression that describes details about the monitoring schedule.</p>
-   *
-   *          <p>Currently the only supported cron expressions are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you want to set the job to start every hour, please use the following:</p>
-   *                <p>
-   *                   <code>Hourly: cron(0 * ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>If you want to start the job daily:</p>
-   *                <p>
-   *                   <code>cron(0 [00-23] ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>To support running every 6, 12 hours, the following are also supported:</p>
-   *          <p>
-   *             <code>cron(0 [00-23]/[01-24] ? * * *)</code>
-   *          </p>
-   *          <p>For example, the following are valid cron expressions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Even though the cron expression is set to start at 5PM UTC, note that there
-   *                   could be a delay of 0-20 minutes from the actual requested time to run the
-   *                   execution. </p>
-   *                </li>
-   *                <li>
-   *                   <p>We recommend that if you would like a daily schedule, you do not provide this
-   *                   parameter. Amazon SageMaker will pick a time for running every day.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   */
-  ScheduleExpression: string | undefined;
-}
-
-export namespace ScheduleConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Configures the monitoring schedule and defines the monitoring job.</p>
  */
 export interface MonitoringScheduleConfig {
@@ -4390,51 +8952,6 @@ export namespace MonitoringScheduleConfig {
   });
 }
 
-export interface CreateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
-   *          an Amazon Web Services account.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateMonitoringScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn: string | undefined;
-}
-
-export namespace CreateMonitoringScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitoringScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum NotebookInstanceAcceleratorType {
   ML_EIA1_LARGE = "ml.eia1.large",
   ML_EIA1_MEDIUM = "ml.eia1.medium",
@@ -4442,11 +8959,6 @@ export enum NotebookInstanceAcceleratorType {
   ML_EIA2_LARGE = "ml.eia2.large",
   ML_EIA2_MEDIUM = "ml.eia2.medium",
   ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
-
-export enum DirectInternetAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
 }
 
 /**
@@ -4464,234 +8976,6 @@ export namespace InstanceMetadataServiceConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceMetadataServiceConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
-
-export enum RootAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
-
-export interface CreateNotebookInstanceInput {
-  /**
-   * <p>The name of the new notebook instance.</p>
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The type of ML compute instance to launch for the notebook instance.</p>
-   */
-  InstanceType: _InstanceType | string | undefined;
-
-  /**
-   * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from
-   *             your ML compute instance. </p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be
-   *             for the same VPC as specified in the subnet. </p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p> When you send any requests to Amazon Web Services resources from the notebook instance, SageMaker
-   *             assumes this role to perform tasks on your behalf. You must grant this role necessary
-   *             permissions so SageMaker can perform these tasks. The policy must allow the SageMaker service
-   *             principal (sagemaker.amazonaws.com) permissions to assume this role. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
-   *         <note>
-   *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
-   *             the storage volume attached to your notebook instance. The KMS key you provide must be
-   *             enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
-   *                 Keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
-   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
-   *                 Customize a Notebook Instance</a>.</p>
-   */
-  LifecycleConfigName?: string;
-
-  /**
-   * <p>Sets whether SageMaker provides internet access to the notebook instance. If you set this
-   *             to <code>Disabled</code> this notebook instance is able to access resources only in your
-   *             VPC, and is not be able to connect to SageMaker training and endpoint services unless you
-   *             configure a NAT Gateway in your VPC.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
-   *             of this parameter to <code>Disabled</code> only if you set a value for the
-   *                 <code>SubnetId</code> parameter.</p>
-   */
-  DirectInternetAccess?: DirectInternetAccess | string;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>A list of Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently, only one instance type can be associated with a notebook instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
-
-  /**
-   * <p>A Git repository to associate with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories to associate with the notebook instance.
-   *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
-   *             default value is <code>Enabled</code>.</p>
-   *         <note>
-   *             <p>Lifecycle configurations need root access to be able to set up a notebook
-   *                 instance. Because of this, lifecycle configurations associated with a notebook
-   *                 instance always run with root access even if you disable root access for
-   *                 users.</p>
-   *         </note>
-   */
-  RootAccess?: RootAccess | string;
-
-  /**
-   * <p>The platform identifier of the notebook instance runtime environment.</p>
-   */
-  PlatformIdentifier?: string;
-
-  /**
-   * <p>Information on the IMDS configuration of the notebook instance</p>
-   */
-  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
-}
-
-export namespace CreateNotebookInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
-   */
-  NotebookInstanceArn?: string;
-}
-
-export namespace CreateNotebookInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceOutput): any => ({
     ...obj,
   });
 }
@@ -4723,50 +9007,6 @@ export namespace NotebookInstanceLifecycleHook {
    * @internal
    */
   export const filterSensitiveLog = (obj: NotebookInstanceLifecycleHook): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>A shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>A shell script that runs every time you start a notebook instance, including when you
-   *             create the notebook instance. The shell script must be a base64-encoded string.</p>
-   */
-  OnStart?: NotebookInstanceLifecycleHook[];
-}
-
-export namespace CreateNotebookInstanceLifecycleConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateNotebookInstanceLifecycleConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigArn?: string;
-}
-
-export namespace CreateNotebookInstanceLifecycleConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigOutput): any => ({
     ...obj,
   });
 }
@@ -4823,166 +9063,6 @@ export namespace PipelineDefinitionS3Location {
   });
 }
 
-export interface CreatePipelineRequest {
-  /**
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The JSON pipeline definition of the pipeline.</p>
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
-   *             SageMaker will retrieve the pipeline definition from this location.</p>
-   */
-  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
-
-  /**
-   * <p>A description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role used by the pipeline to access and create resources.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the created pipeline.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>This is the configuration that controls the parallelism of the pipeline.
-   *             If specified, it applies to all runs of this pipeline by default.</p>
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-}
-
-export namespace CreatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created pipeline.</p>
-   */
-  PipelineArn?: string;
-}
-
-export namespace CreatePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedDomainUrlRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the UserProfile to sign-in as.</p>
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>The session expiration duration in seconds. This value defaults to 43200.</p>
-   */
-  SessionExpirationDurationInSeconds?: number;
-
-  /**
-   * <p>The number of seconds until the pre-signed URL expires. This value defaults to
-   *          300.</p>
-   */
-  ExpiresInSeconds?: number;
-}
-
-export namespace CreatePresignedDomainUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresignedDomainUrlRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedDomainUrlResponse {
-  /**
-   * <p>The presigned URL.</p>
-   */
-  AuthorizedUrl?: string;
-}
-
-export namespace CreatePresignedDomainUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresignedDomainUrlResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedNotebookInstanceUrlInput {
-  /**
-   * <p>The name of the notebook instance.</p>
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The duration of the session, in seconds. The default is 12 hours.</p>
-   */
-  SessionExpirationDurationInSeconds?: number;
-}
-
-export namespace CreatePresignedNotebookInstanceUrlInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresignedNotebookInstanceUrlInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreatePresignedNotebookInstanceUrlOutput {
-  /**
-   * <p>A JSON object that contains the URL string. </p>
-   */
-  AuthorizedUrl?: string;
-}
-
-export namespace CreatePresignedNotebookInstanceUrlOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresignedNotebookInstanceUrlOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
  *       you call the following APIs:</p>
@@ -5032,208 +9112,6 @@ export namespace ExperimentConfig {
   });
 }
 
-export enum DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
-
-export enum InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
-
-export enum RedshiftResultCompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "None",
-  SNAPPY = "SNAPPY",
-  ZSTD = "ZSTD",
-}
-
-export enum RedshiftResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
-
-/**
- * <p>Configuration for Redshift Dataset Definition input.</p>
- */
-export interface RedshiftDatasetDefinition {
-  /**
-   * <p>The Redshift cluster Identifier.</p>
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * <p>The name of the Redshift database used in Redshift query execution.</p>
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>The database user name used in Redshift query execution.</p>
-   */
-  DbUser: string | undefined;
-
-  /**
-   * <p>The SQL query statements to be executed.</p>
-   */
-  QueryString: string | undefined;
-
-  /**
-   * <p>The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.</p>
-   */
-  ClusterRoleArn: string | undefined;
-
-  /**
-   * <p>The location in Amazon S3 where the Redshift query results are stored.</p>
-   */
-  OutputS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data from a
-   *             Redshift execution.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The data storage format for Redshift query results.</p>
-   */
-  OutputFormat: RedshiftResultFormat | string | undefined;
-
-  /**
-   * <p>The compression used for Redshift query results.</p>
-   */
-  OutputCompression?: RedshiftResultCompressionType | string;
-}
-
-export namespace RedshiftDatasetDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDatasetDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for Dataset Definition inputs. The Dataset Definition input must specify
- *             exactly one of either <code>AthenaDatasetDefinition</code> or <code>RedshiftDatasetDefinition</code>
- *             types.</p>
- */
-export interface DatasetDefinition {
-  /**
-   * <p>Configuration for Athena Dataset Definition input.</p>
-   */
-  AthenaDatasetDefinition?: AthenaDatasetDefinition;
-
-  /**
-   * <p>Configuration for Redshift Dataset Definition input.</p>
-   */
-  RedshiftDatasetDefinition?: RedshiftDatasetDefinition;
-
-  /**
-   * <p>The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a
-   *             processing job. <code>LocalPath</code> is an absolute path to the input data. This is a required
-   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
-   */
-  LocalPath?: string;
-
-  /**
-   * <p>Whether the generated dataset is <code>FullyReplicated</code> or
-   *             <code>ShardedByS3Key</code> (default).</p>
-   */
-  DataDistributionType?: DataDistributionType | string;
-
-  /**
-   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code> (default) mode,
-   *             Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store
-   *             (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used
-   *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
-   *             algorithm without using the EBS volume.</p>
-   */
-  InputMode?: InputMode | string;
-}
-
-export namespace DatasetDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetDefinition): any => ({
-    ...obj,
-  });
-}
-
-export enum ProcessingS3CompressionType {
-  GZIP = "Gzip",
-  NONE = "None",
-}
-
-export enum ProcessingS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
-
-/**
- * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
- */
-export interface ProcessingS3Input {
-  /**
-   * <p>The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The local path in your container where you want Amazon SageMaker to write input data to.
-   *             <code>LocalPath</code> is an absolute path to the input data and must begin with
-   *             <code>/opt/ml/processing/</code>. <code>LocalPath</code> is a required
-   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
-   */
-  LocalPath?: string;
-
-  /**
-   * <p>Whether you use an <code>S3Prefix</code> or a <code>ManifestFile</code> for
-   *             the data type. If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key
-   *             name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing
-   *             job. If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
-   *             that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for
-   *             the processing job.</p>
-   */
-  S3DataType: ProcessingS3DataType | string | undefined;
-
-  /**
-   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In File mode, Amazon SageMaker copies the data
-   *             from the input source onto the local ML storage volume before starting your processing
-   *             container. This is the most commonly used input mode. In <code>Pipe</code> mode, Amazon SageMaker
-   *             streams input data from the source directly to your processing container into named
-   *             pipes without using the ML storage volume.</p>
-   */
-  S3InputMode?: ProcessingS3InputMode | string;
-
-  /**
-   * <p>Whether to distribute the data from Amazon S3 to all processing instances with
-   *             <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
-   *             downloading one shard of data to each processing instance.</p>
-   */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
-
-  /**
-   * <p>Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing
-   *             container. <code>Gzip</code> can only be used when <code>Pipe</code> mode is
-   *             specified as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input
-   *             data from the source directly to your container without using the EBS volume.</p>
-   */
-  S3CompressionType?: ProcessingS3CompressionType | string;
-}
-
-export namespace ProcessingS3Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingS3Input): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The inputs for a processing job. The processing input must specify exactly one of either
  *             <code>S3Input</code> or <code>DatasetDefinition</code> types.</p>
@@ -5271,98 +9149,6 @@ export namespace ProcessingInput {
 }
 
 /**
- * <p>Configuration for processing job outputs in Amazon SageMaker Feature Store.</p>
- */
-export interface ProcessingFeatureStoreOutput {
-  /**
-   * <p>The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your
-   *             processing script is responsible for putting records into your Feature Store.</p>
-   */
-  FeatureGroupName: string | undefined;
-}
-
-export namespace ProcessingFeatureStoreOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingFeatureStoreOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for uploading output data to Amazon S3 from the processing container.</p>
- */
-export interface ProcessingS3Output {
-  /**
-   * <p>A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of
-   *             a processing job.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3.
-   *             <code>LocalPath</code> is an absolute path to a directory containing output files.
-   *             This directory will be created by the platform and exist when your container's
-   *             entrypoint is invoked.</p>
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * <p>Whether to upload the results of the processing job continuously or after the job
-   *             completes.</p>
-   */
-  S3UploadMode: ProcessingS3UploadMode | string | undefined;
-}
-
-export namespace ProcessingS3Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingS3Output): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the results of a processing job. The processing output must specify exactly one of
- *             either <code>S3Output</code> or <code>FeatureStoreOutput</code> types.</p>
- */
-export interface ProcessingOutput {
-  /**
-   * <p>The name for the processing job output.</p>
-   */
-  OutputName: string | undefined;
-
-  /**
-   * <p>Configuration for processing job outputs in Amazon S3.</p>
-   */
-  S3Output?: ProcessingS3Output;
-
-  /**
-   * <p>Configuration for processing job outputs in Amazon SageMaker Feature Store. This processing output
-   *             type is only supported when <code>AppManaged</code> is specified. </p>
-   */
-  FeatureStoreOutput?: ProcessingFeatureStoreOutput;
-
-  /**
-   * <p>When <code>True</code>, output operations such as data upload are managed natively by the
-   *             processing job application. When <code>False</code> (default), output operations are managed by
-   *             Amazon SageMaker.</p>
-   */
-  AppManaged?: boolean;
-}
-
-export namespace ProcessingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Configuration for uploading output from the processing container.</p>
  */
 export interface ProcessingOutputConfig {
@@ -5385,62 +9171,6 @@ export namespace ProcessingOutputConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: ProcessingOutputConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for the cluster used to run a processing job.</p>
- */
-export interface ProcessingClusterConfig {
-  /**
-   * <p>The number of ML compute instances to use in the processing job. For distributed
-   *             processing jobs, specify a value greater than 1. The default value is 1.</p>
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The ML compute instance type for the processing job.</p>
-   */
-  InstanceType: ProcessingInstanceType | string | undefined;
-
-  /**
-   * <p>The size of the ML storage volume in gigabytes that you want to provision. You must
-   *             specify sufficient ML storage for your scenario.</p>
-   *         <note>
-   *             <p>Certain Nitro-based instances include local storage with a fixed total size,
-   *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker mounts
-   *                 the local instance storage instead of Amazon EBS gp2 storage. You can't request a
-   *                 <code>VolumeSizeInGB</code> greater than the total size of the local instance
-   *                 storage.</p>
-   *             <p>For a list of instance types that support local instance storage, including the
-   *                 total size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
-   *         </note>
-   */
-  VolumeSizeInGB: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the
-   *             storage volume attached to the ML compute instance(s) that run the processing job.
-   *         </p>
-   *         <note>
-   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
-   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
-   *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
-   *                 local storage.</p>
-   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
-   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
-   *                 Instance Store Volumes</a>.</p>
-   *         </note>
-   */
-  VolumeKmsKeyId?: string;
-}
-
-export namespace ProcessingClusterConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingClusterConfig): any => ({
     ...obj,
   });
 }
@@ -5486,140 +9216,6 @@ export namespace ProcessingStoppingCondition {
   });
 }
 
-export interface CreateProcessingJobRequest {
-  /**
-   * <p>An array of inputs configuring the data to download into the
-   *             processing container.</p>
-   */
-  ProcessingInputs?: ProcessingInput[];
-
-  /**
-   * <p>Output configuration for the processing job.</p>
-   */
-  ProcessingOutputConfig?: ProcessingOutputConfig;
-
-  /**
-   * <p> The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
-   */
-  ProcessingJobName: string | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *             processing job. In distributed training, you specify more than one instance.</p>
-   */
-  ProcessingResources: ProcessingResources | undefined;
-
-  /**
-   * <p>The time limit for how long the processing job is allowed to run.</p>
-   */
-  StoppingCondition?: ProcessingStoppingCondition;
-
-  /**
-   * <p>Configures the processing job to run a specified Docker container image.</p>
-   */
-  AppSpecification: AppSpecification | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container. Up to
-   *             100 key and values entries in the map are supported.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * <p>Networking options for a processing job, such as whether to allow inbound and
-   *             outbound network calls to and from processing containers, and the VPC subnets and
-   *             security groups to use for VPC-enabled processing jobs.</p>
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *             your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-}
-
-export namespace CreateProcessingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProcessingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateProcessingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
-   */
-  ProcessingJobArn: string | undefined;
-}
-
-export namespace CreateProcessingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProcessingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A key value pair used when you provision a project as a service catalog product. For
- *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
- *                 Catalog</a>.</p>
- */
-export interface ProvisioningParameter {
-  /**
-   * <p>The key that identifies a provisioning parameter.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the provisioning parameter.</p>
-   */
-  Value?: string;
-}
-
-export namespace ProvisioningParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details that you specify to provision a service catalog product. For information about
  *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
@@ -5652,114 +9248,6 @@ export namespace ServiceCatalogProvisioningDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: ServiceCatalogProvisioningDetails): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateProjectInput {
-  /**
-   * <p>The name of the project.</p>
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>A description for the project.</p>
-   */
-  ProjectDescription?: string;
-
-  /**
-   * <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning
-   *             artifact ID will default to the latest provisioning artifact ID of the product, if you don't
-   *             provide the provisioning artifact ID. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *                 Catalog</a>.</p>
-   */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
-
-  /**
-   * <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services
-   *             resource costs. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateProjectOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The ID of the new project.</p>
-   */
-  ProjectId: string | undefined;
-}
-
-export namespace CreateProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum StudioLifecycleConfigAppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-}
-
-export interface CreateStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Studio Lifecycle Configuration to create.</p>
-   */
-  StudioLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
-   */
-  StudioLifecycleConfigContent: string | undefined;
-
-  /**
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   */
-  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | string | undefined;
-
-  /**
-   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateStudioLifecycleConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioLifecycleConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateStudioLifecycleConfigResponse {
-  /**
-   * <p>The ARN of your created Lifecycle Configuration.</p>
-   */
-  StudioLifecycleConfigArn?: string;
-}
-
-export namespace CreateStudioLifecycleConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioLifecycleConfigResponse): any => ({
     ...obj,
   });
 }
@@ -5943,518 +9431,4765 @@ export namespace ProfilerRuleConfiguration {
   });
 }
 
-/**
- * <p>Configuration of storage locations for the Debugger TensorBoard output data.</p>
- */
-export interface TensorBoardOutputConfig {
+export interface ListEndpointsInput {
   /**
-   * <p>Path to local storage location for tensorBoard output. Defaults to
-   *                 <code>/opt/ml/output/tensorboard</code>.</p>
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  LocalPath?: string;
+  SortBy?: EndpointSortKey | string;
 
   /**
-   * <p>Path to Amazon S3 storage location for TensorBoard output.</p>
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  S3OutputPath: string | undefined;
+  SortOrder?: OrderKey | string;
+
+  /**
+   * <p>If the result of a <code>ListEndpoints</code> request was truncated, the response
+   *             includes a <code>NextToken</code>. To retrieve the next set of endpoints, use the token
+   *             in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of endpoints to return in the response. This value defaults to
+   *             10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in endpoint names. This filter returns only endpoints whose name contains
+   *             the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only endpoints that were created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only endpoints with a creation time greater than or equal to
+   *             the specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p> A filter that returns only endpoints that were modified before the specified
+   *             timestamp. </p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p> A filter that returns only endpoints that were modified after the specified
+   *             timestamp. </p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p> A filter that returns only endpoints with the specified status.</p>
+   */
+  StatusEquals?: EndpointStatus | string;
 }
 
-export namespace TensorBoardOutputConfig {
+export namespace ListEndpointsInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TensorBoardOutputConfig): any => ({
+  export const filterSensitiveLog = (obj: ListEndpointsInput): any => ({
     ...obj,
   });
 }
 
-export interface CreateTrainingJobRequest {
+export interface ListEndpointsOutput {
   /**
-   * <p>The name of the training job. The name must be unique within an Amazon Web Services Region in an
-   *             Amazon Web Services account. </p>
+   * <p> An array or endpoint objects. </p>
+   */
+  Endpoints: EndpointSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             training jobs, use it in the subsequent request. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEndpointsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEndpointsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExperimentsRequest {
+  /**
+   * <p>A filter that returns only experiments created after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only experiments created before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortExperimentsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListExperiments</code> didn't return the full set of
+   *       experiments, the call returns a token for getting the next set of experiments.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of experiments to return in the response. The default value is
+   *       10.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListExperimentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperimentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExperimentsResponse {
+  /**
+   * <p>A list of the summaries of your experiments.</p>
+   */
+  ExperimentSummaries?: ExperimentSummary[];
+
+  /**
+   * <p>A token for getting the next set of experiments, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExperimentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperimentsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFeatureGroupsRequest {
+  /**
+   * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters
+   *             <code>FeatureGroup</code>s by name. </p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
+   */
+  FeatureGroupStatusEquals?: FeatureGroupStatus | string;
+
+  /**
+   * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status. </p>
+   */
+  OfflineStoreStatusEquals?: OfflineStoreStatusValue | string;
+
+  /**
+   * <p>Use this parameter to search for <code>FeatureGroups</code>s created after a specific
+   *          date and time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>Use this parameter to search for <code>FeatureGroups</code>s created before a specific
+   *          date and time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The order in which feature groups are listed.</p>
+   */
+  SortOrder?: FeatureGroupSortOrder | string;
+
+  /**
+   * <p>The value on which the feature group list is sorted.</p>
+   */
+  SortBy?: FeatureGroupSortBy | string;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFeatureGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFeatureGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFeatureGroupsResponse {
+  /**
+   * <p>A summary of feature groups.</p>
+   */
+  FeatureGroupSummaries: FeatureGroupSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
+   */
+  NextToken: string | undefined;
+}
+
+export namespace ListFeatureGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFeatureGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFlowDefinitionsRequest {
+  /**
+   * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only flow definitions that were created before the specified timestamp.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFlowDefinitionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFlowDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFlowDefinitionsResponse {
+  /**
+   * <p>An array of objects describing the flow definitions.</p>
+   */
+  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFlowDefinitionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFlowDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListHumanTaskUisRequest {
+  /**
+   * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only human task user interfaces that were created before the specified timestamp.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListHumanTaskUisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListHumanTaskUisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListHumanTaskUisResponse {
+  /**
+   * <p>An array of objects describing the human task user interfaces.</p>
+   */
+  HumanTaskUiSummaries: HumanTaskUiSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListHumanTaskUisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListHumanTaskUisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListHyperParameterTuningJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             tuning jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The
+   *             maximum number of tuning jobs to return. The default value is
+   *             10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   */
+  SortBy?: HyperParameterTuningJobSortByOptions | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A string in the tuning job name. This filter returns only tuning jobs whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were created after the specified
+   *             time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were created before the specified
+   *             time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were modified after the specified
+   *             time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were modified before the specified
+   *             time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only tuning jobs with the specified status.</p>
+   */
+  StatusEquals?: HyperParameterTuningJobStatus | string;
+}
+
+export namespace ListHyperParameterTuningJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListHyperParameterTuningJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListHyperParameterTuningJobsResponse {
+  /**
+   * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
+   *             describe
+   *             the tuning jobs that the <code>ListHyperParameterTuningJobs</code>
+   *             request returned.</p>
+   */
+  HyperParameterTuningJobSummaries: HyperParameterTuningJobSummary[] | undefined;
+
+  /**
+   * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs,
+   *             use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListHyperParameterTuningJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListHyperParameterTuningJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImagesRequest {
+  /**
+   * <p>A filter that returns only images created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only images created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only images modified on or after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only images modified on or before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of images to return in the response. The default value is 10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only images whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of images,
+   *         the call returns a token for getting the next set of images.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   */
+  SortBy?: ImageSortBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+   */
+  SortOrder?: ImageSortOrder | string;
+}
+
+export namespace ListImagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImagesResponse {
+  /**
+   * <p>A list of images and their properties.</p>
+   */
+  Images?: Image[];
+
+  /**
+   * <p>A token for getting the next set of images, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListImagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImageVersionsRequest {
+  /**
+   * <p>A filter that returns only versions created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only versions created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The name of the image to list the versions of.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>A filter that returns only versions modified on or after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only versions modified on or before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of versions to return in the response. The default value is 10. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListImageVersions</code> didn't return the full set of
+   *         versions, the call returns a token for getting the next set of versions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   */
+  SortBy?: ImageVersionSortBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+   */
+  SortOrder?: ImageVersionSortOrder | string;
+}
+
+export namespace ListImageVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImageVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImageVersionsResponse {
+  /**
+   * <p>A list of versions and their properties.</p>
+   */
+  ImageVersions?: ImageVersion[];
+
+  /**
+   * <p>A token for getting the next set of versions, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListImageVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImageVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInferenceRecommendationsJobsRequest {
+  /**
+   * <p>A filter that returns only jobs created after the specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created before the specified time (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs that were last modified after the specified time (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs that were last modified before the specified time (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the job name. This filter returns only recommendations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only inference recommendations jobs with a specific status.</p>
+   */
+  StatusEquals?: RecommendationJobStatus | string;
+
+  /**
+   * <p>The parameter by which to sort the results.</p>
+   */
+  SortBy?: ListInferenceRecommendationsJobsSortBy | string;
+
+  /**
+   * <p>The sort order for the results.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the response to a previous <code>ListInferenceRecommendationsJobsRequest</code> request
+   *          was truncated, the response includes a <code>NextToken</code>. To retrieve the next set
+   *          of recommendations, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of recommendations to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListInferenceRecommendationsJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInferenceRecommendationsJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInferenceRecommendationsJobsResponse {
+  /**
+   * <p>The recommendations created from the Amazon SageMaker Inference Recommender job.</p>
+   */
+  InferenceRecommendationsJobs: InferenceRecommendationsJob[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of recommendations, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInferenceRecommendationsJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInferenceRecommendationsJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLabelingJobsRequest {
+  /**
+   * <p>A filter that returns only labeling jobs created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only labeling jobs created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only labeling jobs modified after the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only labeling jobs modified before the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous <code>ListLabelingJobs</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs,
+   *             use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A string in the labeling job name. This filter returns only labeling jobs whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A filter that retrieves only labeling jobs with a specific status.</p>
+   */
+  StatusEquals?: LabelingJobStatus | string;
+}
+
+export namespace ListLabelingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLabelingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLabelingJobsResponse {
+  /**
+   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
+   *             job.</p>
+   */
+  LabelingJobSummaryList?: LabelingJobSummary[];
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             labeling jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLabelingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLabelingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLabelingJobsForWorkteamRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling
+   *             jobs for.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The maximum number of labeling jobs to return in each page of the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous <code>ListLabelingJobsForWorkteam</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             labeling jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter that returns only labeling jobs created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only labeling jobs created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter the limits jobs to only the ones whose job reference code contains the
+   *             specified string.</p>
+   */
+  JobReferenceCodeContains?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ListLabelingJobsForWorkteamSortByOptions | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListLabelingJobsForWorkteamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLabelingJobsForWorkteamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLabelingJobsForWorkteamResponse {
+  /**
+   * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
+   *             job.</p>
+   */
+  LabelingJobSummaryList: LabelingJobForWorkteamSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             labeling jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLabelingJobsForWorkteamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLabelingJobsForWorkteamResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLineageGroupsRequest {
+  /**
+   * <p>A timestamp to filter against lineage groups created after a certain point in time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A timestamp to filter against lineage groups created before a certain point in time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *          <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortLineageGroupsBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *          algorithms, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of endpoints to return in the response. This value defaults to
+   *          10.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLineageGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLineageGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLineageGroupsResponse {
+  /**
+   * <p>A list of lineage groups and their properties.</p>
+   */
+  LineageGroupSummaries?: LineageGroupSummary[];
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *          algorithms, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLineageGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLineageGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelBiasJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model bias.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of model bias jobs to return in the response. The default value is
+   *          10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for model bias jobs whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model bias jobs created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model bias jobs created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelBiasJobDefinitionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelBiasJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelBiasJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelBiasJobDefinitionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelBiasJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelExplainabilityJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model explainability.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for model explainability jobs whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model explainability jobs created before a specified
+   *          time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model explainability jobs created after a specified
+   *          time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelExplainabilityJobDefinitionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelExplainabilityJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelExplainabilityJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a explainability bias jobs.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelExplainabilityJobDefinitionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelExplainabilityJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelMetadataRequest {
+  /**
+   * <p>One or more filters that searches for the specified resource or resources
+   *           in a search. All resource objects that satisfy the expression's condition are
+   *           included in the search results. Specify the  Framework, FrameworkVersion, Domain
+   *           or Task to filter supported. Filter names and values are case-sensitive.</p>
+   */
+  SearchExpression?: ModelMetadataSearchExpression;
+
+  /**
+   * <p>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated,
+   *            the response includes a NextToken. To retrieve the next set of model metadata,
+   *            use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of models to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListModelMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelMetadataResponse {
+  /**
+   * <p>A structure that holds model metadata.</p>
+   */
+  ModelMetadataSummaries: ModelMetadataSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of recommendations, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelPackageGroupsInput {
+  /**
+   * <p>A filter that returns only model groups created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only model groups created before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model group name. This filter returns only model groups whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             model groups, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelPackageGroupSortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListModelPackageGroupsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackageGroupsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelPackageGroupsOutput {
+  /**
+   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
+   */
+  ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
+   *             of model groups, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelPackageGroupsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelPackagesInput {
+  /**
+   * <p>A filter that returns only model packages created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only model packages created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of model packages to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model package name. This filter returns only model packages whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only the model packages with the specified approval
+   *             status.</p>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+
+  /**
+   * <p>A filter that returns only model versions that belong to the specified model group.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * <p>A filter that returns only the model packages of the specified type. This can be one
+   *             of the following values.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>UNVERSIONED</code> - List only unversioined models.
+   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VERSIONED</code> - List only versioned models.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelPackageType?: ModelPackageType | string;
+
+  /**
+   * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
+   *             packages, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelPackageSortBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListModelPackagesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackagesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelPackagesOutput {
+  /**
+   * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
+   *             package.</p>
+   */
+  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             model packages, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelPackagesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions that are associated
+   *          with the specified endpoint.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          model quality monitoring job definitions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a call to
+   *             <code>ListModelQualityJobDefinitions</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only model quality monitoring
+   *          job definitions whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created before the
+   *          specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created after the
+   *          specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelQualityJobDefinitionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelQualityJobDefinitionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of summaries of model quality monitoring job definitions.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
+   *          quality monitoring job definitions, use it in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelQualityJobDefinitionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelQualityJobDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelsInput {
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: OrderKey | string;
+
+  /**
+   * <p>If the response to a previous <code>ListModels</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of models, use the
+   *             token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of models to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model name. This filter returns only models whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only models created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only models with a creation time greater than or equal to the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export namespace ListModelsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelsOutput {
+  /**
+   * <p>An array of <code>ModelSummary</code> objects, each of which lists a
+   *             model.</p>
+   */
+  Models: ModelSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             models, use it in the subsequent request. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoringExecutionsRequest {
+  /**
+   * <p>Name of a specific schedule to fetch jobs for.</p>
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * <p>Name of a specific endpoint to fetch jobs for.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringExecutionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for jobs scheduled before a specified time.</p>
+   */
+  ScheduledTimeBefore?: Date;
+
+  /**
+   * <p>Filter for jobs scheduled after a specified time.</p>
+   */
+  ScheduledTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified after a specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified before a specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that retrieves only jobs with a specific status.</p>
+   */
+  StatusEquals?: ExecutionStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring job runs of the specified monitoring job
+   *          definitions.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring job runs of the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
+}
+
+export namespace ListMonitoringExecutionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoringExecutionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoringExecutionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
+   */
+  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent reques</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMonitoringExecutionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoringExecutionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoringSchedulesRequest {
+  /**
+   * <p>Name of a specific endpoint to fetch schedules for.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringScheduleSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for monitoring schedules whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   */
+  StatusEquals?: ScheduleStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring schedules for the specified monitoring job
+   *          definition.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring schedules for the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
+}
+
+export namespace ListMonitoringSchedulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoringSchedulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoringSchedulesResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
+   */
+  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMonitoringSchedulesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNotebookInstanceLifecycleConfigsInput {
+  /**
+   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
+   *             lifecycle configurations, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of lifecycle configurations to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
+
+  /**
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
+
+  /**
+   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
+   *             configurations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created before the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created after the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified before the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified after the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+}
+
+export namespace ListNotebookInstanceLifecycleConfigsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNotebookInstanceLifecycleConfigsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNotebookInstanceLifecycleConfigsOutput {
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
+   *             lifecycle configurations, use it in the next request. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
+   *             a lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
+}
+
+export namespace ListNotebookInstanceLifecycleConfigsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNotebookInstanceLifecycleConfigsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNotebookInstancesInput {
+  /**
+   * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
+   *             response includes a <code>NextToken</code>. You can use this token in your subsequent
+   *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
+   *             instances. </p>
+   *         <note>
+   *             <p>You might specify a filter or a sort order in your request. When response is
+   *                 truncated, you must use the same values for the filer and sort order in the next
+   *                 request. </p>
+   *         </note>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of notebook instances to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   */
+  SortBy?: NotebookInstanceSortKey | string;
+
+  /**
+   * <p>The sort order for results. </p>
+   */
+  SortOrder?: NotebookInstanceSortOrder | string;
+
+  /**
+   * <p>A string in the notebook instances' name. This filter returns only notebook
+   *             instances whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only notebook instances that were created before the
+   *             specified time (timestamp). </p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were created after the specified
+   *             time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were modified before the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were modified after the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances with the specified status.</p>
+   */
+  StatusEquals?: NotebookInstanceStatus | string;
+
+  /**
+   * <p>A string in the name of a notebook instances lifecycle configuration associated with
+   *             this notebook instance. This filter returns only notebook instances associated with a
+   *             lifecycle configuration with a name that contains the specified string.</p>
+   */
+  NotebookInstanceLifecycleConfigNameContains?: string;
+
+  /**
+   * <p>A string in the name or URL of a Git repository associated with this notebook
+   *             instance. This filter returns only notebook instances associated with a git repository
+   *             with a name that contains the specified string.</p>
+   */
+  DefaultCodeRepositoryContains?: string;
+
+  /**
+   * <p>A filter that returns only notebook instances with associated with the specified git
+   *             repository.</p>
+   */
+  AdditionalCodeRepositoryEquals?: string;
+}
+
+export namespace ListNotebookInstancesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNotebookInstancesOutput {
+  /**
+   * <p>If the response to the previous <code>ListNotebookInstances</code> request was
+   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
+   *             instance.</p>
+   */
+  NotebookInstances?: NotebookInstanceSummary[];
+}
+
+export namespace ListNotebookInstancesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineExecutionsRequest {
+  /**
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>A filter that returns the pipeline executions that were created after a specified
+   *          time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns the pipeline executions that were created before a specified
+   *          time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortBy?: SortPipelineExecutionsBy | string;
+
+  /**
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipeline executions to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListPipelineExecutionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineExecutionsResponse {
+  /**
+   * <p>Contains a sorted list of pipeline execution summary objects matching the specified
+   *          filters. Each run summary includes the Amazon Resource Name (ARN) of the pipeline execution, the run date,
+   *          and the status. This list can be empty. </p>
+   */
+  PipelineExecutionSummaries?: PipelineExecutionSummary[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelineExecutionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineExecutionStepsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipeline execution steps to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListPipelineExecutionStepsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionStepsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineExecutionStepsResponse {
+  /**
+   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
+   *             <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus,
+   *          and Metadata. Metadata is an object with properties for each job that contains relevant
+   *          information about the job created by the step.</p>
+   */
+  PipelineExecutionSteps?: PipelineExecutionStep[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelineExecutionStepsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionStepsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineParametersForExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of parameters to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListPipelineParametersForExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineParametersForExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineParametersForExecutionResponse {
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelineParametersForExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineParametersForExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelinesRequest {
+  /**
+   * <p>The prefix of the pipeline name.</p>
+   */
+  PipelineNamePrefix?: string;
+
+  /**
+   * <p>A filter that returns the pipelines that were created after a specified
+   *          time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns the pipelines that were created before a specified
+   *          time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortBy?: SortPipelinesBy | string;
+
+  /**
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipelines to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListPipelinesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelinesResponse {
+  /**
+   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
+   *          filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName,
+   *          ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and
+   *          RoleArn. This list can be empty. </p>
+   */
+  PipelineSummaries?: PipelineSummary[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelinesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProcessingJobsRequest {
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs modified after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs modified before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the processing job name. This filter returns only processing jobs whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only processing jobs with a specific status.</p>
+   */
+  StatusEquals?: ProcessingJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of processing
+   *             jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of processing jobs to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListProcessingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProcessingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProcessingJobsResponse {
+  /**
+   * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
+   *             job.</p>
+   */
+  ProcessingJobSummaries: ProcessingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             processing jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProcessingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProjectsInput {
+  /**
+   * <p>A filter that returns the projects that were created after a specified
+   *             time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns the projects that were created before a specified
+   *             time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of projects to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns the projects whose name contains a specified
+   *             string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListProjects</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ProjectSortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: ProjectSortOrder | string;
+}
+
+export namespace ListProjectsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProjectsOutput {
+  /**
+   * <p>A list of summaries of projects.</p>
+   */
+  ProjectSummaryList: ProjectSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
+   *             compilation jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProjectsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudioLifecycleConfigsRequest {
+  /**
+   * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
+   */
+  AppTypeEquals?: StudioLifecycleConfigAppType | string;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is CreationTime.</p>
+   */
+  SortBy?: StudioLifecycleConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is Descending.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListStudioLifecycleConfigsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudioLifecycleConfigsResponse {
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of Lifecycle Configurations and their properties.</p>
+   */
+  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
+}
+
+export namespace ListStudioLifecycleConfigsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSubscribedWorkteamsRequest {
+  /**
+   * <p>A string in the work team name. This filter returns only work teams whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             labeling jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of work teams to return in each page of the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSubscribedWorkteamsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSubscribedWorkteamsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSubscribedWorkteamsResponse {
+  /**
+   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
+   */
+  SubscribedWorkteams: SubscribedWorkteam[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             work teams, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSubscribedWorkteamsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
+   *             retrieve.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p> If the response to the previous <code>ListTags</code> request is truncated, SageMaker
+   *             returns this token. To retrieve the next set of tags, use it in the subsequent request.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of tags to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTagsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsOutput {
+  /**
+   * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p> If response is truncated, SageMaker includes a token in the response. You can use this
+   *             token in your subsequent request to fetch next set of tokens. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTagsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of training
+   *             jobs, use the token in the next request. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of training jobs to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only training jobs created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs modified after the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only training jobs modified before the specified time
+   *             (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the training job name. This filter returns only training jobs whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only training jobs with a specific status.</p>
+   */
+  StatusEquals?: TrainingJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListTrainingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsResponse {
+  /**
+   * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
+   *             job.</p>
+   */
+  TrainingJobSummaries: TrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             training jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrainingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsForHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job whose training jobs you want to list.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobsForHyperParameterTuningJob</code>
+   *             request was truncated, the response includes a <code>NextToken</code>. To retrieve the
+   *             next set of training jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of training jobs to return. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only training jobs with the specified status.</p>
+   */
+  StatusEquals?: TrainingJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   *         <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
+   *             jobs that did not return an objective metric are not listed.</p>
+   */
+  SortBy?: TrainingJobSortByOptions | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrainingJobsForHyperParameterTuningJobResponse {
+  /**
+   * <p>A list of <a>TrainingJobSummary</a> objects that
+   *             describe
+   *             the training jobs that the
+   *                 <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
+   */
+  TrainingJobSummaries: HyperParameterTrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request
+   *             was truncated, the response includes a <code>NextToken</code>. To retrieve the next set
+   *             of training jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTransformJobsRequest {
+  /**
+   * <p>A filter that returns only transform jobs created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs created before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs modified after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs modified before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only transform jobs whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only transform jobs with a specific status.</p>
+   */
+  StatusEquals?: TransformJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of transform
+   *             jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTransformJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTransformJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTransformJobsResponse {
+  /**
+   * <p>An array of
+   *                 <code>TransformJobSummary</code>
+   *             objects.</p>
+   */
+  TransformJobSummaries: TransformJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             transform jobs, use it in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTransformJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTransformJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrialComponentsRequest {
+  /**
+   * <p>A filter that returns only components that are part of the specified experiment. If you
+   *       specify <code>ExperimentName</code>, you can't filter by <code>SourceArn</code> or
+   *         <code>TrialName</code>.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>A filter that returns only components that are part of the specified trial. If you specify
+   *         <code>TrialName</code>, you can't filter by <code>ExperimentName</code> or
+   *         <code>SourceArn</code>.</p>
+   */
+  TrialName?: string;
+
+  /**
+   * <p>A filter that returns only components that have the specified source Amazon Resource Name
+   *       (ARN). If you specify <code>SourceArn</code>, you can't filter by <code>ExperimentName</code>
+   *       or <code>TrialName</code>.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>A filter that returns only components created after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only components created before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortTrialComponentsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The maximum number of components to return in the response. The default value is
+   *       10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of
+   *       components, the call returns a token for getting the next set of components.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrialComponentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrialComponentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrialComponentsResponse {
+  /**
+   * <p>A list of the summaries of your trial components.</p>
+   */
+  TrialComponentSummaries?: TrialComponentSummary[];
+
+  /**
+   * <p>A token for getting the next set of components, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrialComponentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrialComponentsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrialsRequest {
+  /**
+   * <p>A filter that returns only trials that are part of the specified experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>A filter that returns only trials that are associated with the specified trial
+   *       component.</p>
+   */
+  TrialComponentName?: string;
+
+  /**
+   * <p>A filter that returns only trials created after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only trials created before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortTrialsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The maximum number of trials to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the
+   *       call returns a token for getting the next set of trials.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrialsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrialsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTrialsResponse {
+  /**
+   * <p>A list of the summaries of your trials.</p>
+   */
+  TrialSummaries?: TrialSummary[];
+
+  /**
+   * <p>A token for getting the next set of trials, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrialsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrialsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserProfilesRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns a list up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The sort order for the results. The default is Ascending.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
+   */
+  SortBy?: UserProfileSortKey | string;
+
+  /**
+   * <p>A parameter by which to filter the results.</p>
+   */
+  DomainIdEquals?: string;
+
+  /**
+   * <p>A parameter by which to filter the results.</p>
+   */
+  UserProfileNameContains?: string;
+}
+
+export namespace ListUserProfilesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserProfilesResponse {
+  /**
+   * <p>The list of user profiles.</p>
+   */
+  UserProfiles?: UserProfileDetails[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token.
+   *         Use it in your next request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListUserProfilesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserProfilesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkforcesRequest {
+  /**
+   * <p>Sort workforces using the workforce name or creation date.</p>
+   */
+  SortBy?: ListWorkforcesSortByOptions | string;
+
+  /**
+   * <p>Sort workforces in ascending or descending order.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A filter you can use to search for workforces using part of the workforce name.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of workforces returned in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListWorkforcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkforcesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkforcesResponse {
+  /**
+   * <p>A list containing information about your workforce.</p>
+   */
+  Workforces: Workforce[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListWorkforcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkforcesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkteamsRequest {
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ListWorkteamsSortByOptions | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A string in the work team's name. This filter returns only work teams whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs,
+   *             use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of work teams to return in each page of the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListWorkteamsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkteamsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkteamsResponse {
+  /**
+   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
+   */
+  Workteams: Workteam[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             work teams, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListWorkteamsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkteamsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutModelPackageGroupPolicyInput {
+  /**
+   * <p>The name of the model group to add a resource policy to.</p>
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>The resource policy for the model group.</p>
+   */
+  ResourcePolicy: string | undefined;
+}
+
+export namespace PutModelPackageGroupPolicyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutModelPackageGroupPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutModelPackageGroupPolicyOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package group.</p>
+   */
+  ModelPackageGroupArn: string | undefined;
+}
+
+export namespace PutModelPackageGroupPolicyOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutModelPackageGroupPolicyOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryLineageRequest {
+  /**
+   * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
+   */
+  StartArns: string[] | undefined;
+
+  /**
+   * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
+   *          StartArn(s) that the query traverses.</p>
+   */
+  Direction?: Direction | string;
+
+  /**
+   * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a> and
+   *          lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
+   */
+  IncludeEdges?: boolean;
+
+  /**
+   * <p>A set of filtering parameters that allow you to specify which entities should be returned.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Properties - Key-value pairs to match on the lineage entities' properties.</p>
+   *             </li>
+   *             <li>
+   *                <p>LineageTypes - A set of lineage entity types to match on. For example: <code>TrialComponent</code>,
+   *             <code>Artifact</code>, or <code>Context</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>CreatedBefore - Filter entities created before this date.</p>
+   *             </li>
+   *             <li>
+   *                <p>ModifiedBefore - Filter entities modified before this date.</p>
+   *             </li>
+   *             <li>
+   *                <p>ModifiedAfter - Filter entities modified after this date.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: QueryFilters;
+
+  /**
+   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number
+   *          of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
+   */
+  MaxDepth?: number;
+
+  /**
+   * <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace QueryLineageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryLineageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryLineageResponse {
+  /**
+   * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
+   */
+  Vertices?: Vertex[];
+
+  /**
+   * <p>A list of edges that connect vertices in the response.</p>
+   */
+  Edges?: Edge[];
+
+  /**
+   * <p>Limits the number of vertices in the response. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace QueryLineageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryLineageResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterDevicesRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>A list of devices to register with SageMaker Edge Manager.</p>
+   */
+  Devices: Device[] | undefined;
+
+  /**
+   * <p>The tags associated with devices.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace RegisterDevicesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterDevicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RenderUiTemplateRequest {
+  /**
+   * <p>A <code>Template</code> object containing the worker UI template to render.</p>
+   */
+  UiTemplate?: UiTemplate;
+
+  /**
+   * <p>A <code>RenderableTask</code> object containing a representative task to
+   *             render.</p>
+   */
+  Task: RenderableTask | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the
+   *             template.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not
+   *             provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code>
+   *             parameter.</p>
+   *         <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a>UiConfig</a>.</p>
+   */
+  HumanTaskUiArn?: string;
+}
+
+export namespace RenderUiTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RenderUiTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RenderUiTemplateResponse {
+  /**
+   * <p>A Liquid template that renders the HTML for the worker UI.</p>
+   */
+  RenderedContent: string | undefined;
+
+  /**
+   * <p>A list of one or more <code>RenderingError</code> objects if any were encountered
+   *             while rendering the template. If there were no errors, the list is empty.</p>
+   */
+  Errors: RenderingError[] | undefined;
+}
+
+export namespace RenderUiTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RetryPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
+
+export namespace RetryPipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryPipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RetryPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace RetryPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryPipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchResponse {
+  /**
+   * <p>A list of <code>SearchRecord</code> objects.</p>
+   */
+  Results?: SearchRecord[];
+
+  /**
+   * <p>If the result of the previous <code>Search</code> request was truncated, the response
+   *       includes a NextToken. To retrieve the next set of results, use the token in the next
+   *       request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResponse): any => ({
+    ...obj,
+    ...(obj.Results && { Results: obj.Results.map((item) => SearchRecord.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface SendPipelineExecutionStepFailureRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A message describing why the step failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace SendPipelineExecutionStepFailureRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepFailureRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepFailureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace SendPipelineExecutionStepFailureResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepFailureResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepSuccessRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace SendPipelineExecutionStepSuccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepSuccessRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepSuccessResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace SendPipelineExecutionStepSuccessResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepSuccessResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to start.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+export namespace StartMonitoringScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMonitoringScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to start.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+export namespace StartNotebookInstanceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartNotebookInstanceInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StartPipelineExecutionRequest {
+  /**
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   */
+  PipelineExecutionDisplayName?: string;
+
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline for this specific run.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
+
+export namespace StartPipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartPipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace StartPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartPipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopAutoMLJobRequest {
+  /**
+   * <p>The name of the object you are requesting.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
+
+export namespace StopAutoMLJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopAutoMLJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job to stop.</p>
+   */
+  CompilationJobName: string | undefined;
+}
+
+export namespace StopCompilationJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+export namespace StopEdgePackagingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job to stop.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
+
+export namespace StopHyperParameterTuningJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopHyperParameterTuningJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopInferenceRecommendationsJobRequest {
+  /**
+   * <p>The name of the job you want to stop.</p>
+   */
+  JobName: string | undefined;
+}
+
+export namespace StopInferenceRecommendationsJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopInferenceRecommendationsJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to stop.</p>
+   */
+  LabelingJobName: string | undefined;
+}
+
+export namespace StopLabelingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopLabelingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to stop.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+export namespace StopMonitoringScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopMonitoringScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to terminate.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+export namespace StopNotebookInstanceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopNotebookInstanceInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StopPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace StopPipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopPipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace StopPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopPipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to stop.</p>
+   */
+  ProcessingJobName: string | undefined;
+}
+
+export namespace StopProcessingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopProcessingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopTrainingJobRequest {
+  /**
+   * <p>The name of the training job to stop.</p>
    */
   TrainingJobName: string | undefined;
+}
 
+export namespace StopTrainingJobRequest {
   /**
-   * <p>Algorithm-specific parameters that influence the quality of the model. You set
-   *             hyperparameters before you start the learning process. For a list of hyperparameters for
-   *             each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
-   *         <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a
-   *             key-value pair. Each key and value is limited to 256 characters, as specified by the
-   *                 <code>Length Constraint</code>. </p>
+   * @internal
    */
-  HyperParameters?: Record<string, string>;
+  export const filterSensitiveLog = (obj: StopTrainingJobRequest): any => ({
+    ...obj,
+  });
+}
 
+export interface StopTransformJobRequest {
   /**
-   * <p>The registry path of the Docker image that contains the training algorithm and
-   *             algorithm-specific metadata, including the input mode. For more information about
-   *             algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about
-   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>. </p>
+   * <p>The name of the batch transform job to stop.</p>
    */
-  AlgorithmSpecification: AlgorithmSpecification | undefined;
+  TransformJobName: string | undefined;
+}
+
+export namespace StopTransformJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopTransformJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionRequest {
+  /**
+   * <p>The name of the action to update.</p>
+   */
+  ActionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume to perform
-   *             tasks on your behalf. </p>
-   *         <p>During model training, SageMaker needs your permission to read input data from an S3
-   *             bucket, download a Docker image that contains training code, write model artifacts to an
-   *             S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant
-   *             permissions for all of these tasks to an IAM role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-   *                 Roles</a>. </p>
+   * <p>The new description for the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new status for the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+}
+
+export namespace UpdateActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to update.</p>
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>The new KernelGateway app to run on the image.</p>
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+}
+
+export namespace UpdateAppImageConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppImageConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAppImageConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
+   */
+  AppImageConfigArn?: string;
+}
+
+export namespace UpdateAppImageConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppImageConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
+   */
+  ArtifactArn: string | undefined;
+
+  /**
+   * <p>The new name for the artifact.</p>
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateArtifactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateArtifactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+}
+
+export namespace UpdateArtifactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateArtifactResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to update.</p>
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The configuration of the git repository, including the URL and the Amazon Resource
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to
+   *             access the repository. The secret must have a staging label of <code>AWSCURRENT</code>
+   *             and must be in the following format:</p>
+   *         <p>
+   *             <code>{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>}</code>
+   *         </p>
+   */
+  GitConfig?: GitConfigForUpdate;
+}
+
+export namespace UpdateCodeRepositoryInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCodeRepositoryOutput {
+  /**
+   * <p>The ARN of the Git repository.</p>
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+export namespace UpdateCodeRepositoryOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCodeRepositoryOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateContextRequest {
+  /**
+   * <p>The name of the context to update.</p>
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The new description for the context.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateContextRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateContextRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+}
+
+export namespace UpdateContextResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateContextResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Output configuration  for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+   *       The name of the role alias generated will match this pattern:
+   *       "SageMakerEdge-{DeviceFleetName}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
+}
+
+export namespace UpdateDeviceFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDeviceFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   */
+  Devices: Device[] | undefined;
+}
+
+export namespace UpdateDevicesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   */
+  DefaultUserSettings?: UserSettings;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate;
+}
+
+export namespace UpdateDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   */
+  DomainArn?: string;
+}
+
+export namespace UpdateDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
+   *             retain the variant properties of an endpoint when updating it, set
+   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
+   *             properties specified in a new <code>EndpointConfig</code> call when updating an
+   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
+   *             is <code>false</code>.</p>
+   */
+  RetainAllVariantProperties?: boolean;
+
+  /**
+   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
+   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
+   *             of type <a>VariantProperty</a> to override with the values provided by
+   *                 <code>EndpointConfig</code>. If you don't specify a value for
+   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
+   *         </p>
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[];
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is
+   *             false (the configuration is not reused).</p>
+   */
+  RetainDeploymentConfig?: boolean;
+}
+
+export namespace UpdateEndpointInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+export namespace UpdateEndpointOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing SageMaker endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+export namespace UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+export namespace UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateExperimentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+export namespace UpdateExperimentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateImageRequest {
+  /**
+   * <p>A list of properties to delete. Only the <code>Description</code> and
+   *         <code>DisplayName</code> properties can be deleted.</p>
+   */
+  DeleteProperties?: string[];
+
+  /**
+   * <p>The new description for the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new display name for the image.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the image to update.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace UpdateImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateImageResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  ImageArn?: string;
+}
+
+export namespace UpdateImageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateModelPackageInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  ModelPackageArn: string | undefined;
+
+  /**
+   * <p>The approval status of the model.</p>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+
+  /**
+   * <p>A description for the approval status of the model.</p>
+   */
+  ApprovalDescription?: string;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: Record<string, string>;
+
+  /**
+   * <p>The metadata properties associated with the model package versions to remove.</p>
+   */
+  CustomerMetadataPropertiesToRemove?: string[];
+
+  /**
+   * <p>An array of additional Inference Specification objects to be added to the
+   *     existing array additional Inference Specification. Total number of additional
+   *     Inference Specifications can not exceed 15. Each additional Inference Specification
+   *     specifies artifacts based on this model package that can be used on inference endpoints.
+   *     Generally used with SageMaker Neo to store the compiled artifacts.</p>
+   */
+  AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[];
+}
+
+export namespace UpdateModelPackageInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateModelPackageOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelPackageArn: string | undefined;
+}
+
+export namespace UpdateModelPackageOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateModelPackageOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
+   *          an Amazon Web Services account.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The configuration object that specifies the monitoring schedule and defines the
+   *          monitoring job.</p>
+   */
+  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
+}
+
+export namespace UpdateMonitoringScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMonitoringScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   */
+  MonitoringScheduleArn: string | undefined;
+}
+
+export namespace UpdateMonitoringScheduleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to update.</p>
+   */
+  NotebookInstanceName: string | undefined;
+
+  /**
+   * <p>The Amazon ML compute instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access the
+   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
    *         <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
    *         </note>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 
   /**
-   * <p>An array of <code>Channel</code> objects. Each channel is a named input source.
-   *                 <code>InputDataConfig</code> describes the input data and its location. </p>
-   *         <p>Algorithms can accept input data from one or more channels. For example, an
-   *             algorithm might have two channels of input data, <code>training_data</code> and
-   *                 <code>validation_data</code>. The configuration for each channel provides the S3,
-   *             EFS, or FSx location where the input data is stored. It also provides information about
-   *             the stored data: the MIME type, compression method, and whether the data is wrapped in
-   *             RecordIO format. </p>
-   *         <p>Depending on the input mode that the algorithm supports, SageMaker either copies input
-   *             data files from an S3 bucket to a local directory in the Docker container, or makes it
-   *             available as input streams. For example, if you specify an EFS location, input data
-   *             files are available as input streams. They do not need to be
-   *             downloaded.</p>
+   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
+   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+   *                 Customize a Notebook Instance</a>.</p>
    */
-  InputDataConfig?: Channel[];
+  LifecycleConfigName?: string;
 
   /**
-   * <p>Specifies the path to the S3 location where you want to store model artifacts. SageMaker
-   *             creates subfolders for the artifacts. </p>
+   * <p>Set to <code>true</code> to remove the notebook instance lifecycle configuration
+   *             currently associated with the notebook instance. This operation is idempotent. If you
+   *             specify a lifecycle configuration that is not associated with the notebook instance when
+   *             you call this method, it does not throw an error.</p>
    */
-  OutputDataConfig: OutputDataConfig | undefined;
+  DisassociateLifecycleConfig?: boolean;
 
   /**
-   * <p>The resources, including the ML compute instances and ML storage volumes, to use
-   *             for model training. </p>
-   *         <p>ML storage volumes store model artifacts and incremental states. Training
-   *             algorithms might also use ML storage volumes for scratch space. If you want SageMaker to use
-   *             the ML storage volume to store the training data, choose <code>File</code> as the
-   *                 <code>TrainingInputMode</code> in the algorithm specification. For distributed
-   *             training algorithms, specify an instance count greater than 1.</p>
+   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
+   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker can't determine the
+   *             amount of available free space on the volume. Because of this, you can increase the
+   *             volume size when you update a notebook instance, but you can't decrease the volume size.
+   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
+   *             instance with the desired size.</p>
    */
-  ResourceConfig: ResourceConfig | undefined;
+  VolumeSizeInGB?: number;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
-   *             training job to connect to. Control access to and from your training container by
-   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
-   *                 Virtual Private Cloud</a>.</p>
+   * <p>The Git repository to associate with the notebook instance as its default code
+   *             repository. This can be either the name of a Git repository stored as a resource in your
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
+   *             other Git repository. When you open a notebook instance, it opens in the directory that
+   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
+   *                 Notebook Instances</a>.</p>
    */
-  VpcConfig?: VpcConfig;
+  DefaultCodeRepository?: string;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
-   *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
-   *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
-   *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
-   *             model artifacts, so the results of training are not lost. </p>
+   * <p>An array of up to three Git repositories to associate with the notebook instance.
+   *             These can be either the names of Git repositories stored as resources in your account,
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
+   *             other Git repository. These repositories are cloned at the same level as the default
+   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
-  StoppingCondition: StoppingCondition | undefined;
+  AdditionalCodeRepositories?: string[];
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
+   *             instance. Currently only one EI instance type can be associated with a notebook
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+   *                 SageMaker</a>.</p>
+   */
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+
+  /**
+   * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
+   *             instance. This operation is idempotent. If you specify an accelerator type that is not
+   *             associated with the notebook instance when you call this method, it does not throw an
+   *             error.</p>
+   */
+  DisassociateAcceleratorTypes?: boolean;
+
+  /**
+   * <p>The name or URL of the default Git repository to remove from this notebook instance.
+   *             This operation is idempotent. If you specify a Git repository that is not associated
+   *             with the notebook instance when you call this method, it does not throw an error.</p>
+   */
+  DisassociateDefaultCodeRepository?: boolean;
+
+  /**
+   * <p>A list of names or URLs of the default Git repositories to remove from this notebook
+   *             instance. This operation is idempotent. If you specify a Git repository that is not
+   *             associated with the notebook instance when you call this method, it does not throw an
+   *             error.</p>
+   */
+  DisassociateAdditionalCodeRepositories?: boolean;
+
+  /**
+   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
+   *             default value is <code>Enabled</code>.</p>
+   *         <note>
+   *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
+   *                 notebook instance, but lifecycle configuration scripts still run with root
+   *                 permissions.</p>
+   *         </note>
+   */
+  RootAccess?: RootAccess | string;
+
+  /**
+   * <p>Information on the IMDS configuration of the notebook instance</p>
+   */
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
+}
+
+export namespace UpdateNotebookInstanceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceOutput {}
+
+export namespace UpdateNotebookInstanceOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The shell script that runs only once, when you create a notebook instance. The shell
+   *             script must be a base64-encoded string.</p>
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[];
+
+  /**
+   * <p>The shell script that runs every time you start a notebook instance, including when
+   *             you create the notebook instance. The shell script must be a base64-encoded
+   *             string.</p>
+   */
+  OnStart?: NotebookInstanceLifecycleHook[];
+}
+
+export namespace UpdateNotebookInstanceLifecycleConfigInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceLifecycleConfigOutput {}
+
+export namespace UpdateNotebookInstanceLifecycleConfigOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineRequest {
+  /**
+   * <p>The name of the pipeline to update.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * <p>The JSON pipeline definition.</p>
+   */
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
+   *             SageMaker will retrieve the pipeline definition from this location.</p>
+   */
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>If specified, it applies to all executions of this pipeline by default.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
+
+export namespace UpdatePipelineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
+   */
+  PipelineArn?: string;
+}
+
+export namespace UpdatePipelineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   */
+  PipelineExecutionDisplayName?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline for this specific run.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
+
+export namespace UpdatePipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace UpdatePipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProjectInput {
+  /**
+   * <p>The name of the project.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The description for the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>The product ID and provisioning artifact ID to provision a service catalog.
+   *             The provisioning artifact ID will default to the latest provisioning artifact
+   *             ID of the product, if you don't provide the provisioning artifact ID. For more
+   *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.
+   *         </p>
+   */
+  ServiceCatalogProvisioningUpdateDetails?: ServiceCatalogProvisioningUpdateDetails;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your
+   *             Amazon Web Services resources in different ways, for example, by purpose, owner, or
+   *             environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
+}
 
+export namespace UpdateProjectInput {
   /**
-   * <p>Isolates the training container. No inbound or outbound network calls can be made,
-   *             except for calls between peers within a training cluster for distributed training. If
-   *             you enable network isolation for training jobs that are configured to use a VPC, SageMaker
-   *             downloads and uploads customer data and model artifacts through the specified VPC, but
-   *             the training container does not have network access.</p>
+   * @internal
    */
-  EnableNetworkIsolation?: boolean;
+  export const filterSensitiveLog = (obj: UpdateProjectInput): any => ({
+    ...obj,
+  });
+}
 
+export interface UpdateProjectOutput {
   /**
-   * <p>To encrypt all communications between ML compute instances in distributed training,
-   *             choose <code>True</code>. Encryption provides greater security for distributed training,
-   *             but training might take longer. How long it takes depends on the amount of communication
-   *             between compute instances, especially if you use a deep learning algorithm in
-   *             distributed training. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html">Protect Communications Between ML
-   *                 Compute Instances in a Distributed Training Job</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
-  EnableInterContainerTrafficEncryption?: boolean;
+  ProjectArn: string | undefined;
+}
 
+export namespace UpdateProjectOutput {
   /**
-   * <p>To train models using managed spot training, choose <code>True</code>. Managed spot
-   *             training provides a fully managed and scalable infrastructure for training machine
-   *             learning models. this option is useful when training jobs can be interrupted and when
-   *             there is flexibility when the training job is run. </p>
-   *         <p>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be
-   *             used as a starting point to train models incrementally. Amazon SageMaker provides metrics and
-   *             logs in CloudWatch. They can be used to see when managed spot training jobs are running,
-   *             interrupted, resumed, or completed. </p>
+   * @internal
    */
-  EnableManagedSpotTraining?: boolean;
+  export const filterSensitiveLog = (obj: UpdateProjectOutput): any => ({
+    ...obj,
+  });
+}
 
+export interface UpdateTrainingJobRequest {
   /**
-   * <p>Contains information about the output location for managed spot training checkpoint
-   *             data.</p>
+   * <p>The name of a training job to update the Debugger profiling configuration.</p>
    */
-  CheckpointConfig?: CheckpointConfig;
-
-  /**
-   * <p>Configuration information for the Debugger hook parameters, metric and tensor collections, and
-   *             storage paths. To learn more about
-   *             how to configure the <code>DebugHookConfig</code> parameter,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
-   */
-  DebugHookConfig?: DebugHookConfig;
-
-  /**
-   * <p>Configuration information for Debugger rules for debugging output tensors.</p>
-   */
-  DebugRuleConfigurations?: DebugRuleConfiguration[];
-
-  /**
-   * <p>Configuration of storage locations for the Debugger TensorBoard output data.</p>
-   */
-  TensorBoardOutputConfig?: TensorBoardOutputConfig;
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
+  TrainingJobName: string | undefined;
 
   /**
    * <p>Configuration information for Debugger system monitoring, framework profiling, and
    *             storage paths.</p>
    */
-  ProfilerConfig?: ProfilerConfig;
+  ProfilerConfig?: ProfilerConfigForUpdate;
 
   /**
    * <p>Configuration information for Debugger rules for profiling system and framework
    *             metrics.</p>
    */
   ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
-
-  /**
-   * <p>The environment variables to set in the Docker container.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * <p>The number of times to retry the job when the job fails due to an
-   *                 <code>InternalServerError</code>.</p>
-   */
-  RetryStrategy?: RetryStrategy;
 }
 
-export namespace CreateTrainingJobRequest {
+export namespace UpdateTrainingJobRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrainingJobRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrainingJobRequest): any => ({
     ...obj,
   });
 }
 
-export interface CreateTrainingJobResponse {
+export interface UpdateTrainingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
    */
   TrainingJobArn: string | undefined;
 }
 
-export namespace CreateTrainingJobResponse {
+export namespace UpdateTrainingJobResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrainingJobResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrainingJobResponse): any => ({
     ...obj,
   });
 }
 
-export enum JoinSource {
-  INPUT = "Input",
-  NONE = "None",
-}
-
-/**
- * <p>The data structure used to specify the data to be used for inference in a batch
- *             transform job and to associate the data that is relevant to the prediction results in
- *             the output. The input filter provided allows you to exclude input data that is not
- *             needed for inference in a batch transform job. The output filter provided allows you to
- *             include input data relevant to interpreting the predictions in the output from the job.
- *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
- *                 Results with their Corresponding Input Records</a>.</p>
- */
-export interface DataProcessing {
+export interface UpdateTrialRequest {
   /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the input data to pass to
-   *             the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an
-   *             ID column, from the input. If you want SageMaker to pass the entire input dataset to the
-   *             algorithm, accept the default value <code>$</code>.</p>
-   *         <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code>
-   *          </p>
-   */
-  InputFilter?: string;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the joined dataset to save
-   *             in the output file for a batch transform job. If you want SageMaker to store the entire input
-   *             dataset in the output file, leave the default value, <code>$</code>. If you specify
-   *             indexes that aren't within the dimension size of the joined dataset, you get an
-   *             error.</p>
-   *         <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>,
-   *                 <code>"$['id','SageMakerOutput']"</code>
-   *          </p>
-   */
-  OutputFilter?: string;
-
-  /**
-   * <p>Specifies the source of the data to join with the transformed data. The valid values
-   *             are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
-   *             which specifies not to join the input with the transformed data. If you want the batch
-   *             transform job to join the original input data with the transformed data, set
-   *                 <code>JoinSource</code> to <code>Input</code>. You can specify
-   *                 <code>OutputFilter</code> as an additional filter to select a portion of the joined
-   *             dataset and store it in the output file.</p>
-   *         <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to
-   *             the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined
-   *             result for JSON must be a key-value pair object. If the input is not a key-value pair
-   *             object, SageMaker creates a new JSON file. In the new JSON file, and the input data is stored
-   *             under the <code>SageMakerInput</code> key and the results are stored in
-   *                 <code>SageMakerOutput</code>.</p>
-   *         <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with
-   *             the input by appending each transformed row to the end of the input. The joined data has
-   *             the original input data followed by the transformed data and the output is a CSV
-   *             file.</p>
-   *         <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
-   */
-  JoinSource?: JoinSource | string;
-}
-
-export namespace DataProcessing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataProcessing): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configures the timeout and maximum number of retries for processing a transform job
- *             invocation.</p>
- */
-export interface ModelClientConfig {
-  /**
-   * <p>The timeout value in seconds for an invocation request. The default value is 600.</p>
-   */
-  InvocationsTimeoutInSeconds?: number;
-
-  /**
-   * <p>The maximum number of retries when invocation requests are failing. The default value is 3.</p>
-   */
-  InvocationsMaxRetries?: number;
-}
-
-export namespace ModelClientConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelClientConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransformJobRequest {
-  /**
-   * <p>The name of the transform job. The name must be unique within an Amazon Web Services Region in an
-   *             Amazon Web Services account. </p>
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * <p>The name of the model that you want to use for the transform job.
-   *             <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an Amazon Web Services
-   *             Region in an Amazon Web Services account.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The maximum number of parallel requests that can be sent to each instance in a
-   *             transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left
-   *             unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your
-   *             chosen algorithm. If the execution-parameters endpoint is not enabled, the default value
-   *             is <code>1</code>. For more information on execution-parameters, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How Containers Serve Requests</a>. For built-in algorithms, you don't need to
-   *             set a value for <code>MaxConcurrentTransforms</code>.</p>
-   */
-  MaxConcurrentTransforms?: number;
-
-  /**
-   * <p>Configures the timeout and maximum number of retries for processing a transform job
-   *             invocation.</p>
-   */
-  ModelClientConfig?: ModelClientConfig;
-
-  /**
-   * <p>The maximum allowed size of the payload, in MB. A <i>payload</i> is the
-   *             data portion of a record (without metadata). The value in <code>MaxPayloadInMB</code>
-   *             must be greater than, or equal to, the size of a single record. To estimate the size of
-   *             a record in MB, divide the size of your dataset by the number of records. To ensure that
-   *             the records fit within the maximum payload size, we recommend using a slightly larger
-   *             value. The default value is <code>6</code> MB.
-   *             </p>
-   *         <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
-   *             the <code>MaxConcurrentTransforms</code> parameter, the value of
-   *                 <code>(MaxConcurrentTransforms * MaxPayloadInMB)</code> also cannot exceed 100
-   *             MB.</p>
-   *         <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP
-   *             chunked encoding, set the value to <code>0</code>.
-   *             This
-   *             feature works only in supported algorithms. Currently, Amazon SageMaker built-in
-   *             algorithms do not support HTTP chunked encoding.</p>
-   */
-  MaxPayloadInMB?: number;
-
-  /**
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference
-   *             request. A <i>record</i>
-   *             <i></i> is a single unit of input data that
-   *             inference can be made on. For example, a single line in a CSV file is a record. </p>
-   *         <p>To enable the batch strategy, you must set the <code>SplitType</code> property to
-   *                 <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p>
-   *         <p>To use only one record when making an HTTP invocation request to a container, set
-   *                 <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
-   *             to <code>Line</code>.</p>
-   *         <p>To fit as many records in a mini-batch as can fit within the
-   *                 <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to
-   *                 <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
-   */
-  BatchStrategy?: BatchStrategy | string;
-
-  /**
-   * <p>The environment variables to set in the Docker container. We support up to 16 key and
-   *             values entries in the map.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * <p>Describes the input source and
-   *             the
-   *             way the transform job consumes it.</p>
-   */
-  TransformInput: TransformInput | undefined;
-
-  /**
-   * <p>Describes the results of the transform job.</p>
-   */
-  TransformOutput: TransformOutput | undefined;
-
-  /**
-   * <p>Describes the resources, including
-   *             ML
-   *             instance types and ML instance count, to use for the transform
-   *             job.</p>
-   */
-  TransformResources: TransformResources | undefined;
-
-  /**
-   * <p>The data structure used to specify the data to be used for inference in a batch
-   *             transform job and to associate the data that is relevant to the prediction results in
-   *             the output. The input filter provided allows you to exclude input data that is not
-   *             needed for inference in a batch transform job. The output filter provided allows you to
-   *             include input data relevant to interpreting the predictions in the output from the job.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
-   *                 Results with their Corresponding Input Records</a>.</p>
-   */
-  DataProcessing?: DataProcessing;
-
-  /**
-   * <p>(Optional)
-   *             An
-   *             array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-   *                 Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
-   *                 Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a>CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-}
-
-export namespace CreateTransformJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransformJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransformJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   */
-  TransformJobArn: string | undefined;
-}
-
-export namespace CreateTransformJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransformJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTrialRequest {
-  /**
-   * <p>The name of the trial. The name must be unique in your Amazon Web Services account and is not
-   *       case-sensitive.</p>
+   * <p>The name of the trial to update.</p>
    */
   TrialName: string | undefined;
 
@@ -6463,176 +14198,36 @@ export interface CreateTrialRequest {
    *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
    */
   DisplayName?: string;
-
-  /**
-   * <p>The name of the experiment to associate the trial with.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A list of tags to associate with the trial. You can use <a>Search</a> API to
-   *       search on the tags.</p>
-   */
-  Tags?: Tag[];
 }
 
-export namespace CreateTrialRequest {
+export namespace UpdateTrialRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrialRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrialRequest): any => ({
     ...obj,
   });
 }
 
-export interface CreateTrialResponse {
+export interface UpdateTrialResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    */
   TrialArn?: string;
 }
 
-export namespace CreateTrialResponse {
+export namespace UpdateTrialResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrialResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrialResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Represents an input or output artifact of a trial component. You specify
- *         <code>TrialComponentArtifact</code> as part of the <code>InputArtifacts</code> and
- *         <code>OutputArtifacts</code> parameters in the <a>CreateTrialComponent</a>
- *       request.</p>
- *          <p>Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and
- *       instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
- */
-export interface TrialComponentArtifact {
+export interface UpdateTrialComponentRequest {
   /**
-   * <p>The media type of the artifact, which indicates the type of data in the artifact file. The
-   *       media type consists of a <i>type</i> and a <i>subtype</i>
-   *       concatenated with a slash (/) character, for example, text/csv, image/jpeg, and s3/uri. The
-   *       type specifies the category of the media. The subtype specifies the kind of data.</p>
-   */
-  MediaType?: string;
-
-  /**
-   * <p>The location of the artifact.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace TrialComponentArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialComponentArtifact): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or
- *         <code>StringValue</code> can be specified.</p>
- *          <p>This object is specified in the <a>CreateTrialComponent</a> request.</p>
- */
-export type TrialComponentParameterValue =
-  | TrialComponentParameterValue.NumberValueMember
-  | TrialComponentParameterValue.StringValueMember
-  | TrialComponentParameterValue.$UnknownMember;
-
-export namespace TrialComponentParameterValue {
-  /**
-   * <p>The string value of a categorical hyperparameter. If you specify a value for this
-   *       parameter, you can't specify the <code>NumberValue</code> parameter.</p>
-   */
-  export interface StringValueMember {
-    StringValue: string;
-    NumberValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The numeric value of a numeric hyperparameter. If you specify a value for this parameter,
-   *       you can't specify the <code>StringValue</code> parameter.</p>
-   */
-  export interface NumberValueMember {
-    StringValue?: never;
-    NumberValue: number;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    StringValue?: never;
-    NumberValue?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    NumberValue: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: TrialComponentParameterValue, visitor: Visitor<T>): T => {
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialComponentParameterValue): any => {
-    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-    if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
-}
-
-export enum TrialComponentPrimaryStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>The status of the trial component.</p>
- */
-export interface TrialComponentStatus {
-  /**
-   * <p>The status of the trial component.</p>
-   */
-  PrimaryStatus?: TrialComponentPrimaryStatus | string;
-
-  /**
-   * <p>If the component failed, a message describing why.</p>
-   */
-  Message?: string;
-}
-
-export namespace TrialComponentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialComponentStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTrialComponentRequest {
-  /**
-   * <p>The name of the component. The name must be unique in your Amazon Web Services account and is not
-   *       case-sensitive.</p>
+   * <p>The name of the component to update.</p>
    */
   TrialComponentName: string | undefined;
 
@@ -6644,18 +14239,7 @@ export interface CreateTrialComponentRequest {
   DisplayName?: string;
 
   /**
-   * <p>The status of the component. States include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>InProgress</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed</p>
-   *             </li>
-   *          </ul>
+   * <p>The new status of the component.</p>
    */
   Status?: TrialComponentStatus;
 
@@ -6670,39 +14254,41 @@ export interface CreateTrialComponentRequest {
   EndTime?: Date;
 
   /**
-   * <p>The hyperparameters for the component.</p>
+   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
    */
   Parameters?: Record<string, TrialComponentParameterValue>;
 
   /**
-   * <p>The input artifacts for the component. Examples of input artifacts are datasets,
-   *       algorithms, hyperparameters, source code, and instance types.</p>
+   * <p>The hyperparameters to remove from the component.</p>
+   */
+  ParametersToRemove?: string[];
+
+  /**
+   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
    */
   InputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
-   * <p>The output artifacts for the component. Examples of output artifacts are metrics,
-   *       snapshots, logs, and images.</p>
+   * <p>The input artifacts to remove from the component.</p>
+   */
+  InputArtifactsToRemove?: string[];
+
+  /**
+   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
    */
   OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
   /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * <p>The output artifacts to remove from the component.</p>
    */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>A list of tags to associate with the component. You can use <a>Search</a> API
-   *       to search on the tags.</p>
-   */
-  Tags?: Tag[];
+  OutputArtifactsToRemove?: string[];
 }
 
-export namespace CreateTrialComponentRequest {
+export namespace UpdateTrialComponentRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrialComponentRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrialComponentRequest): any => ({
     ...obj,
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
@@ -6716,54 +14302,32 @@ export namespace CreateTrialComponentRequest {
   });
 }
 
-export interface CreateTrialComponentResponse {
+export interface UpdateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    */
   TrialComponentArn?: string;
 }
 
-export namespace CreateTrialComponentResponse {
+export namespace UpdateTrialComponentResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTrialComponentResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateTrialComponentResponse): any => ({
     ...obj,
   });
 }
 
-export interface CreateUserProfileRequest {
+export interface UpdateUserProfileRequest {
   /**
-   * <p>The ID of the associated Domain.</p>
+   * <p>The domain ID.</p>
    */
   DomainId: string | undefined;
 
   /**
-   * <p>A name for the UserProfile. This value is not case sensitive.</p>
+   * <p>The user profile name.</p>
    */
   UserProfileName: string | undefined;
-
-  /**
-   * <p>A specifier for the type of value specified in SingleSignOnUserValue.  Currently, the only supported value is "UserName".
-   *            If the Domain's AuthMode is SSO, this field is required.  If the Domain's AuthMode is not SSO, this field cannot be specified.
-   *        </p>
-   */
-  SingleSignOnUserIdentifier?: string;
-
-  /**
-   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is SSO, this field is
-   *            required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not SSO, this field cannot be specified.
-   *        </p>
-   */
-  SingleSignOnUserValue?: string;
-
-  /**
-   * <p>Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource.</p>
-   *          <p>Tags that you specify for the User Profile are also added to all Apps that the
-   *           User Profile launches.</p>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>A collection of settings.</p>
@@ -6771,269 +14335,94 @@ export interface CreateUserProfileRequest {
   UserSettings?: UserSettings;
 }
 
-export namespace CreateUserProfileRequest {
+export namespace UpdateUserProfileRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
   });
 }
 
-export interface CreateUserProfileResponse {
+export interface UpdateUserProfileResponse {
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
    */
   UserProfileArn?: string;
 }
 
-export namespace CreateUserProfileResponse {
+export namespace UpdateUserProfileResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateUserProfileResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateUserProfileResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
- */
-export interface OidcConfig {
+export interface UpdateWorkforceRequest {
   /**
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The OIDC IdP client secret used to configure your private workforce.</p>
-   */
-  ClientSecret: string | undefined;
-
-  /**
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   */
-  Issuer: string | undefined;
-
-  /**
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   */
-  AuthorizationEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   */
-  TokenEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   */
-  UserInfoEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   */
-  LogoutEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   */
-  JwksUri: string | undefined;
-}
-
-export namespace OidcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OidcConfig): any => ({
-    ...obj,
-    ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
- *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
- *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
- */
-export interface SourceIpConfig {
-  /**
-   * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p>
-   *         <p>Maximum: Ten CIDR values</p>
-   *         <note>
-   *             <p>The following Length Constraints apply to individual CIDR values in
-   *                 the CIDR value list.</p>
-   *         </note>
-   */
-  Cidrs: string[] | undefined;
-}
-
-export namespace SourceIpConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceIpConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateWorkforceRequest {
-  /**
-   * <p>Use this parameter to configure an Amazon Cognito private workforce.
-   *       A single Cognito workforce is created using and corresponds to a single
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
-   *       Amazon Cognito user pool</a>.</p>
-   *
-   *          <p>Do not use <code>OidcConfig</code> if you specify values for
-   *       <code>CognitoConfig</code>.</p>
-   */
-  CognitoConfig?: CognitoConfig;
-
-  /**
-   * <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
-   *          <p>Do not use <code>CognitoConfig</code> if you specify values for
-   *       <code>OidcConfig</code>.</p>
-   */
-  OidcConfig?: OidcConfig;
-
-  /**
-   * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
-   *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
-   *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * <p>The name of the private workforce.</p>
+   * <p>The name of the private workforce that you want to update. You can find your workforce
+   *         name by using the  operation.</p>
    */
   WorkforceName: string | undefined;
 
   /**
-   * <p>An array of key-value pairs that contain metadata to help you categorize and
-   *       organize our workforce. Each tag consists of a key and a value,
-   *       both of which you define.</p>
+   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to
+   *             access tasks assigned to this workforce.</p>
+   *         <p>Maximum: Ten CIDR values</p>
    */
-  Tags?: Tag[];
+  SourceIpConfig?: SourceIpConfig;
+
+  /**
+   * <p>Use this parameter to update your OIDC Identity Provider (IdP)
+   *       configuration for a workforce made using your own IdP.</p>
+   */
+  OidcConfig?: OidcConfig;
 }
 
-export namespace CreateWorkforceRequest {
+export namespace UpdateWorkforceRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateWorkforceRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
     ...obj,
     ...(obj.OidcConfig && { OidcConfig: OidcConfig.filterSensitiveLog(obj.OidcConfig) }),
   });
 }
 
-export interface CreateWorkforceResponse {
+export interface UpdateWorkforceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
+   * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
+   *             any workforce-related API operation used in a specific region will apply to the
+   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
    */
-  WorkforceArn: string | undefined;
+  Workforce: Workforce | undefined;
 }
 
-export namespace CreateWorkforceResponse {
+export namespace UpdateWorkforceResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateWorkforceResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateWorkforceResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>A list of user groups that exist in your OIDC Identity Provider (IdP).
- *             One to ten groups can be used to create a single private work team.
- *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
- *             private work teams. If you add a user group to a private work team, all workers in that user group
- *             are added to the work team.</p>
- */
-export interface OidcMemberDefinition {
+export interface UpdateWorkteamRequest {
   /**
-   * <p>A list of comma seperated strings that identifies
-   *             user groups in your OIDC IdP. Each user group is
-   *             made up of a group of private workers.</p>
-   */
-  Groups: string[] | undefined;
-}
-
-export namespace OidcMemberDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OidcMemberDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.</p>
- */
-export interface MemberDefinition {
-  /**
-   * <p>The Amazon Cognito user group that is part of the work team.</p>
-   */
-  CognitoMemberDefinition?: CognitoMemberDefinition;
-
-  /**
-   * <p>A list user groups that exist in your OIDC Identity Provider (IdP).
-   *             One to ten groups can be used to create a single private work team.
-   *             When you add a user group to the list of <code>Groups</code>, you can add that user group to one or more
-   *             private work teams. If you add a user group to a private work team, all workers in that user group
-   *             are added to the work team.</p>
-   */
-  OidcMemberDefinition?: OidcMemberDefinition;
-}
-
-export namespace MemberDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configures Amazon SNS notifications of available or expiring work items for work
- *             teams.</p>
- */
-export interface NotificationConfiguration {
-  /**
-   * <p>The ARN for the Amazon SNS topic to which notifications should be published.</p>
-   */
-  NotificationTopicArn?: string;
-}
-
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateWorkteamRequest {
-  /**
-   * <p>The name of the work team. Use this name to identify the work team.</p>
+   * <p>The name of the work team to update.</p>
    */
   WorkteamName: string | undefined;
 
   /**
-   * <p>The name of the workforce.</p>
-   */
-  WorkforceName?: string;
-
-  /**
    * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
    *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For
-   *             private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>. For
-   *             workforces created using your own OIDC identity provider (IdP) use
-   *                 <code>OidcMemberDefinition</code>. Do not provide input for both of these parameters
-   *             in a single request.</p>
+   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *             For private workforces created using Amazon Cognito use
+   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
+   *             provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input
+   *             for both of these parameters in a single request.</p>
    *         <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
    *                 <i>user groups</i> within the user pool used to create a workforce. All of the
    *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
@@ -7041,4304 +14430,97 @@ export interface CreateWorkteamRequest {
    *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
    *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
    *                 Pools</a>.</p>
-   *         <p>For workforces created using your own OIDC IdP, specify the user groups that you want to
-   *         include in your private work team in <code>OidcMemberDefinition</code> by listing those groups
-   *         in <code>Groups</code>.</p>
+   *         <p>For workforces created using your own OIDC IdP, specify the user groups that you want
+   *             to include in your private work team in <code>OidcMemberDefinition</code> by listing
+   *             those groups in <code>Groups</code>. Be aware that user groups that are already in the
+   *             work team must also be listed in <code>Groups</code> when you make this request to
+   *             remain on the work team. If you do not include these user groups, they will no longer be
+   *             associated with the work team you update. </p>
    */
-  MemberDefinitions: MemberDefinition[] | undefined;
+  MemberDefinitions?: MemberDefinition[];
 
   /**
-   * <p>A description of the work team.</p>
+   * <p>An updated description for the work team.</p>
    */
-  Description: string | undefined;
+  Description?: string;
 
   /**
-   * <p>Configures notification of workers regarding available or expiring work items.</p>
+   * <p>Configures SNS topic notifications for available or expiring work items</p>
    */
   NotificationConfiguration?: NotificationConfiguration;
-
-  /**
-   * <p>An array of key-value pairs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
-   *                 Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-   *                     Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User
-   *                 Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateWorkteamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkteamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateWorkteamResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team. You can use this ARN to identify the
-   *             work team.</p>
-   */
-  WorkteamArn?: string;
-}
-
-export namespace CreateWorkteamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkteamResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The currently active data capture configuration used by your Endpoint.</p>
- */
-export interface DataCaptureConfigSummary {
-  /**
-   * <p>Whether data capture is enabled or disabled.</p>
-   */
-  EnableCapture: boolean | undefined;
-
-  /**
-   * <p>Whether data capture is currently functional.</p>
-   */
-  CaptureStatus: CaptureStatus | string | undefined;
-
-  /**
-   * <p>The percentage of requests being captured by your Endpoint.</p>
-   */
-  CurrentSamplingPercentage: number | undefined;
-
-  /**
-   * <p>The Amazon S3 location being used to capture the data.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * <p>The KMS key being used to encrypt the data in Amazon S3.</p>
-   */
-  KmsKeyId: string | undefined;
-}
-
-export namespace DataCaptureConfigSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCaptureConfigSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum RuleEvaluationStatus {
-  ERROR = "Error",
-  IN_PROGRESS = "InProgress",
-  ISSUES_FOUND = "IssuesFound",
-  NO_ISSUES_FOUND = "NoIssuesFound",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>Information about the status of the rule evaluation.</p>
- */
-export interface DebugRuleEvaluationStatus {
-  /**
-   * <p>The name of the rule configuration.</p>
-   */
-  RuleConfigurationName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
-   */
-  RuleEvaluationJobArn?: string;
-
-  /**
-   * <p>Status of the rule evaluation.</p>
-   */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
-
-  /**
-   * <p>Details from the rule evaluation.</p>
-   */
-  StatusDetails?: string;
-
-  /**
-   * <p>Timestamp when the rule evaluation status was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-export namespace DebugRuleEvaluationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DebugRuleEvaluationStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteActionRequest {
-  /**
-   * <p>The name of the action to delete.</p>
-   */
-  ActionName: string | undefined;
-}
-
-export namespace DeleteActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteActionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-}
-
-export namespace DeleteActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteAlgorithmInput {
-  /**
-   * <p>The name of the algorithm to delete.</p>
-   */
-  AlgorithmName: string | undefined;
-}
-
-export namespace DeleteAlgorithmInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlgorithmInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteAppRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>The type of app.</p>
-   */
-  AppType: AppType | string | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  AppName: string | undefined;
-}
-
-export namespace DeleteAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig to delete.</p>
-   */
-  AppImageConfigName: string | undefined;
-}
-
-export namespace DeleteAppImageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppImageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to delete.</p>
-   */
-  ArtifactArn?: string;
-
-  /**
-   * <p>The URI of the source.</p>
-   */
-  Source?: ArtifactSource;
-}
-
-export namespace DeleteArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-}
-
-export namespace DeleteArtifactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteArtifactResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteAssociationRequest {
-  /**
-   * <p>The ARN of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   */
-  DestinationArn: string | undefined;
-}
-
-export namespace DeleteAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteAssociationResponse {
-  /**
-   * <p>The ARN of the source.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the destination.</p>
-   */
-  DestinationArn?: string;
-}
-
-export namespace DeleteAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssociationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to delete.</p>
-   */
-  CodeRepositoryName: string | undefined;
-}
-
-export namespace DeleteCodeRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCodeRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteContextRequest {
-  /**
-   * <p>The name of the context to delete.</p>
-   */
-  ContextName: string | undefined;
-}
-
-export namespace DeleteContextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContextRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
-}
-
-export namespace DeleteContextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContextResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteDataQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the data quality monitoring job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DeleteDataQualityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataQualityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet to delete.</p>
-   */
-  DeviceFleetName: string | undefined;
-}
-
-export namespace DeleteDeviceFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceFleetRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum RetentionType {
-  Delete = "Delete",
-  Retain = "Retain",
-}
-
-/**
- * <p>The retention policy for data stored on an Amazon Elastic File System (EFS) volume.</p>
- */
-export interface RetentionPolicy {
-  /**
-   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
-   *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
-   */
-  HomeEfsFileSystem?: RetentionType | string;
-}
-
-export namespace RetentionPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetentionPolicy): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteDomainRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted.
-   *            By default, all resources are retained (not automatically deleted).
-   *        </p>
-   */
-  RetentionPolicy?: RetentionPolicy;
-}
-
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteEndpointInput {
-  /**
-   * <p>The name of the endpoint that you want to delete.</p>
-   */
-  EndpointName: string | undefined;
-}
-
-export namespace DeleteEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration that you want to delete.</p>
-   */
-  EndpointConfigName: string | undefined;
-}
-
-export namespace DeleteEndpointConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteExperimentRequest {
-  /**
-   * <p>The name of the experiment to delete.</p>
-   */
-  ExperimentName: string | undefined;
-}
-
-export namespace DeleteExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment that is being deleted.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export namespace DeleteExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperimentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFeatureGroupRequest {
-  /**
-   * <p>The name of the <code>FeatureGroup</code> you want to delete. The name must be unique
-   *          within an Amazon Web Services Region in an Amazon Web Services account. </p>
-   */
-  FeatureGroupName: string | undefined;
-}
-
-export namespace DeleteFeatureGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFeatureGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFlowDefinitionRequest {
-  /**
-   * <p>The name of the flow definition you are deleting.</p>
-   */
-  FlowDefinitionName: string | undefined;
-}
-
-export namespace DeleteFlowDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFlowDefinitionResponse {}
-
-export namespace DeleteFlowDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface (work task template) you want to delete.</p>
-   */
-  HumanTaskUiName: string | undefined;
-}
-
-export namespace DeleteHumanTaskUiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHumanTaskUiRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteHumanTaskUiResponse {}
-
-export namespace DeleteHumanTaskUiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHumanTaskUiResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteImageRequest {
-  /**
-   * <p>The name of the image to delete.</p>
-   */
-  ImageName: string | undefined;
-}
-
-export namespace DeleteImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteImageResponse {}
-
-export namespace DeleteImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version to delete.</p>
-   */
-  Version: number | undefined;
-}
-
-export namespace DeleteImageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteImageVersionResponse {}
-
-export namespace DeleteImageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelInput {
-  /**
-   * <p>The name of the model to delete.</p>
-   */
-  ModelName: string | undefined;
-}
-
-export namespace DeleteModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the model bias job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DeleteModelBiasJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelBiasJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p>The name of the model explainability job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DeleteModelExplainabilityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelExplainabilityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelPackageInput {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package to delete.</p>
-   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   */
-  ModelPackageName: string | undefined;
-}
-
-export namespace DeleteModelPackageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelPackageInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelPackageGroupInput {
-  /**
-   * <p>The name of the model group to delete.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-export namespace DeleteModelPackageGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelPackageGroupInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelPackageGroupPolicyInput {
-  /**
-   * <p>The name of the model group for which to delete the policy.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-export namespace DeleteModelPackageGroupPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelPackageGroupPolicyInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the model quality monitoring job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DeleteModelQualityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelQualityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule to delete.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-export namespace DeleteMonitoringScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNotebookInstanceInput {
-  /**
-   * <p>The name of the SageMaker notebook instance to delete.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-export namespace DeleteNotebookInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration to delete.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-}
-
-export namespace DeleteNotebookInstanceLifecycleConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotebookInstanceLifecycleConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeletePipelineRequest {
-  /**
-   * <p>The name of the pipeline to delete.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-export namespace DeletePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeletePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to delete.</p>
-   */
-  PipelineArn?: string;
-}
-
-export namespace DeletePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteProjectInput {
-  /**
-   * <p>The name of the project to delete.</p>
-   */
-  ProjectName: string | undefined;
-}
-
-export namespace DeleteProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Studio Lifecycle Configuration to delete.</p>
-   */
-  StudioLifecycleConfigName: string | undefined;
-}
-
-export namespace DeleteStudioLifecycleConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioLifecycleConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTagsInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
-   *             delete.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array or one or more tag keys to delete.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-export namespace DeleteTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTagsOutput {}
-
-export namespace DeleteTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrialRequest {
-  /**
-   * <p>The name of the trial to delete.</p>
-   */
-  TrialName: string | undefined;
-}
-
-export namespace DeleteTrialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrialRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrialResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
-   */
-  TrialArn?: string;
-}
-
-export namespace DeleteTrialResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrialResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrialComponentRequest {
-  /**
-   * <p>The name of the component to delete.</p>
-   */
-  TrialComponentName: string | undefined;
-}
-
-export namespace DeleteTrialComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrialComponentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
-   */
-  TrialComponentArn?: string;
-}
-
-export namespace DeleteTrialComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrialComponentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName: string | undefined;
-}
-
-export namespace DeleteUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteWorkforceRequest {
-  /**
-   * <p>The name of the workforce.</p>
-   */
-  WorkforceName: string | undefined;
-}
-
-export namespace DeleteWorkforceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkforceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteWorkforceResponse {}
-
-export namespace DeleteWorkforceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkforceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteWorkteamRequest {
-  /**
-   * <p>The name of the work team to delete.</p>
-   */
-  WorkteamName: string | undefined;
-}
-
-export namespace DeleteWorkteamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteWorkteamResponse {
-  /**
-   * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
-   *             returns <code>false</code>.</p>
-   */
-  Success: boolean | undefined;
-}
-
-export namespace DeleteWorkteamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
- *         <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
- *             of the primary container when you created the model hosted in this
- *                 <code>ProductionVariant</code>, the path resolves to a path of the form
- *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
- *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
- */
-export interface DeployedImage {
-  /**
-   * <p>The image path you specified when you created the model.</p>
-   */
-  SpecifiedImage?: string;
-
-  /**
-   * <p>The specific digest path of the image hosted in this
-   *             <code>ProductionVariant</code>.</p>
-   */
-  ResolvedImage?: string;
-
-  /**
-   * <p>The date and time when the image path for the model resolved to the
-   *                 <code>ResolvedImage</code>
-   *          </p>
-   */
-  ResolutionTime?: Date;
-}
-
-export namespace DeployedImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeployedImage): any => ({
-    ...obj,
-  });
-}
-
-export interface DeregisterDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The unique IDs of the devices.</p>
-   */
-  DeviceNames: string[] | undefined;
-}
-
-export namespace DeregisterDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeActionRequest {
-  /**
-   * <p>The name of the action to describe.</p>
-   */
-  ActionName: string | undefined;
-}
-
-export namespace DescribeActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeActionResponse {
-  /**
-   * <p>The name of the action.</p>
-   */
-  ActionName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-
-  /**
-   * <p>The source of the action.</p>
-   */
-  Source?: ActionSource;
-
-  /**
-   * <p>The type of the action.</p>
-   */
-  ActionType?: string;
-
-  /**
-   * <p>The description of the action.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the action.</p>
-   */
-  Status?: ActionStatus | string;
-
-  /**
-   * <p>A list of the action's properties.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>When the action was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the action was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-}
-
-export namespace DescribeActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAlgorithmInput {
-  /**
-   * <p>The name of the algorithm to describe.</p>
-   */
-  AlgorithmName: string | undefined;
-}
-
-export namespace DescribeAlgorithmInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAlgorithmOutput {
-  /**
-   * <p>The name of the algorithm being described.</p>
-   */
-  AlgorithmName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
-   */
-  AlgorithmArn: string | undefined;
-
-  /**
-   * <p>A brief summary about the algorithm.</p>
-   */
-  AlgorithmDescription?: string;
-
-  /**
-   * <p>A timestamp specifying when the algorithm was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Details about training jobs run by this algorithm.</p>
-   */
-  TrainingSpecification: TrainingSpecification | undefined;
-
-  /**
-   * <p>Details about inference jobs that the algorithm runs.</p>
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Details about configurations for one or more training jobs that SageMaker runs to test the
-   *             algorithm.</p>
-   */
-  ValidationSpecification?: AlgorithmValidationSpecification;
-
-  /**
-   * <p>The current status of the algorithm.</p>
-   */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
-
-  /**
-   * <p>Details about the current status of the algorithm.</p>
-   */
-  AlgorithmStatusDetails: AlgorithmStatusDetails | undefined;
-
-  /**
-   * <p>The product identifier of the algorithm.</p>
-   */
-  ProductId?: string;
-
-  /**
-   * <p>Whether the algorithm is certified to be listed in Amazon Web Services Marketplace.</p>
-   */
-  CertifyForMarketplace?: boolean;
-}
-
-export namespace DescribeAlgorithmOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAppRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>The type of app.</p>
-   */
-  AppType: AppType | string | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  AppName: string | undefined;
-}
-
-export namespace DescribeAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAppResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the app.</p>
-   */
-  AppArn?: string;
-
-  /**
-   * <p>The type of app.</p>
-   */
-  AppType?: AppType | string;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  AppName?: string;
-
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: AppStatus | string;
-
-  /**
-   * <p>The timestamp of the last health check.</p>
-   */
-  LastHealthCheckTimestamp?: Date;
-
-  /**
-   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also updated when SageMaker performs health checks without user activity. As a result, this value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
-   */
-  LastUserActivityTimestamp?: Date;
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The failure reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
-   */
-  ResourceSpec?: ResourceSpec;
-}
-
-export namespace DescribeAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig to describe.</p>
-   */
-  AppImageConfigName: string | undefined;
-}
-
-export namespace DescribeAppImageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppImageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAppImageConfigResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
-   */
-  AppImageConfigArn?: string;
-
-  /**
-   * <p>The name of the AppImageConfig.</p>
-   */
-  AppImageConfigName?: string;
-
-  /**
-   * <p>When the AppImageConfig was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the AppImageConfig was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The configuration of a KernelGateway app.</p>
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
-}
-
-export namespace DescribeAppImageConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppImageConfigResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to describe.</p>
-   */
-  ArtifactArn: string | undefined;
-}
-
-export namespace DescribeArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeArtifactResponse {
-  /**
-   * <p>The name of the artifact.</p>
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-
-  /**
-   * <p>The source of the artifact.</p>
-   */
-  Source?: ArtifactSource;
-
-  /**
-   * <p>The type of the artifact.</p>
-   */
-  ArtifactType?: string;
-
-  /**
-   * <p>A list of the artifact's properties.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>When the artifact was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the artifact was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-}
-
-export namespace DescribeArtifactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeArtifactResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAutoMLJobRequest {
-  /**
-   * <p>Requests information about an AutoML job using its unique name.</p>
-   */
-  AutoMLJobName: string | undefined;
-}
-
-export namespace DescribeAutoMLJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoMLJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the endpoint of the model deployment.</p>
- */
-export interface ModelDeployResult {
-  /**
-   * <p>The name of the endpoint to which the model has been deployed.</p>
-   *          <note>
-   *             <p>If model deployment fails, this field is omitted from the response.</p>
-   *          </note>
-   */
-  EndpointName?: string;
-}
-
-export namespace ModelDeployResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelDeployResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resolved attributes.</p>
- */
-export interface ResolvedAttributes {
-  /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
-   */
-  AutoMLJobObjective?: AutoMLJobObjective;
-
-  /**
-   * <p>The problem type.</p>
-   */
-  ProblemType?: ProblemType | string;
-
-  /**
-   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
-   *          generate.</p>
-   */
-  CompletionCriteria?: AutoMLJobCompletionCriteria;
-}
-
-export namespace ResolvedAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolvedAttributes): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAutoMLJobResponse {
-  /**
-   * <p>Returns the name of the AutoML job.</p>
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>Returns the ARN of the AutoML job.</p>
-   */
-  AutoMLJobArn: string | undefined;
-
-  /**
-   * <p>Returns the input data configuration for the AutoML job..</p>
-   */
-  InputDataConfig: AutoMLChannel[] | undefined;
-
-  /**
-   * <p>Returns the job's output data config.</p>
-   */
-  OutputDataConfig: AutoMLOutputDataConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
-   *          has read permission to the input data location and write permission to the output data
-   *          location in Amazon S3.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Returns the job's objective.</p>
-   */
-  AutoMLJobObjective?: AutoMLJobObjective;
-
-  /**
-   * <p>Returns the job's problem type.</p>
-   */
-  ProblemType?: ProblemType | string;
-
-  /**
-   * <p>Returns the configuration for the AutoML job.</p>
-   */
-  AutoMLJobConfig?: AutoMLJobConfig;
-
-  /**
-   * <p>Returns the creation time of the AutoML job.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the end time of the AutoML job.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Returns the job's last modified time.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Returns the failure reason for an AutoML job, when applicable.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>Returns a list of reasons for partial failures within an AutoML job.</p>
-   */
-  PartialFailureReasons?: AutoMLPartialFailureReason[];
-
-  /**
-   * <p>Returns the job's best <code>AutoMLCandidate</code>.</p>
-   */
-  BestCandidate?: AutoMLCandidate;
-
-  /**
-   * <p>Returns the status of the AutoML job.</p>
-   */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
-
-  /**
-   * <p>Returns the secondary status of the AutoML job.</p>
-   */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
-
-  /**
-   * <p>Indicates whether the output for an AutoML job generates candidate definitions
-   *          only.</p>
-   */
-  GenerateCandidateDefinitionsOnly?: boolean;
-
-  /**
-   * <p>Returns information on the job's artifacts found in
-   *          <code>AutoMLJobArtifacts</code>.</p>
-   */
-  AutoMLJobArtifacts?: AutoMLJobArtifacts;
-
-  /**
-   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
-   *             <code>CompletionCriteria</code>. If you do not provide these values, they are
-   *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
-   */
-  ResolvedAttributes?: ResolvedAttributes;
-
-  /**
-   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
-   *          that endpoint if deployed automatically.</p>
-   */
-  ModelDeployConfig?: ModelDeployConfig;
-
-  /**
-   * <p>Provides information about endpoint for the model deployment.</p>
-   */
-  ModelDeployResult?: ModelDeployResult;
-}
-
-export namespace DescribeAutoMLJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoMLJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to describe.</p>
-   */
-  CodeRepositoryName: string | undefined;
-}
-
-export namespace DescribeCodeRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCodeRepositoryOutput {
-  /**
-   * <p>The name of the Git repository.</p>
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
-   */
-  CodeRepositoryArn: string | undefined;
-
-  /**
-   * <p>The date and time that the repository was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the repository was last changed.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Configuration details about the repository, including the URL where the repository is
-   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets
-   *             Manager secret that contains the credentials used to access the repository.</p>
-   */
-  GitConfig?: GitConfig;
-}
-
-export namespace DescribeCodeRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeRepositoryOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job that you want information about.</p>
-   */
-  CompilationJobName: string | undefined;
-}
-
-export namespace DescribeCompilationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompilationJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the location that is configured for storing model
- *             artifacts. </p>
- *         <p>Model artifacts are the output that results from training a model, and typically
- *             consist of trained parameters, a model definition that describes how to compute
- *             inferences, and other metadata.</p>
- */
-export interface ModelArtifacts {
-  /**
-   * <p>The path of the S3 object that contains the model artifacts. For example,
-   *                 <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
-   */
-  S3ModelArtifacts: string | undefined;
-}
-
-export namespace ModelArtifacts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelArtifacts): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information to verify the integrity of stored model artifacts. </p>
- */
-export interface ModelDigests {
-  /**
-   * <p>Provides a hash value that uniquely identifies the stored model
-   *             artifacts.</p>
-   */
-  ArtifactDigest?: string;
-}
-
-export namespace ModelDigests {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelDigests): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCompilationJobResponse {
-  /**
-   * <p>The name of the model compilation job.</p>
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
-   */
-  CompilationJobArn: string | undefined;
-
-  /**
-   * <p>The status of the model compilation job.</p>
-   */
-  CompilationJobStatus: CompilationJobStatus | string | undefined;
-
-  /**
-   * <p>The time when the model compilation job started the <code>CompilationJob</code>
-   *             instances. </p>
-   *         <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
-   *             the start time might be later than this time. That's because it takes time to download
-   *             the compilation job, which depends on the size of the compilation job container. </p>
-   */
-  CompilationStartTime?: Date;
-
-  /**
-   * <p>The time when the model compilation job on a compilation job instance ended. For a
-   *             successful or stopped job, this is when the job's model artifacts have finished
-   *             uploading. For a failed job, this is when Amazon SageMaker detected that the job failed. </p>
-   */
-  CompilationEndTime?: Date;
-
-  /**
-   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
-   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
-   *             costs.</p>
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * <p>The inference image to use when compiling a model.
-   *             Specify an image only if the target device is a cloud instance.</p>
-   */
-  InferenceImage?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the versioned model package that was
-   *     provided to SageMaker Neo when you initiated a compilation job.</p>
-   */
-  ModelPackageVersionArn?: string;
-
-  /**
-   * <p>The time that the model compilation job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time that the status
-   *             of
-   *             the model compilation job was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If a model compilation job failed, the reason it failed. </p>
-   */
-  FailureReason: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 that has been configured for storing the model
-   *             artifacts used in the compilation job.</p>
-   */
-  ModelArtifacts: ModelArtifacts | undefined;
-
-  /**
-   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
-   */
-  ModelDigests?: ModelDigests;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model
-   *             compilation job.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and
-   *             shape of the expected data inputs, and the framework in which the model was
-   *             trained.</p>
-   */
-  InputConfig: InputConfig | undefined;
-
-  /**
-   * <p>Information about the output location for the compiled model and the target device
-   *             that the model runs on.</p>
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
-   *             compilation job to connect to. Control access to your models by
-   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
-   *                 Virtual Private Cloud</a>.</p>
-   */
-  VpcConfig?: NeoVpcConfig;
-}
-
-export namespace DescribeCompilationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompilationJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeContextRequest {
-  /**
-   * <p>The name of the context to describe.</p>
-   */
-  ContextName: string | undefined;
-}
-
-export namespace DescribeContextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContextRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeContextResponse {
-  /**
-   * <p>The name of the context.</p>
-   */
-  ContextName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
-
-  /**
-   * <p>The source of the context.</p>
-   */
-  Source?: ContextSource;
-
-  /**
-   * <p>The type of the context.</p>
-   */
-  ContextType?: string;
-
-  /**
-   * <p>The description of the context.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of the context's properties.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>When the context was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the context was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
 }
 
-export namespace DescribeContextResponse {
+export namespace UpdateWorkteamRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeContextResponse): any => ({
+  export const filterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
     ...obj,
   });
 }
 
-export interface DescribeDataQualityJobDefinitionRequest {
+export interface UpdateWorkteamResponse {
   /**
-   * <p>The name of the data quality monitoring job definition to describe.</p>
+   * <p>A <code>Workteam</code> object that describes the updated work team.</p>
    */
-  JobDefinitionName: string | undefined;
+  Workteam: Workteam | undefined;
 }
 
-export namespace DescribeDataQualityJobDefinitionRequest {
+export namespace UpdateWorkteamResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeDataQualityJobDefinitionRequest): any => ({
+  export const filterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
     ...obj,
   });
 }
-
-export interface DescribeDataQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the data quality monitoring job definition.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time that the data quality monitoring job definition was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The constraints and baselines for the data quality monitoring job definition.</p>
-   */
-  DataQualityBaselineConfig?: DataQualityBaselineConfig;
 
+export interface SearchRequest {
   /**
-   * <p>Information about the container that runs the data quality monitoring job.</p>
+   * <p>The name of the Amazon SageMaker resource to search for.</p>
    */
-  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+  Resource: ResourceType | string | undefined;
 
   /**
-   * <p>The list of inputs for the data quality monitoring job. Currently endpoints are
-   *          supported.</p>
+   * <p>A Boolean conditional statement. Resources must satisfy this condition to be
+   *       included in search results. You must provide at least one subexpression, filter, or
+   *       nested filter. The maximum number of recursive <code>SubExpressions</code>,
+   *       <code>NestedFilters</code>, and <code>Filters</code> that can be included in a
+   *       <code>SearchExpression</code> object is 50.</p>
    */
-  DataQualityJobInput: DataQualityJobInput | undefined;
+  SearchExpression?: SearchExpression;
 
   /**
-   * <p>The output configuration for monitoring jobs.</p>
+   * <p>The name of the resource property used to sort the <code>SearchResults</code>. The
+   *       default is <code>LastModifiedTime</code>.</p>
    */
-  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+  SortBy?: string;
 
   /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
+   *       <code>Descending</code>. The default is <code>Descending</code>.</p>
    */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>The networking configuration for the data quality monitoring job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-export namespace DescribeDataQualityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataQualityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
+  SortOrder?: SearchSortOrder | string;
 
-export interface DescribeDeviceRequest {
   /**
-   * <p>Next token of device description.</p>
+   * <p>If more than <code>MaxResults</code> resources match the specified
+   *       <code>SearchExpression</code>, the response includes a
+   *       <code>NextToken</code>. The <code>NextToken</code> can be passed to the next
+   *       <code>SearchRequest</code> to continue retrieving results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The unique ID of the device.</p>
+   * <p>The maximum number of results to return.</p>
    */
-  DeviceName: string | undefined;
-
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
+  MaxResults?: number;
 }
 
-export namespace DescribeDeviceRequest {
+export namespace SearchRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The model on the edge device.</p>
- */
-export interface EdgeModel {
-  /**
-   * <p>The name of the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The model version.</p>
-   */
-  ModelVersion: string | undefined;
-
-  /**
-   * <p>The timestamp of the last data sample taken.</p>
-   */
-  LatestSampleTime?: Date;
-
-  /**
-   * <p>The timestamp of the last inference that was made.</p>
-   */
-  LatestInference?: Date;
-}
-
-export namespace EdgeModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EdgeModel): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDeviceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   */
-  DeviceArn?: string;
-
-  /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceName: string | undefined;
-
-  /**
-   * <p>A description of the device.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the fleet the device belongs to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device.</p>
-   */
-  IotThingName?: string;
-
-  /**
-   * <p>The timestamp of the last registration or de-reregistration.</p>
-   */
-  RegistrationTime: Date | undefined;
-
-  /**
-   * <p>The last heartbeat received from the device.</p>
-   */
-  LatestHeartbeat?: Date;
-
-  /**
-   * <p>Models on the device.</p>
-   */
-  Models?: EdgeModel[];
-
-  /**
-   * <p>The maximum number of models.</p>
-   */
-  MaxModels?: number;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Edge Manager agent version.</p>
-   */
-  AgentVersion?: string;
-}
-
-export namespace DescribeDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-}
-
-export namespace DescribeDeviceFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceFleetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDeviceFleetResponse {
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The The Amazon Resource Name (ARN) of the fleet.</p>
-   */
-  DeviceFleetArn: string | undefined;
-
-  /**
-   * <p>The output configuration for storing sampled data.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>A description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Timestamp of when the device fleet was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Timestamp of when the device fleet was last updated.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) alias created in Amazon Web Services Internet of Things (IoT).</p>
-   */
-  IotRoleAlias?: string;
-}
-
-export namespace DescribeDeviceFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceFleetResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDomainRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-}
-
-export namespace DescribeDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DomainStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
-
-export interface DescribeDomainResponse {
-  /**
-   * <p>The domain's Amazon Resource Name (ARN).</p>
-   */
-  DomainArn?: string;
-
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The domain name.</p>
-   */
-  DomainName?: string;
-
-  /**
-   * <p>The ID of the Amazon Elastic File System (EFS) managed by this Domain.</p>
-   */
-  HomeEfsFileSystemId?: string;
-
-  /**
-   * <p>The SSO managed application instance ID.</p>
-   */
-  SingleSignOnManagedApplicationInstanceId?: string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: DomainStatus | string;
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last modified time.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The failure reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The domain's authentication mode.</p>
-   */
-  AuthMode?: AuthMode | string;
-
-  /**
-   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified
-   *            in a given UserProfile.
-   *        </p>
-   */
-  DefaultUserSettings?: UserSettings;
-
-  /**
-   * <p>Specifies the VPC used for non-EFS traffic. The default value is
-   *         <code>PublicInternetOnly</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
-   *             Amazon SageMaker, which allows direct internet access</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
-   *             </li>
-   *          </ul>
-   */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
-
-  /**
-   * @deprecated
-   *
-   * <p>Use <code>KmsKeyId</code>.</p>
-   */
-  HomeEfsFileSystemKmsKeyId?: string;
-
-  /**
-   * <p>The VPC subnets that Studio uses for communication.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The domain's URL.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The Amazon Web Services KMS customer managed key used to encrypt
-   *          the EFS volume attached to the domain.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A collection of <code>Domain</code> settings.</p>
-   */
-  DomainSettings?: DomainSettings;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode.
-   *             Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided.</p>
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
-
-  /**
-   * <p>The ID of the security group that authorizes traffic between the <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
-   */
-  SecurityGroupIdForDomainBoundary?: string;
-}
-
-export namespace DescribeDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-export namespace DescribeEdgePackagingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEdgePackagingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum EdgePackagingJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
-
-export enum EdgePresetDeploymentStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-}
-
-/**
- * <p>The output of a SageMaker Edge Manager deployable resource.</p>
- */
-export interface EdgePresetDeploymentOutput {
-  /**
-   * <p>The deployment type created by SageMaker Edge Manager. Currently only
-   *      supports Amazon Web Services IoT Greengrass Version 2 components.</p>
-   */
-  Type: EdgePresetDeploymentType | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
-   */
-  Artifact?: string;
-
-  /**
-   * <p>The status of the deployable resource.</p>
-   */
-  Status?: EdgePresetDeploymentStatus | string;
-
-  /**
-   * <p>Returns a message describing the status of the deployed resource.</p>
-   */
-  StatusMessage?: string;
-}
-
-export namespace EdgePresetDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EdgePresetDeploymentOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEdgePackagingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
-   */
-  EdgePackagingJobArn: string | undefined;
-
-  /**
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker Neo compilation job that is used to locate model artifacts that are being packaged.</p>
-   */
-  CompilationJobName?: string;
-
-  /**
-   * <p>The name of the model.</p>
-   */
-  ModelName?: string;
-
-  /**
-   * <p>The version of the model.</p>
-   */
-  ModelVersion?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to  download and upload the model, and to contact Neo.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The output configuration for the edge packaging job.</p>
-   */
-  OutputConfig?: EdgeOutputConfig;
-
-  /**
-   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
-   */
-  ResourceKey?: string;
-
-  /**
-   * <p>The current status of the packaging job.</p>
-   */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
-
-  /**
-   * <p>Returns a message describing the job status and error messages.</p>
-   */
-  EdgePackagingJobStatusMessage?: string;
-
-  /**
-   * <p>The timestamp of when the packaging job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The timestamp of when the job was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Simple Storage (S3) URI where model artifacts ares stored.</p>
-   */
-  ModelArtifact?: string;
-
-  /**
-   * <p>The signature document of files in the model artifact.</p>
-   */
-  ModelSignature?: string;
-
-  /**
-   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
-   */
-  PresetDeploymentOutput?: EdgePresetDeploymentOutput;
-}
-
-export namespace DescribeEdgePackagingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEdgePackagingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEndpointInput {
-  /**
-   * <p>The name of the endpoint.</p>
-   */
-  EndpointName: string | undefined;
-}
-
-export namespace DescribeEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointInput): any => ({
-    ...obj,
-  });
-}
-
-export enum EndpointStatus {
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_SERVICE = "InService",
-  OUT_OF_SERVICE = "OutOfService",
-  ROLLING_BACK = "RollingBack",
-  SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating",
-}
-
-export enum VariantStatus {
-  ACTIVATING_TRAFFIC = "ActivatingTraffic",
-  BAKING = "Baking",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  UPDATING = "Updating",
-}
-
-/**
- * <p>Describes the status of the production variant.</p>
- */
-export interface ProductionVariantStatus {
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>Creating</code>: Creating inference resources for the production variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Deleting</code>: Terminating inference resources for the production variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Updating</code>: Updating capacity for the production variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
-   *                 automatic rollback configuration.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status: VariantStatus | string | undefined;
-
-  /**
-   * <p>A message that describes the status of the production variant.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The start time of the current status change.</p>
-   */
-  StartTime?: Date;
-}
-
-export namespace ProductionVariantStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductionVariantStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The production variant summary for a deployment when an endpoint is
- *             creating or updating with the <code>
- *                <a>CreateEndpoint</a>
- *             </code>
- *             or <code>
- *                <a>UpdateEndpoint</a>
- *             </code> operations.
- *             Describes the <code>VariantStatus </code>, weight and capacity for a production
- *             variant associated with an endpoint.
- *            </p>
- */
-export interface PendingProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2
-   *             Container Registry paths of the inference images deployed on instances of this
-   *             <code>ProductionVariant</code>.</p>
-   */
-  DeployedImages?: DeployedImage[];
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   */
-  CurrentWeight?: number;
-
-  /**
-   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration
-   *             for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
-   */
-  DesiredWeight?: number;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   */
-  CurrentInstanceCount?: number;
-
-  /**
-   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration
-   *             for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
-   */
-  DesiredInstanceCount?: number;
-
-  /**
-   * <p>The type of instances associated with the variant.</p>
-   */
-  InstanceType?: ProductionVariantInstanceType | string;
-
-  /**
-   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
-   *             instances provide on-demand GPU computing for inference. For more information, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   */
-  VariantStatus?: ProductionVariantStatus[];
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
-}
-
-export namespace PendingProductionVariantSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The summary of an in-progress deployment when an endpoint is creating or
- *             updating with a new endpoint configuration.</p>
- */
-export interface PendingDeploymentSummary {
-  /**
-   * <p>The name of the endpoint configuration used in the deployment. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>List of <code>PendingProductionVariantSummary</code> objects.</p>
-   */
-  ProductionVariants?: PendingProductionVariantSummary[];
-
-  /**
-   * <p>The start time of the deployment.</p>
-   */
-  StartTime?: Date;
-}
-
-export namespace PendingDeploymentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes weight and capacities for a production variant associated with an
- *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
- *             API and the endpoint status is <code>Updating</code>, you get different desired and
- *             current values. </p>
- */
-export interface ProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the
-   *             inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   */
-  DeployedImages?: DeployedImage[];
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   */
-  CurrentWeight?: number;
-
-  /**
-   * <p>The requested weight, as specified in the
-   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   */
-  DesiredWeight?: number;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   */
-  CurrentInstanceCount?: number;
-
-  /**
-   * <p>The number of instances requested in the
-   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   */
-  DesiredInstanceCount?: number;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-   */
-  VariantStatus?: ProductionVariantStatus[];
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The serverless configuration requested for the endpoint update.</p>
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
-}
-
-export namespace ProductionVariantSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductionVariantSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEndpointOutput {
-  /**
-   * <p>Name of the endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>The name of the endpoint configuration associated with this endpoint.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p> An array of <a>ProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint. </p>
-   */
-  ProductionVariants?: ProductionVariantSummary[];
-
-  /**
-   * <p>The currently active data capture configuration used by your Endpoint.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfigSummary;
-
-  /**
-   * <p>The status of the endpoint.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
-   *                     updated or deleted or re-scaled until it has completed. This maintenance
-   *                     operation does not change any customer-specified values such as VPC config, KMS
-   *                     encryption, model, instance type, or instance count.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
-   *                     variant weight and is in the process of rolling back to its previous
-   *                     configuration. Once the rollback completes, endpoint returns to an
-   *                         <code>InService</code> status. This transitional status only applies to an
-   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
-   *                     explicitly.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>InService</code>: Endpoint is available to process incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
-   *                     performed on a failed endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  EndpointStatus: EndpointStatus | string | undefined;
-
-  /**
-   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed.
-   *         </p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The most recent deployment configuration for the endpoint.</p>
-   */
-  LastDeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created
-   *             using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
-   *                <code>CreateEndpointConfig</code>
-   *             </a> API.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-
-  /**
-   * <p>Returns the summary of an in-progress deployment. This field is only returned when the
-   *             endpoint is creating or updating with a new endpoint configuration.</p>
-   */
-  PendingDeploymentSummary?: PendingDeploymentSummary;
-}
-
-export namespace DescribeEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-}
-
-export namespace DescribeEndpointConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEndpointConfigOutput {
-  /**
-   * <p>Name of the SageMaker endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
-   */
-  EndpointConfigArn: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you
-   *             want to host at this endpoint.</p>
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfig;
-
-  /**
-   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
-   *             volume attached to the instance.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A timestamp that shows when the endpoint configuration was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
-   *                <code>CreateEndpointConfig</code>
-   *             </a> API.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-}
-
-export namespace DescribeEndpointConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointConfigOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExperimentRequest {
-  /**
-   * <p>The name of the experiment to describe.</p>
-   */
-  ExperimentName: string | undefined;
-}
-
-export namespace DescribeExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The source of the experiment.</p>
- */
-export interface ExperimentSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   */
-  SourceType?: string;
-}
-
-export namespace ExperimentSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperimentSource): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExperimentResponse {
-  /**
-   * <p>The name of the experiment.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-
-  /**
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The ARN of the source and, optionally, the type.</p>
-   */
-  Source?: ExperimentSource;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>When the experiment was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Who created the experiment.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the experiment was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Who last modified the experiment.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-export namespace DescribeExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExperimentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFeatureGroupRequest {
-  /**
-   * <p>The name of the <code>FeatureGroup</code> you want described. </p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code>
-   *             (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by
-   *          default.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFeatureGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFeatureGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FeatureGroupStatus {
-  CREATED = "Created",
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-}
-
-export enum OfflineStoreStatusValue {
-  ACTIVE = "Active",
-  BLOCKED = "Blocked",
-  DISABLED = "Disabled",
-}
-
-/**
- * <p>The status of <code>OfflineStore</code>.</p>
- */
-export interface OfflineStoreStatus {
-  /**
-   * <p>An <code>OfflineStore</code> status.</p>
-   */
-  Status: OfflineStoreStatusValue | string | undefined;
-
-  /**
-   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
-   */
-  BlockedReason?: string;
-}
-
-export namespace OfflineStoreStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OfflineStoreStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>he name of the <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value
-   *          uniquely identifies a record stored in the feature store.</p>
-   */
-  RecordIdentifierFeatureName: string | undefined;
-
-  /**
-   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
-   *          <code>FeatureGroup</code>.</p>
-   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that
-   *          corresponds to the creation or update of a <code>Record</code> in a
-   *             <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
-   *          have a corresponding <code>EventTime</code>.</p>
-   */
-  EventTimeFeatureName: string | undefined;
-
-  /**
-   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>.
-   *          Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
-   */
-  FeatureDefinitions: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The configuration for the <code>OnlineStore</code>.</p>
-   */
-  OnlineStoreConfig?: OnlineStoreConfig;
-
-  /**
-   * <p>The configuration of the <code>OfflineStore</code>, inducing the S3 location of the
-   *          <code>OfflineStore</code>, Amazon Web Services Glue or Amazon Web Services Hive data catalogue configurations, and the
-   *          security configuration.</p>
-   */
-  OfflineStoreConfig?: OfflineStoreConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
-   *          <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The status of the feature group.</p>
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
-
-  /**
-   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the
-   *             <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or
-   *             <code>Blocked</code>
-   *          </p>
-   */
-  OfflineStoreStatus?: OfflineStoreStatus;
-
-  /**
-   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
-   *             <code>OfflineStore</code>. This is failure can occur because:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>FeatureGroup</code> could not be created in the
-   *                   <code>OfflineStore</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>FeatureGroup</code> could not be deleted from the
-   *                   <code>OfflineStore</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A free form description of the feature group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code>
-   *             (<code>FeatureDefinitions</code>).</p>
-   */
-  NextToken: string | undefined;
-}
-
-export namespace DescribeFeatureGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFlowDefinitionRequest {
-  /**
-   * <p>The name of the flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-}
-
-export namespace DescribeFlowDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-}
-
-export interface DescribeFlowDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * <p>The status of the flow definition. Valid values are listed below.</p>
-   */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
-
-  /**
-   * <p>The timestamp when the flow definition was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for configuring the source of human task requests. Used to specify if
-   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
-   */
-  HumanLoopRequestSource?: HumanLoopRequestSource;
-
-  /**
-   * <p>An object containing information about what triggers a human review workflow.</p>
-   */
-  HumanLoopActivationConfig?: HumanLoopActivationConfig;
-
-  /**
-   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
-   */
-  HumanLoopConfig: HumanLoopConfig | undefined;
-
-  /**
-   * <p>An object containing information about the output file.</p>
-   */
-  OutputConfig: FlowDefinitionOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The reason your flow definition failed.</p>
-   */
-  FailureReason?: string;
-}
-
-export namespace DescribeFlowDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface
-   *       (worker task template) you want information about.</p>
-   */
-  HumanTaskUiName: string | undefined;
-}
-
-export namespace DescribeHumanTaskUiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum HumanTaskUiStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
-
-/**
- * <p>Container for user interface template information.</p>
- */
-export interface UiTemplateInfo {
-  /**
-   * <p>The URL for the user interface template.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The SHA-256 digest of the contents of the template.</p>
-   */
-  ContentSha256?: string;
-}
-
-export namespace UiTemplateInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UiTemplateInfo): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHumanTaskUiResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
-   */
-  HumanTaskUiArn: string | undefined;
-
-  /**
-   * <p>The name of the human task user interface (worker task template).</p>
-   */
-  HumanTaskUiName: string | undefined;
-
-  /**
-   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
-   */
-  HumanTaskUiStatus?: HumanTaskUiStatus | string;
-
-  /**
-   * <p>The timestamp when the human task user interface was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for user interface template information.</p>
-   */
-  UiTemplate: UiTemplateInfo | undefined;
-}
-
-export namespace DescribeHumanTaskUiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-}
-
-export namespace DescribeHyperParameterTuningJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Shows the final value for the
- *             objective
- *             metric for a training job that was launched by a hyperparameter
- *             tuning job. You define the objective metric in the
- *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
- */
-export interface FinalHyperParameterTuningJobObjectiveMetric {
-  /**
-   * <p>Whether to
-   *             minimize
-   *             or maximize the objective metric. Valid values are Minimize and
-   *             Maximize.</p>
-   */
-  Type?: HyperParameterTuningJobObjectiveType | string;
-
-  /**
-   * <p>The name of the
-   *             objective
-   *             metric.</p>
-   */
-  MetricName: string | undefined;
-
-  /**
-   * <p>The value of the objective metric.</p>
-   */
-  Value: number | undefined;
-}
-
-export namespace FinalHyperParameterTuningJobObjectiveMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalHyperParameterTuningJobObjectiveMetric): any => ({
-    ...obj,
-  });
-}
-
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>The container for the summary information about a training job.</p>
- */
-export interface HyperParameterTrainingJobSummary {
-  /**
-   * <p>The training job definition name.</p>
-   */
-  TrainingJobDefinitionName?: string;
-
-  /**
-   * <p>The name of the training job.</p>
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   */
-  TrainingJobArn: string | undefined;
-
-  /**
-   * <p>The HyperParameter tuning job that launched the training job.</p>
-   */
-  TuningJobName?: string;
-
-  /**
-   * <p>The date and time that the training job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the training job started.</p>
-   */
-  TrainingStartTime?: Date;
-
-  /**
-   * <p>Specifies the time when the training job ends on training instances. You are billed
-   *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
-   *             For successful jobs and stopped jobs, this is the time after model artifacts are
-   *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
-   */
-  TrainingEndTime?: Date;
-
-  /**
-   * <p>The
-   *             status
-   *             of the training job.</p>
-   */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
-
-  /**
-   * <p>A
-   *             list of the hyperparameters for which you specified ranges to
-   *             search.</p>
-   */
-  TunedHyperParameters: Record<string, string> | undefined;
-
-  /**
-   * <p>The
-   *             reason that the training job failed.
-   *         </p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The <a>FinalHyperParameterTuningJobObjectiveMetric</a> object that
-   *             specifies the
-   *             value
-   *             of the
-   *             objective
-   *             metric of the tuning job that launched this training job.</p>
-   */
-  FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric;
-
-  /**
-   * <p>The status of the objective metric for the training job:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Succeeded: The
-   *                     final
-   *                     objective metric for the training job was evaluated by the
-   *                     hyperparameter tuning job and
-   *                     used
-   *                     in the hyperparameter tuning process.</p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Pending: The training job is in progress and evaluation of its final objective
-   *                     metric is pending.</p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Failed:
-   *                     The final objective metric for the training job was not evaluated, and was not
-   *                     used in the hyperparameter tuning process. This typically occurs when the
-   *                     training job failed or did not emit an objective
-   *                     metric.</p>
-   *             </li>
-   *          </ul>
-   */
-  ObjectiveStatus?: ObjectiveStatus | string;
-}
-
-export namespace HyperParameterTrainingJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HyperParameterTrainingJobSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
- *             categorized by the status of their objective metric. The objective metric status shows
- *             whether the
- *             final
- *             objective metric for the training job has been evaluated by the
- *             tuning job and used in the hyperparameter tuning process.</p>
- */
-export interface ObjectiveStatusCounters {
-  /**
-   * <p>The number of training jobs whose final objective metric was evaluated by the
-   *             hyperparameter tuning job and used in the hyperparameter tuning process.</p>
-   */
-  Succeeded?: number;
-
-  /**
-   * <p>The number of training jobs that are in progress and pending evaluation of their final
-   *             objective metric.</p>
-   */
-  Pending?: number;
-
-  /**
-   * <p>The number of training jobs whose final objective metric was not evaluated and used in
-   *             the hyperparameter tuning process. This typically occurs when the training job failed or
-   *             did not emit an objective metric.</p>
-   */
-  Failed?: number;
-}
-
-export namespace ObjectiveStatusCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
- *             status.</p>
- */
-export interface TrainingJobStatusCounters {
-  /**
-   * <p>The number of completed training jobs launched by the hyperparameter tuning
-   *             job.</p>
-   */
-  Completed?: number;
-
-  /**
-   * <p>The number of in-progress training jobs launched by a hyperparameter tuning
-   *             job.</p>
-   */
-  InProgress?: number;
-
-  /**
-   * <p>The number of training jobs that failed, but can be retried. A failed training job can
-   *             be retried only if it failed because an internal service error occurred.</p>
-   */
-  RetryableError?: number;
-
-  /**
-   * <p>The number of training jobs that failed and can't be retried. A failed training job
-   *             can't be retried if it failed because a client error occurred.</p>
-   */
-  NonRetryableError?: number;
-
-  /**
-   * <p>The number of training jobs launched by a hyperparameter tuning job that were
-   *             manually
-   *             stopped.</p>
-   */
-  Stopped?: number;
-}
-
-export namespace TrainingJobStatusCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHyperParameterTuningJobResponse {
-  /**
-   * <p>The name of the tuning job.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-
-  /**
-   * <p>The
-   *             Amazon Resource Name (ARN) of the tuning job.</p>
-   */
-  HyperParameterTuningJobArn: string | undefined;
-
-  /**
-   * <p>The <a>HyperParameterTuningJobConfig</a> object that specifies the
-   *             configuration of the tuning job.</p>
-   */
-  HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
-
-  /**
-   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that specifies the
-   *             definition of the training jobs that this tuning job launches.</p>
-   */
-  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
-
-  /**
-   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
-   *             for this tuning job.</p>
-   */
-  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
-
-  /**
-   * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
-   *             Stopped.</p>
-   */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
-
-  /**
-   * <p>The date and time that the tuning job started.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the tuning job ended.</p>
-   */
-  HyperParameterTuningEndTime?: Date;
-
-  /**
-   * <p>The date and time that the status of the tuning job was modified. </p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the number of
-   *             training jobs, categorized by status, that this tuning job launched.</p>
-   */
-  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
-
-  /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the number of
-   *             training jobs, categorized by the status of their final objective metric, that this
-   *             tuning job launched.</p>
-   */
-  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
-
-  /**
-   * <p>A <a>TrainingJobSummary</a> object that describes the training job that
-   *             completed with the best current <a>HyperParameterTuningJobObjective</a>.</p>
-   */
-  BestTrainingJob?: HyperParameterTrainingJobSummary;
-
-  /**
-   * <p>If the hyperparameter tuning job is an warm start tuning job with a
-   *                 <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the
-   *                 <a>TrainingJobSummary</a> for the training job with the best objective
-   *             metric value of all training jobs launched by this tuning job and all parent jobs
-   *             specified for the warm start tuning job.</p>
-   */
-  OverallBestTrainingJob?: HyperParameterTrainingJobSummary;
-
-  /**
-   * <p>The configuration for starting the hyperparameter parameter tuning job using one or
-   *             more previous tuning jobs as a starting point. The results of previous tuning jobs are
-   *             used to inform which combinations of hyperparameters to search over in the new tuning
-   *             job.</p>
-   */
-  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
-
-  /**
-   * <p>If the tuning job failed, the reason it failed.</p>
-   */
-  FailureReason?: string;
-}
-
-export namespace DescribeHyperParameterTuningJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImageRequest {
-  /**
-   * <p>The name of the image to describe.</p>
-   */
-  ImageName: string | undefined;
-}
-
-export namespace DescribeImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ImageStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
-
-export interface DescribeImageResponse {
-  /**
-   * <p>When the image was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The description of the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the image as displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>The status of the image.</p>
-   */
-  ImageStatus?: ImageStatus | string;
-
-  /**
-   * <p>When the image was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
-   */
-  RoleArn?: string;
-}
-
-export namespace DescribeImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version of the image. If not specified, the latest version is described.</p>
-   */
-  Version?: number;
-}
-
-export namespace DescribeImageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ImageVersionStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
-
-export interface DescribeImageVersionResponse {
-  /**
-   * <p>The registry path of the container image on which this image version is based.</p>
-   */
-  BaseImage?: string;
-
-  /**
-   * <p>The registry path of the container image that contains this image version.</p>
-   */
-  ContainerImage?: string;
-
-  /**
-   * <p>When the version was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When a create or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The ARN of the version.</p>
-   */
-  ImageVersionArn?: string;
-
-  /**
-   * <p>The status of the version.</p>
-   */
-  ImageVersionStatus?: ImageVersionStatus | string;
-
-  /**
-   * <p>When the version was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
-}
-
-export namespace DescribeImageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInferenceRecommendationsJobRequest {
-  /**
-   * <p>The name of the job. The name must be unique within an
-   *            Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobName: string | undefined;
-}
-
-export namespace DescribeInferenceRecommendationsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
- */
-export interface EndpointOutputConfiguration {
-  /**
-   * <p>The name of the endpoint made during a recommendation job.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the production variant (deployed model) made during a recommendation job.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
-   */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
-
-  /**
-   * <p>The number of instances recommended to launch initially.</p>
-   */
-  InitialInstanceCount: number | undefined;
-}
-
-export namespace EndpointOutputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointOutputConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The metrics of recommendations.</p>
- */
-export interface RecommendationMetrics {
-  /**
-   * <p>Defines the cost per hour for the instance. </p>
-   */
-  CostPerHour: number | undefined;
-
-  /**
-   * <p>Defines the cost per inference for the instance .</p>
-   */
-  CostPerInference: number | undefined;
-
-  /**
-   * <p>The expected maximum number of requests per minute for the instance.</p>
-   */
-  MaxInvocations: number | undefined;
-
-  /**
-   * <p>The expected model latency at maximum invocation per minute for the instance.</p>
-   */
-  ModelLatency: number | undefined;
-}
-
-export namespace RecommendationMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationMetrics): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
- */
-export interface EnvironmentParameter {
-  /**
-   * <p>The environment key suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value type suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  ValueType: string | undefined;
-
-  /**
-   * <p>The value suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace EnvironmentParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
- */
-export interface ModelConfiguration {
-  /**
-   * <p>The inference specification name in the model package version.</p>
-   */
-  InferenceSpecificationName?: string;
-
-  /**
-   * <p>Defines the environment parameters that includes key, value types, and values.</p>
-   */
-  EnvironmentParameters?: EnvironmentParameter[];
-}
-
-export namespace ModelConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
- */
-export interface InferenceRecommendation {
-  /**
-   * <p>The metrics used to decide what recommendation to make.</p>
-   */
-  Metrics: RecommendationMetrics | undefined;
-
-  /**
-   * <p>Defines the endpoint configuration parameters.</p>
-   */
-  EndpointConfiguration: EndpointOutputConfiguration | undefined;
-
-  /**
-   * <p>Defines the model configuration.</p>
-   */
-  ModelConfiguration: ModelConfiguration | undefined;
-}
-
-export namespace InferenceRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceRecommendation): any => ({
-    ...obj,
-  });
-}
-
-export enum RecommendationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
-
-export interface DescribeInferenceRecommendationsJobResponse {
-  /**
-   * <p>The name of the job. The name must be unique within an
-   *            Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The job description that you provided when you initiated the job.</p>
-   */
-  JobDescription?: string;
-
-  /**
-   * <p>The job type that you provided when you initiated the job.</p>
-   */
-  JobType: RecommendationJobType | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   */
-  JobArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
-   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   */
-  Status: RecommendationJobStatus | string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job completed.</p>
-   */
-  CompletionTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the job was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If the job fails, provides information why the job failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
-   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
-   */
-  InputConfig: RecommendationJobInputConfig | undefined;
-
-  /**
-   * <p>The stopping conditions that you provided when you initiated the job.</p>
-   */
-  StoppingConditions?: RecommendationJobStoppingConditions;
-
-  /**
-   * <p>The recommendations made by Inference Recommender.</p>
-   */
-  InferenceRecommendations?: InferenceRecommendation[];
-}
-
-export namespace DescribeInferenceRecommendationsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to return information for.</p>
-   */
-  LabelingJobName: string | undefined;
-}
-
-export namespace DescribeLabelingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLabelingJobRequest): any => ({
+  export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });
 }

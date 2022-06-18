@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/models_1";
+import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListOTAUpdatesCommand,
   serializeAws_restJson1ListOTAUpdatesCommand,

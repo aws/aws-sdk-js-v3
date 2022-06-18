@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_4";
+import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeReservedInstancesListingsCommand,
   serializeAws_ec2DescribeReservedInstancesListingsCommand,

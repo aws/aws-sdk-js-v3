@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_2";
+import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSearchSuggestionsCommand,
   serializeAws_json1_1GetSearchSuggestionsCommand,

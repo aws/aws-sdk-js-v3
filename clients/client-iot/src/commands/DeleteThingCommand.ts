@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteThingRequest, DeleteThingResponse } from "../models/models_1";
+import { DeleteThingRequest, DeleteThingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThingCommand,
   serializeAws_restJson1DeleteThingCommand,

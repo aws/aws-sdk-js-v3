@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RebootDBClusterMessage, RebootDBClusterResult } from "../models/models_1";
+import { RebootDBClusterMessage, RebootDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryRebootDBClusterCommand,
   serializeAws_queryRebootDBClusterCommand,

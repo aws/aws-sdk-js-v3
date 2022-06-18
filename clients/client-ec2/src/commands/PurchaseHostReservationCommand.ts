@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/models_5";
+import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/models_2";
 import {
   deserializeAws_ec2PurchaseHostReservationCommand,
   serializeAws_ec2PurchaseHostReservationCommand,

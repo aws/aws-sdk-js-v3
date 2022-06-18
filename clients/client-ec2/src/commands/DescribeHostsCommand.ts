@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeHostsRequest, DescribeHostsResult } from "../models/models_3";
+import { DescribeHostsRequest, DescribeHostsResult } from "../models/models_1";
 import { deserializeAws_ec2DescribeHostsCommand, serializeAws_ec2DescribeHostsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeHostsCommandInput extends DescribeHostsRequest {}

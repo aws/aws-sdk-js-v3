@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_6";
+import { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_3";
 import {
   deserializeAws_ec2RestoreImageFromRecycleBinCommand,
   serializeAws_ec2RestoreImageFromRecycleBinCommand,

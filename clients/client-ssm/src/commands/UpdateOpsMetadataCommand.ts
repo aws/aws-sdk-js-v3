@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_2";
+import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateOpsMetadataCommand,
   serializeAws_json1_1UpdateOpsMetadataCommand,

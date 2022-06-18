@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_1";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInvitationsCommand,
   serializeAws_restJson1DeleteInvitationsCommand,

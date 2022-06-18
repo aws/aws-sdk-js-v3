@@ -15,7 +15,7 @@ import {
 import {
   DescribeModelQualityJobDefinitionRequest,
   DescribeModelQualityJobDefinitionResponse,
-} from "../models/models_2";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
   serializeAws_json1_1DescribeModelQualityJobDefinitionCommand,

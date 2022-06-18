@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_3";
+import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
   serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,

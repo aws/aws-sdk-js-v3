@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateIAMPolicyAssignmentRequest, UpdateIAMPolicyAssignmentResponse } from "../models/models_1";
+import { UpdateIAMPolicyAssignmentRequest, UpdateIAMPolicyAssignmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand,
   serializeAws_restJson1UpdateIAMPolicyAssignmentCommand,

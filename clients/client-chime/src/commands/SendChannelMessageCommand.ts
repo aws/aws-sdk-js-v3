@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { SendChannelMessageRequest, SendChannelMessageResponse } from "../models/models_1";
+import { SendChannelMessageRequest, SendChannelMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendChannelMessageCommand,
   serializeAws_restJson1SendChannelMessageCommand,

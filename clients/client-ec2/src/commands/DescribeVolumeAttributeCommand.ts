@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_4";
+import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeVolumeAttributeCommand,
   serializeAws_ec2DescribeVolumeAttributeCommand,

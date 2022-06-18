@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeInputSecurityGroupRequest, DescribeInputSecurityGroupResponse } from "../models/models_1";
+import { DescribeInputSecurityGroupRequest, DescribeInputSecurityGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeInputSecurityGroupCommand,
   serializeAws_restJson1DescribeInputSecurityGroupCommand,

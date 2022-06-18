@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_2";
+import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListHumanTaskUisCommand,
   serializeAws_json1_1ListHumanTaskUisCommand,

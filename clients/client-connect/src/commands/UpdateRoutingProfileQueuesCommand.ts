@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileQueuesRequest } from "../models/models_1";
+import { UpdateRoutingProfileQueuesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRoutingProfileQueuesCommand,
   serializeAws_restJson1UpdateRoutingProfileQueuesCommand,

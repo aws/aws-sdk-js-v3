@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { UpdateQueueRequest, UpdateQueueResponse } from "../models/models_2";
+import { UpdateQueueRequest, UpdateQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateQueueCommand,
   serializeAws_restJson1UpdateQueueCommand,

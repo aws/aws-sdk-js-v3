@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_1";
+import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteQueueCommand,
   serializeAws_restJson1DeleteQueueCommand,

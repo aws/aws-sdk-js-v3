@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_2";
+import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_0";
 import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}

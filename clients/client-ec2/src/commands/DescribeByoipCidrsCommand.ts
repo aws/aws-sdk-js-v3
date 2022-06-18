@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_2";
+import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeByoipCidrsCommand,
   serializeAws_ec2DescribeByoipCidrsCommand,

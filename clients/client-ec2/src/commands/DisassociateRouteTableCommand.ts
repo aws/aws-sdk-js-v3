@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateRouteTableRequest } from "../models/models_4";
+import { DisassociateRouteTableRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DisassociateRouteTableCommand,
   serializeAws_ec2DisassociateRouteTableCommand,

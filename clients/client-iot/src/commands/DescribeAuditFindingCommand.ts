@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
+import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAuditFindingCommand,
   serializeAws_restJson1DescribeAuditFindingCommand,

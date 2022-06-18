@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_1";
+import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoggingStatusCommand,
   serializeAws_queryDescribeLoggingStatusCommand,

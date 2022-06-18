@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { StopInstancesRequest, StopInstancesResult } from "../models/models_6";
+import { StopInstancesRequest, StopInstancesResult } from "../models/models_3";
 import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface StopInstancesCommandInput extends StopInstancesRequest {}

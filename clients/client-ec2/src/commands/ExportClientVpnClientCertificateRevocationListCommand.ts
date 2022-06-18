@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
-} from "../models/models_4";
+} from "../models/models_2";
 import {
   deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand,
   serializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_1";
+import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetParameterHistoryCommand,
   serializeAws_json1_1GetParameterHistoryCommand,

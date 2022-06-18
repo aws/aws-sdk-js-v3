@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcEndpointsRequest, DescribeVpcEndpointsResult } from "../models/models_4";
+import { DescribeVpcEndpointsRequest, DescribeVpcEndpointsResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeVpcEndpointsCommand,
   serializeAws_ec2DescribeVpcEndpointsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateRepositoryNameInput } from "../models/models_1";
+import { UpdateRepositoryNameInput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRepositoryNameCommand,
   serializeAws_json1_1UpdateRepositoryNameCommand,

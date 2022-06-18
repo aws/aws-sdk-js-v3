@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { PutFileInput, PutFileOutput } from "../models/models_1";
+import { PutFileInput, PutFileOutput } from "../models/models_0";
 import { deserializeAws_json1_1PutFileCommand, serializeAws_json1_1PutFileCommand } from "../protocols/Aws_json1_1";
 
 export interface PutFileCommandInput extends PutFileInput {}

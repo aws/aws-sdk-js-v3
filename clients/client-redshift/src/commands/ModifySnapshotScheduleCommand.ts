@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SnapshotSchedule } from "../models/models_0";
-import { ModifySnapshotScheduleMessage } from "../models/models_1";
+import { ModifySnapshotScheduleMessage, SnapshotSchedule } from "../models/models_0";
 import {
   deserializeAws_queryModifySnapshotScheduleCommand,
   serializeAws_queryModifySnapshotScheduleCommand,

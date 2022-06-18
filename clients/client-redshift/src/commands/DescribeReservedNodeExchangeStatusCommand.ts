@@ -15,7 +15,7 @@ import {
 import {
   DescribeReservedNodeExchangeStatusInputMessage,
   DescribeReservedNodeExchangeStatusOutputMessage,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeReservedNodeExchangeStatusCommand,
   serializeAws_queryDescribeReservedNodeExchangeStatusCommand,

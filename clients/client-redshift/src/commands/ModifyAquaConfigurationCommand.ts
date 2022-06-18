@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyAquaInputMessage, ModifyAquaOutputMessage } from "../models/models_1";
+import { ModifyAquaInputMessage, ModifyAquaOutputMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyAquaConfigurationCommand,
   serializeAws_queryModifyAquaConfigurationCommand,

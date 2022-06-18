@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_1";
+import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListInventoryEntriesCommand,
   serializeAws_json1_1ListInventoryEntriesCommand,

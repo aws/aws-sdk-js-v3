@@ -16,7 +16,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   GetVoiceConnectorStreamingConfigurationRequest,
   GetVoiceConnectorStreamingConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
   serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,

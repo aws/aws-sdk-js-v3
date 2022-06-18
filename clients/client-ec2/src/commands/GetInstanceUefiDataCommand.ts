@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
+import { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_2";
 import {
   deserializeAws_ec2GetInstanceUefiDataCommand,
   serializeAws_ec2GetInstanceUefiDataCommand,

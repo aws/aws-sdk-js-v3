@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelExplainabilityJobDefinitionRequest } from "../models/models_1";
+import { DeleteModelExplainabilityJobDefinitionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand,
   serializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand,

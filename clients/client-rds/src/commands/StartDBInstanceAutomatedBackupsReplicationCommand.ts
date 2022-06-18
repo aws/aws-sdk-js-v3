@@ -16,7 +16,7 @@ import {
 import {
   StartDBInstanceAutomatedBackupsReplicationMessage,
   StartDBInstanceAutomatedBackupsReplicationResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
   serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,

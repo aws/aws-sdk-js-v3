@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelBiasJobDefinitionRequest } from "../models/models_1";
+import { DeleteModelBiasJobDefinitionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
   serializeAws_json1_1DeleteModelBiasJobDefinitionCommand,

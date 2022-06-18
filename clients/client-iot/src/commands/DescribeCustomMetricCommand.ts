@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeCustomMetricRequest, DescribeCustomMetricResponse } from "../models/models_1";
+import { DescribeCustomMetricRequest, DescribeCustomMetricResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCustomMetricCommand,
   serializeAws_restJson1DescribeCustomMetricCommand,

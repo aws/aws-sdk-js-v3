@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateRoleAliasRequest, UpdateRoleAliasResponse } from "../models/models_2";
+import { UpdateRoleAliasRequest, UpdateRoleAliasResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoleAliasCommand,
   serializeAws_restJson1UpdateRoleAliasCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceNetworkAclEntryRequest } from "../models/models_5";
+import { ReplaceNetworkAclEntryRequest } from "../models/models_3";
 import {
   deserializeAws_ec2ReplaceNetworkAclEntryCommand,
   serializeAws_ec2ReplaceNetworkAclEntryCommand,

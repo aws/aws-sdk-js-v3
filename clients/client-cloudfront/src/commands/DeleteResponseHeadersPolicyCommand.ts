@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteResponseHeadersPolicyRequest } from "../models/models_1";
+import { DeleteResponseHeadersPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteResponseHeadersPolicyCommand,
   serializeAws_restXmlDeleteResponseHeadersPolicyCommand,

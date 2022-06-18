@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListAttendeesRequest, ListAttendeesResponse } from "../models/models_1";
+import { ListAttendeesRequest, ListAttendeesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAttendeesCommand,
   serializeAws_restJson1ListAttendeesCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateBillingGroupRequest, UpdateBillingGroupResponse } from "../models/models_2";
+import { UpdateBillingGroupRequest, UpdateBillingGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateBillingGroupCommand,
   serializeAws_restJson1UpdateBillingGroupCommand,

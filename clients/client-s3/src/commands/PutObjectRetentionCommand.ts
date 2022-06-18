@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_1";
+import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectRetentionCommand,
   serializeAws_restXmlPutObjectRetentionCommand,

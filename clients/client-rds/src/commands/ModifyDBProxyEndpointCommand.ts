@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyDBProxyEndpointRequest, ModifyDBProxyEndpointResponse } from "../models/models_1";
+import { ModifyDBProxyEndpointRequest, ModifyDBProxyEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_queryModifyDBProxyEndpointCommand,
   serializeAws_queryModifyDBProxyEndpointCommand,

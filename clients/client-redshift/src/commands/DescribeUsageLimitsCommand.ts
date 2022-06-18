@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_1";
+import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_0";
 import {
   deserializeAws_queryDescribeUsageLimitsCommand,
   serializeAws_queryDescribeUsageLimitsCommand,

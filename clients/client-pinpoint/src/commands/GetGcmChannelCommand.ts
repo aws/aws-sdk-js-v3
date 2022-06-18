@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_1";
+import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetGcmChannelCommand,

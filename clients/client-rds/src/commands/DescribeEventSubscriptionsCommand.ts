@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_1";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEventSubscriptionsCommand,
   serializeAws_queryDescribeEventSubscriptionsCommand,

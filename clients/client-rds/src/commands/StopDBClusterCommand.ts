@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,

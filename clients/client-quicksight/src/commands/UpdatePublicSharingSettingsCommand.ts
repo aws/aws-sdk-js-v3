@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_1";
+import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePublicSharingSettingsCommand,
   serializeAws_restJson1UpdatePublicSharingSettingsCommand,

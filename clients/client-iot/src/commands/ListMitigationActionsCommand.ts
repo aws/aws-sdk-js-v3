@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_1";
+import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListMitigationActionsCommand,
   serializeAws_restJson1ListMitigationActionsCommand,

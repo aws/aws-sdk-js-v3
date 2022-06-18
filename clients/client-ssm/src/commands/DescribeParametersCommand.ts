@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeParametersRequest } from "../models/models_0";
-import { DescribeParametersResult } from "../models/models_1";
+import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeParametersCommand,
   serializeAws_json1_1DescribeParametersCommand,

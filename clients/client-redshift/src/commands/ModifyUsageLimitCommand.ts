@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UsageLimit } from "../models/models_0";
-import { ModifyUsageLimitMessage } from "../models/models_1";
+import { ModifyUsageLimitMessage, UsageLimit } from "../models/models_0";
 import {
   deserializeAws_queryModifyUsageLimitCommand,
   serializeAws_queryModifyUsageLimitCommand,

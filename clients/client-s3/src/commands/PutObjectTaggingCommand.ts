@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
+import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectTaggingCommand,
   serializeAws_restXmlPutObjectTaggingCommand,

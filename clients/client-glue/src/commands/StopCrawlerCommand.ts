@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_2";
+import { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StopCrawlerCommand,
   serializeAws_json1_1StopCrawlerCommand,

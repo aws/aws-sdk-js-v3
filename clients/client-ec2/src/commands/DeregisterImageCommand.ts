@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeregisterImageRequest } from "../models/models_2";
+import { DeregisterImageRequest } from "../models/models_1";
 import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}

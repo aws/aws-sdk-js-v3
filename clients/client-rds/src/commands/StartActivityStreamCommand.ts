@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_1";
+import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_0";
 import {
   deserializeAws_queryStartActivityStreamCommand,
   serializeAws_queryStartActivityStreamCommand,

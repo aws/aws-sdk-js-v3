@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { SearchTablesRequest, SearchTablesResponse } from "../models/models_2";
+import { SearchTablesRequest, SearchTablesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchTablesCommand,
   serializeAws_json1_1SearchTablesCommand,

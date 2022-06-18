@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchUsersRequest, SearchUsersResponse } from "../models/models_1";
+import { SearchUsersRequest, SearchUsersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchUsersCommand,
   serializeAws_restJson1SearchUsersCommand,

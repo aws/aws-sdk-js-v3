@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateJobRequest, UpdateJobResponse } from "../models/models_2";
+import { UpdateJobRequest, UpdateJobResponse } from "../models/models_1";
 import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
 
 export interface UpdateJobCommandInput extends UpdateJobRequest {}

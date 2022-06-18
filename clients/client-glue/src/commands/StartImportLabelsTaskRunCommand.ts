@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_2";
+import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartImportLabelsTaskRunCommand,
   serializeAws_json1_1StartImportLabelsTaskRunCommand,

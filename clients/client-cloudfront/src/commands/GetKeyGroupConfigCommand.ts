@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_1";
+import { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetKeyGroupConfigCommand,
   serializeAws_restXmlGetKeyGroupConfigCommand,

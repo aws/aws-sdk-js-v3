@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse } from "../models/models_2";
+import { ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCandidatesForAutoMLJobCommand,
   serializeAws_json1_1ListCandidatesForAutoMLJobCommand,

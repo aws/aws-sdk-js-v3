@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetImageAttributeRequest } from "../models/models_6";
+import { ResetImageAttributeRequest } from "../models/models_3";
 import {
   deserializeAws_ec2ResetImageAttributeCommand,
   serializeAws_ec2ResetImageAttributeCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFoldersRequest, ListFoldersResponse } from "../models/models_1";
+import { ListFoldersRequest, ListFoldersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFoldersCommand,
   serializeAws_restJson1ListFoldersCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_0";
 import {
   deserializeAws_restXmlUpdateStreamingDistributionCommand,
   serializeAws_restXmlUpdateStreamingDistributionCommand,

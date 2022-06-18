@@ -2,21 +2,2098 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
-import {
-  ApprovalRule,
-  ApprovalRuleTemplate,
-  ApprovalState,
-  Comment,
-  ConflictDetailLevelTypeEnum,
-  ConflictResolution,
-  ConflictResolutionStrategyTypeEnum,
-  FileModeTypeEnum,
-  Location,
-  OverrideStatus,
-  PullRequest,
-  PullRequestStatusEnum,
-  RepositoryTrigger,
-} from "./models_0";
+
+export enum ApprovalState {
+  APPROVE = "APPROVE",
+  REVOKE = "REVOKE",
+}
+
+/**
+ * <p>Returns information about a specific approval on a pull request.</p>
+ */
+export interface Approval {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   */
+  userArn?: string;
+
+  /**
+   * <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
+   */
+  approvalState?: ApprovalState | string;
+}
+
+export namespace Approval {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Approval): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about the template that created the approval rule for a pull request.</p>
+ */
+export interface OriginApprovalRuleTemplate {
+  /**
+   * <p>The ID of the template that created the approval rule.</p>
+   */
+  approvalRuleTemplateId?: string;
+
+  /**
+   * <p>The name of the template that created the approval rule.</p>
+   */
+  approvalRuleTemplateName?: string;
+}
+
+export namespace OriginApprovalRuleTemplate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OriginApprovalRuleTemplate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about an approval rule.</p>
+ */
+export interface ApprovalRule {
+  /**
+   * <p>The system-generated ID of the approval rule.</p>
+   */
+  approvalRuleId?: string;
+
+  /**
+   * <p>The name of the approval rule.</p>
+   */
+  approvalRuleName?: string;
+
+  /**
+   * <p>The content of the approval rule.</p>
+   */
+  approvalRuleContent?: string;
+
+  /**
+   * <p>The SHA-256 hash signature for the content of the approval rule.</p>
+   */
+  ruleContentSha256?: string;
+
+  /**
+   * <p>The date the approval rule was most recently changed, in timestamp format.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The date the approval rule was created, in timestamp format.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule.</p>
+   */
+  lastModifiedUser?: string;
+
+  /**
+   * <p>The approval rule template used to create the rule.</p>
+   */
+  originApprovalRuleTemplate?: OriginApprovalRuleTemplate;
+}
+
+export namespace ApprovalRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApprovalRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified approval rule does not exist.</p>
+ */
+export class ApprovalRuleDoesNotExistException extends __BaseException {
+  readonly name: "ApprovalRuleDoesNotExistException" = "ApprovalRuleDoesNotExistException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApprovalRuleDoesNotExistException, __BaseException>) {
+    super({
+      name: "ApprovalRuleDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleDoesNotExistException.prototype);
+  }
+}
+
+/**
+ * <p>Returns information about an event for an approval rule.</p>
+ */
+export interface ApprovalRuleEventMetadata {
+  /**
+   * <p>The name of the approval rule.</p>
+   */
+  approvalRuleName?: string;
+
+  /**
+   * <p>The system-generated ID of the approval rule.</p>
+   */
+  approvalRuleId?: string;
+
+  /**
+   * <p>The content of the approval rule.</p>
+   */
+  approvalRuleContent?: string;
+}
+
+export namespace ApprovalRuleEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApprovalRuleEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum OverrideStatus {
+  OVERRIDE = "OVERRIDE",
+  REVOKE = "REVOKE",
+}
+
+/**
+ * <p>Returns information about an override event for approval rules for a pull request.</p>
+ */
+export interface ApprovalRuleOverriddenEventMetadata {
+  /**
+   * <p>The revision ID of the pull request when the override event occurred.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The status of the override event.</p>
+   */
+  overrideStatus?: OverrideStatus | string;
+}
+
+export namespace ApprovalRuleOverriddenEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApprovalRuleOverriddenEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about an approval rule template.</p>
+ */
+export interface ApprovalRuleTemplate {
+  /**
+   * <p>The system-generated ID of the approval rule template.</p>
+   */
+  approvalRuleTemplateId?: string;
+
+  /**
+   * <p>The name of the approval rule template.</p>
+   */
+  approvalRuleTemplateName?: string;
+
+  /**
+   * <p>The description of the approval rule template.</p>
+   */
+  approvalRuleTemplateDescription?: string;
+
+  /**
+   * <p>The content of the approval rule template.</p>
+   */
+  approvalRuleTemplateContent?: string;
+
+  /**
+   * <p>The SHA-256 hash signature for the content of the approval rule template.</p>
+   */
+  ruleContentSha256?: string;
+
+  /**
+   * <p>The date the approval rule template was most recently changed, in timestamp format.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The date the approval rule template was created, in timestamp format.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
+   */
+  lastModifiedUser?: string;
+}
+
+export namespace ApprovalRuleTemplate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a change in the approval state for a pull request.</p>
+ */
+export interface ApprovalStateChangedEventMetadata {
+  /**
+   * <p>The revision ID of the pull request when the approval state changed.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The approval status for the pull request.</p>
+   */
+  approvalStatus?: ApprovalState | string;
+}
+
+export namespace ApprovalStateChangedEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApprovalStateChangedEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An approval state is required, but was not specified.</p>
+ */
+export class ApprovalStateRequiredException extends __BaseException {
+  readonly name: "ApprovalStateRequiredException" = "ApprovalStateRequiredException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApprovalStateRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalStateRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalStateRequiredException.prototype);
+  }
+}
+
+/**
+ * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
+ */
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
+  /**
+   * <p>The name of the repository where the association was not made.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>An error code that specifies whether the repository name was not valid or not found.</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>An error message that provides details about why the repository name was not found or not valid.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError): any => ({
+    ...obj,
+  });
+}
+
+export enum ConflictDetailLevelTypeEnum {
+  FILE_LEVEL = "FILE_LEVEL",
+  LINE_LEVEL = "LINE_LEVEL",
+}
+
+export enum ConflictResolutionStrategyTypeEnum {
+  ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
+  ACCEPT_SOURCE = "ACCEPT_SOURCE",
+  AUTOMERGE = "AUTOMERGE",
+  NONE = "NONE",
+}
+
+export enum MergeOptionTypeEnum {
+  FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
+  SQUASH_MERGE = "SQUASH_MERGE",
+  THREE_WAY_MERGE = "THREE_WAY_MERGE",
+}
+
+export enum FileModeTypeEnum {
+  EXECUTABLE = "EXECUTABLE",
+  NORMAL = "NORMAL",
+  SYMLINK = "SYMLINK",
+}
+
+/**
+ * <p>Information about file modes in a merge or pull request.</p>
+ */
+export interface FileModes {
+  /**
+   * <p>The file mode of a file in the source of a merge or pull request.</p>
+   */
+  source?: FileModeTypeEnum | string;
+
+  /**
+   * <p>The file mode of a file in the destination of a merge or pull request.</p>
+   */
+  destination?: FileModeTypeEnum | string;
+
+  /**
+   * <p>The file mode of a file in the base of a merge or pull request.</p>
+   */
+  base?: FileModeTypeEnum | string;
+}
+
+export namespace FileModes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileModes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the size of files in a merge or pull request.</p>
+ */
+export interface FileSizes {
+  /**
+   * <p>The  size of a file in the source of a merge or pull request.</p>
+   */
+  source?: number;
+
+  /**
+   * <p>The size of a file in the destination of a merge or pull request.</p>
+   */
+  destination?: number;
+
+  /**
+   * <p>The size of a file in the base of a merge or pull request.</p>
+   */
+  base?: number;
+}
+
+export namespace FileSizes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileSizes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
+ */
+export interface IsBinaryFile {
+  /**
+   * <p>The binary or non-binary status of file in the source of a merge or pull request.</p>
+   */
+  source?: boolean;
+
+  /**
+   * <p>The binary or non-binary status of a file in the destination of a merge or pull request.</p>
+   */
+  destination?: boolean;
+
+  /**
+   * <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
+   */
+  base?: boolean;
+}
+
+export namespace IsBinaryFile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IsBinaryFile): any => ({
+    ...obj,
+  });
+}
+
+export enum ChangeTypeEnum {
+  ADDED = "A",
+  DELETED = "D",
+  MODIFIED = "M",
+}
+
+/**
+ * <p>Information about the file operation conflicts in a merge operation.</p>
+ */
+export interface MergeOperations {
+  /**
+   * <p>The operation (add, modify, or delete) on a file in the source of a merge or pull
+   *             request.</p>
+   */
+  source?: ChangeTypeEnum | string;
+
+  /**
+   * <p>The operation on a file in the destination of a merge or pull request.</p>
+   */
+  destination?: ChangeTypeEnum | string;
+}
+
+export namespace MergeOperations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeOperations): any => ({
+    ...obj,
+  });
+}
+
+export enum ObjectTypeEnum {
+  DIRECTORY = "DIRECTORY",
+  FILE = "FILE",
+  GIT_LINK = "GIT_LINK",
+  SYMBOLIC_LINK = "SYMBOLIC_LINK",
+}
+
+/**
+ * <p>Information about the type of an object in a merge operation.</p>
+ */
+export interface ObjectTypes {
+  /**
+   * <p>The type of the object in the source branch.</p>
+   */
+  source?: ObjectTypeEnum | string;
+
+  /**
+   * <p>The type of the object in the destination branch.</p>
+   */
+  destination?: ObjectTypeEnum | string;
+
+  /**
+   * <p>The type of the object in the base commit of the merge.</p>
+   */
+  base?: ObjectTypeEnum | string;
+}
+
+export namespace ObjectTypes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ObjectTypes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the metadata for a conflict in a merge operation.</p>
+ */
+export interface ConflictMetadata {
+  /**
+   * <p>The path of the file that contains conflicts.</p>
+   */
+  filePath?: string;
+
+  /**
+   * <p>The file sizes of the file in the source, destination, and base of the merge.</p>
+   */
+  fileSizes?: FileSizes;
+
+  /**
+   * <p>The file modes of the file in the source, destination, and base of the merge.</p>
+   */
+  fileModes?: FileModes;
+
+  /**
+   * <p>Information about any object type conflicts in a merge operation.</p>
+   */
+  objectTypes?: ObjectTypes;
+
+  /**
+   * <p>The number of conflicts, including both hunk conflicts and metadata conflicts.</p>
+   */
+  numberOfConflicts?: number;
+
+  /**
+   * <p>A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.</p>
+   */
+  isBinaryFile?: IsBinaryFile;
+
+  /**
+   * <p>A boolean value indicating whether there are conflicts in the content of a file.</p>
+   */
+  contentConflict?: boolean;
+
+  /**
+   * <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
+   */
+  fileModeConflict?: boolean;
+
+  /**
+   * <p>A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.</p>
+   */
+  objectTypeConflict?: boolean;
+
+  /**
+   * <p>Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.</p>
+   */
+  mergeOperations?: MergeOperations;
+}
+
+export namespace ConflictMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
+ */
+export interface MergeHunkDetail {
+  /**
+   * <p>The start position of the hunk in the merge result.</p>
+   */
+  startLine?: number;
+
+  /**
+   * <p>The end position of the hunk in the merge result.</p>
+   */
+  endLine?: number;
+
+  /**
+   * <p>The base-64 encoded content of the hunk merged region that might contain a
+   *             conflict.</p>
+   */
+  hunkContent?: string;
+}
+
+export namespace MergeHunkDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeHunkDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about merge hunks in a merge or pull request operation.</p>
+ */
+export interface MergeHunk {
+  /**
+   * <p>A Boolean value indicating whether a combination of hunks contains a conflict.
+   *             Conflicts occur when the same file or the same lines in a file were modified in both the
+   *             source and destination of a merge or pull request. Valid values include true, false, and
+   *             null. True when the hunk represents a conflict and one or more files contains a line
+   *             conflict. File mode conflicts in a merge do not set this to true.</p>
+   */
+  isConflict?: boolean;
+
+  /**
+   * <p>Information about the merge hunk in the source of a merge or pull request.</p>
+   */
+  source?: MergeHunkDetail;
+
+  /**
+   * <p>Information about the merge hunk in the destination of a merge or pull request.</p>
+   */
+  destination?: MergeHunkDetail;
+
+  /**
+   * <p>Information about the merge hunk in the base of a merge or pull request.</p>
+   */
+  base?: MergeHunkDetail;
+}
+
+export namespace MergeHunk {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeHunk): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about conflicts in a merge operation.</p>
+ */
+export interface Conflict {
+  /**
+   * <p>Metadata about a conflict in a merge operation.</p>
+   */
+  conflictMetadata?: ConflictMetadata;
+
+  /**
+   * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
+   */
+  mergeHunks?: MergeHunk[];
+}
+
+export namespace Conflict {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Conflict): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
+ */
+export interface BatchDescribeMergeConflictsError {
+  /**
+   * <p>The path to the file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The name of the exception.</p>
+   */
+  exceptionName: string | undefined;
+
+  /**
+   * <p>The message provided by the exception.</p>
+   */
+  message: string | undefined;
+}
+
+export namespace BatchDescribeMergeConflictsError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
+ */
+export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
+  /**
+   * <p>The name of the repository where the association with the template was not able to be removed.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>An error code that specifies whether the repository name was not valid or not
+   *             found.</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>An error message that provides details about why the repository name was either not found or not valid.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the user who made a specified commit.</p>
+ */
+export interface UserInfo {
+  /**
+   * <p>The name of the user who made the specified commit.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The email address associated with the user who made the commit, if any.</p>
+   */
+  email?: string;
+
+  /**
+   * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
+   */
+  date?: string;
+}
+
+export namespace UserInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a specific commit.</p>
+ */
+export interface Commit {
+  /**
+   * <p>The full SHA ID of the specified commit. </p>
+   */
+  commitId?: string;
+
+  /**
+   * <p>Tree information for the specified commit.</p>
+   */
+  treeId?: string;
+
+  /**
+   * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
+   */
+  parents?: string[];
+
+  /**
+   * <p>The commit message associated with the specified commit.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Information about the author of the specified commit. Information includes
+   *             the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured
+   *             in Git.</p>
+   */
+  author?: UserInfo;
+
+  /**
+   * <p>Information about the person who committed the specified commit, also known as the committer. Information includes
+   *         the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured
+   *         in Git.</p>
+   *         <p>For more information
+   *             about the difference between an author and a committer in Git, see <a href="http://git-scm.com/book/ch2-3.html">Viewing the Commit History</a> in Pro Git
+   *             by Scott Chacon and Ben Straub.</p>
+   */
+  committer?: UserInfo;
+
+  /**
+   * <p>Any other data associated with the specified commit.</p>
+   */
+  additionalData?: string;
+}
+
+export namespace Commit {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Commit): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about errors in a BatchGetCommits operation.</p>
+ */
+export interface BatchGetCommitsError {
+  /**
+   * <p>A commit ID that either could not be found or was not in a valid format.</p>
+   */
+  commitId?: string;
+
+  /**
+   * <p>An error code that specifies whether the commit ID was not valid or not found.</p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>An error message that provides detail about why the commit ID either was not found or was not valid.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace BatchGetCommitsError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetCommitsError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a repository.</p>
+ */
+export interface RepositoryMetadata {
+  /**
+   * <p>The ID of the AWS account associated with the repository.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>The ID of the repository.</p>
+   */
+  repositoryId?: string;
+
+  /**
+   * <p>The repository's name.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>A comment or description about the repository.</p>
+   */
+  repositoryDescription?: string;
+
+  /**
+   * <p>The repository's default branch name.</p>
+   */
+  defaultBranch?: string;
+
+  /**
+   * <p>The date and time the repository was last modified, in timestamp format.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The date and time the repository was created, in timestamp format.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The URL to use for cloning the repository over HTTPS.</p>
+   */
+  cloneUrlHttp?: string;
+
+  /**
+   * <p>The URL to use for cloning the repository over SSH.</p>
+   */
+  cloneUrlSsh?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the repository.</p>
+   */
+  Arn?: string;
+}
+
+export namespace RepositoryMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RepositoryMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a specific Git blob object.</p>
+ */
+export interface BlobMetadata {
+  /**
+   * <p>The full ID of the blob.</p>
+   */
+  blobId?: string;
+
+  /**
+   * <p>The path to the blob and associated file name, if any.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The file mode permissions of the blob. File mode permission codes include:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>100644</code> indicates read/write</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>100755</code> indicates read/write/execute</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>160000</code> indicates a submodule</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>120000</code> indicates a symlink</p>
+   *             </li>
+   *          </ul>
+   */
+  mode?: string;
+}
+
+export namespace BlobMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlobMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a branch.</p>
+ */
+export interface BranchInfo {
+  /**
+   * <p>The name of the branch.</p>
+   */
+  branchName?: string;
+
+  /**
+   * <p>The ID of the last commit made to the branch.</p>
+   */
+  commitId?: string;
+}
+
+export namespace BranchInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BranchInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The approval rule cannot be modified for the pull request because it was created by an
+ *             approval rule template and applied to the pull request automatically.</p>
+ */
+export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
+  readonly name: "CannotModifyApprovalRuleFromTemplateException" = "CannotModifyApprovalRuleFromTemplateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotModifyApprovalRuleFromTemplateException, __BaseException>) {
+    super({
+      name: "CannotModifyApprovalRuleFromTemplateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotModifyApprovalRuleFromTemplateException.prototype);
+  }
+}
+
+/**
+ * <p>A file that is deleted as part of a commit.</p>
+ */
+export interface DeleteFileEntry {
+  /**
+   * <p>The full path of the file to be deleted, including the name of the file.</p>
+   */
+  filePath: string | undefined;
+}
+
+export namespace DeleteFileEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFileEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a source file that is part of changes made in a commit.</p>
+ */
+export interface SourceFileSpecifier {
+  /**
+   * <p>The full path to the file, including the name of the file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>Whether to remove the source file from the parent commit.</p>
+   */
+  isMove?: boolean;
+}
+
+export namespace SourceFileSpecifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceFileSpecifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a file added or updated as part of a commit.</p>
+ */
+export interface PutFileEntry {
+  /**
+   * <p>The full path to the file in the repository, including the name of the file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   */
+  fileMode?: FileModeTypeEnum | string;
+
+  /**
+   * <p>The content of the file, if a source file is not specified.</p>
+   */
+  fileContent?: Uint8Array;
+
+  /**
+   * <p>The name and full path of the file that contains the changes you want to make as part of the commit,
+   *         if you are not providing the file content directly.</p>
+   */
+  sourceFile?: SourceFileSpecifier;
+}
+
+export namespace PutFileEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutFileEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the file mode changes.</p>
+ */
+export interface SetFileModeEntry {
+  /**
+   * <p>The full path to the file, including the name of the file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The file mode for the file.</p>
+   */
+  fileMode: FileModeTypeEnum | string | undefined;
+}
+
+export namespace SetFileModeEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SetFileModeEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A file to be added, updated, or deleted as part of a commit.</p>
+ */
+export interface FileMetadata {
+  /**
+   * <p>The full path to the file to be added or updated, including the name of the
+   *             file.</p>
+   */
+  absolutePath?: string;
+
+  /**
+   * <p>The blob ID that contains the file information.</p>
+   */
+  blobId?: string;
+
+  /**
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   */
+  fileMode?: FileModeTypeEnum | string;
+}
+
+export namespace FileMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a target for a pull request.</p>
+ */
+export interface Target {
+  /**
+   * <p>The name of the repository that contains the pull request.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
+   */
+  sourceReference: string | undefined;
+
+  /**
+   * <p>The branch of the repository where the pull request changes are merged. Also known as
+   *             the destination branch.</p>
+   */
+  destinationReference?: string;
+}
+
+export namespace Target {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Target): any => ({
+    ...obj,
+  });
+}
+
+export enum PullRequestStatusEnum {
+  CLOSED = "CLOSED",
+  OPEN = "OPEN",
+}
+
+/**
+ * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
+ */
+export interface MergeMetadata {
+  /**
+   * <p>A Boolean value indicating whether the merge has been made.</p>
+   */
+  isMerged?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who merged the branches.</p>
+   */
+  mergedBy?: string;
+
+  /**
+   * <p>The commit ID for the merge commit, if any.</p>
+   */
+  mergeCommitId?: string;
+
+  /**
+   * <p>The merge strategy used in the merge.</p>
+   */
+  mergeOption?: MergeOptionTypeEnum | string;
+}
+
+export namespace MergeMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a pull request target.</p>
+ */
+export interface PullRequestTarget {
+  /**
+   * <p>The name of the repository that contains the pull request source and destination branches.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
+   */
+  sourceReference?: string;
+
+  /**
+   * <p>The branch of the repository where the pull request changes are merged. Also known as
+   *             the destination branch. </p>
+   */
+  destinationReference?: string;
+
+  /**
+   * <p>The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.</p>
+   */
+  destinationCommit?: string;
+
+  /**
+   * <p>The full commit ID of the tip of the source branch used to create the pull request. If
+   *             the pull request branch is updated by a push while the pull request is open, the commit
+   *             ID changes to reflect the new tip of the branch.</p>
+   */
+  sourceCommit?: string;
+
+  /**
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   */
+  mergeBase?: string;
+
+  /**
+   * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
+   */
+  mergeMetadata?: MergeMetadata;
+}
+
+export namespace PullRequestTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a pull request.</p>
+ */
+export interface PullRequest {
+  /**
+   * <p>The system-generated ID of the pull request. </p>
+   */
+  pullRequestId?: string;
+
+  /**
+   * <p>The user-defined title of the pull request. This title is displayed in the list of
+   *             pull requests to other repository users.</p>
+   */
+  title?: string;
+
+  /**
+   * <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The day and time of the last user or system activity on the pull request, in timestamp format.</p>
+   */
+  lastActivityDate?: Date;
+
+  /**
+   * <p>The date and time the pull request was originally created, in timestamp format.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
+   */
+  pullRequestStatus?: PullRequestStatusEnum | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
+   */
+  authorArn?: string;
+
+  /**
+   * <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
+   */
+  pullRequestTargets?: PullRequestTarget[];
+
+  /**
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The system-generated revision ID for the pull request.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The approval rules applied to the pull request.</p>
+   */
+  approvalRules?: ApprovalRule[];
+}
+
+export namespace PullRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ReplacementTypeEnum {
+  KEEP_BASE = "KEEP_BASE",
+  KEEP_DESTINATION = "KEEP_DESTINATION",
+  KEEP_SOURCE = "KEEP_SOURCE",
+  USE_NEW_CONTENT = "USE_NEW_CONTENT",
+}
+
+/**
+ * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
+ */
+export interface ReplaceContentEntry {
+  /**
+   * <p>The path of the conflicting file.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The replacement type to use when determining how to resolve the conflict.</p>
+   */
+  replacementType: ReplacementTypeEnum | string | undefined;
+
+  /**
+   * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
+   */
+  content?: Uint8Array;
+
+  /**
+   * <p>The file mode to apply during conflict resoltion.</p>
+   */
+  fileMode?: FileModeTypeEnum | string;
+}
+
+export namespace ReplaceContentEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceContentEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+ *             resolving conflicts during a merge.</p>
+ */
+export interface ConflictResolution {
+  /**
+   * <p>Files to have content replaced as part of the merge conflict resolution.</p>
+   */
+  replaceContents?: ReplaceContentEntry[];
+
+  /**
+   * <p>Files to be deleted as part of the merge conflict resolution.</p>
+   */
+  deleteFiles?: DeleteFileEntry[];
+
+  /**
+   * <p>File modes that are set as part of the merge conflict resolution.</p>
+   */
+  setFileModes?: SetFileModeEntry[];
+}
+
+export namespace ConflictResolution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a specific comment.</p>
+ */
+export interface Comment {
+  /**
+   * <p>The system-generated comment ID.</p>
+   */
+  commentId?: string;
+
+  /**
+   * <p>The content of the comment.</p>
+   */
+  content?: string;
+
+  /**
+   * <p>The ID of the comment for which this comment is a reply, if any.</p>
+   */
+  inReplyTo?: string;
+
+  /**
+   * <p>The date and time the comment was created, in timestamp format.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date and time the comment was most recently modified, in timestamp format.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the person who posted the comment.</p>
+   */
+  authorArn?: string;
+
+  /**
+   * <p>A Boolean value indicating whether the comment has been deleted.</p>
+   */
+  deleted?: boolean;
+
+  /**
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.</p>
+   */
+  callerReactions?: string[];
+
+  /**
+   * <p>A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.</p>
+   */
+  reactionCounts?: Record<string, number>;
+}
+
+export namespace Comment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Comment): any => ({
+    ...obj,
+  });
+}
+
+export enum PullRequestEventType {
+  PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
+  PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
+  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
+  PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED",
+  PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED",
+  PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
+  PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
+  PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
+  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
+}
+
+/**
+ * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
+ */
+export interface PullRequestCreatedEventMetadata {
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The commit ID on the source branch used when the pull request was created.</p>
+   */
+  sourceCommitId?: string;
+
+  /**
+   * <p>The commit ID of the tip of the branch specified as the destination branch when the pull request was created.</p>
+   */
+  destinationCommitId?: string;
+
+  /**
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   */
+  mergeBase?: string;
+}
+
+export namespace PullRequestCreatedEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestCreatedEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about the change in the merge state for a pull request event. </p>
+ */
+export interface PullRequestMergedStateChangedEventMetadata {
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The name of the branch that the pull request is merged into.</p>
+   */
+  destinationReference?: string;
+
+  /**
+   * <p>Information about the merge state change event.</p>
+   */
+  mergeMetadata?: MergeMetadata;
+}
+
+export namespace PullRequestMergedStateChangedEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestMergedStateChangedEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an update to the source branch of a pull request.</p>
+ */
+export interface PullRequestSourceReferenceUpdatedEventMetadata {
+  /**
+   * <p>The name of the repository where the pull request was updated.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
+   */
+  beforeCommitId?: string;
+
+  /**
+   * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
+   */
+  afterCommitId?: string;
+
+  /**
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   */
+  mergeBase?: string;
+}
+
+export namespace PullRequestSourceReferenceUpdatedEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestSourceReferenceUpdatedEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a change to the status of a pull request.</p>
+ */
+export interface PullRequestStatusChangedEventMetadata {
+  /**
+   * <p>The changed status of the pull request.</p>
+   */
+  pullRequestStatus?: PullRequestStatusEnum | string;
+}
+
+export namespace PullRequestStatusChangedEventMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestStatusChangedEventMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a pull request event.</p>
+ */
+export interface PullRequestEvent {
+  /**
+   * <p>The system-generated ID of the pull request.</p>
+   */
+  pullRequestId?: string;
+
+  /**
+   * <p>The day and time of the pull request event, in timestamp format.</p>
+   */
+  eventDate?: Date;
+
+  /**
+   * <p>The type of the pull request event (for example, a status change event
+   *             (PULL_REQUEST_STATUS_CHANGED) or update event
+   *             (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).</p>
+   */
+  pullRequestEventType?: PullRequestEventType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
+   *             Examples include updating the pull request with more commits or changing the status of a
+   *             pull request.</p>
+   */
+  actorArn?: string;
+
+  /**
+   * <p>Information about the source and destination branches for the pull request.</p>
+   */
+  pullRequestCreatedEventMetadata?: PullRequestCreatedEventMetadata;
+
+  /**
+   * <p>Information about the change in status for the pull request event.</p>
+   */
+  pullRequestStatusChangedEventMetadata?: PullRequestStatusChangedEventMetadata;
+
+  /**
+   * <p>Information about the updated source branch for the pull request event. </p>
+   */
+  pullRequestSourceReferenceUpdatedEventMetadata?: PullRequestSourceReferenceUpdatedEventMetadata;
+
+  /**
+   * <p>Information about the change in mergability state for the pull request event.</p>
+   */
+  pullRequestMergedStateChangedEventMetadata?: PullRequestMergedStateChangedEventMetadata;
+
+  /**
+   * <p>Information about a pull request event.</p>
+   */
+  approvalRuleEventMetadata?: ApprovalRuleEventMetadata;
+
+  /**
+   * <p>Information about an approval state change for a pull request.</p>
+   */
+  approvalStateChangedEventMetadata?: ApprovalStateChangedEventMetadata;
+
+  /**
+   * <p>Information about an approval rule override event for a pull request.</p>
+   */
+  approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
+}
+
+export namespace PullRequestEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullRequestEvent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
+ */
+export interface Evaluation {
+  /**
+   * <p>Whether the state of the pull request is approved.</p>
+   */
+  approved?: boolean;
+
+  /**
+   * <p>Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.</p>
+   */
+  overridden?: boolean;
+
+  /**
+   * <p>The names of the approval rules that have had their conditions met.</p>
+   */
+  approvalRulesSatisfied?: string[];
+
+  /**
+   * <p>The names of the approval rules that have not had their conditions met.</p>
+   */
+  approvalRulesNotSatisfied?: string[];
+}
+
+export namespace Evaluation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Evaluation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.</p>
+ */
+export interface ReactionValueFormats {
+  /**
+   * <p>The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.</p>
+   */
+  emoji?: string;
+
+  /**
+   * <p>The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems. </p>
+   */
+  shortCode?: string;
+
+  /**
+   * <p>The Unicode codepoint for the reaction.</p>
+   */
+  unicode?: string;
+}
+
+export namespace ReactionValueFormats {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReactionValueFormats): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the reaction values provided by users on a comment.</p>
+ */
+export interface ReactionForComment {
+  /**
+   * <p>The reaction for a specified comment.</p>
+   */
+  reaction?: ReactionValueFormats;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.</p>
+   */
+  reactionUsers?: string[];
+
+  /**
+   * <p>A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted
+   *             from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.</p>
+   */
+  reactionsFromDeletedUsersCount?: number;
+}
+
+export namespace ReactionForComment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReactionForComment): any => ({
+    ...obj,
+  });
+}
+
+export enum RelativeFileVersionEnum {
+  AFTER = "AFTER",
+  BEFORE = "BEFORE",
+}
+
+/**
+ * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
+ */
+export interface Location {
+  /**
+   * <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
+   */
+  filePath?: string;
+
+  /**
+   * <p>The position of a change in a compared file, in line number format.</p>
+   */
+  filePosition?: number;
+
+  /**
+   * <p>In a comparison of commits or a pull request, whether the change is in the before or
+   *             after of that comparison.</p>
+   */
+  relativeFileVersion?: RelativeFileVersionEnum | string;
+}
+
+export namespace Location {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Location): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about comments on the comparison between two commits.</p>
+ */
+export interface CommentsForComparedCommit {
+  /**
+   * <p>The name of the repository that contains the compared commits.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The full commit ID of the commit used to establish the before of the
+   *             comparison.</p>
+   */
+  beforeCommitId?: string;
+
+  /**
+   * <p>The full commit ID of the commit used to establish the after of the comparison.</p>
+   */
+  afterCommitId?: string;
+
+  /**
+   * <p>The full blob ID of the commit used to establish the before of the comparison.</p>
+   */
+  beforeBlobId?: string;
+
+  /**
+   * <p>The full blob ID of the commit used to establish the after of the comparison.</p>
+   */
+  afterBlobId?: string;
+
+  /**
+   * <p>Location information about the comment on the comparison, including the file name,
+   *             line number, and whether the version of the file where the comment was made is BEFORE or
+   *             AFTER.</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
+   *          between commits.</p>
+   */
+  comments?: Comment[];
+}
+
+export namespace CommentsForComparedCommit {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about comments on a pull request.</p>
+ */
+export interface CommentsForPullRequest {
+  /**
+   * <p>The system-generated ID of the pull request.</p>
+   */
+  pullRequestId?: string;
+
+  /**
+   * <p>The name of the repository that contains the pull request.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The full commit ID of the commit that was the tip of the destination branch when the
+   *             pull request was created. This commit is superceded by the after commit in the source
+   *             branch when and if you merge the source branch into the destination branch.</p>
+   */
+  beforeCommitId?: string;
+
+  /**
+   * <p>The full commit ID of the commit that was the tip of the source branch at the time the
+   *             comment was made. </p>
+   */
+  afterCommitId?: string;
+
+  /**
+   * <p>The full blob ID of the file on which you want to comment on the destination commit.</p>
+   */
+  beforeBlobId?: string;
+
+  /**
+   * <p>The full blob ID of the file on which you want to comment on the source commit.</p>
+   */
+  afterBlobId?: string;
+
+  /**
+   * <p>Location information about the comment on the pull request, including the file name,
+   *             line number, and whether the version of the file where the comment was made is BEFORE
+   *             (destination branch) or AFTER (source branch).</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
+   */
+  comments?: Comment[];
+}
+
+export namespace CommentsForPullRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CommentsForPullRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a set of differences for a commit specifier.</p>
+ */
+export interface Difference {
+  /**
+   * <p>Information about a <code>beforeBlob</code> data type object, including the ID,
+   *             the file mode permission code, and the path.</p>
+   */
+  beforeBlob?: BlobMetadata;
+
+  /**
+   * <p>Information about an <code>afterBlob</code> data type object, including the ID,
+   *             the file mode permission code, and the path.</p>
+   */
+  afterBlob?: BlobMetadata;
+
+  /**
+   * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
+   */
+  changeType?: ChangeTypeEnum | string;
+}
+
+export namespace Difference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Difference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a file in a repository.</p>
+ */
+export interface File {
+  /**
+   * <p>The blob ID that contains the file information.</p>
+   */
+  blobId?: string;
+
+  /**
+   * <p>The fully qualified path to the file in the repository.</p>
+   */
+  absolutePath?: string;
+
+  /**
+   * <p>The relative path of the file from the folder where the query originated.</p>
+   */
+  relativePath?: string;
+
+  /**
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   */
+  fileMode?: FileModeTypeEnum | string;
+}
+
+export namespace File {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: File): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a folder in a repository.</p>
+ */
+export interface Folder {
+  /**
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
+   */
+  treeId?: string;
+
+  /**
+   * <p>The fully qualified path of the folder in the repository.</p>
+   */
+  absolutePath?: string;
+
+  /**
+   * <p>The relative path of the specified folder from the folder where the query originated.</p>
+   */
+  relativePath?: string;
+}
+
+export namespace Folder {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Folder): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a submodule reference in a repository folder.</p>
+ */
+export interface SubModule {
+  /**
+   * <p>The commit ID that contains the reference to the submodule.</p>
+   */
+  commitId?: string;
+
+  /**
+   * <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
+   */
+  absolutePath?: string;
+
+  /**
+   * <p>The relative path of the submodule from the folder where the query originated.</p>
+   */
+  relativePath?: string;
+}
+
+export namespace SubModule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubModule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about a symbolic link in a repository folder.</p>
+ */
+export interface SymbolicLink {
+  /**
+   * <p>The blob ID that contains the information about the symbolic link.</p>
+   */
+  blobId?: string;
+
+  /**
+   * <p>The fully qualified path to the folder that contains the symbolic link.</p>
+   */
+  absolutePath?: string;
+
+  /**
+   * <p>The relative path of the symbolic link from the folder where the query originated.</p>
+   */
+  relativePath?: string;
+
+  /**
+   * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
+   */
+  fileMode?: FileModeTypeEnum | string;
+}
+
+export namespace SymbolicLink {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SymbolicLink): any => ({
+    ...obj,
+  });
+}
+
+export enum RepositoryTriggerEventEnum {
+  ALL = "all",
+  CREATE_REFERENCE = "createReference",
+  DELETE_REFERENCE = "deleteReference",
+  UPDATE_REFERENCE = "updateReference",
+}
+
+/**
+ * <p>Information about a trigger for a repository.</p>
+ */
+export interface RepositoryTrigger {
+  /**
+   * <p>The name of the trigger.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the resource that is the target for a trigger (for example, the ARN of a
+   *             topic in Amazon SNS).</p>
+   */
+  destinationArn: string | undefined;
+
+  /**
+   * <p>Any custom data associated with the trigger to be included in the information sent to
+   *             the target of the trigger.</p>
+   */
+  customData?: string;
+
+  /**
+   * <p>The branches to be included in the trigger configuration. If you specify an empty
+   *             array, the trigger applies to all branches.</p>
+   *         <note>
+   *             <p>Although no content is required in the array, you must include the array itself.</p>
+   *         </note>
+   */
+  branches?: string[];
+
+  /**
+   * <p>The repository events that cause the trigger to run actions in another service, such
+   *             as sending a notification through Amazon SNS.
+   *
+   *         </p>
+   *          <note>
+   *             <p>The valid value "all" cannot be used with any other values.</p>
+   *          </note>
+   */
+  events: (RepositoryTriggerEventEnum | string)[] | undefined;
+}
+
+export namespace RepositoryTrigger {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RepositoryTrigger): any => ({
+    ...obj,
+  });
+}
 
 export enum OrderEnum {
   ASCENDING = "ascending",
@@ -26,37 +2103,6 @@ export enum OrderEnum {
 export enum SortByEnum {
   MODIFIED_DATE = "lastModifiedDate",
   REPOSITORY_NAME = "repositoryName",
-}
-
-/**
- * <p>Represents the input of a list repositories operation.</p>
- */
-export interface ListRepositoriesInput {
-  /**
-   * <p>An enumeration token that allows the operation to batch the results of the operation.
-   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
-   *             another page of 1,000 records is retrieved.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The criteria used to sort the results of a list repositories operation.</p>
-   */
-  sortBy?: SortByEnum | string;
-
-  /**
-   * <p>The order in which to sort the results of a list repositories operation.</p>
-   */
-  order?: OrderEnum | string;
-}
-
-export namespace ListRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -84,1200 +2130,6 @@ export namespace RepositoryNameIdPair {
 }
 
 /**
- * <p>Represents the output of a list repositories operation.</p>
- */
-export interface ListRepositoriesOutput {
-  /**
-   * <p>Lists the repositories called by the list repositories operation.</p>
-   */
-  repositories?: RepositoryNameIdPair[];
-
-  /**
-   * <p>An enumeration token that allows the operation to batch the results of the operation.
-   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
-   *             another page of 1,000 records is retrieved.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRepositoriesForApprovalRuleTemplateInput {
-  /**
-   * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
-   */
-  approvalRuleTemplateName: string | undefined;
-
-  /**
-   * <p>An enumeration token that, when provided in a request, returns the next batch of the
-   *             results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListRepositoriesForApprovalRuleTemplateOutput {
-  /**
-   * <p>A list of repository names that are associated with the specified approval rule template.</p>
-   */
-  repositoryNames?: string[];
-
-  /**
-   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
- */
-export class InvalidResourceArnException extends __BaseException {
-  readonly name: "InvalidResourceArnException" = "InvalidResourceArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceArnException, __BaseException>) {
-    super({
-      name: "InvalidResourceArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceArnException.prototype);
-  }
-}
-
-export interface ListTagsForResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
-   *             about tags, if any.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>An enumeration token that, when provided in a request, returns the next batch of the
-   *             results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceOutput {
-  /**
-   * <p>A list of tag key and value pairs associated with the specified resource.</p>
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
- *             in the AWS CodeCommit User Guide.</p>
- */
-export class ResourceArnRequiredException extends __BaseException {
-  readonly name: "ResourceArnRequiredException" = "ResourceArnRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceArnRequiredException, __BaseException>) {
-    super({
-      name: "ResourceArnRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceArnRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified target branch is not valid.</p>
- */
-export class InvalidTargetBranchException extends __BaseException {
-  readonly name: "InvalidTargetBranchException" = "InvalidTargetBranchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetBranchException, __BaseException>) {
-    super({
-      name: "InvalidTargetBranchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetBranchException.prototype);
-  }
-}
-
-export interface MergeBranchesByFastForwardInput {
-  /**
-   * <p>The name of the repository where you want to merge two branches.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  sourceCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  destinationCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch where the merge is applied.</p>
-   */
-  targetBranch?: string;
-}
-
-export namespace MergeBranchesByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergeBranchesByFastForwardOutput {
-  /**
-   * <p>The commit ID of the merge in the destination or target branch.</p>
-   */
-  commitId?: string;
-
-  /**
-   * <p>The tree ID of the merge in the destination or target branch.</p>
-   */
-  treeId?: string;
-}
-
-export namespace MergeBranchesByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergeBranchesBySquashInput {
-  /**
-   * <p>The name of the repository where you want to merge two branches.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  sourceCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  destinationCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch where the merge is applied. </p>
-   */
-  targetBranch?: string;
-
-  /**
-   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-   *             which returns a not-mergeable result if the same file has differences in both branches.
-   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
-   *             both branches has differences on the same line.</p>
-   */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
-
-  /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
-   * <p>The commit message for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
-   *             created for empty folders. The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
-
-  /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
-   */
-  conflictResolution?: ConflictResolution;
-}
-
-export namespace MergeBranchesBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergeBranchesBySquashOutput {
-  /**
-   * <p>The commit ID of the merge in the destination or target branch.</p>
-   */
-  commitId?: string;
-
-  /**
-   * <p>The tree ID of the merge in the destination or target branch.</p>
-   */
-  treeId?: string;
-}
-
-export namespace MergeBranchesBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergeBranchesByThreeWayInput {
-  /**
-   * <p>The name of the repository where you want to merge two branches.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  sourceCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-   *             (for example, a branch name or a full commit ID).</p>
-   */
-  destinationCommitSpecifier: string | undefined;
-
-  /**
-   * <p>The branch where the merge is applied. </p>
-   */
-  targetBranch?: string;
-
-  /**
-   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-   *             which returns a not-mergeable result if the same file has differences in both branches.
-   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
-   *             both branches has differences on the same line.</p>
-   */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
-
-  /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
-   *             The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
-
-  /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
-   */
-  conflictResolution?: ConflictResolution;
-}
-
-export namespace MergeBranchesByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergeBranchesByThreeWayOutput {
-  /**
-   * <p>The commit ID of the merge in the destination or target branch.</p>
-   */
-  commitId?: string;
-
-  /**
-   * <p>The tree ID of the merge in the destination or target branch.</p>
-   */
-  treeId?: string;
-}
-
-export namespace MergeBranchesByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergePullRequestByFastForwardInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The name of the repository where the pull request was created.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
-   *         exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   */
-  sourceCommitId?: string;
-}
-
-export namespace MergePullRequestByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergePullRequestByFastForwardOutput {
-  /**
-   * <p>Information about the specified pull request, including the merge.</p>
-   */
-  pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
- */
-export class PullRequestApprovalRulesNotSatisfiedException extends __BaseException {
-  readonly name: "PullRequestApprovalRulesNotSatisfiedException" = "PullRequestApprovalRulesNotSatisfiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullRequestApprovalRulesNotSatisfiedException, __BaseException>) {
-    super({
-      name: "PullRequestApprovalRulesNotSatisfiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullRequestApprovalRulesNotSatisfiedException.prototype);
-  }
-}
-
-/**
- * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
- *             The pull request might have been updated. Make sure that you have the latest changes.</p>
- */
-export class TipOfSourceReferenceIsDifferentException extends __BaseException {
-  readonly name: "TipOfSourceReferenceIsDifferentException" = "TipOfSourceReferenceIsDifferentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TipOfSourceReferenceIsDifferentException, __BaseException>) {
-    super({
-      name: "TipOfSourceReferenceIsDifferentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TipOfSourceReferenceIsDifferentException.prototype);
-  }
-}
-
-export interface MergePullRequestBySquashInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The name of the repository where the pull request was created.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
-   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   */
-  sourceCommitId?: string;
-
-  /**
-   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-   *             which returns a not-mergeable result if the same file has differences in both branches.
-   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
-   *             both branches has differences on the same line.</p>
-   */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
-
-  /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
-   *             The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
-
-  /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
-   */
-  conflictResolution?: ConflictResolution;
-}
-
-export namespace MergePullRequestBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergePullRequestBySquashOutput {
-  /**
-   * <p>Returns information about a pull request.</p>
-   */
-  pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergePullRequestByThreeWayInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The name of the repository where the pull request was created.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
-   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   */
-  sourceCommitId?: string;
-
-  /**
-   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-   *             which returns a not-mergeable result if the same file has differences in both branches.
-   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
-   *             both branches has differences on the same line.</p>
-   */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
-
-  /**
-   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
-   *             automatically merging two versions of a file. The default is NONE, which requires any
-   *             conflicts to be resolved manually before the merge operation is successful.</p>
-   */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
-
-  /**
-   * <p>The commit message to include in the commit information for the merge.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>The name of the author who created the commit. This information is used as both the
-   *             author and committer for the commit.</p>
-   */
-  authorName?: string;
-
-  /**
-   * <p>The email address of the person merging the branches. This information is used in the
-   *             commit information for the merge.</p>
-   */
-  email?: string;
-
-  /**
-   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
-   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
-   *             The default is false.</p>
-   */
-  keepEmptyFolders?: boolean;
-
-  /**
-   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
-   *             resolving conflicts during a merge.</p>
-   */
-  conflictResolution?: ConflictResolution;
-}
-
-export namespace MergePullRequestByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MergePullRequestByThreeWayOutput {
-  /**
-   * <p>Returns information about a pull request.</p>
-   */
-  pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
- */
-export class InvalidOverrideStatusException extends __BaseException {
-  readonly name: "InvalidOverrideStatusException" = "InvalidOverrideStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOverrideStatusException, __BaseException>) {
-    super({
-      name: "InvalidOverrideStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOverrideStatusException.prototype);
-  }
-}
-
-/**
- * <p>The pull request has already had its approval rules set to override.</p>
- */
-export class OverrideAlreadySetException extends __BaseException {
-  readonly name: "OverrideAlreadySetException" = "OverrideAlreadySetException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OverrideAlreadySetException, __BaseException>) {
-    super({
-      name: "OverrideAlreadySetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OverrideAlreadySetException.prototype);
-  }
-}
-
-export interface OverridePullRequestApprovalRulesInput {
-  /**
-   * <p>The system-generated ID of the pull request for which you want to override all
-   *             approval rule requirements. To get this information, use
-   *             <a>GetPullRequest</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
-   *             To get the revision ID, use GetPullRequest.</p>
-   */
-  revisionId: string | undefined;
-
-  /**
-   * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
-   *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
-   */
-  overrideStatus: OverrideStatus | string | undefined;
-}
-
-export namespace OverridePullRequestApprovalRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverridePullRequestApprovalRulesInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
- */
-export class OverrideStatusRequiredException extends __BaseException {
-  readonly name: "OverrideStatusRequiredException" = "OverrideStatusRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OverrideStatusRequiredException, __BaseException>) {
-    super({
-      name: "OverrideStatusRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OverrideStatusRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
- */
-export class CommentContentRequiredException extends __BaseException {
-  readonly name: "CommentContentRequiredException" = "CommentContentRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommentContentRequiredException, __BaseException>) {
-    super({
-      name: "CommentContentRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommentContentRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
- */
-export class CommentContentSizeLimitExceededException extends __BaseException {
-  readonly name: "CommentContentSizeLimitExceededException" = "CommentContentSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommentContentSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "CommentContentSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommentContentSizeLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The location of the file is not valid. Make sure that you include the file name and
- *             extension.</p>
- */
-export class InvalidFileLocationException extends __BaseException {
-  readonly name: "InvalidFileLocationException" = "InvalidFileLocationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFileLocationException, __BaseException>) {
-    super({
-      name: "InvalidFileLocationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFileLocationException.prototype);
-  }
-}
-
-/**
- * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
- */
-export class InvalidFilePositionException extends __BaseException {
-  readonly name: "InvalidFilePositionException" = "InvalidFilePositionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFilePositionException, __BaseException>) {
-    super({
-      name: "InvalidFilePositionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFilePositionException.prototype);
-  }
-}
-
-/**
- * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
- */
-export class InvalidRelativeFileVersionEnumException extends __BaseException {
-  readonly name: "InvalidRelativeFileVersionEnumException" = "InvalidRelativeFileVersionEnumException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRelativeFileVersionEnumException, __BaseException>) {
-    super({
-      name: "InvalidRelativeFileVersionEnumException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRelativeFileVersionEnumException.prototype);
-  }
-}
-
-export interface PostCommentForComparedCommitInput {
-  /**
-   * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>To establish the directionality of the comparison, the full commit ID of the before
-   *             commit. Required for commenting on any commit unless that commit is the initial
-   *             commit.</p>
-   */
-  beforeCommitId?: string;
-
-  /**
-   * <p>To establish the directionality of the comparison, the full commit ID of the after
-   *             commit.</p>
-   */
-  afterCommitId: string | undefined;
-
-  /**
-   * <p>The location of the comparison where you want to comment.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>The content of the comment you want to make.</p>
-   */
-  content: string | undefined;
-
-  /**
-   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
-   *             the request cannot be repeated with a changed parameter. If a request is received with
-   *             the same parameters and a token is included, the request returns information about the
-   *             initial request that used that token.</p>
-   */
-  clientRequestToken?: string;
-}
-
-export namespace PostCommentForComparedCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
-    ...obj,
-  });
-}
-
-export interface PostCommentForComparedCommitOutput {
-  /**
-   * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
-   */
-  repositoryName?: string;
-
-  /**
-   * <p>In the directionality you established, the full commit ID of the before commit.</p>
-   */
-  beforeCommitId?: string;
-
-  /**
-   * <p>In the directionality you established, the full commit ID of the after commit.</p>
-   */
-  afterCommitId?: string;
-
-  /**
-   * <p>In the directionality you established, the blob ID of the before blob.</p>
-   */
-  beforeBlobId?: string;
-
-  /**
-   * <p>In the directionality you established, the blob ID of the after blob.</p>
-   */
-  afterBlobId?: string;
-
-  /**
-   * <p>The location of the comment in the comparison between the two commits.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>The content of the comment you posted.</p>
-   */
-  comment?: Comment;
-}
-
-export namespace PostCommentForComparedCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface PostCommentForPullRequestInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The name of the repository where you want to post a comment on a pull request.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
-   */
-  beforeCommitId: string | undefined;
-
-  /**
-   * <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
-   */
-  afterCommitId: string | undefined;
-
-  /**
-   * <p>The location of the change where you want to post your comment. If no location is
-   *             provided, the comment is posted as a general comment on the pull request difference
-   *             between the before commit ID and the after commit ID.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>The content of your comment on the change.</p>
-   */
-  content: string | undefined;
-
-  /**
-   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
-   *             the request cannot be repeated with a changed parameter. If a request is received with
-   *             the same parameters and a token is included, the request returns information about the
-   *             initial request that used that token.</p>
-   */
-  clientRequestToken?: string;
-}
-
-export namespace PostCommentForPullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
-    ...obj,
-  });
-}
-
-export interface PostCommentForPullRequestOutput {
-  /**
-   * <p>The name of the repository where you posted a comment on a pull request.</p>
-   */
-  repositoryName?: string;
-
-  /**
-   * <p>The system-generated ID of the pull request. </p>
-   */
-  pullRequestId?: string;
-
-  /**
-   * <p>The full commit ID of the commit in the source branch used to create the pull request,
-   *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
-   */
-  beforeCommitId?: string;
-
-  /**
-   * <p>The full commit ID of the commit in the destination branch where the pull request is
-   *             merged.</p>
-   */
-  afterCommitId?: string;
-
-  /**
-   * <p>In the directionality of the pull request, the blob ID of the before blob.</p>
-   */
-  beforeBlobId?: string;
-
-  /**
-   * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
-   */
-  afterBlobId?: string;
-
-  /**
-   * <p>The location of the change where you posted your comment.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>The content of the comment you posted.</p>
-   */
-  comment?: Comment;
-}
-
-export namespace PostCommentForPullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface PostCommentReplyInput {
-  /**
-   * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
-   *         or <a>GetCommentsForPullRequest</a>.</p>
-   */
-  inReplyTo: string | undefined;
-
-  /**
-   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
-   *             the request cannot be repeated with a changed parameter. If a request is received with
-   *             the same parameters and a token is included, the request returns information about the
-   *             initial request that used that token.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The contents of your reply to a comment.</p>
-   */
-  content: string | undefined;
-}
-
-export namespace PostCommentReplyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentReplyInput): any => ({
-    ...obj,
-  });
-}
-
-export interface PostCommentReplyOutput {
-  /**
-   * <p>Information about the reply to a comment.</p>
-   */
-  comment?: Comment;
-}
-
-export namespace PostCommentReplyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
- */
-export class InvalidReactionValueException extends __BaseException {
-  readonly name: "InvalidReactionValueException" = "InvalidReactionValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReactionValueException, __BaseException>) {
-    super({
-      name: "InvalidReactionValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReactionValueException.prototype);
-  }
-}
-
-export interface PutCommentReactionInput {
-  /**
-   * <p>The ID of the comment to which you want to add or update a reaction.</p>
-   */
-  commentId: string | undefined;
-
-  /**
-   * <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none.
-   *             For information about emoji reaction values supported in AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">AWS CodeCommit User Guide</a>.</p>
-   */
-  reactionValue: string | undefined;
-}
-
-export namespace PutCommentReactionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCommentReactionInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
- */
-export class ReactionLimitExceededException extends __BaseException {
-  readonly name: "ReactionLimitExceededException" = "ReactionLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReactionLimitExceededException, __BaseException>) {
-    super({
-      name: "ReactionLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReactionLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>A reaction value is required. </p>
- */
-export class ReactionValueRequiredException extends __BaseException {
-  readonly name: "ReactionValueRequiredException" = "ReactionValueRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReactionValueRequiredException, __BaseException>) {
-    super({
-      name: "ReactionValueRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReactionValueRequiredException.prototype);
-  }
-}
-
-/**
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
 export class FileContentRequiredException extends __BaseException {
@@ -1294,99 +2146,6 @@ export class FileContentRequiredException extends __BaseException {
     });
     Object.setPrototypeOf(this, FileContentRequiredException.prototype);
   }
-}
-
-export interface PutFileInput {
-  /**
-   * <p>The name of the repository where you want to add or update the file.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The name of the branch where you want to add or update the file. If this is an empty
-   *             repository, this branch is created.</p>
-   */
-  branchName: string | undefined;
-
-  /**
-   * <p>The content of the file, in binary object format. </p>
-   */
-  fileContent: Uint8Array | undefined;
-
-  /**
-   * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
-   *         <note>
-   *             <p>If the path does not currently exist in the repository, the path is created as part of adding
-   *                 the file.</p>
-   *          </note>
-   */
-  filePath: string | undefined;
-
-  /**
-   * <p>The file mode permissions of the blob. Valid file mode permissions are listed
-   *             here.</p>
-   */
-  fileMode?: FileModeTypeEnum | string;
-
-  /**
-   * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
-   *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
-   *         <p>The commit ID must match the ID of the head commit at the time of the operation.
-   *             Otherwise, an error occurs, and the file is not added or updated.</p>
-   */
-  parentCommitId?: string;
-
-  /**
-   * <p>A message about why this file was added or updated. Although it is optional, a message
-   *             makes the commit history for your repository more useful.</p>
-   */
-  commitMessage?: string;
-
-  /**
-   * <p>The name of the person adding or updating the file. Although it is optional, a name
-   *             makes the commit history for your repository more useful.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>An email address for the person adding or updating the file.</p>
-   */
-  email?: string;
-}
-
-export namespace PutFileInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileInput): any => ({
-    ...obj,
-  });
-}
-
-export interface PutFileOutput {
-  /**
-   * <p>The full SHA ID of the commit that contains this file change.</p>
-   */
-  commitId: string | undefined;
-
-  /**
-   * <p>The ID of the blob, which is its SHA-1 pointer.</p>
-   */
-  blobId: string | undefined;
-
-  /**
-   * <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
-   */
-  treeId: string | undefined;
-}
-
-export namespace PutFileOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1564,49 +2323,6 @@ export class MaximumRepositoryTriggersExceededException extends __BaseException 
 }
 
 /**
- * <p>Represents the input of a put repository triggers operation.</p>
- */
-export interface PutRepositoryTriggersInput {
-  /**
-   * <p>The name of the repository where you want to create or update the trigger.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The JSON block of configuration information for each trigger.</p>
-   */
-  triggers: RepositoryTrigger[] | undefined;
-}
-
-export namespace PutRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the output of a put repository triggers operation.</p>
- */
-export interface PutRepositoryTriggersOutput {
-  /**
-   * <p>The system-generated unique ID for the create or update operation.</p>
-   */
-  configurationId?: string;
-}
-
-export namespace PutRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>At least one branch name is required, but was not specified in the trigger
  *             configuration.</p>
  */
@@ -1705,27 +2421,6 @@ export class RepositoryTriggersListRequiredException extends __BaseException {
   }
 }
 
-export interface TagResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The key-value pair to use when tagging this repository.</p>
-   */
-  tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A map of tags is required.</p>
  */
@@ -1743,30 +2438,6 @@ export class TagsMapRequiredException extends __BaseException {
     });
     Object.setPrototypeOf(this, TagsMapRequiredException.prototype);
   }
-}
-
-/**
- * <p>Represents the input of a test repository triggers operation.</p>
- */
-export interface TestRepositoryTriggersInput {
-  /**
-   * <p>The name of the repository in which to test the triggers.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The list of triggers to test.</p>
-   */
-  triggers: RepositoryTrigger[] | undefined;
-}
-
-export namespace TestRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1789,31 +2460,6 @@ export namespace RepositoryTriggerExecutionFailure {
    * @internal
    */
   export const filterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the output of a test repository triggers operation.</p>
- */
-export interface TestRepositoryTriggersOutput {
-  /**
-   * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
-   */
-  successfulExecutions?: string[];
-
-  /**
-   * <p>The list of triggers that were not tested. This list provides the names of the
-   *             triggers that could not be tested, separated by commas.</p>
-   */
-  failedExecutions?: RepositoryTriggerExecutionFailure[];
-}
-
-export namespace TestRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
     ...obj,
   });
 }
@@ -1856,27 +2502,6 @@ export class TagKeysListRequiredException extends __BaseException {
   }
 }
 
-export interface UntagResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tag key for each tag that you want to remove from the resource.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
@@ -1896,125 +2521,6 @@ export class InvalidRuleContentSha256Exception extends __BaseException {
   }
 }
 
-export interface UpdateApprovalRuleTemplateContentInput {
-  /**
-   * <p>The name of the approval rule template where you want to update the content of the rule. </p>
-   */
-  approvalRuleTemplateName: string | undefined;
-
-  /**
-   * <p>The content that replaces the existing content of the rule. Content statements must be
-   *             complete. You cannot provide only the changes.</p>
-   */
-  newRuleContent: string | undefined;
-
-  /**
-   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
-   *             information by using
-   *             <a>GetPullRequest</a>.</p>
-   */
-  existingRuleContentSha256?: string;
-}
-
-export namespace UpdateApprovalRuleTemplateContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateApprovalRuleTemplateContentOutput {
-  /**
-   * <p>Returns information about an approval rule template.</p>
-   */
-  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateApprovalRuleTemplateDescriptionInput {
-  /**
-   * <p>The name of the template for which you want to update the description.</p>
-   */
-  approvalRuleTemplateName: string | undefined;
-
-  /**
-   * <p>The updated description of the approval rule template.</p>
-   */
-  approvalRuleTemplateDescription: string | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateApprovalRuleTemplateDescriptionOutput {
-  /**
-   * <p>The structure and content of the updated approval rule template.</p>
-   */
-  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateApprovalRuleTemplateNameInput {
-  /**
-   * <p>The current name of the approval rule template.</p>
-   */
-  oldApprovalRuleTemplateName: string | undefined;
-
-  /**
-   * <p>The new name you want to apply to the approval rule template.</p>
-   */
-  newApprovalRuleTemplateName: string | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateApprovalRuleTemplateNameOutput {
-  /**
-   * <p>The structure and content of the updated approval rule template.</p>
-   */
-  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateNameOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  */
@@ -2032,157 +2538,6 @@ export class CommentNotCreatedByCallerException extends __BaseException {
     });
     Object.setPrototypeOf(this, CommentNotCreatedByCallerException.prototype);
   }
-}
-
-export interface UpdateCommentInput {
-  /**
-   * <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
-   *             or <a>GetCommentsForPullRequest</a>.</p>
-   */
-  commentId: string | undefined;
-
-  /**
-   * <p>The updated content to replace the existing content of the comment.</p>
-   */
-  content: string | undefined;
-}
-
-export namespace UpdateCommentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCommentOutput {
-  /**
-   * <p>Information about the updated comment.</p>
-   */
-  comment?: Comment;
-}
-
-export namespace UpdateCommentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the input of an update default branch operation.</p>
- */
-export interface UpdateDefaultBranchInput {
-  /**
-   * <p>The name of the repository to set or change the default branch for.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The name of the branch to set as the default.</p>
-   */
-  defaultBranchName: string | undefined;
-}
-
-export namespace UpdateDefaultBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestApprovalRuleContentInput {
-  /**
-   * <p>The system-generated ID of the pull request.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The name of the approval rule you want to update.</p>
-   */
-  approvalRuleName: string | undefined;
-
-  /**
-   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
-   *             information by using
-   *             <a>GetPullRequest</a>.</p>
-   */
-  existingRuleContentSha256?: string;
-
-  /**
-   * <p>The updated content for the approval rule.</p>
-   *         <note>
-   *             <p>When you update the content of the approval rule, you can specify approvers in an
-   *                 approval pool in one of two ways:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>
-   *                      <b>CodeCommitApprovers</b>: This option only
-   *                         requires an AWS account and a resource. It can be used for both IAM users
-   *                         and federated access users whose name matches the provided resource name.
-   *                         This is a very powerful option that offers a great deal of flexibility. For
-   *                         example, if you specify the AWS account <i>123456789012</i>
-   *                         and <i>Mary_Major</i>, all of the following are counted as
-   *                         approvals coming from that user:</p>
-   *                     <ul>
-   *                      <li>
-   *                             <p>An IAM user in the account
-   *                                 (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p>
-   *                         </li>
-   *                      <li>
-   *                             <p>A federated user identified in IAM as Mary_Major
-   *                                 (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p>
-   *                         </li>
-   *                   </ul>
-   *                     <p>This option does not recognize an active session of someone assuming the
-   *                         role of CodeCommitReview with a role session name of
-   *                             <i>Mary_Major</i>
-   *                             (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
-   *                         unless you include a wildcard (*Mary_Major).</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <b>Fully qualified ARN</b>: This option allows
-   *                         you to specify the fully qualified Amazon Resource Name (ARN) of the IAM
-   *                         user or role. </p>
-   *                 </li>
-   *             </ul>
-   *             <p>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
-   *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *         </note>
-   */
-  newRuleContent: string | undefined;
-}
-
-export namespace UpdatePullRequestApprovalRuleContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestApprovalRuleContentOutput {
-  /**
-   * <p>Information about the updated approval rule.</p>
-   */
-  approvalRule: ApprovalRule | undefined;
-}
-
-export namespace UpdatePullRequestApprovalRuleContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2243,70 +2598,6 @@ export class PullRequestCannotBeApprovedByAuthorException extends __BaseExceptio
   }
 }
 
-export interface UpdatePullRequestApprovalStateInput {
-  /**
-   * <p>The system-generated ID of the pull request.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The system-generated ID of the revision.</p>
-   */
-  revisionId: string | undefined;
-
-  /**
-   * <p>The approval state to associate with the user on the pull request.</p>
-   */
-  approvalState: ApprovalState | string | undefined;
-}
-
-export namespace UpdatePullRequestApprovalStateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalStateInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestDescriptionInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The updated content of the description for the pull request. This content replaces the
-   *             existing description.</p>
-   */
-  description: string | undefined;
-}
-
-export namespace UpdatePullRequestDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestDescriptionOutput {
-  /**
-   * <p>Information about the updated pull request.</p>
-   */
-  pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  */
@@ -2343,128 +2634,4 @@ export class PullRequestStatusRequiredException extends __BaseException {
     });
     Object.setPrototypeOf(this, PullRequestStatusRequiredException.prototype);
   }
-}
-
-export interface UpdatePullRequestStatusInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The status of the pull request. The only valid operations are to update the status
-   *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
-   *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
-   */
-  pullRequestStatus: PullRequestStatusEnum | string | undefined;
-}
-
-export namespace UpdatePullRequestStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestStatusOutput {
-  /**
-   * <p>Information about the pull request.</p>
-   */
-  pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestTitleInput {
-  /**
-   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   */
-  pullRequestId: string | undefined;
-
-  /**
-   * <p>The updated title of the pull request. This replaces the existing title.</p>
-   */
-  title: string | undefined;
-}
-
-export namespace UpdatePullRequestTitleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePullRequestTitleOutput {
-  /**
-   * <p>Information about the updated pull request.</p>
-   */
-  pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestTitleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the input of an update repository description operation.</p>
- */
-export interface UpdateRepositoryDescriptionInput {
-  /**
-   * <p>The name of the repository to set or change the comment or description for.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
-   */
-  repositoryDescription?: string;
-}
-
-export namespace UpdateRepositoryDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the input of an update repository description operation.</p>
- */
-export interface UpdateRepositoryNameInput {
-  /**
-   * <p>The current name of the repository.</p>
-   */
-  oldName: string | undefined;
-
-  /**
-   * <p>The new name for the repository.</p>
-   */
-  newName: string | undefined;
-}
-
-export namespace UpdateRepositoryNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
-    ...obj,
-  });
 }

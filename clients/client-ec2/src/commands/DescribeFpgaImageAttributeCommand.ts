@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_3";
+import { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeFpgaImageAttributeCommand,
   serializeAws_ec2DescribeFpgaImageAttributeCommand,

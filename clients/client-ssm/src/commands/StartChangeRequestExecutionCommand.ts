@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
+import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartChangeRequestExecutionCommand,
   serializeAws_json1_1StartChangeRequestExecutionCommand,

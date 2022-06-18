@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_2";
+import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_0";
 import {
   deserializeAws_ec2DeleteClientVpnRouteCommand,
   serializeAws_ec2DeleteClientVpnRouteCommand,

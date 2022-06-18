@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_1";
+import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1MergeBranchesByFastForwardCommand,
   serializeAws_json1_1MergeBranchesByFastForwardCommand,

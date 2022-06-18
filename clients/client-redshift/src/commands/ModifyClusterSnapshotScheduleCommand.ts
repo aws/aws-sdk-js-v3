@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyClusterSnapshotScheduleMessage } from "../models/models_1";
+import { ModifyClusterSnapshotScheduleMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyClusterSnapshotScheduleCommand,
   serializeAws_queryModifyClusterSnapshotScheduleCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_1";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPolicyVersionCommand,
   serializeAws_restJson1GetPolicyVersionCommand,

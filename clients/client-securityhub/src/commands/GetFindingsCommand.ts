@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetFindingsRequest, GetFindingsResponse } from "../models/models_1";
+import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsCommand,
   serializeAws_restJson1GetFindingsCommand,

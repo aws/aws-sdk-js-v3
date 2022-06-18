@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeClusterMessage } from "../models/models_0";
-import { ResizeClusterResult } from "../models/models_1";
+import { ResizeClusterMessage, ResizeClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand,

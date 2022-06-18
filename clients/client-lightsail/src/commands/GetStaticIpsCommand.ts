@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetStaticIpsRequest, GetStaticIpsResult } from "../models/models_1";
+import { GetStaticIpsRequest, GetStaticIpsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetStaticIpsCommand,
   serializeAws_json1_1GetStaticIpsCommand,

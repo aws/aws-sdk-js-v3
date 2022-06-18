@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput } from "../models/models_2";
+import { DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNotebookInstanceCommand,
   serializeAws_json1_1DescribeNotebookInstanceCommand,

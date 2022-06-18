@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteTableRequest } from "../models/models_2";
+import { DeleteRouteTableRequest } from "../models/models_0";
 import {
   deserializeAws_ec2DeleteRouteTableCommand,
   serializeAws_ec2DeleteRouteTableCommand,

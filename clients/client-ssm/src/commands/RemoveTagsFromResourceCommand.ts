@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_1";
+import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,

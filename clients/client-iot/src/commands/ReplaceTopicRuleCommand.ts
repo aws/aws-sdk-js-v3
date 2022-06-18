@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ReplaceTopicRuleRequest } from "../models/models_2";
+import { ReplaceTopicRuleRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1ReplaceTopicRuleCommand,
   serializeAws_restJson1ReplaceTopicRuleCommand,

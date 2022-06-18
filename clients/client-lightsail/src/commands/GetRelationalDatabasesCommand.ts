@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetRelationalDatabasesRequest, GetRelationalDatabasesResult } from "../models/models_1";
+import { GetRelationalDatabasesRequest, GetRelationalDatabasesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRelationalDatabasesCommand,
   serializeAws_json1_1GetRelationalDatabasesCommand,

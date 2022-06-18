@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteIpamScopeRequest, DeleteIpamScopeResult } from "../models/models_2";
+import { DeleteIpamScopeRequest, DeleteIpamScopeResult } from "../models/models_0";
 import { deserializeAws_ec2DeleteIpamScopeCommand, serializeAws_ec2DeleteIpamScopeCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteIpamScopeCommandInput extends DeleteIpamScopeRequest {}

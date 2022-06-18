@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/models_1";
+import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNotebookInstanceCommand,
   serializeAws_json1_1CreateNotebookInstanceCommand,

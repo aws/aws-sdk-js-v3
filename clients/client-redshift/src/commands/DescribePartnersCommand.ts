@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePartnersInputMessage, DescribePartnersOutputMessage } from "../models/models_1";
+import { DescribePartnersInputMessage, DescribePartnersOutputMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribePartnersCommand,
   serializeAws_queryDescribePartnersCommand,

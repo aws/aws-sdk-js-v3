@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetPresetRequest, GetPresetResponse } from "../models/models_1";
+import { GetPresetRequest, GetPresetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPresetCommand,
   serializeAws_restJson1GetPresetCommand,

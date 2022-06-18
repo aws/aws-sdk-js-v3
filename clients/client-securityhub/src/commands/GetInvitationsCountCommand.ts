@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_1";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,

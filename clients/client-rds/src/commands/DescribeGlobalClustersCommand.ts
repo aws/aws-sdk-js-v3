@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_1";
+import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeGlobalClustersCommand,
   serializeAws_queryDescribeGlobalClustersCommand,

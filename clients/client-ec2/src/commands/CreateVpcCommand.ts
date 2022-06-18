@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateVpcRequest, CreateVpcResult } from "../models/models_2";
+import { CreateVpcRequest, CreateVpcResult } from "../models/models_0";
 import { deserializeAws_ec2CreateVpcCommand, serializeAws_ec2CreateVpcCommand } from "../protocols/Aws_ec2";
 
 export interface CreateVpcCommandInput extends CreateVpcRequest {}

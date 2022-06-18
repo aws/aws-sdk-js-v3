@@ -15,7 +15,7 @@ import {
 import {
   GetJourneyExecutionActivityMetricsRequest,
   GetJourneyExecutionActivityMetricsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand,

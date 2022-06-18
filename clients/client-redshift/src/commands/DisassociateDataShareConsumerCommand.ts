@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DataShare } from "../models/models_0";
-import { DisassociateDataShareConsumerMessage } from "../models/models_1";
+import { DataShare, DisassociateDataShareConsumerMessage } from "../models/models_0";
 import {
   deserializeAws_queryDisassociateDataShareConsumerCommand,
   serializeAws_queryDisassociateDataShareConsumerCommand,

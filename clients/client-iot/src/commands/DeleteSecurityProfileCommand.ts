@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_1";
+import { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSecurityProfileCommand,
   serializeAws_restJson1DeleteSecurityProfileCommand,

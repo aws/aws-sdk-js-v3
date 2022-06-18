@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1";
+import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DetachThingPrincipalCommand,
   serializeAws_restJson1DetachThingPrincipalCommand,

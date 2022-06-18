@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/models_2";
+import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListViolationEventsCommand,
   serializeAws_restJson1ListViolationEventsCommand,

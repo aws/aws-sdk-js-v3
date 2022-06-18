@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetParametersByPathRequest, GetParametersByPathResult } from "../models/models_1";
+import { GetParametersByPathRequest, GetParametersByPathResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetParametersByPathCommand,
   serializeAws_json1_1GetParametersByPathCommand,

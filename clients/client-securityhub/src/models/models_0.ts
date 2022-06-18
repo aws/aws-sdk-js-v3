@@ -1,6 +1,61 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
+import {
+  AdminStatus,
+  AutoEnableStandards,
+  AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
+  BooleanFilter,
+  Compliance,
+  DateFilter,
+  FindingProviderFields,
+  InsightResultValue,
+  IntegrationType,
+  IpFilter,
+  KeywordFilter,
+  Malware,
+  MapFilter,
+  Network,
+  NetworkPathComponent,
+  Note,
+  NumberFilter,
+  PatchSummary,
+  PortProbeDetail,
+  ProcessDetails,
+  Remediation,
+  Resource,
+  Severity,
+  SeverityLabel,
+  StandardsStatusReason,
+  StringFilter,
+  Threat,
+  ThreatIntelIndicator,
+  Vulnerability,
+  Workflow,
+} from "./models_1";
+import {
+  ControlStatus,
+  RecordState,
+  SeverityRating,
+  SortOrder,
+  StandardsStatus,
+  VerificationState,
+  WorkflowState,
+  WorkflowStatus,
+} from "./models_2";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
 export interface AcceptAdministratorInvitationRequest {
@@ -603,37 +658,6 @@ export namespace ActionLocalIpDetails {
 }
 
 /**
- * <p>A port scan that was part of the port probe. For each scan, PortProbeDetails provides
- *          information about the local IP address and port that were scanned, and the remote IP
- *          address that the scan originated from.</p>
- */
-export interface PortProbeDetail {
-  /**
-   * <p>Provides information about the port that was scanned.</p>
-   */
-  LocalPortDetails?: ActionLocalPortDetails;
-
-  /**
-   * <p>Provides information about the IP address where the scanned port is located.</p>
-   */
-  LocalIpDetails?: ActionLocalIpDetails;
-
-  /**
-   * <p>Provides information about the remote IP address that performed the scan.</p>
-   */
-  RemoteIpDetails?: ActionRemoteIpDetails;
-}
-
-export namespace PortProbeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortProbeDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
  *          about the attempted port probe that was detected.</p>
  */
@@ -790,11 +814,6 @@ export namespace Adjustment {
   });
 }
 
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
-
 /**
  * <p>Represents a Security Hub administrator account designated by an organization management
  *          account.</p>
@@ -819,11 +838,6 @@ export namespace AdminAccount {
   export const filterSensitiveLog = (obj: AdminAccount): any => ({
     ...obj,
   });
-}
-
-export enum AutoEnableStandards {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
 }
 
 /**
@@ -6979,541 +6993,6 @@ export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
 }
 
 /**
- * <p>A file that contain environment variables to pass to a container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
-  /**
-   * <p>The type of environment file.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The ARN of the S3 object that contains the environment variable file.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
-  /**
-   * <p>The hostname to use in the <b>/etc/hosts</b> entry.</p>
-   */
-  Hostname?: string;
-
-  /**
-   * <p>The IP address to use in the <b>/etc/hosts</b> entry.</p>
-   */
-  IpAddress?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
-  /**
-   * <p>The options to use to configure the log router.</p>
-   *          <p>The valid option keys are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>enable-ecs-log-metadata</code>. The value can be <code>true</code> or
-   *                <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>config-file-type</code>. The value can be <code>s3</code> or
-   *                <code>file</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>config-file-value</code>. The value is either an S3 ARN or a file path.</p>
-   *             </li>
-   *          </ul>
-   */
-  Options?: Record<string, string>;
-
-  /**
-   * <p>The log router to use. </p>
-   */
-  Type?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The container health check command and associated configuration parameters for the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
-  /**
-   * <p>The command that the container runs to determine whether it is healthy.</p>
-   */
-  Command?: string[];
-
-  /**
-   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
-   */
-  Interval?: number;
-
-  /**
-   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
-   */
-  Retries?: number;
-
-  /**
-   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
-   */
-  StartPeriod?: number;
-
-  /**
-   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
-   */
-  Timeout?: number;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
-  /**
-   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker.</p>
-   */
-  Add?: string[];
-
-  /**
-   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
-   */
-  Drop?: string[];
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A host device to expose to the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
-  /**
-   * <p>The path inside the container at which to expose the host device.</p>
-   */
-  ContainerPath?: string;
-
-  /**
-   * <p>The path for the device on the host container instance.</p>
-   */
-  HostPath?: string;
-
-  /**
-   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
-   */
-  Permissions?: string[];
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
-  /**
-   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
-   */
-  ContainerPath?: string;
-
-  /**
-   * <p>The list of tmpfs volume mount options.</p>
-   */
-  MountOptions?: string[];
-
-  /**
-   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
-   */
-  Size?: number;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
-  /**
-   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
-   */
-  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails;
-
-  /**
-   * <p>The host devices to expose to the container.</p>
-   */
-  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[];
-
-  /**
-   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
-   */
-  InitProcessEnabled?: boolean;
-
-  /**
-   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
-   */
-  MaxSwap?: number;
-
-  /**
-   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
-   */
-  SharedMemorySize?: number;
-
-  /**
-   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
-   */
-  Swappiness?: number;
-
-  /**
-   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
-   */
-  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[];
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A secret to pass to the log configuration.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
-  /**
-   * <p>The name of the secret.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The secret to expose to the container.</p>
-   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
-   *          parameter in the Systems Manager Parameter Store.</p>
-   */
-  ValueFrom?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The log configuration specification for the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
-  /**
-   * <p>The log driver to use for the container.</p>
-   */
-  LogDriver?: string;
-
-  /**
-   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
-   */
-  Options?: Record<string, string>;
-
-  /**
-   * <p>The secrets to pass to the log configuration.</p>
-   */
-  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[];
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A mount point for the data volumes in the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
-  /**
-   * <p>The path on the container to mount the host volume at.</p>
-   */
-  ContainerPath?: string;
-
-  /**
-   * <p>Whether the container has read-only access to the volume.</p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
-   */
-  SourceVolume?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A port mapping for the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
-  /**
-   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
-   */
-  ContainerPort?: number;
-
-  /**
-   * <p>The port number on the container instance to reserve for the container.</p>
-   */
-  HostPort?: number;
-
-  /**
-   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
-   */
-  Protocol?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The private repository authentication credentials to use.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
-  /**
-   * <p>The ARN of the secret that contains the private repository credentials.</p>
-   */
-  CredentialsParameter?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A resource to assign to a container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
-  /**
-   * <p>The type of resource to assign to a container.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The value for the specified resource type.</p>
-   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
-   *          reserves for the container.</p>
-   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
-   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A secret to pass to the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
-  /**
-   * <p>The name of the secret.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
-   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
-   */
-  ValueFrom?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A namespaced kernel parameter to set in the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
-  /**
-   * <p>The namespaced kernel parameter for which to set a value.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The value of the parameter.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A ulimit to set in the container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
-  /**
-   * <p>The hard limit for the ulimit type.</p>
-   */
-  HardLimit?: number;
-
-  /**
-   * <p>The type of the ulimit.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The soft limit for the ulimit type.</p>
-   */
-  SoftLimit?: number;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A data volume to mount from another container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
-  /**
-   * <p>Whether the container has read-only access to the volume.</p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * <p>The name of another container within the same task definition from which to mount volumes.</p>
-   */
-  SourceContainer?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A container definition that describes a container in the task.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
@@ -7778,3808 +7257,3899 @@ export namespace AwsEcsTaskDefinitionContainerDefinitionsDetails {
 }
 
 /**
- * <p>An Elastic Inference accelerator to use
- *          for the containers in the task.</p>
+ * <p>Details about a related finding.</p>
  */
-export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+export interface RelatedFinding {
   /**
-   * <p>The Elastic Inference accelerator device name.</p>
+   * <p>The ARN of the product that generated a related finding.</p>
    */
-  DeviceName?: string;
+  ProductArn: string | undefined;
 
   /**
-   * <p>The Elastic Inference accelerator type to use.</p>
+   * <p>The product-generated identifier for a related finding.</p>
    */
-  DeviceType?: string;
+  Id: string | undefined;
 }
 
-export namespace AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+export namespace RelatedFinding {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionInferenceAcceleratorsDetails): any => ({
+  export const filterSensitiveLog = (obj: RelatedFinding): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>A placement constraint object to use for tasks.</p>
+ * <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
+ *          <code>AwsSecurityFinding</code> format enables you to share findings between Amazon Web Services
+ *          security services and third-party solutions, and security standards checks.</p>
+ *          <note>
+ *             <p>A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party
+ *             solutions and standards checks.</p>
+ *          </note>
  */
-export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
+export interface AwsSecurityFinding {
   /**
-   * <p>A cluster query language expression to apply to the constraint.</p>
+   * <p>The schema version that a finding is formatted for.</p>
    */
-  Expression?: string;
+  SchemaVersion: string | undefined;
 
   /**
-   * <p>The type of constraint.</p>
+   * <p>The security findings provider-specific identifier for a finding.</p>
    */
-  Type?: string;
-}
+  Id: string | undefined;
 
-export namespace AwsEcsTaskDefinitionPlacementConstraintsDetails {
   /**
-   * @internal
+   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
+   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
+   *          a custom integration.</p>
    */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionPlacementConstraintsDetails): any => ({
-    ...obj,
-  });
-}
+  ProductArn: string | undefined;
 
-/**
- * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
   /**
-   * <p>The name of the property.</p>
+   * <p>The name of the product that generated the finding.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
+   *          <p>When you use the Security Hub console or API to filter findings by product name, you use this attribute.</p>
    */
-  Name?: string;
+  ProductName?: string;
 
   /**
-   * <p>The value of the property.</p>
+   * <p>The name of the company for the product that generated the finding.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
+   *          <p>When you use the Security Hub console or API to filter findings by company name, you use this attribute.</p>
    */
-  Value?: string;
-}
+  CompanyName?: string;
 
-export namespace AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
   /**
-   * @internal
+   * <p>The Region from which the finding was generated.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>.</p>
    */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
-  ): any => ({
-    ...obj,
-  });
-}
+  Region?: string;
 
-/**
- * <p>The configuration details for the App Mesh
- *          proxy.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
   /**
-   * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plugin, etc. </p>
    */
-  ContainerName?: string;
+  GeneratorId: string | undefined;
 
   /**
-   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
    */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
+  AwsAccountId: string | undefined;
 
   /**
-   * <p>The proxy type.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionProxyConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a Docker volume.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
-   */
-  Autoprovision?: boolean;
-
-  /**
-   * <p>The Docker volume driver to use.</p>
-   */
-  Driver?: string;
-
-  /**
-   * <p>A map of Docker driver-specific options that are passed through.</p>
-   */
-  DriverOpts?: Record<string, string>;
-
-  /**
-   * <p>Custom metadata to add to the Docker volume.</p>
-   */
-  Labels?: Record<string, string>;
-
-  /**
-   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops.</p>
-   */
-  Scope?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * <p>The Amazon EFS access point identifier to use.</p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
-   */
-  Iam?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * <p>The authorization configuration details for the Amazon EFS file system.</p>
-   */
-  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
-
-  /**
-   * <p>The Amazon EFS file system identifier to use.</p>
-   */
-  FilesystemId?: string;
-
-  /**
-   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
-   */
-  RootDirectory?: string;
-
-  /**
-   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
-   */
-  TransitEncryption?: string;
-
-  /**
-   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
-   */
-  TransitEncryptionPort?: number;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a bind mount host volume.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesHostDetails {
-  /**
-   * <p>The path on the host container instance that is presented to the container.</p>
-   */
-  SourcePath?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesHostDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesHostDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A data volume to mount from another container.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesDetails {
-  /**
-   * <p>Information about a Docker volume.</p>
-   */
-  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
-
-  /**
-   * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
-   */
-  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
-
-  /**
-   * <p>Information about a bind mount host volume.</p>
-   */
-  Host?: AwsEcsTaskDefinitionVolumesHostDetails;
-
-  /**
-   * <p>The name of the data volume.</p>
-   */
-  Name?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about a task definition. A task definition describes the container and volume definitions
- *          of an Amazon Elastic Container Service task.</p>
- */
-export interface AwsEcsTaskDefinitionDetails {
-  /**
-   * <p>The container definitions that describe the containers that make up the task.</p>
-   */
-  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
-
-  /**
-   * <p>The number of CPU units used by the task.</p>
-   */
-  Cpu?: string;
-
-  /**
-   * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
-   */
-  ExecutionRoleArn?: string;
-
-  /**
-   * <p>The name of a family that this task definition is registered to.</p>
-   */
-  Family?: string;
-
-  /**
-   * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
-   */
-  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
-
-  /**
-   * <p>The IPC resource namespace to use for the containers in the task.</p>
-   */
-  IpcMode?: string;
-
-  /**
-   * <p>The amount (in MiB) of memory used by the task.</p>
-   */
-  Memory?: string;
-
-  /**
-   * <p>The Docker networking mode to use for the containers in the task.</p>
-   */
-  NetworkMode?: string;
-
-  /**
-   * <p>The process namespace to use for the containers in the task.</p>
-   */
-  PidMode?: string;
-
-  /**
-   * <p>The placement constraint objects to use for tasks.</p>
-   */
-  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
-
-  /**
-   * <p>The configuration details for the App Mesh proxy.</p>
-   */
-  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
-
-  /**
-   * <p>The task launch types that the task definition was validated against.</p>
-   */
-  RequiresCompatibilities?: string[];
-
-  /**
-   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
-   */
-  TaskRoleArn?: string;
-
-  /**
-   * <p>The data volume definitions for the task.</p>
-   */
-  Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
-}
-
-export namespace AwsEcsTaskDefinitionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details on a container instance bind mount host volume.
- *       </p>
- */
-export interface AwsEcsTaskVolumeHostDetails {
-  /**
-   * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
-   * on the host container instance that's presented to the container.
-   *       </p>
-   */
-  SourcePath?: string;
-}
-
-export namespace AwsEcsTaskVolumeHostDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeHostDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about a data volume that's used in a task definition.
- *       </p>
- */
-export interface AwsEcsTaskVolumeDetails {
-  /**
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
-   * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
-   * determine whether your bind mount host volume persists on the host container instance and where it's stored.
-   *       </p>
-   */
-  Host?: AwsEcsTaskVolumeHostDetails;
-}
-
-export namespace AwsEcsTaskVolumeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about a task in a cluster.
- *       </p>
- */
-export interface AwsEcsTaskDetails {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
-   *       </p>
-   */
-  ClusterArn?: string;
-
-  /**
-   * <p>The ARN of the task definition that creates the task.
-   *       </p>
-   */
-  TaskDefinitionArn?: string;
-
-  /**
-   * <p>The version counter for the task.
-   *       </p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
-   * the task entered the <code>PENDING</code> state.
-   *       </p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
-   *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
-   *    </p>
-   */
-  StartedAt?: string;
-
-  /**
-   * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
-   *          <code>startedBy</code> parameter contains the deployment ID of that service.
-   *       </p>
-   */
-  StartedBy?: string;
-
-  /**
-   * <p>The name of the task group that's associated with the task.
-   *       </p>
-   */
-  Group?: string;
-
-  /**
-   * <p>Details about the data volume that is used in a task definition.
-   *       </p>
-   */
-  Volumes?: AwsEcsTaskVolumeDetails[];
-
-  /**
-   * <p>The containers that are associated with the task.
-   *       </p>
-   */
-  Containers?: AwsEcsContainerDetails[];
-}
-
-export namespace AwsEcsTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details for all file system operations using this Amazon EFS access point.
- *       </p>
- */
-export interface AwsEfsAccessPointPosixUserDetails {
-  /**
-   * <p>The POSIX group ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Gid?: string;
-
-  /**
-   * <p>Secondary POSIX group IDs used for all file system operations using this access point.
-   *       </p>
-   */
-  SecondaryGids?: string[];
-
-  /**
-   * <p>The POSIX user ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Uid?: string;
-}
-
-export namespace AwsEfsAccessPointPosixUserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointPosixUserDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the settings that Amazon EFS uses to create the root directory
- * when a client connects to an access point.
- *       </p>
- */
-export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
-  /**
-   * <p>Specifies the POSIX group ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerGid?: string;
-
-  /**
-   * <p>Specifies the POSIX user ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerUid?: string;
-
-  /**
-   * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
-   * representing the file's mode bits.
-   *       </p>
-   */
-  Permissions?: string;
-}
-
-export namespace AwsEfsAccessPointRootDirectoryCreationInfoDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryCreationInfoDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
- * as the root directory to NFS clients using the access point.
- *       </p>
- */
-export interface AwsEfsAccessPointRootDirectoryDetails {
-  /**
-   * <p>Specifies the POSIX IDs and permissions to apply to the access point's root directory.
-   *       </p>
-   */
-  CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails;
-
-  /**
-   * <p>Specifies the path on the Amazon EFS file system to expose as the root directory to NFS clients
-   * using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified
-   * path does not exist, you are required to provide <code>CreationInfo</code>.
-   *       </p>
-   */
-  Path?: string;
-}
-
-export namespace AwsEfsAccessPointRootDirectoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about an Amazon EFS access point.
- *       </p>
- */
-export interface AwsEfsAccessPointDetails {
-  /**
-   * <p>The ID of the Amazon EFS access point.
-   *       </p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point. </p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The opaque string specified in the request to ensure idempotent creation.
-   *       </p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ID of the Amazon EFS file system that the access point applies to.
-   *       </p>
-   */
-  FileSystemId?: string;
-
-  /**
-   * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point,
-   * that is used for all file operations by NFS clients using the access point.
-   *       </p>
-   */
-  PosixUser?: AwsEfsAccessPointPosixUserDetails;
-
-  /**
-   * <p>The directory on the Amazon EFS file system that the access point exposes as the root
-   * directory to NFS clients using the access point.
-   *       </p>
-   */
-  RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
-}
-
-export namespace AwsEfsAccessPointDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details for a cluster logging configuration.</p>
- */
-export interface AwsEksClusterLoggingClusterLoggingDetails {
-  /**
-   * <p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>A list of logging types.</p>
+   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
    */
   Types?: string[];
-}
 
-export namespace AwsEksClusterLoggingClusterLoggingDetails {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterLoggingClusterLoggingDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The logging configuration for an Amazon EKS cluster.</p>
- */
-export interface AwsEksClusterLoggingDetails {
-  /**
-   * <p>Cluster logging configurations.</p>
-   */
-  ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
-}
-
-export namespace AwsEksClusterLoggingDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterLoggingDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the VPC configuration used by the cluster control plane.</p>
- */
-export interface AwsEksClusterResourcesVpcConfigDetails {
-  /**
-   * <p>The security groups that are associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Amazon EKS control plane.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The subnets that are associated with the cluster.</p>
-   */
-  SubnetIds?: string[];
-}
-
-export namespace AwsEksClusterResourcesVpcConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterResourcesVpcConfigDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about an Amazon EKS cluster.</p>
- */
-export interface AwsEksClusterDetails {
-  /**
-   * <p>The ARN of the cluster.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The certificate authority data for the cluster.</p>
-   */
-  CertificateAuthorityData?: string;
-
-  /**
-   * <p>The status of the cluster.</p>
-   */
-  ClusterStatus?: string;
-
-  /**
-   * <p>The endpoint for the Amazon EKS API server.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The name of the cluster.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The VPC configuration used by the cluster control plane.</p>
-   */
-  ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails;
-
-  /**
-   * <p>The ARN of the IAM role that provides permissions for the Amazon EKS control plane to make calls to Amazon Web Services API operations on your behalf.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The Amazon EKS server version for the cluster.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The logging configuration for the cluster.</p>
-   */
-  Logging?: AwsEksClusterLoggingDetails;
-}
-
-export namespace AwsEksClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about a link to another environment that is in the same group.</p>
- */
-export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
-  /**
-   * <p>The name of the linked environment.</p>
-   */
-  EnvironmentName?: string;
-
-  /**
-   * <p>The name of the environment link.</p>
-   */
-  LinkName?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentEnvironmentLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentEnvironmentLink): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A configuration option setting for the environment.</p>
- */
-export interface AwsElasticBeanstalkEnvironmentOptionSetting {
-  /**
-   * <p>The type of resource that the configuration option is associated with.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The name of the option.</p>
-   */
-  OptionName?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The value of the configuration setting.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentOptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentOptionSetting): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the tier of the environment.</p>
- */
-export interface AwsElasticBeanstalkEnvironmentTier {
-  /**
-   * <p>The name of the environment tier.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of environment tier.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The version of the environment tier.</p>
-   */
-  Version?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentTier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentTier): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains details about an Elastic Beanstalk environment.</p>
- */
-export interface AwsElasticBeanstalkEnvironmentDetails {
-  /**
-   * <p>The name of the application that is associated with the environment.</p>
-   */
-  ApplicationName?: string;
-
-  /**
-   * <p>The URL to the CNAME for this environment.</p>
-   */
-  Cname?: string;
-
-  /**
-   * <p>The creation date for this environment.</p>
-   */
-  DateCreated?: string;
-
-  /**
-   * <p>The date when this environment was last modified.</p>
-   */
-  DateUpdated?: string;
-
-  /**
-   * <p>A description of the environment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.</p>
-   */
-  EndpointUrl?: string;
-
-  /**
-   * <p>The ARN of the environment.</p>
-   */
-  EnvironmentArn?: string;
-
-  /**
-   * <p>The identifier of the environment.</p>
-   */
-  EnvironmentId?: string;
-
-  /**
-   * <p>Links to other environments in the same group.</p>
-   */
-  EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[];
-
-  /**
-   * <p>The name of the environment.</p>
-   */
-  EnvironmentName?: string;
-
-  /**
-   * <p>The configuration setting for the environment.</p>
-   */
-  OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[];
-
-  /**
-   * <p>The ARN of the platform version for the environment.</p>
-   */
-  PlatformArn?: string;
-
-  /**
-   * <p>The name of the solution stack that is deployed with the environment.</p>
-   */
-  SolutionStackName?: string;
-
-  /**
-   * <p>The current operational status of the environment.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The tier of the environment.</p>
-   */
-  Tier?: AwsElasticBeanstalkEnvironmentTier;
-
-  /**
-   * <p>The application version of the environment.</p>
-   */
-  VersionLabel?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
- *          traffic.</p>
- */
-export interface AwsElasticsearchDomainDomainEndpointOptions {
-  /**
-   * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
-   */
-  EnforceHTTPS?: boolean;
-
-  /**
-   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
-   *          domain.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Policy-Min-TLS-1-0-2019-07</code>, which supports TLSv1.0 and higher</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Policy-Min-TLS-1-2-2019-07</code>, which only supports TLSv1.2</p>
-   *             </li>
-   *          </ul>
-   */
-  TLSSecurityPolicy?: string;
-}
-
-export namespace AwsElasticsearchDomainDomainEndpointOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainDomainEndpointOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration options for zone awareness.</p>
- */
-export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
-   */
-  AvailabilityZoneCount?: number;
-}
-
-export namespace AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>details about the configuration of an OpenSearch cluster.</p>
- */
-export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
-  /**
-   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
-   */
-  DedicatedMasterCount?: number;
-
-  /**
-   * <p>Whether to use a dedicated master node for the Elasticsearch domain. A dedicated master node performs cluster management tasks, but doesn't hold data or respond to data upload requests.</p>
-   */
-  DedicatedMasterEnabled?: boolean;
-
-  /**
-   * <p>The hardware configuration of the computer that hosts the dedicated master node. For example, <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
-   */
-  DedicatedMasterType?: string;
-
-  /**
-   * <p>The number of data nodes to use in the Elasticsearch domain.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
-   */
-  ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
-
-  /**
-   * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, OpenSearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
-   */
-  ZoneAwarenessEnabled?: boolean;
-}
-
-export namespace AwsElasticsearchDomainElasticsearchClusterConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainElasticsearchClusterConfigDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the configuration for encryption at rest.</p>
- */
-export interface AwsElasticsearchDomainEncryptionAtRestOptions {
-  /**
-   * <p>Whether encryption at rest is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace AwsElasticsearchDomainEncryptionAtRestOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainEncryptionAtRestOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The log configuration.</p>
- */
-export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
-  /**
-   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
-   */
-  CloudWatchLogsLogGroupArn?: string;
-
-  /**
-   * <p>Whether the log publishing is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace AwsElasticsearchDomainLogPublishingOptionsLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptionsLogConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>configures the CloudWatch Logs to publish for the
- *          Elasticsearch domain.</p>
- */
-export interface AwsElasticsearchDomainLogPublishingOptions {
-  /**
-   * <p>Configures the OpenSearch index logs
-   *          publishing.</p>
-   */
-  IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
-
-  /**
-   * <p>Configures the OpenSearch search slow log
-   *          publishing.</p>
-   */
-  SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
-
-  /**
-   * <p>The log configuration.</p>
-   */
-  AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
-}
-
-export namespace AwsElasticsearchDomainLogPublishingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the configuration for node-to-node encryption.</p>
- */
-export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
-  /**
-   * <p>Whether node-to-node encryption is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the state of the domain relative to the latest service software.</p>
- */
-export interface AwsElasticsearchDomainServiceSoftwareOptions {
-  /**
-   * <p>The epoch time when the deployment window closes for required updates. After this time,
-   *          Amazon OpenSearch Service schedules the software upgrade automatically.</p>
-   */
-  AutomatedUpdateDate?: string;
-
-  /**
-   * <p>Whether a request to update the domain can be canceled.</p>
-   */
-  Cancellable?: boolean;
-
-  /**
-   * <p>The version of the service software that is currently installed on the domain.</p>
-   */
-  CurrentVersion?: string;
-
-  /**
-   * <p>A more detailed description of the service software status.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The most recent version of the service software.</p>
-   */
-  NewVersion?: string;
-
-  /**
-   * <p>Whether a service software update is available for the domain.</p>
-   */
-  UpdateAvailable?: boolean;
-
-  /**
-   * <p>The status of the service software update.</p>
-   */
-  UpdateStatus?: string;
-}
-
-export namespace AwsElasticsearchDomainServiceSoftwareOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainServiceSoftwareOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
- *          domain.</p>
- */
-export interface AwsElasticsearchDomainVPCOptions {
-  /**
-   * <p>The list of Availability Zones associated with the VPC subnets.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>ID for the VPC.</p>
-   */
-  VPCId?: string;
-}
-
-export namespace AwsElasticsearchDomainVPCOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainVPCOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an Elasticsearch domain.</p>
- */
-export interface AwsElasticsearchDomainDetails {
-  /**
-   * <p>IAM policy document specifying the access policies for the new Elasticsearch domain.</p>
-   */
-  AccessPolicies?: string;
-
-  /**
-   * <p>Additional options for the domain endpoint.</p>
-   */
-  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
-
-  /**
-   * <p>Unique identifier for an Elasticsearch domain.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>Name of an Elasticsearch domain.</p>
-   *          <p>Domain names are unique across all domains owned by the same account within an Amazon Web Services
-   *          Region.</p>
-   *          <p>Domain names must start with a lowercase letter and must be between 3 and 28
-   *          characters.</p>
-   *          <p>Valid characters are a-z (lowercase only), 0-9, and – (hyphen). </p>
-   */
-  DomainName?: string;
-
-  /**
-   * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
-   *          Elasticsearch domain.</p>
-   *          <p>The endpoint is a service URL. </p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
-   */
-  Endpoints?: Record<string, string>;
-
-  /**
-   * <p>OpenSearch version.</p>
-   */
-  ElasticsearchVersion?: string;
-
-  /**
-   * <p>Information about an OpenSearch cluster configuration.</p>
-   */
-  ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
-
-  /**
-   * <p>Details about the configuration for encryption at rest.</p>
-   */
-  EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
-
-  /**
-   * <p>Configures the CloudWatch Logs to publish for the Elasticsearch domain.</p>
-   */
-  LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions;
-
-  /**
-   * <p>Details about the configuration for node-to-node encryption.</p>
-   */
-  NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions;
-
-  /**
-   * <p>Information about the status of a domain relative to the latest service software.</p>
-   */
-  ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
-
-  /**
-   * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
-   *          domain.</p>
-   */
-  VPCOptions?: AwsElasticsearchDomainVPCOptions;
-}
-
-export namespace AwsElasticsearchDomainDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about a stickiness policy that was created using
- *             <code>CreateAppCookieStickinessPolicy</code>.</p>
- */
-export interface AwsElbAppCookieStickinessPolicy {
-  /**
-   * <p>The name of the application cookie used for stickiness.</p>
-   */
-  CookieName?: string;
-
-  /**
-   * <p>The mnemonic name for the policy being created. The name must be unique within the set
-   *          of policies for the load balancer.</p>
-   */
-  PolicyName?: string;
-}
-
-export namespace AwsElbAppCookieStickinessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbAppCookieStickinessPolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about a stickiness policy that was created using
- *             <code>CreateLBCookieStickinessPolicy</code>.</p>
- */
-export interface AwsElbLbCookieStickinessPolicy {
-  /**
-   * <p>The amount of time, in seconds, after which the cookie is considered stale. If an
-   *          expiration period is not specified, the stickiness session lasts for the duration of the
-   *          browser session.</p>
-   */
-  CookieExpirationPeriod?: number;
-
-  /**
-   * <p>The name of the policy. The name must be unique within the set of policies for the load
-   *          balancer.</p>
-   */
-  PolicyName?: string;
-}
-
-export namespace AwsElbLbCookieStickinessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLbCookieStickinessPolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the access log configuration for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerAccessLog {
-  /**
-   * <p>The interval in minutes for publishing the access logs.</p>
-   *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
-   */
-  EmitInterval?: number;
-
-  /**
-   * <p>Indicates whether access logs are enabled for the load balancer.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The name of the S3 bucket where the access logs are stored.</p>
-   */
-  S3BucketName?: string;
-
-  /**
-   * <p>The logical hierarchy that was created for the S3 bucket.</p>
-   *          <p>If a prefix is not provided, the log is placed at the root level of the bucket.</p>
-   */
-  S3BucketPrefix?: string;
-}
-
-export namespace AwsElbLoadBalancerAccessLog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAccessLog): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about additional attributes for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerAdditionalAttribute {
-  /**
-   * <p>The name of the attribute.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the attribute.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsElbLoadBalancerAdditionalAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAdditionalAttribute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the connection draining configuration for the load
- *          balancer.</p>
- */
-export interface AwsElbLoadBalancerConnectionDraining {
-  /**
-   * <p>Indicates whether connection draining is enabled for the load balancer.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The maximum time, in seconds, to keep the existing connections open before deregistering
-   *          the instances.</p>
-   */
-  Timeout?: number;
-}
-
-export namespace AwsElbLoadBalancerConnectionDraining {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerConnectionDraining): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains connection settings for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerConnectionSettings {
-  /**
-   * <p>The time, in seconds, that the connection can be idle (no data is sent over the
-   *          connection) before it is closed by the load balancer.</p>
-   */
-  IdleTimeout?: number;
-}
-
-export namespace AwsElbLoadBalancerConnectionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerConnectionSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains cross-zone load balancing settings for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
-  /**
-   * <p>Indicates whether cross-zone load balancing is enabled for the load balancer.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace AwsElbLoadBalancerCrossZoneLoadBalancing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerCrossZoneLoadBalancing): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains attributes for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerAttributes {
-  /**
-   * <p>Information about the access log configuration for the load balancer.</p>
-   *          <p>If the access log is enabled, the load balancer captures detailed information about all
-   *          requests. It delivers the information to a specified S3 bucket.</p>
-   */
-  AccessLog?: AwsElbLoadBalancerAccessLog;
-
-  /**
-   * <p>Information about the connection draining configuration for the load balancer.</p>
-   *          <p>If connection draining is enabled, the load balancer allows existing requests to
-   *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
-   */
-  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
-
-  /**
-   * <p>Connection settings for the load balancer.</p>
-   *          <p>If an idle timeout is configured, the load balancer allows connections to remain idle
-   *          for the specified duration. When a connection is idle, no data is sent over the
-   *          connection.</p>
-   */
-  ConnectionSettings?: AwsElbLoadBalancerConnectionSettings;
-
-  /**
-   * <p>Cross-zone load balancing settings for the load balancer.</p>
-   *          <p>If cross-zone load balancing is enabled, the load balancer routes the request traffic
-   *          evenly across all instances regardless of the Availability Zones.</p>
-   */
-  CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
-
-  /**
-   * <p>Any additional attributes for a load balancer.</p>
-   */
-  AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
-}
-
-export namespace AwsElbLoadBalancerAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAttributes): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the configuration of an EC2 instance for the load
- *          balancer.</p>
- */
-export interface AwsElbLoadBalancerBackendServerDescription {
-  /**
-   * <p>The port on which the EC2 instance is listening.</p>
-   */
-  InstancePort?: number;
-
-  /**
-   * <p>The names of the policies that are enabled for the EC2 instance.</p>
-   */
-  PolicyNames?: string[];
-}
-
-export namespace AwsElbLoadBalancerBackendServerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerBackendServerDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the health checks that are conducted on the load
- *          balancer.</p>
- */
-export interface AwsElbLoadBalancerHealthCheck {
-  /**
-   * <p>The number of consecutive health check successes required before the instance is moved
-   *          to the Healthy state.</p>
-   */
-  HealthyThreshold?: number;
-
-  /**
-   * <p>The approximate interval, in seconds, between health checks of an individual
-   *          instance.</p>
-   */
-  Interval?: number;
-
-  /**
-   * <p>The instance that is being checked. The target specifies the protocol and port. The
-   *          available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through
-   *          65535.</p>
-   *          <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
-   *          <p>For the TCP protocol, the target is specified as <code>TCP:
-   *                <i><port></i>
-   *             </code>.</p>
-   *          <p>For the SSL protocol, the target is specified as
-   *                <code>SSL.<i><port></i>
-   *             </code>.</p>
-   *          <p>For the HTTP and HTTPS protocols, the target is specified as
-   *                <code>
-   *                <i><protocol></i>:<i><port></i>/<i><path
-   *                to ping></i>
-   *             </code>.</p>
-   */
-  Target?: string;
-
-  /**
-   * <p>The amount of time, in seconds, during which no response means a failed health
-   *          check.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The number of consecutive health check failures that must occur before the instance is
-   *          moved to the Unhealthy state.</p>
-   */
-  UnhealthyThreshold?: number;
-}
-
-export namespace AwsElbLoadBalancerHealthCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerHealthCheck): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about an EC2 instance for a load balancer.</p>
- */
-export interface AwsElbLoadBalancerInstance {
-  /**
-   * <p>The instance identifier.</p>
-   */
-  InstanceId?: string;
-}
-
-export namespace AwsElbLoadBalancerInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerInstance): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a load balancer listener.</p>
- */
-export interface AwsElbLoadBalancerListener {
-  /**
-   * <p>The port on which the instance is listening.</p>
-   */
-  InstancePort?: number;
-
-  /**
-   * <p>The protocol to use to route traffic to instances.</p>
-   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
-   *             <code>SSL</code>
-   *          </p>
-   */
-  InstanceProtocol?: string;
-
-  /**
-   * <p>The port on which the load balancer is listening.</p>
-   *          <p>On EC2-VPC, you can specify any port from the range 1-65535.</p>
-   *          <p>On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587,
-   *          1024-65535.</p>
-   */
-  LoadBalancerPort?: number;
-
-  /**
-   * <p>The load balancer transport protocol to use for routing.</p>
-   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
-   *             <code>SSL</code>
-   *          </p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The ARN of the server certificate.</p>
-   */
-  SslCertificateId?: string;
-}
-
-export namespace AwsElbLoadBalancerListener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerListener): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Lists the policies that are enabled for a load balancer listener.</p>
- */
-export interface AwsElbLoadBalancerListenerDescription {
-  /**
-   * <p>Information about the listener.</p>
-   */
-  Listener?: AwsElbLoadBalancerListener;
-
-  /**
-   * <p>The policies enabled for the listener.</p>
-   */
-  PolicyNames?: string[];
-}
-
-export namespace AwsElbLoadBalancerListenerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerListenerDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the policies for a load balancer.</p>
- */
-export interface AwsElbLoadBalancerPolicies {
-  /**
-   * <p>The stickiness policies that are created using
-   *             <code>CreateAppCookieStickinessPolicy</code>.</p>
-   */
-  AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[];
-
-  /**
-   * <p>The stickiness policies that are created using
-   *             <code>CreateLBCookieStickinessPolicy</code>.</p>
-   */
-  LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[];
-
-  /**
-   * <p>The policies other than the stickiness policies.</p>
-   */
-  OtherPolicies?: string[];
-}
-
-export namespace AwsElbLoadBalancerPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerPolicies): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the security group for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerSourceSecurityGroup {
-  /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The owner of the security group.</p>
-   */
-  OwnerAlias?: string;
-}
-
-export namespace AwsElbLoadBalancerSourceSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerSourceSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains details about a Classic Load Balancer.</p>
- */
-export interface AwsElbLoadBalancerDetails {
-  /**
-   * <p>The list of Availability Zones for the load balancer.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>Information about the configuration of the EC2 instances.</p>
-   */
-  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
-
-  /**
-   * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneName?: string;
-
-  /**
-   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneNameID?: string;
-
-  /**
-   * <p>Indicates when the load balancer was created.</p>
+   * <p>Indicates when the security-findings provider first observed the potential security
+   *          issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  CreatedTime?: string;
+  FirstObservedAt?: string;
 
   /**
-   * <p>The DNS name of the load balancer.</p>
-   */
-  DnsName?: string;
-
-  /**
-   * <p>Information about the health checks that are conducted on the load balancer.</p>
-   */
-  HealthCheck?: AwsElbLoadBalancerHealthCheck;
-
-  /**
-   * <p>List of EC2 instances for the load balancer.</p>
-   */
-  Instances?: AwsElbLoadBalancerInstance[];
-
-  /**
-   * <p>The policies that are enabled for the load balancer listeners.</p>
-   */
-  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
-
-  /**
-   * <p>The attributes for a load balancer.</p>
-   */
-  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
-
-  /**
-   * <p>The name of the load balancer.</p>
-   */
-  LoadBalancerName?: string;
-
-  /**
-   * <p>The policies for a load balancer.</p>
-   */
-  Policies?: AwsElbLoadBalancerPolicies;
-
-  /**
-   * <p>The type of load balancer. Only provided if the load balancer is in a VPC.</p>
-   *          <p>If <code>Scheme</code> is <code>internet-facing</code>, the load balancer has a public
-   *          DNS name that resolves to a public IP address.</p>
-   *          <p>If <code>Scheme</code> is <code>internal</code>, the load balancer has a public DNS name
-   *          that resolves to a private IP address.</p>
-   */
-  Scheme?: string;
-
-  /**
-   * <p>The security groups for the load balancer. Only provided if the load balancer is in a
-   *          VPC.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>Information about the security group for the load balancer. This is the security group
-   *          that is used for inbound rules.</p>
-   */
-  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
-
-  /**
-   * <p>The list of subnet identifiers for the load balancer.</p>
-   */
-  Subnets?: string[];
-
-  /**
-   * <p>The identifier of the VPC for the load balancer.</p>
-   */
-  VpcId?: string;
-}
-
-export namespace AwsElbLoadBalancerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A load balancer attribute.</p>
- */
-export interface AwsElbv2LoadBalancerAttribute {
-  /**
-   * <p>The name of the load balancer attribute.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the load balancer attribute.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsElbv2LoadBalancerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerAttribute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the state of the load balancer.</p>
- */
-export interface LoadBalancerState {
-  /**
-   * <p>The state code. The initial state of the load balancer is provisioning.</p>
-   *          <p>After the load balancer is fully set up and ready to route traffic, its state is
-   *          active.</p>
-   *          <p>If the load balancer could not be set up, its state is failed. </p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A description of the state.</p>
-   */
-  Reason?: string;
-}
-
-export namespace LoadBalancerState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a load balancer.</p>
- */
-export interface AwsElbv2LoadBalancerDetails {
-  /**
-   * <p>The Availability Zones for the load balancer.</p>
-   */
-  AvailabilityZones?: AvailabilityZone[];
-
-  /**
-   * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
-   */
-  CanonicalHostedZoneId?: string;
-
-  /**
-   * <p>Indicates when the load balancer was created.</p>
+   * <p>Indicates when the security-findings provider most recently observed the potential
+   *          security issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  CreatedTime?: string;
+  LastObservedAt?: string;
 
   /**
-   * <p>The public DNS name of the load balancer.</p>
-   */
-  DNSName?: string;
-
-  /**
-   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
-   *          are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *          addresses).</p>
-   */
-  IpAddressType?: string;
-
-  /**
-   * <p>The nodes of an Internet-facing load balancer have public IP addresses.</p>
-   */
-  Scheme?: string;
-
-  /**
-   * <p>The IDs of the security groups for the load balancer.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>The state of the load balancer.</p>
-   */
-  State?: LoadBalancerState;
-
-  /**
-   * <p>The type of load balancer.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The ID of the VPC for the load balancer.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Attributes of the load balancer.</p>
-   */
-  LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
-}
-
-export namespace AwsElbv2LoadBalancerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Attributes of the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContextAttributes {
-  /**
-   * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
-   */
-  MfaAuthenticated?: boolean;
-
-  /**
-   * <p>Indicates when the session was created.</p>
+   * <p>Indicates when the security-findings provider created the potential security issue that
+   *          a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
-  CreationDate?: string;
+  CreatedAt: string | undefined;
+
+  /**
+   * <p>Indicates when the security-findings provider last updated the finding record.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   * <p>A finding's severity.</p>
+   */
+  Severity?: Severity;
+
+  /**
+   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>A finding's title.</p>
+   *          <note>
+   *             <p>In this release, <code>Title</code> is a required property.</p>
+   *          </note>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>A finding's description.</p>
+   *          <note>
+   *             <p>In this release, <code>Description</code> is a required property.</p>
+   *          </note>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A data type that describes the remediation options for a finding.</p>
+   */
+  Remediation?: Remediation;
+
+  /**
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   */
+  SourceUrl?: string;
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
+   */
+  ProductFields?: Record<string, string>;
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   */
+  UserDefinedFields?: Record<string, string>;
+
+  /**
+   * <p>A list of malware related to a finding.</p>
+   */
+  Malware?: Malware[];
+
+  /**
+   * <p>The details of network-related information about a finding.</p>
+   */
+  Network?: Network;
+
+  /**
+   * <p>Provides information about a network path that is relevant to a finding. Each entry
+   *          under <code>NetworkPath</code> represents a component of that path.</p>
+   */
+  NetworkPath?: NetworkPathComponent[];
+
+  /**
+   * <p>The details of process-related information about a finding.</p>
+   */
+  Process?: ProcessDetails;
+
+  /**
+   * <p>Details about the threat detected in a security finding and the file paths that were affected by the threat.
+   *       </p>
+   */
+  Threats?: Threat[];
+
+  /**
+   * <p>Threat intelligence details related to a finding.</p>
+   */
+  ThreatIntelIndicators?: ThreatIntelIndicator[];
+
+  /**
+   * <p>A set of resource data types that describe the resources that the finding refers
+   *          to.</p>
+   */
+  Resources: Resource[] | undefined;
+
+  /**
+   * <p>This data type is exclusive to findings that are generated as the result of a check run
+   *          against a specific rule in a supported security standard, such as CIS Amazon Web Services Foundations.
+   *          Contains security standard-related finding details.</p>
+   */
+  Compliance?: Compliance;
+
+  /**
+   * <p>Indicates the veracity of a finding. </p>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * @deprecated
+   *
+   * <p>The workflow state of a finding. </p>
+   */
+  WorkflowState?: WorkflowState | string;
+
+  /**
+   * <p>Provides information about the status of the investigation into a finding.</p>
+   */
+  Workflow?: Workflow;
+
+  /**
+   * <p>The record state of a finding.</p>
+   */
+  RecordState?: RecordState | string;
+
+  /**
+   * <p>A list of related findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+
+  /**
+   * <p>A user-defined note added to a finding.</p>
+   */
+  Note?: Note;
+
+  /**
+   * <p>Provides a list of vulnerabilities associated with the findings.</p>
+   */
+  Vulnerabilities?: Vulnerability[];
+
+  /**
+   * <p>Provides an overview of the patch compliance status for an instance against a selected
+   *          compliance standard.</p>
+   */
+  PatchSummary?: PatchSummary;
+
+  /**
+   * <p>Provides details about an action that affects or that was taken on a resource.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
+   */
+  FindingProviderFields?: FindingProviderFields;
+
+  /**
+   * <p>Indicates whether the finding is a sample finding.</p>
+   */
+  Sample?: boolean;
 }
 
-export namespace AwsIamAccessKeySessionContextAttributes {
+export namespace AwsSecurityFinding {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContextAttributes): any => ({
+  export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Information about the entity that created the session.</p>
+ * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
+ *          that result in a subset of findings that are included in this insight.</p>
+ *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+ *          20 filter values.</p>
  */
-export interface AwsIamAccessKeySessionContextSessionIssuer {
+export interface AwsSecurityFindingFilters {
   /**
-   * <p>The type of principal (user, role, or group) that created the session.</p>
+   * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
+   *          (security findings provider) after this provider's product (solution that generates
+   *          findings) is registered with Security Hub.</p>
    */
-  Type?: string;
-
-  /**
-   * <p>The principal ID of the principal (user, role, or group) that created the
-   *          session.</p>
-   */
-  PrincipalId?: string;
+  ProductArn?: StringFilter[];
 
   /**
-   * <p>The ARN of the session.</p>
+   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
    */
-  Arn?: string;
+  AwsAccountId?: StringFilter[];
 
   /**
-   * <p>The identifier of the Amazon Web Services account that created the session.</p>
+   * <p>The security findings provider-specific identifier for a finding.</p>
    */
-  AccountId?: string;
+  Id?: StringFilter[];
 
   /**
-   * <p>The name of the principal that created the session.</p>
+   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plugin, etc.</p>
    */
-  UserName?: string;
-}
-
-export namespace AwsIamAccessKeySessionContextSessionIssuer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContextSessionIssuer): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContext {
-  /**
-   * <p>Attributes of the session that the key was used for.</p>
-   */
-  Attributes?: AwsIamAccessKeySessionContextAttributes;
+  GeneratorId?: StringFilter[];
 
   /**
-   * <p>Information about the entity that created the session.</p>
+   * <p>The Region from which the finding was generated.</p>
    */
-  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
-}
+  Region?: StringFilter[];
 
-export namespace AwsIamAccessKeySessionContext {
   /**
-   * @internal
+   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
+   *          classifies a finding.</p>
    */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContext): any => ({
-    ...obj,
-  });
-}
+  Type?: StringFilter[];
 
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   *          observed the potential security issue that a finding captured.</p>
+   */
+  FirstObservedAt?: DateFilter[];
 
-/**
- * <p>IAM access key details related to a finding.</p>
- */
-export interface AwsIamAccessKeyDetails {
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   *          recently observed the potential security issue that a finding captured.</p>
+   */
+  LastObservedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   *          captured the potential security issue that a finding captured.</p>
+   */
+  CreatedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
+   *          updated the finding record. </p>
+   */
+  UpdatedAt?: DateFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>The native severity as defined by the security-findings provider's solution that
+   *          generated the finding.</p>
+   */
+  SeverityProduct?: NumberFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>The normalized severity of a finding.</p>
+   */
+  SeverityNormalized?: NumberFilter[];
+
+  /**
+   * <p>The label of a finding's severity.</p>
+   */
+  SeverityLabel?: StringFilter[];
+
+  /**
+   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: NumberFilter[];
+
+  /**
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
+   */
+  Criticality?: NumberFilter[];
+
+  /**
+   * <p>A finding's title.</p>
+   */
+  Title?: StringFilter[];
+
+  /**
+   * <p>A finding's description.</p>
+   */
+  Description?: StringFilter[];
+
+  /**
+   * <p>The recommendation of what to do about the issue described in a finding.</p>
+   */
+  RecommendationText?: StringFilter[];
+
+  /**
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   */
+  SourceUrl?: StringFilter[];
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   */
+  ProductFields?: MapFilter[];
+
+  /**
+   * <p>The name of the solution (product) that generates findings.</p>
+   */
+  ProductName?: StringFilter[];
+
+  /**
+   * <p>The name of the findings provider (company) that owns the solution (product) that
+   *          generates findings.</p>
+   */
+  CompanyName?: StringFilter[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   */
+  UserDefinedFields?: MapFilter[];
+
+  /**
+   * <p>The name of the malware that was observed.</p>
+   */
+  MalwareName?: StringFilter[];
+
+  /**
+   * <p>The type of the malware that was observed.</p>
+   */
+  MalwareType?: StringFilter[];
+
+  /**
+   * <p>The filesystem path of the malware that was observed.</p>
+   */
+  MalwarePath?: StringFilter[];
+
+  /**
+   * <p>The state of the malware that was observed.</p>
+   */
+  MalwareState?: StringFilter[];
+
+  /**
+   * <p>Indicates the direction of network traffic associated with a finding.</p>
+   */
+  NetworkDirection?: StringFilter[];
+
+  /**
+   * <p>The protocol of network-related information about a finding.</p>
+   */
+  NetworkProtocol?: StringFilter[];
+
+  /**
+   * <p>The source IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV4?: IpFilter[];
+
+  /**
+   * <p>The source IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV6?: IpFilter[];
+
+  /**
+   * <p>The source port of network-related information about a finding.</p>
+   */
+  NetworkSourcePort?: NumberFilter[];
+
+  /**
+   * <p>The source domain of network-related information about a finding.</p>
+   */
+  NetworkSourceDomain?: StringFilter[];
+
+  /**
+   * <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   */
+  NetworkSourceMac?: StringFilter[];
+
+  /**
+   * <p>The destination IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV4?: IpFilter[];
+
+  /**
+   * <p>The destination IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV6?: IpFilter[];
+
+  /**
+   * <p>The destination port of network-related information about a finding.</p>
+   */
+  NetworkDestinationPort?: NumberFilter[];
+
+  /**
+   * <p>The destination domain of network-related information about a finding.</p>
+   */
+  NetworkDestinationDomain?: StringFilter[];
+
+  /**
+   * <p>The name of the process.</p>
+   */
+  ProcessName?: StringFilter[];
+
+  /**
+   * <p>The path to the process executable.</p>
+   */
+  ProcessPath?: StringFilter[];
+
+  /**
+   * <p>The process ID.</p>
+   */
+  ProcessPid?: NumberFilter[];
+
+  /**
+   * <p>The parent process ID.</p>
+   */
+  ProcessParentPid?: NumberFilter[];
+
+  /**
+   * <p>The date/time that the process was launched.</p>
+   */
+  ProcessLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The date/time that the process was terminated.</p>
+   */
+  ProcessTerminatedAt?: DateFilter[];
+
+  /**
+   * <p>The type of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorType?: StringFilter[];
+
+  /**
+   * <p>The value of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorValue?: StringFilter[];
+
+  /**
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorCategory?: StringFilter[];
+
+  /**
+   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
+
+  /**
+   * <p>The source of the threat intelligence.</p>
+   */
+  ThreatIntelIndicatorSource?: StringFilter[];
+
+  /**
+   * <p>The URL for more details from the source of the threat intelligence.</p>
+   */
+  ThreatIntelIndicatorSourceUrl?: StringFilter[];
+
+  /**
+   * <p>Specifies the type of the resource that details are provided for.</p>
+   */
+  ResourceType?: StringFilter[];
+
+  /**
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  ResourceId?: StringFilter[];
+
+  /**
+   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
+   */
+  ResourcePartition?: StringFilter[];
+
+  /**
+   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
+   */
+  ResourceRegion?: StringFilter[];
+
+  /**
+   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
+   *          processed.</p>
+   */
+  ResourceTags?: MapFilter[];
+
+  /**
+   * <p>The instance type of the instance.</p>
+   */
+  ResourceAwsEc2InstanceType?: StringFilter[];
+
+  /**
+   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   */
+  ResourceAwsEc2InstanceImageId?: StringFilter[];
+
+  /**
+   * <p>The IPv4 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
+
+  /**
+   * <p>The IPv6 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
+
+  /**
+   * <p>The key name associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceKeyName?: StringFilter[];
+
+  /**
+   * <p>The IAM profile ARN of the instance.</p>
+   */
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
+
+  /**
+   * <p>The identifier of the VPC that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceVpcId?: StringFilter[];
+
+  /**
+   * <p>The identifier of the subnet that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
+
+  /**
+   * <p>The date and time the instance was launched.</p>
+   */
+  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerId?: StringFilter[];
+
+  /**
+   * <p>The display name of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerName?: StringFilter[];
+
   /**
    * @deprecated
    *
    * <p>The user associated with the IAM access key related to a finding.</p>
-   *          <p>The <code>UserName</code> parameter has been replaced with the
-   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
-   *          principals that are not IAM users.</p>
    */
-  UserName?: string;
+  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+
+  /**
+   * <p>The name of the principal that is associated with an IAM access key.</p>
+   */
+  ResourceAwsIamAccessKeyPrincipalName?: StringFilter[];
 
   /**
    * <p>The status of the IAM access key related to a finding.</p>
    */
-  Status?: AwsIamAccessKeyStatus | string;
+  ResourceAwsIamAccessKeyStatus?: StringFilter[];
 
   /**
-   * <p>Indicates when the IAM access key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The creation date/time of the IAM access key related to a finding.</p>
    */
-  CreatedAt?: string;
+  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
 
   /**
-   * <p>The ID of the principal associated with an access key.</p>
+   * <p>The name of an IAM user.</p>
    */
-  PrincipalId?: string;
+  ResourceAwsIamUserUserName?: StringFilter[];
 
   /**
-   * <p>The type of principal associated with an access key.</p>
+   * <p>The name of the container related to a finding.</p>
    */
-  PrincipalType?: string;
+  ResourceContainerName?: StringFilter[];
 
   /**
-   * <p>The name of the principal.</p>
+   * <p>The identifier of the image related to a finding.</p>
    */
-  PrincipalName?: string;
+  ResourceContainerImageId?: StringFilter[];
 
   /**
-   * <p>The Amazon Web Services account ID of the account for the key.</p>
+   * <p>The name of the image related to a finding.</p>
+   */
+  ResourceContainerImageName?: StringFilter[];
+
+  /**
+   * <p>The date/time that the container was started.</p>
+   */
+  ResourceContainerLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The details of a resource that doesn't have a specific subfield for the resource type
+   *          defined.</p>
+   */
+  ResourceDetailsOther?: MapFilter[];
+
+  /**
+   * <p>Exclusive to findings that are generated as the result of a check run against a specific
+   *          rule in a supported standard, such as CIS Amazon Web Services Foundations. Contains security
+   *          standard-related finding details.</p>
+   */
+  ComplianceStatus?: StringFilter[];
+
+  /**
+   * <p>The veracity of a finding.</p>
+   */
+  VerificationState?: StringFilter[];
+
+  /**
+   * <p>The workflow state of a finding.</p>
+   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
+   *          status, use <code>WorkflowStatus</code>.</p>
+   */
+  WorkflowState?: StringFilter[];
+
+  /**
+   * <p>The status of the investigation into a finding. Allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to either <code>WARNING</code>,
+   *                         <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that the resource owner has been notified about
+   *                the security issue. Used when the initial reviewer is not the resource owner, and
+   *                needs intervention from the resource owner.</p>
+   *                <p>If one of the following occurs, the workflow status is changed automatically from
+   *                <code>NOTIFIED</code> to <code>NEW</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
+   *                      <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to <code>FAILED</code>,
+   *                      <code>WARNING</code>, or <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is
+   *                needed.</p>
+   *                <p>The workflow status of a <code>SUPPRESSED</code> finding does not change if
+   *                <code>RecordState</code> changes from <code>ARCHIVED</code> to
+   *                <code>ACTIVE</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved. </p>
+   *                <p>The finding remains <code>RESOLVED</code> unless one of the following occurs:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
+   *                      <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Compliance.Status</code> changes from <code>PASSED</code> to <code>FAILED</code>,
+   *                      <code>WARNING</code>, or <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>In those cases, the workflow status is automatically reset to <code>NEW</code>.</p>
+   *                <p>For findings from controls, if <code>Compliance.Status</code> is <code>PASSED</code>,
+   *                then Security Hub automatically sets the workflow status to <code>RESOLVED</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  WorkflowStatus?: StringFilter[];
+
+  /**
+   * <p>The updated record state for the finding.</p>
+   */
+  RecordState?: StringFilter[];
+
+  /**
+   * <p>The ARN of the solution that generated a related finding.</p>
+   */
+  RelatedFindingsProductArn?: StringFilter[];
+
+  /**
+   * <p>The solution-generated identifier for a related finding.</p>
+   */
+  RelatedFindingsId?: StringFilter[];
+
+  /**
+   * <p>The text of a note.</p>
+   */
+  NoteText?: StringFilter[];
+
+  /**
+   * <p>The timestamp of when the note was updated.</p>
+   */
+  NoteUpdatedAt?: DateFilter[];
+
+  /**
+   * <p>The principal that created a note.</p>
+   */
+  NoteUpdatedBy?: StringFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>A keyword for a finding.</p>
+   */
+  Keyword?: KeywordFilter[];
+
+  /**
+   * <p>The finding provider value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  FindingProviderFieldsConfidence?: NumberFilter[];
+
+  /**
+   * <p>The finding provider value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  FindingProviderFieldsCriticality?: NumberFilter[];
+
+  /**
+   * <p>The finding identifier of a related finding that is identified by the finding provider.</p>
+   */
+  FindingProviderFieldsRelatedFindingsId?: StringFilter[];
+
+  /**
+   * <p>The ARN of the solution that generated a related finding that is identified by the finding provider.</p>
+   */
+  FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[];
+
+  /**
+   * <p>The finding provider value for the severity label.</p>
+   */
+  FindingProviderFieldsSeverityLabel?: StringFilter[];
+
+  /**
+   * <p>The finding provider's original value for the severity.</p>
+   */
+  FindingProviderFieldsSeverityOriginal?: StringFilter[];
+
+  /**
+   * <p>One or more finding types that the finding provider assigned to the finding. Uses the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
+   */
+  FindingProviderFieldsTypes?: StringFilter[];
+
+  /**
+   * <p>Indicates whether or not sample findings are included in the filter results.</p>
+   */
+  Sample?: BooleanFilter[];
+}
+
+export namespace AwsSecurityFindingFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
+ */
+export interface AwsSecurityFindingIdentifier {
+  /**
+   * <p>The identifier of the finding that was specified by the finding provider.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
+   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
+   *          a custom integration.</p>
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace AwsSecurityFindingIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisableStandardsRequest {
+  /**
+   * <p>The ARNs of the standards subscriptions to disable.</p>
+   */
+  StandardsSubscriptionArns: string[] | undefined;
+}
+
+export namespace BatchDisableStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource that represents your subscription to a supported standard.</p>
+ */
+export interface StandardsSubscription {
+  /**
+   * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
+   */
+  StandardsSubscriptionArn: string | undefined;
+
+  /**
+   * <p>The ARN of a standard.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>A key-value pair of input for the standard.</p>
+   */
+  StandardsInput: Record<string, string> | undefined;
+
+  /**
+   * <p>The status of the standard subscription.</p>
+   *          <p>The status values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - Standard is in the process of being enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - Standard is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCOMPLETE</code> - Standard could not be enabled completely. Some controls may not be available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - Standard is in the process of being disabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Standard could not be disabled.</p>
+   *             </li>
+   *          </ul>
+   */
+  StandardsStatus: StandardsStatus | string | undefined;
+
+  /**
+   * <p>The reason for the current status.</p>
+   */
+  StandardsStatusReason?: StandardsStatusReason;
+}
+
+export namespace StandardsSubscription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StandardsSubscription): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisableStandardsResponse {
+  /**
+   * <p>The details of the standards subscriptions that were disabled.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+}
+
+export namespace BatchDisableStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The standard that you want to enable.</p>
+ */
+export interface StandardsSubscriptionRequest {
+  /**
+   * <p>The ARN of the standard that you want to enable. To view the list of available standards
+   *          and their ARNs, use the <code>DescribeStandards</code> operation.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>A key-value pair of input for the standard.</p>
+   */
+  StandardsInput?: Record<string, string>;
+}
+
+export namespace StandardsSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchEnableStandardsRequest {
+  /**
+   * <p>The list of standards checks to enable.</p>
+   */
+  StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
+}
+
+export namespace BatchEnableStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchEnableStandardsResponse {
+  /**
+   * <p>The details of the standards subscriptions that were enabled.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+}
+
+export namespace BatchEnableStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchImportFindingsRequest {
+  /**
+   * <p>A list of findings to import. To successfully import a finding, it must follow the
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+}
+
+export namespace BatchImportFindingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of the findings that cannot be imported. For each finding, the list provides
+ *          the error.</p>
+ */
+export interface ImportFindingsError {
+  /**
+   * <p>The identifier of the finding that could not be updated.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message of the error returned by the <code>BatchImportFindings</code>
+   *          operation.</p>
+   */
+  ErrorMessage: string | undefined;
+}
+
+export namespace ImportFindingsError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportFindingsError): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchImportFindingsResponse {
+  /**
+   * <p>The number of findings that failed to import.</p>
+   */
+  FailedCount: number | undefined;
+
+  /**
+   * <p>The number of findings that were successfully imported.</p>
+   */
+  SuccessCount: number | undefined;
+
+  /**
+   * <p>The list of findings that failed to import.</p>
+   */
+  FailedFindings?: ImportFindingsError[];
+}
+
+export namespace BatchImportFindingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The updated note.</p>
+ */
+export interface NoteUpdate {
+  /**
+   * <p>The updated note text.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The principal that updated the note.</p>
+   */
+  UpdatedBy: string | undefined;
+}
+
+export namespace NoteUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoteUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to the severity information for a finding.</p>
+ */
+export interface SeverityUpdate {
+  /**
+   * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
+   *             <code>Label</code>.</p>
+   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
+   *             <code>Label</code> is set automatically as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>1–39 - <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>40–69 - <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>70–89 - <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>90–100 - <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Normalized?: number;
+
+  /**
+   * <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
+  /**
+   * <p>The severity value of the finding. The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - The issue does not require action on its own.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
+   *                escalating.</p>
+   *             </li>
+   *          </ul>
+   */
+  Label?: SeverityLabel | string;
+}
+
+export namespace SeverityUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SeverityUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Used to update information about the investigation into the finding.</p>
+ */
+export interface WorkflowUpdate {
+  /**
+   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
+   *          <p>The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The record state changes from <code>ARCHIVED</code> to
+   *                      <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The compliance status changes from <code>PASSED</code> to either
+   *                         <code>WARNING</code>, <code>FAILED</code>, or
+   *                      <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
+   *                security issue. Used when the initial reviewer is not the resource owner, and needs
+   *                intervention from the resource owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: WorkflowStatus | string;
+}
+
+export namespace WorkflowUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchUpdateFindingsRequest {
+  /**
+   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
+   *          up to 100 findings at a time.</p>
+   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
+   *          provider.</p>
+   */
+  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The updated note.</p>
+   */
+  Note?: NoteUpdate;
+
+  /**
+   * <p>Used to update the finding severity.</p>
+   */
+  Severity?: SeverityUpdate;
+
+  /**
+   * <p>Indicates the veracity of a finding.</p>
+   *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – The default disposition of a security finding</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRUE_POSITIVE</code> – The security finding is confirmed</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FALSE_POSITIVE</code> – The security finding was determined to be a false
+   *                alarm</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
+   *                the finding doesn't pose any threat, is expected, or both</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The updated value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>One or more finding types in the format of namespace/category/classifier that classify a
+   *          finding.</p>
+   *          <p>Valid namespace values are as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Software and Configuration Checks</p>
+   *             </li>
+   *             <li>
+   *                <p>TTPs</p>
+   *             </li>
+   *             <li>
+   *                <p>Effects</p>
+   *             </li>
+   *             <li>
+   *                <p>Unusual Behaviors</p>
+   *             </li>
+   *             <li>
+   *                <p>Sensitive Data Identifications </p>
+   *             </li>
+   *          </ul>
+   */
+  Types?: string[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding.</p>
+   */
+  UserDefinedFields?: Record<string, string>;
+
+  /**
+   * <p>Used to update the workflow status of a finding.</p>
+   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
+   */
+  Workflow?: WorkflowUpdate;
+
+  /**
+   * <p>A list of findings that are related to the updated findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+}
+
+export namespace BatchUpdateFindingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
+ *          update.</p>
+ */
+export interface BatchUpdateFindingsUnprocessedFinding {
+  /**
+   * <p>The identifier of the finding that was not updated.</p>
+   */
+  FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
+
+  /**
+   * <p>The code associated with the error.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message associated with the error.</p>
+   */
+  ErrorMessage: string | undefined;
+}
+
+export namespace BatchUpdateFindingsUnprocessedFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsUnprocessedFinding): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchUpdateFindingsResponse {
+  /**
+   * <p>The list of findings that were updated successfully.</p>
+   */
+  ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The list of findings that were not updated.</p>
+   */
+  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
+}
+
+export namespace BatchUpdateFindingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateActionTargetRequest {
+  /**
+   * <p>The name of the custom action target. Can contain up to 20 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the custom action target.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace CreateActionTargetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateActionTargetResponse {
+  /**
+   * <p>The ARN for the custom action target.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace CreateActionTargetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource specified in the request conflicts with an existing resource.</p>
+ */
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+export interface CreateFindingAggregatorRequest {
+  /**
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
+   *          <p>The options are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *          </p>
+   *             </li>
+   *          </ul>
+   */
+  RegionLinkingMode: string | undefined;
+
+  /**
+   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
+   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.
+   *       </p>
+   */
+  Regions?: string[];
+}
+
+export namespace CreateFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop finding aggregation.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace CreateFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFindingAggregatorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInsightRequest {
+  /**
+   * <p>The name of the custom insight to create.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The attribute used to group the findings for the insight. The grouping attribute
+   *          identifies the type of item that the insight applies to. For example, if an insight is
+   *          grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
+}
+
+export namespace CreateInsightRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInsightResponse {
+  /**
+   * <p>The ARN of the insight created.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace CreateInsightResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInsightResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMembersRequest {
+  /**
+   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
+   *          list includes the account ID and optionally the email address.</p>
+   */
+  AccountDetails: AccountDetails[] | undefined;
+}
+
+export namespace CreateMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the account that was not processed.</p>
+ */
+export interface Result {
+  /**
+   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The identifier of the access key.</p>
+   * <p>The reason that the account was not processed.</p>
    */
-  AccessKeyId?: string;
-
-  /**
-   * <p>Information about the session that the key was used for.</p>
-   */
-  SessionContext?: AwsIamAccessKeySessionContext;
+  ProcessingResult?: string;
 }
 
-export namespace AwsIamAccessKeyDetails {
+export namespace Result {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeyDetails): any => ({
+  export const filterSensitiveLog = (obj: Result): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace CreateMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeclineInvitationsRequest {
+  /**
+   * <p>The list of account IDs for the accounts from which to decline the invitations to
+   *          Security Hub.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeclineInvitationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeclineInvitationsResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeclineInvitationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteActionTargetRequest {
+  /**
+   * <p>The ARN of the custom action target to delete.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteActionTargetResponse {
+  /**
+   * <p>The ARN of the custom action target that was deleted.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+}
+
+export namespace DeleteFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFindingAggregatorResponse {}
+
+export namespace DeleteFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInsightRequest {
+  /**
+   * <p>The ARN of the insight to delete.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInsightResponse {
+  /**
+   * <p>The ARN of the insight that was deleted.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInvitationsRequest {
+  /**
+   * <p>The list of the account IDs that sent the invitations to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeleteInvitationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInvitationsResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
+   *          the list includes the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeleteInvitationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMembersRequest {
+  /**
+   * <p>The list of account IDs for the member accounts to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeleteMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
+   *          account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeleteMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeActionTargetsRequest {
+  /**
+   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
+   */
+  ActionTargetArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeActionTargetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeActionTargetsResponse {
+  /**
+   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
+   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
+   *          Security Hub.</p>
+   */
+  ActionTargets: ActionTarget[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeActionTargetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHubRequest {
+  /**
+   * <p>The ARN of the Hub resource to retrieve.</p>
+   */
+  HubArn?: string;
+}
+
+export namespace DescribeHubRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeHubRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHubResponse {
+  /**
+   * <p>The ARN of the Hub resource that was retrieved.</p>
+   */
+  HubArn?: string;
+
+  /**
+   * <p>The date and time when Security Hub was enabled in the account.</p>
+   */
+  SubscribedAt?: string;
+
+  /**
+   * <p>Whether to automatically enable new controls when they are added to standards that are
+   *          enabled.</p>
+   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
+   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
+   */
+  AutoEnableControls?: boolean;
+}
+
+export namespace DescribeHubResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeOrganizationConfigurationRequest {}
+
+export namespace DescribeOrganizationConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeOrganizationConfigurationResponse {
+  /**
+   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
+   *          then new accounts are not added automatically.</p>
+   */
+  AutoEnable?: boolean;
+
+  /**
+   * <p>Whether the maximum number of allowed member accounts are already associated with the
+   *          Security Hub administrator account.</p>
+   */
+  MemberAccountLimitReached?: boolean;
+
+  /**
+   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   *          for new member accounts in the organization.</p>
+   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
+   *          accounts.</p>
+   */
+  AutoEnableStandards?: AutoEnableStandards | string;
+}
+
+export namespace DescribeOrganizationConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProductsRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeProducts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ARN of the integration to return.</p>
+   */
+  ProductArn?: string;
+}
+
+export namespace DescribeProductsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeProductsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>A managed policy that is attached to an IAM principal.</p>
+ * <p>Contains details about a product.</p>
  */
-export interface AwsIamAttachedManagedPolicy {
+export interface Product {
   /**
-   * <p>The name of the policy.</p>
+   * <p>The ARN assigned to the product.</p>
    */
-  PolicyName?: string;
+  ProductArn: string | undefined;
 
   /**
-   * <p>The ARN of the policy.</p>
+   * <p>The name of the product.</p>
    */
-  PolicyArn?: string;
-}
-
-export namespace AwsIamAttachedManagedPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAttachedManagedPolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A managed policy that is attached to the IAM group.</p>
- */
-export interface AwsIamGroupPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-export namespace AwsIamGroupPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains details about an IAM group.</p>
- */
-export interface AwsIamGroupDetails {
-  /**
-   * <p>A list of the managed policies that are attached to the IAM group.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+  ProductName?: string;
 
   /**
-   * <p>Indicates when the IAM group was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>The name of the company that provides the product.</p>
    */
-  CreateDate?: string;
+  CompanyName?: string;
 
   /**
-   * <p>The identifier of the IAM group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the IAM group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the group.</p>
-   */
-  GroupPolicyList?: AwsIamGroupPolicy[];
-
-  /**
-   * <p>The path to the group.</p>
-   */
-  Path?: string;
-}
-
-export namespace AwsIamGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a role associated with an instance profile.</p>
- */
-export interface AwsIamInstanceProfileRole {
-  /**
-   * <p>The ARN of the role.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
-
-  /**
-   * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The path to the role.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The identifier of the role.</p>
-   */
-  RoleId?: string;
-
-  /**
-   * <p>The name of the role.</p>
-   */
-  RoleName?: string;
-}
-
-export namespace AwsIamInstanceProfileRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an instance profile.</p>
- */
-export interface AwsIamInstanceProfile {
-  /**
-   * <p>The ARN of the instance profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Indicates when the instance profile was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the instance profile.</p>
-   */
-  InstanceProfileId?: string;
-
-  /**
-   * <p>The name of the instance profile.</p>
-   */
-  InstanceProfileName?: string;
-
-  /**
-   * <p>The path to the instance profile.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The roles associated with the instance profile.</p>
-   */
-  Roles?: AwsIamInstanceProfileRole[];
-}
-
-export namespace AwsIamInstanceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the policy used to set the permissions boundary for an IAM
- *          principal.</p>
- */
-export interface AwsIamPermissionsBoundary {
-  /**
-   * <p>The ARN of the policy used to set the permissions boundary.</p>
-   */
-  PermissionsBoundaryArn?: string;
-
-  /**
-   * <p>The usage type for the permissions boundary.</p>
-   */
-  PermissionsBoundaryType?: string;
-}
-
-export namespace AwsIamPermissionsBoundary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A version of an IAM policy.</p>
- */
-export interface AwsIamPolicyVersion {
-  /**
-   * <p>The identifier of the policy version.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Whether the version is the default version.</p>
-   */
-  IsDefaultVersion?: boolean;
-
-  /**
-   * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-}
-
-export namespace AwsIamPolicyVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents an IAM permissions policy.</p>
- */
-export interface AwsIamPolicyDetails {
-  /**
-   * <p>The number of users, groups, and roles that the policy is attached to.</p>
-   */
-  AttachmentCount?: number;
-
-  /**
-   * <p>When the policy was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the default version of the policy.</p>
-   */
-  DefaultVersionId?: string;
-
-  /**
-   * <p>A description of the policy.</p>
+   * <p>A description of the product.</p>
    */
   Description?: string;
 
   /**
-   * <p>Whether the policy can be attached to a user, group, or role.</p>
+   * <p>The categories assigned to the product.</p>
    */
-  IsAttachable?: boolean;
+  Categories?: string[];
 
   /**
-   * <p>The path to the policy.</p>
+   * <p>The types of integration that the product supports. Available values are the
+   *          following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - The integration sends
+   *                findings to Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - The integration
+   *                receives findings from Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FINDINGS_IN_SECURITY_HUB</code> - The integration does not send new findings to Security Hub, but does make updates to the findings that it receives from Security Hub.</p>
+   *             </li>
+   *          </ul>
    */
-  Path?: string;
+  IntegrationTypes?: (IntegrationType | string)[];
 
   /**
-   * <p>The number of users and roles that use the policy to set the permissions
-   *          boundary.</p>
+   * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
+   *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
    */
-  PermissionsBoundaryUsageCount?: number;
+  MarketplaceUrl?: string;
 
   /**
-   * <p>The unique identifier of the policy.</p>
+   * <p>The URL to the service or product documentation about the integration with Security Hub, including how to activate the integration.</p>
    */
-  PolicyId?: string;
+  ActivationUrl?: string;
 
   /**
-   * <p>The name of the policy.</p>
+   * <p>The resource policy associated with the product.</p>
    */
-  PolicyName?: string;
-
-  /**
-   * <p>List of versions of the policy.</p>
-   */
-  PolicyVersionList?: AwsIamPolicyVersion[];
-
-  /**
-   * <p>When the policy was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  UpdateDate?: string;
+  ProductSubscriptionResourcePolicy?: string;
 }
 
-export namespace AwsIamPolicyDetails {
+export namespace Product {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
+  export const filterSensitiveLog = (obj: Product): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProductsResponse {
+  /**
+   * <p>A list of products, including details for each product.</p>
+   */
+  Products: Product[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeProductsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeProductsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeStandards</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of standards to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>An inline policy that is embedded in the role.</p>
+ * <p>Provides information about a specific standard.</p>
  */
-export interface AwsIamRolePolicy {
+export interface Standard {
   /**
-   * <p>The name of the policy.</p>
+   * <p>The ARN of a standard.</p>
    */
-  PolicyName?: string;
-}
-
-export namespace AwsIamRolePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about an IAM role, including all of the role's policies.</p>
- */
-export interface AwsIamRoleDetails {
-  /**
-   * <p>The trust policy that grants permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
+  StandardsArn?: string;
 
   /**
-   * <p>The list of the managed policies that are attached to the role.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The list of instance profiles that contain this role.</p>
-   */
-  InstanceProfileList?: AwsIamInstanceProfile[];
-
-  /**
-   * <p>Information about the policy used to set the permissions boundary for an IAM
-   *          principal.</p>
-   */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
-
-  /**
-   * <p>The stable and unique string identifying the role.</p>
-   */
-  RoleId?: string;
-
-  /**
-   * <p>The friendly name that identifies the role.</p>
-   */
-  RoleName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the role.</p>
-   */
-  RolePolicyList?: AwsIamRolePolicy[];
-
-  /**
-   * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
-   */
-  MaxSessionDuration?: number;
-
-  /**
-   * <p>The path to the role.</p>
-   */
-  Path?: string;
-}
-
-export namespace AwsIamRoleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an inline policy that is embedded in the user.</p>
- */
-export interface AwsIamUserPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-export namespace AwsIamUserPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an IAM user.</p>
- */
-export interface AwsIamUserDetails {
-  /**
-   * <p>A list of the managed policies that are attached to the user.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the user was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>A list of IAM groups that the user belongs to.</p>
-   */
-  GroupList?: string[];
-
-  /**
-   * <p>The path to the user.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The permissions boundary for the user.</p>
-   */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
-
-  /**
-   * <p>The unique identifier for the user.</p>
-   */
-  UserId?: string;
-
-  /**
-   * <p>The name of the user.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the user.</p>
-   */
-  UserPolicyList?: AwsIamUserPolicy[];
-}
-
-export namespace AwsIamUserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamUserDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about stream encryption.
- *       </p>
- */
-export interface AwsKinesisStreamStreamEncryptionDetails {
-  /**
-   * <p>The encryption type to use.
-   *       </p>
-   */
-  EncryptionType?: string;
-
-  /**
-   * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
-   */
-  KeyId?: string;
-}
-
-export namespace AwsKinesisStreamStreamEncryptionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsKinesisStreamStreamEncryptionDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about an Amazon Kinesis data stream.
- *       </p>
- */
-export interface AwsKinesisStreamDetails {
-  /**
-   * <p>The name of the Kinesis stream. If you don't specify a name, CloudFront generates a unique
-   * physical ID and uses that ID for the stream name.
-   *       </p>
+   * <p>The name of the standard.</p>
    */
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
-   *       </p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
-   * Removing this property from your stack template and updating your stack disables encryption.
-   *       </p>
-   */
-  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
-
-  /**
-   * <p>The number of shards that the stream uses.
-   *       </p>
-   */
-  ShardCount?: number;
-
-  /**
-   * <p>The number of hours for the data records that are stored in shards to remain accessible.
-   *       </p>
-   */
-  RetentionPeriodHours?: number;
-}
-
-export namespace AwsKinesisStreamDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains metadata about an KMS key.</p>
- */
-export interface AwsKmsKeyDetails {
-  /**
-   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
-   */
-  AWSAccountId?: string;
-
-  /**
-   * <p>Indicates when the KMS key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreationDate?: number;
-
-  /**
-   * <p>The globally unique identifier for the KMS key.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
-   */
-  KeyManager?: string;
-
-  /**
-   * <p>The state of the KMS key.</p>
-   */
-  KeyState?: string;
-
-  /**
-   * <p>The source of the KMS key material.</p>
-   *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
-   *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
-   *          existing key management infrastructure or the KMS key lacks key material.</p>
-   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
-   */
-  Origin?: string;
-
-  /**
-   * <p>A description of the KMS key.</p>
+   * <p>A description of the standard.</p>
    */
   Description?: string;
 
   /**
-   * <p>Whether the key has key rotation enabled.</p>
+   * <p>Whether the standard is enabled by default. When Security Hub is enabled from the console, if a
+   *          standard is enabled by default, the check box for that standard is selected by
+   *          default.</p>
+   *          <p>When Security Hub is enabled using the <code>EnableSecurityHub</code> API operation, the
+   *          standard is enabled by default unless <code>EnableDefaultStandards</code> is set to
+   *             <code>false</code>.</p>
    */
-  KeyRotationStatus?: boolean;
+  EnabledByDefault?: boolean;
 }
 
-export namespace AwsKmsKeyDetails {
+export namespace Standard {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
+  export const filterSensitiveLog = (obj: Standard): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsResponse {
+  /**
+   * <p>A list of available standards.</p>
+   */
+  Standards?: Standard[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsControlsRequest {
+  /**
+   * <p>The ARN of a resource that represents your subscription to a supported standard. To get
+   *          the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.</p>
+   */
+  StandardsSubscriptionArn: string | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeStandardsControls</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of security standard controls to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStandardsControlsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
+ * <p>Details for an individual security standard control.</p>
  */
-export interface AwsLambdaFunctionCode {
+export interface StandardsControl {
   /**
-   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
+   * <p>The ARN of the security standard control.</p>
    */
-  S3Bucket?: string;
+  StandardsControlArn?: string;
 
   /**
-   * <p>The Amazon S3 key of the deployment package.</p>
+   * <p>The current status of the security standard control. Indicates whether the control is
+   *          enabled or disabled. Security Hub does not check against disabled controls.</p>
    */
-  S3Key?: string;
+  ControlStatus?: ControlStatus | string;
 
   /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   * <p>The reason provided for the most recent change in status for the control.</p>
    */
-  S3ObjectVersion?: string;
+  DisabledReason?: string;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+   * <p>The date and time that the status of the security standard control was most recently
+   *          updated.</p>
    */
-  ZipFile?: string;
+  ControlStatusUpdatedAt?: Date;
+
+  /**
+   * <p>The identifier of the security standard control.</p>
+   */
+  ControlId?: string;
+
+  /**
+   * <p>The title of the security standard control.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The longer description of the security standard control. Provides information about what
+   *          the control is checking for.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A link to remediation information for the control in the Security Hub user
+   *          documentation.</p>
+   */
+  RemediationUrl?: string;
+
+  /**
+   * <p>The severity of findings generated from this security standard control.</p>
+   *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
+   *          resources if the issue is detected.</p>
+   */
+  SeverityRating?: SeverityRating | string;
+
+  /**
+   * <p>The list of requirements that are related to this control.</p>
+   */
+  RelatedRequirements?: string[];
 }
 
-export namespace AwsLambdaFunctionCode {
+export namespace StandardsControl {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
+  export const filterSensitiveLog = (obj: StandardsControl): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsControlsResponse {
+  /**
+   * <p>A list of security standards controls.</p>
+   */
+  Controls?: StandardsControl[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStandardsControlsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableImportFindingsForProductRequest {
+  /**
+   * <p>The ARN of the integrated product to disable the integration for.</p>
+   */
+  ProductSubscriptionArn: string | undefined;
+}
+
+export namespace DisableImportFindingsForProductRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableImportFindingsForProductRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableImportFindingsForProductResponse {}
+
+export namespace DisableImportFindingsForProductResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableImportFindingsForProductResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableOrganizationAdminAccountRequest {
+  /**
+   * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
+   */
+  AdminAccountId: string | undefined;
+}
+
+export namespace DisableOrganizationAdminAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableOrganizationAdminAccountResponse {}
+
+export namespace DisableOrganizationAdminAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSecurityHubRequest {}
+
+export namespace DisableSecurityHubRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSecurityHubResponse {}
+
+export namespace DisableSecurityHubResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromAdministratorAccountRequest {}
+
+export namespace DisassociateFromAdministratorAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromAdministratorAccountResponse {}
+
+export namespace DisassociateFromAdministratorAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromMasterAccountRequest {}
+
+export namespace DisassociateFromMasterAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromMasterAccountResponse {}
+
+export namespace DisassociateFromMasterAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMembersRequest {
+  /**
+   * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DisassociateMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMembersResponse {}
+
+export namespace DisassociateMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableImportFindingsForProductRequest {
+  /**
+   * <p>The ARN of the product to enable the integration for.</p>
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace EnableImportFindingsForProductRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableImportFindingsForProductRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableImportFindingsForProductResponse {
+  /**
+   * <p>The ARN of your subscription to the product to enable integrations for.</p>
+   */
+  ProductSubscriptionArn?: string;
+}
+
+export namespace EnableImportFindingsForProductResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableImportFindingsForProductResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableOrganizationAdminAccountRequest {
+  /**
+   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator
+   *          account.</p>
+   */
+  AdminAccountId: string | undefined;
+}
+
+export namespace EnableOrganizationAdminAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableOrganizationAdminAccountResponse {}
+
+export namespace EnableOrganizationAdminAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSecurityHubRequest {
+  /**
+   * <p>The tags to add to the hub resource when you enable Security Hub.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>Whether to enable the security standards that Security Hub has designated as automatically
+   *          enabled. If you do not provide a value for <code>EnableDefaultStandards</code>, it is set
+   *          to <code>true</code>. To not enable the automatically enabled standards, set
+   *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
+   */
+  EnableDefaultStandards?: boolean;
+}
+
+export namespace EnableSecurityHubRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSecurityHubResponse {}
+
+export namespace EnableSecurityHubResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The dead-letter queue for failed asynchronous invocations.</p>
+ * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
  */
-export interface AwsLambdaFunctionDeadLetterConfig {
+export interface FindingAggregator {
   /**
-   * <p>The ARN of an SQS queue or SNS topic.</p>
+   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.</p>
    */
-  TargetArn?: string;
+  FindingAggregatorArn?: string;
 }
 
-export namespace AwsLambdaFunctionDeadLetterConfig {
+export namespace FindingAggregator {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
+  export const filterSensitiveLog = (obj: FindingAggregator): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAdministratorAccountRequest {}
+
+export namespace GetAdministratorAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Error messages for environment variables that could not be applied.</p>
+ * <p>Details about an invitation.</p>
  */
-export interface AwsLambdaFunctionEnvironmentError {
+export interface Invitation {
   /**
-   * <p>The error code.</p>
+   * <p>The account ID of the Security Hub administrator account that the invitation was sent from.</p>
    */
-  ErrorCode?: string;
+  AccountId?: string;
 
   /**
-   * <p>The error message.</p>
+   * <p>The ID of the invitation sent to the member account.</p>
    */
-  Message?: string;
+  InvitationId?: string;
+
+  /**
+   * <p>The timestamp of when the invitation was sent.</p>
+   */
+  InvitedAt?: Date;
+
+  /**
+   * <p>The current status of the association between the member and administrator accounts.</p>
+   */
+  MemberStatus?: string;
 }
 
-export namespace AwsLambdaFunctionEnvironmentError {
+export namespace Invitation {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
+  export const filterSensitiveLog = (obj: Invitation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAdministratorAccountResponse {
+  /**
+   * <p>Details about an invitation.</p>
+   */
+  Administrator?: Invitation;
+}
+
+export namespace GetAdministratorAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEnabledStandardsRequest {
+  /**
+   * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
+   */
+  StandardsSubscriptionArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetEnabledStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEnabledStandardsResponse {
+  /**
+   * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
+   *          the enabled standards.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetEnabledStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+}
+
+export namespace GetFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace GetFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>A function's environment variable settings.</p>
+ * <p>A collection of finding attributes used to sort findings.</p>
  */
-export interface AwsLambdaFunctionEnvironment {
+export interface SortCriterion {
   /**
-   * <p>Environment variable key-value pairs.</p>
+   * <p>The finding attribute used to sort findings.</p>
    */
-  Variables?: Record<string, string>;
+  Field?: string;
 
   /**
-   * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
+   * <p>The order used to sort findings.</p>
    */
-  Error?: AwsLambdaFunctionEnvironmentError;
+  SortOrder?: SortOrder | string;
 }
 
-export namespace AwsLambdaFunctionEnvironment {
+export namespace SortCriterion {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
+  export const filterSensitiveLog = (obj: SortCriterion): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingsRequest {
+  /**
+   * <p>The finding attributes used to define a condition to filter the returned
+   *          findings.</p>
+   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+   *          20 filter values.</p>
+   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
+   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
+   */
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   */
+  SortCriteria?: SortCriterion[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetFindings</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of findings to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetFindingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingsResponse {
+  /**
+   * <p>The findings that matched the filters specified in the request.</p>
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetFindingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightResultsRequest {
+  /**
+   * <p>The ARN of the insight for which to return results.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace GetInsightResultsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>An Lambda layer.</p>
+ * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
  */
-export interface AwsLambdaFunctionLayer {
+export interface InsightResults {
   /**
-   * <p>The ARN of the function layer.</p>
+   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
+   *          operation.</p>
    */
-  Arn?: string;
+  InsightArn: string | undefined;
 
   /**
-   * <p>The size of the layer archive in bytes.</p>
+   * <p>The attribute that the findings are grouped by for the insight whose results are
+   *          returned by the <code>GetInsightResults</code> operation.</p>
    */
-  CodeSize?: number;
+  GroupByAttribute: string | undefined;
+
+  /**
+   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   */
+  ResultValues: InsightResultValue[] | undefined;
 }
 
-export namespace AwsLambdaFunctionLayer {
+export namespace InsightResults {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
+  export const filterSensitiveLog = (obj: InsightResults): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightResultsResponse {
+  /**
+   * <p>The insight results returned by the operation.</p>
+   */
+  InsightResults: InsightResults | undefined;
+}
+
+export namespace GetInsightResultsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsRequest {
+  /**
+   * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
+   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
+   *          managed insights.</p>
+   */
+  InsightArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetInsights</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetInsightsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The function's X-Ray tracing configuration.</p>
+ * <p>Contains information about a Security Hub insight.</p>
  */
-export interface AwsLambdaFunctionTracingConfig {
+export interface Insight {
   /**
-   * <p>The tracing mode.</p>
+   * <p>The ARN of a Security Hub insight.</p>
    */
-  Mode?: string;
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The name of a Security Hub insight.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
+   *          findings, and identifies the type of item that the insight applies to. For example, if an
+   *          insight is grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
 }
 
-export namespace AwsLambdaFunctionTracingConfig {
+export namespace Insight {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
+  export const filterSensitiveLog = (obj: Insight): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsResponse {
+  /**
+   * <p>The insights returned by the operation.</p>
+   */
+  Insights: Insight[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetInsightsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInvitationsCountRequest {}
+
+export namespace GetInvitationsCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInvitationsCountResponse {
+  /**
+   * <p>The number of all membership invitations sent to this Security Hub member account, not
+   *          including the currently accepted invitation.</p>
+   */
+  InvitationsCount?: number;
+}
+
+export namespace GetInvitationsCountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMasterAccountRequest {}
+
+export namespace GetMasterAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMasterAccountResponse {
+  /**
+   * <p>A list of details about the Security Hub administrator account for the current member account.
+   *       </p>
+   */
+  Master?: Invitation;
+}
+
+export namespace GetMasterAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMembersRequest {
+  /**
+   * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace GetMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
+ * <p>The details about a member account.</p>
  */
-export interface AwsLambdaFunctionVpcConfig {
+export interface Member {
   /**
-   * <p>A list of VPC security groups IDs.</p>
+   * <p>The Amazon Web Services account ID of the member account.</p>
    */
-  SecurityGroupIds?: string[];
+  AccountId?: string;
 
   /**
-   * <p>A list of VPC subnet IDs.</p>
+   * <p>The email address of the member account.</p>
    */
-  SubnetIds?: string[];
+  Email?: string;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * @deprecated
+   *
+   * <p>This is replaced by <code>AdministratorID</code>.</p>
+   *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    */
-  VpcId?: string;
+  MasterId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
+   */
+  AdministratorId?: string;
+
+  /**
+   * <p>The status of the relationship between the member account and its administrator account.
+   *       </p>
+   *          <p>The status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> - Indicates that the administrator account added the member account,
+   *                but has not yet invited the member account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVITED</code> - Indicates that the administrator account invited the member
+   *                account. The member account has not yet responded to the invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - Indicates that the member account is currently active. For
+   *                manually invited member accounts, indicates that the member account accepted the
+   *                invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVED</code> - Indicates that the administrator account disassociated the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESIGNED</code> - Indicates that the member account disassociated themselves
+   *                from the administrator account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - Indicates that the administrator account deleted the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT_SUSPENDED</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
+   *             </li>
+   *          </ul>
+   */
+  MemberStatus?: string;
+
+  /**
+   * <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
+   */
+  InvitedAt?: Date;
+
+  /**
+   * <p>The timestamp for the date and time when the member account was updated.</p>
+   */
+  UpdatedAt?: Date;
 }
 
-export namespace AwsLambdaFunctionVpcConfig {
+export namespace Member {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
+  export const filterSensitiveLog = (obj: Member): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Details about a function's configuration.</p>
- */
-export interface AwsLambdaFunctionDetails {
+export interface GetMembersResponse {
   /**
-   * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
+   * <p>The list of details about the Security Hub member accounts.</p>
    */
-  Code?: AwsLambdaFunctionCode;
+  Members?: Member[];
 
   /**
-   * <p>The SHA256 hash of the function's deployment package.</p>
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
    */
-  CodeSha256?: string;
-
-  /**
-   * <p>The function's dead letter queue.</p>
-   */
-  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
-
-  /**
-   * <p>The function's environment variables.</p>
-   */
-  Environment?: AwsLambdaFunctionEnvironment;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The function that Lambda calls to begin executing your function.</p>
-   */
-  Handler?: string;
-
-  /**
-   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
-   */
-  KmsKeyArn?: string;
-
-  /**
-   * <p>Indicates when the function was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastModified?: string;
-
-  /**
-   * <p>The function's layers.</p>
-   */
-  Layers?: AwsLambdaFunctionLayer[];
-
-  /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
-   */
-  MasterArn?: string;
-
-  /**
-   * <p>The memory that is allocated to the function.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>The latest updated revision of the function or alias.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The function's execution role.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>The runtime environment for the Lambda function.</p>
-   */
-  Runtime?: string;
-
-  /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The function's X-Ray tracing configuration.</p>
-   */
-  TracingConfig?: AwsLambdaFunctionTracingConfig;
-
-  /**
-   * <p>The function's networking configuration.</p>
-   */
-  VpcConfig?: AwsLambdaFunctionVpcConfig;
-
-  /**
-   * <p>The version of the Lambda function.</p>
-   */
-  Version?: string;
+  UnprocessedAccounts?: Result[];
 }
 
-export namespace AwsLambdaFunctionDetails {
+export namespace GetMembersResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
+  export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Details about a Lambda layer version.</p>
- */
-export interface AwsLambdaLayerVersionDetails {
+export interface InviteMembersRequest {
   /**
-   * <p>The version number.</p>
+   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
    */
-  Version?: number;
+  AccountIds: string[] | undefined;
+}
+
+export namespace InviteMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InviteMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface InviteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace InviteMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InviteMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEnabledProductsForImportRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
 
   /**
-   * <p>The layer's compatible runtimes. Maximum number of five items.</p>
-   *          <p>Valid values: <code>nodejs10.x</code> | <code>nodejs12.x</code> | <code>java8</code> |
-   *             <code>java11</code> | <code>python2.7</code> | <code>python3.6</code> |
-   *             <code>python3.7</code> | <code>python3.8</code> | <code>dotnetcore1.0</code> |
-   *             <code>dotnetcore2.1</code> | <code>go1.x</code> | <code>ruby2.5</code> |
-   *             <code>provided</code>
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEnabledProductsForImportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEnabledProductsForImportRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEnabledProductsForImportResponse {
+  /**
+   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   */
+  ProductSubscriptions?: string[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEnabledProductsForImportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEnabledProductsForImportResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFindingAggregatorsRequest {
+  /**
+   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFindingAggregatorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFindingAggregatorsResponse {
+  /**
+   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   */
+  FindingAggregators?: FindingAggregator[];
+
+  /**
+   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
+   *          <p>This operation currently only returns a single result.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFindingAggregatorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInvitationsRequest {
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListInvitations</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInvitationsResponse {
+  /**
+   * <p>The details of the invitations returned by the operation.</p>
+   */
+  Invitations?: Invitation[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMembersRequest {
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   */
+  OnlyAssociated?: boolean;
+
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListMembers</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMembersResponse {
+  /**
+   * <p>Member details returned by the operation.</p>
+   */
+  Members?: Member[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+   *          the value of this parameter to the value returned from the previous response. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOrganizationAdminAccountsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>The list of Security Hub administrator accounts.</p>
+   */
+  AdminAccounts?: AdminAccount[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOrganizationAdminAccountsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with a resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to apply the tags to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource to remove the tags from.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionTargetRequest {
+  /**
+   * <p>The ARN of the custom action target to update.</p>
+   */
+  ActionTargetArn: string | undefined;
+
+  /**
+   * <p>The updated name of the custom action target.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The updated description for the custom action target.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateActionTargetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionTargetResponse {}
+
+export namespace UpdateActionTargetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+
+  /**
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
+   *          <p>The options are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
    *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *          </p>
+   *             </li>
+   *          </ul>
    */
-  CompatibleRuntimes?: string[];
+  RegionLinkingMode: string | undefined;
 
   /**
-   * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
+   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.</p>
    */
-  CreatedDate?: string;
+  Regions?: string[];
 }
 
-export namespace AwsLambdaLayerVersionDetails {
+export namespace UpdateFindingAggregatorRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateFindingAggregatorRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>A public subnet that Network Firewall uses for the firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
+export interface UpdateFindingAggregatorResponse {
   /**
-   * <p>The identifier of the subnet</p>
+   * <p>The ARN of the finding aggregator.</p>
    */
-  SubnetId?: string;
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
 }
 
-export namespace AwsNetworkFirewallFirewallSubnetMappingsDetails {
+export namespace UpdateFindingAggregatorResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallSubnetMappingsDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateFindingAggregatorResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Details about an Network Firewall firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallDetails {
+export interface UpdateFindingsRequest {
   /**
-   * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
+   * <p>A collection of attributes that specify which findings you want to update.</p>
    */
-  DeleteProtection?: boolean;
+  Filters: AwsSecurityFindingFilters | undefined;
 
   /**
-   * <p>A description of the firewall.</p>
+   * <p>The updated note for the finding.</p>
    */
-  Description?: string;
+  Note?: NoteUpdate;
 
   /**
-   * <p>The ARN of the firewall.</p>
+   * <p>The updated record state for the finding.</p>
    */
-  FirewallArn?: string;
-
-  /**
-   * <p>The identifier of the firewall.</p>
-   */
-  FirewallId?: string;
-
-  /**
-   * <p>A descriptive name of the firewall.</p>
-   */
-  FirewallName?: string;
-
-  /**
-   * <p>The ARN of the firewall policy.</p>
-   */
-  FirewallPolicyArn?: string;
-
-  /**
-   * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
-   */
-  FirewallPolicyChangeProtection?: boolean;
-
-  /**
-   * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
-   */
-  SubnetChangeProtection?: boolean;
-
-  /**
-   * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
-   */
-  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
-
-  /**
-   * <p>The identifier of the VPC where the firewall is used.</p>
-   */
-  VpcId?: string;
+  RecordState?: RecordState | string;
 }
 
-export namespace AwsNetworkFirewallFirewallDetails {
+export namespace UpdateFindingsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>A stateful rule group that is used by the firewall policy.</p>
- */
-export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
-  /**
-   * <p>The ARN of the stateful rule group.</p>
-   */
-  ResourceArn?: string;
-}
+export interface UpdateFindingsResponse {}
 
-export namespace FirewallPolicyStatefulRuleGroupReferencesDetails {
+export namespace UpdateFindingsResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatefulRuleGroupReferencesDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateFindingsResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Defines a CloudWatch dimension value to publish.</p>
- */
-export interface StatelessCustomPublishMetricActionDimension {
+export interface UpdateInsightRequest {
   /**
-   * <p>The value to use for the custom metric dimension.</p>
+   * <p>The ARN of the insight that you want to update.</p>
    */
-  Value?: string;
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The updated name for the insight.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The updated filters that define this insight.</p>
+   */
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
+   */
+  GroupByAttribute?: string;
 }
 
-export namespace StatelessCustomPublishMetricActionDimension {
+export namespace UpdateInsightRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricActionDimension): any => ({
+  export const filterSensitiveLog = (obj: UpdateInsightRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Information about metrics to publish to CloudWatch.</p>
- */
-export interface StatelessCustomPublishMetricAction {
-  /**
-   * <p>Defines CloudWatch dimension values to publish.</p>
-   */
-  Dimensions?: StatelessCustomPublishMetricActionDimension[];
-}
+export interface UpdateInsightResponse {}
 
-export namespace StatelessCustomPublishMetricAction {
+export namespace UpdateInsightResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
+  export const filterSensitiveLog = (obj: UpdateInsightResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>The definition of a custom action that can be used for stateless packet handling.</p>
- */
-export interface StatelessCustomActionDefinition {
+export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Information about metrics to publish to CloudWatch.</p>
+   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
+   *          <p>By default, this is <code>false</code>, and new accounts are not added
+   *          automatically.</p>
+   *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
    */
-  PublishMetricAction?: StatelessCustomPublishMetricAction;
+  AutoEnable: boolean | undefined;
+
+  /**
+   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   *          for new member accounts in the organization.</p>
+   *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
+   *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
+   */
+  AutoEnableStandards?: AutoEnableStandards | string;
 }
 
-export namespace StatelessCustomActionDefinition {
+export namespace UpdateOrganizationConfigurationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
+  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>A custom action that can be used for stateless packet handling.</p>
- */
-export interface FirewallPolicyStatelessCustomActionsDetails {
-  /**
-   * <p>The definition of the custom action.</p>
-   */
-  ActionDefinition?: StatelessCustomActionDefinition;
+export interface UpdateOrganizationConfigurationResponse {}
 
-  /**
-   * <p>The name of the custom action.</p>
-   */
-  ActionName?: string;
-}
-
-export namespace FirewallPolicyStatelessCustomActionsDetails {
+export namespace UpdateOrganizationConfigurationResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatelessCustomActionsDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>A stateless rule group that is used by the firewall policy.</p>
- */
-export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
+export interface UpdateSecurityHubConfigurationRequest {
   /**
-   * <p>The order in which to run the stateless rule group.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The ARN of the stateless rule group.</p>
-   */
-  ResourceArn?: string;
-}
-
-export namespace FirewallPolicyStatelessRuleGroupReferencesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatelessRuleGroupReferencesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the behavior of the firewall.</p>
- */
-export interface FirewallPolicyDetails {
-  /**
-   * <p>The stateful rule groups that are used in the firewall policy.</p>
-   */
-  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
-
-  /**
-   * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
-   */
-  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
-
-  /**
-   * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
-   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
+   * <p>Whether to automatically enable new controls when they are added to standards that are
+   *          enabled.</p>
+   *          <p>By default, this is set to <code>true</code>, and new controls are enabled
+   *          automatically. To not automatically enable new controls, set this to <code>false</code>.
    *       </p>
    */
-  StatelessDefaultActions?: string[];
-
-  /**
-   * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
-   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
-   *       </p>
-   */
-  StatelessFragmentDefaultActions?: string[];
-
-  /**
-   * <p>The stateless rule groups that are used in the firewall policy.</p>
-   */
-  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
+  AutoEnableControls?: boolean;
 }
 
-export namespace FirewallPolicyDetails {
+export namespace UpdateSecurityHubConfigurationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallPolicyDetails {
-  /**
-   * <p>The firewall policy configuration.</p>
-   */
-  FirewallPolicy?: FirewallPolicyDetails;
+export interface UpdateSecurityHubConfigurationResponse {}
 
-  /**
-   * <p>The ARN of the firewall policy.</p>
-   */
-  FirewallPolicyArn?: string;
-
-  /**
-   * <p>The identifier of the firewall policy.</p>
-   */
-  FirewallPolicyId?: string;
-
-  /**
-   * <p>The name of the firewall policy.</p>
-   */
-  FirewallPolicyName?: string;
-
-  /**
-   * <p>A description of the firewall policy.</p>
-   */
-  Description?: string;
-}
-
-export namespace AwsNetworkFirewallFirewallPolicyDetails {
+export namespace UpdateSecurityHubConfigurationResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallPolicyDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationResponse): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Stateful inspection criteria for a domain list rule group.</p>
- */
-export interface RuleGroupSourceListDetails {
+export interface UpdateStandardsControlRequest {
   /**
-   * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
+   * <p>The ARN of the security standard control to enable or disable.</p>
    */
-  GeneratedRulesType?: string;
+  StandardsControlArn: string | undefined;
 
   /**
-   * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
+   * <p>The updated status of the security standard control.</p>
    */
-  TargetTypes?: string[];
+  ControlStatus?: ControlStatus | string;
 
   /**
-   * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
+   * <p>A description of the reason why you are disabling a security standard control. If you
+   *          are disabling a control, then this is required.</p>
    */
-  Targets?: string[];
+  DisabledReason?: string;
 }
 
-export namespace RuleGroupSourceListDetails {
+export namespace UpdateStandardsControlRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateStandardsControlRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>The inspection criteria for a stateful rule.</p>
- */
-export interface RuleGroupSourceStatefulRulesHeaderDetails {
-  /**
-   * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
-   */
-  Destination?: string;
+export interface UpdateStandardsControlResponse {}
 
-  /**
-   * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
-   */
-  DestinationPort?: string;
-
-  /**
-   * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
-   */
-  Direction?: string;
-
-  /**
-   * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
-   */
-  SourcePort?: string;
-}
-
-export namespace RuleGroupSourceStatefulRulesHeaderDetails {
+export namespace UpdateStandardsControlResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesHeaderDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A rule option for a stateful rule.</p>
- */
-export interface RuleGroupSourceStatefulRulesOptionsDetails {
-  /**
-   * <p>A keyword to look for.</p>
-   */
-  Keyword?: string;
-
-  /**
-   * <p>A list of settings.</p>
-   */
-  Settings?: string[];
-}
-
-export namespace RuleGroupSourceStatefulRulesOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A Suricata rule specification.</p>
- */
-export interface RuleGroupSourceStatefulRulesDetails {
-  /**
-   * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
-   */
-  Action?: string;
-
-  /**
-   * <p>The stateful inspection criteria for the rule.</p>
-   */
-  Header?: RuleGroupSourceStatefulRulesHeaderDetails;
-
-  /**
-   * <p>Additional options for the rule.</p>
-   */
-  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
-}
-
-export namespace RuleGroupSourceStatefulRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
- */
-export interface RuleGroupSourceCustomActionsDetails {
-  /**
-   * <p>The definition of a custom action.</p>
-   */
-  ActionDefinition?: StatelessCustomActionDefinition;
-
-  /**
-   * <p>A descriptive name of the custom action.</p>
-   */
-  ActionName?: string;
-}
-
-export namespace RuleGroupSourceCustomActionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceCustomActionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A port range to specify the destination ports to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
-  /**
-   * <p>The starting port value for the port range.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The ending port value for the port range.</p>
-   */
-  ToPort?: number;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A destination IP address or range.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
-  /**
-   * <p>An IP address or a block of IP addresses.</p>
-   */
-  AddressDefinition?: string;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A port range to specify the source ports to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
-  /**
-   * <p>The starting port value for the port range.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The ending port value for the port range.</p>
-   */
-  ToPort?: number;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A source IP addresses and address range to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
-  /**
-   * <p>An IP address or a block of IP addresses.</p>
-   */
-  AddressDefinition?: string;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesSources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSources): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A set of TCP flags and masks to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
-  /**
-   * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
-   */
-  Flags?: string[];
-
-  /**
-   * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
-   */
-  Masks?: string[];
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Criteria for the stateless rule.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributes {
-  /**
-   * <p>A list of port ranges to specify the destination ports to inspect for.</p>
-   */
-  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
-
-  /**
-   * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
-   */
-  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
-
-  /**
-   * <p>The protocols to inspect for.</p>
-   */
-  Protocols?: number[];
-
-  /**
-   * <p>A list of port ranges to specify the source ports to inspect for.</p>
-   */
-  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
-
-  /**
-   * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
-   */
-  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
-
-  /**
-   * <p>The TCP flags and masks to inspect for.</p>
-   */
-  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributes): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The definition of the stateless rule.</p>
- */
-export interface RuleGroupSourceStatelessRuleDefinition {
-  /**
-   * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
-   */
-  Actions?: string[];
-
-  /**
-   * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
-   */
-  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
-}
-
-export namespace RuleGroupSourceStatelessRuleDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A stateless rule in the rule group.</p>
- */
-export interface RuleGroupSourceStatelessRulesDetails {
-  /**
-   * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>Provides the definition of the stateless rule.</p>
-   */
-  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
-}
-
-export namespace RuleGroupSourceStatelessRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Stateless rules and custom actions for a stateless rule group.</p>
- */
-export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
-  /**
-   * <p>Custom actions for the rule group.</p>
-   */
-  CustomActions?: RuleGroupSourceCustomActionsDetails[];
-
-  /**
-   * <p>Stateless rules for the rule group.</p>
-   */
-  StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
-}
-
-export namespace RuleGroupSourceStatelessRulesAndCustomActionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The rules and actions for the rule group.</p>
- */
-export interface RuleGroupSource {
-  /**
-   * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
-   */
-  RulesSourceList?: RuleGroupSourceListDetails;
-
-  /**
-   * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
-   */
-  RulesString?: string;
-
-  /**
-   * <p>Suricata rule specifications.</p>
-   */
-  StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
-
-  /**
-   * <p>The stateless rules and custom actions used by a stateless rule group.</p>
-   */
-  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
-}
-
-export namespace RuleGroupSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
- */
-export interface RuleGroupVariablesIpSetsDetails {
-  /**
-   * <p>The list of IP addresses and ranges.</p>
-   */
-  Definition?: string[];
-}
-
-export namespace RuleGroupVariablesIpSetsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
+  export const filterSensitiveLog = (obj: UpdateStandardsControlResponse): any => ({
     ...obj,
   });
 }

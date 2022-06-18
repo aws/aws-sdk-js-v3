@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTagsRequest } from "../models/models_2";
+import { DeleteTagsRequest } from "../models/models_0";
 import { deserializeAws_ec2DeleteTagsCommand, serializeAws_ec2DeleteTagsCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}

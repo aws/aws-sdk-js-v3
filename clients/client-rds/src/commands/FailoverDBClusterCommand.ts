@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_1";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,

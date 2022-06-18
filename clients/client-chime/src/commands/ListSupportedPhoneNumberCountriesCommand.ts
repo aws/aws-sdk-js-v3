@@ -16,7 +16,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
   serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,

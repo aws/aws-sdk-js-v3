@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateDistributionBundleRequest, UpdateDistributionBundleResult } from "../models/models_1";
+import { UpdateDistributionBundleRequest, UpdateDistributionBundleResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDistributionBundleCommand,
   serializeAws_json1_1UpdateDistributionBundleCommand,

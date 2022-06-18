@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EndpointAccess } from "../models/models_0";
-import { ModifyEndpointAccessMessage } from "../models/models_1";
+import { EndpointAccess, ModifyEndpointAccessMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyEndpointAccessCommand,
   serializeAws_queryModifyEndpointAccessCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_1";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSessionCommand,
   serializeAws_json1_1DeleteSessionCommand,

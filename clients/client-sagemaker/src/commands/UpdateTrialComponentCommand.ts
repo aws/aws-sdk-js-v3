@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_3";
+import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateTrialComponentCommand,
   serializeAws_json1_1UpdateTrialComponentCommand,

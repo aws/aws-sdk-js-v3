@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult } from "../models/models_1";
+import { CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateNetworkInsightsAccessScopeCommand,
   serializeAws_ec2CreateNetworkInsightsAccessScopeCommand,

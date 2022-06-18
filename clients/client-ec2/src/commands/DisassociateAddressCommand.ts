@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateAddressRequest } from "../models/models_4";
+import { DisassociateAddressRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DisassociateAddressCommand,
   serializeAws_ec2DisassociateAddressCommand,

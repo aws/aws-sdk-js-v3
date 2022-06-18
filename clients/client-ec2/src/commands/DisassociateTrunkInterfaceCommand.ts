@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_4";
+import { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_2";
 import {
   deserializeAws_ec2DisassociateTrunkInterfaceCommand,
   serializeAws_ec2DisassociateTrunkInterfaceCommand,

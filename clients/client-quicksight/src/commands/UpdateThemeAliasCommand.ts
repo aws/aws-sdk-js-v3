@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateThemeAliasRequest, UpdateThemeAliasResponse } from "../models/models_1";
+import { UpdateThemeAliasRequest, UpdateThemeAliasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateThemeAliasCommand,
   serializeAws_restJson1UpdateThemeAliasCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput } from "../models/models_1";
+import { CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
   serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,

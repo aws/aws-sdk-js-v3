@@ -13,10 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RejectTransitGatewayPeeringAttachmentRequest,
-  RejectTransitGatewayPeeringAttachmentResult,
-} from "../models/models_5";
+import { RejectTransitGatewayPeeringAttachmentRequest } from "../models/models_2";
+import { RejectTransitGatewayPeeringAttachmentResult } from "../models/models_3";
 import {
   deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,

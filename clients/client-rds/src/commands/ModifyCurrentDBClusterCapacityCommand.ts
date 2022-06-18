@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
+import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
   serializeAws_queryModifyCurrentDBClusterCapacityCommand,

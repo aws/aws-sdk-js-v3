@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_1";
+import { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
   serializeAws_json1_1DisassociateOpsItemRelatedItemCommand,

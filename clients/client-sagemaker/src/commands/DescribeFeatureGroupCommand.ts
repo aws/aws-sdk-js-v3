@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFeatureGroupRequest, DescribeFeatureGroupResponse } from "../models/models_1";
+import { DescribeFeatureGroupRequest, DescribeFeatureGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFeatureGroupCommand,
   serializeAws_json1_1DescribeFeatureGroupCommand,

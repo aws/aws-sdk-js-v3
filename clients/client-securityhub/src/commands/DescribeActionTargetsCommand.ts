@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_1";
+import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeActionTargetsCommand,
   serializeAws_restJson1DescribeActionTargetsCommand,

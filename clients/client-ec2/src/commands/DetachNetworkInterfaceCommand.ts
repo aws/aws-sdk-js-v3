@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachNetworkInterfaceRequest } from "../models/models_4";
+import { DetachNetworkInterfaceRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DetachNetworkInterfaceCommand,
   serializeAws_ec2DetachNetworkInterfaceCommand,

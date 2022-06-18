@@ -16,7 +16,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ListAuditMitigationActionsExecutionsRequest,
   ListAuditMitigationActionsExecutionsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand,
   serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartSessionRequest, StartSessionResponse } from "../models/models_1";
+import { StartSessionRequest, StartSessionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSessionCommand,
   serializeAws_json1_1StartSessionCommand,

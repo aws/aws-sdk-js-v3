@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/models_1";
+import { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryRestoreTableFromClusterSnapshotCommand,
   serializeAws_queryRestoreTableFromClusterSnapshotCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetBucketsAggregationRequest, GetBucketsAggregationResponse } from "../models/models_1";
+import { GetBucketsAggregationRequest, GetBucketsAggregationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBucketsAggregationCommand,
   serializeAws_restJson1GetBucketsAggregationCommand,

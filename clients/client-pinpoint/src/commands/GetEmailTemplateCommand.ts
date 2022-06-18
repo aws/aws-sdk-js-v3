@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEmailTemplateRequest } from "../models/models_0";
-import { GetEmailTemplateResponse } from "../models/models_1";
+import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetEmailTemplateCommand,

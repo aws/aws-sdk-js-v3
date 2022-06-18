@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeProgressMessage } from "../models/models_0";
-import { DescribeResizeMessage } from "../models/models_1";
+import { DescribeResizeMessage, ResizeProgressMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeResizeCommand,
   serializeAws_queryDescribeResizeCommand,

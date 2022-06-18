@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_1";
+import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInsightCommand,
   serializeAws_restJson1DeleteInsightCommand,

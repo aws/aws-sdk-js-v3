@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteKeyPairRequest } from "../models/models_2";
+import { DeleteKeyPairRequest } from "../models/models_0";
 import { deserializeAws_ec2DeleteKeyPairCommand, serializeAws_ec2DeleteKeyPairCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}

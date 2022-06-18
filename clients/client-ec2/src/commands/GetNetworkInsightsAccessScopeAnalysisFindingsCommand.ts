@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-} from "../models/models_5";
+} from "../models/models_2";
 import {
   deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,

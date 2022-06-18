@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_1";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,

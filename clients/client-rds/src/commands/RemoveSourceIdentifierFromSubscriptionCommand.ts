@@ -15,7 +15,7 @@ import {
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
   serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,

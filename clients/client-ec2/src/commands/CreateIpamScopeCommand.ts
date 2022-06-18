@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateIpamScopeRequest, CreateIpamScopeResult } from "../models/models_1";
+import { CreateIpamScopeRequest, CreateIpamScopeResult } from "../models/models_0";
 import { deserializeAws_ec2CreateIpamScopeCommand, serializeAws_ec2CreateIpamScopeCommand } from "../protocols/Aws_ec2";
 
 export interface CreateIpamScopeCommandInput extends CreateIpamScopeRequest {}

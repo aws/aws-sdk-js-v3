@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_1";
+import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyDBParameterGroupCommand,
   serializeAws_queryModifyDBParameterGroupCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetOperationsRequest, GetOperationsResult } from "../models/models_1";
+import { GetOperationsRequest, GetOperationsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOperationsCommand,
   serializeAws_json1_1GetOperationsCommand,

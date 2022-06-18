@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
+import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StopRelationalDatabaseCommand,
   serializeAws_json1_1StopRelationalDatabaseCommand,

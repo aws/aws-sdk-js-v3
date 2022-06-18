@@ -15,7 +15,7 @@ import {
 import {
   RegisterPatchBaselineForPatchGroupRequest,
   RegisterPatchBaselineForPatchGroupResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand,
   serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand,

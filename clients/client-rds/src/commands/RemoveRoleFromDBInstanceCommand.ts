@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
+import { RemoveRoleFromDBInstanceMessage } from "../models/models_0";
 import {
   deserializeAws_queryRemoveRoleFromDBInstanceCommand,
   serializeAws_queryRemoveRoleFromDBInstanceCommand,

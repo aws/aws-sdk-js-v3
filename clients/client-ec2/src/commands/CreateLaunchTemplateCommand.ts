@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateLaunchTemplateRequest, CreateLaunchTemplateResult } from "../models/models_1";
+import { CreateLaunchTemplateRequest, CreateLaunchTemplateResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateLaunchTemplateCommand,
   serializeAws_ec2CreateLaunchTemplateCommand,

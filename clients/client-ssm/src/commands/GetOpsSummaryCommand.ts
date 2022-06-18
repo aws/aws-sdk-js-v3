@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetOpsSummaryResult } from "../models/models_1";
-import { GetOpsSummaryRequest } from "../models/models_2";
+import { GetOpsSummaryRequest, GetOpsSummaryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOpsSummaryCommand,
   serializeAws_json1_1GetOpsSummaryCommand,

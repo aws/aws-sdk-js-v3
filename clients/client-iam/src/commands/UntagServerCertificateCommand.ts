@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagServerCertificateRequest } from "../models/models_1";
+import { UntagServerCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_queryUntagServerCertificateCommand,
   serializeAws_queryUntagServerCertificateCommand,

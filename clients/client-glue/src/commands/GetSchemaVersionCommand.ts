@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSchemaVersionInput, GetSchemaVersionResponse } from "../models/models_1";
+import { GetSchemaVersionInput, GetSchemaVersionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSchemaVersionCommand,
   serializeAws_json1_1GetSchemaVersionCommand,

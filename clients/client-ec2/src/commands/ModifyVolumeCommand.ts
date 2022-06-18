@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_5";
+import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_2";
 import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}

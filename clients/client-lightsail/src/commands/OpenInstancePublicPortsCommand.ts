@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
+import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1OpenInstancePublicPortsCommand,
   serializeAws_json1_1OpenInstancePublicPortsCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_1";
+import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTemplateAliasesCommand,
   serializeAws_restJson1ListTemplateAliasesCommand,

@@ -1,6 +1,106 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+import {
+  ActiveIAMPolicyAssignment,
+  AdHocFilteringOption,
+  AmazonElasticsearchParameters,
+  AmazonOpenSearchParameters,
+  AnalysisError,
+  AnalysisFilterAttribute,
+  AnalysisSourceTemplate,
+  AnalysisSummary,
+  AnonymousUserDashboardEmbeddingConfiguration,
+  AssignmentStatus,
+  AthenaParameters,
+  AuroraParameters,
+  AuroraPostgreSqlParameters,
+  AwsIotAnalyticsParameters,
+  CredentialPair,
+  CustomSql,
+  DashboardFilterAttribute,
+  DashboardSourceTemplate,
+  DashboardSummary,
+  DashboardVersion,
+  DashboardVersionSummary,
+  DataColorPalette,
+  DataSetImportMode,
+  DataSetSummary,
+  DataSourceErrorInfo,
+  DataSourceType,
+  DateTimeParameter,
+  DecimalParameter,
+  Edition,
+  EmbeddingIdentityType,
+  ErrorInfo,
+  ExasolParameters,
+  ExceptionResourceType,
+  ExportToCSVOption,
+  FilterOperator,
+  FolderFilterAttribute,
+  FolderSummary,
+  FolderType,
+  GeoSpatialColumnGroup,
+  GroupFilterAttribute,
+  GroupFilterOperator,
+  IAMPolicyAssignmentSummary,
+  IdentityStore,
+  IdentityType,
+  IngestionRequestSource,
+  IngestionRequestType,
+  IngestionStatus,
+  IngestionType,
+  IntegerParameter,
+  JiraParameters,
+  LogicalTableSource,
+  MariaDbParameters,
+  MemberIdArnPair,
+  MemberType,
+  MySqlParameters,
+  NamespaceError,
+  NamespaceStatus,
+  OracleParameters,
+  OutputColumn,
+  PostgreSqlParameters,
+  PrestoParameters,
+  QueueInfo,
+  RdsParameters,
+  RedshiftParameters,
+  RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserQSearchBarEmbeddingConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  RelationalTable,
+  ResourceStatus,
+  RowInfo,
+  RowLevelPermissionFormatVersion,
+  RowLevelPermissionPolicy,
+  RowLevelPermissionTagRule,
+  S3Parameters,
+  S3Source,
+  ServiceNowParameters,
+  Sheet,
+  SheetControlsOption,
+  SheetStyle,
+  SnowflakeParameters,
+  SparkParameters,
+  SqlServerParameters,
+  Status,
+  StringParameter,
+  TemplateSourceAnalysis,
+  TemplateSourceTemplate,
+  TemplateSummary,
+  TemplateVersion,
+  TemplateVersionSummary,
+  TeradataParameters,
+  ThemeSummary,
+  ThemeType,
+  ThemeVersion,
+  ThemeVersionSummary,
+  TransformOperation,
+  TwitterParameters,
+  UIColorPalette,
+  UserRole,
+} from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
@@ -56,11 +156,6 @@ export namespace AccountCustomization {
   });
 }
 
-export enum Edition {
-  ENTERPRISE = "ENTERPRISE",
-  STANDARD = "STANDARD",
-}
-
 /**
  * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
  */
@@ -101,168 +196,6 @@ export namespace AccountSettings {
   export const filterSensitiveLog = (obj: AccountSettings): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The active Identity and Access Management (IAM) policy assignment.</p>
- */
-export interface ActiveIAMPolicyAssignment {
-  /**
-   * <p>A name for the IAM policy assignment.</p>
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  PolicyArn?: string;
-}
-
-export namespace ActiveIAMPolicyAssignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
-    ...obj,
-  });
-}
-
-export enum DashboardBehavior {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-/**
- * <p>Ad hoc (one-time) filtering option.</p>
- */
-export interface AdHocFilteringOption {
-  /**
-   * <p>Availability status.</p>
-   */
-  AvailabilityStatus?: DashboardBehavior | string;
-}
-
-export namespace AdHocFilteringOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdHocFilteringOption): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for OpenSearch.</p>
- */
-export interface AmazonElasticsearchParameters {
-  /**
-   * <p>The OpenSearch domain.</p>
-   */
-  Domain: string | undefined;
-}
-
-export namespace AmazonElasticsearchParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for OpenSearch.</p>
- */
-export interface AmazonOpenSearchParameters {
-  /**
-   * <p>The OpenSearch domain.</p>
-   */
-  Domain: string | undefined;
-}
-
-export namespace AmazonOpenSearchParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonOpenSearchParameters): any => ({
-    ...obj,
-  });
-}
-
-export enum AnalysisErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
-
-/**
- * <p>Analysis error.</p>
- */
-export interface AnalysisError {
-  /**
-   * <p>The type of the analysis error.</p>
-   */
-  Type?: AnalysisErrorType | string;
-
-  /**
-   * <p>The message associated with the analysis error.</p>
-   */
-  Message?: string;
-}
-
-export namespace AnalysisError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
- *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
- *             contains at least one sheet. Each sheet contains at least one visualization widget, for
- *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
- *             components, such as controls, filters, and so on.</p>
- */
-export interface Sheet {
-  /**
-   * <p>The unique identifier associated with a sheet.</p>
-   */
-  SheetId?: string;
-
-  /**
-   * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
-   *             console.</p>
-   */
-  Name?: string;
-}
-
-export namespace Sheet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sheet): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  DELETED = "DELETED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 /**
@@ -329,14 +262,6 @@ export namespace Analysis {
   });
 }
 
-export enum AnalysisFilterAttribute {
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-}
-
-export enum FilterOperator {
-  StringEquals = "StringEquals",
-}
-
 /**
  * <p>A filter that you apply when searching for one or more analyses.</p>
  */
@@ -371,54 +296,6 @@ export namespace AnalysisSearchFilter {
 }
 
 /**
- * <p>Dataset reference.</p>
- */
-export interface DataSetReference {
-  /**
-   * <p>Dataset placeholder.</p>
-   */
-  DataSetPlaceholder: string | undefined;
-
-  /**
-   * <p>Dataset Amazon Resource Name (ARN).</p>
-   */
-  DataSetArn: string | undefined;
-}
-
-export namespace DataSetReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetReference): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The source template of an analysis.</p>
- */
-export interface AnalysisSourceTemplate {
-  /**
-   * <p>The dataset references of the source template of an analysis.</p>
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-   */
-  Arn: string | undefined;
-}
-
-export namespace AnalysisSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The source entity of an analysis.</p>
  */
 export interface AnalysisSourceEntity {
@@ -438,71 +315,6 @@ export namespace AnalysisSourceEntity {
 }
 
 /**
- * <p>The summary metadata that describes an analysis.</p>
- */
-export interface AnalysisSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the analysis. This ID displays in the URL.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * <p>The name of the analysis. This name is displayed in the Amazon QuickSight console.
-   *             </p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The last known status for the analysis.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>The time that the analysis was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The time that the analysis was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-export namespace AnalysisSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the dashboard that you want to embed.</p>
- */
-export interface AnonymousUserDashboardEmbeddingConfiguration {
-  /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard.</p>
-   *         <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialDashboardId: string | undefined;
-}
-
-export namespace AnonymousUserDashboardEmbeddingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnonymousUserDashboardEmbeddingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -517,158 +329,6 @@ export namespace AnonymousUserEmbeddingExperienceConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnonymousUserEmbeddingExperienceConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum AssignmentStatus {
-  DISABLED = "DISABLED",
-  DRAFT = "DRAFT",
-  ENABLED = "ENABLED",
-}
-
-/**
- * <p>Parameters for Amazon Athena.</p>
- */
-export interface AthenaParameters {
-  /**
-   * <p>The workgroup that Amazon Athena uses.</p>
-   */
-  WorkGroup?: string;
-}
-
-export namespace AthenaParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Parameters for Amazon Aurora.</p>
- */
-export interface AuroraParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace AuroraParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuroraParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
- */
-export interface AuroraPostgreSqlParameters {
-  /**
-   * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace AuroraPostgreSqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for IoT Analytics.</p>
- */
-export interface AwsIotAnalyticsParameters {
-  /**
-   * <p>Dataset name.</p>
-   */
-  DataSetName: string | undefined;
-}
-
-export namespace AwsIotAnalyticsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The display options for tile borders for visuals.</p>
- */
-export interface BorderStyle {
-  /**
-   * <p>The option to enable display of borders for visuals.</p>
-   */
-  Show?: boolean;
-}
-
-export namespace BorderStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BorderStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A calculated column for a dataset.</p>
- */
-export interface CalculatedColumn {
-  /**
-   * <p>Column name.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
-   *             preserves the existing calculated column.</p>
-   */
-  ColumnId: string | undefined;
-
-  /**
-   * <p>An expression that defines the calculated column.</p>
-   */
-  Expression: string | undefined;
-}
-
-export namespace CalculatedColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculatedColumn): any => ({
     ...obj,
   });
 }
@@ -782,18 +442,6 @@ export class InvalidParameterValueException extends __BaseException {
   }
 }
 
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION",
-}
-
 /**
  * <p>The resource specified already exists. </p>
  */
@@ -884,95 +532,6 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-}
-
-/**
- * <p>A transform operation that casts a column to a different type.</p>
- */
-export interface CastColumnTypeOperation {
-  /**
-   * <p>Column name.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>New column data type.</p>
-   */
-  NewColumnType: ColumnDataType | string | undefined;
-
-  /**
-   * <p>When casting a column from string to datetime type, you can supply a string in a
-   *             format supported by Amazon QuickSight to denote the source data format.</p>
-   */
-  Format?: string;
-}
-
-export namespace CastColumnTypeOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Metadata that contains a description for a column.</p>
- */
-export interface ColumnDescription {
-  /**
-   * <p>The text of a description for a column.</p>
-   */
-  Text?: string;
-}
-
-export namespace ColumnDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnDescription): any => ({
-    ...obj,
-  });
-}
-
-export enum GeoSpatialCountryCode {
-  US = "US",
-}
-
-/**
- * <p>Geospatial column group that denotes a hierarchy.</p>
- */
-export interface GeoSpatialColumnGroup {
-  /**
-   * <p>A display name for the hierarchy.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Country code.</p>
-   */
-  CountryCode: GeoSpatialCountryCode | string | undefined;
-
-  /**
-   * <p>Columns in this hierarchy.</p>
-   */
-  Columns: string[] | undefined;
-}
-
-export namespace GeoSpatialColumnGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
  *             a variant type structure. For this structure to be valid, only one of the attributes can
@@ -990,49 +549,6 @@ export namespace ColumnGroup {
    * @internal
    */
   export const filterSensitiveLog = (obj: ColumnGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A structure describing the name, data type, and geographic role of the columns.</p>
- */
-export interface ColumnGroupColumnSchema {
-  /**
-   * <p>The name of the column group's column schema.</p>
-   */
-  Name?: string;
-}
-
-export namespace ColumnGroupColumnSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The column group schema.</p>
- */
-export interface ColumnGroupSchema {
-  /**
-   * <p>The name of the column group schema.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A structure containing the list of schemas for column group columns.</p>
-   */
-  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
-}
-
-export namespace ColumnGroupSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnGroupSchema): any => ({
     ...obj,
   });
 }
@@ -1064,80 +580,6 @@ export namespace ColumnLevelPermissionRule {
   export const filterSensitiveLog = (obj: ColumnLevelPermissionRule): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The column schema.</p>
- */
-export interface ColumnSchema {
-  /**
-   * <p>The name of the column schema.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The data type of the column schema.</p>
-   */
-  DataType?: string;
-
-  /**
-   * <p>The geographic role of the column schema.</p>
-   */
-  GeographicRole?: string;
-}
-
-export namespace ColumnSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnSchema): any => ({
-    ...obj,
-  });
-}
-
-export enum GeoSpatialDataRole {
-  CITY = "CITY",
-  COUNTRY = "COUNTRY",
-  COUNTY = "COUNTY",
-  LATITUDE = "LATITUDE",
-  LONGITUDE = "LONGITUDE",
-  POSTCODE = "POSTCODE",
-  STATE = "STATE",
-}
-
-/**
- * <p>A tag for a column in a
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
- *             </code>
- *             structure. This is a
- *             variant type structure. For this structure to be valid, only one of the attributes can
- *             be non-null.</p>
- */
-export interface ColumnTag {
-  /**
-   * <p>A geospatial role for a column.</p>
-   */
-  ColumnGeographicRole?: GeoSpatialDataRole | string;
-
-  /**
-   * <p>A description for a column.</p>
-   */
-  ColumnDescription?: ColumnDescription;
-}
-
-export namespace ColumnTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnTag): any => ({
-    ...obj,
-  });
-}
-
-export enum ColumnTagName {
-  COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
-  COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
 }
 
 /**
@@ -1324,102 +766,6 @@ export class ResourceUnavailableException extends __BaseException {
     this.ResourceType = opts.ResourceType;
     this.RequestId = opts.RequestId;
   }
-}
-
-/**
- * <p>A date-time parameter.</p>
- */
-export interface DateTimeParameter {
-  /**
-   * <p>A display name for the date-time parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the date-time parameter.</p>
-   */
-  Values: Date[] | undefined;
-}
-
-export namespace DateTimeParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateTimeParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A decimal parameter.</p>
- */
-export interface DecimalParameter {
-  /**
-   * <p>A display name for the decimal parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the decimal parameter.</p>
-   */
-  Values: number[] | undefined;
-}
-
-export namespace DecimalParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecimalParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An integer parameter.</p>
- */
-export interface IntegerParameter {
-  /**
-   * <p>The name of the integer parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the integer parameter.</p>
-   */
-  Values: number[] | undefined;
-}
-
-export namespace IntegerParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegerParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A string parameter.</p>
- */
-export interface StringParameter {
-  /**
-   * <p>A display name for a string parameter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values of a string parameter.</p>
-   */
-  Values: string[] | undefined;
-}
-
-export namespace StringParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1622,69 +968,6 @@ export class UnsupportedUserEditionException extends __BaseException {
 }
 
 /**
- * <p>A transform operation that creates calculated columns. Columns created in one such
- *             operation form a lexical closure.</p>
- */
-export interface CreateColumnsOperation {
-  /**
-   * <p>Calculated columns to create.</p>
-   */
-  Columns: CalculatedColumn[] | undefined;
-}
-
-export namespace CreateColumnsOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateColumnsOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Export to .csv option.</p>
- */
-export interface ExportToCSVOption {
-  /**
-   * <p>Availability status.</p>
-   */
-  AvailabilityStatus?: DashboardBehavior | string;
-}
-
-export namespace ExportToCSVOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportToCSVOption): any => ({
-    ...obj,
-  });
-}
-
-export enum DashboardUIState {
-  COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED",
-}
-
-/**
- * <p>Sheet controls option.</p>
- */
-export interface SheetControlsOption {
-  /**
-   * <p>Visibility state.</p>
-   */
-  VisibilityState?: DashboardUIState | string;
-}
-
-export namespace SheetControlsOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SheetControlsOption): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Dashboard publish options.</p>
  */
 export interface DashboardPublishOptions {
@@ -1709,30 +992,6 @@ export namespace DashboardPublishOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: DashboardPublishOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dashboard source template.</p>
- */
-export interface DashboardSourceTemplate {
-  /**
-   * <p>Dataset references.</p>
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn: string | undefined;
-}
-
-export namespace DashboardSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSourceTemplate): any => ({
     ...obj,
   });
 }
@@ -1953,398 +1212,6 @@ export namespace FieldFolder {
   });
 }
 
-export enum DataSetImportMode {
-  DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE",
-}
-
-/**
- * <p>A transform operation that filters rows based on a condition.</p>
- */
-export interface FilterOperation {
-  /**
-   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
-   *             evaluates to true are kept in the dataset.</p>
-   */
-  ConditionExpression: string | undefined;
-}
-
-export namespace FilterOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A transform operation that projects columns. Operations that come after a projection
- *             can only refer to projected columns.</p>
- */
-export interface ProjectOperation {
-  /**
-   * <p>Projected columns.</p>
-   */
-  ProjectedColumns: string[] | undefined;
-}
-
-export namespace ProjectOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A transform operation that renames a column.</p>
- */
-export interface RenameColumnOperation {
-  /**
-   * <p>The name of the column to be renamed.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The new name for the column.</p>
-   */
-  NewColumnName: string | undefined;
-}
-
-export namespace RenameColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenameColumnOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A transform operation that tags a column with additional information.</p>
- */
-export interface TagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
-   *         <note>
-   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
-   *         </note>
-   */
-  Tags: ColumnTag[] | undefined;
-}
-
-export namespace TagColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagColumnOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A transform operation that removes tags associated with a column.</p>
- */
-export interface UntagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The column tags to remove from this column.</p>
-   */
-  TagNames: (ColumnTagName | string)[] | undefined;
-}
-
-export namespace UntagColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagColumnOperation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A data transformation on a logical table. This is a variant type structure. For this
- *             structure to be valid, only one of the attributes can be non-null.</p>
- */
-export type TransformOperation =
-  | TransformOperation.CastColumnTypeOperationMember
-  | TransformOperation.CreateColumnsOperationMember
-  | TransformOperation.FilterOperationMember
-  | TransformOperation.ProjectOperationMember
-  | TransformOperation.RenameColumnOperationMember
-  | TransformOperation.TagColumnOperationMember
-  | TransformOperation.UntagColumnOperationMember
-  | TransformOperation.$UnknownMember;
-
-export namespace TransformOperation {
-  /**
-   * <p>An operation that projects columns. Operations that come after a projection can only
-   *             refer to projected columns.</p>
-   */
-  export interface ProjectOperationMember {
-    ProjectOperation: ProjectOperation;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that filters rows based on some condition.</p>
-   */
-  export interface FilterOperationMember {
-    ProjectOperation?: never;
-    FilterOperation: FilterOperation;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that creates calculated columns. Columns created in one such operation
-   *             form a lexical closure.</p>
-   */
-  export interface CreateColumnsOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation: CreateColumnsOperation;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that renames a column.</p>
-   */
-  export interface RenameColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation: RenameColumnOperation;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that casts a column to a different type.</p>
-   */
-  export interface CastColumnTypeOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation: CastColumnTypeOperation;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that tags a column with additional information.</p>
-   */
-  export interface TagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation: TagColumnOperation;
-    UntagColumnOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that removes tags associated with a column.</p>
-   */
-  export interface UntagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation: UntagColumnOperation;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    ProjectOperation: (value: ProjectOperation) => T;
-    FilterOperation: (value: FilterOperation) => T;
-    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
-    RenameColumnOperation: (value: RenameColumnOperation) => T;
-    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
-    TagColumnOperation: (value: TagColumnOperation) => T;
-    UntagColumnOperation: (value: UntagColumnOperation) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: TransformOperation, visitor: Visitor<T>): T => {
-    if (value.ProjectOperation !== undefined) return visitor.ProjectOperation(value.ProjectOperation);
-    if (value.FilterOperation !== undefined) return visitor.FilterOperation(value.FilterOperation);
-    if (value.CreateColumnsOperation !== undefined) return visitor.CreateColumnsOperation(value.CreateColumnsOperation);
-    if (value.RenameColumnOperation !== undefined) return visitor.RenameColumnOperation(value.RenameColumnOperation);
-    if (value.CastColumnTypeOperation !== undefined)
-      return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
-    if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
-    if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformOperation): any => {
-    if (obj.ProjectOperation !== undefined)
-      return { ProjectOperation: ProjectOperation.filterSensitiveLog(obj.ProjectOperation) };
-    if (obj.FilterOperation !== undefined)
-      return { FilterOperation: FilterOperation.filterSensitiveLog(obj.FilterOperation) };
-    if (obj.CreateColumnsOperation !== undefined)
-      return { CreateColumnsOperation: CreateColumnsOperation.filterSensitiveLog(obj.CreateColumnsOperation) };
-    if (obj.RenameColumnOperation !== undefined)
-      return { RenameColumnOperation: RenameColumnOperation.filterSensitiveLog(obj.RenameColumnOperation) };
-    if (obj.CastColumnTypeOperation !== undefined)
-      return { CastColumnTypeOperation: CastColumnTypeOperation.filterSensitiveLog(obj.CastColumnTypeOperation) };
-    if (obj.TagColumnOperation !== undefined)
-      return { TagColumnOperation: TagColumnOperation.filterSensitiveLog(obj.TagColumnOperation) };
-    if (obj.UntagColumnOperation !== undefined)
-      return { UntagColumnOperation: UntagColumnOperation.filterSensitiveLog(obj.UntagColumnOperation) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
-}
-
-/**
- * <p>Properties associated with the columns participating in a join.</p>
- */
-export interface JoinKeyProperties {
-  /**
-   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-   *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
-   */
-  UniqueKey?: boolean;
-}
-
-export namespace JoinKeyProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinKeyProperties): any => ({
-    ...obj,
-  });
-}
-
-export enum JoinType {
-  INNER = "INNER",
-  LEFT = "LEFT",
-  OUTER = "OUTER",
-  RIGHT = "RIGHT",
-}
-
-/**
- * <p>The instructions associated with a join. </p>
- */
-export interface JoinInstruction {
-  /**
-   * <p>The operand on the left side of a join.</p>
-   */
-  LeftOperand: string | undefined;
-
-  /**
-   * <p>The operand on the right side of a join.</p>
-   */
-  RightOperand: string | undefined;
-
-  /**
-   * <p>Join key properties of the left operand.</p>
-   */
-  LeftJoinKeyProperties?: JoinKeyProperties;
-
-  /**
-   * <p>Join key properties of the right operand.</p>
-   */
-  RightJoinKeyProperties?: JoinKeyProperties;
-
-  /**
-   * <p>The type of join that it is.</p>
-   */
-  Type: JoinType | string | undefined;
-
-  /**
-   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
-   */
-  OnClause: string | undefined;
-}
-
-export namespace JoinInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinInstruction): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the source of a logical table. This is a variant type structure. For
- *             this structure to be valid, only one of the attributes can be non-null.</p>
- */
-export interface LogicalTableSource {
-  /**
-   * <p>Specifies the result of a join of two logical tables.</p>
-   */
-  JoinInstruction?: JoinInstruction;
-
-  /**
-   * <p>Physical table ID.</p>
-   */
-  PhysicalTableId?: string;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
-   */
-  DataSetArn?: string;
-}
-
-export namespace LogicalTableSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogicalTableSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <i>logical table</i> is a unit that joins and that data
  *             transformations operate on. A logical table has a source, which can be either a physical
@@ -2377,198 +1244,6 @@ export namespace LogicalTable {
     ...(obj.DataTransforms && {
       DataTransforms: obj.DataTransforms.map((item) => TransformOperation.filterSensitiveLog(item)),
     }),
-  });
-}
-
-export enum InputColumnDataType {
-  BIT = "BIT",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  JSON = "JSON",
-  STRING = "STRING",
-}
-
-/**
- * <p>Metadata for a column that is used as the input of a transform operation.</p>
- */
-export interface InputColumn {
-  /**
-   * <p>The name of this column in the underlying data source.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   */
-  Type: InputColumnDataType | string | undefined;
-}
-
-export namespace InputColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputColumn): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A physical table type built from the results of the custom SQL query.</p>
- */
-export interface CustomSql {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>A display name for the SQL query result.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The SQL query.</p>
-   */
-  SqlQuery: string | undefined;
-
-  /**
-   * <p>The column schema from the SQL query result set.</p>
-   */
-  Columns?: InputColumn[];
-}
-
-export namespace CustomSql {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomSql): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A physical table type for relational data sources.</p>
- */
-export interface RelationalTable {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The catalog associated with a table.</p>
-   */
-  Catalog?: string;
-
-  /**
-   * <p>The schema name. This name applies to certain relational database engines.</p>
-   */
-  Schema?: string;
-
-  /**
-   * <p>The name of the relational table.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The column schema of the table.</p>
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-export namespace RelationalTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalTable): any => ({
-    ...obj,
-  });
-}
-
-export enum FileFormat {
-  CLF = "CLF",
-  CSV = "CSV",
-  ELF = "ELF",
-  JSON = "JSON",
-  TSV = "TSV",
-  XLSX = "XLSX",
-}
-
-export enum TextQualifier {
-  DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE",
-}
-
-/**
- * <p>Information about the format for a source file or files.</p>
- */
-export interface UploadSettings {
-  /**
-   * <p>File format.</p>
-   */
-  Format?: FileFormat | string;
-
-  /**
-   * <p>A row number to start reading data from.</p>
-   */
-  StartFromRow?: number;
-
-  /**
-   * <p>Whether the file has a header row, or the files each have a header row.</p>
-   */
-  ContainsHeader?: boolean;
-
-  /**
-   * <p>Text qualifier.</p>
-   */
-  TextQualifier?: TextQualifier | string;
-
-  /**
-   * <p>The delimiter between values in the file.</p>
-   */
-  Delimiter?: string;
-}
-
-export namespace UploadSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A physical table type for an S3 data source.</p>
- */
-export interface S3Source {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>Information about the format for the S3 source file or files.</p>
-   */
-  UploadSettings?: UploadSettings;
-
-  /**
-   * <p>A physical table type for an S3 data source.</p>
-   *         <note>
-   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
-   *         </note>
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-export namespace S3Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Source): any => ({
-    ...obj,
   });
 }
 
@@ -2647,21 +1322,6 @@ export namespace PhysicalTable {
   };
 }
 
-export enum RowLevelPermissionFormatVersion {
-  VERSION_1 = "VERSION_1",
-  VERSION_2 = "VERSION_2",
-}
-
-export enum RowLevelPermissionPolicy {
-  DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS",
-}
-
-export enum Status {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
 /**
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
  *             The permissions dataset maps fields to users or groups. For more information, see
@@ -2705,41 +1365,6 @@ export namespace RowLevelPermissionDataSet {
    */
   export const filterSensitiveLog = (obj: RowLevelPermissionDataSet): any => ({
     ...obj,
-  });
-}
-
-/**
- * <p>A set of rules associated with a tag.</p>
- */
-export interface RowLevelPermissionTagRule {
-  /**
-   * <p>The unique key for a tag.</p>
-   */
-  TagKey: string | undefined;
-
-  /**
-   * <p>The column name that a tag key is assigned to.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
-   */
-  TagMultiValueDelimiter?: string;
-
-  /**
-   * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
-   */
-  MatchAllValue?: string;
-}
-
-export namespace RowLevelPermissionTagRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
-    ...obj,
-    ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
   });
 }
 
@@ -2947,453 +1572,6 @@ export class LimitExceededException extends __BaseException {
     this.ResourceType = opts.ResourceType;
     this.RequestId = opts.RequestId;
   }
-}
-
-/**
- * <p>The required parameters for connecting to an Exasol data source.</p>
- */
-export interface ExasolParameters {
-  /**
-   * <p>The hostname or IP address of the Exasol data source.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port for the Exasol data source.</p>
-   */
-  Port: number | undefined;
-}
-
-export namespace ExasolParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExasolParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Jira.</p>
- */
-export interface JiraParameters {
-  /**
-   * <p>The base URL of the Jira site.</p>
-   */
-  SiteBaseUrl: string | undefined;
-}
-
-export namespace JiraParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JiraParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for MariaDB.</p>
- */
-export interface MariaDbParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace MariaDbParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MariaDbParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for MySQL.</p>
- */
-export interface MySqlParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace MySqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MySqlParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Oracle.</p>
- */
-export interface OracleParameters {
-  /**
-   * <p>An Oracle host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace OracleParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OracleParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for PostgreSQL.</p>
- */
-export interface PostgreSqlParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace PostgreSqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostgreSqlParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Presto.</p>
- */
-export interface PrestoParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Catalog.</p>
-   */
-  Catalog: string | undefined;
-}
-
-export namespace PrestoParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrestoParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Amazon RDS.</p>
- */
-export interface RdsParameters {
-  /**
-   * <p>Instance ID.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace RdsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RdsParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
- *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
- *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
- */
-export interface RedshiftParameters {
-  /**
-   * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-   */
-  Host?: string;
-
-  /**
-   * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
-   *             provided.</p>
-   */
-  ClusterId?: string;
-}
-
-export namespace RedshiftParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Amazon S3 manifest file location.</p>
- */
-export interface ManifestFileLocation {
-  /**
-   * <p>Amazon S3 bucket.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Amazon S3 key that identifies an object.</p>
-   */
-  Key: string | undefined;
-}
-
-export namespace ManifestFileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManifestFileLocation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for S3.</p>
- */
-export interface S3Parameters {
-  /**
-   * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded into Amazon QuickSight.</p>
-   */
-  ManifestFileLocation: ManifestFileLocation | undefined;
-}
-
-export namespace S3Parameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Parameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for ServiceNow.</p>
- */
-export interface ServiceNowParameters {
-  /**
-   * <p>URL of the base site.</p>
-   */
-  SiteBaseUrl: string | undefined;
-}
-
-export namespace ServiceNowParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Snowflake.</p>
- */
-export interface SnowflakeParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>Warehouse.</p>
-   */
-  Warehouse: string | undefined;
-}
-
-export namespace SnowflakeParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Spark.</p>
- */
-export interface SparkParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-}
-
-export namespace SparkParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for SQL Server.</p>
- */
-export interface SqlServerParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace SqlServerParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlServerParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Teradata.</p>
- */
-export interface TeradataParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-export namespace TeradataParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeradataParameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The parameters for Twitter.</p>
- */
-export interface TwitterParameters {
-  /**
-   * <p>Twitter query string.</p>
-   */
-  Query: string | undefined;
-
-  /**
-   * <p>Maximum number of rows to query Twitter.</p>
-   */
-  MaxRows: number | undefined;
-}
-
-export namespace TwitterParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TwitterParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4206,48 +2384,6 @@ export namespace DataSourceParameters {
 }
 
 /**
- * <p>The combination of user name and password that are used as credentials.</p>
- */
-export interface CredentialPair {
-  /**
-   * <p>User name.</p>
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>Password.</p>
-   */
-  Password: string | undefined;
-
-  /**
-   * <p>A set of alternate data source parameters that you want to share for these
-   *             credentials. The credentials are applied in tandem with the data source parameters when
-   *             you copy a data source by using a create or update request. The API operation compares
-   *             the <code>DataSourceParameters</code> structure that's in the request with the
-   *             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-   *             structures are an exact match, the request is allowed to use the new data source with
-   *             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
-   *             null, the <code>DataSourceParameters</code> originally used with these
-   *                 <code>Credentials</code> is automatically allowed.</p>
-   */
-  AlternateDataSourceParameters?: DataSourceParameters[];
-}
-
-export namespace CredentialPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialPair): any => ({
-    ...obj,
-    ...(obj.AlternateDataSourceParameters && {
-      AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
-        DataSourceParameters.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
-/**
  * <p>Data source credentials. This is a variant type structure. For this structure to be
  *             valid, only one of the attributes can be non-null.</p>
  */
@@ -4297,34 +2433,6 @@ export namespace SslProperties {
   export const filterSensitiveLog = (obj: SslProperties): any => ({
     ...obj,
   });
-}
-
-export enum DataSourceType {
-  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH = "AMAZON_OPENSEARCH",
-  ATHENA = "ATHENA",
-  AURORA = "AURORA",
-  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
-  EXASOL = "EXASOL",
-  GITHUB = "GITHUB",
-  JIRA = "JIRA",
-  MARIADB = "MARIADB",
-  MYSQL = "MYSQL",
-  ORACLE = "ORACLE",
-  POSTGRESQL = "POSTGRESQL",
-  PRESTO = "PRESTO",
-  REDSHIFT = "REDSHIFT",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SNOWFLAKE = "SNOWFLAKE",
-  SPARK = "SPARK",
-  SQLSERVER = "SQLSERVER",
-  TERADATA = "TERADATA",
-  TIMESTREAM = "TIMESTREAM",
-  TWITTER = "TWITTER",
 }
 
 /**
@@ -4451,10 +2559,6 @@ export namespace CreateDataSourceResponse {
   });
 }
 
-export enum FolderType {
-  SHARED = "SHARED",
-}
-
 export interface CreateFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
@@ -4533,12 +2637,6 @@ export namespace CreateFolderResponse {
   export const filterSensitiveLog = (obj: CreateFolderResponse): any => ({
     ...obj,
   });
-}
-
-export enum MemberType {
-  ANALYSIS = "ANALYSIS",
-  DASHBOARD = "DASHBOARD",
-  DATASET = "DATASET",
 }
 
 export interface CreateFolderMembershipRequest {
@@ -4951,11 +3049,6 @@ export namespace CreateIAMPolicyAssignmentResponse {
   });
 }
 
-export enum IngestionType {
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-}
-
 export interface CreateIngestionRequest {
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
@@ -4985,15 +3078,6 @@ export namespace CreateIngestionRequest {
   export const filterSensitiveLog = (obj: CreateIngestionRequest): any => ({
     ...obj,
   });
-}
-
-export enum IngestionStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
 }
 
 export interface CreateIngestionResponse {
@@ -5032,10 +3116,6 @@ export namespace CreateIngestionResponse {
   });
 }
 
-export enum IdentityStore {
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
 export interface CreateNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
@@ -5066,14 +3146,6 @@ export namespace CreateNamespaceRequest {
   export const filterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
     ...obj,
   });
-}
-
-export enum NamespaceStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  NON_RETRYABLE_FAILURE = "NON_RETRYABLE_FAILURE",
-  RETRYABLE_FAILURE = "RETRYABLE_FAILURE",
 }
 
 export interface CreateNamespaceResponse {
@@ -5124,50 +3196,6 @@ export namespace CreateNamespaceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The source analysis of the template.</p>
- */
-export interface TemplateSourceAnalysis {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>A structure containing information about the dataset references used as placeholders
-   *             in the template.</p>
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-}
-
-export namespace TemplateSourceAnalysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSourceAnalysis): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The source template of the template.</p>
- */
-export interface TemplateSourceTemplate {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn: string | undefined;
-}
-
-export namespace TemplateSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSourceTemplate): any => ({
     ...obj,
   });
 }
@@ -5381,252 +3409,6 @@ export namespace CreateTemplateAliasResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTemplateAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The theme colors that are used for data colors in charts. The colors description is a
- *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
- *                 <code>#</code>, for example #37BFF5. </p>
- */
-export interface DataColorPalette {
-  /**
-   * <p>The hexadecimal codes for the colors.</p>
-   */
-  Colors?: string[];
-
-  /**
-   * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-   */
-  MinMaxGradient?: string[];
-
-  /**
-   * <p>The hexadecimal code of a color that applies to charts where a lack of data is
-   *             highlighted.</p>
-   */
-  EmptyFillColor?: string;
-}
-
-export namespace DataColorPalette {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataColorPalette): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Display options related to tiles on a sheet.</p>
- */
-export interface TileStyle {
-  /**
-   * <p>The border around a tile.</p>
-   */
-  Border?: BorderStyle;
-}
-
-export namespace TileStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TileStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The display options for gutter spacing between tiles on a sheet.</p>
- */
-export interface GutterStyle {
-  /**
-   * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-   *         </p>
-   */
-  Show?: boolean;
-}
-
-export namespace GutterStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GutterStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The display options for margins around the outside edge of sheets.</p>
- */
-export interface MarginStyle {
-  /**
-   * <p>This Boolean value controls whether to display sheet margins.</p>
-   */
-  Show?: boolean;
-}
-
-export namespace MarginStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarginStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The display options for the layout of tiles on a sheet.</p>
- */
-export interface TileLayoutStyle {
-  /**
-   * <p>The gutter settings that apply between tiles. </p>
-   */
-  Gutter?: GutterStyle;
-
-  /**
-   * <p>The margin settings that apply around the outside edge of sheets.</p>
-   */
-  Margin?: MarginStyle;
-}
-
-export namespace TileLayoutStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TileLayoutStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The theme display options for sheets. </p>
- */
-export interface SheetStyle {
-  /**
-   * <p>The display options for tiles.</p>
-   */
-  Tile?: TileStyle;
-
-  /**
-   * <p>The layout options for tiles.</p>
-   */
-  TileLayout?: TileLayoutStyle;
-}
-
-export namespace SheetStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SheetStyle): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
- *             description is a hexadecimal color code that consists of six alphanumerical characters,
- *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
- *                 Guide.</i>
- *         </p>
- */
-export interface UIColorPalette {
-  /**
-   * <p>The color of text and other foreground elements that appear over the primary
-   *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-   */
-  PrimaryForeground?: string;
-
-  /**
-   * <p>The background color that applies to visuals and other high emphasis UI.</p>
-   */
-  PrimaryBackground?: string;
-
-  /**
-   * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-   *             appears over the secondary background.</p>
-   */
-  SecondaryForeground?: string;
-
-  /**
-   * <p>The background color that applies to the sheet background and sheet controls.</p>
-   */
-  SecondaryBackground?: string;
-
-  /**
-   * <p>This color is that applies to selected states and buttons.</p>
-   */
-  Accent?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             accent color.</p>
-   */
-  AccentForeground?: string;
-
-  /**
-   * <p>The color that applies to error messages.</p>
-   */
-  Danger?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             error color.</p>
-   */
-  DangerForeground?: string;
-
-  /**
-   * <p>This color that applies to warning and informational messages.</p>
-   */
-  Warning?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             warning color.</p>
-   */
-  WarningForeground?: string;
-
-  /**
-   * <p>The color that applies to success messages, for example the check mark for a
-   *             successful download.</p>
-   */
-  Success?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             success color.</p>
-   */
-  SuccessForeground?: string;
-
-  /**
-   * <p>The color that applies to the names of fields that are identified as
-   *             dimensions.</p>
-   */
-  Dimension?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             dimension color.</p>
-   */
-  DimensionForeground?: string;
-
-  /**
-   * <p>The color that applies to the names of fields that are identified as measures.</p>
-   */
-  Measure?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             measure color.</p>
-   */
-  MeasureForeground?: string;
-}
-
-export namespace UIColorPalette {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UIColorPalette): any => ({
     ...obj,
   });
 }
@@ -5851,108 +3633,6 @@ export namespace CreateThemeAliasResponse {
   });
 }
 
-export enum DashboardErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
-
-/**
- * <p>Dashboard error.</p>
- */
-export interface DashboardError {
-  /**
-   * <p>Type.</p>
-   */
-  Type?: DashboardErrorType | string;
-
-  /**
-   * <p>Message.</p>
-   */
-  Message?: string;
-}
-
-export namespace DashboardError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dashboard version.</p>
- */
-export interface DashboardVersion {
-  /**
-   * <p>The time that this dashboard version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Errors associated with this dashboard version.</p>
-   */
-  Errors?: DashboardError[];
-
-  /**
-   * <p>Version number for this version of the dashboard.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Source entity ARN.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-   *             version of the dashboard.</p>
-   */
-  DataSetArns?: string[];
-
-  /**
-   * <p>Description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ARN of the theme associated with a version of the dashboard.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   */
-  Sheets?: Sheet[];
-}
-
-export namespace DashboardVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dashboard.</p>
  */
@@ -6002,10 +3682,6 @@ export namespace Dashboard {
   });
 }
 
-export enum DashboardFilterAttribute {
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-}
-
 /**
  * <p>A filter that you apply when searching for dashboards. </p>
  */
@@ -6035,128 +3711,6 @@ export namespace DashboardSearchFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: DashboardSearchFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dashboard summary.</p>
- */
-export interface DashboardSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Dashboard ID.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>A display name for the dashboard.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The time that this dashboard was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The last time that this dashboard was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>Published version number.</p>
-   */
-  PublishedVersionNumber?: number;
-
-  /**
-   * <p>The last time that this dashboard was published.</p>
-   */
-  LastPublishedTime?: Date;
-}
-
-export namespace DashboardSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dashboard version summary.</p>
- */
-export interface DashboardVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The time that this dashboard version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Version number.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>Source entity ARN.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * <p>Description.</p>
-   */
-  Description?: string;
-}
-
-export namespace DashboardVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardVersionSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Output column.</p>
- */
-export interface OutputColumn {
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A description for a column.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Type.</p>
-   */
-  Type?: ColumnDataType | string;
-}
-
-export namespace OutputColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputColumn): any => ({
     ...obj,
   });
 }
@@ -6281,148 +3835,6 @@ export namespace DataSet {
         obj.RowLevelPermissionTagConfiguration
       ),
     }),
-  });
-}
-
-/**
- * <p>Dataset schema.</p>
- */
-export interface DataSetSchema {
-  /**
-   * <p>A structure containing the list of column schemas.</p>
-   */
-  ColumnSchemaList?: ColumnSchema[];
-}
-
-export namespace DataSetSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetSchema): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dataset configuration.</p>
- */
-export interface DataSetConfiguration {
-  /**
-   * <p>Placeholder.</p>
-   */
-  Placeholder?: string;
-
-  /**
-   * <p>Dataset schema.</p>
-   */
-  DataSetSchema?: DataSetSchema;
-
-  /**
-   * <p>A structure containing the list of column group schemas.</p>
-   */
-  ColumnGroupSchemaList?: ColumnGroupSchema[];
-}
-
-export namespace DataSetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dataset summary.</p>
- */
-export interface DataSetSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The time that this dataset was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The last time that this dataset was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>A value that indicates whether you want to import the data into SPICE.</p>
-   */
-  ImportMode?: DataSetImportMode | string;
-
-  /**
-   * <p>The row-level security configuration for the dataset.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
-   * <p>Whether or not the row level permission tags are applied.</p>
-   */
-  RowLevelPermissionTagConfigurationApplied?: boolean;
-
-  /**
-   * <p>A value that indicates if the dataset has column level permission configured.</p>
-   */
-  ColumnLevelPermissionRulesApplied?: boolean;
-}
-
-export namespace DataSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum DataSourceErrorInfoType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CONFLICT = "CONFLICT",
-  COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
-  TIMEOUT = "TIMEOUT",
-  UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST",
-}
-
-/**
- * <p>Error information for the data source creation or update.</p>
- */
-export interface DataSourceErrorInfo {
-  /**
-   * <p>Error type.</p>
-   */
-  Type?: DataSourceErrorInfoType | string;
-
-  /**
-   * <p>Error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace DataSourceErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceErrorInfo): any => ({
-    ...obj,
   });
 }
 
@@ -8499,143 +5911,6 @@ export namespace DescribeIngestionRequest {
   });
 }
 
-export enum IngestionErrorType {
-  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
-  CONNECTION_FAILURE = "CONNECTION_FAILURE",
-  CURSOR_NOT_ENABLED = "CURSOR_NOT_ENABLED",
-  CUSTOMER_ERROR = "CUSTOMER_ERROR",
-  DATA_SET_DELETED = "DATA_SET_DELETED",
-  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
-  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
-  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
-  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
-  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
-  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
-  ELASTICSEARCH_CURSOR_NOT_ENABLED = "ELASTICSEARCH_CURSOR_NOT_ENABLED",
-  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
-  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
-  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
-  INGESTION_CANCELED = "INGESTION_CANCELED",
-  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
-  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
-  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
-  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
-  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
-  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
-  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  PERMISSION_NOT_FOUND = "PERMISSION_NOT_FOUND",
-  QUERY_TIMEOUT = "QUERY_TIMEOUT",
-  REFRESH_SUPPRESSED_BY_EDIT = "REFRESH_SUPPRESSED_BY_EDIT",
-  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
-  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
-  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
-  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
-  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
-  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
-  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
-  SQL_EXCEPTION = "SQL_EXCEPTION",
-  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
-  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
-  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
-  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
-  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
-  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST",
-}
-
-/**
- * <p>Error information for the SPICE ingestion of a dataset.</p>
- */
-export interface ErrorInfo {
-  /**
-   * <p>Error type.</p>
-   */
-  Type?: IngestionErrorType | string;
-
-  /**
-   * <p>Error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a queued dataset SPICE ingestion.</p>
- */
-export interface QueueInfo {
-  /**
-   * <p>The ID of the queued ingestion.</p>
-   */
-  WaitingOnIngestion: string | undefined;
-
-  /**
-   * <p>The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing
-   *             ingestion to complete.</p>
-   */
-  QueuedIngestion: string | undefined;
-}
-
-export namespace QueueInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum IngestionRequestSource {
-  MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED",
-}
-
-export enum IngestionRequestType {
-  EDIT = "EDIT",
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION",
-}
-
-/**
- * <p>Information about rows for a data set SPICE ingestion.</p>
- */
-export interface RowInfo {
-  /**
-   * <p>The number of rows that were ingested.</p>
-   */
-  RowsIngested?: number;
-
-  /**
-   * <p>The number of rows that were not ingested.</p>
-   */
-  RowsDropped?: number;
-
-  /**
-   * <p>The total number of rows in the dataset.</p>
-   */
-  TotalRowsInDataset?: number;
-}
-
-export namespace RowInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the SPICE ingestion for a dataset.</p>
  */
@@ -8804,35 +6079,6 @@ export namespace DescribeNamespaceRequest {
   });
 }
 
-export enum NamespaceErrorType {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-}
-
-/**
- * <p>Errors that occur during namespace creation.</p>
- */
-export interface NamespaceError {
-  /**
-   * <p>The error type.</p>
-   */
-  Type?: NamespaceErrorType | string;
-
-  /**
-   * <p>The message for the error.</p>
-   */
-  Message?: string;
-}
-
-export namespace NamespaceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The error type.</p>
  */
@@ -8937,99 +6183,6 @@ export namespace DescribeTemplateRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum TemplateErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
-
-/**
- * <p>List of errors that occurred when the template version creation failed.</p>
- */
-export interface TemplateError {
-  /**
-   * <p>Type of error.</p>
-   */
-  Type?: TemplateErrorType | string;
-
-  /**
-   * <p>Description of the error type.</p>
-   */
-  Message?: string;
-}
-
-export namespace TemplateError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A version of a template.</p>
- */
-export interface TemplateVersion {
-  /**
-   * <p>The time that this template version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Errors associated with this template version.</p>
-   */
-  Errors?: TemplateError[];
-
-  /**
-   * <p>The version number of the template version.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-   *             template should be bound to new datasets matching the same schema described through this
-   *             API operation.</p>
-   */
-  DataSetConfigurations?: DataSetConfiguration[];
-
-  /**
-   * <p>The description of the template.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-   *             template.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * <p>The ARN of the theme associated with this version of the template.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   */
-  Sheets?: Sheet[];
-}
-
-export namespace TemplateVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersion): any => ({
     ...obj,
   });
 }
@@ -9259,95 +6412,6 @@ export namespace DescribeThemeRequest {
   });
 }
 
-export enum ThemeType {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
-export enum ThemeErrorType {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
-
-/**
- * <p>Theme error.</p>
- */
-export interface ThemeError {
-  /**
-   * <p>The type of error.</p>
-   */
-  Type?: ThemeErrorType | string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ThemeError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A version of a theme.</p>
- */
-export interface ThemeVersion {
-  /**
-   * <p>The version number of the theme.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The description of the theme.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default Amazon QuickSight theme.</p>
-   */
-  BaseThemeId?: string;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The theme configuration, which contains all the theme display properties.</p>
-   */
-  Configuration?: ThemeConfiguration;
-
-  /**
-   * <p>Errors associated with the theme.</p>
-   */
-  Errors?: ThemeError[];
-
-  /**
-   * <p>The status of the theme version.</p>
-   */
-  Status?: ResourceStatus | string;
-}
-
-export namespace ThemeVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a theme.</p>
  */
@@ -9530,6 +6594,4654 @@ export namespace DescribeThemePermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeUserRequest {
+  /**
+   * <p>The name of the user that you want to describe.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace DescribeUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A registered user of Amazon QuickSight. </p>
+ */
+export interface User {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the user.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The user's user name. In the output, the value for <code>UserName</code> is
+   *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
+   *             and the corresponding IAM user is deleted.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The user's email address.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>The Amazon QuickSight role for the user. The user role can be one of the
+   *             following:.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
+   *                     and dashboards.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+   *                     Amazon QuickSight settings.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *          </ul>
+   */
+  Role?: UserRole | string;
+
+  /**
+   * <p>The type of identity authentication used by the user.</p>
+   */
+  IdentityType?: IdentityType | string;
+
+  /**
+   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
+   *             user or an Active Directory user, that user is inactive until they sign in and provide a
+   *             password.</p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>The principal ID of the user.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The custom permissions profile associated with this user.</p>
+   */
+  CustomPermissionsName?: string;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let the user
+   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
+   *         <ul>
+   *             <li>
+   *                     <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
+   *                 </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the external login provider.</p>
+   */
+  ExternalLoginFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for the user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
+}
+
+export namespace User {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: User): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeUserResponse {
+  /**
+   * <p>The user name.</p>
+   */
+  User?: User;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace DescribeUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
+ * 			added to the approved list by an Amazon QuickSight admin.</p>
+ */
+export class DomainNotWhitelistedException extends __BaseException {
+  readonly name: "DomainNotWhitelistedException" = "DomainNotWhitelistedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DomainNotWhitelistedException, __BaseException>) {
+    super({
+      name: "DomainNotWhitelistedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainNotWhitelistedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>A filter to use to search a Amazon QuickSight folder.</p>
+ */
+export interface FolderSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use in the filter. For example, <code>"Operator": "StringEquals"</code>.</p>
+   */
+  Operator?: FilterOperator | string;
+
+  /**
+   * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
+   */
+  Name?: FolderFilterAttribute | string;
+
+  /**
+   * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
+   */
+  Value?: string;
+}
+
+export namespace FolderSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The key-value pair used for the row-level security tags feature.</p>
+ */
+export interface SessionTag {
+  /**
+   * <p>The key for the tag.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value that you want to assign the tag.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace SessionTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SessionTag): any => ({
+    ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
+  });
+}
+
+export interface GenerateEmbedUrlForAnonymousUserRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
+   * <p>The Amazon QuickSight namespace that the anonymous user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The session tags used for row-level security. Before you use this parameter, make sure that
+   *   you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session tags can be used to provide row-level security.</p>
+   *         <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>.</p>
+   */
+  SessionTags?: SessionTag[];
+
+  /**
+   * <p>The Amazon Resource Names for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each API call.</p>
+   */
+  AuthorizedResourceArns: string[] | undefined;
+
+  /**
+   * <p>The configuration of the experience you are embedding.</p>
+   */
+  ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration | undefined;
+}
+
+export namespace GenerateEmbedUrlForAnonymousUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateEmbedUrlForAnonymousUserRequest): any => ({
+    ...obj,
+    ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface GenerateEmbedUrlForAnonymousUserResponse {
+  /**
+   * <p>The embed URL for the dashboard.</p>
+   */
+  EmbedUrl: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId: string | undefined;
+}
+
+export namespace GenerateEmbedUrlForAnonymousUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateEmbedUrlForAnonymousUserResponse): any => ({
+    ...obj,
+    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
+ * 			lifetime must be 15-600 minutes.</p>
+ */
+export class SessionLifetimeInMinutesInvalidException extends __BaseException {
+  readonly name: "SessionLifetimeInMinutesInvalidException" = "SessionLifetimeInMinutesInvalidException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionLifetimeInMinutesInvalidException, __BaseException>) {
+    super({
+      name: "SessionLifetimeInMinutesInvalidException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionLifetimeInMinutesInvalidException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
+ * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
+ * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+ *         <p>After capacity pricing is added, you can use the
+ *             <code>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+ *             </code> API operation with the
+ *             <code>--identity-type ANONYMOUS</code> option.</p>
+ */
+export class UnsupportedPricingPlanException extends __BaseException {
+  readonly name: "UnsupportedPricingPlanException" = "UnsupportedPricingPlanException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedPricingPlanException, __BaseException>) {
+    super({
+      name: "UnsupportedPricingPlanException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedPricingPlanException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>
+ *          <note>
+ *             <p>Exactly one of the experience configurations is required. You can choose
+ *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
+ *                 than one experience configuration.</p>
+ *          </note>
+ */
+export interface RegisteredUserEmbeddingExperienceConfiguration {
+  /**
+   * <p>The configuration details for providing a dashboard embedding experience.</p>
+   */
+  Dashboard?: RegisteredUserDashboardEmbeddingConfiguration;
+
+  /**
+   * <p>The configuration details for providing each Amazon QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a> in the <i>Amazon QuickSight User
+   *             Guide</i>.</p>
+   *         <p>Use <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
+   *             </code>
+   *             where
+   *             you want to provide an authoring portal that allows users to create data sources,
+   *             datasets, analyses, and dashboards. The users who accesses an embedded Amazon QuickSight console
+   *             needs to belong to the author or admin security cohort. If you want to restrict permissions
+   *             to some of these features, add a custom permissions profile to the user with the
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
+   *             </code> API operation. Use the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
+   *             </code> API operation to add a new user with a custom permission profile attached. For more
+   *             information, see the following sections in the <i>Amazon QuickSight User
+   *             Guide</i>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html">Embedding the Full Functionality of the Amazon QuickSight Console for Authenticated Users</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+   */
+  QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration;
+
+  /**
+   * <p>The configuration details for embedding the Q search bar.</p>
+   *          <p>For more information about embedding the Q search bar, see
+   *       <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a>.</p>
+   */
+  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
+}
+
+export namespace RegisteredUserEmbeddingExperienceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisteredUserEmbeddingExperienceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GenerateEmbedUrlForRegisteredUserRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
+   * <p>The Amazon Resource Name for the registered user.</p>
+   */
+  UserArn: string | undefined;
+
+  /**
+   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards or the entire Amazon QuickSight console.</p>
+   */
+  ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
+}
+
+export namespace GenerateEmbedUrlForRegisteredUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateEmbedUrlForRegisteredUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GenerateEmbedUrlForRegisteredUserResponse {
+  /**
+   * <p>The embed URL for the Amazon QuickSight dashboard or console.</p>
+   */
+  EmbedUrl: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId: string | undefined;
+}
+
+export namespace GenerateEmbedUrlForRegisteredUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateEmbedUrlForRegisteredUserResponse): any => ({
+    ...obj,
+    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The user with the provided name isn't found. This error can happen in any operation
+ * 			that requires finding a user based on a provided user name, such as
+ * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ */
+export class QuickSightUserNotFoundException extends __BaseException {
+  readonly name: "QuickSightUserNotFoundException" = "QuickSightUserNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QuickSightUserNotFoundException, __BaseException>) {
+    super({
+      name: "QuickSightUserNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QuickSightUserNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface GetDashboardEmbedUrlRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard, also added to the Identity and Access Management (IAM)
+   *             policy.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The authentication method that the user uses to sign in.</p>
+   */
+  IdentityType: EmbeddingIdentityType | string | undefined;
+
+  /**
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
+   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
+   * 			the undo/redo button.</p>
+   */
+  UndoRedoDisabled?: boolean;
+
+  /**
+   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
+   * 			reset button.</p>
+   */
+  ResetDisabled?: boolean;
+
+  /**
+   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
+   *             applies to the sheet and the parameter settings. These are control settings that the
+   *             dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is
+   *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
+   *             dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is
+   *             set to FALSE, the state of the user session is not persisted. The default is
+   *                 <code>FALSE</code>.</p>
+   */
+  StatePersistenceEnabled?: boolean;
+
+  /**
+   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
+   * 			You can use this for any Amazon QuickSight users in your account (readers, authors, or
+   * 			admins) authenticated as one of the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Active Directory (AD) users or group members</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Invited nonfederated users</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
+   * 					SAML, OpenID Connect, or IAM federation.</p>
+   * 			         </li>
+   *          </ul>
+   *          <p>Omit this parameter for users in the third group – IAM users and IAM
+   *             role-based sessions.</p>
+   */
+  UserArn?: string;
+
+  /**
+   * <p>The Amazon QuickSight namespace that contains the dashboard IDs in this request.
+   *     	   If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>A list of one or more dashboard IDs that you want to add to a session that includes
+   *             anonymous users. The <code>IdentityType</code> parameter must be set to
+   *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
+   *             as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
+   *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
+   *             can access all three dashboards. </p>
+   */
+  AdditionalDashboardIds?: string[];
+}
+
+export namespace GetDashboardEmbedUrlRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
+ */
+export interface GetDashboardEmbedUrlResponse {
+  /**
+   * <p>A single-use URL that you can put into your server-side webpage to embed your
+   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
+   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
+   * 			that is valid for 10 hours. </p>
+   */
+  EmbedUrl?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace GetDashboardEmbedUrlResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
+    ...obj,
+    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The identity type specified isn't supported. Supported identity types include
+ * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
+ */
+export class IdentityTypeNotSupportedException extends __BaseException {
+  readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdentityTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "IdentityTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdentityTypeNotSupportedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface GetSessionEmbedUrlRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
+   *           the following paths:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>/start</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/analyses</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/dashboards</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/favorites</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/dashboards/<i>DashboardId</i>
+   *                   </code> - where <code>DashboardId</code> is the actual ID key from the Amazon QuickSight console URL of the dashboard</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/analyses/<i>AnalysisId</i>
+   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the Amazon QuickSight console URL of the analysis</p>
+   *             </li>
+   *          </ul>
+   */
+  EntryPoint?: string;
+
+  /**
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
+   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
+   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
+   * 			admins). They need to be authenticated as one of the following:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Active Directory (AD) users or group members</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Invited nonfederated users</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Identity and Access Management (IAM) users and IAM role-based sessions authenticated
+   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
+   *                     federation</p>
+   * 			         </li>
+   *          </ol>
+   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
+   *             sessions.</p>
+   */
+  UserArn?: string;
+}
+
+export namespace GetSessionEmbedUrlRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSessionEmbedUrlResponse {
+  /**
+   * <p>A single-use URL that you can put into your server-side web page to embed your
+   * 			Amazon QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
+   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
+   * 			that is valid for 10 hours. </p>
+   */
+  EmbedUrl?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace GetSessionEmbedUrlResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
+    ...obj,
+    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
+ */
+export interface GroupSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator":
+   *                 "StartsWith"</code>. Currently, the only supported operator is
+   *                 <code>StartsWith</code>.</p>
+   */
+  Operator: GroupFilterOperator | string | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "GROUP_NAME"</code>. Currently, the only supported name is
+   *             <code>GROUP_NAME</code>.</p>
+   */
+  Name: GroupFilterAttribute | string | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace GroupSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnalysesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListAnalysesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnalysesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnalysesResponse {
+  /**
+   * <p>Metadata describing each of the analyses that are listed.</p>
+   */
+  AnalysisSummaryList?: AnalysisSummary[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListAnalysesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnalysesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDashboardsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
+   *             listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDashboardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDashboardsResponse {
+  /**
+   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
+   *             provides basic information about the dashboards.</p>
+   */
+  DashboardSummaryList?: DashboardSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListDashboardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDashboardVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDashboardVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDashboardVersionsResponse {
+  /**
+   * <p>A structure that contains information about each version of the dashboard.</p>
+   */
+  DashboardVersionSummaryList?: DashboardVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListDashboardVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDataSetsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDataSetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDataSetsResponse {
+  /**
+   * <p>The list of dataset summaries.</p>
+   */
+  DataSetSummaries?: DataSetSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListDataSetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDataSourcesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDataSourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDataSourcesResponse {
+  /**
+   * <p>A list of data sources.</p>
+   */
+  DataSources?: DataSource[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListDataSourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
+    ...obj,
+    ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSource.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListFolderMembersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFolderMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFolderMembersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
+   */
+  FolderMemberList?: MemberIdArnPair[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListFolderMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFolderMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFoldersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFoldersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFoldersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFoldersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
+   */
+  FolderSummaryList?: FolderSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListFoldersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFoldersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupMembershipsRequest {
+  /**
+   * <p>The name of the group that you want to see a membership list of.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want a list of users from.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace ListGroupMembershipsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupMembershipsResponse {
+  /**
+   * <p>The list of the members of the group.</p>
+   */
+  GroupMemberList?: GroupMember[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListGroupMembershipsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace that you want a list of groups from.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace ListGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsResponse {
+  /**
+   * <p>The list of the groups.</p>
+   */
+  GroupList?: Group[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIAMPolicyAssignmentsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains these IAM policy assignments.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The status of the assignments.</p>
+   */
+  AssignmentStatus?: AssignmentStatus | string;
+
+  /**
+   * <p>The namespace for the assignments.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListIAMPolicyAssignmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIAMPolicyAssignmentsResponse {
+  /**
+   * <p>Information describing the IAM policy assignments.</p>
+   */
+  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListIAMPolicyAssignmentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIAMPolicyAssignmentsForUserRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace of the assignment.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace ListIAMPolicyAssignmentsForUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIAMPolicyAssignmentsForUserResponse {
+  /**
+   * <p>The active assignments for this user.</p>
+   */
+  ActiveAssignments?: ActiveIAMPolicyAssignment[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListIAMPolicyAssignmentsForUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIngestionsRequest {
+  /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListIngestionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIngestionsResponse {
+  /**
+   * <p>A list of the ingestions.</p>
+   */
+  Ingestions?: Ingestion[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListIngestionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNamespacesRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListNamespacesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListNamespacesResponse {
+  /**
+   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
+   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
+   *         identity store.</p>
+   */
+  Namespaces?: NamespaceInfoV2[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListNamespacesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplateAliasesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTemplateAliasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplateAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplateAliasesResponse {
+  /**
+   * <p>A structure containing the list of the template's aliases.</p>
+   */
+  TemplateAliasList?: TemplateAlias[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTemplateAliasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplateAliasesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplatesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplatesResponse {
+  /**
+   * <p>A structure containing information about the templates in the list.</p>
+   */
+  TemplateSummaryList?: TemplateSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplateVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTemplateVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTemplateVersionsResponse {
+  /**
+   * <p>A structure containing a list of all the versions of the specified template.</p>
+   */
+  TemplateVersionSummaryList?: TemplateVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListTemplateVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemeAliasesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListThemeAliasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemeAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemeAliasesResponse {
+  /**
+   * <p>A structure containing the list of the theme's aliases.</p>
+   */
+  ThemeAliasList?: ThemeAlias[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListThemeAliasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemeAliasesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The type of themes that you want to list. Valid options include the following:</p>
+   *     	    <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL (default)</code>- Display all existing themes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT</code> - Display only the starting themes defined by Amazon QuickSight.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: ThemeType | string;
+}
+
+export namespace ListThemesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemesResponse {
+  /**
+   * <p>Information about the themes in the list.</p>
+   */
+  ThemeSummaryList?: ThemeSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListThemesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemeVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListThemeVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemeVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThemeVersionsResponse {
+  /**
+   * <p>A structure containing a list of all the versions of the specified theme.</p>
+   */
+  ThemeVersionSummaryList?: ThemeVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace ListThemeVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThemeVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserGroupsRequest {
+  /**
+   * <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account
+   * 			that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListUserGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUserGroupsResponse {
+  /**
+   * <p>The list of groups the user is a member of.</p>
+   */
+  GroupList?: Group[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListUserGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUserGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUsersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace ListUsersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListUsersResponse {
+  /**
+   * <p>The list of users.</p>
+   */
+  UserList?: User[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListUsersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterUserRequest {
+  /**
+   * <p>Amazon QuickSight supports several ways of managing the identity of users. This
+   * 			parameter accepts two values:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>IAM</code>: A user whose identity maps to an existing IAM user or role.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by
+   * 					Amazon QuickSight. </p>
+   * 			         </li>
+   *          </ul>
+   */
+  IdentityType: IdentityType | string | undefined;
+
+  /**
+   * <p>The email address of the user that you want to register.</p>
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight role for the user. The user role can be one of the
+   * 			following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
+   * 					dashboards.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
+   * 					settings.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
+   * 					use.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
+   * 					use.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  UserRole: UserRole | string | undefined;
+
+  /**
+   * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
+   */
+  IamArn?: string;
+
+  /**
+   * <p>You need to use this parameter only when you register one or more users using an assumed
+   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
+   * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
+   * 			users using the same IAM role if each user has a different session name. For more
+   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
+   *                <code>assume-role</code>
+   *             </a> in the <i>CLI Reference.</i>
+   *          </p>
+   */
+  SessionName?: string;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight user name that you want to create for the user you are
+   * 			registering.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
+   *             assign to this user. Customized permissions allows you to control a user's access by
+   *             restricting access the following operations:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Create and update data sources</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create and update datasets</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create and update email reports</p>
+   *             </li>
+   *             <li>
+   *                 <p>Subscribe to email reports</p>
+   *             </li>
+   *          </ul>
+   *         <p>To add custom permissions to an existing user, use <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
+   *             </code> instead.</p>
+   *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
+   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
+   *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
+   *             permissions to a Amazon QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
+   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
+   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
+   *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
+   */
+  CustomPermissionsName?: string;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
+   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
+   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
+   */
+  CustomFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for a user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
+}
+
+export namespace RegisterUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterUserResponse {
+  /**
+   * <p>The user's user name.</p>
+   */
+  User?: User;
+
+  /**
+   * <p>The URL the user visits to complete registration and provide a password. This is
+   * 			returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
+   */
+  UserInvitationUrl?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace RegisterUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterUserResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're restoring.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+export namespace RestoreAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreAnalysisResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis that you're restoring.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the analysis that you're restoring.
+   *         </p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace RestoreAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchAnalysesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The structure for the search filters that you want to apply to your search. </p>
+   */
+  Filters: AnalysisSearchFilter[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace SearchAnalysesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAnalysesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchAnalysesResponse {
+  /**
+   * <p>Metadata describing the analyses that you searched for.</p>
+   */
+  AnalysisSummaryList?: AnalysisSummary[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.
+   *             </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace SearchAnalysesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAnalysesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchDashboardsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the user whose dashboards you're searching
+   *             for. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search. Currently, you can search only by user name, for
+   *             example, <code>"Filters": [ { "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
+   *             "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" } ]</code>
+   *          </p>
+   */
+  Filters: DashboardSearchFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace SearchDashboardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchDashboardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchDashboardsResponse {
+  /**
+   * <p>The list of dashboards owned by the user specified in <code>Filters</code> in your
+   *             request.</p>
+   */
+  DashboardSummaryList?: DashboardSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace SearchDashboardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchDashboardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchFoldersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</code>.</p>
+   */
+  Filters: FolderSearchFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace SearchFoldersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchFoldersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchFoldersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
+   */
+  FolderSummaryList?: FolderSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace SearchFoldersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchFoldersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchGroupsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *           Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace that you want to search.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The structure for the search filters that you want to apply to your search.</p>
+   */
+  Filters: GroupSearchFilter[] | undefined;
+}
+
+export namespace SearchGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchGroupsResponse {
+  /**
+   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
+   */
+  GroupList?: Group[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace SearchGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountCustomizationRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   */
+  AccountCustomization: AccountCustomization | undefined;
+}
+
+export namespace UpdateAccountCustomizationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountCustomizationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountCustomizationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   *             for.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The namespace associated with the customization that you're updating.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   */
+  AccountCustomization?: AccountCustomization;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateAccountCustomizationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountCustomizationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountSettingsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
+   *             list.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The default namespace for this Amazon Web Services account. Currently, the default is
+   *                 <code>default</code>. Identity and Access Management (IAM) users that register
+   *             for the first time with Amazon QuickSight provide an email that becomes associated with the
+   *             default namespace.</p>
+   */
+  DefaultNamespace: string | undefined;
+
+  /**
+   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your
+   *             Amazon Web Services account or Amazon QuickSight subscription.</p>
+   */
+  NotificationEmail?: string;
+}
+
+export namespace UpdateAccountSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountSettingsResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateAccountSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're updating. This ID displays in the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're updating. This name displays for the
+   *             analysis in the Amazon QuickSight console.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   */
+  Parameters?: _Parameters;
+
+  /**
+   * <p>A source entity to use for the analysis that you're updating. This metadata structure
+   *             contains details that describe a source template and one or more datasets.</p>
+   */
+  SourceEntity: AnalysisSourceEntity | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
+   *             creating. To see the theme in the Amazon QuickSight console, make sure that you have access to
+   *             it.</p>
+   */
+  ThemeArn?: string;
+}
+
+export namespace UpdateAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAnalysisResponse {
+  /**
+   * <p>The ARN of the analysis that you're updating.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The update status of the last update that was made to the analysis.</p>
+   */
+  UpdateStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAnalysisPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             updating. You must be using the Amazon Web Services account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis whose permissions you're updating. The ID is part of the
+   *             analysis URL.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A structure that describes the permissions to add and the principal to add them
+   *             to.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A structure that describes the permissions to remove and the principal to remove them
+   *             from.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateAnalysisPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAnalysisPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAnalysisPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
+   */
+  AnalysisArn?: string;
+
+  /**
+   * <p>The ID of the analysis that you updated permissions for.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateAnalysisPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAnalysisPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you update the dashboard. In
+   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
+   *             can only update a dashboard from a template, so you use a <code>SourceTemplate</code>
+   *             entity. If you need to update a dashboard from an analysis, first convert the analysis
+   *             to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code> API operation. For
+   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
+   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
+   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
+   *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
+   *             list the replacement datasets for the placeholders listed in the original. The schema in
+   *             each dataset must match its placeholder. </p>
+   */
+  SourceEntity: DashboardSourceEntity | undefined;
+
+  /**
+   * <p>A structure that contains the parameters of the dashboard. These are parameter
+   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
+   *             parameters might accept multiple values.</p>
+   */
+  Parameters?: _Parameters;
+
+  /**
+   * <p>A description for the first version of the dashboard being created.</p>
+   */
+  VersionDescription?: string;
+
+  /**
+   * <p>Options for publishing the dashboard when you create it:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
+   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *          </ul>
+   */
+  DashboardPublishOptions?: DashboardPublishOptions;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+   *             you add a value for this field, it overrides the value that was originally associated
+   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the
+   *             dashboard.</p>
+   */
+  ThemeArn?: string;
+}
+
+export namespace UpdateDashboardRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ARN of the dashboard, including the version number.</p>
+   */
+  VersionArn?: string;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>The creation status of the request.</p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateDashboardResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard whose permissions you're
+   *             updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The permissions that you want to grant on this resource.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>The permissions that you want to revoke from this resource.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+
+  /**
+   * <p>Grants link permissions to all users in a defined namespace.</p>
+   */
+  GrantLinkPermissions?: ResourcePermission[];
+
+  /**
+   * <p>Revokes link permissions from all users in a defined namespace.</p>
+   */
+  RevokeLinkPermissions?: ResourcePermission[];
+}
+
+export namespace UpdateDashboardPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   */
+  DashboardArn?: string;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>Information about the permissions on the dashboard.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration;
+}
+
+export namespace UpdateDashboardPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardPublishedVersionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number of the dashboard.</p>
+   */
+  VersionNumber: number | undefined;
+}
+
+export namespace UpdateDashboardPublishedVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDashboardPublishedVersionResponse {
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   */
+  DashboardArn?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateDashboardPublishedVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSetRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region for each
+   * 			Amazon Web Services account.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The display name for the dataset.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Declares the physical tables that are available in the underlying data sources.</p>
+   */
+  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
+
+  /**
+   * <p>Configures the combination and transformation of the data from the physical tables.</p>
+   */
+  LogicalTableMap?: Record<string, LogicalTable>;
+
+  /**
+   * <p>Indicates whether you want to import the data into SPICE.</p>
+   */
+  ImportMode: DataSetImportMode | string | undefined;
+
+  /**
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   */
+  ColumnGroups?: ColumnGroup[];
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   */
+  FieldFolders?: Record<string, FieldFolder>;
+
+  /**
+   * <p>The row-level security configuration for the data you want to create.</p>
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+
+  /**
+   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+
+  /**
+   * <p>A set of one or more definitions of a <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+   *             </code>.</p>
+   */
+  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration;
+}
+
+export namespace UpdateDataSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
+    ...obj,
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.RowLevelPermissionTagConfiguration && {
+      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
+        obj.RowLevelPermissionTagConfiguration
+      ),
+    }),
+  });
+}
+
+export interface UpdateDataSetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
+   * 			mode is SPICE.</p>
+   */
+  IngestionArn?: string;
+
+  /**
+   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
+   * 			mode is SPICE.</p>
+   */
+  IngestionId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateDataSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSetPermissionsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
+   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The resource permissions that you want to grant to the dataset.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>The resource permissions that you want to revoke from the dataset.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateDataSetPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSetPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSetPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  DataSetArn?: string;
+
+  /**
+   * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
+   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateDataSetPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSetPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSourceRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
+   */
+  DataSourceId: string | undefined;
+
+  /**
+   * <p>A display name for the data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
+   */
+  DataSourceParameters?: DataSourceParameters;
+
+  /**
+   * <p>The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently,
+   * 			only credentials based on user name and password are supported.</p>
+   */
+  Credentials?: DataSourceCredentials;
+
+  /**
+   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
+   * 			your underlying source.</p>
+   */
+  VpcConnectionProperties?: VpcConnectionProperties;
+
+  /**
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying
+   * 			source.</p>
+   */
+  SslProperties?: SslProperties;
+}
+
+export namespace UpdateDataSourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
+    ...obj,
+    ...(obj.DataSourceParameters && {
+      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
+    }),
+    ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateDataSourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The update status of the data source's last update.</p>
+   */
+  UpdateStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateDataSourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSourcePermissionsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
+   */
+  DataSourceId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions that you want to grant on the data source.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A list of resource permissions that you want to revoke on the data source.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateDataSourcePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSourcePermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   */
+  DataSourceArn?: string;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateDataSourcePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFolderRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The name of the folder.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateFolderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFolderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFolderResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateFolderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFolderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFolderPermissionsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The permissions that you want to grant on a resource.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>The permissions that you want to revoke from a resource.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateFolderPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFolderPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFolderPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>Information about the permissions for the folder.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateFolderPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFolderPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateGroupRequest {
+  /**
+   * <p>The name of the group that you want to update.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The description for the group that you want to update.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to update.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace UpdateGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateGroupResponse {
+  /**
+   * <p>The name of the group.</p>
+   */
+  Group?: Group;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIAMPolicyAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IAM policy assignment. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the assignment, also called a rule. This name must be unique within an Amazon Web Services account.</p>
+   */
+  AssignmentName: string | undefined;
+
+  /**
+   * <p>The namespace of the assignment.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The status of the assignment. Possible values are as follows:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - Anything specified in this assignment is used when creating the data
+   * 				source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - This assignment isn't used when creating the data source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the
+   * 				data source.</p>
+   *             </li>
+   *          </ul>
+   */
+  AssignmentStatus?: AssignmentStatus | string;
+
+  /**
+   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups
+   * 			specified in this assignment.</p>
+   */
+  PolicyArn?: string;
+
+  /**
+   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
+   */
+  Identities?: Record<string, string[]>;
+}
+
+export namespace UpdateIAMPolicyAssignmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIAMPolicyAssignmentResponse {
+  /**
+   * <p>The name of the assignment or rule.</p>
+   */
+  AssignmentName?: string;
+
+  /**
+   * <p>The ID of the assignment.</p>
+   */
+  AssignmentId?: string;
+
+  /**
+   * <p>The ARN for the IAM policy applied to the Amazon QuickSight users and groups specified in this
+   * 			assignment.</p>
+   */
+  PolicyArn?: string;
+
+  /**
+   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
+   */
+  Identities?: Record<string, string[]>;
+
+  /**
+   * <p>The status of the assignment. Possible values are as follows:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - Anything specified in this assignment is used when creating the data
+   * 				source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - This assignment isn't used when creating the data source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the
+   * 				data source.</p>
+   *             </li>
+   *          </ul>
+   */
+  AssignmentStatus?: AssignmentStatus | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateIAMPolicyAssignmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIpRestrictionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A map that describes the updated IP rules with CIDR ranges and descriptions.</p>
+   */
+  IpRestrictionRuleMap?: Record<string, string>;
+
+  /**
+   * <p>A value that specifies whether IP rules are turned on.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace UpdateIpRestrictionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIpRestrictionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIpRestrictionResponse {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request. </p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateIpRestrictionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIpRestrictionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePublicSharingSettingsRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A boolean that indicates whether or not public sharing is enabled on a Amazon QuickSight account.</p>
+   */
+  PublicSharingEnabled?: boolean;
+}
+
+export namespace UpdatePublicSharingSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePublicSharingSettingsResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdatePublicSharingSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you update the template. In
+   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
+   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
+   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
+   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
+   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
+   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;. </p>
+   * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
+   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
+   * 			in the original. The schema in each dataset must match its placeholder. </p>
+   */
+  SourceEntity: TemplateSourceEntity | undefined;
+
+  /**
+   * <p>A description of the current template version that is being updated. Every time you call
+   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
+   * 			of the template maintains a description of the version in the
+   * 				<code>VersionDescription</code> field.</p>
+   */
+  VersionDescription?: string;
+
+  /**
+   * <p>The name for the template.</p>
+   */
+  Name?: string;
+}
+
+export namespace UpdateTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplateResponse {
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ARN for the template, including the version information of the first version.</p>
+   */
+  VersionArn?: string;
+
+  /**
+   * <p>The creation status of the template.</p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The alias of the template that you want to update. If you name a specific alias, you update
+   * 			the version that the alias points to. You can specify the latest version of the template
+   * 			by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter.
+   * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The version number of the template.</p>
+   */
+  TemplateVersionNumber: number | undefined;
+}
+
+export namespace UpdateTemplateAliasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplateAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplateAliasResponse {
+  /**
+   * <p>The template alias.</p>
+   */
+  TemplateAlias?: TemplateAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateTemplateAliasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplateAliasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted on the template. </p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A list of resource permissions to be revoked from the template. </p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateTemplatePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplatePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  TemplateArn?: string;
+
+  /**
+   * <p>A list of resource permissions to be set on the template.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateTemplatePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTemplatePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name for the theme.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from.
+   * 		All themes initially inherit from a default Amazon QuickSight theme.</p>
+   */
+  BaseThemeId: string | undefined;
+
+  /**
+   * <p>A description of the theme version that you're updating Every time that you call
+   * 				<code>UpdateTheme</code>, you create a new version of the theme. Each version of the
+   * 			theme maintains a description of the version in <code>VersionDescription</code>.</p>
+   */
+  VersionDescription?: string;
+
+  /**
+   * <p>The theme configuration, which contains the theme display properties.</p>
+   */
+  Configuration?: ThemeConfiguration;
+}
+
+export namespace UpdateThemeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemeResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
+   */
+  VersionArn?: string;
+
+  /**
+   * <p>The creation status of the theme.</p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateThemeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to update.</p>
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The version number of the theme that the alias should reference.</p>
+   */
+  ThemeVersionNumber: number | undefined;
+}
+
+export namespace UpdateThemeAliasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemeAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   */
+  ThemeAlias?: ThemeAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UpdateThemeAliasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemeAliasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted for the theme.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A list of resource permissions to be revoked from the theme.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+export namespace UpdateThemePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>The resulting list of resource permissions for the theme.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateThemePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateThemePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateUserRequest {
+  /**
+   * <p>The Amazon QuickSight user name that you want to update.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The email address of the user that you want to update.</p>
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight role of the user. The role can be one of the
+   * 			following default security cohorts:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
+   * 					dashboards.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
+   * 					settings.</p>
+   * 			         </li>
+   *          </ul>
+   * 	        <p>The name of the Amazon QuickSight role is invisible to the user except for the console
+   * 	        screens dealing with permissions.</p>
+   */
+  Role: UserRole | string | undefined;
+
+  /**
+   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
+   *             assign to this user. Customized permissions allows you to control a user's access by
+   *             restricting access the following operations:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Create and update data sources</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create and update datasets</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create and update email reports</p>
+   *             </li>
+   *             <li>
+   *                 <p>Subscribe to email reports</p>
+   *             </li>
+   *          </ul>
+   *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
+   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
+   *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
+   *             permissions to a Amazon QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
+   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
+   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
+   *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
+   */
+  CustomPermissionsName?: string;
+
+  /**
+   * <p>A flag that you use to indicate that you want to remove all custom permissions
+   *             from this user. Using this parameter resets the user to the state
+   *             it was in before a custom permissions profile was applied. This parameter defaults to
+   *             NULL and it doesn't accept any other value.</p>
+   */
+  UnapplyCustomPermissions?: boolean;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: This clears all the previously saved external login information for a user. Use the
+   *           <code>
+   *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+   *                   </code>
+   *           API operation to check the external login information.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
+   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
+   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
+   */
+  CustomFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for a user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
+}
+
+export namespace UpdateUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateUserResponse {
+  /**
+   * <p>The Amazon QuickSight user.</p>
+   */
+  User?: User;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj,
   });
 }

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_1";
+import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePartnerInputCommand,
   serializeAws_restJson1CreatePartnerInputCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_1";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,

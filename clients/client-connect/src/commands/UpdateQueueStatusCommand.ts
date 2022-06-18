@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueStatusRequest } from "../models/models_1";
+import { UpdateQueueStatusRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateQueueStatusCommand,
   serializeAws_restJson1UpdateQueueStatusCommand,

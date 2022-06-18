@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccessKeyRequest } from "../models/models_1";
+import { UpdateAccessKeyRequest } from "../models/models_0";
 import {
   deserializeAws_queryUpdateAccessKeyCommand,
   serializeAws_queryUpdateAccessKeyCommand,

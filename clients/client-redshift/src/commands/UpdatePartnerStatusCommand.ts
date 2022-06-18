@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PartnerIntegrationOutputMessage } from "../models/models_0";
-import { UpdatePartnerStatusInputMessage } from "../models/models_1";
+import { PartnerIntegrationOutputMessage, UpdatePartnerStatusInputMessage } from "../models/models_0";
 import {
   deserializeAws_queryUpdatePartnerStatusCommand,
   serializeAws_queryUpdatePartnerStatusCommand,

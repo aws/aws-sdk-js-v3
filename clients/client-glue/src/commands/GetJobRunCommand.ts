@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRunRequest, GetJobRunResponse } from "../models/models_1";
+import { GetJobRunRequest, GetJobRunResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetJobRunCommand, serializeAws_json1_1GetJobRunCommand } from "../protocols/Aws_json1_1";
 
 export interface GetJobRunCommandInput extends GetJobRunRequest {}

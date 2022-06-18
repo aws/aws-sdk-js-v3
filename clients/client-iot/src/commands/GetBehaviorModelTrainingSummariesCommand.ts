@@ -16,7 +16,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetBehaviorModelTrainingSummariesRequest,
   GetBehaviorModelTrainingSummariesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,
   serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowNameRequest } from "../models/models_1";
+import { UpdateContactFlowNameRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateContactFlowNameCommand,
   serializeAws_restJson1UpdateContactFlowNameCommand,

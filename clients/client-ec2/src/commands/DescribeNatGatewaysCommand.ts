@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_3";
+import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeNatGatewaysCommand,
   serializeAws_ec2DescribeNatGatewaysCommand,

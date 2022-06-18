@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_1";
+import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePolicyCommand,
   serializeAws_restJson1DeletePolicyCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_1";
+import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeReservationCommand,
   serializeAws_restJson1DescribeReservationCommand,

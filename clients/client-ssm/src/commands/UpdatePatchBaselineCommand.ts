@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdatePatchBaselineRequest, UpdatePatchBaselineResult } from "../models/models_2";
+import { UpdatePatchBaselineRequest, UpdatePatchBaselineResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePatchBaselineCommand,
   serializeAws_json1_1UpdatePatchBaselineCommand,

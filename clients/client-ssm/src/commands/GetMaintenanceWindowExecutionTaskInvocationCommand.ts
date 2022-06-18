@@ -15,7 +15,7 @@ import {
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
   GetMaintenanceWindowExecutionTaskInvocationResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,
   serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,

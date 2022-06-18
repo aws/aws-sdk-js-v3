@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeWorkteamRequest, DescribeWorkteamResponse } from "../models/models_2";
+import { DescribeWorkteamRequest, DescribeWorkteamResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkteamCommand,
   serializeAws_json1_1DescribeWorkteamCommand,

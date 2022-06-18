@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { PeerVpcRequest, PeerVpcResult } from "../models/models_1";
+import { PeerVpcRequest, PeerVpcResult } from "../models/models_0";
 import { deserializeAws_json1_1PeerVpcCommand, serializeAws_json1_1PeerVpcCommand } from "../protocols/Aws_json1_1";
 
 export interface PeerVpcCommandInput extends PeerVpcRequest {}

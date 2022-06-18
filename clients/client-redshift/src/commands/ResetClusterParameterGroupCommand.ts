@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ClusterParameterGroupNameMessage } from "../models/models_0";
-import { ResetClusterParameterGroupMessage } from "../models/models_1";
+import { ClusterParameterGroupNameMessage, ResetClusterParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryResetClusterParameterGroupCommand,
   serializeAws_queryResetClusterParameterGroupCommand,

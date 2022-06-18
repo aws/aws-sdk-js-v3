@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportInstanceRequest, ImportInstanceResult } from "../models/models_5";
+import { ImportInstanceRequest, ImportInstanceResult } from "../models/models_2";
 import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
 
 export interface ImportInstanceCommandInput extends ImportInstanceRequest {}

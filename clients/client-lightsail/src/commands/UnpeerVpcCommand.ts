@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UnpeerVpcRequest, UnpeerVpcResult } from "../models/models_1";
+import { UnpeerVpcRequest, UnpeerVpcResult } from "../models/models_0";
 import { deserializeAws_json1_1UnpeerVpcCommand, serializeAws_json1_1UnpeerVpcCommand } from "../protocols/Aws_json1_1";
 
 export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetCardinalityRequest, GetCardinalityResponse } from "../models/models_1";
+import { GetCardinalityRequest, GetCardinalityResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCardinalityCommand,
   serializeAws_restJson1GetCardinalityCommand,

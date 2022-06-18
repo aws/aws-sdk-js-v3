@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/models_1";
+import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/models_0";
 import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
 export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}

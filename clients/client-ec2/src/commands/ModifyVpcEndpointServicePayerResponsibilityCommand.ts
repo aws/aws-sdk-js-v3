@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
-} from "../models/models_5";
+} from "../models/models_2";
 import {
   deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
   serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,

@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_1";
+import { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlRestoreObjectCommand,
   serializeAws_restXmlRestoreObjectCommand,

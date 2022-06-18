@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_2";
+import { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDataQualityJobDefinitionsCommand,
   serializeAws_json1_1ListDataQualityJobDefinitionsCommand,

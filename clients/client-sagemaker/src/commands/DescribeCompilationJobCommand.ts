@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_1";
+import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand,

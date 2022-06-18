@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RebootInstancesRequest } from "../models/models_5";
+import { RebootInstancesRequest } from "../models/models_2";
 import { deserializeAws_ec2RebootInstancesCommand, serializeAws_ec2RebootInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface RebootInstancesCommandInput extends RebootInstancesRequest {}

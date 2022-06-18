@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/models_5";
+import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/models_2";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand,

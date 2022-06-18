@@ -15,7 +15,7 @@ import {
 import {
   PurchaseReservedDBInstancesOfferingMessage,
   PurchaseReservedDBInstancesOfferingResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
   serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,

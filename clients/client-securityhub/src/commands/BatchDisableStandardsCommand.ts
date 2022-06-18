@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_1";
+import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDisableStandardsCommand,
   serializeAws_restJson1BatchDisableStandardsCommand,

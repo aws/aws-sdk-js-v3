@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_1";
+import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutRetentionSettingsCommand,
   serializeAws_restJson1PutRetentionSettingsCommand,

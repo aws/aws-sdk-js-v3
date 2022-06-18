@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetPlanRequest, GetPlanResponse } from "../models/models_1";
+import { GetPlanRequest, GetPlanResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
 
 export interface GetPlanCommandInput extends GetPlanRequest {}

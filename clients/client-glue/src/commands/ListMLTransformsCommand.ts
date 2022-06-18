@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ListMLTransformsRequest, ListMLTransformsResponse } from "../models/models_1";
+import { ListMLTransformsRequest, ListMLTransformsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMLTransformsCommand,
   serializeAws_json1_1ListMLTransformsCommand,

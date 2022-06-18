@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateSubnetCidrReservationRequest, CreateSubnetCidrReservationResult } from "../models/models_1";
+import { CreateSubnetCidrReservationRequest, CreateSubnetCidrReservationResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateSubnetCidrReservationCommand,
   serializeAws_ec2CreateSubnetCidrReservationCommand,

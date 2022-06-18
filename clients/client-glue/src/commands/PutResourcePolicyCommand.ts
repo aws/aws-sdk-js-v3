@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_1";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,

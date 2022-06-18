@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdFormatRequest } from "../models/models_5";
+import { ModifyIdFormatRequest } from "../models/models_2";
 import { deserializeAws_ec2ModifyIdFormatCommand, serializeAws_ec2ModifyIdFormatCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyIdFormatCommandInput extends ModifyIdFormatRequest {}

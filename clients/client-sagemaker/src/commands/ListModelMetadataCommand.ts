@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListModelMetadataRequest, ListModelMetadataResponse } from "../models/models_2";
+import { ListModelMetadataRequest, ListModelMetadataResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListModelMetadataCommand,
   serializeAws_json1_1ListModelMetadataCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_1";
+import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateInstanceExportTaskCommand,
   serializeAws_ec2CreateInstanceExportTaskCommand,

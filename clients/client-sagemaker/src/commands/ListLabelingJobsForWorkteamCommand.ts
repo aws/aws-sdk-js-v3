@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_2";
+import { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListLabelingJobsForWorkteamCommand,
   serializeAws_json1_1ListLabelingJobsForWorkteamCommand,

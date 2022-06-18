@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_1";
+import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryFailoverGlobalClusterCommand,
   serializeAws_queryFailoverGlobalClusterCommand,

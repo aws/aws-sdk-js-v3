@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateCACertificateRequest } from "../models/models_2";
+import { UpdateCACertificateRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateCACertificateCommand,
   serializeAws_restJson1UpdateCACertificateCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { TestRepositoryTriggersInput, TestRepositoryTriggersOutput } from "../models/models_1";
+import { TestRepositoryTriggersInput, TestRepositoryTriggersOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1TestRepositoryTriggersCommand,
   serializeAws_json1_1TestRepositoryTriggersCommand,

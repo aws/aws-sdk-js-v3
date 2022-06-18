@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_2";
+import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateDimensionCommand,
   serializeAws_restJson1UpdateDimensionCommand,

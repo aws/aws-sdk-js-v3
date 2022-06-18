@@ -16,7 +16,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   PutAppInstanceStreamingConfigurationsRequest,
   PutAppInstanceStreamingConfigurationsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,
   serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,

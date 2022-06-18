@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_1";
+import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEnabledStandardsCommand,
   serializeAws_restJson1GetEnabledStandardsCommand,

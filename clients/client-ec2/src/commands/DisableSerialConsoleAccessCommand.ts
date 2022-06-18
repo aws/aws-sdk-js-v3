@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableSerialConsoleAccessRequest, DisableSerialConsoleAccessResult } from "../models/models_4";
+import { DisableSerialConsoleAccessRequest, DisableSerialConsoleAccessResult } from "../models/models_2";
 import {
   deserializeAws_ec2DisableSerialConsoleAccessCommand,
   serializeAws_ec2DisableSerialConsoleAccessCommand,

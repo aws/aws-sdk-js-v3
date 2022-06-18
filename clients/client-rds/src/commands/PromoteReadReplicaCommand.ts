@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_0";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand,

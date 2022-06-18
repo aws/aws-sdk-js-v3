@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListIndicesRequest, ListIndicesResponse } from "../models/models_1";
+import { ListIndicesRequest, ListIndicesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListIndicesCommand,
   serializeAws_restJson1ListIndicesCommand,

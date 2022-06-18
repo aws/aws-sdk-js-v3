@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateImageRequest } from "../models/models_0";
-import { CreateImageResponse } from "../models/models_1";
+import { CreateImageRequest, CreateImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateImageCommand,
   serializeAws_json1_1CreateImageCommand,

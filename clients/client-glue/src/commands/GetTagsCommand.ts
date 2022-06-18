@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTagsRequest, GetTagsResponse } from "../models/models_1";
+import { GetTagsRequest, GetTagsResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
 
 export interface GetTagsCommandInput extends GetTagsRequest {}

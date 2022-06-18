@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_2";
+import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLineageGroupCommand,
   serializeAws_json1_1DescribeLineageGroupCommand,

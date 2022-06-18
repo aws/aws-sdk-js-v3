@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_4";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_1";
 import { deserializeAws_ec2DescribeVolumesCommand, serializeAws_ec2DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}

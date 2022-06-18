@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_1";
+import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeNodeConfigurationOptionsCommand,
   serializeAws_queryDescribeNodeConfigurationOptionsCommand,

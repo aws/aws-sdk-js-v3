@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIpamScopesRequest, DescribeIpamScopesResult } from "../models/models_3";
+import { DescribeIpamScopesRequest, DescribeIpamScopesResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeIpamScopesCommand,
   serializeAws_ec2DescribeIpamScopesCommand,

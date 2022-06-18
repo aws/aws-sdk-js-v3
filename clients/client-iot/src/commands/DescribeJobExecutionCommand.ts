@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_1";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobExecutionCommand,
   serializeAws_restJson1DescribeJobExecutionCommand,

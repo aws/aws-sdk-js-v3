@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/models_1";
+import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateNatGatewayCommand,
   serializeAws_ec2CreateNatGatewayCommand,

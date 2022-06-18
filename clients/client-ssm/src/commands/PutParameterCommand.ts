@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutParameterRequest, PutParameterResult } from "../models/models_1";
+import { PutParameterRequest, PutParameterResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PutParameterCommand,
   serializeAws_json1_1PutParameterCommand,

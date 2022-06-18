@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_1";
+import { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFolderPermissionsCommand,
   serializeAws_restJson1UpdateFolderPermissionsCommand,

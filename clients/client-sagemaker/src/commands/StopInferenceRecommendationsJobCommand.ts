@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopInferenceRecommendationsJobRequest } from "../models/models_3";
+import { StopInferenceRecommendationsJobRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StopInferenceRecommendationsJobCommand,
   serializeAws_json1_1StopInferenceRecommendationsJobCommand,

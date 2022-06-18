@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
+import { PutAlarmRequest, PutAlarmResult } from "../models/models_0";
 import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
 
 export interface PutAlarmCommandInput extends PutAlarmRequest {}

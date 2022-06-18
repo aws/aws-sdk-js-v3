@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_1";
+import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeExportTasksCommand,
   serializeAws_queryDescribeExportTasksCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFindingAggregatorsRequest, ListFindingAggregatorsResponse } from "../models/models_1";
+import { ListFindingAggregatorsRequest, ListFindingAggregatorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFindingAggregatorsCommand,
   serializeAws_restJson1ListFindingAggregatorsCommand,

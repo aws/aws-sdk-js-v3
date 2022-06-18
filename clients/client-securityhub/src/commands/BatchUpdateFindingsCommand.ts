@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/models_1";
+import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateFindingsCommand,
   serializeAws_restJson1BatchUpdateFindingsCommand,

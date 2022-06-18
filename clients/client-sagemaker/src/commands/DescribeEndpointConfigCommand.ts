@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEndpointConfigInput, DescribeEndpointConfigOutput } from "../models/models_1";
+import { DescribeEndpointConfigInput, DescribeEndpointConfigOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEndpointConfigCommand,
   serializeAws_json1_1DescribeEndpointConfigCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateGroupRequest } from "../models/models_1";
+import { UpdateGroupRequest } from "../models/models_0";
 import { deserializeAws_queryUpdateGroupCommand, serializeAws_queryUpdateGroupCommand } from "../protocols/Aws_query";
 
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}

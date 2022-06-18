@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand,

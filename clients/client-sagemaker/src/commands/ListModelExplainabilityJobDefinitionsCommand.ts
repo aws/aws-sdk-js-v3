@@ -15,7 +15,7 @@ import {
 import {
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand,
   serializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand,

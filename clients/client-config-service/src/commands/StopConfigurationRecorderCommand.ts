@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { StopConfigurationRecorderRequest } from "../models/models_1";
+import { StopConfigurationRecorderRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StopConfigurationRecorderCommand,
   serializeAws_json1_1StopConfigurationRecorderCommand,

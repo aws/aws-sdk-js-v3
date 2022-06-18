@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_1";
+import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImageVersionCommand,
   serializeAws_json1_1DescribeImageVersionCommand,

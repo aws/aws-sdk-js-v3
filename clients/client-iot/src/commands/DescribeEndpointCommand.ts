@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/models_1";
+import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeEndpointCommand,
   serializeAws_restJson1DescribeEndpointCommand,

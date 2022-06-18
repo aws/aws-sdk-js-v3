@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListInputDevicesRequest, ListInputDevicesResponse } from "../models/models_1";
+import { ListInputDevicesRequest, ListInputDevicesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListInputDevicesCommand,
   serializeAws_restJson1ListInputDevicesCommand,

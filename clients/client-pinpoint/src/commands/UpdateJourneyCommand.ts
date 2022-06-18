@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/models_1";
+import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateJourneyCommand,

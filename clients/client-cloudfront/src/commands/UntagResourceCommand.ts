@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UntagResourceRequest } from "../models/models_1";
+import { UntagResourceRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlUntagResourceCommand,
   serializeAws_restXmlUntagResourceCommand,

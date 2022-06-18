@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/models_2";
+import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/models_0";
 import { deserializeAws_ec2DeleteFpgaImageCommand, serializeAws_ec2DeleteFpgaImageCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteFpgaImageCommandInput extends DeleteFpgaImageRequest {}

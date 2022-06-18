@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDeviceFleetRequest } from "../models/models_1";
+import { DeleteDeviceFleetRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeviceFleetCommand,
   serializeAws_json1_1DeleteDeviceFleetCommand,

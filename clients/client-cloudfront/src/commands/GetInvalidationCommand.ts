@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1";
+import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetInvalidationCommand,
   serializeAws_restXmlGetInvalidationCommand,

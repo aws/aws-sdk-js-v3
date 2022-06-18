@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_1";
+import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryModifyOptionGroupCommand,
   serializeAws_queryModifyOptionGroupCommand,

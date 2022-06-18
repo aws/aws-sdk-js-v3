@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteCustomerGatewayRequest } from "../models/models_2";
+import { DeleteCustomerGatewayRequest } from "../models/models_0";
 import {
   deserializeAws_ec2DeleteCustomerGatewayCommand,
   serializeAws_ec2DeleteCustomerGatewayCommand,

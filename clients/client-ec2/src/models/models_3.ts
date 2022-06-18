@@ -1,2131 +1,2323 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
-  _InstanceType,
-  ActiveInstance,
-  AllocationState,
-  AllowsMultipleInstanceTypes,
-  AlternatePathHint,
-  AnalysisAclRule,
-  AnalysisComponent,
-  AnalysisRouteTableRoute,
-  AnalysisSecurityGroupRule,
-  AssociationStatus,
-  AttachmentStatus,
-  AttributeValue,
-  AutoPlacement,
-  ClientVpnRouteStatus,
-  CurrencyCodeValues,
-  CustomerGateway,
-  DhcpOptions,
-  EgressOnlyInternetGateway,
-  FleetExcessCapacityTerminationPolicy,
-  HostnameType,
-  HostRecovery,
-  IamInstanceProfile,
+  AddressAttribute,
+  ByoipCidr,
+  ClientVpnAuthorizationRuleStatus,
   IamInstanceProfileAssociation,
-  InstanceEventWindow,
-  PathComponent,
-  PortRange,
-  Tag,
-  TransitGatewayRouteTableRoute,
-} from "./models_0";
+  LocalGatewayRoute,
+  ManagedPrefixList,
+  NetworkInsightsAccessScopeAnalysis,
+  NetworkInsightsAnalysis,
+  RouteTableAssociationState,
+  SpotFleetMonitoring,
+  SpotFleetTagSpecification,
+  SpotInstanceRequest,
+  SpotMaintenanceStrategies,
+  TargetGroup,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayRoute,
+  TransitGatewayVpcAttachment,
+  UnsuccessfulItem,
+  VpnTunnelOptionsSpecification,
+} from "./models_4";
 import {
-  BlockDeviceMapping,
+  AddressAttributeName,
+  AllocationStrategy,
+  ApplianceModeSupportValue,
+  AutoAcceptSharedAssociationsValue,
+  AutoAcceptSharedAttachmentsValue,
+  BareMetal,
+  BurstablePerformance,
+  CapacityReservationInstancePlatform,
   CapacityReservationPreference,
-  CapacityReservationTargetResponse,
+  ClientVpnAuthenticationType,
+  ContainerFormat,
+  CurrencyCodeValues,
+  DefaultRouteTableAssociationValue,
+  DefaultRouteTablePropagationValue,
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DiskImageFormat,
-  ExportTask,
+  DnsRecordIpType,
+  DnsSupportValue,
   FleetCapacityReservationUsageStrategy,
-  FleetLaunchTemplateOverrides,
-  FleetLaunchTemplateSpecification,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
   FleetType,
-  GroupIdentifier,
-  InstanceIpv6Address,
-  InstanceLifecycle,
-  InternetGateway,
-  Ipam,
-  IpamPool,
-  IpamScope,
-  KeyType,
-  LaunchTemplate,
-  LaunchTemplateAndOverridesResponse,
-  LaunchTemplateVersion,
-  LocalGatewayRouteTableVpcAssociation,
-  LogDestinationType,
-  ManagedPrefixList,
-  NatGateway,
-  NetworkAcl,
-  NetworkInsightsAccessScope,
-  NetworkInsightsPath,
-  NetworkInterface,
-  NetworkInterfaceAttachment,
-  NetworkInterfacePermission,
-  NetworkInterfaceStatus,
-  Placement,
-  PlacementGroup,
-  PlatformValues,
+  HostnameType,
+  Igmpv2SupportValue,
+  Instance,
+  InstanceInterruptionBehavior,
+  InstanceMonitoring,
+  InstanceStateChange,
+  Ipv6SupportValue,
+  LaunchTemplateAutoRecoveryState,
+  LaunchTemplateHttpTokensState,
+  LaunchTemplateInstanceMetadataEndpointState,
+  LaunchTemplateInstanceMetadataProtocolIpv6,
+  LaunchTemplateInstanceMetadataTagsState,
+  LocalStorage,
+  MarketType,
+  MulticastSupportValue,
+  ProtocolValue,
+  ResourceType,
+  RuleAction,
+  ShutdownBehavior,
+  SnapshotState,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
+  SpotInstanceType,
+  StaticSourcesSupportValue,
   TargetCapacityUnitType,
-  TrafficType,
-} from "./models_1";
-import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+  Tenancy,
+  TerminateConnectionStatus,
+  TransitGatewayMulticastGroup,
+  TunnelInsideIpVersion,
+  VolumeType,
+  VpnEcmpSupportValue,
+  WeekDay,
+} from "./models_5";
+import {
+  ArchitectureValues,
+  ExcessCapacityTerminationPolicy,
+  HttpTokensState,
+  InstanceAttributeName,
+  InstanceAutoRecoveryState,
+  InstanceMetadataEndpointState,
+  InstanceMetadataProtocolState,
+  InstanceMetadataTagsState,
+  OnDemandAllocationStrategy,
+  PartitionLoadFrequency,
+  PermissionGroup,
+  ReportStatusType,
+  ResetFpgaImageAttributeName,
+  ResetImageAttributeName,
+  Scope,
+  SnapshotAttributeName,
+  Status,
+} from "./models_6";
 
 /**
- * <p>Information about a Client VPN endpoint route.</p>
+ * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
+ *          on an instance.</p>
  */
-export interface ClientVpnRoute {
+export interface AcceleratorCount {
   /**
-   * <p>The ID of the Client VPN endpoint with which the route is associated.</p>
+   * <p>The minimum number of accelerators. If this parameter is not specified, there is no minimum
+   *          limit.</p>
    */
-  ClientVpnEndpointId?: string;
+  Min?: number;
 
   /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
+   * <p>The maximum number of accelerators. If this parameter is not specified, there is no
+   *          maximum limit.</p>
    */
-  DestinationCidr?: string;
+  Max?: number;
+}
+
+export namespace AcceleratorCount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorCount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
+ *          on an instance. To exclude accelerator-enabled instance types, set <code>Max</code> to
+ *             <code>0</code>.</p>
+ */
+export interface AcceleratorCountRequest {
+  /**
+   * <p>The minimum number of accelerators. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
 
   /**
-   * <p>The ID of the subnet through which traffic is routed.</p>
+   * <p>The maximum number of accelerators. To specify no maximum limit, omit this
+   *          parameter. To exclude accelerator-enabled instance types, set <code>Max</code> to
+   *          <code>0</code>.</p>
    */
-  TargetSubnet?: string;
+  Max?: number;
+}
+
+export namespace AcceleratorCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  NVIDIA = "nvidia",
+  XILINX = "xilinx",
+}
+
+export enum AcceleratorName {
+  A100 = "a100",
+  K80 = "k80",
+  M60 = "m60",
+  RADEON_PRO_V520 = "radeon-pro-v520",
+  T4 = "t4",
+  V100 = "v100",
+  VU9P = "vu9p",
+}
+
+/**
+ * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+ */
+export interface AcceleratorTotalMemoryMiB {
+  /**
+   * <p>The minimum amount of accelerator memory, in MiB. If this parameter is not specified,
+   *          there is no minimum limit.</p>
+   */
+  Min?: number;
 
   /**
-   * <p>The route type.</p>
+   * <p>The maximum amount of accelerator memory, in MiB. If this parameter is not specified,
+   *          there is no maximum limit.</p>
    */
-  Type?: string;
+  Max?: number;
+}
+
+export namespace AcceleratorTotalMemoryMiB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+ */
+export interface AcceleratorTotalMemoryMiBRequest {
+  /**
+   * <p>The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
 
   /**
-   * <p>Indicates how the route was associated with the Client VPN endpoint.
-   * 			<code>associate</code> indicates that the route was automatically added when the target network
-   * 			was associated with the Client VPN endpoint. <code>add-route</code> indicates that the route
-   * 			was manually added using the <b>CreateClientVpnRoute</b> action.</p>
+   * <p>The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
    */
-  Origin?: string;
+  Max?: number;
+}
+
+export namespace AcceleratorTotalMemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorType {
+  FPGA = "fpga",
+  GPU = "gpu",
+  INFERENCE = "inference",
+}
+
+/**
+ * <p>Details about the target configuration.</p>
+ */
+export interface TargetConfigurationRequest {
+  /**
+   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot
+   *       be specified in a request</p>
+   */
+  InstanceCount?: number;
 
   /**
-   * <p>The current state of the route.</p>
+   * <p>The Convertible Reserved Instance offering ID.</p>
    */
-  Status?: ClientVpnRouteStatus;
+  OfferingId: string | undefined;
+}
+
+export namespace TargetConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a tag.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters.
+   *          May not begin with <code>aws:</code>.</p>
+   */
+  Key?: string;
 
   /**
-   * <p>A brief description of the route.</p>
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a range of ports.</p>
+ */
+export interface PortRange {
+  /**
+   * <p>The first port in the range.</p>
+   */
+  From?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   */
+  To?: number;
+}
+
+export namespace PortRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PortRange): any => ({
+    ...obj,
+  });
+}
+
+export type Protocol = "tcp" | "udp";
+
+/**
+ * <p>Describes a packet header statement.</p>
+ */
+export interface PacketHeaderStatementRequest {
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: string[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: string[];
+
+  /**
+   * <p>The source prefix lists.</p>
+   */
+  SourcePrefixLists?: string[];
+
+  /**
+   * <p>The destination prefix lists.</p>
+   */
+  DestinationPrefixLists?: string[];
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: (Protocol | string)[];
+}
+
+export namespace PacketHeaderStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PacketHeaderStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource statement.</p>
+ */
+export interface ResourceStatementRequest {
+  /**
+   * <p>The resources.</p>
+   */
+  Resources?: string[];
+
+  /**
+   * <p>The resource types.</p>
+   */
+  ResourceTypes?: string[];
+}
+
+export namespace ResourceStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path statement.</p>
+ */
+export interface PathStatementRequest {
+  /**
+   * <p>The packet header statement.</p>
+   */
+  PacketHeaderStatement?: PacketHeaderStatementRequest;
+
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatementRequest;
+}
+
+export namespace PathStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a through resource statement.</p>
+ */
+export interface ThroughResourcesStatementRequest {
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatementRequest;
+}
+
+export namespace ThroughResourcesStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThroughResourcesStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path.</p>
+ */
+export interface AccessScopePathRequest {
+  /**
+   * <p>The source.</p>
+   */
+  Source?: PathStatementRequest;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: PathStatementRequest;
+
+  /**
+   * <p>The through resources.</p>
+   */
+  ThroughResources?: ThroughResourcesStatementRequest[];
+}
+
+export namespace AccessScopePathRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessScopePathRequest): any => ({
+    ...obj,
+  });
+}
+
+export type AccountAttributeName = "default-vpc" | "supported-platforms";
+
+/**
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
+ *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *       </p>
+ */
+export interface AddIpamOperatingRegion {
+  /**
+   * <p>The name of the operating Region.</p>
+   */
+  RegionName?: string;
+}
+
+export namespace AddIpamOperatingRegion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddIpamOperatingRegion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An entry for a prefix list.</p>
+ */
+export interface AddPrefixListEntry {
+  /**
+   * <p>The CIDR block.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A description for the entry.</p>
+   *         <p>Constraints: Up to 255 characters in length.</p>
    */
   Description?: string;
 }
 
-export namespace ClientVpnRoute {
+export namespace AddPrefixListEntry {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ClientVpnRoute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnRoutesResult {
-  /**
-   * <p>Information about the Client VPN endpoint routes.</p>
-   */
-  Routes?: ClientVpnRoute[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnTargetNetworksRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IDs of the target network associations.</p>
-   */
-  AssociationIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-network-id</code> - The ID of the subnet specified as the target network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeClientVpnTargetNetworksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksRequest): any => ({
+  export const filterSensitiveLog = (obj: AddPrefixListEntry): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes a target network associated with a Client VPN endpoint.</p>
+ * <p>The tags to apply to a resource when the resource is being created.</p>
  */
-export interface TargetNetwork {
+export interface TagSpecification {
   /**
-   * <p>The ID of the association.</p>
+   * <p>The type of resource to tag on creation.</p>
    */
-  AssociationId?: string;
+  ResourceType?: ResourceType | string;
 
   /**
-   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the subnet specified as the target network.</p>
-   */
-  TargetNetworkId?: string;
-
-  /**
-   * <p>The ID of the Client VPN endpoint with which the target network is associated.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current state of the target network association.</p>
-   */
-  Status?: AssociationStatus;
-
-  /**
-   * <p>The IDs of the security groups applied to the target network association.</p>
-   */
-  SecurityGroups?: string[];
-}
-
-export namespace TargetNetwork {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetNetwork): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnTargetNetworksResult {
-  /**
-   * <p>Information about the associated target networks.</p>
-   */
-  ClientVpnTargetNetworks?: TargetNetwork[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnTargetNetworksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCoipPoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeCoipPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a customer-owned address pool.</p>
- */
-export interface CoipPool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The address ranges of the address pool.</p>
-   */
-  PoolCidrs?: string[];
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN of the address pool.</p>
-   */
-  PoolArn?: string;
-}
-
-export namespace CoipPool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoipPool): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCoipPoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   */
-  CoipPools?: CoipPool[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeCoipPoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCoipPoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeConversionTasksRequest {
-  /**
-   * <p>The conversion task IDs.</p>
-   */
-  ConversionTaskIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeConversionTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a disk image.</p>
- */
-export interface DiskImageDescription {
-  /**
-   * <p>The checksum computed for the disk image.</p>
-   */
-  Checksum?: string;
-
-  /**
-   * <p>The disk image format.</p>
-   */
-  Format?: DiskImageFormat | string;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
-   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
-   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   */
-  ImportManifestUrl?: string;
-
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   */
-  Size?: number;
-}
-
-export namespace DiskImageDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskImageDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a disk image volume.</p>
- */
-export interface DiskImageVolumeDescription {
-  /**
-   * <p>The volume identifier.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   */
-  Size?: number;
-}
-
-export namespace DiskImageVolumeDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import volume task.</p>
- */
-export interface ImportInstanceVolumeDetailItem {
-  /**
-   * <p>The Availability Zone where the resulting instance will reside.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   */
-  BytesConverted?: number;
-
-  /**
-   * <p>A description of the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
-   * <p>The status of the import of this particular disk image.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The status information or errors related to the disk image.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-}
-
-export namespace ImportInstanceVolumeDetailItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import instance task.</p>
- */
-export interface ImportInstanceTaskDetails {
-  /**
-   * <p>A description of the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The instance operating system.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>The volumes.</p>
-   */
-  Volumes?: ImportInstanceVolumeDetailItem[];
-}
-
-export namespace ImportInstanceTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import volume task.</p>
- */
-export interface ImportVolumeTaskDetails {
-  /**
-   * <p>The Availability Zone where the resulting volume will reside.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   */
-  BytesConverted?: number;
-
-  /**
-   * <p>The description you provided when starting the import volume task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-}
-
-export namespace ImportVolumeTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
-    ...obj,
-  });
-}
-
-export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";
-
-/**
- * <p>Describes a conversion task.</p>
- */
-export interface ConversionTask {
-  /**
-   * <p>The ID of the conversion task.</p>
-   */
-  ConversionTaskId?: string;
-
-  /**
-   * <p>The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel
-   *    the task.</p>
-   */
-  ExpirationTime?: string;
-
-  /**
-   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
-   */
-  ImportInstance?: ImportInstanceTaskDetails;
-
-  /**
-   * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
-   */
-  ImportVolume?: ImportVolumeTaskDetails;
-
-  /**
-   * <p>The state of the conversion task.</p>
-   */
-  State?: ConversionTaskState | string;
-
-  /**
-   * <p>The status message related to the conversion task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>Any tags assigned to the task.</p>
+   * <p>The tags to apply to the resource.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace ConversionTask {
+export namespace TagSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConversionTask): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeConversionTasksResult {
-  /**
-   * <p>Information about the conversion tasks.</p>
-   */
-  ConversionTasks?: ConversionTask[];
-}
-
-export namespace DescribeConversionTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
+  export const filterSensitiveLog = (obj: TagSpecification): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the parameters for DescribeCustomerGateways.</p>
+ * <p>Describes an IAM instance profile.</p>
  */
-export interface DescribeCustomerGatewaysRequest {
+export interface IamInstanceProfileSpecification {
   /**
-   * <p>One or more customer gateway IDs.</p>
-   *         <p>Default: Describes all your customer gateways.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    */
-  CustomerGatewayIds?: string[];
+  Arn?: string;
 
   /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)
-   *                     Autonomous System Number (ASN).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>customer-gateway-id</code> - The ID of the customer gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ip-address</code> - The IP address of the customer gateway's
-   *                     Internet-routable external interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>type</code> - The type of customer gateway. Currently, the only
-   *                     supported type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the instance profile.</p>
    */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+  Name?: string;
 }
 
-export namespace DescribeCustomerGatewaysRequest {
+export namespace IamInstanceProfileSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeCustomerGatewaysRequest): any => ({
+  export const filterSensitiveLog = (obj: IamInstanceProfileSpecification): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the output of DescribeCustomerGateways.</p>
+ * <p>One or more targets associated with the specified event window. Only one
+ *             <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID)
+ *          can be associated with an event window.</p>
  */
-export interface DescribeCustomerGatewaysResult {
-  /**
-   * <p>Information about one or more customer gateways.</p>
-   */
-  CustomerGateways?: CustomerGateway[];
-}
-
-export namespace DescribeCustomerGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomerGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDhcpOptionsRequest {
-  /**
-   * <p>The IDs of one or more DHCP options sets.</p>
-   * 		       <p>Default: Describes all your DHCP options sets.</p>
-   */
-  DhcpOptionsIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 		             <p>
-   *                   <code>dhcp-options-id</code> - The ID of a DHCP options set.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>value</code> - The value for one of the options.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 		          </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeDhcpOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDhcpOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDhcpOptionsResult {
-  /**
-   * <p>Information about one or more DHCP options sets.</p>
-   */
-  DhcpOptions?: DhcpOptions[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeDhcpOptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDhcpOptionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEgressOnlyInternetGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more egress-only internet gateway IDs.</p>
-   */
-  EgressOnlyInternetGatewayIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters.</p>
-   *     	    <ul>
-   *             <li>
-   *     			        <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *     		      </li>
-   *             <li>
-   *     			        <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *     		      </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeEgressOnlyInternetGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeEgressOnlyInternetGatewaysResult {
-  /**
-   * <p>Information about the egress-only internet gateways.</p>
-   */
-  EgressOnlyInternetGateways?: EgressOnlyInternetGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeEgressOnlyInternetGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeElasticGpusRequest {
-  /**
-   * <p>The Elastic Graphics accelerator IDs.</p>
-   */
-  ElasticGpuIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the
-   *                     Elastic Graphics accelerator resides.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>elastic-gpu-health</code> - The status of the Elastic Graphics accelerator
-   *                         (<code>OK</code> | <code>IMPAIRED</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>elastic-gpu-state</code> - The state of the Elastic Graphics accelerator
-   *                         (<code>ATTACHED</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>elastic-gpu-type</code> - The type of Elastic Graphics accelerator; for example,
-   *                         <code>eg1.medium</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-id</code> - The ID of the instance to which the
-   *                     Elastic Graphics accelerator is associated.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeElasticGpusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticGpusRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ElasticGpuStatus {
-  Impaired = "IMPAIRED",
-  Ok = "OK",
-}
-
-/**
- * <p>Describes the status of an Elastic Graphics accelerator.</p>
- */
-export interface ElasticGpuHealth {
-  /**
-   * <p>The health status.</p>
-   */
-  Status?: ElasticGpuStatus | string;
-}
-
-export namespace ElasticGpuHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticGpuHealth): any => ({
-    ...obj,
-  });
-}
-
-export enum ElasticGpuState {
-  Attached = "ATTACHED",
-}
-
-/**
- * <p>Describes an Elastic Graphics accelerator.</p>
- */
-export interface ElasticGpus {
-  /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuId?: string;
-
-  /**
-   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The type of Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuType?: string;
-
-  /**
-   * <p>The status of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuHealth?: ElasticGpuHealth;
-
-  /**
-   * <p>The state of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuState?: ElasticGpuState | string;
-
-  /**
-   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ElasticGpus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticGpus): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeElasticGpusResult {
-  /**
-   * <p>Information about the Elastic Graphics accelerators.</p>
-   */
-  ElasticGpuSet?: ElasticGpus[];
-
-  /**
-   * <p>The total number of items to return. If the total number of items available is more
-   *             than the value specified in max-items then a Next-Token will be provided in the output
-   *             that you can use to resume pagination.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeElasticGpusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticGpusResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The IDs of the export image tasks.</p>
-   */
-  ExportImageTaskIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeExportImageTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportImageTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the destination for an export image task.</p>
- */
-export interface ExportTaskS3Location {
-  /**
-   * <p>The destination Amazon S3 bucket.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   */
-  S3Prefix?: string;
-}
-
-export namespace ExportTaskS3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTaskS3Location): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an export image task.</p>
- */
-export interface ExportImageTask {
-  /**
-   * <p>A description of the image being exported.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the export image task.</p>
-   */
-  ExportImageTaskId?: string;
-
-  /**
-   * <p>The ID of the image.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The percent complete of the export image task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>Information about the destination Amazon S3 bucket.</p>
-   */
-  S3ExportLocation?: ExportTaskS3Location;
-
-  /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The status message for the export image task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>Any tags assigned to the export image task.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ExportImageTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportImageTask): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExportImageTasksResult {
-  /**
-   * <p>Information about the export image tasks.</p>
-   */
-  ExportImageTasks?: ExportImageTask[];
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeExportImageTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportImageTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExportTasksRequest {
-  /**
-   * <p>The export task IDs.</p>
-   */
-  ExportTaskIds?: string[];
-
-  /**
-   * <p>the filters for the export tasks.</p>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeExportTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeExportTasksResult {
-  /**
-   * <p>Information about the export tasks.</p>
-   */
-  ExportTasks?: ExportTask[];
-}
-
-export namespace DescribeExportTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFastLaunchImagesRequest {
-  /**
-   * <p>Details for one or more Windows AMI image IDs.</p>
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Use the following filters to streamline results.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>launch-template</code> - The launch template that is associated with the pre-provisioned Windows AMI.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>state</code> - The current state of fast launching for the Windows AMI.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another request with the returned NextToken value. If this parameter is not specified,
-   * 			then all results are returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeFastLaunchImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies the launch template to use for faster launching of the Windows AMI.</p>
- */
-export interface FastLaunchLaunchTemplateSpecificationResponse {
-  /**
-   * <p>The ID of the launch template for faster launching of the associated Windows AMI.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template for faster launching of the associated Windows AMI.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version of the launch template for faster launching of the associated Windows AMI.</p>
-   */
-  Version?: string;
-}
-
-export namespace FastLaunchLaunchTemplateSpecificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecificationResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum FastLaunchResourceType {
-  SNAPSHOT = "snapshot",
-}
-
-/**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
- */
-export interface FastLaunchSnapshotConfigurationResponse {
-  /**
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a fast-launch enabled Windows AMI.</p>
-   */
-  TargetResourceCount?: number;
-}
-
-export namespace FastLaunchSnapshotConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum FastLaunchStateCode {
-  disabling = "disabling",
-  disabling_failed = "disabling-failed",
-  enabled = "enabled",
-  enabled_failed = "enabled-failed",
-  enabling = "enabling",
-  enabling_failed = "enabling-failed",
-}
-
-/**
- * <p>Describe details about a fast-launch enabled Windows image that meets the requested
- * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
- */
-export interface DescribeFastLaunchImagesSuccessItem {
-  /**
-   * <p>The image ID that identifies the fast-launch enabled Windows image.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The resource type that is used for pre-provisioning the Windows AMI. Supported values
-   * 			include: <code>snapshot</code>.</p>
-   */
-  ResourceType?: FastLaunchResourceType | string;
-
-  /**
-   * <p>A group of parameters that are used for pre-provisioning the associated
-   * 			Windows AMI using snapshots.</p>
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
-
-  /**
-   * <p>The launch template that the fast-launch enabled Windows AMI uses when it launches
-   * 			Windows instances from pre-provisioned snapshots.</p>
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
-
-  /**
-   * <p>The maximum number of parallel instances that are launched for creating resources.</p>
-   */
-  MaxParallelLaunches?: number;
-
-  /**
-   * <p>The owner ID for the fast-launch enabled Windows AMI.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The current state of faster launching for the specified Windows AMI.</p>
-   */
-  State?: FastLaunchStateCode | string;
-
-  /**
-   * <p>The reason that faster launching for the Windows AMI changed to the current state.</p>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>The time that faster launching for the Windows AMI changed to the current state.</p>
-   */
-  StateTransitionTime?: Date;
-}
-
-export namespace DescribeFastLaunchImagesSuccessItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesSuccessItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFastLaunchImagesResult {
-  /**
-   * <p>A collection of details about the fast-launch enabled Windows images that meet
-   * 			the requested criteria.</p>
-   */
-  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[];
-
-  /**
-   * <p>The token to use for the next set of results. This value is null when there are
-   * 			no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFastLaunchImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFastSnapshotRestoresRequest {
-  /**
-   * <p>The filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
-   *          (<code>enabling</code> |
-   *           <code>optimizing</code> |
-   *           <code>enabled</code> |
-   *           <code>disabling</code> |
-   *           <code>disabled</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeFastSnapshotRestoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresRequest): any => ({
-    ...obj,
-  });
-}
-
-export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" | "enabling" | "optimizing";
-
-/**
- * <p>Describes fast snapshot restores for a snapshot.</p>
- */
-export interface DescribeFastSnapshotRestoreSuccessItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The state of fast snapshot restores.</p>
-   */
-  State?: FastSnapshotRestoreStateCode | string;
-
-  /**
-   * <p>The reason for the state transition. The possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
-   *           <code>disabling</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
-   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   */
-  EnablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   */
-  OptimizingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   */
-  EnabledTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   */
-  DisablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   */
-  DisabledTime?: Date;
-}
-
-export namespace DescribeFastSnapshotRestoreSuccessItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoreSuccessItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFastSnapshotRestoresResult {
-  /**
-   * <p>Information about the state of fast snapshot restores.</p>
-   */
-  FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFastSnapshotRestoresResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresResult): any => ({
-    ...obj,
-  });
-}
-
-export enum FleetEventType {
-  FLEET_CHANGE = "fleet-change",
-  INSTANCE_CHANGE = "instance-change",
-  SERVICE_ERROR = "service-error",
-}
-
-export interface DescribeFleetHistoryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The type of events to describe. By default, all events are described.</p>
-   */
-  EventType?: FleetEventType | string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The start date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  StartTime: Date | undefined;
-}
-
-export namespace DescribeFleetHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an EC2 Fleet or Spot Fleet event.</p>
- */
-export interface EventInformation {
-  /**
-   * <p>The description of the event.</p>
-   */
-  EventDescription?: string;
-
-  /**
-   * <p>The event.</p>
-   *
-   *         <p>
-   *             <code>error</code> events:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required
-   *                     permissions either to launch or terminate an instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations
-   *                     are valid, and several attempts to launch instances have failed. For more
-   *                     information, see the description of the event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
-   *                     number of Spot Instances that you can launch.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
-   *                     valid. For more information, see the description of the event.</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>
-   *             <code>fleetRequestChange</code> events:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
-   *                     attempting to maintain the target number of running instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running
-   *                     instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are
-   *                     terminated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does
-   *                     not launch additional instances. Its existing instances continue to run until
-   *                     they are interrupted or terminated. The request remains in this state until all
-   *                     instances are interrupted or terminated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and
-   *                     its instances are terminating. The request remains in this state until all
-   *                     instances are terminated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was
-   *                     created with <code>TerminateInstancesWithExpiration</code> set, a subsequent
-   *                         <code>terminated</code> event indicates that the instances are
-   *                     terminated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.
-   *                     The request remains in this state until the modification is fully
-   *                     processed.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
-   *                     is preparing to launch the target number of instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>
-   *             <code>instanceChange</code> events:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>launched</code> - A new instance was launched.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>terminated</code> - An instance was terminated by the user.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>termination_notified</code> - An instance termination notification was
-   *                     sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target
-   *                     capacity of the fleet was modified down, for example, from a target capacity of
-   *                     4 to a target capacity of 3.</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>
-   *             <code>Information</code> events:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>fleetProgressHalted</code> - The price in every launch specification is
-   *                     not valid because it is below the Spot price (all the launch specifications have
-   *                     produced <code>launchSpecUnusable</code> events). A launch specification might
-   *                     become valid if the Spot price changes.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid
-   *                     and several attempts to launch instances have failed. For more information, see
-   *                     the description of the event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launchSpecUnusable</code> - The price in a launch specification is not
-   *                     valid because it is below the Spot price.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>registerWithLoadBalancersFailed</code> - An attempt to register
-   *                     instances with load balancers failed. For more information, see the description
-   *                     of the event.</p>
-   *             </li>
-   *          </ul>
-   */
-  EventSubType?: string;
-
-  /**
-   * <p>The ID of the instance. This information is available only for
-   *                 <code>instanceChange</code> events.</p>
-   */
-  InstanceId?: string;
-}
-
-export namespace EventInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventInformation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an event in the history of an EC2 Fleet.</p>
- */
-export interface HistoryRecordEntry {
-  /**
-   * <p>Information about the event.</p>
-   */
-  EventInformation?: EventInformation;
-
-  /**
-   * <p>The event type.</p>
-   */
-  EventType?: FleetEventType | string;
-
-  /**
-   * <p>The date and time of the event, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  Timestamp?: Date;
-}
-
-export namespace HistoryRecordEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoryRecordEntry): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetHistoryResult {
-  /**
-   * <p>Information about the events in the history of the EC2 Fleet.</p>
-   */
-  HistoryRecords?: HistoryRecordEntry[];
-
-  /**
-   * <p>The last date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not
-   *          present.</p>
-   */
-  LastEvaluatedTime?: Date;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the EC Fleet.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The start date and time for the events, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  StartTime?: Date;
-}
-
-export namespace DescribeFleetHistoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetHistoryResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeFleetInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetInstancesResult {
-  /**
-   * <p>The running instances. This list is refreshed periodically and might be out of
-   *          date.</p>
-   */
-  ActiveInstances?: ActiveInstance[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId?: string;
-}
-
-export namespace DescribeFleetInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFleetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the EC2 Fleets.</p>
-   *          <note>
-   *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
-   *             it does not appear in the response.</p>
-   *          </note>
-   */
-  FleetIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code> |
-   *                   <code>pending-fulfillment</code> | <code>pending-termination</code> |
-   *                   <code>fulfilled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>excess-capacity-termination-policy</code> - Indicates whether to terminate
-   *                running instances if the target capacity is decreased below the current EC2 Fleet size
-   *                   (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> |
-   *                   <code>active</code> | <code>deleted</code> | <code>failed</code> |
-   *                   <code>deleted-running</code> | <code>deleted-terminating</code> |
-   *                   <code>modifying</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
-   *                unhealthy instances (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of request (<code>instant</code> |
-   *                   <code>request</code> | <code>maintain</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FleetActivityStatus {
-  ERROR = "error",
-  FULFILLED = "fulfilled",
-  PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination",
-}
-
-/**
- * <p>Describes the instances that could not be launched by the fleet.</p>
- */
-export interface DescribeFleetError {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
-
-  /**
-   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
-   */
-  Lifecycle?: InstanceLifecycle | string;
-
-  /**
-   * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
-   */
-  ErrorMessage?: string;
-}
-
-export namespace DescribeFleetError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the instances that were launched by the fleet.</p>
- */
-export interface DescribeFleetsInstances {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
-
-  /**
-   * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
-   */
-  Lifecycle?: InstanceLifecycle | string;
-
-  /**
-   * <p>The IDs of the instances.</p>
+export interface InstanceEventWindowAssociationRequest {
+  /**
+   * <p>The IDs of the instances to associate with the event window. If the instance is on a
+   *          Dedicated Host, you can't specify the Instance ID parameter; you must use the Dedicated
+   *          Host ID parameter.</p>
    */
   InstanceIds?: string[];
 
   /**
-   * <p>The instance type.</p>
+   * <p>The instance tags to associate with the event window. Any instances associated with the
+   *          tags will be associated with the event window.</p>
+   */
+  InstanceTags?: Tag[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts to associate with the event window.</p>
+   */
+  DedicatedHostIds?: string[];
+}
+
+export namespace InstanceEventWindowAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv4 range.</p>
+ */
+export interface IpRange {
+  /**
+   * <p>The IPv4 CIDR range. You can either specify a CIDR range or a source security group,
+   *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>A description for the security group rule that references this IPv4 address range.</p>
+   *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
+   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   */
+  Description?: string;
+}
+
+export namespace IpRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>[EC2-VPC only] Describes an IPv6 range.</p>
+ */
+export interface Ipv6Range {
+  /**
+   * <p>The IPv6 CIDR range. You can either specify a CIDR range or a source security group,
+   *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>A description for the security group rule that references this IPv6 address range.</p>
+   *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
+   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   */
+  Description?: string;
+}
+
+export namespace Ipv6Range {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6Range): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a prefix list ID.</p>
+ */
+export interface PrefixListId {
+  /**
+   * <p>A description for the security group rule that references this prefix list ID.</p>
+   *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
+   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the prefix.</p>
+   */
+  PrefixListId?: string;
+}
+
+export namespace PrefixListId {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrefixListId): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group and Amazon Web Services account ID pair.</p>
+ */
+export interface UserIdGroupPair {
+  /**
+   * <p>A description for the security group rule that references this user ID group
+   * 			pair.</p>
+   *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
+   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The name of the security group. In a request, use this parameter for a security group
+   *             in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the
+   *             security group ID. </p>
+   *         <p>For a referenced security group in another VPC, this value is not returned if the
+   *             referenced security group is deleted.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The status of a VPC peering connection, if applicable.</p>
+   */
+  PeeringStatus?: string;
+
+  /**
+   * <p>The ID of an Amazon Web Services account.</p>
+   *         <p>For a referenced security group in another VPC, the account ID of the referenced
+   *             security group is returned in the response. If the referenced security group is deleted,
+   *             this value is not returned.</p>
+   *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
+   *             in another Amazon Web Services account.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The ID of the VPC for the referenced security group, if applicable.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the VPC peering connection, if applicable.</p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+export namespace UserIdGroupPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserIdGroupPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a set of permissions for a security group rule.</p>
+ */
+export interface IpPermission {
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
+   *         A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all
+   * 		ICMP/ICMPv6 types, you must specify all codes.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>)
+   *         or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).</p>
+   *          <p>[VPC only] Use <code>-1</code> to specify all protocols. When authorizing
+   *         security group rules, specifying <code>-1</code> or a protocol number other than
+   *         <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows
+   *         traffic on all ports, regardless of any port range you specify. For <code>tcp</code>,
+   *         <code>udp</code>, and <code>icmp</code>, you must specify a port range. For <code>icmpv6</code>,
+   *         the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The IPv4 ranges.</p>
+   */
+  IpRanges?: IpRange[];
+
+  /**
+   * <p>[VPC only] The IPv6 ranges.</p>
+   */
+  Ipv6Ranges?: Ipv6Range[];
+
+  /**
+   * <p>[VPC only] The prefix list IDs.</p>
+   */
+  PrefixListIds?: PrefixListId[];
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
+   * 		of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types,
+   *         you must specify all codes.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The security group and Amazon Web Services account ID pairs.</p>
+   */
+  UserIdGroupPairs?: UserIdGroupPair[];
+}
+
+export namespace IpPermission {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpPermission): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
+ */
+export interface S3Storage {
+  /**
+   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance
+   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing Amazon Web Services Access Keys</a>.</p>
+   */
+  AWSAccessKeyId?: string;
+
+  /**
+   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The beginning of the file name of the AMI.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.</p>
+   */
+  UploadPolicy?: Uint8Array;
+
+  /**
+   * <p>The signature of the JSON document.</p>
+   */
+  UploadPolicySignature?: string;
+}
+
+export namespace S3Storage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Storage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the storage location for an instance store-backed AMI.</p>
+ */
+export interface Storage {
+  /**
+   * <p>An Amazon S3 storage location.</p>
+   */
+  S3?: S3Storage;
+}
+
+export namespace Storage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Storage): any => ({
+    ...obj,
+  });
+}
+
+export type _InstanceType =
+  | "a1.2xlarge"
+  | "a1.4xlarge"
+  | "a1.large"
+  | "a1.medium"
+  | "a1.metal"
+  | "a1.xlarge"
+  | "c1.medium"
+  | "c1.xlarge"
+  | "c3.2xlarge"
+  | "c3.4xlarge"
+  | "c3.8xlarge"
+  | "c3.large"
+  | "c3.xlarge"
+  | "c4.2xlarge"
+  | "c4.4xlarge"
+  | "c4.8xlarge"
+  | "c4.large"
+  | "c4.xlarge"
+  | "c5.12xlarge"
+  | "c5.18xlarge"
+  | "c5.24xlarge"
+  | "c5.2xlarge"
+  | "c5.4xlarge"
+  | "c5.9xlarge"
+  | "c5.large"
+  | "c5.metal"
+  | "c5.xlarge"
+  | "c5a.12xlarge"
+  | "c5a.16xlarge"
+  | "c5a.24xlarge"
+  | "c5a.2xlarge"
+  | "c5a.4xlarge"
+  | "c5a.8xlarge"
+  | "c5a.large"
+  | "c5a.xlarge"
+  | "c5ad.12xlarge"
+  | "c5ad.16xlarge"
+  | "c5ad.24xlarge"
+  | "c5ad.2xlarge"
+  | "c5ad.4xlarge"
+  | "c5ad.8xlarge"
+  | "c5ad.large"
+  | "c5ad.xlarge"
+  | "c5d.12xlarge"
+  | "c5d.18xlarge"
+  | "c5d.24xlarge"
+  | "c5d.2xlarge"
+  | "c5d.4xlarge"
+  | "c5d.9xlarge"
+  | "c5d.large"
+  | "c5d.metal"
+  | "c5d.xlarge"
+  | "c5n.18xlarge"
+  | "c5n.2xlarge"
+  | "c5n.4xlarge"
+  | "c5n.9xlarge"
+  | "c5n.large"
+  | "c5n.metal"
+  | "c5n.xlarge"
+  | "c6a.12xlarge"
+  | "c6a.16xlarge"
+  | "c6a.24xlarge"
+  | "c6a.2xlarge"
+  | "c6a.32xlarge"
+  | "c6a.48xlarge"
+  | "c6a.4xlarge"
+  | "c6a.8xlarge"
+  | "c6a.large"
+  | "c6a.metal"
+  | "c6a.xlarge"
+  | "c6g.12xlarge"
+  | "c6g.16xlarge"
+  | "c6g.2xlarge"
+  | "c6g.4xlarge"
+  | "c6g.8xlarge"
+  | "c6g.large"
+  | "c6g.medium"
+  | "c6g.metal"
+  | "c6g.xlarge"
+  | "c6gd.12xlarge"
+  | "c6gd.16xlarge"
+  | "c6gd.2xlarge"
+  | "c6gd.4xlarge"
+  | "c6gd.8xlarge"
+  | "c6gd.large"
+  | "c6gd.medium"
+  | "c6gd.metal"
+  | "c6gd.xlarge"
+  | "c6gn.12xlarge"
+  | "c6gn.16xlarge"
+  | "c6gn.2xlarge"
+  | "c6gn.4xlarge"
+  | "c6gn.8xlarge"
+  | "c6gn.large"
+  | "c6gn.medium"
+  | "c6gn.xlarge"
+  | "c6i.12xlarge"
+  | "c6i.16xlarge"
+  | "c6i.24xlarge"
+  | "c6i.2xlarge"
+  | "c6i.32xlarge"
+  | "c6i.4xlarge"
+  | "c6i.8xlarge"
+  | "c6i.large"
+  | "c6i.metal"
+  | "c6i.xlarge"
+  | "c7g.12xlarge"
+  | "c7g.16xlarge"
+  | "c7g.2xlarge"
+  | "c7g.4xlarge"
+  | "c7g.8xlarge"
+  | "c7g.large"
+  | "c7g.medium"
+  | "c7g.xlarge"
+  | "cc1.4xlarge"
+  | "cc2.8xlarge"
+  | "cg1.4xlarge"
+  | "cr1.8xlarge"
+  | "d2.2xlarge"
+  | "d2.4xlarge"
+  | "d2.8xlarge"
+  | "d2.xlarge"
+  | "d3.2xlarge"
+  | "d3.4xlarge"
+  | "d3.8xlarge"
+  | "d3.xlarge"
+  | "d3en.12xlarge"
+  | "d3en.2xlarge"
+  | "d3en.4xlarge"
+  | "d3en.6xlarge"
+  | "d3en.8xlarge"
+  | "d3en.xlarge"
+  | "dl1.24xlarge"
+  | "f1.16xlarge"
+  | "f1.2xlarge"
+  | "f1.4xlarge"
+  | "g2.2xlarge"
+  | "g2.8xlarge"
+  | "g3.16xlarge"
+  | "g3.4xlarge"
+  | "g3.8xlarge"
+  | "g3s.xlarge"
+  | "g4ad.16xlarge"
+  | "g4ad.2xlarge"
+  | "g4ad.4xlarge"
+  | "g4ad.8xlarge"
+  | "g4ad.xlarge"
+  | "g4dn.12xlarge"
+  | "g4dn.16xlarge"
+  | "g4dn.2xlarge"
+  | "g4dn.4xlarge"
+  | "g4dn.8xlarge"
+  | "g4dn.metal"
+  | "g4dn.xlarge"
+  | "g5.12xlarge"
+  | "g5.16xlarge"
+  | "g5.24xlarge"
+  | "g5.2xlarge"
+  | "g5.48xlarge"
+  | "g5.4xlarge"
+  | "g5.8xlarge"
+  | "g5.xlarge"
+  | "g5g.16xlarge"
+  | "g5g.2xlarge"
+  | "g5g.4xlarge"
+  | "g5g.8xlarge"
+  | "g5g.metal"
+  | "g5g.xlarge"
+  | "h1.16xlarge"
+  | "h1.2xlarge"
+  | "h1.4xlarge"
+  | "h1.8xlarge"
+  | "hi1.4xlarge"
+  | "hpc6a.48xlarge"
+  | "hs1.8xlarge"
+  | "i2.2xlarge"
+  | "i2.4xlarge"
+  | "i2.8xlarge"
+  | "i2.xlarge"
+  | "i3.16xlarge"
+  | "i3.2xlarge"
+  | "i3.4xlarge"
+  | "i3.8xlarge"
+  | "i3.large"
+  | "i3.metal"
+  | "i3.xlarge"
+  | "i3en.12xlarge"
+  | "i3en.24xlarge"
+  | "i3en.2xlarge"
+  | "i3en.3xlarge"
+  | "i3en.6xlarge"
+  | "i3en.large"
+  | "i3en.metal"
+  | "i3en.xlarge"
+  | "i4i.16xlarge"
+  | "i4i.2xlarge"
+  | "i4i.32xlarge"
+  | "i4i.4xlarge"
+  | "i4i.8xlarge"
+  | "i4i.large"
+  | "i4i.metal"
+  | "i4i.xlarge"
+  | "im4gn.16xlarge"
+  | "im4gn.2xlarge"
+  | "im4gn.4xlarge"
+  | "im4gn.8xlarge"
+  | "im4gn.large"
+  | "im4gn.xlarge"
+  | "inf1.24xlarge"
+  | "inf1.2xlarge"
+  | "inf1.6xlarge"
+  | "inf1.xlarge"
+  | "is4gen.2xlarge"
+  | "is4gen.4xlarge"
+  | "is4gen.8xlarge"
+  | "is4gen.large"
+  | "is4gen.medium"
+  | "is4gen.xlarge"
+  | "m1.large"
+  | "m1.medium"
+  | "m1.small"
+  | "m1.xlarge"
+  | "m2.2xlarge"
+  | "m2.4xlarge"
+  | "m2.xlarge"
+  | "m3.2xlarge"
+  | "m3.large"
+  | "m3.medium"
+  | "m3.xlarge"
+  | "m4.10xlarge"
+  | "m4.16xlarge"
+  | "m4.2xlarge"
+  | "m4.4xlarge"
+  | "m4.large"
+  | "m4.xlarge"
+  | "m5.12xlarge"
+  | "m5.16xlarge"
+  | "m5.24xlarge"
+  | "m5.2xlarge"
+  | "m5.4xlarge"
+  | "m5.8xlarge"
+  | "m5.large"
+  | "m5.metal"
+  | "m5.xlarge"
+  | "m5a.12xlarge"
+  | "m5a.16xlarge"
+  | "m5a.24xlarge"
+  | "m5a.2xlarge"
+  | "m5a.4xlarge"
+  | "m5a.8xlarge"
+  | "m5a.large"
+  | "m5a.xlarge"
+  | "m5ad.12xlarge"
+  | "m5ad.16xlarge"
+  | "m5ad.24xlarge"
+  | "m5ad.2xlarge"
+  | "m5ad.4xlarge"
+  | "m5ad.8xlarge"
+  | "m5ad.large"
+  | "m5ad.xlarge"
+  | "m5d.12xlarge"
+  | "m5d.16xlarge"
+  | "m5d.24xlarge"
+  | "m5d.2xlarge"
+  | "m5d.4xlarge"
+  | "m5d.8xlarge"
+  | "m5d.large"
+  | "m5d.metal"
+  | "m5d.xlarge"
+  | "m5dn.12xlarge"
+  | "m5dn.16xlarge"
+  | "m5dn.24xlarge"
+  | "m5dn.2xlarge"
+  | "m5dn.4xlarge"
+  | "m5dn.8xlarge"
+  | "m5dn.large"
+  | "m5dn.metal"
+  | "m5dn.xlarge"
+  | "m5n.12xlarge"
+  | "m5n.16xlarge"
+  | "m5n.24xlarge"
+  | "m5n.2xlarge"
+  | "m5n.4xlarge"
+  | "m5n.8xlarge"
+  | "m5n.large"
+  | "m5n.metal"
+  | "m5n.xlarge"
+  | "m5zn.12xlarge"
+  | "m5zn.2xlarge"
+  | "m5zn.3xlarge"
+  | "m5zn.6xlarge"
+  | "m5zn.large"
+  | "m5zn.metal"
+  | "m5zn.xlarge"
+  | "m6a.12xlarge"
+  | "m6a.16xlarge"
+  | "m6a.24xlarge"
+  | "m6a.2xlarge"
+  | "m6a.32xlarge"
+  | "m6a.48xlarge"
+  | "m6a.4xlarge"
+  | "m6a.8xlarge"
+  | "m6a.large"
+  | "m6a.metal"
+  | "m6a.xlarge"
+  | "m6g.12xlarge"
+  | "m6g.16xlarge"
+  | "m6g.2xlarge"
+  | "m6g.4xlarge"
+  | "m6g.8xlarge"
+  | "m6g.large"
+  | "m6g.medium"
+  | "m6g.metal"
+  | "m6g.xlarge"
+  | "m6gd.12xlarge"
+  | "m6gd.16xlarge"
+  | "m6gd.2xlarge"
+  | "m6gd.4xlarge"
+  | "m6gd.8xlarge"
+  | "m6gd.large"
+  | "m6gd.medium"
+  | "m6gd.metal"
+  | "m6gd.xlarge"
+  | "m6i.12xlarge"
+  | "m6i.16xlarge"
+  | "m6i.24xlarge"
+  | "m6i.2xlarge"
+  | "m6i.32xlarge"
+  | "m6i.4xlarge"
+  | "m6i.8xlarge"
+  | "m6i.large"
+  | "m6i.metal"
+  | "m6i.xlarge"
+  | "mac1.metal"
+  | "p2.16xlarge"
+  | "p2.8xlarge"
+  | "p2.xlarge"
+  | "p3.16xlarge"
+  | "p3.2xlarge"
+  | "p3.8xlarge"
+  | "p3dn.24xlarge"
+  | "p4d.24xlarge"
+  | "r3.2xlarge"
+  | "r3.4xlarge"
+  | "r3.8xlarge"
+  | "r3.large"
+  | "r3.xlarge"
+  | "r4.16xlarge"
+  | "r4.2xlarge"
+  | "r4.4xlarge"
+  | "r4.8xlarge"
+  | "r4.large"
+  | "r4.xlarge"
+  | "r5.12xlarge"
+  | "r5.16xlarge"
+  | "r5.24xlarge"
+  | "r5.2xlarge"
+  | "r5.4xlarge"
+  | "r5.8xlarge"
+  | "r5.large"
+  | "r5.metal"
+  | "r5.xlarge"
+  | "r5a.12xlarge"
+  | "r5a.16xlarge"
+  | "r5a.24xlarge"
+  | "r5a.2xlarge"
+  | "r5a.4xlarge"
+  | "r5a.8xlarge"
+  | "r5a.large"
+  | "r5a.xlarge"
+  | "r5ad.12xlarge"
+  | "r5ad.16xlarge"
+  | "r5ad.24xlarge"
+  | "r5ad.2xlarge"
+  | "r5ad.4xlarge"
+  | "r5ad.8xlarge"
+  | "r5ad.large"
+  | "r5ad.xlarge"
+  | "r5b.12xlarge"
+  | "r5b.16xlarge"
+  | "r5b.24xlarge"
+  | "r5b.2xlarge"
+  | "r5b.4xlarge"
+  | "r5b.8xlarge"
+  | "r5b.large"
+  | "r5b.metal"
+  | "r5b.xlarge"
+  | "r5d.12xlarge"
+  | "r5d.16xlarge"
+  | "r5d.24xlarge"
+  | "r5d.2xlarge"
+  | "r5d.4xlarge"
+  | "r5d.8xlarge"
+  | "r5d.large"
+  | "r5d.metal"
+  | "r5d.xlarge"
+  | "r5dn.12xlarge"
+  | "r5dn.16xlarge"
+  | "r5dn.24xlarge"
+  | "r5dn.2xlarge"
+  | "r5dn.4xlarge"
+  | "r5dn.8xlarge"
+  | "r5dn.large"
+  | "r5dn.metal"
+  | "r5dn.xlarge"
+  | "r5n.12xlarge"
+  | "r5n.16xlarge"
+  | "r5n.24xlarge"
+  | "r5n.2xlarge"
+  | "r5n.4xlarge"
+  | "r5n.8xlarge"
+  | "r5n.large"
+  | "r5n.metal"
+  | "r5n.xlarge"
+  | "r6g.12xlarge"
+  | "r6g.16xlarge"
+  | "r6g.2xlarge"
+  | "r6g.4xlarge"
+  | "r6g.8xlarge"
+  | "r6g.large"
+  | "r6g.medium"
+  | "r6g.metal"
+  | "r6g.xlarge"
+  | "r6gd.12xlarge"
+  | "r6gd.16xlarge"
+  | "r6gd.2xlarge"
+  | "r6gd.4xlarge"
+  | "r6gd.8xlarge"
+  | "r6gd.large"
+  | "r6gd.medium"
+  | "r6gd.metal"
+  | "r6gd.xlarge"
+  | "r6i.12xlarge"
+  | "r6i.16xlarge"
+  | "r6i.24xlarge"
+  | "r6i.2xlarge"
+  | "r6i.32xlarge"
+  | "r6i.4xlarge"
+  | "r6i.8xlarge"
+  | "r6i.large"
+  | "r6i.metal"
+  | "r6i.xlarge"
+  | "t1.micro"
+  | "t2.2xlarge"
+  | "t2.large"
+  | "t2.medium"
+  | "t2.micro"
+  | "t2.nano"
+  | "t2.small"
+  | "t2.xlarge"
+  | "t3.2xlarge"
+  | "t3.large"
+  | "t3.medium"
+  | "t3.micro"
+  | "t3.nano"
+  | "t3.small"
+  | "t3.xlarge"
+  | "t3a.2xlarge"
+  | "t3a.large"
+  | "t3a.medium"
+  | "t3a.micro"
+  | "t3a.nano"
+  | "t3a.small"
+  | "t3a.xlarge"
+  | "t4g.2xlarge"
+  | "t4g.large"
+  | "t4g.medium"
+  | "t4g.micro"
+  | "t4g.nano"
+  | "t4g.small"
+  | "t4g.xlarge"
+  | "u-12tb1.112xlarge"
+  | "u-12tb1.metal"
+  | "u-18tb1.metal"
+  | "u-24tb1.metal"
+  | "u-6tb1.112xlarge"
+  | "u-6tb1.56xlarge"
+  | "u-6tb1.metal"
+  | "u-9tb1.112xlarge"
+  | "u-9tb1.metal"
+  | "vt1.24xlarge"
+  | "vt1.3xlarge"
+  | "vt1.6xlarge"
+  | "x1.16xlarge"
+  | "x1.32xlarge"
+  | "x1e.16xlarge"
+  | "x1e.2xlarge"
+  | "x1e.32xlarge"
+  | "x1e.4xlarge"
+  | "x1e.8xlarge"
+  | "x1e.xlarge"
+  | "x2gd.12xlarge"
+  | "x2gd.16xlarge"
+  | "x2gd.2xlarge"
+  | "x2gd.4xlarge"
+  | "x2gd.8xlarge"
+  | "x2gd.large"
+  | "x2gd.medium"
+  | "x2gd.metal"
+  | "x2gd.xlarge"
+  | "x2idn.16xlarge"
+  | "x2idn.24xlarge"
+  | "x2idn.32xlarge"
+  | "x2idn.metal"
+  | "x2iedn.16xlarge"
+  | "x2iedn.24xlarge"
+  | "x2iedn.2xlarge"
+  | "x2iedn.32xlarge"
+  | "x2iedn.4xlarge"
+  | "x2iedn.8xlarge"
+  | "x2iedn.metal"
+  | "x2iedn.xlarge"
+  | "x2iezn.12xlarge"
+  | "x2iezn.2xlarge"
+  | "x2iezn.4xlarge"
+  | "x2iezn.6xlarge"
+  | "x2iezn.8xlarge"
+  | "x2iezn.metal"
+  | "z1d.12xlarge"
+  | "z1d.2xlarge"
+  | "z1d.3xlarge"
+  | "z1d.6xlarge"
+  | "z1d.large"
+  | "z1d.metal"
+  | "z1d.xlarge";
+
+/**
+ * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
+ */
+export interface ReservationFleetInstanceSpecification {
+  /**
+   * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
    */
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
-   *          blank.</p>
+   * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  Platform?: PlatformValues | string;
+  InstancePlatform?: CapacityReservationInstancePlatform | string;
+
+  /**
+   * <p>The number of capacity units provided by the specified instance type. This value, together with the
+   * 			total target capacity that you specify for the Fleet determine the number of instances for which the
+   * 			Fleet reserves capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
+   * 			in the Amazon EC2 User Guide.</p>
+   */
+  Weight?: number;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity
+   * 			Reservation Fleet can't span Availability Zones. All instance type specifications that you specify
+   * 			for the Fleet must use the same Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
+   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you
+   * 			specify for the Fleet must use the same Availability Zone.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This
+   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack
+   * 			to provide optimal I/O performance. This optimization isn't available with all instance types. Additional
+   * 			usage charges apply when using EBS-optimized instance types.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The priority to assign to the instance type. This value is used to determine which of the instance types
+   * 			specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type priority</a>
+   * 			in the Amazon EC2 User Guide.</p>
+   */
+  Priority?: number;
 }
 
-export namespace DescribeFleetsInstances {
+export namespace ReservationFleetInstanceSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeFleetsInstances): any => ({
+  export const filterSensitiveLog = (obj: ReservationFleetInstanceSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Active Directory to be used for client authentication.</p>
+ */
+export interface DirectoryServiceAuthenticationRequest {
+  /**
+   * <p>The ID of the Active Directory to be used for authentication.</p>
+   */
+  DirectoryId?: string;
+}
+
+export namespace DirectoryServiceAuthenticationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DirectoryServiceAuthenticationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The IAM SAML identity provider used for federated authentication.</p>
+ */
+export interface FederatedAuthenticationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
+   */
+  SAMLProviderArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+   */
+  SelfServiceSAMLProviderArn?: string;
+}
+
+export namespace FederatedAuthenticationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FederatedAuthenticationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the client certificate to be used for authentication.</p>
+ */
+export interface CertificateAuthenticationRequest {
+  /**
+   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
+   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
+   */
+  ClientRootCertificateChainArn?: string;
+}
+
+export namespace CertificateAuthenticationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CertificateAuthenticationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
+ */
+export interface ClientVpnAuthenticationRequest {
+  /**
+   * <p>The type of client authentication to be used.</p>
+   */
+  Type?: ClientVpnAuthenticationType | string;
+
+  /**
+   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
+   */
+  ActiveDirectory?: DirectoryServiceAuthenticationRequest;
+
+  /**
+   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
+   */
+  MutualAuthentication?: CertificateAuthenticationRequest;
+
+  /**
+   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
+   */
+  FederatedAuthentication?: FederatedAuthenticationRequest;
+}
+
+export namespace ClientVpnAuthenticationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for managing connection authorization for new client connections.</p>
+ */
+export interface ClientConnectOptions {
+  /**
+   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
+   */
+  LambdaFunctionArn?: string;
+}
+
+export namespace ClientConnectOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientConnectOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Options for enabling a customizable text banner that will be displayed on
+ * 			Amazon Web Services provided clients when a VPN session is established.</p>
+ */
+export interface ClientLoginBannerOptions {
+  /**
+   * <p>Enable or disable a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   * 		       <p>Valid values: <code>true | false</code>
+   *          </p>
+   * 		       <p>Default value: <code>false</code>
+   *          </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
+   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
+   * 			1400 characters.</p>
+   */
+  BannerText?: string;
+}
+
+export namespace ClientLoginBannerOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
+ */
+export interface ConnectionLogOptions {
+  /**
+   * <p>Indicates whether connection logging is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
+   */
+  CloudwatchLogGroup?: string;
+
+  /**
+   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
+   */
+  CloudwatchLogStream?: string;
+}
+
+export namespace ConnectionLogOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionLogOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a DHCP configuration option.</p>
+ */
+export interface NewDhcpConfiguration {
+  /**
+   * <p>The name of a DHCP option.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>One or more values for the DHCP option.</p>
+   */
+  Values?: string[];
+}
+
+export namespace NewDhcpConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a value for a resource attribute that is a String.</p>
+ */
+export interface AttributeValue {
+  /**
+   * <p>The attribute value. The value is case-sensitive.</p>
+   */
+  Value?: string;
+}
+
+export namespace AttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributeValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
+ *          an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+ *             an instance from a launch template</a> in the
+ *          <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface FleetLaunchTemplateSpecificationRequest {
+  /**
+   * <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p>
+   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
+   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
+   */
+  Version?: string;
+}
+
+export namespace FleetLaunchTemplateSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface BaselineEbsBandwidthMbpsRequest {
+  /**
+   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
+   *          this parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
+   *          this parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace BaselineEbsBandwidthMbpsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum CpuManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  INTEL = "intel",
+}
+
+export enum InstanceGeneration {
+  CURRENT = "current",
+  PREVIOUS = "previous",
+}
+
+export enum LocalStorageType {
+  HDD = "hdd",
+  SSD = "ssd",
+}
+
+/**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ */
+export interface MemoryGiBPerVCpuRequest {
+  /**
+   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryGiBPerVCpuRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
+ */
+export interface MemoryMiBRequest {
+  /**
+   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
+   *          <code>0</code>.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of network interfaces.</p>
+ */
+export interface NetworkInterfaceCountRequest {
+  /**
+   * <p>The minimum number of network interfaces. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of network interfaces. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace NetworkInterfaceCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total local storage, in GB.</p>
+ */
+export interface TotalLocalStorageGBRequest {
+  /**
+   * <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace TotalLocalStorageGBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of vCPUs.</p>
+ */
+export interface VCpuCountRangeRequest {
+  /**
+   * <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace VCpuCountRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VCpuCountRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+ *       identify instance types with these attributes.</p>
+ *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
+ *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          types that satisfy any of the specified values.</p>
+ *          <note>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
+ *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface InstanceRequirementsRequest {
+  /**
+   * <p>The minimum and maximum number of vCPUs.</p>
+   */
+  VCpuCount: VCpuCountRangeRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of memory, in MiB.</p>
+   */
+  MemoryMiB: MemoryMiBRequest | undefined;
+
+  /**
+   * <p>The CPU manufacturers to include.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
+   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
+   *          specify in your launch template.</p>
+   *          </note>
+   *          <p>Default: Any manufacturer</p>
+   */
+  CpuManufacturers?: (CpuManufacturer | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
+
+  /**
+   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *             <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
+   *       family, which includes all C5a and C5n instance types. If you specify
+   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
+   *       instance types.</p>
+   *          <p>Default: No excluded instance types</p>
+   */
+  ExcludedInstanceTypes?: string[];
+
+  /**
+   * <p>Indicates whether current or previous generation instance types are included. The
+   *       current generation instance types are recommended for use. Current generation instance types are
+   *       typically the latest two to three generations in each instance family. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For current generation instance types, specify <code>current</code>.</p>
+   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *          <p>Default: Current and previous generation instance types</p>
+   */
+  InstanceGenerations?: (InstanceGeneration | string)[];
+
+  /**
+   * <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BareMetal?: BareMetal | string;
+
+  /**
+   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BurstablePerformance?: BurstablePerformance | string;
+
+  /**
+   * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCountRequest;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+   *          EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with instance store volumes, specify
+   *                   <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only instance types with instance store volumes, specify
+   *                   <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude instance types with instance store volumes, specify
+   *                   <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>included</code>
+   *          </p>
+   */
+  LocalStorage?: LocalStorage | string;
+
+  /**
+   * <p>The type of local storage that is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          </p>
+   */
+  LocalStorageTypes?: (LocalStorageType | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total local storage, in GB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGBRequest;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with GPU hardware, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To include instance types with inference hardware, specify <code>inference</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator type</p>
+   */
+  AcceleratorTypes?: (AcceleratorType | string)[];
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
+   *          an instance.</p>
+   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorCount?: AcceleratorCountRequest;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any manufacturer</p>
+   */
+  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+
+  /**
+   * <p>The accelerators that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator</p>
+   */
+  AcceleratorNames?: (AcceleratorName | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
+}
+
+export namespace InstanceRequirementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirementsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the placement of an instance.</p>
+ */
+export interface Placement {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   *         <p>If not specified, an Availability Zone will be automatically chosen for you based on
+   *             the load balancing criteria for the Region.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The affinity setting for the instance on the Dedicated Host. This parameter is not
+   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+   *             command.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  Affinity?: string;
+
+  /**
+   * <p>The name of the placement group the instance is in.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The number of the partition that the instance is in. Valid only if the placement group
+   *             strategy is set to <code>partition</code>.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  PartitionNumber?: number;
+
+  /**
+   * <p>The ID of the Dedicated Host on which the instance resides. This parameter is not
+   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+   *             command.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  HostId?: string;
+
+  /**
+   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
+   *             tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+   *             command.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   *
+   *         <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support
+   *                 <code>host</code> tenancy.</p>
+   */
+  Tenancy?: Tenancy | string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  SpreadDomain?: string;
+
+  /**
+   * <p>The ARN of the host resource group in which to launch the instances. If you specify a
+   *             host resource group ARN, omit the <b>Tenancy</b> parameter or
+   *             set it to <code>host</code>.</p>
+   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   */
+  HostResourceGroupArn?: string;
+}
+
+export namespace Placement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Placement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes overrides for a launch template.</p>
+ */
+export interface FleetLaunchTemplateOverridesRequest {
+  /**
+   * <p>The instance type.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *                <code>InstanceRequirements</code>.</p>
+   *          </note>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, <code>subnet-1234abcdeexample1, subnet-0987cdef6example2</code>). A request of type <code>instant</code> can have only one subnet ID.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Availability Zone in which to launch the instances.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The number of units provided by the specified instance type.</p>
+   */
+  WeightedCapacity?: number;
+
+  /**
+   * <p>The priority for the launch template override. The highest priority is launched
+   *          first.</p>
+   *          <p>If the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>,
+   *          EC2 Fleet uses priority to determine which launch template override to use first in fulfilling
+   *          On-Demand capacity.</p>
+   *          <p>If the Spot <code>AllocationStrategy</code> is set to
+   *             <code>capacity-optimized-prioritized</code>, EC2 Fleet uses priority on a best-effort basis
+   *          to determine which launch template override to use in fulfilling Spot capacity, but
+   *          optimizes for capacity first.</p>
+   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
+   *          higher the priority. If no number is set, the launch template override has the lowest
+   *          priority. You can set the same priority for different launch template overrides.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The location where the instance launched, if applicable.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *                <code>InstanceTypes</code>.</p>
+   *          </note>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
+}
+
+export namespace FleetLaunchTemplateOverridesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverridesRequest): any => ({
     ...obj,
   });
 }
@@ -2133,24 +2325,27 @@ export namespace DescribeFleetsInstances {
 /**
  * <p>Describes a launch template and overrides.</p>
  */
-export interface FleetLaunchTemplateConfig {
+export interface FleetLaunchTemplateConfigRequest {
   /**
-   * <p>The launch template.</p>
+   * <p>The launch template to use. You must specify either the launch template ID or launch
+   *          template name in the request. </p>
    */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
+  LaunchTemplateSpecification?: FleetLaunchTemplateSpecificationRequest;
 
   /**
    * <p>Any parameters that you specify override the same parameters in the launch
    *          template.</p>
+   *          <p>For fleets of type <code>request</code> and <code>maintain</code>, a maximum of 300
+   *          items is allowed across all launch templates.</p>
    */
-  Overrides?: FleetLaunchTemplateOverrides[];
+  Overrides?: FleetLaunchTemplateOverridesRequest[];
 }
 
-export namespace FleetLaunchTemplateConfig {
+export namespace FleetLaunchTemplateConfigRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateConfig): any => ({
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateConfigRequest): any => ({
     ...obj,
   });
 }
@@ -2159,15 +2354,14 @@ export namespace FleetLaunchTemplateConfig {
  * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
  *          capacity.</p>
  *          <note>
- *             <p>This strategy can only be used if the EC2 Fleet is of type
- *             <code>instant</code>.</p>
+ *             <p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p>
  *          </note>
  *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
  *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
  *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
  *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
-export interface CapacityReservationOptions {
+export interface CapacityReservationOptionsRequest {
   /**
    * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
    *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
@@ -2183,11 +2377,11 @@ export interface CapacityReservationOptions {
   UsageStrategy?: FleetCapacityReservationUsageStrategy | string;
 }
 
-export namespace CapacityReservationOptions {
+export namespace CapacityReservationOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CapacityReservationOptions): any => ({
+  export const filterSensitiveLog = (obj: CapacityReservationOptionsRequest): any => ({
     ...obj,
   });
 }
@@ -2195,7 +2389,7 @@ export namespace CapacityReservationOptions {
 /**
  * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
  */
-export interface OnDemandOptions {
+export interface OnDemandOptionsRequest {
   /**
    * <p>The strategy that determines the order of the launch template overrides to use in
    *          fulfilling On-Demand capacity.</p>
@@ -2215,7 +2409,7 @@ export interface OnDemandOptions {
    *          capacity.</p>
    *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
-  CapacityReservationOptions?: CapacityReservationOptions;
+  CapacityReservationOptions?: CapacityReservationOptionsRequest;
 
   /**
    * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
@@ -2246,34 +2440,35 @@ export interface OnDemandOptions {
   MaxTotalPrice?: string;
 }
 
-export namespace OnDemandOptions {
+export namespace OnDemandOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OnDemandOptions): any => ({
+  export const filterSensitiveLog = (obj: OnDemandOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
- *          elevated risk of being interrupted.</p>
+ * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
+ *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
-export interface FleetSpotCapacityRebalance {
+export interface FleetSpotCapacityRebalanceRequest {
   /**
    * <p>The replacement strategy to use. Only available for fleets of type
    *          <code>maintain</code>.</p>
    *          <p>
-   *             <code>launch</code> - EC2 Fleet launches a new replacement Spot Instance when a
-   *          rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet
-   *          does not terminate the instances that receive a rebalance notification. You can terminate
-   *          the old instances, or you can leave them running. You are charged for all instances while
-   *          they are running. </p>
+   *             <code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance
+   *          notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not
+   *          terminate the instances that receive a rebalance notification. You can terminate the old
+   *          instances, or you can leave them running. You are charged for all instances while they are
+   *          running. </p>
    *          <p>
-   *             <code>launch-before-terminate</code> - EC2 Fleet launches a new replacement Spot
-   *          Instance when a rebalance notification is emitted for an existing Spot Instance in the
-   *          fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
-   *          terminates the instances that received a rebalance notification.</p>
+   *             <code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance
+   *          when a rebalance notification is emitted for an existing Spot Instance in the fleet, and
+   *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
+   *          instances that received a rebalance notification.</p>
    */
   ReplacementStrategy?: FleetReplacementStrategy | string;
 
@@ -2287,53 +2482,52 @@ export interface FleetSpotCapacityRebalance {
   TerminationDelay?: number;
 }
 
-export namespace FleetSpotCapacityRebalance {
+export namespace FleetSpotCapacityRebalanceRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FleetSpotCapacityRebalance): any => ({
+  export const filterSensitiveLog = (obj: FleetSpotCapacityRebalanceRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
- *          interrupted.</p>
+ * <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
  */
-export interface FleetSpotMaintenanceStrategies {
+export interface FleetSpotMaintenanceStrategiesRequest {
   /**
    * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
    *          elevated risk of being interrupted.</p>
    */
-  CapacityRebalance?: FleetSpotCapacityRebalance;
+  CapacityRebalance?: FleetSpotCapacityRebalanceRequest;
 }
 
-export namespace FleetSpotMaintenanceStrategies {
+export namespace FleetSpotMaintenanceStrategiesRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FleetSpotMaintenanceStrategies): any => ({
+  export const filterSensitiveLog = (obj: FleetSpotMaintenanceStrategiesRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
+ * <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
  */
-export interface SpotOptions {
+export interface SpotOptionsRequest {
   /**
-   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
-   *          pools specified by the EC2 Fleet.</p>
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
+   *          the EC2 Fleet.</p>
    *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest
-   *          price.</p>
+   *             <code>lowest-price</code> - EC2 Fleet launches instances from
+   *          the Spot Instance pools with the lowest price.</p>
    *          <p>
-   *             <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you
-   *          specify.</p>
+   *             <code>diversified</code> - EC2 Fleet launches instances from all
+   *          of the Spot Instance pools that you specify.</p>
    *          <p>
-   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools
-   *          with optimal capacity for the number of instances that are launching. To give certain
-   *          instance types a higher chance of launching first, use
+   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet
+   *          launches instances from Spot Instance pools with optimal capacity for the number of instances that
+   *          are launching. To give certain instance types a higher chance of launching first, use
    *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
    *          using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
    *          assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
@@ -2348,10 +2542,10 @@ export interface SpotOptions {
   AllocationStrategy?: SpotAllocationStrategy | string;
 
   /**
-   * <p>The strategies for managing your workloads on your Spot Instances that will be
-   *          interrupted. Currently only the capacity rebalance strategy is available.</p>
+   * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+   *          interrupted.</p>
    */
-  MaintenanceStrategies?: FleetSpotMaintenanceStrategies;
+  MaintenanceStrategies?: FleetSpotMaintenanceStrategiesRequest;
 
   /**
    * <p>The behavior when a Spot Instance is interrupted.</p>
@@ -2362,9 +2556,9 @@ export interface SpotOptions {
 
   /**
    * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
-   *          only when <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet selects
-   *          the cheapest Spot pools and evenly allocates your target Spot capacity across the number of
-   *          Spot pools that you specify.</p>
+   *          only when Spot <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet
+   *          selects the cheapest Spot pools and evenly allocates your target Spot capacity across the
+   *          number of Spot pools that you specify.</p>
    *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
    *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
    *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
@@ -2393,7 +2587,7 @@ export interface SpotOptions {
    *          not reached, the fleet launches no instances.</p>
    *          <p>Supported only for fleets of type <code>instant</code>.</p>
    *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
-   *             <code>SingleInstanceType</code>
+   *          <code>SingleInstanceType</code>
    *          </p>
    */
   MinTargetCapacity?: number;
@@ -2404,43 +2598,43 @@ export interface SpotOptions {
   MaxTotalPrice?: string;
 }
 
-export namespace SpotOptions {
+export namespace SpotOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SpotOptions): any => ({
+  export const filterSensitiveLog = (obj: SpotOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The number of units to request. You can choose to set the target capacity in terms of
- *          instances or a performance characteristic that is important to your application workload,
+ * <p>The number of units to request. You can choose to set the target capacity as the number of
+ *          instances. Or you can set the target capacity to a performance characteristic that is important to your application workload,
  *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
  *          specify a target capacity of 0 and add capacity later.</p>
  *          <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance
- *             <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your
- *          budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet
- *          will launch instances until it reaches the maximum amount that you're willing to pay. When
- *          the maximum amount you're willing to pay is reached, the fleet stops launching instances
- *          even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are
- *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a>
- *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>.</p>
+ *             <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost
+ *          does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
+ *          in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're
+ *          willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops
+ *          launching instances even if it hasn’t met the target capacity. The
+ *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a>
+ *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  */
-export interface TargetCapacitySpecification {
+export interface TargetCapacitySpecificationRequest {
   /**
    * <p>The number of units to request, filled using
    *          <code>DefaultTargetCapacityType</code>.</p>
    */
-  TotalTargetCapacity?: number;
+  TotalTargetCapacity: number | undefined;
 
   /**
-   * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
+   * <p>The number of On-Demand units to request.</p>
    */
   OnDemandTargetCapacity?: number;
 
   /**
-   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
+   * <p>The number of Spot units to request.</p>
    */
   SpotTargetCapacity?: number;
 
@@ -2457,258 +2651,516 @@ export interface TargetCapacitySpecification {
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
 }
 
-export namespace TargetCapacitySpecification {
+export namespace TargetCapacitySpecificationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TargetCapacitySpecification): any => ({
+  export const filterSensitiveLog = (obj: TargetCapacitySpecificationRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes an EC2 Fleet.</p>
+ * <p>Describes the Amazon EC2 launch template and the launch template version that can be used
+ *             by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the
+ *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
-export interface FleetData {
+export interface FleetLaunchTemplateSpecification {
   /**
-   * <p>The progress of the EC2 Fleet. If there is an error, the status is <code>error</code>. After
-   *          all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the
-   *          EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
-   *          If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
-   *          instances are terminating.</p>
+   * <p>The ID of the launch template. If you specify the template ID, you can't specify the
+   *             template name.</p>
    */
-  ActivityStatus?: FleetActivityStatus | string;
+  LaunchTemplateId?: string;
 
   /**
-   * <p>The creation date and time of the EC2 Fleet.</p>
+   * <p>The name of the launch template. If you specify the template name, you can't specify
+   *             the template ID.</p>
    */
-  CreateTime?: Date;
+  LaunchTemplateName?: string;
 
   /**
-   * <p>The ID of the EC2 Fleet.</p>
+   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.
+   *             You must specify a value, otherwise the request fails.</p>
+   *         <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
+   *             template.</p>
+   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch
+   *             template.</p>
    */
-  FleetId?: string;
-
-  /**
-   * <p>The state of the EC2 Fleet.</p>
-   */
-  FleetState?: FleetStateCode | string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             idempotency</a>.</p>
-   *          <p>Constraints: Maximum 64 ASCII characters</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the target capacity of the
-   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target
-   *          capacity.</p>
-   */
-  FulfilledCapacity?: number;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target On-Demand
-   *          capacity.</p>
-   */
-  FulfilledOnDemandCapacity?: number;
-
-  /**
-   * <p>The launch template and overrides.</p>
-   */
-  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[];
-
-  /**
-   * <p>The number of units to request. You can choose to set the target capacity in terms of
-   *          instances or a performance characteristic that is important to your application workload,
-   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
-   *          specify a target capacity of 0 and add capacity later.</p>
-   */
-  TargetCapacitySpecification?: TargetCapacitySpecification;
-
-  /**
-   * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires. </p>
-   */
-  TerminateInstancesWithExpiration?: boolean;
-
-  /**
-   * <p>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target
-   *          capacity, or also attempts to <code>maintain</code> it. If you request a certain target
-   *          capacity, EC2 Fleet only places the required requests; it does not attempt to replenish
-   *          instances if capacity is diminished, and it does not submit requests in alternative
-   *          capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet
-   *          places the required requests to meet this target capacity. It also automatically
-   *          replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</p>
-   */
-  Type?: FleetType | string;
-
-  /**
-   * <p>The start date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          The default is to start fulfilling the request immediately. </p>
-   */
-  ValidFrom?: Date;
-
-  /**
-   * <p>The end date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          At this point, no new instance requests are placed or able to fulfill the request. The
-   *          default end date is 7 days from the current date. </p>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for
-   *          fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet
-   *             health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  ReplaceUnhealthyInstances?: boolean;
-
-  /**
-   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
-   */
-  SpotOptions?: SpotOptions;
-
-  /**
-   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
-   */
-  OnDemandOptions?: OnDemandOptions;
-
-  /**
-   * <p>The tags for an EC2 Fleet resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Information about the instances that could not be launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
-   */
-  Errors?: DescribeFleetError[];
-
-  /**
-   * <p>Information about the instances that were launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
-   */
-  Instances?: DescribeFleetsInstances[];
-
-  /**
-   * <p>Reserved.</p>
-   */
-  Context?: string;
+  Version?: string;
 }
 
-export namespace FleetData {
+export namespace FleetLaunchTemplateSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FleetData): any => ({
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
     ...obj,
   });
 }
 
-export interface DescribeFleetsResult {
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface BaselineEbsBandwidthMbps {
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          minimum limit.</p>
    */
-  NextToken?: string;
+  Min?: number;
 
   /**
-   * <p>Information about the EC2 Fleets.</p>
+   * <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          maximum limit.</p>
    */
-  Fleets?: FleetData[];
+  Max?: number;
 }
 
-export namespace DescribeFleetsResult {
+export namespace BaselineEbsBandwidthMbps {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbps): any => ({
     ...obj,
   });
 }
 
-export interface DescribeFlowLogsRequest {
+/**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ *          <p></p>
+ */
+export interface MemoryGiBPerVCpu {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no minimum limit.</p>
    */
-  DryRun?: boolean;
+  Min?: number;
 
   /**
-   * <p>One or more filters.</p>
-   *         <ul>
+   * <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryGiBPerVCpu {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpu): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
+ */
+export interface MemoryMiB {
+  /**
+   * <p>The minimum amount of memory, in MiB. If this parameter is not specified, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of memory, in MiB. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryMiB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryMiB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of network interfaces.</p>
+ */
+export interface NetworkInterfaceCount {
+  /**
+   * <p>The minimum number of network interfaces. If this parameter is not specified, there is no
+   *          minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of network interfaces. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace NetworkInterfaceCount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceCount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total local storage, in GB.</p>
+ */
+export interface TotalLocalStorageGB {
+  /**
+   * <p>The minimum amount of total local storage, in GB. If this parameter is not specified, there is
+   *          no minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of total local storage, in GB. If this parameter is not specified, there is
+   *          no maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace TotalLocalStorageGB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TotalLocalStorageGB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of vCPUs.</p>
+ */
+export interface VCpuCountRange {
+  /**
+   * <p>The minimum number of vCPUs. If the value is <code>0</code>, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of vCPUs. If this parameter is not specified, there is no maximum
+   *          limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace VCpuCountRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VCpuCountRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+ *          identify instance types with these attributes.</p>
+ *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
+ *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          types that satisfy any of the specified values.</p>
+ *          <note>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
+ *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface InstanceRequirements {
+  /**
+   * <p>The minimum and maximum number of vCPUs.</p>
+   */
+  VCpuCount?: VCpuCountRange;
+
+  /**
+   * <p>The minimum and maximum amount of memory, in MiB.</p>
+   */
+  MemoryMiB?: MemoryMiB;
+
+  /**
+   * <p>The CPU manufacturers to include.</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |
-   *                     <code>FAILED</code>).</p>
+   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>log-destination-type</code> - The type of destination to which the flow
-   *                     log publishes data. Possible destination types include
-   *                     <code>cloud-watch-logs</code> and <code>s3</code>.</p>
+   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>flow-log-id</code> - The ID of the flow log.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>log-group-name</code> - The name of the log group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |
-   *                     <code>REJECT</code> | <code>ALL</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
+   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
+   *          specify in your launch template.</p>
+   *          </note>
+   *          <p>Default: Any manufacturer</p>
    */
-  Filter?: Filter[];
+  CpuManufacturers?: (CpuManufacturer | string)[];
 
   /**
-   * <p>One or more flow log IDs.</p>
-   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
    */
-  FlowLogIds?: string[];
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpu;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   *       an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The
+   *       following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *       <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
+   *       family, which includes all C5a and C5n instance types. If you specify
+   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
+   *       instance types.</p>
+   *          <p>Default: No excluded instance types</p>
    */
-  MaxResults?: number;
+  ExcludedInstanceTypes?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>Indicates whether current or previous generation instance types are included. The
+   *       current generation instance types are recommended for use. Current generation instance types are
+   *       typically the latest two to three generations in each instance family. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For current generation instance types, specify <code>current</code>.</p>
+   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *          <p>Default: Current and previous generation instance types</p>
    */
-  NextToken?: string;
+  InstanceGenerations?: (InstanceGeneration | string)[];
+
+  /**
+   * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *                <code>memory-mib</code>, the price protection threshold is applied based on the
+   *             per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BareMetal?: BareMetal | string;
+
+  /**
+   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BurstablePerformance?: BurstablePerformance | string;
+
+  /**
+   * <p>Indicates whether instance types must support hibernation for On-Demand
+   *          Instances.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCount;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+   *             EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with instance store volumes, specify
+   *                <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only instance types with instance store volumes, specify
+   *                   <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude instance types with instance store volumes, specify
+   *                <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>included</code>
+   *          </p>
+   */
+  LocalStorage?: LocalStorage | string;
+
+  /**
+   * <p>The type of local storage that is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          </p>
+   */
+  LocalStorageTypes?: (LocalStorageType | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total local storage, in GB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGB;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbps;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with inference accelerators, specify <code>inference</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator type</p>
+   */
+  AcceleratorTypes?: (AcceleratorType | string)[];
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
+   *          an instance.</p>
+   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorCount?: AcceleratorCount;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any manufacturer</p>
+   */
+  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+
+  /**
+   * <p>The accelerators that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator</p>
+   */
+  AcceleratorNames?: (AcceleratorName | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiB;
 }
 
-export namespace DescribeFlowLogsRequest {
+export namespace InstanceRequirements {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeFlowLogsRequest): any => ({
+  export const filterSensitiveLog = (obj: InstanceRequirements): any => ({
     ...obj,
   });
 }
@@ -2716,1421 +3168,2059 @@ export namespace DescribeFlowLogsRequest {
 /**
  * <p>Describes the destination options for a flow log.</p>
  */
-export interface DestinationOptionsResponse {
+export interface DestinationOptionsRequest {
   /**
-   * <p>The format for the flow log.</p>
+   * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
    */
   FileFormat?: DestinationFileFormat | string;
 
   /**
-   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.</p>
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
+   *             The default is <code>false</code>.</p>
    */
   HiveCompatiblePartitions?: boolean;
 
   /**
-   * <p>Indicates whether to partition the flow log per hour.</p>
+   * <p>Indicates whether to partition the flow log per hour. This reduces the cost and response
+   *             time for queries. The default is <code>false</code>.</p>
    */
   PerHourPartition?: boolean;
 }
 
-export namespace DestinationOptionsResponse {
+export namespace DestinationOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DestinationOptionsResponse): any => ({
+  export const filterSensitiveLog = (obj: DestinationOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes a flow log.</p>
+ * <p>Describes a storage location in Amazon S3.</p>
  */
-export interface FlowLog {
+export interface StorageLocation {
   /**
-   * <p>The date and time the flow log was created.</p>
+   * <p>The name of the S3 bucket.</p>
    */
-  CreationTime?: Date;
+  Bucket?: string;
 
   /**
-   * <p>Information about the error that occurred. <code>Rate limited</code> indicates that
-   *             CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've
-   *             reached the limit on the number of log groups that you can create. <code>Access
-   *                 error</code> indicates that the IAM role associated with the flow log does not have
-   *             sufficient permissions to publish to CloudWatch Logs. <code>Unknown error</code> indicates an
-   *             internal error.</p>
+   * <p>The key.</p>
    */
-  DeliverLogsErrorMessage?: string;
-
-  /**
-   * <p>The ARN of the IAM role that posts logs to CloudWatch Logs.</p>
-   */
-  DeliverLogsPermissionArn?: string;
-
-  /**
-   * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
-   */
-  DeliverLogsStatus?: string;
-
-  /**
-   * <p>The flow log ID.</p>
-   */
-  FlowLogId?: string;
-
-  /**
-   * <p>The status of the flow log (<code>ACTIVE</code>).</p>
-   */
-  FlowLogStatus?: string;
-
-  /**
-   * <p>The name of the flow log group.</p>
-   */
-  LogGroupName?: string;
-
-  /**
-   * <p>The ID of the resource on which the flow log was created.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The type of traffic captured for the flow log.</p>
-   */
-  TrafficType?: TrafficType | string;
-
-  /**
-   * <p>The type of destination to which the flow log data is published. Flow log data can be
-   *             published to CloudWatch Logs or Amazon S3.</p>
-   */
-  LogDestinationType?: LogDestinationType | string;
-
-  /**
-   * <p>The destination to which the flow log data is published. Flow log data can be
-   *             published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs,
-   *             this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which
-   *             the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN
-   *             of the Amazon S3 bucket to which the data is published.</p>
-   */
-  LogDestination?: string;
-
-  /**
-   * <p>The format of the flow log record.</p>
-   */
-  LogFormat?: string;
-
-  /**
-   * <p>The tags for the flow log.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p>
-   *         <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
-   *                 instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
-   *             regardless of the specified value.</p>
-   *         <p>Valid Values: <code>60</code> | <code>600</code>
-   *          </p>
-   */
-  MaxAggregationInterval?: number;
-
-  /**
-   * <p>The destination options.</p>
-   */
-  DestinationOptions?: DestinationOptionsResponse;
+  Key?: string;
 }
 
-export namespace FlowLog {
+export namespace StorageLocation {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FlowLog): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFlowLogsResult {
-  /**
-   * <p>Information about the flow logs.</p>
-   */
-  FlowLogs?: FlowLog[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFlowLogsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowLogsResult): any => ({
-    ...obj,
-  });
-}
-
-export type FpgaImageAttributeName = "description" | "loadPermission" | "name" | "productCodes";
-
-export interface DescribeFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The AFI attribute.</p>
-   */
-  Attribute: FpgaImageAttributeName | string | undefined;
-}
-
-export namespace DescribeFpgaImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export type PermissionGroup = "all";
-
-/**
- * <p>Describes a load permission.</p>
- */
-export interface LoadPermission {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  UserId?: string;
-
-  /**
-   * <p>The name of the group.</p>
-   */
-  Group?: PermissionGroup | string;
-}
-
-export namespace LoadPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadPermission): any => ({
-    ...obj,
-  });
-}
-
-export type ProductCodeValues = "devpay" | "marketplace";
-
-/**
- * <p>Describes a product code.</p>
- */
-export interface ProductCode {
-  /**
-   * <p>The product code.</p>
-   */
-  ProductCodeId?: string;
-
-  /**
-   * <p>The type of product code.</p>
-   */
-  ProductCodeType?: ProductCodeValues | string;
-}
-
-export namespace ProductCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductCode): any => ({
+  export const filterSensitiveLog = (obj: StorageLocation): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
+ * <p>Describes a block device for an EBS volume.</p>
  */
-export interface FpgaImageAttribute {
+export interface EbsBlockDevice {
   /**
-   * <p>The ID of the AFI.</p>
+   * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving Amazon EBS volumes on instance termination</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
-  FpgaImageId?: string;
+  DeleteOnTermination?: boolean;
 
   /**
-   * <p>The name of the AFI.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the AFI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The load permissions.</p>
-   */
-  LoadPermissions?: LoadPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-}
-
-export namespace FpgaImageAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FpgaImageAttribute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFpgaImageAttributeResult {
-  /**
-   * <p>Information about the attribute.</p>
-   */
-  FpgaImageAttribute?: FpgaImageAttribute;
-}
-
-export namespace DescribeFpgaImageAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFpgaImagesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The AFI IDs.</p>
-   */
-  FpgaImageIds?: string[];
-
-  /**
-   * <p>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
-   * 			(owner is the sender of the request), or an Amazon Web Services owner alias (valid values are
-   * 			<code>amazon</code> | <code>aws-marketplace</code>).</p>
-   */
-  Owners?: string[];
-
-  /**
-   * <p>The filters.</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The creation time of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>unavailable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-time</code> - The time of the most recent update.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeFpgaImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFpgaImagesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
- */
-export interface PciId {
-  /**
-   * <p>The ID of the device.</p>
-   */
-  DeviceId?: string;
-
-  /**
-   * <p>The ID of the vendor.</p>
-   */
-  VendorId?: string;
-
-  /**
-   * <p>The ID of the subsystem.</p>
-   */
-  SubsystemId?: string;
-
-  /**
-   * <p>The ID of the vendor for the subsystem.</p>
-   */
-  SubsystemVendorId?: string;
-}
-
-export namespace PciId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PciId): any => ({
-    ...obj,
-  });
-}
-
-export type FpgaImageStateCode = "available" | "failed" | "pending" | "unavailable";
-
-/**
- * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
- */
-export interface FpgaImageState {
-  /**
-   * <p>The state. The following are the possible values:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - AFI bitstream generation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The AFI is available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - AFI bitstream generation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unavailable</code> - The AFI is no longer available for use.</p>
-   *             </li>
-   *          </ul>
-   */
-  Code?: FpgaImageStateCode | string;
-
-  /**
-   * <p>If the state is <code>failed</code>, this is the error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace FpgaImageState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FpgaImageState): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an Amazon FPGA image (AFI).</p>
- */
-export interface FpgaImage {
-  /**
-   * <p>The FPGA image identifier (AFI ID).</p>
-   */
-  FpgaImageId?: string;
-
-  /**
-   * <p>The global FPGA image identifier (AGFI ID).</p>
-   */
-  FpgaImageGlobalId?: string;
-
-  /**
-   * <p>The name of the AFI.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the AFI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   */
-  ShellVersion?: string;
-
-  /**
-   * <p>Information about the PCI bus.</p>
-   */
-  PciId?: PciId;
-
-  /**
-   * <p>Information about the state of the AFI.</p>
-   */
-  State?: FpgaImageState;
-
-  /**
-   * <p>The date and time the AFI was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The time of the most recent update to the AFI.</p>
-   */
-  UpdateTime?: Date;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the AFI.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The product codes for the AFI.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>Any tags assigned to the AFI.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Indicates whether the AFI is public.</p>
-   */
-  Public?: boolean;
-
-  /**
-   * <p>Indicates whether data retention support is enabled for the AFI.</p>
-   */
-  DataRetentionSupport?: boolean;
-}
-
-export namespace FpgaImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FpgaImage): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFpgaImagesResult {
-  /**
-   * <p>Information about the FPGA images.</p>
-   */
-  FpgaImages?: FpgaImage[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeFpgaImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFpgaImagesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationOfferingsRequest {
-  /**
-   * <p>The filters.</p>
+   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes,
+   *             this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code>
+   *             volumes, this represents the baseline performance of the volume and the rate at which
+   *             the volume accumulates I/O credits for bursting.</p>
+   *         <p>The following are the supported values for each volume type:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>instance-family</code> - The instance family of the offering (for example,
-   *                         <code>m4</code>).</p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
-   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io2</code>: 100-64,000 IOPS</p>
    *             </li>
    *          </ul>
+   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the
+   *                 Nitro System</a>. Other instance families guarantee performance up to
+   *             32,000 IOPS.</p>
+   *         <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The default for <code>gp3</code> volumes
+   *             is 3,000 IOPS. This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code>
+   *             volumes.</p>
    */
-  Filter?: Filter[];
+  Iops?: number;
 
   /**
-   * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
-   *             Reservations are available in one-year and three-year terms. The number of seconds
-   *             specified must be the number of seconds in a year (365x24x60x60) times one of the
-   *             supported durations (1 or 3). For example, specify 94608000 for three years.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  MaxDuration?: number;
+  SnapshotId?: string;
 
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>This is the minimum duration of the reservation you'd like to purchase, specified
-   *             in seconds. Reservations are available in one-year and three-year terms. The number of
-   *             seconds specified must be the number of seconds in a year (365x24x60x60) times one of
-   *             the supported durations (1 or 3). For example, specify 31536000 for one year.</p>
-   */
-  MinDuration?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the reservation offering.</p>
-   */
-  OfferingId?: string;
-}
-
-export namespace DescribeHostReservationOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum PaymentOption {
-  ALL_UPFRONT = "AllUpfront",
-  NO_UPFRONT = "NoUpfront",
-  PARTIAL_UPFRONT = "PartialUpfront",
-}
-
-/**
- * <p>Details about the Dedicated Host Reservation offering.</p>
- */
-export interface HostOffering {
-  /**
-   * <p>The currency of the offering.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The duration of the offering (in seconds).</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The hourly price of the offering.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The instance family of the offering.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The ID of the offering.</p>
-   */
-  OfferingId?: string;
-
-  /**
-   * <p>The available payment option.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
-   * <p>The upfront price of the offering. Does not apply to No Upfront
-   *             offerings.</p>
-   */
-  UpfrontPrice?: string;
-}
-
-export namespace HostOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostOffering): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationOfferingsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the offerings.</p>
-   */
-  OfferingSet?: HostOffering[];
-}
-
-export namespace DescribeHostReservationOfferingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationsRequest {
-  /**
-   * <p>The filters.</p>
+   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
+   *             size. If you specify a snapshot, the default is the snapshot size. You can specify a
+   *             volume size that is equal to or larger than the snapshot size.</p>
+   *         <p>The following are the supported volumes sizes for each volume type:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>instance-family</code> - The instance family (for example,
-   *                     <code>m4</code>).</p>
+   *                   <code>gp2</code> and <code>gp3</code>:1-16,384</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
-   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
+   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>state</code> - The state of the reservation (<code>payment-pending</code>
-   *                     | <code>payment-failed</code> | <code>active</code> |
-   *                     <code>retired</code>).</p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
    *             </li>
    *             <li>
-   *         		     <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
+   *                 <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
    *          </ul>
    */
-  Filter?: Filter[];
+  VolumeSize?: number;
 
   /**
-   * <p>The host reservation IDs.</p>
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
+   *                 <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or
+   *                 <code>io2</code>, you must specify the IOPS that the volume supports.</p>
    */
-  HostReservationIdSet?: string[];
+  VolumeType?: VolumeType | string;
 
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under
+   *             which the EBS volume is encrypted.</p>
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+   *             and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
    */
-  MaxResults?: number;
+  KmsKeyId?: string;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   *         <p>This parameter is valid only for <code>gp3</code> volumes.</p>
+   *         <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
    */
-  NextToken?: string;
+  Throughput?: number;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored.</p>
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called
+   *             by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
+   *                 CreateImage</a>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether the encryption state of an EBS volume is changed while being
+   *             restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on
+   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>In no case can you remove encryption from an encrypted volume.</p>
+   *         <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
+   *         <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
+   */
+  Encrypted?: boolean;
 }
 
-export namespace DescribeHostReservationsRequest {
+export namespace EbsBlockDevice {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
+  export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
     ...obj,
   });
 }
 
-export enum ReservationState {
-  ACTIVE = "active",
-  PAYMENT_FAILED = "payment-failed",
-  PAYMENT_PENDING = "payment-pending",
-  RETIRED = "retired",
+/**
+ * <p>Describes a block device mapping, which defines the EBS volumes and instance store
+ *             volumes to attach to an instance at launch.</p>
+ */
+export interface BlockDeviceMapping {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The virtual device name (<code>ephemeral</code>N). Instance store volumes are numbered
+   *             starting from 0. An instance type with 2 available instance store volumes can specify
+   *             mappings for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of
+   *             available instance store volumes depends on the instance type. After you connect to the
+   *             instance, you must mount the volume.</p>
+   *         <p>NVMe instance store volumes are automatically enumerated and assigned a device name.
+   *             Including them in your block device mapping has no effect.</p>
+   *         <p>Constraints: For M3 instances, you must specify instance store volumes in the block
+   *             device mapping for the instance. When you launch an M3 instance, we ignore any instance
+   *             store volumes specified in the block device mapping for the AMI.</p>
+   */
+  VirtualName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsBlockDevice;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string. When this
+   *             property is specified, the device is removed from the block device mapping regardless of
+   *             the assigned value.</p>
+   */
+  NoDevice?: string;
+}
+
+export namespace BlockDeviceMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
+    ...obj,
+  });
 }
 
 /**
- * <p>Details about the Dedicated Host Reservation and associated Dedicated
- *             Hosts.</p>
+ * <p>The start day and time and the end day and time of the time range, in UTC.</p>
  */
-export interface HostReservation {
+export interface InstanceEventWindowTimeRangeRequest {
   /**
-   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
+   * <p>The day on which the time range begins.</p>
+   */
+  StartWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range begins.</p>
+   */
+  StartHour?: number;
+
+  /**
+   * <p>The day on which the time range ends.</p>
+   */
+  EndWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range ends.</p>
+   */
+  EndHour?: number;
+}
+
+export namespace InstanceEventWindowTimeRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowTimeRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an export instance task.</p>
+ */
+export interface ExportToS3TaskSpecification {
+  /**
+   * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
+   *    exported.</p>
+   */
+  ContainerFormat?: ContainerFormat | string;
+
+  /**
+   * <p>The format for the exported image.</p>
+   */
+  DiskImageFormat?: DiskImageFormat | string;
+
+  /**
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
+   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix +
+   *    exportTaskId + '.' + diskImageFormat.</p>
+   */
+  S3Prefix?: string;
+}
+
+export namespace ExportToS3TaskSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A tag on an IPAM resource.</p>
+ */
+export interface RequestIpamResourceTag {
+  /**
+   * <p>The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value for the tag.</p>
+   */
+  Value?: string;
+}
+
+export namespace RequestIpamResourceTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestIpamResourceTag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The parameters for a block device for an EBS volume.</p>
+ */
+export interface LaunchTemplateEbsBlockDeviceRequest {
+  /**
+   * <p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached
+   *             to instances that support Amazon EBS encryption. If you are creating a volume from a
+   *             snapshot, you can't specify an encryption value.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>,
+   *             <code>io1</code>, and <code>io2</code> volumes, this represents the number of IOPS that
+   *             are provisioned for the volume. For <code>gp2</code> volumes, this represents the
+   *             baseline performance of the volume and the rate at which the volume accumulates I/O
+   *             credits for bursting.</p>
+   *         <p>The following are the supported values for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee
+   *             64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the
+   *                 Nitro System</a>. Other instance families guarantee performance up to
+   *             32,000 IOPS.</p>
+   *         <p>This parameter is supported for <code>io1</code>, <code>io2</code>, and <code>gp3</code> volumes only. This parameter
+   *             is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The ARN of the symmetric Key Management Service (KMS) CMK used for encryption.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
+   *             size. The following are the supported volumes sizes for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  VolumeType?: VolumeType | string;
+
+  /**
+   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000
+   *             MiB/s.</p>
+   *         <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   */
+  Throughput?: number;
+}
+
+export namespace LaunchTemplateEbsBlockDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping.</p>
+ */
+export interface LaunchTemplateBlockDeviceMappingRequest {
+  /**
+   * <p>The device name (for example, /dev/sdh or xvdh).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The virtual device name (ephemeralN). Instance store volumes are numbered starting
+   *             from 0. An instance type with 2 available instance store volumes can specify mappings
+   *             for ephemeral0 and ephemeral1. The number of available instance store volumes depends on
+   *             the instance type. After you connect to the instance, you must mount the volume.</p>
+   */
+  VirtualName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: LaunchTemplateEbsBlockDeviceRequest;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
+   */
+  NoDevice?: string;
+}
+
+export namespace LaunchTemplateBlockDeviceMappingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMappingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
+ */
+export interface CapacityReservationTarget {
+  /**
+   * <p>The ID of the Capacity Reservation in which to run the instance.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+   */
+  CapacityReservationResourceGroupArn?: string;
+}
+
+export namespace CapacityReservationTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance's Capacity Reservation targeting option. You can specify only
+ *             one option at a time. Use the <code>CapacityReservationPreference</code> parameter to
+ *             configure the instance to run in On-Demand capacity or to run in any <code>open</code>
+ *             Capacity Reservation that has matching attributes (instance type, platform, Availability
+ *             Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a
+ *             specific Capacity Reservation or a Capacity Reservation group.</p>
+ */
+export interface LaunchTemplateCapacityReservationSpecificationRequest {
+  /**
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
+   *             include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
+   *                     Reservation that has matching attributes (instance type, platform, Availability
+   *                     Zone).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even
+   *                     if one is available. The instance runs in On-Demand capacity.</p>
+   *             </li>
+   *          </ul>
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | string;
+
+  /**
+   * <p>Information about the target Capacity Reservation or Capacity Reservation
+   *             group.</p>
+   */
+  CapacityReservationTarget?: CapacityReservationTarget;
+}
+
+export namespace LaunchTemplateCapacityReservationSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The CPU options for the instance. Both the core count and threads per core must be
+ *             specified in the request.</p>
+ */
+export interface LaunchTemplateCpuOptionsRequest {
+  /**
+   * <p>The number of CPU cores for the instance.</p>
+   */
+  CoreCount?: number;
+
+  /**
+   * <p>The number of threads per CPU core. To disable multithreading for the instance,
+   *             specify a value of 1. Otherwise, specify the default value of 2.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+export namespace LaunchTemplateCpuOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ */
+export interface CreditSpecificationRequest {
+  /**
+   * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   */
+  CpuCredits: string | undefined;
+}
+
+export namespace CreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specification for an Elastic Graphics accelerator.</p>
+ */
+export interface ElasticGpuSpecification {
+  /**
+   * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
+   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the
+   *             <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>
+   */
+  Type: string | undefined;
+}
+
+export namespace ElasticGpuSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> Describes an elastic inference accelerator. </p>
+ */
+export interface LaunchTemplateElasticInferenceAccelerator {
+  /**
+   * <p> The type of elastic inference accelerator. The possible values are eia1.medium,
+   *             eia1.large, and eia1.xlarge. </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p> The number of elastic inference accelerators to attach to the instance. </p>
+   *         <p>Default: 1</p>
    */
   Count?: number;
-
-  /**
-   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
-   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The date and time that the reservation ends.</p>
-   */
-  End?: Date;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   */
-  HostIdSet?: string[];
-
-  /**
-   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The hourly price of the reservation.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The instance family of the Dedicated Host Reservation. The instance family on the
-   *             Dedicated Host must be the same in order for it to benefit from the
-   *             reservation.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The ID of the reservation. This remains the same regardless of which Dedicated
-   *             Hosts are associated with it.</p>
-   */
-  OfferingId?: string;
-
-  /**
-   * <p>The payment option selected for this reservation.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
-   * <p>The date and time that the reservation started.</p>
-   */
-  Start?: Date;
-
-  /**
-   * <p>The state of the reservation.</p>
-   */
-  State?: ReservationState | string;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   */
-  UpfrontPrice?: string;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
-   */
-  Tags?: Tag[];
 }
 
-export namespace HostReservation {
+export namespace LaunchTemplateElasticInferenceAccelerator {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HostReservation): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationsResult {
-  /**
-   * <p>Details about the reservation's configuration.</p>
-   */
-  HostReservationSet?: HostReservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostReservationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostReservationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostsRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>auto-placement</code> - Whether auto-placement is enabled or disabled
-   *                         (<code>on</code> | <code>off</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the
-   *                     host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>client-token</code> - The idempotency token that you provided when you
-   *                     allocated the host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to
-   *                     this host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The instance type size that the Dedicated Host
-   *                     is configured to support.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The allocation state of the Dedicated Host
-   *                         (<code>available</code> | <code>under-assessment</code> |
-   *                         <code>permanent-failure</code> | <code>released</code> |
-   *                         <code>released-permanent-failure</code>).</p>
-   *             </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
-   *          </ul>
-   */
-  Filter?: Filter[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-   *             launches.</p>
-   */
-  HostIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAccelerator): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Information about the number of instances that can be launched onto the Dedicated
- *     		Host.</p>
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
+ *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a>
+ *             in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
  */
-export interface InstanceCapacity {
+export interface LaunchTemplateEnclaveOptionsRequest {
   /**
-   * <p>The number of instances that can be launched onto the Dedicated Host based on the
-   *     		host's available capacity.</p>
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
+   *                 <code>true</code>.</p>
    */
-  AvailableCapacity?: number;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The total number of instances that can be launched onto the Dedicated Host if there
-   *     		are no instances running on it.</p>
-   */
-  TotalCapacity?: number;
+  Enabled?: boolean;
 }
 
-export namespace InstanceCapacity {
+export namespace LaunchTemplateEnclaveOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateEnclaveOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
+ * <p>Indicates whether the instance is configured for hibernation. This parameter is valid
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+ *                 prerequisites</a>.</p>
  */
-export interface AvailableCapacity {
+export interface LaunchTemplateHibernationOptionsRequest {
   /**
-   * <p>The number of instances that can be launched onto the Dedicated Host depending on
-   *     		the host's available capacity. For Dedicated Hosts that support multiple instance types,
-   *     		this parameter represents the number of instances for each instance size that is
-   *     		supported on the host.</p>
+   * <p>If you set this parameter to <code>true</code>, the instance is enabled for
+   *             hibernation.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
    */
-  AvailableInstanceCapacity?: InstanceCapacity[];
-
-  /**
-   * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
-   */
-  AvailableVCpus?: number;
+  Configured?: boolean;
 }
 
-export namespace AvailableCapacity {
+export namespace LaunchTemplateHibernationOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AvailableCapacity): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the properties of a Dedicated Host.</p>
+ * <p>An IAM instance profile.</p>
  */
-export interface HostProperties {
+export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
   /**
-   * <p>The number of cores on the Dedicated Host.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
    */
-  Cores?: number;
+  Arn?: string;
 
   /**
-   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
-   *         	If the host supports multiple instance types, no <b>instanceType</b>
-   *         	is returned.</p>
+   * <p>The name of the instance profile.</p>
    */
-  InstanceType?: string;
-
-  /**
-   * <p>The instance family supported by the Dedicated Host. For example, <code>m5</code>.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The number of sockets on the Dedicated Host.</p>
-   */
-  Sockets?: number;
-
-  /**
-   * <p>The total number of vCPUs on the Dedicated Host.</p>
-   */
-  TotalVCpus?: number;
+  Name?: string;
 }
 
-export namespace HostProperties {
+export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HostProperties): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecificationRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes an instance running on a Dedicated Host.</p>
+ * <p>The options for Spot Instances.</p>
  */
-export interface HostInstance {
+export interface LaunchTemplateSpotMarketOptionsRequest {
   /**
-   * <p>The ID of instance that is running on the Dedicated Host.</p>
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
    */
-  InstanceId?: string;
+  MaxPrice?: string;
 
   /**
-   * <p>The instance type (for example, <code>m3.medium</code>) of the running instance.</p>
+   * <p>The Spot Instance request type.</p>
    */
-  InstanceType?: string;
+  SpotInstanceType?: SpotInstanceType | string;
 
   /**
-   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
+   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
+   *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
    */
-  OwnerId?: string;
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The end date of the request. For a one-time request, the request remains active until
+   *             all instances launch, the request is canceled, or this date is reached. If the request
+   *             is persistent, it remains active until it is canceled or this date and time is reached.
+   *             The default end date is 7 days from the current date.</p>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 }
 
-export namespace HostInstance {
+export namespace LaunchTemplateSpotMarketOptionsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HostInstance): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the properties of the Dedicated Host.</p>
+ * <p>The market (purchasing) option for the instances.</p>
  */
-export interface Host {
+export interface LaunchTemplateInstanceMarketOptionsRequest {
   /**
-   * <p>Whether auto-placement is on or off.</p>
+   * <p>The market type.</p>
    */
-  AutoPlacement?: AutoPlacement | string;
+  MarketType?: MarketType | string;
 
   /**
-   * <p>The Availability Zone of the Dedicated Host.</p>
+   * <p>The options for Spot Instances.</p>
+   */
+  SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
+}
+
+export namespace LaunchTemplateInstanceMarketOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a license configuration.</p>
+ */
+export interface LaunchTemplateLicenseConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+export namespace LaunchTemplateLicenseConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The maintenance options of your instance.</p>
+ */
+export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+   */
+  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+}
+
+export namespace LaunchTemplateInstanceMaintenanceOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMaintenanceOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+ *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface LaunchTemplateInstanceMetadataOptionsRequest {
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *             specified in the request, the default state is <code>optional</code>.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+   *             with or without a signed token header on your request. If you retrieve the IAM role
+   *             credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
+   *             credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a signed token header with any
+   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
+   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
+   *             available.</p>
+   */
+  HttpTokens?: LaunchTemplateHttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
+   *             not specified, the default state is <code>enabled</code>.</p>
+   *         <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access
+   *                 your instance metadata. </p>
+   *         </note>
+   */
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+}
+
+export namespace LaunchTemplateInstanceMetadataOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the monitoring for the instance.</p>
+ */
+export interface LaunchTemplatesMonitoringRequest {
+  /**
+   * <p>Specify <code>true</code> to enable detailed monitoring. Otherwise, basic monitoring
+   *             is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LaunchTemplatesMonitoringRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplatesMonitoringRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the IPv4 prefix option for a network interface.</p>
+ */
+export interface Ipv4PrefixSpecificationRequest {
+  /**
+   * <p>The IPv4 prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+   *             Assigning prefixes to Amazon EC2 network interfaces</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  Ipv4Prefix?: string;
+}
+
+export namespace Ipv4PrefixSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv4PrefixSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv6 address.</p>
+ */
+export interface InstanceIpv6AddressRequest {
+  /**
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+}
+
+export namespace InstanceIpv6AddressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceIpv6AddressRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the IPv4 prefix option for a network interface.</p>
+ */
+export interface Ipv6PrefixSpecificationRequest {
+  /**
+   * <p>The IPv6 prefix.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+export namespace Ipv6PrefixSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6PrefixSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a secondary private IPv4 address for a network interface.</p>
+ */
+export interface PrivateIpAddressSpecification {
+  /**
+   * <p>Indicates whether the private IPv4 address is the primary private IPv4 address. Only
+   *             one IPv4 address can be designated as primary.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * <p>The private IPv4 addresses.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+export namespace PrivateIpAddressSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateIpAddressSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The parameters for a network interface.</p>
+ */
+export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
+  /**
+   * <p>Associates a Carrier IP address with eth0 for a new network interface.</p>
+   *         <p>Use this option when you launch an instance in a Wavelength Zone and want to associate
+   *             a Carrier IP address with the network interface. For more information about Carrier IP
+   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>Wavelength Developer
+   *             Guide</i>.</p>
+   */
+  AssociateCarrierIpAddress?: boolean;
+
+  /**
+   * <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
+   */
+  AssociatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>A description for the network interface.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The device index for the network interface attachment.</p>
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>The IDs of one or more security groups.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
+   *                 <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+   *             parameter.</p>
+   *         <p>Valid values: <code>interface</code> | <code>efa</code>
+   *          </p>
+   */
+  InterfaceType?: string;
+
+  /**
+   * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
+   *             automatically selects the IPv6 addresses from the subnet range. You can't use this
+   *             option if specifying specific IPv6 addresses.</p>
+   */
+  Ipv6AddressCount?: number;
+
+  /**
+   * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You
+   *             can't use this option if you're specifying a number of IPv6 addresses.</p>
+   */
+  Ipv6Addresses?: InstanceIpv6AddressRequest[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The primary private IPv4 address of the network interface.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>One or more private IPv4 addresses.</p>
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
+
+  /**
+   * <p>The number of secondary private IPv4 addresses to assign to a network
+   *             interface.</p>
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>The ID of the subnet for the network interface.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The index of the network card. Some instance types support multiple network cards. The
+   *             primary network interface must be assigned to network card index 0. The default is
+   *             network card index 0.</p>
+   */
+  NetworkCardIndex?: number;
+
+  /**
+   * <p>One or more IPv4 prefixes to be assigned to the network interface. You cannot use this
+   *             option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv4 prefixes to be automatically assigned to the network interface. You
+   *             cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>One or more IPv6 prefixes to be assigned to the network interface. You cannot use this
+   *             option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv6 prefixes to be automatically assigned to the network interface. You
+   *             cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
+   */
+  Ipv6PrefixCount?: number;
+}
+
+export namespace LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the placement of an instance.</p>
+ */
+export interface LaunchTemplatePlacementRequest {
+  /**
+   * <p>The Availability Zone for the instance.</p>
    */
   AvailabilityZone?: string;
 
   /**
-   * <p>Information about the instances running on the Dedicated Host.</p>
+   * <p>The affinity setting for an instance on a Dedicated Host.</p>
    */
-  AvailableCapacity?: AvailableCapacity;
+  Affinity?: string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>The name of the placement group for the instance.</p>
    */
-  ClientToken?: string;
+  GroupName?: string;
 
   /**
-   * <p>The ID of the Dedicated Host.</p>
+   * <p>The ID of the Dedicated Host for the instance.</p>
    */
   HostId?: string;
 
   /**
-   * <p>The hardware specifications of the Dedicated Host.</p>
+   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
-  HostProperties?: HostProperties;
+  Tenancy?: Tenancy | string;
 
   /**
-   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response
-   *             if the Dedicated Host doesn't have an associated reservation.</p>
+   * <p>Reserved for future use.</p>
    */
-  HostReservationId?: string;
+  SpreadDomain?: string;
 
   /**
-   * <p>The IDs and instance type that are currently running on the Dedicated
-   *             Host.</p>
+   * <p>The ARN of the host resource group in which to launch the instances. If you specify a
+   *             host resource group ARN, omit the <b>Tenancy</b> parameter or
+   *             set it to <code>host</code>.</p>
    */
-  Instances?: HostInstance[];
+  HostResourceGroupArn?: string;
 
   /**
-   * <p>The Dedicated Host's state.</p>
+   * <p>The number of the partition the instance should launch in. Valid only if the placement
+   *             group strategy is set to <code>partition</code>.</p>
    */
-  State?: AllocationState | string;
-
-  /**
-   * <p>The time that the Dedicated Host was allocated.</p>
-   */
-  AllocationTime?: Date;
-
-  /**
-   * <p>The time that the Dedicated Host was released.</p>
-   */
-  ReleaseTime?: Date;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
-   */
-  HostRecovery?: HostRecovery | string;
-
-  /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family.
-   * 			If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family.
-   * 		    If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
-   */
-  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the Dedicated Host.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Dedicated Host is allocated.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>Indicates whether the Dedicated Host is in a host resource group. If
-   * 			<b>memberOfServiceLinkedResourceGroup</b> is
-   * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
-   */
-  MemberOfServiceLinkedResourceGroup?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the Dedicated Host is allocated.</p>
-   */
-  OutpostArn?: string;
+  PartitionNumber?: number;
 }
 
-export namespace Host {
+export namespace LaunchTemplatePlacementRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: Host): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplatePlacementRequest): any => ({
     ...obj,
   });
 }
-
-export interface DescribeHostsResult {
-  /**
-   * <p>Information about the Dedicated Hosts.</p>
-   */
-  Hosts?: Host[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIamInstanceProfileAssociationsRequest {
-  /**
-   * <p>The IAM instance profile associations.</p>
-   */
-  AssociationIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association (<code>associating</code> |
-   *                 <code>associated</code> | <code>disassociating</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeIamInstanceProfileAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIamInstanceProfileAssociationsResult {
-  /**
-   * <p>Information about the IAM instance profile associations.</p>
-   */
-  IamInstanceProfileAssociations?: IamInstanceProfileAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeIamInstanceProfileAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdentityIdFormatRequest {
-  /**
-   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
-   */
-  PrincipalArn: string | undefined;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *           <code>network-acl</code> | <code>network-acl-association</code> |
-   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *           <code>route-table-association</code> | <code>security-group</code> |
-   *           <code>snapshot</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resource?: string;
-}
-
-export namespace DescribeIdentityIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdentityIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resources.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace DescribeIdentityIdFormatResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *            <code>network-acl</code> | <code>network-acl-association</code> |
-   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *            <code>route-table-association</code> | <code>security-group</code> |
-   *            <code>snapshot</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resource?: string;
-}
-
-export namespace DescribeIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resource.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace DescribeIdFormatResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
-    ...obj,
-  });
-}
-
-export type ImageAttributeName =
-  | "blockDeviceMapping"
-  | "bootMode"
-  | "description"
-  | "kernel"
-  | "lastLaunchedTime"
-  | "launchPermission"
-  | "productCodes"
-  | "ramdisk"
-  | "sriovNetSupport"
-  | "tpmSupport"
-  | "uefiData";
 
 /**
- * <p>Contains the parameters for DescribeImageAttribute.</p>
+ * <p>Describes the options for instance hostnames.</p>
  */
-export interface DescribeImageAttributeRequest {
+export interface LaunchTemplatePrivateDnsNameOptionsRequest {
   /**
-   * <p>The AMI attribute.</p>
-   *    	     <p>
-   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
-   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
-   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
+   * <p>The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS
+   *             name must be based on the instance ID. For dual-stack subnets, you can specify whether
+   *             DNS names use the instance IPv4 address or the instance ID.</p>
    */
-  Attribute: ImageAttributeName | string | undefined;
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace LaunchTemplatePrivateDnsNameOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplatePrivateDnsNameOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The tags specification for the launch template.</p>
+ */
+export interface LaunchTemplateTagSpecificationRequest {
+  /**
+   * <p>The type of resource to tag. Currently, the resource types that support tagging on
+   *             creation are <code>instance</code>, <code>volume</code>, <code>elastic-gpu</code>,
+   *                 <code>network-interface</code>, and <code>spot-instances-request</code>. To tag a
+   *             resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tags to apply to the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace LaunchTemplateTagSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateTagSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information to include in the launch template.</p>
+ *         <note>
+ *             <p>You must specify at least one parameter for the launch template data.</p>
+ *         </note>
+ */
+export interface RequestLaunchTemplateData {
+  /**
+   * <p>The ID of the kernel.</p>
+   *         <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
+   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         </important>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
+   *             instance types. Additional usage charges apply when using an EBS-optimized
+   *             instance.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>
+   */
+  IamInstanceProfile?: LaunchTemplateIamInstanceProfileSpecificationRequest;
+
+  /**
+   * <p>The block device mapping.</p>
+   */
+  BlockDeviceMappings?: LaunchTemplateBlockDeviceMappingRequest[];
+
+  /**
+   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   *             any security groups and subnets as part of the network interface.</p>
+   */
+  NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[];
 
   /**
    * <p>The ID of the AMI.</p>
    */
-  ImageId: string | undefined;
+  ImageId?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *                 <code>InstanceRequirements</code>.</p>
    */
-  DryRun?: boolean;
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+   *         <important>
+   *             <p>If you do not specify a key pair, you can't connect to the instance unless you
+   *                 choose an AMI that is configured to allow users another way to log in.</p>
+   *         </important>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   */
+  Monitoring?: LaunchTemplatesMonitoringRequest;
+
+  /**
+   * <p>The placement for the instance.</p>
+   */
+  Placement?: LaunchTemplatePlacementRequest;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   *         <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
+   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         </important>
+   */
+  RamDiskId?: string;
+
+  /**
+   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
+   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
+   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set
+   *                 <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can
+   *             terminate the instance by running the shutdown command from the instance.</p>
+   */
+  DisableApiTermination?: boolean;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   *         <p>Default: <code>stop</code>
+   *         </p>
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+
+  /**
+   * <p>The user data to make available to the instance. You must provide base64-encoded text.
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance
+   *                 at launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *
+   *         <p>If you are creating the launch template for use with Batch, the user
+   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
+   */
+  UserData?: string;
+
+  /**
+   * <p>The tags to apply to the resources during launch. You can only tag instances and
+   *             volumes on launch. The specified tags are applied to all instances or volumes that are
+   *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   */
+  TagSpecifications?: LaunchTemplateTagSpecificationRequest[];
+
+  /**
+   * <p>An elastic GPU to associate with the instance.</p>
+   */
+  ElasticGpuSpecifications?: ElasticGpuSpecification[];
+
+  /**
+   * <p> The elastic inference accelerator for the instance. </p>
+   */
+  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
+
+  /**
+   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>. You cannot specify both a security group ID and
+   *             security name in the same request.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you
+   *             must use security group IDs instead. You cannot specify both a security group ID and
+   *             security name in the same request.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The market (purchasing) option for the instances.</p>
+   */
+  InstanceMarketOptions?: LaunchTemplateInstanceMarketOptionsRequest;
+
+  /**
+   * <p>The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances
+   *             only.</p>
+   */
+  CreditSpecification?: CreditSpecificationRequest;
+
+  /**
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU Options</a> in the <i>Amazon Elastic Compute Cloud User
+   *                 Guide</i>.</p>
+   */
+  CpuOptions?: LaunchTemplateCpuOptionsRequest;
+
+  /**
+   * <p>The Capacity Reservation targeting option. If you do not specify this parameter, the
+   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
+   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
+   *             platform, Availability Zone).</p>
+   */
+  CapacityReservationSpecification?: LaunchTemplateCapacityReservationSpecificationRequest;
+
+  /**
+   * <p>The license configurations.</p>
+   */
+  LicenseSpecifications?: LaunchTemplateLicenseConfigurationRequest[];
+
+  /**
+   * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
+   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  HibernationOptions?: LaunchTemplateHibernationOptionsRequest;
+
+  /**
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  MetadataOptions?: LaunchTemplateInstanceMetadataOptionsRequest;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
+   *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a>
+   *             in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+   *         <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+   */
+  EnclaveOptions?: LaunchTemplateEnclaveOptionsRequest;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with these attributes.</p>
+   *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
+
+  /**
+   * <p>The options for the instance hostname. The default values are inherited from the
+   *             subnet.</p>
+   */
+  PrivateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptionsRequest;
+
+  /**
+   * <p>The maintenance options for the instance.</p>
+   */
+  MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptionsRequest;
+
+  /**
+   * <p>Indicates whether to enable the instance for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.</p>
+   */
+  DisableApiStop?: boolean;
 }
 
-export namespace DescribeImageAttributeRequest {
+export namespace RequestLaunchTemplateData {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeImageAttributeRequest): any => ({
+  export const filterSensitiveLog = (obj: RequestLaunchTemplateData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv6 address.</p>
+ */
+export interface InstanceIpv6Address {
+  /**
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+}
+
+export namespace InstanceIpv6Address {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceIpv6Address): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the ICMP type and code.</p>
+ */
+export interface IcmpTypeCode {
+  /**
+   * <p>The ICMP code. A value of -1 means all codes for the specified ICMP type.</p>
+   */
+  Code?: number;
+
+  /**
+   * <p>The ICMP type. A value of -1 means all types.</p>
+   */
+  Type?: number;
+}
+
+export namespace IcmpTypeCode {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IcmpTypeCode): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group.</p>
+ */
+export interface GroupIdentifier {
+  /**
+   * <p>The name of the security group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+}
+
+export namespace GroupIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the price for a Reserved Instance.</p>
+ */
+export interface PriceScheduleSpecification {
+  /**
+   * <p>The currency for transacting the Reserved Instance resale.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The fixed price for the term.</p>
+   */
+  Price?: number;
+
+  /**
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
+   */
+  Term?: number;
+}
+
+export namespace PriceScheduleSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PriceScheduleSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The instance details to specify which volumes should be snapshotted.</p>
+ */
+export interface InstanceSpecification {
+  /**
+   * <p>The instance to specify which volumes should be snapshotted.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Excludes the root volume from being snapshotted.</p>
+   */
+  ExcludeBootVolume?: boolean;
+}
+
+export namespace InstanceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
+ *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ */
+export interface S3ObjectTag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
+   *       length. May not begin with <code>aws</code>:.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
+   *       length.</p>
+   */
+  Value?: string;
+}
+
+export namespace S3ObjectTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ObjectTag): any => ({
+    ...obj,
+  });
+}
+
+export type TrafficMirrorNetworkService = "amazon-dns";
+
+/**
+ * <p>Information about the Traffic Mirror filter rule port range.</p>
+ */
+export interface TrafficMirrorPortRangeRequest {
+  /**
+   * <p>The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  ToPort?: number;
+}
+
+export namespace TrafficMirrorPortRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrafficMirrorPortRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the options for a transit gateway.</p>
+ */
+export interface TransitGatewayRequestOptions {
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is <code>64512</code>.</p>
+   */
+  AmazonSideAsn?: number;
+
+  /**
+   * <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+
+  /**
+   * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+
+  /**
+   * <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+
+  /**
+   * <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+
+  /**
+   * <p>Enable or disable DNS support. Enabled by default.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Indicates whether multicast is enabled on the transit gateway</p>
+   */
+  MulticastSupport?: MulticastSupportValue | string;
+
+  /**
+   * <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   */
+  TransitGatewayCidrBlocks?: string[];
+}
+
+export namespace TransitGatewayRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for a Connect attachment.</p>
+ */
+export interface CreateTransitGatewayConnectRequestOptions {
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol: ProtocolValue | string | undefined;
+}
+
+export namespace CreateTransitGatewayConnectRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The BGP options for the Connect attachment.</p>
+ */
+export interface TransitGatewayConnectRequestBgpOptions {
+  /**
+   * <p>The peer Autonomous System Number (ASN).</p>
+   */
+  PeerAsn?: number;
+}
+
+export namespace TransitGatewayConnectRequestBgpOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayConnectRequestBgpOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for the transit gateway multicast domain.</p>
+ */
+export interface CreateTransitGatewayMulticastDomainRequestOptions {
+  /**
+   * <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
+   */
+  Igmpv2Support?: Igmpv2SupportValue | string;
+
+  /**
+   * <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
+   */
+  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+
+  /**
+   * <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+   */
+  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+}
+
+export namespace CreateTransitGatewayMulticastDomainRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the options for a VPC attachment.</p>
+ */
+export interface CreateTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
+   */
+  Ipv6Support?: Ipv6SupportValue | string;
+
+  /**
+   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   */
+  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+}
+
+export namespace CreateTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the DNS options for an endpoint.</p>
+ */
+export interface DnsOptionsSpecification {
+  /**
+   * <p>The DNS records created for the endpoint.</p>
+   */
+  DnsRecordIpType?: DnsRecordIpType | string;
+}
+
+export namespace DnsOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DnsOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The IKE version that is permitted for the VPN tunnel.</p>
+ */
+export interface IKEVersionsRequestListValue {
+  /**
+   * <p>The IKE version.</p>
+   */
+  Value?: string;
+}
+
+export namespace IKEVersionsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IKEVersionsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase1DHGroupNumbersRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1EncryptionAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1IntegrityAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase2DHGroupNumbersRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2EncryptionAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2IntegrityAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes VPN connection options.</p>
+ */
+export interface VpnConnectionOptionsSpecification {
+  /**
+   * <p>Indicate whether to enable acceleration for the VPN connection.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableAcceleration?: boolean;
+
+  /**
+   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
+   *             connection for a device that does not support BGP, you must specify <code>true</code>.
+   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  StaticRoutesOnly?: boolean;
+
+  /**
+   * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+   *         <p>Default: <code>ipv4</code>
+   *          </p>
+   */
+  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+
+  /**
+   * <p>The tunnel options for the VPN connection.</p>
+   */
+  TunnelOptions?: VpnTunnelOptionsSpecification[];
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *         <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   */
+  LocalIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *         <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   */
+  RemoteIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *         <p>Default: <code>::/0</code>
+   *          </p>
+   */
+  LocalIpv6NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *         <p>Default: <code>::/0</code>
+   *          </p>
+   */
+  RemoteIpv6NetworkCidr?: string;
+}
+
+export namespace VpnConnectionOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the tag keys to deregister for the current Region. You can either specify
+ *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
+ *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+export interface DeregisterInstanceTagAttributeRequest {
+  /**
+   * <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
+   *    		to deregister all tag keys.</p>
+   */
+  IncludeAllTagsOfInstance?: boolean;
+
+  /**
+   * <p>Information about the tag keys to deregister.</p>
+   */
+  InstanceTagKeys?: string[];
+}
+
+export namespace DeregisterInstanceTagAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterInstanceTagAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
+ *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
+ *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
+ *            results that match all of the specified filters.</p>
+ */
+export interface Filter {
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a
+   *          filter, the values are joined with an <code>OR</code>, and the request returns all results
+   *          that match any of the specified values.</p>
+   */
+  Values?: string[];
+}
+
+export namespace Filter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
 }
@@ -4170,1156 +5260,7 @@ export namespace LaunchPermission {
   });
 }
 
-/**
- * <p>Describes an image attribute.</p>
- */
-export interface ImageAttribute {
-  /**
-   * <p>The block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The launch permissions.</p>
-   */
-  LaunchPermissions?: LaunchPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>A description for the AMI.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The kernel ID.</p>
-   */
-  KernelId?: AttributeValue;
-
-  /**
-   * <p>The RAM disk ID.</p>
-   */
-  RamdiskId?: AttributeValue;
-
-  /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>The boot mode.</p>
-   */
-  BootMode?: AttributeValue;
-
-  /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>
-   */
-  TpmSupport?: AttributeValue;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
-   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  UefiData?: AttributeValue;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used,
-   *       there is a 24-hour delay before that usage is reported.</p>
-   *          <note>
-   *             <p>
-   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
-   *          </note>
-   */
-  LastLaunchedTime?: AttributeValue;
-}
-
-export namespace ImageAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageAttribute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImagesRequest {
-  /**
-   * <p>Scopes the images by users with explicit launch permissions.
-   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
-   * 				or <code>all</code> (public AMIs).</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
-   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
-   *           are shared with the account’s organization or organizational unit (OU) are not
-   *           returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
-   *           shared with your account are returned. In addition, AMIs that are shared with the
-   *           organization or OU of which you are member are also returned. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
-   *             </li>
-   *          </ul>
-   */
-  ExecutableUsers?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
-   *             <code>x86_64</code> | <code>arm64</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
-   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *         	         <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
-   *           volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *         	         <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
-   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
-   *           </code>| <code>st1</code> | <code>standard</code>).</p>
-   *             </li>
-   *             <li>
-   *     		         <p>
-   *     			           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
-   *     	       </li>
-   *             <li>
-   *                <p>
-   *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
-   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2021-09-29T*</code>, which matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the image (provided during image
-   *           creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
-   *           with ENA is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
-   *           <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-id</code> - The ID of the image.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
-   *             <code>ramdisk</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manifest-location</code> - The location of the image manifest.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
-   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
-   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
-   *         	request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
-   *       		<b>Owner</b> request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform. To only list Windows-based AMIs, use
-   *             <code>windows</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
-   *             <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
-   *           | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-message</code> - The message for the state change.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
-   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
-   *             <code>hvm</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The image IDs.</p>
-   *          <p>Default: Describes all images available to you.</p>
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
-   *       If you omit this parameter, the results include all images for which you have launch permissions,
-   *       regardless of ownership.</p>
-   */
-  Owners?: string[];
-
-  /**
-   * <p>If <code>true</code>, all deprecated AMIs are included in the response. If
-   *         <code>false</code>, no deprecated AMIs are included in the response. If no value is
-   *       specified, the default value is <code>false</code>.</p>
-   *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p>
-   *          </note>
-   */
-  IncludeDeprecated?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj,
-  });
-}
-
-export type ArchitectureValues = "arm64" | "i386" | "x86_64" | "x86_64_mac";
-
-export type BootModeValues = "legacy-bios" | "uefi";
-
-export type HypervisorType = "ovm" | "xen";
-
-export type ImageTypeValues = "kernel" | "machine" | "ramdisk";
-
-export type DeviceType = "ebs" | "instance-store";
-
-export type ImageState = "available" | "deregistered" | "error" | "failed" | "invalid" | "pending" | "transient";
-
-/**
- * <p>Describes a state change.</p>
- */
-export interface StateReason {
-  /**
-   * <p>The reason code for the state change.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>The message for the state change.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
-   *                     capacity available to satisfy the launch request.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.InternalError</code>: An internal error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
-   *                     retirement.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
-   *                     number of Spot requests with a maximum price equal to or higher than the Spot
-   *                     price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
-   *                     because the number of Spot requests with a maximum price equal to or higher than
-   *                     the Spot price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     using the <code>shutdown -h</code> command from the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
-   *                     rebooted during AMI creation.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InternalError</code>: A client error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
-   *                     found.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
-   *                     the Amazon EC2 API.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
-   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
-   *                     your account limits.</p>
-   *             </li>
-   *          </ul>
-   */
-  Message?: string;
-}
-
-export namespace StateReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateReason): any => ({
-    ...obj,
-  });
-}
-
-export enum TpmSupportValues {
-  v2_0 = "v2.0",
-}
-
 export type VirtualizationType = "hvm" | "paravirtual";
-
-/**
- * <p>Describes an image.</p>
- */
-export interface Image {
-  /**
-   * <p>The architecture of the image.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>The date and time the image was created.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The location of the AMI.</p>
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The type of image.</p>
-   */
-  ImageType?: ImageTypeValues | string;
-
-  /**
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
-   * 				this image has public launch permissions or <code>false</code>
-   * 				if it has only implicit and explicit launch permissions.</p>
-   */
-  Public?: boolean;
-
-  /**
-   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the image.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-   *         AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  PlatformDetails?: string;
-
-  /**
-   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         	List API</a>. You can view these fields on the <b>Instances</b> or
-   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
-   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
-   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
-   *     	command in the CLI.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>Any product codes associated with the AMI.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
-   */
-  State?: ImageState | string;
-
-  /**
-   * <p>Any block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The description of the AMI that was provided during image creation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The hypervisor type of the image.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>) or
-   *        the Amazon Web Services account ID of the AMI owner.</p>
-   */
-  ImageOwnerAlias?: string;
-
-  /**
-   * <p>The name of the AMI that was provided during image creation.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
-   */
-  RootDeviceType?: DeviceType | string;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The reason for the state change.</p>
-   */
-  StateReason?: StateReason;
-
-  /**
-   * <p>Any tags assigned to the image.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The type of virtualization of the AMI.</p>
-   */
-  VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  BootMode?: BootModeValues | string;
-
-  /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  TpmSupport?: TpmSupportValues | string;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
-   */
-  DeprecationTime?: string;
-}
-
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImagesResult {
-  /**
-   * <p>Information about the images.</p>
-   */
-  Images?: Image[];
-}
-
-export namespace DescribeImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The IDs of the import image tasks.</p>
-   */
-  ImportTaskIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeImportImageTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportImageTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p> The response information for license configurations.</p>
- */
-export interface ImportImageLicenseConfigurationResponse {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace ImportImageLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- */
-export interface UserBucketDetails {
-  /**
-   * <p>The Amazon S3 bucket from which the disk image was created.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The file name of the disk image.</p>
-   */
-  S3Key?: string;
-}
-
-export namespace UserBucketDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserBucketDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the snapshot created from the imported disk.</p>
- */
-export interface SnapshotDetail {
-  /**
-   * <p>A description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The block device mapping for the snapshot.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   */
-  DiskImageSize?: number;
-
-  /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The percentage of progress for the task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The snapshot ID of the disk being imported.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>A brief status of the snapshot creation.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A detailed status message for the snapshot creation.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The URL used to access the disk image.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucketDetails;
-}
-
-export namespace SnapshotDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import image task.</p>
- */
-export interface ImportImageTask {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
-   *          </p>
-   */
-  Architecture?: string;
-
-  /**
-   * <p>A description of the import task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the image is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The target hypervisor for the import task.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   */
-  Hypervisor?: string;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the import image task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   */
-  LicenseType?: string;
-
-  /**
-   * <p>The description string for the import image task.</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The percentage of progress of the import image task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   */
-  SnapshotDetails?: SnapshotDetail[];
-
-  /**
-   * <p>A brief status for the import image task.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A descriptive status message for the import image task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The tags for the import image task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
-
-  /**
-   * <p>The usage operation value.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>The boot mode of the virtual machine.</p>
-   */
-  BootMode?: BootModeValues | string;
-}
-
-export namespace ImportImageTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportImageTask): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImportImageTasksResult {
-  /**
-   * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
-   *    previous 7 days.</p>
-   */
-  ImportImageTasks?: ImportImageTask[];
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeImportImageTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImportSnapshotTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>A list of import snapshot task IDs.</p>
-   */
-  ImportTaskIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-   *    with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeImportSnapshotTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the import snapshot task.</p>
- */
-export interface SnapshotTaskDetail {
-  /**
-   * <p>The description of the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   */
-  DiskImageSize?: number;
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The percentage of completion for the import snapshot task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The snapshot ID of the disk being imported.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>A brief status for the import snapshot task.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A detailed status message for the import snapshot task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The URL of the disk image from which the snapshot is created.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucketDetails;
-}
-
-export namespace SnapshotTaskDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import snapshot task.</p>
- */
-export interface ImportSnapshotTask {
-  /**
-   * <p>A description of the import snapshot task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the import snapshot task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * <p>Describes an import snapshot task.</p>
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail;
-
-  /**
-   * <p>The tags for the import snapshot task.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ImportSnapshotTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSnapshotTask): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImportSnapshotTasksResult {
-  /**
-   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
-   *    previous 7 days.</p>
-   */
-  ImportSnapshotTasks?: ImportSnapshotTask[];
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeImportSnapshotTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export type InstanceAttributeName =
-  | "blockDeviceMapping"
-  | "disableApiStop"
-  | "disableApiTermination"
-  | "ebsOptimized"
-  | "enaSupport"
-  | "enclaveOptions"
-  | "groupSet"
-  | "instanceInitiatedShutdownBehavior"
-  | "instanceType"
-  | "kernel"
-  | "productCodes"
-  | "ramdisk"
-  | "rootDeviceName"
-  | "sourceDestCheck"
-  | "sriovNetSupport"
-  | "userData";
-
-export interface DescribeInstanceAttributeRequest {
-  /**
-   * <p>The instance attribute.</p>
-   *         <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
-   */
-  Attribute: InstanceAttributeName | string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace DescribeInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
- */
-export interface EbsInstanceBlockDevice {
-  /**
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The attachment state.</p>
-   */
-  Status?: AttachmentStatus | string;
-
-  /**
-   * <p>The ID of the EBS volume.</p>
-   */
-  VolumeId?: string;
-}
-
-export namespace EbsInstanceBlockDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a block device mapping.</p>
- */
-export interface InstanceBlockDeviceMapping {
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   */
-  Ebs?: EbsInstanceBlockDevice;
-}
-
-export namespace InstanceBlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes a value for a resource attribute that is a Boolean value.</p>
@@ -5336,1900 +5277,6 @@ export namespace AttributeBooleanValue {
    * @internal
    */
   export const filterSensitiveLog = (obj: AttributeBooleanValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
- *             Enclaves.</p>
- */
-export interface EnclaveOptions {
-  /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro
-   *             Enclaves.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace EnclaveOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnclaveOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance attribute.</p>
- */
-export interface InstanceAttribute {
-  /**
-   * <p>The security groups associated with the instance.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The block device mapping of the instance.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can.</p>
-   */
-  DisableApiTermination?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
-   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
-   */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
-   */
-  EbsOptimized?: AttributeBooleanValue;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: AttributeValue;
-
-  /**
-   * <p>The kernel ID.</p>
-   */
-  KernelId?: AttributeValue;
-
-  /**
-   * <p>A list of product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The RAM disk ID.</p>
-   */
-  RamdiskId?: AttributeValue;
-
-  /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: AttributeValue;
-
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance is either
-   *             the source or the destination of any traffic that it receives. If the value is
-   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
-   *             disabled. The default value is <code>true</code>. You must disable source/destination
-   *             checks if the instance runs services such as network address translation, routing, or
-   *             firewalls.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>The user data.</p>
-   */
-  UserData?: AttributeValue;
-
-  /**
-   * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
-   *             <code>true</code>; otherwise, set it to <code>false</code>.</p>
-   */
-  DisableApiStop?: AttributeBooleanValue;
-}
-
-export namespace InstanceAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceAttribute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceCreditSpecificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   *         <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceCreditSpecificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
- */
-export interface InstanceCreditSpecification {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The credit option for CPU usage of the instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
-   */
-  CpuCredits?: string;
-}
-
-export namespace InstanceCreditSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceCreditSpecification): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceCreditSpecificationsResult {
-  /**
-   * <p>Information about the credit option for CPU usage of an instance.</p>
-   */
-  InstanceCreditSpecifications?: InstanceCreditSpecification[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceCreditSpecificationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeInstanceEventNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceEventNotificationAttributesResult {
-  /**
-   * <p>Information about the registered tag keys.</p>
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-export namespace DescribeInstanceEventNotificationAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <para>Describe instance event windows by InstanceEventWindow.</para>
- */
-export interface DescribeInstanceEventWindowsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the event windows.</p>
-   */
-  InstanceEventWindowIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dedicated-host-id</code> - The event windows associated with the specified
-   *             Dedicated Host ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event-window-name</code> - The event windows associated with the specified
-   *             names. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The event windows associated with the specified instance
-   *                ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag</code> - The event windows associated with the specified tag and
-   *                value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag-key</code> - The event windows associated with the specified tag
-   *                key, regardless of the value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag-value</code> - The event windows associated with the specified tag
-   *                value, regardless of the key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the
-   *                event window. Use the tag key in the filter name and the tag value as the filter
-   *                value. For example, to find all resources that have a tag with the key
-   *                   <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>
-   *                for the filter name and <code>CMX</code> for the filter value. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter
-   *                to find all event windows that have a tag with a specific key, regardless of the tag
-   *                value. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-value</code> - The value of a tag assigned to the event window. Use this
-   *                filter to find all event windows that have a tag with a specific value, regardless of
-   *                the tag key. </p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value. This value can
-   *          be between 20 and 500. You cannot specify this parameter and the event window IDs parameter
-   *          in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceEventWindowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventWindowsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceEventWindowsResult {
-  /**
-   * <p>Information about the event windows.</p>
-   */
-  InstanceEventWindows?: InstanceEventWindow[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceEventWindowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventWindowsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstancesRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>affinity</code> - The affinity setting for an instance running on a
-   *                     Dedicated Host (<code>default</code> | <code>host</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>architecture</code> - The instance architecture (<code>i386</code> |
-   *                         <code>x86_64</code> | <code>arm64</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>block-device-mapping.attach-time</code> - The attach time for an EBS
-   *                     volume mapped to the instance, for example,
-   *                         <code>2010-09-15T17:15:20.000Z</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>block-device-mapping.delete-on-termination</code> - A Boolean that
-   *                     indicates whether the EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>block-device-mapping.device-name</code> - The device name specified in the
-   *                     block device mapping (for example, <code>/dev/sdh</code> or
-   *                     <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>block-device-mapping.status</code> - The status for the EBS volume
-   *                         (<code>attaching</code> | <code>attached</code> | <code>detaching</code> |
-   *                         <code>detached</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>block-device-mapping.volume-id</code> - The volume ID of the EBS
-   *                     volume.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the
-   *                     instance was launched.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>client-token</code> - The idempotency token you provided when you launched
-   *                     the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>dns-name</code> - The public DNS name of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>group-id</code> - The ID of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>group-name</code> - The name of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>hibernation-options.configured</code> - A Boolean that indicates whether
-   *                     the instance is enabled for hibernation. A value of <code>true</code> means that
-   *                     the instance is enabled for hibernation. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>host-id</code> - The ID of the Dedicated Host on which the instance is
-   *                     running, if applicable.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>hypervisor</code> - The hypervisor type of the instance
-   *                         (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used
-   *                     for both Xen and Nitro hypervisors.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>iam-instance-profile.arn</code> - The instance profile associated with
-   *                     the instance. Specified as an ARN.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>image-id</code> - The ID of the image used to launch the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or
-   *                     a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-code</code> - The state of the instance, as a 16-bit
-   *                     unsigned integer. The high byte is used for internal purposes and should be
-   *                     ignored. The low byte is set based on the state represented. The valid values
-   *                     are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The type of instance (for example,
-   *                         <code>t2.micro</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance.group-id</code> - The ID of the security group for the
-   *                     instance. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance.group-name</code> - The name of the security group for the
-   *                     instance. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ip-address</code> - The public IPv4 address of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>key-name</code> - The name of the key pair used when the instance was
-   *                     launched.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-index</code> - When launching multiple instances, this is the
-   *                     index for the instance in the launch group (for example, 0, 1, 2, and so on).
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-time</code> - The time when the instance was launched, in the ISO
-   *                     8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *                         <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard
-   *                         (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an
-   *                     entire day.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>metadata-options.http-tokens</code> - The metadata request authorization
-   *                     state (<code>optional</code> | <code>required</code>)</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>metadata-options.http-put-response-hop-limit</code> - The http metadata
-   *                     request put response hop limit (integer, possible values <code>1</code> to
-   *                         <code>64</code>)</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>metadata-options.http-endpoint</code> - Enable or disable metadata
-   *                     access on http endpoint (<code>enabled</code> | <code>disabled</code>)</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>monitoring-state</code> - Indicates whether detailed monitoring is
-   *                     enabled (<code>disabled</code> | <code>enabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.addresses.private-ip-address</code> - The private IPv4
-   *                     address associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.addresses.primary</code> - Specifies whether the IPv4
-   *                     address of the network interface is the primary private IPv4 address.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.addresses.association.public-ip</code> - The ID of the
-   *                     association of an Elastic IP address (IPv4) with a network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.addresses.association.ip-owner-id</code> - The owner
-   *                     ID of the private IPv4 address associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.association.public-ip</code> - The address of the
-   *                     Elastic IP address (IPv4) bound to the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.association.ip-owner-id</code> - The owner of the
-   *                     Elastic IP address (IPv4) associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.association.allocation-id</code> - The allocation ID
-   *                     returned when you allocated the Elastic IP address (IPv4) for your network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.association.association-id</code> - The association ID
-   *                     returned when the network interface was associated with an IPv4 address.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.attachment-id</code> - The ID of the
-   *                     interface attachment.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.instance-id</code> - The ID of the instance
-   *                     to which the network interface is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.instance-owner-id</code> - The owner ID of
-   *                     the instance to which the network interface is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.device-index</code> - The device index to
-   *                     which the network interface is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.status</code> - The status of the
-   *                     attachment (<code>attaching</code> | <code>attached</code> |
-   *                         <code>detaching</code> | <code>detached</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.attach-time</code> - The time that the
-   *                     network interface was attached to an instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.attachment.delete-on-termination</code> - Specifies
-   *                     whether the attachment is deleted when an instance is terminated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.availability-zone</code> - The Availability Zone for
-   *                     the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.description</code> - The description of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.group-id</code> - The ID of a security group
-   *                     associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.group-name</code> - The name of a security group
-   *                     associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address
-   *                     associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.mac-address</code> - The MAC address of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.network-interface-id</code> - The ID of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.owner-id</code> - The ID of the owner of the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.private-dns-name</code> - The private DNS name of the
-   *                     network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.requester-id</code> - The requester ID for the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.requester-managed</code> - Indicates whether the
-   *                     network interface is being managed by Amazon Web Services.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.status</code> - The status of the network interface
-   *                         (<code>available</code>) | <code>in-use</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.source-dest-check</code> - Whether the network
-   *                     interface performs source/destination checking. A value of <code>true</code>
-   *                     means that checking is enabled, and <code>false</code> means that checking is
-   *                     disabled. The value must be <code>false</code> for the network interface to
-   *                     perform network address translation (NAT) in your VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.subnet-id</code> - The ID of the subnet for the
-   *                     network interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-interface.vpc-id</code> - The ID of the VPC for the network
-   *                     interface.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the
-   *                     Outpost.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>owner-id</code> - The Amazon Web Services account ID of the instance
-   *                     owner.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>placement-group-name</code> - The name of the placement group for the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>placement-partition-number</code> - The partition in which the instance is
-   *                     located.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>platform</code> - The platform. To list only Windows instances, use
-   *                         <code>windows</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>private-dns-name</code> - The private IPv4 DNS name of the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>private-ip-address</code> - The private IPv4 address of the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>product-code</code> - The product code associated with the AMI used to
-   *                     launch the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>product-code.type</code> - The type of product code (<code>devpay</code> |
-   *                         <code>marketplace</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>reason</code> - The reason for the current state of the instance (for
-   *                     example, shows "User Initiated [date]" when you stop or terminate the instance).
-   *                     Similar to the state-reason-code filter.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>requester-id</code> - The ID of the entity that launched the instance on
-   *                     your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so
-   *                     on).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>reservation-id</code> - The ID of the instance's reservation. A
-   *                     reservation ID is created any time you launch an instance. A reservation ID has
-   *                     a one-to-one relationship with an instance launch request, but can be associated
-   *                     with more than one instance if you launch multiple instances using the same
-   *                     launch request. For example, if you launch one instance, you get one reservation
-   *                     ID. If you launch ten instances using the same launch request, you also get one
-   *                     reservation ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>root-device-name</code> - The device name of the root device volume (for
-   *                     example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>root-device-type</code> - The type of the root device volume
-   *                         (<code>ebs</code> | <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>source-dest-check</code> - Indicates whether the instance performs
-   *                     source/destination checking. A value of <code>true</code> means that checking is
-   *                     enabled, and <code>false</code> means that checking is disabled. The value must
-   *                     be <code>false</code> for the instance to perform network address translation
-   *                     (NAT) in your VPC. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>spot-instance-request-id</code> - The ID of the Spot Instance
-   *                     request.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>state-reason-code</code> - The reason code for the state change.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>state-reason-message</code> - A message that describes the state
-   *                     change.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>subnet-id</code> - The ID of the subnet for the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> |
-   *                         <code>default</code> | <code>host</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>virtualization-type</code> - The virtualization type of the instance
-   *                         (<code>paravirtual</code> | <code>hvm</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the
- *                 <code>capacityReservationPreference</code> response element if the instance is
- *             configured to run in On-Demand capacity, or if it is configured in run in any
- *                 <code>open</code> Capacity Reservation that has matching attributes (instance type, platform,
- *             Availability Zone). The action returns the <code>capacityReservationTarget</code>
- *             response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group.</p>
- */
-export interface CapacityReservationSpecificationResponse {
-  /**
-   * <p>Describes the instance's Capacity Reservation preferences. Possible preferences include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that
-   *                     has matching attributes (instance type, platform, Availability Zone).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is
-   *                     available. The instance runs in On-Demand capacity.</p>
-   *             </li>
-   *          </ul>
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
-
-  /**
-   * <p>Information about the targeted Capacity Reservation or Capacity Reservation group.</p>
-   */
-  CapacityReservationTarget?: CapacityReservationTargetResponse;
-}
-
-export namespace CapacityReservationSpecificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityReservationSpecificationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The CPU options for the instance.</p>
- */
-export interface CpuOptions {
-  /**
-   * <p>The number of CPU cores for the instance.</p>
-   */
-  CoreCount?: number;
-
-  /**
-   * <p>The number of threads per CPU core.</p>
-   */
-  ThreadsPerCore?: number;
-}
-
-export namespace CpuOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CpuOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
- */
-export interface ElasticGpuAssociation {
-  /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuId?: string;
-
-  /**
-   * <p>The ID of the association.</p>
-   */
-  ElasticGpuAssociationId?: string;
-
-  /**
-   * <p>The state of the association between the instance and the
-   *             Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuAssociationState?: string;
-
-  /**
-   * <p>The time the Elastic Graphics accelerator was associated with the instance.</p>
-   */
-  ElasticGpuAssociationTime?: string;
-}
-
-export namespace ElasticGpuAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticGpuAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *             Describes the association between an instance and an elastic inference accelerator.
- *         </p>
- */
-export interface ElasticInferenceAcceleratorAssociation {
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the elastic inference accelerator.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorArn?: string;
-
-  /**
-   * <p>
-   *             The ID of the association.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorAssociationId?: string;
-
-  /**
-   * <p>
-   *             The state of the elastic inference accelerator.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorAssociationState?: string;
-
-  /**
-   * <p>
-   *             The time at which the elastic inference accelerator is associated with an instance.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorAssociationTime?: Date;
-}
-
-export namespace ElasticInferenceAcceleratorAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface HibernationOptions {
-  /**
-   * <p>If this parameter is set to <code>true</code>, your instance is enabled for
-   *             hibernation; otherwise, it is not enabled for hibernation.</p>
-   */
-  Configured?: boolean;
-}
-
-export namespace HibernationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HibernationOptions): any => ({
-    ...obj,
-  });
-}
-
-export type InstanceLifecycleType = "scheduled" | "spot";
-
-/**
- * <p>Describes a license configuration.</p>
- */
-export interface LicenseConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace LicenseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceAutoRecoveryState {
-  default = "default",
-  disabled = "disabled",
-}
-
-/**
- * <p>The maintenance options for the instance.</p>
- */
-export interface InstanceMaintenanceOptions {
-  /**
-   * <p>Provides information on the current automatic recovery behavior of your
-   *             instance.</p>
-   */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
-}
-
-export namespace InstanceMaintenanceOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMaintenanceOptions): any => ({
-    ...obj,
-  });
-}
-
-export type InstanceMetadataEndpointState = "disabled" | "enabled";
-
-export enum InstanceMetadataProtocolState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum HttpTokensState {
-  optional = "optional",
-  required = "required",
-}
-
-export enum InstanceMetadataTagsState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export type InstanceMetadataOptionsState = "applied" | "pending";
-
-/**
- * <p>The metadata options for the instance.</p>
- */
-export interface InstanceMetadataOptionsResponse {
-  /**
-   * <p>The state of the metadata option changes.</p>
-   *         <p>
-   *             <code>pending</code> - The metadata options are being updated and the instance is not
-   *             ready to process metadata traffic with the new selection.</p>
-   *         <p>
-   *             <code>applied</code> - The metadata options have been successfully applied on the
-   *             instance.</p>
-   */
-  State?: InstanceMetadataOptionsState | string;
-
-  /**
-   * <p>The state of token usage for your instance metadata requests.</p>
-   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
-   *             returned. If you retrieve the IAM role credentials using a valid signed
-   *             token, the version 2.0 role credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM
-   *             role credential always returns the version 2.0 credentials; the version 1.0 credentials
-   *             are not available.</p>
-   *         <p>Default: <code>optional</code>
-   *          </p>
-   */
-  HttpTokens?: HttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
-   *             disabled.</p>
-   *         <p>If the value is <code>disabled</code>, you cannot access your instance
-   *             metadata.</p>
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
-
-  /**
-   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
-   *             disabled.</p>
-   */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
-
-  /**
-   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
-   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
-   *                 instance tags using the instance metadata</a>.</p>
-   */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
-}
-
-export namespace InstanceMetadataOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
-
-/**
- * <p>Describes the monitoring of an instance.</p>
- */
-export interface Monitoring {
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   */
-  State?: MonitoringState | string;
-}
-
-export namespace Monitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Monitoring): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes association information for an Elastic IP address (IPv4).</p>
- */
-export interface InstanceNetworkInterfaceAssociation {
-  /**
-   * <p>The carrier IP address associated with the network interface.</p>
-   */
-  CarrierIp?: string;
-
-  /**
-   * <p>The customer-owned IP address associated with the network interface.</p>
-   */
-  CustomerOwnedIp?: string;
-
-  /**
-   * <p>The ID of the owner of the Elastic IP address.</p>
-   */
-  IpOwnerId?: string;
-
-  /**
-   * <p>The public DNS name.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The public IP address or Elastic IP address bound to the network interface.</p>
-   */
-  PublicIp?: string;
-}
-
-export namespace InstanceNetworkInterfaceAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a network interface attachment.</p>
- */
-export interface InstanceNetworkInterfaceAttachment {
-  /**
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The index of the device on the instance for the network interface attachment.</p>
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The attachment state.</p>
-   */
-  Status?: AttachmentStatus | string;
-
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-}
-
-export namespace InstanceNetworkInterfaceAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an IPv4 prefix.</p>
- */
-export interface InstanceIpv4Prefix {
-  /**
-   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
-   */
-  Ipv4Prefix?: string;
-}
-
-export namespace InstanceIpv4Prefix {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceIpv4Prefix): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an IPv6 prefix.</p>
- */
-export interface InstanceIpv6Prefix {
-  /**
-   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
-   */
-  Ipv6Prefix?: string;
-}
-
-export namespace InstanceIpv6Prefix {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceIpv6Prefix): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a private IPv4 address.</p>
- */
-export interface InstancePrivateIpAddress {
-  /**
-   * <p>The association information for an Elastic IP address for the network interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * <p>The private IPv4 DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private IPv4 address of the network interface.</p>
-   */
-  PrivateIpAddress?: string;
-}
-
-export namespace InstancePrivateIpAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a network interface.</p>
- */
-export interface InstanceNetworkInterface {
-  /**
-   * <p>The association information for an Elastic IPv4 associated with the network
-   *             interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: InstanceNetworkInterfaceAttachment;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>One or more security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>One or more IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that created the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>One or more private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: InstancePrivateIpAddress[];
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>The status of the network interface.</p>
-   */
-  Status?: NetworkInterfaceStatus | string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The type of network interface.</p>
-   * 	        <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
-   *          </p>
-   */
-  InterfaceType?: string;
-
-  /**
-   * <p>The IPv4 delegated prefixes that are assigned to the network interface.</p>
-   */
-  Ipv4Prefixes?: InstanceIpv4Prefix[];
-
-  /**
-   * <p>The IPv6 delegated prefixes that are assigned to the network interface.</p>
-   */
-  Ipv6Prefixes?: InstanceIpv6Prefix[];
-}
-
-export namespace InstanceNetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- */
-export interface PrivateDnsNameOptionsResponse {
-  /**
-   * <p>The type of hostname to assign to an instance.</p>
-   */
-  HostnameType?: HostnameType | string;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   */
-  EnableResourceNameDnsARecord?: boolean;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
-   *             records.</p>
-   */
-  EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export namespace PrivateDnsNameOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
-
-/**
- * <p>Describes the current state of an instance.</p>
- */
-export interface InstanceState {
-  /**
-   * <p>The state of the instance as a 16-bit unsigned integer. </p>
-   *         <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
-   *             between 256 and 65,535. These numerical values are used for internal purposes and should
-   *             be ignored.</p>
-   *         <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
-   *             between 0 and 255. </p>
-   *         <p>The valid values for instance-state-code will all be in the range of the low byte and
-   *             they are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>0</code> : <code>pending</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>16</code> : <code>running</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>32</code> : <code>shutting-down</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>48</code> : <code>terminated</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>64</code> : <code>stopping</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>80</code> : <code>stopped</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *         <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
-   *             decimal.</p>
-   */
-  Code?: number;
-
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  Name?: InstanceStateName | string;
-}
-
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance.</p>
- */
-export interface Instance {
-  /**
-   * <p>The AMI launch index, which can be used to find this instance in the launch
-   *             group.</p>
-   */
-  AmiLaunchIndex?: number;
-
-  /**
-   * <p>The ID of the AMI used to launch the instance.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The kernel associated with this instance, if applicable.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The name of the key pair, if this instance was launched with an associated key
-   *             pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The time the instance was launched.</p>
-   */
-  LaunchTime?: Date;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   */
-  Monitoring?: Monitoring;
-
-  /**
-   * <p>The location where the instance launched, if applicable.</p>
-   */
-  Placement?: Placement;
-
-  /**
-   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
-   *             can only be used inside the Amazon EC2 network. This name is not available until the
-   *             instance enters the <code>running</code> state. </p>
-   *         <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
-   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
-   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
-   *             resolve the hostname as appropriate.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private IPv4 address assigned to the instance.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The product codes attached to this instance, if applicable.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
-   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
-   *             available if you've enabled DNS hostnames for your VPC.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if
-   *             applicable.</p>
-   *         <p>A Carrier IP address only applies to an instance launched in a subnet associated with
-   *             a Wavelength Zone.</p>
-   */
-  PublicIpAddress?: string;
-
-  /**
-   * <p>The RAM disk associated with this instance, if applicable.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  State?: InstanceState;
-
-  /**
-   * <p>The reason for the most recent state transition. This might be an empty string.</p>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The architecture of the image.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>Any block device mapping entries for the instance.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>The idempotency token you provided when you launched the instance, if
-   *             applicable.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen
-   *             and Nitro hypervisors.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The IAM instance profile associated with the instance, if
-   *             applicable.</p>
-   */
-  IamInstanceProfile?: IamInstanceProfile;
-
-  /**
-   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
-   */
-  InstanceLifecycle?: InstanceLifecycleType | string;
-
-  /**
-   * <p>The Elastic GPU associated with the instance.</p>
-   */
-  ElasticGpuAssociations?: ElasticGpuAssociation[];
-
-  /**
-   * <p> The elastic inference accelerator associated with the instance.</p>
-   */
-  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
-
-  /**
-   * <p>[EC2-VPC] The network interfaces for the instance.</p>
-   */
-  NetworkInterfaces?: InstanceNetworkInterface[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
-   *             store volume.</p>
-   */
-  RootDeviceType?: DeviceType | string;
-
-  /**
-   * <p>The security groups for the instance.</p>
-   */
-  SecurityGroups?: GroupIdentifier[];
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>If the request is a Spot Instance request, the ID of the request.</p>
-   */
-  SpotInstanceRequestId?: string;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The reason for the most recent state transition.</p>
-   */
-  StateReason?: StateReason;
-
-  /**
-   * <p>Any tags assigned to the instance.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The virtualization type of the instance.</p>
-   */
-  VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>The CPU options for the instance.</p>
-   */
-  CpuOptions?: CpuOptions;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationId?: string;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   */
-  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
-
-  /**
-   * <p>Indicates whether the instance is enabled for hibernation.</p>
-   */
-  HibernationOptions?: HibernationOptions;
-
-  /**
-   * <p>The license configurations for the instance.</p>
-   */
-  Licenses?: LicenseConfiguration[];
-
-  /**
-   * <p>The metadata options for the instance.</p>
-   */
-  MetadataOptions?: InstanceMetadataOptionsResponse;
-
-  /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
-   *             Enclaves.</p>
-   */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   */
-  BootMode?: BootModeValues | string;
-
-  /**
-   * <p>The platform details value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
-   *                 billing information fields</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   */
-  PlatformDetails?: string;
-
-  /**
-   * <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
-   *                 billing information fields</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>The time that the usage operation was last updated.</p>
-   */
-  UsageOperationUpdateTime?: Date;
-
-  /**
-   * <p>The options for the instance hostname.</p>
-   */
-  PrivateDnsNameOptions?: PrivateDnsNameOptionsResponse;
-
-  /**
-   * <p>The IPv6 address assigned to the instance.</p>
-   */
-  Ipv6Address?: string;
-
-  /**
-   * <p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   */
-  TpmSupport?: string;
-
-  /**
-   * <p>Provides information on the recovery and maintenance options of your instance.</p>
-   */
-  MaintenanceOptions?: InstanceMaintenanceOptions;
-}
-
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
 }
@@ -7276,1960 +5323,390 @@ export namespace Reservation {
   });
 }
 
-export interface DescribeInstancesResult {
-  /**
-   * <p>Information about the reservations.</p>
-   */
-  Reservations?: Reservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.code</code> - The code for the scheduled event
-   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
-   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
-   *                         <code>instance-stop</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
-   *                     you are modifying.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-after</code> - The latest end time for the scheduled event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before</code> - The earliest start time for the scheduled
-   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-code</code> - The code for the instance state, as a
-   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
-   *                     be ignored. The low byte is set based on the state represented. The valid values
-   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.reachability</code> - Filters on instance status where
-   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
-   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.status</code> - The status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.reachability</code> - Filters on system status where the
-   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
-   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.status</code> - The system status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  IncludeAllInstances?: boolean;
-}
-
-export namespace DescribeInstanceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-export type EventCode =
-  | "instance-reboot"
-  | "instance-retirement"
-  | "instance-stop"
-  | "system-maintenance"
-  | "system-reboot";
+export type ArchitectureType = "arm64" | "i386" | "x86_64" | "x86_64_mac";
 
 /**
- * <p>Describes a scheduled event for an instance.</p>
+ * <p>Describes the configuration settings for the modified Reserved Instances.</p>
  */
-export interface InstanceStatusEvent {
+export interface ReservedInstancesConfiguration {
   /**
-   * <p>The ID of the event.</p>
-   */
-  InstanceEventId?: string;
-
-  /**
-   * <p>The event code.</p>
-   */
-  Code?: EventCode | string;
-
-  /**
-   * <p>A description of the event.</p>
-   *         <p>After a scheduled event is completed, it can still be described for up to a week. If
-   *             the event has been completed, this description starts with the following text:
-   *             [Completed].</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The latest scheduled end time for the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest scheduled start time for the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The deadline for starting the event.</p>
-   */
-  NotBeforeDeadline?: Date;
-}
-
-export namespace InstanceStatusEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusEvent): any => ({
-    ...obj,
-  });
-}
-
-export type StatusName = "reachability";
-
-export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
-
-/**
- * <p>Describes the instance status.</p>
- */
-export interface InstanceStatusDetails {
-  /**
-   * <p>The time when a status check failed. For an instance that was launched and impaired,
-   *             this is the time when the instance was launched.</p>
-   */
-  ImpairedSince?: Date;
-
-  /**
-   * <p>The type of instance status.</p>
-   */
-  Name?: StatusName | string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: StatusType | string;
-}
-
-export namespace InstanceStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusDetails): any => ({
-    ...obj,
-  });
-}
-
-export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
-
-/**
- * <p>Describes the status of an instance.</p>
- */
-export interface InstanceStatusSummary {
-  /**
-   * <p>The system instance health or application instance health.</p>
-   */
-  Details?: InstanceStatusDetails[];
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: SummaryStatus | string;
-}
-
-export namespace InstanceStatusSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the status of an instance.</p>
- */
-export interface InstanceStatus {
-  /**
-   * <p>The Availability Zone of the instance.</p>
+   * <p>The Availability Zone for the modified Reserved Instances.</p>
    */
   AvailabilityZone?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * <p>The number of modified Reserved Instances.</p>
+   *          <note>
+   *             <p>This is a required field for a request.</p>
+   *          </note>
    */
-  OutpostArn?: string;
+  InstanceCount?: number;
 
   /**
-   * <p>Any scheduled events associated with the instance.</p>
-   */
-  Events?: InstanceStatusEvent[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
-   *             that an instance be in the <code>running</code> state.</p>
-   */
-  InstanceState?: InstanceState;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues internal to the instance, such
-   *             as impaired reachability.</p>
-   */
-  InstanceStatus?: InstanceStatusSummary;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues related to the systems that
-   *             support an instance, such as hardware failures and network connectivity problems.</p>
-   */
-  SystemStatus?: InstanceStatusSummary;
-}
-
-export namespace InstanceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceStatusResult {
-  /**
-   * <p>Information about the status of the instances.</p>
-   */
-  InstanceStatuses?: InstanceStatus[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
-    ...obj,
-  });
-}
-
-export type LocationType = "availability-zone" | "availability-zone-id" | "region";
-
-export interface DescribeInstanceTypeOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>location</code> - This depends on the location type. For example, if the location type is
-   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type. For example,
-   *      <code>c5.2xlarge</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypeOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The instance types offered.</p>
- */
-export interface InstanceTypeOffering {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type for the modified Reserved Instances.</p>
    */
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The location type.</p>
+   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
    */
-  LocationType?: LocationType | string;
+  Platform?: string;
 
   /**
-   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
-   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
    */
-  Location?: string;
+  Scope?: Scope | string;
 }
 
-export namespace InstanceTypeOffering {
+export namespace ReservedInstancesConfiguration {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InstanceTypeOffering): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceTypeOfferingsResult {
-  /**
-   * <p>The instance types offered.</p>
-   */
-  InstanceTypeOfferings?: InstanceTypeOffering[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypeOfferingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceTypesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceTypes?: (_InstanceType | string)[];
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
-   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
-   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
-   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
-   *      operations per second for an EBS-optimized instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
-   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
-   *                     performance for an EBS-optimized instance type, in Mbps.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
-   *                     operations per second for an EBS-optimized instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
-   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
-   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
-   *      <code>default</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
-   *       (<code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
-   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
-   *      GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
-   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
-   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
-   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
-   *      <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
-   *      instance storage, in GB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
-   *      instance storage  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
-   *      c5*).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
-   *      Fabric Adapters (EFAs) per instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
-   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
-   *      supported or required (<code>required</code> | <code>supported</code> |
-   *       <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
-   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
-   *      network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
-   *      instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
-   *      Gigabit").</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
-   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
-   *       <code>uefi</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
-   *       <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
-   *       <code>spot</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
-   *       <code>paravirtual</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
-   *      type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
-   *         For example, "1" or "1,2".</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
+  export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the optimized EBS performance for supported instance types.</p>
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
  */
-export interface EbsOptimizedInfo {
+export interface SlotDateTimeRangeRequest {
   /**
-   * <p>The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
    */
-  BaselineBandwidthInMbps?: number;
+  EarliestTime: Date | undefined;
 
   /**
-   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.</p>
    */
-  BaselineThroughputInMBps?: number;
-
-  /**
-   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance type.</p>
-   */
-  BaselineIops?: number;
-
-  /**
-   * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   */
-  MaximumBandwidthInMbps?: number;
-
-  /**
-   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   */
-  MaximumThroughputInMBps?: number;
-
-  /**
-   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
-   */
-  MaximumIops?: number;
+  LatestTime: Date | undefined;
 }
 
-export namespace EbsOptimizedInfo {
+export namespace SlotDateTimeRangeRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EbsOptimizedInfo): any => ({
-    ...obj,
-  });
-}
-
-export type EbsOptimizedSupport = "default" | "supported" | "unsupported";
-
-export type EbsEncryptionSupport = "supported" | "unsupported";
-
-export enum EbsNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
-
-/**
- * <p>Describes the Amazon EBS features supported by the instance type.</p>
- */
-export interface EbsInfo {
-  /**
-   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
-   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
-   */
-  EbsOptimizedSupport?: EbsOptimizedSupport | string;
-
-  /**
-   * <p>Indicates whether Amazon EBS encryption is supported.</p>
-   */
-  EncryptionSupport?: EbsEncryptionSupport | string;
-
-  /**
-   * <p>Describes the optimized EBS performance for the instance type.</p>
-   */
-  EbsOptimizedInfo?: EbsOptimizedInfo;
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   */
-  NvmeSupport?: EbsNvmeSupport | string;
-}
-
-export namespace EbsInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInfo): any => ({
+  export const filterSensitiveLog = (obj: SlotDateTimeRangeRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
+ * <p>Describes the recurring schedule for a Scheduled Instance.</p>
  */
-export interface FpgaDeviceMemoryInfo {
+export interface ScheduledInstanceRecurrenceRequest {
   /**
-   * <p>The size of the memory available to the FPGA accelerator, in MiB.</p>
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
    */
-  SizeInMiB?: number;
+  Frequency?: string;
+
+  /**
+   * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
+   */
+  OccurrenceDays?: number[];
+
+  /**
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
+   */
+  OccurrenceRelativeToEnd?: boolean;
+
+  /**
+   * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
+   *         This value is required for a monthly schedule.
+   *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
+   *         You can't specify this value with a daily schedule.</p>
+   */
+  OccurrenceUnit?: string;
 }
 
-export namespace FpgaDeviceMemoryInfo {
+export namespace ScheduledInstanceRecurrenceRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
+  export const filterSensitiveLog = (obj: ScheduledInstanceRecurrenceRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the FPGA accelerator for the instance type.</p>
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
  */
-export interface FpgaDeviceInfo {
+export interface SlotStartTimeRangeRequest {
   /**
-   * <p>The name of the FPGA accelerator.</p>
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
    */
-  Name?: string;
+  EarliestTime?: Date;
 
   /**
-   * <p>The manufacturer of the FPGA accelerator.</p>
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start.</p>
    */
-  Manufacturer?: string;
-
-  /**
-   * <p>The count of FPGA accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
-   */
-  MemoryInfo?: FpgaDeviceMemoryInfo;
+  LatestTime?: Date;
 }
 
-export namespace FpgaDeviceInfo {
+export namespace SlotStartTimeRangeRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
+  export const filterSensitiveLog = (obj: SlotStartTimeRangeRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the FPGAs for the instance type.</p>
+ * <p>Describes the user or group to be added or removed from the list of create volume
+ *       permissions for a volume.</p>
  */
-export interface FpgaInfo {
+export interface CreateVolumePermission {
   /**
-   * <p>Describes the FPGAs for the instance type.</p>
+   * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
    */
-  Fpgas?: FpgaDeviceInfo[];
+  Group?: PermissionGroup | string;
 
   /**
-   * <p>The total memory of all FPGA accelerators for the instance type.</p>
+   * <p>The ID of the Amazon Web Services account to be added or removed.</p>
    */
-  TotalFpgaMemoryInMiB?: number;
+  UserId?: string;
 }
 
-export namespace FpgaInfo {
+export namespace CreateVolumePermission {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FpgaInfo): any => ({
+  export const filterSensitiveLog = (obj: CreateVolumePermission): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes the memory available to the GPU accelerator.</p>
+ * <p>Describes a network interface.</p>
  */
-export interface GpuDeviceMemoryInfo {
+export interface InstanceNetworkInterfaceSpecification {
   /**
-   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
+   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The
+   *             public IP address can only be assigned to a network interface for eth0, and can only be
+   *             assigned to a new network interface, not an existing one. You cannot specify more than one
+   *             network interface in the request. If launching into a default subnet, the default value is
+   *             <code>true</code>.</p>
    */
-  SizeInMiB?: number;
-}
+  AssociatePublicIpAddress?: boolean;
 
-export namespace GpuDeviceMemoryInfo {
   /**
-   * @internal
+   * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated. You can
+   *             specify <code>true</code> only if creating a new network interface when launching an
+   *             instance.</p>
    */
-  export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-    ...obj,
-  });
-}
+  DeleteOnTermination?: boolean;
 
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuDeviceInfo {
   /**
-   * <p>The name of the GPU accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the GPU accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo;
-}
-
-export namespace GpuDeviceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuInfo {
-  /**
-   * <p>Describes the GPU accelerators for the instance type.</p>
-   */
-  Gpus?: GpuDeviceInfo[];
-
-  /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
-   */
-  TotalGpuMemoryInMiB?: number;
-}
-
-export namespace GpuInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GpuInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
-
-/**
- * <p>Describes the Inference accelerators for the instance type.</p>
- */
-export interface InferenceDeviceInfo {
-  /**
-   * <p>The number of Inference accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The name of the Inference accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the Inference accelerator.</p>
-   */
-  Manufacturer?: string;
-}
-
-export namespace InferenceDeviceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Inference accelerators for the instance type.</p>
- */
-export interface InferenceAcceleratorInfo {
-  /**
-   * <p>Describes the Inference accelerators for the instance type.</p>
-   */
-  Accelerators?: InferenceDeviceInfo[];
-}
-
-export namespace InferenceAcceleratorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
-    ...obj,
-  });
-}
-
-export type DiskType = "hdd" | "ssd";
-
-/**
- * <p>Describes a disk.</p>
- */
-export interface DiskInfo {
-  /**
-   * <p>The size of the disk in GB.</p>
-   */
-  SizeInGB?: number;
-
-  /**
-   * <p>The number of disks with this configuration.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The type of disk.</p>
-   */
-  Type?: DiskType | string;
-}
-
-export namespace DiskInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceStorageEncryptionSupport {
-  required = "required",
-  unsupported = "unsupported",
-}
-
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
-
-/**
- * <p>Describes the instance store features that are supported by the instance type.</p>
- */
-export interface InstanceStorageInfo {
-  /**
-   * <p>The total size of the disks, in GB.</p>
-   */
-  TotalSizeInGB?: number;
-
-  /**
-   * <p>Describes the disks that are available for the instance type.</p>
-   */
-  Disks?: DiskInfo[];
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   */
-  NvmeSupport?: EphemeralNvmeSupport | string;
-
-  /**
-   * <p>Indicates whether data is encrypted at rest.</p>
-   */
-  EncryptionSupport?: InstanceStorageEncryptionSupport | string;
-}
-
-export namespace InstanceStorageInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStorageInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the memory for the instance type.</p>
- */
-export interface MemoryInfo {
-  /**
-   * <p>The size of the memory, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
-
-export namespace MemoryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
- */
-export interface EfaInfo {
-  /**
-   * <p>The maximum number of Elastic Fabric Adapters for the instance type.</p>
-   */
-  MaximumEfaInterfaces?: number;
-}
-
-export namespace EfaInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EfaInfo): any => ({
-    ...obj,
-  });
-}
-
-export type EnaSupport = "required" | "supported" | "unsupported";
-
-/**
- * <p>Describes the network card support of the instance type.</p>
- */
-export interface NetworkCardInfo {
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-
-  /**
-   * <p>The network performance of the network card.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the network card.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-}
-
-export namespace NetworkCardInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkCardInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the networking features of the instance type.</p>
- */
-export interface NetworkInfo {
-  /**
-   * <p>The network performance.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the instance type.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-
-  /**
-   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
-   */
-  MaximumNetworkCards?: number;
-
-  /**
-   * <p>The index of the default network card, starting at 0.</p>
-   */
-  DefaultNetworkCardIndex?: number;
-
-  /**
-   * <p>Describes the network cards for the instance type.</p>
-   */
-  NetworkCards?: NetworkCardInfo[];
-
-  /**
-   * <p>The maximum number of IPv4 addresses per network interface.</p>
-   */
-  Ipv4AddressesPerInterface?: number;
-
-  /**
-   * <p>The maximum number of IPv6 addresses per network interface.</p>
-   */
-  Ipv6AddressesPerInterface?: number;
-
-  /**
-   * <p>Indicates whether IPv6 is supported.</p>
-   */
-  Ipv6Supported?: boolean;
-
-  /**
-   * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
-   */
-  EnaSupport?: EnaSupport | string;
-
-  /**
-   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
-   */
-  EfaSupported?: boolean;
-
-  /**
-   * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
-   */
-  EfaInfo?: EfaInfo;
-
-  /**
-   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between instances.</p>
-   */
-  EncryptionInTransitSupported?: boolean;
-}
-
-export namespace NetworkInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInfo): any => ({
-    ...obj,
-  });
-}
-
-export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
-
-/**
- * <p>Describes the placement group support of the instance type.</p>
- */
-export interface PlacementGroupInfo {
-  /**
-   * <p>The supported placement group types.</p>
-   */
-  SupportedStrategies?: (PlacementGroupStrategy | string)[];
-}
-
-export namespace PlacementGroupInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementGroupInfo): any => ({
-    ...obj,
-  });
-}
-
-export type ArchitectureType = "arm64" | "i386" | "x86_64" | "x86_64_mac";
-
-/**
- * <p>Describes the processor used by the instance type.</p>
- */
-export interface ProcessorInfo {
-  /**
-   * <p>The architectures supported by the instance type.</p>
-   */
-  SupportedArchitectures?: (ArchitectureType | string)[];
-
-  /**
-   * <p>The speed of the processor, in GHz.</p>
-   */
-  SustainedClockSpeedInGhz?: number;
-}
-
-export namespace ProcessorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessorInfo): any => ({
-    ...obj,
-  });
-}
-
-export type BootModeType = "legacy-bios" | "uefi";
-
-export type RootDeviceType = "ebs" | "instance-store";
-
-export type UsageClassType = "on-demand" | "spot";
-
-/**
- * <p>Describes the vCPU configurations for the instance type.</p>
- */
-export interface VCpuInfo {
-  /**
-   * <p>The default number of vCPUs for the instance type.</p>
-   */
-  DefaultVCpus?: number;
-
-  /**
-   * <p>The default number of cores for the instance type.</p>
-   */
-  DefaultCores?: number;
-
-  /**
-   * <p>The default number of threads per core for the instance type.</p>
-   */
-  DefaultThreadsPerCore?: number;
-
-  /**
-   * <p>The valid number of cores that can be configured for the instance type.</p>
-   */
-  ValidCores?: number[];
-
-  /**
-   * <p>The valid number of threads per core that can be configured for the instance type. </p>
-   */
-  ValidThreadsPerCore?: number[];
-}
-
-export namespace VCpuInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VCpuInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the instance type.</p>
- */
-export interface InstanceTypeInfo {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>Indicates whether the instance type is current generation.</p>
-   */
-  CurrentGeneration?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is eligible for the free tier.</p>
-   */
-  FreeTierEligible?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
-   */
-  SupportedUsageClasses?: (UsageClassType | string)[];
-
-  /**
-   * <p>The supported root device types.</p>
-   */
-  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
-
-  /**
-   * <p>The supported virtualization types.</p>
-   */
-  SupportedVirtualizationTypes?: (VirtualizationType | string)[];
-
-  /**
-   * <p>Indicates whether the instance is a bare metal instance type.</p>
-   */
-  BareMetal?: boolean;
-
-  /**
-   * <p>The hypervisor for the instance type.</p>
-   */
-  Hypervisor?: InstanceTypeHypervisor | string;
-
-  /**
-   * <p>Describes the processor.</p>
-   */
-  ProcessorInfo?: ProcessorInfo;
-
-  /**
-   * <p>Describes the vCPU configurations for the instance type.</p>
-   */
-  VCpuInfo?: VCpuInfo;
-
-  /**
-   * <p>Describes the memory for the instance type.</p>
-   */
-  MemoryInfo?: MemoryInfo;
-
-  /**
-   * <p>Indicates whether instance storage is supported.</p>
-   */
-  InstanceStorageSupported?: boolean;
-
-  /**
-   * <p>Describes the instance storage for the instance type.</p>
-   */
-  InstanceStorageInfo?: InstanceStorageInfo;
-
-  /**
-   * <p>Describes the Amazon EBS settings for the instance type.</p>
-   */
-  EbsInfo?: EbsInfo;
-
-  /**
-   * <p>Describes the network settings for the instance type.</p>
-   */
-  NetworkInfo?: NetworkInfo;
-
-  /**
-   * <p>Describes the GPU accelerator settings for the instance type.</p>
-   */
-  GpuInfo?: GpuInfo;
-
-  /**
-   * <p>Describes the FPGA accelerator settings for the instance type.</p>
-   */
-  FpgaInfo?: FpgaInfo;
-
-  /**
-   * <p>Describes the placement group settings for the instance type.</p>
-   */
-  PlacementGroupInfo?: PlacementGroupInfo;
-
-  /**
-   * <p>Describes the Inference accelerator settings for the instance type.</p>
-   */
-  InferenceAcceleratorInfo?: InferenceAcceleratorInfo;
-
-  /**
-   * <p>Indicates whether On-Demand hibernation is supported.</p>
-   */
-  HibernationSupported?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
-   */
-  BurstablePerformanceSupported?: boolean;
-
-  /**
-   * <p>Indicates whether Dedicated Hosts are supported on the instance type.</p>
-   */
-  DedicatedHostsSupported?: boolean;
-
-  /**
-   * <p>Indicates whether auto recovery is supported.</p>
-   */
-  AutoRecoverySupported?: boolean;
-
-  /**
-   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *    <i>Amazon EC2 User Guide</i>.</p>
-   */
-  SupportedBootModes?: (BootModeType | string)[];
-}
-
-export namespace InstanceTypeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceTypeInfo): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceTypesResult {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceTypes?: InstanceTypeInfo[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInternetGatewaysRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway
-   *                     and the VPC (<code>available</code>). Present only if a VPC is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>internet-gateway-id</code> - The ID of the Internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more internet gateway IDs.</p>
-   *         <p>Default: Describes all your internet gateways.</p>
-   */
-  InternetGatewayIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeInternetGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInternetGatewaysResult {
-  /**
-   * <p>Information about one or more internet gateways.</p>
-   */
-  InternetGateways?: InternetGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInternetGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamPoolsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the IPAM pools you would like information on.</p>
-   */
-  IpamPoolIds?: string[];
-}
-
-export namespace DescribeIpamPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamPoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamPoolsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the IPAM pools.</p>
-   */
-  IpamPools?: IpamPool[];
-}
-
-export namespace DescribeIpamPoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamPoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the IPAMs you want information on.</p>
-   */
-  IpamIds?: string[];
-}
-
-export namespace DescribeIpamsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the IPAMs.</p>
-   */
-  Ipams?: Ipam[];
-}
-
-export namespace DescribeIpamsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamScopesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the scopes you want information on.</p>
-   */
-  IpamScopeIds?: string[];
-}
-
-export namespace DescribeIpamScopesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamScopesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpamScopesResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The scopes you want information on.</p>
-   */
-  IpamScopes?: IpamScope[];
-}
-
-export namespace DescribeIpamScopesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpamScopesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpv6PoolsRequest {
-  /**
-   * <p>The IDs of the IPv6 address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeIpv6PoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a CIDR block for an address pool.</p>
- */
-export interface PoolCidrBlock {
-  /**
-   * <p>The CIDR block.</p>
-   */
-  Cidr?: string;
-}
-
-export namespace PoolCidrBlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoolCidrBlock): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an IPv6 address pool.</p>
- */
-export interface Ipv6Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The description for the address pool.</p>
+   * <p>The description of the network interface. Applies only if creating a network interface when launching an instance.</p>
    */
   Description?: string;
 
   /**
-   * <p>The CIDR blocks for the address pool.</p>
+   * <p>The position of the network interface in the attachment order.
+   *           A primary network interface has a device index of 0.</p>
+   *         <p>If you specify a network interface when launching an instance,
+   *           you must specify the device index.</p>
    */
-  PoolCidrBlocks?: PoolCidrBlock[];
+  DeviceIndex?: number;
 
   /**
-   * <p>Any tags for the address pool.</p>
+   * <p>The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.</p>
    */
-  Tags?: Tag[];
-}
-
-export namespace Ipv6Pool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ipv6Pool): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIpv6PoolsResult {
-  /**
-   * <p>Information about the IPv6 address pools.</p>
-   */
-  Ipv6Pools?: Ipv6Pool[];
+  Groups?: string[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses
+   *             the IPv6 addresses from the range of the subnet. You cannot specify this option and the
+   *             option to assign specific IPv6 addresses in the same request. You can specify this
+   *             option if you've specified a minimum number of instances to launch.</p>
    */
-  NextToken?: string;
-}
-
-export namespace DescribeIpv6PoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeKeyPairsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *      		        <p>
-   *      			          <code>key-pair-id</code> - The ID of the key pair.</p>
-   *      	      </li>
-   *             <li>
-   *                <p>
-   *                   <code>fingerprint</code> - The fingerprint of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key-name</code> - The name of the key pair.</p>
-   *             </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *      	      </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *      	      </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
+  Ipv6AddressCount?: number;
 
   /**
-   * <p>The key pair names.</p>
-   *          <p>Default: Describes all of your key pairs.</p>
+   * <p>One or more IPv6 addresses to assign to the network interface. You cannot specify
+   *             this option and the option to assign a number of IPv6 addresses in the same request. You
+   *             cannot specify this option if you've specified a minimum number of instances to
+   *             launch.</p>
    */
-  KeyNames?: string[];
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
-   * <p>The IDs of the key pairs.</p>
+   * <p>The ID of the network interface.</p>
+   *         <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
    */
-  KeyPairIds?: string[];
+  NetworkInterfaceId?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching
+   *         	more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
    */
-  DryRun?: boolean;
+  PrivateIpAddress?: string;
 
   /**
-   * <p>If <code>true</code>, the public key material is included in the response.</p>
-   *         <p>Default: <code>false</code>
+   * <p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
+   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
+
+  /**
+   * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
+   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>Indicates whether to assign a carrier IP address to the network interface.</p>
+   *         <p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone.
+   *             For more information about carrier IP addresses, see Carrier IP addresses in the Amazon Web Services Wavelength Developer Guide.</p>
+   */
+  AssociateCarrierIpAddress?: boolean;
+
+  /**
+   * <p>The type of network interface.</p>
+   * 	        <p>Valid values: <code>interface</code> | <code>efa</code>
    *          </p>
    */
-  IncludePublicKey?: boolean;
+  InterfaceType?: string;
+
+  /**
+   * <p>The index of the network card. Some instance types support multiple network cards.
+   *             The primary network interface must be assigned to network card index 0.
+   *             The default is network card index 0.</p>
+   *         <p>If you are using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a> to create Spot Instances, omit this parameter because
+   *             you can’t specify the network card index when using this API. To specify the network
+   *             card index, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   */
+  NetworkCardIndex?: number;
+
+  /**
+   * <p>One or more IPv4 delegated prefixes to be assigned to the network interface. You cannot
+   *             use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the network interface.
+   *             You cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>One or more IPv6 delegated prefixes to be assigned to the network interface. You cannot
+   *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network interface.
+   *             You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
+   */
+  Ipv6PrefixCount?: number;
 }
 
-export namespace DescribeKeyPairsRequest {
+export namespace InstanceNetworkInterfaceSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceSpecification): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes a key pair.</p>
+ * <p>Describes Spot Instance placement.</p>
  */
-export interface KeyPairInfo {
+export interface SpotPlacement {
   /**
-   * <p>The ID of the key pair.</p>
+   * <p>The Availability Zone.</p>
+   *         <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
+   *             for example, "us-west-2a, us-west-2b".</p>
    */
-  KeyPairId?: string;
+  AvailabilityZone?: string;
 
   /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
-   *            </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which
-   *                    is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *            </li>
-   *          </ul>
-   *          <p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
-   *            </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256
-   *                     digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *            </li>
-   *          </ul>
+   * <p>The name of the placement group.</p>
    */
-  KeyFingerprint?: string;
+  GroupName?: string;
+
+  /**
+   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
+   *             tenancy is not supported for Spot Instances.</p>
+   */
+  Tenancy?: Tenancy | string;
+}
+
+export namespace SpotPlacement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpotPlacement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the launch specification for one or more Spot Instances. If you include
+ *             On-Demand capacity in your fleet request or want to specify an EFA network device, you
+ *             can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+ */
+export interface SpotFleetLaunchSpecification {
+  /**
+   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   */
+  SecurityGroups?: GroupIdentifier[];
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  AddressingType?: string;
+
+  /**
+   * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
+   *             a snapshot ID and an encryption value. This is because only blank volumes can be
+   *             encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its
+   *             encryption status is used for the volume encryption status.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
 
   /**
    * <p>The name of the key pair.</p>
@@ -9237,2207 +5714,2244 @@ export interface KeyPairInfo {
   KeyName?: string;
 
   /**
-   * <p>The type of key pair.</p>
+   * <p>Enable or disable monitoring for the instances.</p>
    */
-  KeyType?: KeyType | string;
+  Monitoring?: SpotFleetMonitoring;
 
   /**
-   * <p>Any tags applied to the key pair.</p>
+   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   *           subnet IDs and security group IDs using the network interface.</p>
+   *          <note>
+   *             <p>
+   *                <code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+   *          </note>
    */
-  Tags?: Tag[];
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
-   * <p>The public key material.</p>
+   * <p>The placement information.</p>
    */
-  PublicKey?: string;
+  Placement?: SpotPlacement;
 
   /**
-   * <p>If you used Amazon EC2 to create the key pair, this is the date and time when the key
-   *             was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
-   *         <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key
-   *             was imported, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
+   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel
+   *           requirements for information about whether you need to specify a RAM disk. To find kernel
+   *           requirements, refer to the Amazon Web Services Resource Center and search for the kernel ID.</p>
    */
-  CreateTime?: Date;
+  RamdiskId?: string;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.
+   *           If this value is not specified, the default is the Spot price specified for the fleet.
+   *           To determine the Spot price per unit hour, divide the Spot price by the
+   *           value of <code>WeightedCapacity</code>.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
+   *           them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Base64-encoded user data that instances use when starting up.</p>
+   */
+  UserData?: string;
+
+  /**
+   * <p>The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.</p>
+   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.</p>
+   */
+  WeightedCapacity?: number;
+
+  /**
+   * <p>The tags to apply during creation.</p>
+   */
+  TagSpecifications?: SpotFleetTagSpecification[];
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *                <code>InstanceTypes</code>.</p>
+   *          </note>
+   */
+  InstanceRequirements?: InstanceRequirements;
 }
 
-export namespace KeyPairInfo {
+export namespace SpotFleetLaunchSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: KeyPairInfo): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeKeyPairsResult {
-  /**
-   * <p>Information about the key pairs.</p>
-   */
-  KeyPairs?: KeyPairInfo[];
-}
-
-export namespace DescribeKeyPairsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplatesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more launch template IDs.</p>
-   */
-  LaunchTemplateIds?: string[];
-
-  /**
-   * <p>One or more launch template names.</p>
-   */
-  LaunchTemplateNames?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template was created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-template-name</code> - The name of the launch template.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeLaunchTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplatesResult {
-  /**
-   * <p>Information about the launch templates.</p>
-   */
-  LaunchTemplates?: LaunchTemplate[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLaunchTemplatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template. To describe one or more versions of a specified launch
-   *             template, you must specify either the launch template ID or the launch template name in
-   *             the request. To describe all the latest or default launch template versions in your
-   *             account, you must omit this parameter.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. To describe one or more versions of a specified
-   *             launch template, you must specify either the launch template ID or the launch template
-   *             name in the request. To describe all the latest or default launch template versions in
-   *             your account, you must omit this parameter.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are
-   *             describing a specified launch template (by ID or name) or all launch templates in your
-   *             account.</p>
-   *         <p>To describe one or more versions of a specified launch template, valid values are
-   *                 <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *         <p>To describe all launch templates in your account that are defined as the latest
-   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
-   *             your account that are defined as the default version, the valid value is
-   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same call. You cannot specify numbers.</p>
-   */
-  Versions?: string[];
-
-  /**
-   * <p>The version number after which to describe launch template versions.</p>
-   */
-  MinVersion?: string;
-
-  /**
-   * <p>The version number up to which to describe launch template versions.</p>
-   */
-  MaxVersion?: string;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template version was
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance is
-   *                     optimized for Amazon EBS I/O.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on
-   *                     your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
-   *                     instance metadata service is enabled (<code>enabled</code> |
-   *                         <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>host-resource-group-arn</code> - The ARN of the host resource group in
-   *                     which to launch the instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-tokens</code> - The state of token usage for your instance metadata
-   *                     requests (<code>optional</code> | <code>required</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>iam-instance-profile</code> - The ARN of the IAM instance
-   *                     profile.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>image-id</code> - The ID of the AMI.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>is-default-version</code> - A boolean that indicates whether the launch
-   *                     template version is the default version.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>license-configuration-arn</code> - The ARN of the license
-   *                     configuration.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-card-index</code> - The index of the network card.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ram-disk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeLaunchTemplateVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions.</p>
-   */
-  LaunchTemplateVersions?: LaunchTemplateVersion[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLaunchTemplateVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTablesRequest {
-  /**
-   * <p>The IDs of the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTableIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
-   *                local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the local gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayRouteTablesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesRequest): any => ({
+  export const filterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes a local gateway route table.</p>
+ * <p>Describes overrides for a launch template.</p>
  */
-export interface LocalGatewayRouteTable {
+export interface LaunchTemplateOverrides {
   /**
-   * <p>The ID of the local gateway route table.</p>
+   * <p>The instance type.</p>
    */
-  LocalGatewayRouteTableId?: string;
+  InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot
+   *             Instance.</p>
    */
-  LocalGatewayRouteTableArn?: string;
+  SpotPrice?: string;
 
   /**
-   * <p>The ID of the local gateway.</p>
+   * <p>The ID of the subnet in which to launch the instances.</p>
    */
-  LocalGatewayId?: string;
+  SubnetId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The state of the local gateway route table.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The tags assigned to the local gateway route table.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGatewayRouteTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTablesResult {
-  /**
-   * <p>Information about the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayRouteTablesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
-   *                gateway route table for the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual
-   *                interface group association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
- */
-export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  /**
-   * <p>The ID of the association.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string;
-
-  /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
-   */
-  LocalGatewayRouteTableArn?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group association.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The state of the association.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The tags assigned to the association.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
-  ): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociationIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
-   *                gateway route table for the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table
-   *                for the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewaysRequest {
-  /**
-   * <p>The IDs of the local gateways.</p>
-   */
-  LocalGatewayIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a local gateway.</p>
- */
-export interface LocalGateway {
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The state of the local gateway.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The tags assigned to the local gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalGateway): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewaysResult {
-  /**
-   * <p>Information about the local gateways.</p>
-   */
-  LocalGateways?: LocalGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  /**
-   * <p>The IDs of the virtual interface groups.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a local gateway virtual interface group.</p>
- */
-export interface LocalGatewayVirtualInterfaceGroup {
-  /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId?: string;
-
-  /**
-   * <p>The IDs of the virtual interfaces.</p>
-   */
-  LocalGatewayVirtualInterfaceIds?: string[];
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The tags assigned to the virtual interface group.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGatewayVirtualInterfaceGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  /**
-   * <p>The virtual interface groups.</p>
-   */
-  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayVirtualInterfacesRequest {
-  /**
-   * <p>The IDs of the virtual interfaces.</p>
-   */
-  LocalGatewayVirtualInterfaceIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-address</code> - The local address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
-   *                of the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>peer-address</code> - The peer address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vlan</code> - The ID of the VLAN.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewayVirtualInterfacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a local gateway virtual interface.</p>
- */
-export interface LocalGatewayVirtualInterface {
-  /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  LocalGatewayVirtualInterfaceId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  Vlan?: number;
-
-  /**
-   * <p>The local address.</p>
-   */
-  LocalAddress?: string;
-
-  /**
-   * <p>The peer address.</p>
-   */
-  PeerAddress?: string;
-
-  /**
-   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p>
-   */
-  LocalBgpAsn?: number;
-
-  /**
-   * <p>The peer BGP ASN.</p>
-   */
-  PeerBgpAsn?: number;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The tags assigned to the virtual interface.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace LocalGatewayVirtualInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayVirtualInterfacesResult {
-  /**
-   * <p>Information about the virtual interfaces.</p>
-   */
-  LocalGatewayVirtualInterfaces?: LocalGatewayVirtualInterface[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayVirtualInterfacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeManagedPrefixListsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the prefix list owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-name</code> - The name of the prefix list.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more prefix list IDs.</p>
-   */
-  PrefixListIds?: string[];
-}
-
-export namespace DescribeManagedPrefixListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedPrefixListsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeManagedPrefixListsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the prefix lists.</p>
-   */
-  PrefixLists?: ManagedPrefixList[];
-}
-
-export namespace DescribeManagedPrefixListsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeMovingAddressesRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>moving-status</code> - The status of the Elastic IP address
-   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *       results of the initial request can be seen by sending another request with the returned
-   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
-   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
-   *          <p>Default: If no value is provided, the default is 1000.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   */
-  PublicIps?: string[];
-}
-
-export namespace DescribeMovingAddressesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
-    ...obj,
-  });
-}
-
-export type MoveStatus = "movingToVpc" | "restoringToClassic";
-
-/**
- * <p>Describes the status of a moving Elastic IP address.</p>
- */
-export interface MovingAddressStatus {
-  /**
-   * <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
-   */
-  MoveStatus?: MoveStatus | string;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   */
-  PublicIp?: string;
-}
-
-export namespace MovingAddressStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MovingAddressStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeMovingAddressesResult {
-  /**
-   * <p>The status for each Elastic IP address.</p>
-   */
-  MovingAddressStatuses?: MovingAddressStatus[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeMovingAddressesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNatGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>nat-gateway-id</code> - The ID of the NAT gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the NAT gateway (<code>pending</code> |
-   *               <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p>
-   *             </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 		          </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 		          </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filter?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more NAT gateway IDs.</p>
-   */
-  NatGatewayIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNatGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNatGatewaysResult {
-  /**
-   * <p>Information about the NAT gateways.</p>
-   */
-  NatGateways?: NatGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNatGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkAclsRequest {
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.association-id</code> - The ID of an association ID for the ACL.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p>
-   * 		          </li>
-   *             <li>
-   *                   <p>
-   *                   <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p>
-   *                </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>entry.rule-number</code> - The number of an entry (in other words, rule) in
-   *                     the set of ACL entries.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>network-acl-id</code> - The ID of the network ACL.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the network ACL.</p>
-   * 		          </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more network ACL IDs.</p>
-   * 		       <p>Default: Describes all your network ACLs.</p>
-   */
-  NetworkAclIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeNetworkAclsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkAclsResult {
-  /**
-   * <p>Information about one or more network ACLs.</p>
-   */
-  NetworkAcls?: NetworkAcl[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkAclsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
-  /**
-   * <p>The IDs of the Network Access Scope analyses.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisIds?: string[];
-
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId?: string;
-
-  /**
-   * <p>Filters the results based on the start time. The analysis must have started on or after this time.</p>
-   */
-  AnalysisStartTimeBegin?: Date;
-
-  /**
-   * <p>Filters the results based on the start time. The analysis must have started on or before this time.</p>
-   */
-  AnalysisStartTimeEnd?: Date;
-
-  /**
-   * <p>There are no supported filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAccessScopeAnalysesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAccessScopeAnalysesRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FindingsFound {
-  false = "false",
-  true = "true",
-  unknown = "unknown",
-}
-
-export type AnalysisStatus = "failed" | "running" | "succeeded";
-
-/**
- * <p>Describes a Network Access Scope analysis.</p>
- */
-export interface NetworkInsightsAccessScopeAnalysis {
-  /**
-   * <p>The ID of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisArn?: string;
-
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId?: string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: AnalysisStatus | string;
-
-  /**
-   * <p>The status message.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The warning message.</p>
-   */
-  WarningMessage?: string;
-
-  /**
-   * <p>The analysis start date.</p>
-   */
-  StartDate?: Date;
-
-  /**
-   * <p>The analysis end date.</p>
-   */
-  EndDate?: Date;
-
-  /**
-   * <p>Indicates whether there are findings.</p>
-   */
-  FindingsFound?: FindingsFound | string;
-
-  /**
-   * <p>The number of network interfaces analyzed.</p>
-   */
-  AnalyzedEniCount?: number;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace NetworkInsightsAccessScopeAnalysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInsightsAccessScopeAnalysis): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
-  /**
-   * <p>The Network Access Scope analyses.</p>
-   */
-  NetworkInsightsAccessScopeAnalyses?: NetworkInsightsAccessScopeAnalysis[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAccessScopeAnalysesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAccessScopeAnalysesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAccessScopesRequest {
-  /**
-   * <p>The IDs of the Network Access Scopes.</p>
-   */
-  NetworkInsightsAccessScopeIds?: string[];
-
-  /**
-   * <p>There are no supported filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAccessScopesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAccessScopesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAccessScopesResult {
-  /**
-   * <p>The Network Access Scopes.</p>
-   */
-  NetworkInsightsAccessScopes?: NetworkInsightsAccessScope[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAccessScopesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAccessScopesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAnalysesRequest {
-  /**
-   * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
-   */
-  NetworkInsightsAnalysisIds?: string[];
-
-  /**
-   * <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
-   */
-  NetworkInsightsPathId?: string;
-
-  /**
-   * <p>The time when the network insights analyses started.</p>
-   */
-  AnalysisStartTime?: Date;
-
-  /**
-   * <p>The time when the network insights analyses ended.</p>
-   */
-  AnalysisEndTime?: Date;
-
-  /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>
-   *             </li>
-   *             <li>
-   *                <p>Status - The status of the analysis (running | succeeded | failed).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAnalysesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAnalysesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a load balancer listener.</p>
- */
-export interface AnalysisLoadBalancerListener {
-  /**
-   * <p>The port on which the load balancer is listening.</p>
-   */
-  LoadBalancerPort?: number;
-
-  /**
-   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
-   */
-  InstancePort?: number;
-}
-
-export namespace AnalysisLoadBalancerListener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a load balancer target.</p>
- */
-export interface AnalysisLoadBalancerTarget {
-  /**
-   * <p>The IP address.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
+   * <p>The Availability Zone in which to launch the instances.</p>
    */
   AvailabilityZone?: string;
 
   /**
-   * <p>Information about the instance.</p>
+   * <p>The number of units provided by the specified instance type.</p>
    */
-  Instance?: AnalysisComponent;
+  WeightedCapacity?: number;
 
   /**
-   * <p>The port on which the target is listening.</p>
+   * <p>The priority for the launch template override. The highest priority is launched
+   *             first.</p>
+   *         <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
+   *             uses priority to determine which launch template override to use first in fulfilling
+   *             On-Demand capacity.</p>
+   *         <p>If the Spot <code>AllocationStrategy</code> is set to
+   *                 <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
+   *             to determine which launch template override to use in fulfilling Spot capacity, but
+   *             optimizes for capacity first.</p>
+   *         <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
+   *             higher the priority. If no number is set, the launch template override has the lowest
+   *             priority. You can set the same priority for different launch template overrides.</p>
    */
-  Port?: number;
+  Priority?: number;
+
+  /**
+   * <p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify
+   *          instance types with the provided requirements, and then use your On-Demand and Spot
+   *          allocation strategies to launch instances from these instance types, in the same way as
+   *          when you specify a list of instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *                <code>InstanceTypes</code>.</p>
+   *          </note>
+   */
+  InstanceRequirements?: InstanceRequirements;
 }
 
-export namespace AnalysisLoadBalancerTarget {
+export namespace LaunchTemplateOverrides {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
+  export const filterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+ * <p>Describes a launch template and overrides.</p>
  */
-export interface Explanation {
+export interface LaunchTemplateConfig {
   /**
-   * <p>The network ACL.</p>
+   * <p>The launch template.</p>
    */
-  Acl?: AnalysisComponent;
+  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
 
   /**
-   * <p>The network ACL rule.</p>
+   * <p>Any parameters that you specify override the same parameters in the launch
+   *             template.</p>
    */
-  AclRule?: AnalysisAclRule;
+  Overrides?: LaunchTemplateOverrides[];
+}
 
+export namespace LaunchTemplateConfig {
   /**
-   * <p>The IPv4 address, in CIDR notation.</p>
+   * @internal
    */
-  Address?: string;
+  export const filterSensitiveLog = (obj: LaunchTemplateConfig): any => ({
+    ...obj,
+  });
+}
 
+/**
+ * <p>Describes a Classic Load Balancer.</p>
+ */
+export interface ClassicLoadBalancer {
   /**
-   * <p>The IPv4 addresses, in CIDR notation.</p>
+   * <p>The name of the load balancer.</p>
    */
-  Addresses?: string[];
+  Name?: string;
+}
 
+export namespace ClassicLoadBalancer {
   /**
-   * <p>The resource to which the component is attached.</p>
+   * @internal
    */
-  AttachedTo?: AnalysisComponent;
+  export const filterSensitiveLog = (obj: ClassicLoadBalancer): any => ({
+    ...obj,
+  });
+}
 
+/**
+ * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
+ *             the running Spot Instances with these Classic Load Balancers.</p>
+ */
+export interface ClassicLoadBalancersConfig {
   /**
-   * <p>The Availability Zones.</p>
+   * <p>One or more Classic Load Balancers.</p>
    */
-  AvailabilityZones?: string[];
+  ClassicLoadBalancers?: ClassicLoadBalancer[];
+}
 
+export namespace ClassicLoadBalancersConfig {
   /**
-   * <p>The CIDR ranges.</p>
+   * @internal
    */
-  Cidrs?: string[];
+  export const filterSensitiveLog = (obj: ClassicLoadBalancersConfig): any => ({
+    ...obj,
+  });
+}
 
+/**
+ * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
+ *             running Spot Instances with these target groups.</p>
+ */
+export interface TargetGroupsConfig {
   /**
-   * <p>The component.</p>
+   * <p>One or more target groups.</p>
    */
-  Component?: AnalysisComponent;
+  TargetGroups?: TargetGroup[];
+}
 
+export namespace TargetGroupsConfig {
   /**
-   * <p>The customer gateway.</p>
+   * @internal
    */
-  CustomerGateway?: AnalysisComponent;
+  export const filterSensitiveLog = (obj: TargetGroupsConfig): any => ({
+    ...obj,
+  });
+}
 
+/**
+ * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
+ *             request.</p>
+ */
+export interface LoadBalancersConfig {
   /**
-   * <p>The destination.</p>
+   * <p>The Classic Load Balancers.</p>
    */
-  Destination?: AnalysisComponent;
-
-  /**
-   * <p>The destination VPC.</p>
-   */
-  DestinationVpc?: AnalysisComponent;
-
-  /**
-   * <p>The direction. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>egress</p>
-   *             </li>
-   *             <li>
-   *                <p>ingress</p>
-   *             </li>
-   *          </ul>
-   */
-  Direction?: string;
-
-  /**
-   * <p>The explanation code.</p>
-   */
-  ExplanationCode?: string;
-
-  /**
-   * <p>The route table.</p>
-   */
-  IngressRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The internet gateway.</p>
-   */
-  InternetGateway?: AnalysisComponent;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
-   */
-  LoadBalancerArn?: string;
-
-  /**
-   * <p>The listener for a Classic Load Balancer.</p>
-   */
-  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
-
-  /**
-   * <p>The listener port of the load balancer.</p>
-   */
-  LoadBalancerListenerPort?: number;
-
-  /**
-   * <p>The target.</p>
-   */
-  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
-
-  /**
-   * <p>The target group.</p>
-   */
-  LoadBalancerTargetGroup?: AnalysisComponent;
+  ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig;
 
   /**
    * <p>The target groups.</p>
    */
-  LoadBalancerTargetGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The target port.</p>
-   */
-  LoadBalancerTargetPort?: number;
-
-  /**
-   * <p>The load balancer listener.</p>
-   */
-  ElasticLoadBalancerListener?: AnalysisComponent;
-
-  /**
-   * <p>The missing component.</p>
-   */
-  MissingComponent?: string;
-
-  /**
-   * <p>The NAT gateway.</p>
-   */
-  NatGateway?: AnalysisComponent;
-
-  /**
-   * <p>The network interface.</p>
-   */
-  NetworkInterface?: AnalysisComponent;
-
-  /**
-   * <p>The packet field.</p>
-   */
-  PacketField?: string;
-
-  /**
-   * <p>The VPC peering connection.</p>
-   */
-  VpcPeeringConnection?: AnalysisComponent;
-
-  /**
-   * <p>The port.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The port ranges.</p>
-   */
-  PortRanges?: PortRange[];
-
-  /**
-   * <p>The prefix list.</p>
-   */
-  PrefixList?: AnalysisComponent;
-
-  /**
-   * <p>The protocols.</p>
-   */
-  Protocols?: string[];
-
-  /**
-   * <p>The route table route.</p>
-   */
-  RouteTableRoute?: AnalysisRouteTableRoute;
-
-  /**
-   * <p>The route table.</p>
-   */
-  RouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The security group.</p>
-   */
-  SecurityGroup?: AnalysisComponent;
-
-  /**
-   * <p>The security group rule.</p>
-   */
-  SecurityGroupRule?: AnalysisSecurityGroupRule;
-
-  /**
-   * <p>The security groups.</p>
-   */
-  SecurityGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The source VPC.</p>
-   */
-  SourceVpc?: AnalysisComponent;
-
-  /**
-   * <p>The state.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The subnet.</p>
-   */
-  Subnet?: AnalysisComponent;
-
-  /**
-   * <p>The route table for the subnet.</p>
-   */
-  SubnetRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The component VPC.</p>
-   */
-  Vpc?: AnalysisComponent;
-
-  /**
-   * <p>The VPC endpoint.</p>
-   */
-  VpcEndpoint?: AnalysisComponent;
-
-  /**
-   * <p>The VPN connection.</p>
-   */
-  VpnConnection?: AnalysisComponent;
-
-  /**
-   * <p>The VPN gateway.</p>
-   */
-  VpnGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway.</p>
-   */
-  TransitGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table.</p>
-   */
-  TransitGatewayRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table route.</p>
-   */
-  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
-
-  /**
-   * <p>The transit gateway attachment.</p>
-   */
-  TransitGatewayAttachment?: AnalysisComponent;
+  TargetGroupsConfig?: TargetGroupsConfig;
 }
 
-export namespace Explanation {
+export namespace LoadBalancersConfig {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: Explanation): any => ({
+  export const filterSensitiveLog = (obj: LoadBalancersConfig): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes a network insights analysis.</p>
+ * <p>Describes the configuration of a Spot Fleet request.</p>
  */
-export interface NetworkInsightsAnalysis {
+export interface SpotFleetRequestConfigData {
   /**
-   * <p>The ID of the network insights analysis.</p>
+   * <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
+   *             the Spot Fleet request.</p>
+   *         <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from
+   *             the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>
+   *         <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from
+   *             all the Spot Instance pools that you specify.</p>
+   *         <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet
+   *             launches instances from Spot Instance pools with optimal capacity for the number of instances
+   *             that are launching. To give certain instance types a higher chance of launching first,
+   *             use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
+   *             using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You
+   *             can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2
+   *             implements the priorities on a best-effort basis, but optimizes for capacity first.
+   *                 <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
+   *             launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
+   *                 <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *             capacity.</p>
    */
-  NetworkInsightsAnalysisId?: string;
+  AllocationStrategy?: AllocationStrategy | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network insights analysis.</p>
+   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
+   *             you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order, launching
+   *             the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the priority
+   *             that you assign to each Spot Fleet launch template override, launching the highest priority
+   *             first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
    */
-  NetworkInsightsAnalysisArn?: string;
+  OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
 
   /**
-   * <p>The ID of the path.</p>
+   * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+   *             interrupted.</p>
    */
-  NetworkInsightsPathId?: string;
+  SpotMaintenanceStrategies?: SpotMaintenanceStrategies;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of your
+   *             listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
-  FilterInArns?: string[];
+  ClientToken?: string;
 
   /**
-   * <p>The time the analysis started.</p>
+   * <p>Indicates whether running Spot Instances should be terminated if you decrease the
+   *             target capacity of the Spot Fleet request below the current size of the Spot
+   *             Fleet.</p>
    */
-  StartDate?: Date;
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 
   /**
-   * <p>The status of the network insights analysis.</p>
+   * <p>The number of units fulfilled by this request compared to the set target capacity. You
+   *             cannot set this value.</p>
    */
-  Status?: AnalysisStatus | string;
+  FulfilledCapacity?: number;
 
   /**
-   * <p>The status message, if the status is <code>failed</code>.</p>
+   * <p>The number of On-Demand units fulfilled by this request compared to the set target
+   *             On-Demand capacity.</p>
    */
-  StatusMessage?: string;
+  OnDemandFulfilledCapacity?: number;
 
   /**
-   * <p>The warning message.</p>
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
+   *             grants the Spot Fleet the permission to request, launch, terminate, and tag instances on
+   *             your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
+   *                 Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet
+   *             can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
+   *                 <code>TerminateInstancesWithExpiration</code>.</p>
    */
-  WarningMessage?: string;
+  IamFleetRole: string | undefined;
 
   /**
-   * <p>Indicates whether the destination is reachable from the source.</p>
+   * <p>The launch specifications for the Spot Fleet request. If you specify
+   *                 <code>LaunchSpecifications</code>, you can't specify
+   *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
+   *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  NetworkPathFound?: boolean;
+  LaunchSpecifications?: SpotFleetLaunchSpecification[];
 
   /**
-   * <p>The components in the path from source to destination.</p>
+   * <p>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
+   *             you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
+   *             in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  ForwardPathComponents?: PathComponent[];
+  LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
-   * <p>The components in the path from destination to source.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The
+   *             default is the On-Demand price.</p>
    */
-  ReturnPathComponents?: PathComponent[];
+  SpotPrice?: string;
 
   /**
-   * <p>The explanations. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+   * <p>The number of units to request for the Spot Fleet. You can choose to set the target
+   *             capacity in terms of instances or a performance characteristic that is important to your
+   *             application workload, such as vCPUs, memory, or I/O. If the request type is
+   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
+   *             later.</p>
    */
-  Explanations?: Explanation[];
+  TargetCapacity: number | undefined;
 
   /**
-   * <p>Potential intermediate components.</p>
+   * <p>The number of On-Demand units to request. You can choose to set the target capacity in
+   *             terms of instances or a performance characteristic that is important to your application
+   *             workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
+   *             you can specify a target capacity of 0 and add capacity later.</p>
    */
-  AlternatePathHints?: AlternatePathHint[];
+  OnDemandTargetCapacity?: number;
 
   /**
-   * <p>The tags.</p>
+   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay. You
+   *             can use the <code>onDemandMaxTotalPrice</code> parameter, the
+   *                 <code>spotMaxTotalPrice</code> parameter, or both parameters to ensure that your
+   *             fleet cost does not exceed your budget. If you set a maximum price per hour for the
+   *             On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the
+   *             maximum amount you're willing to pay. When the maximum amount you're willing to pay is
+   *             reached, the fleet stops launching instances even if it hasn’t met the target
+   *             capacity.</p>
    */
-  Tags?: Tag[];
+  OnDemandMaxTotalPrice?: string;
+
+  /**
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use
+   *             the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
+   *             parameter, or both parameters to ensure that your fleet cost does not exceed your
+   *             budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request,
+   *             Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay.
+   *             When the maximum amount you're willing to pay is reached, the fleet stops launching
+   *             instances even if it hasn’t met the target capacity.</p>
+   */
+  SpotMaxTotalPrice?: string;
+
+  /**
+   * <p>Indicates whether running Spot Instances are terminated when the Spot Fleet request
+   *             expires.</p>
+   */
+  TerminateInstancesWithExpiration?: boolean;
+
+  /**
+   * <p>The type of request. Indicates whether the Spot Fleet only requests the target
+   *             capacity or also attempts to maintain it. When this value is <code>request</code>, the
+   *             Spot Fleet only places the required requests. It does not attempt to replenish Spot
+   *             Instances if capacity is diminished, nor does it submit requests in alternative Spot
+   *             pools if capacity is not available. When this value is <code>maintain</code>, the Spot
+   *             Fleet maintains the target capacity. The Spot Fleet places the required requests to meet
+   *             capacity and automatically replenishes any interrupted instances. Default:
+   *                 <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
+   *             Fleet.</p>
+   */
+  Type?: FleetType | string;
+
+  /**
+   * <p>The start date and time of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             By default, Amazon EC2 starts fulfilling the request immediately.</p>
+   */
+  ValidFrom?: Date;
+
+  /**
+   * <p>The end date and time of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill
+   *             the request. If no value is specified, the Spot Fleet request remains until you cancel
+   *             it.</p>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>Indicates whether Spot Fleet should replace unhealthy instances.</p>
+   */
+  ReplaceUnhealthyInstances?: boolean;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+
+  /**
+   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet
+   *             request. Spot Fleet registers the running Spot Instances with the specified Classic Load
+   *             Balancers and target groups.</p>
+   *         <p>With Network Load Balancers, Spot Fleet cannot register instances that have the
+   *             following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2,
+   *             M3, and T1.</p>
+   */
+  LoadBalancersConfig?: LoadBalancersConfig;
+
+  /**
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid
+   *             only when Spot <b>AllocationStrategy</b> is set to
+   *                 <code>lowest-price</code>. Spot Fleet selects the cheapest Spot pools and evenly
+   *             allocates your target Spot capacity across the number of Spot pools that you
+   *             specify.</p>
+   *         <p>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *             best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *             capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest
+   *             pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *             the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *             capacity, you might receive your full target capacity from fewer than the number of
+   *             pools that you specified.</p>
+   */
+  InstancePoolsToUseCount?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+
+  /**
+   * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
+   *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
+   *             Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+   *                 template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+   *                <code>SpotFleetTagSpecification</code>
+   *             </a> (valid only if you use
+   *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
-export namespace NetworkInsightsAnalysis {
+export namespace SpotFleetRequestConfigData {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NetworkInsightsAnalysis): any => ({
+  export const filterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
     ...obj,
   });
 }
 
-export interface DescribeNetworkInsightsAnalysesResult {
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ */
+export interface RunInstancesMonitoringEnabled {
   /**
-   * <p>Information about the network insights analyses.</p>
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
    */
-  NetworkInsightsAnalyses?: NetworkInsightsAnalysis[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
+  Enabled: boolean | undefined;
 }
 
-export namespace DescribeNetworkInsightsAnalysesResult {
+export namespace RunInstancesMonitoringEnabled {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAnalysesResult): any => ({
+  export const filterSensitiveLog = (obj: RunInstancesMonitoringEnabled): any => ({
     ...obj,
   });
 }
 
-export interface DescribeNetworkInsightsPathsRequest {
+/**
+ * <p>The targets to disassociate from the specified event window.</p>
+ */
+export interface InstanceEventWindowDisassociationRequest {
   /**
-   * <p>The IDs of the paths.</p>
+   * <p>The IDs of the instances to disassociate from the event window.</p>
    */
-  NetworkInsightsPathIds?: string[];
+  InstanceIds?: string[];
 
   /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
+   * <p>The instance tags to disassociate from the event window. Any instances associated with
+   *          the tags will be disassociated from the event window.</p>
+   */
+  InstanceTags?: Tag[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
+   */
+  DedicatedHostIds?: string[];
+}
+
+export namespace InstanceEventWindowDisassociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowDisassociationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
+ * 		       <note>
+ * 			         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
+ * 				<code>LaunchTemplateId</code>, but not both.</p>
+ * 		       </note>
+ */
+export interface FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  Version: string | undefined;
+}
+
+export namespace FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ */
+export interface FastLaunchSnapshotConfigurationRequest {
+  /**
+   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>
+   */
+  TargetResourceCount?: number;
+}
+
+export namespace FastLaunchSnapshotConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the destination for an export image task.</p>
+ */
+export interface ExportTaskS3LocationRequest {
+  /**
+   * <p>The destination Amazon S3 bucket.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix (logical hierarchy) in the bucket.</p>
+   */
+  S3Prefix?: string;
+}
+
+export namespace ExportTaskS3LocationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes integration options for Amazon Athena.</p>
+ */
+export interface AthenaIntegration {
+  /**
+   * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
+   */
+  IntegrationResultS3DestinationArn: string | undefined;
+
+  /**
+   * <p>The schedule for adding new partitions to the table.</p>
+   */
+  PartitionLoadFrequency: PartitionLoadFrequency | string | undefined;
+
+  /**
+   * <p>The start date for the partition.</p>
+   */
+  PartitionStartDate?: Date;
+
+  /**
+   * <p>The end date for the partition.</p>
+   */
+  PartitionEndDate?: Date;
+}
+
+export namespace AthenaIntegration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AthenaIntegration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes service integrations with VPC Flow logs.</p>
+ */
+export interface IntegrateServices {
+  /**
+   * <p>Information about the integration with Amazon Athena.</p>
+   */
+  AthenaIntegrations?: AthenaIntegration[];
+}
+
+export namespace IntegrateServices {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IntegrateServices): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The architecture type, virtualization type, and other attributes for the instance types.
+ *          When you specify instance attributes, Amazon EC2 will identify instance types with those
+ *          attributes.</p>
+ *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
+ *          <code>InstanceTypes</code>.</p>
+ */
+export interface InstanceRequirementsWithMetadataRequest {
+  /**
+   * <p>The architecture type.</p>
+   */
+  ArchitectureTypes?: (ArchitectureType | string)[];
+
+  /**
+   * <p>The virtualization type.</p>
+   */
+  VirtualizationTypes?: (VirtualizationType | string)[];
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
+}
+
+export namespace InstanceRequirementsWithMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirementsWithMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the client-specific data.</p>
+ */
+export interface ClientData {
+  /**
+   * <p>A user-defined comment about the disk upload.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The time that the disk upload ends.</p>
+   */
+  UploadEnd?: Date;
+
+  /**
+   * <p>The size of the uploaded disk image, in GiB.</p>
+   */
+  UploadSize?: number;
+
+  /**
+   * <p>The time that the disk upload starts.</p>
+   */
+  UploadStart?: Date;
+}
+
+export namespace ClientData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ */
+export interface UserBucket {
+  /**
+   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   */
+  S3Key?: string;
+}
+
+export namespace UserBucket {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserBucket): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the disk container object for an import image task.</p>
+ */
+export interface ImageDiskContainer {
+  /**
+   * <p>The description of the disk image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The block device mapping for the disk.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
+   *    Amazon S3 URL (s3://..)</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucket;
+}
+
+export namespace ImageDiskContainer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageDiskContainer): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request information of license configurations.</p>
+ */
+export interface ImportImageLicenseConfigurationRequest {
+  /**
+   * <p>The ARN of a license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+export namespace ImportImageLicenseConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a disk image.</p>
+ */
+export interface DiskImageDetail {
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   */
+  Bytes: number | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   */
+  Format: DiskImageFormat | string | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
+   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
+   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
+   *     Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   */
+  ImportManifestUrl: string | undefined;
+}
+
+export namespace DiskImageDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskImageDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an EBS volume.</p>
+ */
+export interface VolumeDetail {
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  Size: number | undefined;
+}
+
+export namespace VolumeDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VolumeDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a disk image.</p>
+ */
+export interface DiskImage {
+  /**
+   * <p>A description of the disk image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the disk image.</p>
+   */
+  Image?: DiskImageDetail;
+
+  /**
+   * <p>Information about the volume.</p>
+   */
+  Volume?: VolumeDetail;
+}
+
+export namespace DiskImage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskImage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the user data for an instance.</p>
+ */
+export interface UserData {
+  /**
+   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
+   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
+   */
+  Data?: string;
+}
+
+export namespace UserData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the launch specification for VM import.</p>
+ */
+export interface ImportInstanceLaunchSpecification {
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The architecture of the instance.</p>
+   */
+  Architecture?: ArchitectureValues | string;
+
+  /**
+   * <p>The security group IDs.</p>
+   */
+  GroupIds?: string[];
+
+  /**
+   * <p>The security group names.</p>
+   */
+  GroupNames?: string[];
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
+   *    operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+
+  /**
+   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
+   *    VM Import/Export User Guide.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>Indicates whether monitoring is enabled.</p>
+   */
+  Monitoring?: boolean;
+
+  /**
+   * <p>The placement information for the instance.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the instance.</p>
+   */
+  UserData?: UserData;
+}
+
+export namespace ImportInstanceLaunchSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
+    ...obj,
+    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The disk container object for the import snapshot request.</p>
+ */
+export interface SnapshotDiskContainer {
+  /**
+   * <p>The description of the disk image being imported.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
+   *    S3 URL (s3://..).</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucket;
+}
+
+export namespace SnapshotDiskContainer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the DNS server to be used.</p>
+ */
+export interface DnsServersOptionsModifyStructure {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
+   * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
+   * 			overwrite the existing values.</p>
+   */
+  CustomDnsServers?: string[];
+
+  /**
+   * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
+   * 			servers.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace DnsServersOptionsModifyStructure {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DnsServersOptionsModifyStructure): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a load permission.</p>
+ */
+export interface LoadPermissionRequest {
+  /**
+   * <p>The name of the group.</p>
+   */
+  Group?: PermissionGroup | string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  UserId?: string;
+}
+
+export namespace LoadPermissionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoadPermissionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
+ */
+export interface LoadPermissionModifications {
+  /**
+   * <p>The load permissions to add.</p>
+   */
+  Add?: LoadPermissionRequest[];
+
+  /**
+   * <p>The load permissions to remove.</p>
+   */
+  Remove?: LoadPermissionRequest[];
+}
+
+export namespace LoadPermissionModifications {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoadPermissionModifications): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch permission modification.</p>
+ */
+export interface LaunchPermissionModifications {
+  /**
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
+   */
+  Add?: LaunchPermission[];
+
+  /**
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
+   */
+  Remove?: LaunchPermission[];
+}
+
+export namespace LaunchPermissionModifications {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes information used to set up an EBS volume specified in a block device
+ *             mapping.</p>
+ */
+export interface EbsInstanceBlockDeviceSpecification {
+  /**
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The ID of the EBS volume.</p>
+   */
+  VolumeId?: string;
+}
+
+export namespace EbsInstanceBlockDeviceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping entry.</p>
+ */
+export interface InstanceBlockDeviceMappingSpecification {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsInstanceBlockDeviceSpecification;
+
+  /**
+   * <p>suppress the specified device included in the block device mapping.</p>
+   */
+  NoDevice?: string;
+
+  /**
+   * <p>The virtual device name.</p>
+   */
+  VirtualName?: string;
+}
+
+export namespace InstanceBlockDeviceMappingSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceBlockDeviceMappingSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface BlobAttributeValue {
+  Value?: Uint8Array;
+}
+
+export namespace BlobAttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
+ * 			at a time. If you specify <code>CapacityReservationPreference</code> and
+ * 			<code>CapacityReservationTarget</code>, the request fails.</p>
+ * 			      <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
+ * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
+ * 			matching attributes (instance type, platform, Availability Zone). Use the
+ * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
+ * 			   	Capacity Reservation or a Capacity Reservation group.</p>
+ */
+export interface CapacityReservationSpecification {
+  /**
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
+   * 		       <ul>
    *             <li>
-   *                <p>Destination - The ID of the resource.</p>
+   *                <p>
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
+   * 				(instance type, platform, Availability Zone).</p>
    *             </li>
    *             <li>
-   *                <p>DestinationPort - The destination port.</p>
-   *             </li>
-   *             <li>
-   *                <p>Name - The path name.</p>
-   *             </li>
-   *             <li>
-   *                <p>Protocol - The protocol.</p>
-   *             </li>
-   *             <li>
-   *                <p>Source - The ID of the resource.</p>
+   *                <p>
+   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The
+   * 					instance runs as an On-Demand Instance.</p>
    *             </li>
    *          </ul>
    */
-  Filters?: Filter[];
+  CapacityReservationPreference?: CapacityReservationPreference | string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
    */
-  MaxResults?: number;
+  CapacityReservationTarget?: CapacityReservationTarget;
+}
+
+export namespace CapacityReservationSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
+ */
+export interface InstanceCreditSpecificationRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The credit option for CPU usage of the instance. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   *         <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
+   *             CPU credit option.</p>
+   */
+  CpuCredits?: string;
+}
+
+export namespace InstanceCreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
+ *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>
+ *          </p>
+ */
+export interface RemoveIpamOperatingRegion {
+  /**
+   * <p>The name of the operating Region you want to remove.</p>
+   */
+  RegionName?: string;
+}
+
+export namespace RemoveIpamOperatingRegion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveIpamOperatingRegion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An entry for a prefix list.</p>
+ */
+export interface RemovePrefixListEntry {
+  /**
+   * <p>The CIDR block.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export namespace RemovePrefixListEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemovePrefixListEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an attachment change.</p>
+ */
+export interface NetworkInterfaceAttachmentChanges {
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+}
+
+export namespace NetworkInterfaceAttachmentChanges {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceAttachmentChanges): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ *         <p>You must specify exactly one of the following parameters, based on the rule type:</p>
+ *         <ul>
+ *             <li>
+ *                <p>CidrIpv4</p>
+ *             </li>
+ *             <li>
+ *                <p>CidrIpv6</p>
+ *             </li>
+ *             <li>
+ *                <p>PrefixListId</p>
+ *             </li>
+ *             <li>
+ *                <p>ReferencedGroupId</p>
+ *             </li>
+ *          </ul>
+ *         <p>When you modify a rule, you cannot change the rule type. For example, if the rule
+ *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
+ *             address range.</p>
+ */
+export interface SecurityGroupRuleRequest {
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   */
+  CidrIpv4?: string;
+
+  /**
+   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The ID of the security group that is referenced in the security group rule.</p>
+   */
+  ReferencedGroupId?: string;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   */
+  Description?: string;
+}
+
+export namespace SecurityGroupRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an update to a security group rule.</p>
+ */
+export interface SecurityGroupRuleUpdate {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>Information about the security group rule.</p>
+   */
+  SecurityGroupRule?: SecurityGroupRuleRequest;
+}
+
+export namespace SecurityGroupRuleUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes modifications to the list of create volume permissions for a volume.</p>
+ */
+export interface CreateVolumePermissionModifications {
+  /**
+   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
+   */
+  Add?: CreateVolumePermission[];
+
+  /**
+   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
+   */
+  Remove?: CreateVolumePermission[];
+}
+
+export namespace CreateVolumePermissionModifications {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumePermissionModifications): any => ({
+    ...obj,
+  });
+}
+
+export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
+
+export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
+
+/**
+ * <p>The transit gateway options.</p>
+ */
+export interface ModifyTransitGatewayOptions {
+  /**
+   * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   */
+  AddTransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>Removes CIDR blocks for the transit gateway.</p>
+   */
+  RemoveTransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+
+  /**
+   * <p>Enable or disable DNS support.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Enable or disable automatic acceptance of attachment requests.</p>
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+
+  /**
+   * <p>Enable or disable automatic association with the default association route table.</p>
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+
+  /**
+   * <p>The ID of the default association route table.</p>
+   */
+  AssociationDefaultRouteTableId?: string;
+
+  /**
+   * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+
+  /**
+   * <p>The ID of the default propagation route table.</p>
+   */
+  PropagationDefaultRouteTableId?: string;
+}
+
+export namespace ModifyTransitGatewayOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the options for a VPC attachment.</p>
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   */
+  Ipv6Support?: Ipv6SupportValue | string;
+
+  /**
+   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   */
+  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+}
+
+export namespace ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The VPC peering connection options.</p>
+ */
+export interface PeeringConnectionOptionsRequest {
+  /**
+   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.</p>
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
+   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from instances in a local VPC to an
+   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+export namespace PeeringConnectionOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
+ */
+export interface ModifyVpnTunnelOptionsSpecification {
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.0.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.1.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.2.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.3.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.4.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.5.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.169.252/30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TunnelInsideCidr?: string;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
+   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   */
+  TunnelInsideIpv6Cidr?: string;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and the customer gateway.</p>
+   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
+   */
+  PreSharedKey?: string;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   *         <p>Constraints: A value between 900 and 28,800.</p>
+   *         <p>Default: <code>28800</code>
+   *          </p>
+   */
+  Phase1LifetimeSeconds?: number;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
+   *         <p>Default: <code>3600</code>
+   *          </p>
+   */
+  Phase2LifetimeSeconds?: number;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
+   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *         <p>Default: <code>540</code>
+   *          </p>
+   */
+  RekeyMarginTimeSeconds?: number;
+
+  /**
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
+   *         <p>Constraints: A value between 0 and 100.</p>
+   *         <p>Default: <code>100</code>
+   *          </p>
+   */
+  RekeyFuzzPercentage?: number;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   *         <p>Constraints: A value between 64 and 2048.</p>
+   *         <p>Default: <code>1024</code>
+   *          </p>
+   */
+  ReplayWindowSize?: number;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   *         <p>Constraints: A value greater than or equal to 30.</p>
+   *         <p>Default: <code>30</code>
+   *          </p>
+   */
+  DPDTimeoutSeconds?: number;
+
+  /**
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          </p>
+   *         <p>Default: <code>clear</code>
+   *          </p>
+   */
+  DPDTimeoutAction?: string;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *          </p>
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
+   *          </p>
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          </p>
+   */
+  IKEVersions?: IKEVersionsRequestListValue[];
+
+  /**
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
+   *         <p>Valid Values: <code>add</code> | <code>start</code>
+   *          </p>
+   *         <p>Default: <code>add</code>
+   *          </p>
+   */
+  StartupAction?: string;
+}
+
+export namespace ModifyVpnTunnelOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature: string | undefined;
+}
+
+export namespace CidrAuthorizationContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ */
+export interface IpamCidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature?: string;
+}
+
+export namespace IpamCidrAuthorizationContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpamCidrAuthorizationContext): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the limit price of a Reserved Instance offering.</p>
+ */
+export interface ReservedInstanceLimitPrice {
+  /**
+   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   */
+  Amount?: number;
+
+  /**
+   * <p>The currency in which the <code>limitPrice</code> amount is specified.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+}
+
+export namespace ReservedInstanceLimitPrice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstanceLimitPrice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a request to purchase Scheduled Instances.</p>
+ */
+export interface PurchaseRequest {
+  /**
+   * <p>The number of instances.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The purchase token.</p>
+   */
+  PurchaseToken: string | undefined;
+}
+
+export namespace PurchaseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the tag keys to register for the current Region. You can either specify
+ *       	individual tag keys or register all tag keys in the current Region. You must specify either
+ *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+export interface RegisterInstanceTagAttributeRequest {
+  /**
+   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
+   *       	to register all tag keys.</p>
+   */
+  IncludeAllTagsOfInstance?: boolean;
+
+  /**
+   * <p>The tag keys to register.</p>
+   */
+  InstanceTagKeys?: string[];
+}
+
+export namespace RegisterInstanceTagAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterInstanceTagAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>The transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+}
+
+export namespace RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the attachment.</p>
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+export namespace RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcEndpointConnectionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The IDs of one or more VPC endpoints.</p>
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+export namespace RejectVpcEndpointConnectionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about the endpoints that were not rejected, if applicable.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace RejectVpcEndpointConnectionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcPeeringConnectionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+export namespace RejectVpcPeeringConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcPeeringConnectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace RejectVpcPeeringConnectionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseAddressRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
+   *       IP addresses.</p>
+   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
+   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you
+   *       receive an <code>InvalidParameterCombination</code> error.</p>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ReleaseAddressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseHostsRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts to release.</p>
+   */
+  HostIds: string[] | undefined;
+}
+
+export namespace ReleaseHostsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseHostsResult {
+  /**
+   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
+   */
+  Successful?: string[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
+   *             message.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace ReleaseHostsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseIpamPoolAllocationRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR of the allocation you want to release.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The ID of the allocation.</p>
+   */
+  IpamPoolAllocationId: string | undefined;
+}
+
+export namespace ReleaseIpamPoolAllocationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseIpamPoolAllocationResult {
+  /**
+   * <p>Indicates if the release was successful.</p>
+   */
+  Success?: boolean;
+}
+
+export namespace ReleaseIpamPoolAllocationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The ID of the existing IAM instance profile association.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
+}
+
+export namespace ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceNetworkAclAssociationRequest {
+  /**
+   * <p>The ID of the current association between the original network ACL and the subnet.</p>
+   */
+  AssociationId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -11447,56 +7961,899 @@ export interface DescribeNetworkInsightsPathsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The ID of the new network ACL to associate with the subnet.</p>
    */
-  NextToken?: string;
+  NetworkAclId: string | undefined;
 }
 
-export namespace DescribeNetworkInsightsPathsRequest {
+export namespace ReplaceNetworkAclAssociationRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsPathsRequest): any => ({
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
     ...obj,
   });
 }
 
-export interface DescribeNetworkInsightsPathsResult {
+export interface ReplaceNetworkAclAssociationResult {
   /**
-   * <p>Information about the paths.</p>
+   * <p>The ID of the new association.</p>
    */
-  NetworkInsightsPaths?: NetworkInsightsPath[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
+  NewAssociationId?: string;
 }
 
-export namespace DescribeNetworkInsightsPathsResult {
+export namespace ReplaceNetworkAclAssociationResult {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsPathsResult): any => ({
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
     ...obj,
   });
 }
 
-export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
- */
-export interface DescribeNetworkInterfaceAttributeRequest {
+export interface ReplaceNetworkAclEntryRequest {
   /**
-   * <p>The attribute of the network interface. This parameter is required.</p>
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   *                 <code>172.16.0.0/24</code>).</p>
    */
-  Attribute?: NetworkInterfaceAttribute | string;
+  CidrBlock?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to replace the egress rule.</p>
+   * 		       <p>Default: If no value is specified, we replace the ingress rule.</p>
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   */
+  IcmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the ACL.</p>
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   */
+  PortRange?: PortRange;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
+   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
+   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
+   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
+   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
+   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+   */
+  Protocol: string | undefined;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   */
+  RuleAction: RuleAction | string | undefined;
+
+  /**
+   * <p>The rule number of the entry to replace.</p>
+   */
+  RuleNumber: number | undefined;
+}
+
+export namespace ReplaceNetworkAclEntryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceRouteRequest {
+  /**
+   * <p>The IPv4 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of an internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
+   */
+  LocalTarget?: boolean;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+}
+
+export namespace ReplaceRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceRouteTableAssociationRequest {
+  /**
+   * <p>The association ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the new route table to associate with the subnet.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+export namespace ReplaceRouteTableAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceRouteTableAssociationResult {
+  /**
+   * <p>The ID of the new association.</p>
+   */
+  NewAssociationId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  AssociationState?: RouteTableAssociationState;
+}
+
+export namespace ReplaceRouteTableAssociationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceTransitGatewayRouteRequest {
+  /**
+   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>Indicates whether traffic matching this route is to be dropped.</p>
+   */
+  Blackhole?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ReplaceTransitGatewayRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceTransitGatewayRouteResult {
+  /**
+   * <p>Information about the modified route.</p>
+   */
+  Route?: TransitGatewayRoute;
+}
+
+export namespace ReplaceTransitGatewayRouteResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
+    ...obj,
+  });
+}
+
+export type ReportInstanceReasonCodes =
+  | "instance-stuck-in-state"
+  | "not-accepting-credentials"
+  | "other"
+  | "password-not-available"
+  | "performance-ebs-volume"
+  | "performance-instance-store"
+  | "performance-network"
+  | "performance-other"
+  | "unresponsive";
+
+export interface ReportInstanceStatusRequest {
+  /**
+   * <p>Descriptive text about the health state of your instance.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The time at which the reported instance health state ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The instances.</p>
+   */
+  Instances: string[] | undefined;
+
+  /**
+   * <p>The reason codes that describe the health state of your instance.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>unresponsive</code>: My instance is unresponsive.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>not-accepting-credentials</code>: My instance is not accepting my
+   *                     credentials.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>password-not-available</code>: A password is not available for my
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-network</code>: My instance is experiencing performance
+   *                     problems that I believe are network related.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-instance-store</code>: My instance is experiencing performance
+   *                     problems that I believe are related to the instance stores.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-ebs-volume</code>: My instance is experiencing performance
+   *                     problems that I believe are related to an EBS volume.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>performance-other</code>: My instance is experiencing performance
+   *                     problems.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>other</code>: [explain using the description parameter]</p>
+   *             </li>
+   *          </ul>
+   */
+  ReasonCodes: (ReportInstanceReasonCodes | string)[] | undefined;
+
+  /**
+   * <p>The time at which the reported instance health state began.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The status of all instances listed.</p>
+   */
+  Status: ReportStatusType | string | undefined;
+}
+
+export namespace ReportInstanceStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The configuration for the Spot Fleet request.</p>
+   */
+  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
+}
+
+export namespace RequestSpotFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of RequestSpotFleet.</p>
+ */
+export interface RequestSpotFleetResponse {
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId?: string;
+}
+
+export namespace RequestSpotFleetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the launch specification for an instance.</p>
+ */
+export interface RequestSpotLaunchSpecification {
+  /**
+   * <p>One or more security group IDs.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  AddressingType?: string;
+
+  /**
+   * <p>One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value.
+   *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
+   *            it is not blank and its encryption status is used for the volume encryption status.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The instance type. Only one instance type can be specified.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>Indicates whether basic or detailed monitoring is enabled for the instance.</p>
+   *          <p>Default: Disabled</p>
+   */
+  Monitoring?: RunInstancesMonitoringEnabled;
+
+  /**
+   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   *            subnet IDs and security group IDs using the network interface.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+
+  /**
+   * <p>The placement information for the instance.</p>
+   */
+  Placement?: SpotPlacement;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The ID of the subnet in which to launch the instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Base64-encoded user data for the instance. User data is limited to 16 KB.</p>
+   */
+  UserData?: string;
+}
+
+export namespace RequestSpotLaunchSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for RequestSpotInstances.</p>
+ */
+export interface RequestSpotInstancesRequest {
+  /**
+   * <p>The user-specified name for a logical grouping of requests.</p>
+   *         <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
+   *             Instances in the request are launched in the same Availability Zone. Instance proximity
+   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
+   *             applies only to requests for Spot Instances of the same instance type. Any additional
+   *             Spot Instance requests that are specified with the same Availability Zone group name are
+   *             launched in that same Availability Zone, as long as at least one instance from the group
+   *             is still active.</p>
+   *         <p>If there is no active instance running in the Availability Zone group that you specify
+   *             for a new Spot Instance request (all instances are terminated, the request is expired,
+   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
+   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
+   *             subsequent set of Spot Instances could be placed in a different zone from the original
+   *             request, even if you specified the same Availability Zone group.</p>
+   *         <p>Default: Instances are launched in any available Availability Zone.</p>
+   */
+  AvailabilityZoneGroup?: string;
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of Spot Instances to launch.</p>
+   *         <p>Default: 1</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
+   *             terminate together.</p>
+   *         <p>Default: Instances are launched and terminated individually</p>
+   */
+  LaunchGroup?: string;
+
+  /**
+   * <p>The launch specification.</p>
+   */
+  LaunchSpecification?: RequestSpotLaunchSpecification;
+
+  /**
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance. The
+   *             default is the On-Demand price.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   *         <p>Default: <code>one-time</code>
+   *         </p>
+   */
+  Type?: SpotInstanceType | string;
+
+  /**
+   * <p>The start date of the request. If this is a one-time request, the request becomes
+   *             active at this date and time and remains active until all instances launch, the request
+   *             expires, or the request is canceled. If the request is persistent, the request becomes
+   *             active at this date and time and remains active until it expires or is canceled.</p>
+   *         <p>The specified start date and time cannot be equal to the current date and time. You
+   *             must specify a start date and time that occurs after the current date and time.</p>
+   */
+  ValidFrom?: Date;
+
+  /**
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it. </p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
+   *                     reached. By default, the request is valid for 7 days from the date the request
+   *                     was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
+   *                 <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
+   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace RequestSpotInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of RequestSpotInstances.</p>
+ */
+export interface RequestSpotInstancesResult {
+  /**
+   * <p>One or more Spot Instance requests.</p>
+   */
+  SpotInstanceRequests?: SpotInstanceRequest[];
+}
+
+export namespace RequestSpotInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetAddressAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID.</p>
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The attribute of the IP address.</p>
+   */
+  Attribute: AddressAttributeName | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetAddressAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAddressAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetAddressAttributeResult {
+  /**
+   * <p>Information about the IP address.</p>
+   */
+  Address?: AddressAttribute;
+}
+
+export namespace ResetAddressAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAddressAttributeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetEbsDefaultKmsKeyIdRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetEbsDefaultKmsKeyIdRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetEbsDefaultKmsKeyIdResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace ResetEbsDefaultKmsKeyIdResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetFpgaImageAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   */
+  FpgaImageId: string | undefined;
+
+  /**
+   * <p>The attribute.</p>
+   */
+  Attribute?: ResetFpgaImageAttributeName | string;
+}
+
+export namespace ResetFpgaImageAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetFpgaImageAttributeResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ResetFpgaImageAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ResetImageAttribute.</p>
+ */
+export interface ResetImageAttributeRequest {
+  /**
+   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+   */
+  Attribute: ResetImageAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetImageAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetInstanceAttributeRequest {
+  /**
+   * <p>The attribute to reset.</p>
+   *         <important>
+   *             <p>You can only reset the following attributes: <code>kernel</code> |
+   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
+   *         </important>
+   */
+  Attribute: InstanceAttributeName | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace ResetInstanceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
+ */
+export interface ResetNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -11504,35 +8861,1496 @@ export interface DescribeNetworkInterfaceAttributeRequest {
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
+   */
+  SourceDestCheck?: string;
 }
 
-export namespace DescribeNetworkInterfaceAttributeRequest {
+export namespace ResetNetworkInterfaceAttributeRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeRequest): any => ({
+  export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetSnapshotAttributeRequest {
+  /**
+   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
+   *       be reset.</p>
+   */
+  Attribute: SnapshotAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetSnapshotAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreAddressToClassicRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp: string | undefined;
+}
+
+export namespace RestoreAddressToClassicRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreAddressToClassicResult {
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The move status for the IP address.</p>
+   */
+  Status?: Status | string;
+}
+
+export namespace RestoreAddressToClassicResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreImageFromRecycleBinRequest {
+  /**
+   * <p>The ID of the AMI to restore.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreImageFromRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreImageFromRecycleBinResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace RestoreImageFromRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreManagedPrefixListVersionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The version to restore.</p>
+   */
+  PreviousVersion: number | undefined;
+
+  /**
+   * <p>The current version number for the prefix list.</p>
+   */
+  CurrentVersion: number | undefined;
+}
+
+export namespace RestoreManagedPrefixListVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreManagedPrefixListVersionResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   */
+  PrefixList?: ManagedPrefixList;
+}
+
+export namespace RestoreManagedPrefixListVersionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The progress of the snapshot, as a percentage.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The time stamp when the snapshot was initiated.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The state of the snapshot.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>The ID of the volume that was used to create the snapshot.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  VolumeSize?: number;
+}
+
+export namespace RestoreSnapshotFromRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Specifies the number of days for which to temporarily restore an archived snapshot.
+   *       Required for temporary restores only. The snapshot will be automatically re-archived
+   *       after this period.</p>
+   *          <p>To temporarily restore an archived snapshot, specify the number of days and omit
+   *       the <b>PermanentRestore</b> parameter or set it to
+   *       <code>false</code>.</p>
+   */
+  TemporaryRestoreDays?: number;
+
+  /**
+   * <p>Indicates whether to permanently restore an archived snapshot. To permanently restore
+   *       an archived snapshot, specify <code>true</code> and omit the
+   *       <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
+   */
+  PermanentRestore?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotTierRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the snapshot restore process started.</p>
+   */
+  RestoreStartTime?: Date;
+
+  /**
+   * <p>For temporary restores only. The number of days for which the archived snapshot
+   *       is temporarily restored.</p>
+   */
+  RestoreDuration?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
+   *       restore. <code>false</code> indicates a temporary restore.</p>
+   */
+  IsPermanentRestore?: boolean;
+}
+
+export namespace RestoreSnapshotTierResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeClientVpnIngressRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
+   */
+  TargetNetworkCidr: string | undefined;
+
+  /**
+   * <p>The ID of the Active Directory group for which to revoke access. </p>
+   */
+  AccessGroupId?: string;
+
+  /**
+   * <p>Indicates whether access should be revoked for all clients.</p>
+   */
+  RevokeAllGroups?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RevokeClientVpnIngressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeClientVpnIngressResult {
+  /**
+   * <p>The current state of the authorization rule.</p>
+   */
+  Status?: ClientVpnAuthorizationRuleStatus;
+}
+
+export namespace RevokeClientVpnIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupEgressRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
+   *             number.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify a
+   *            destination security group.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify a destination security
+   *             group.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+}
+
+export namespace RevokeSecurityGroupEgressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupEgressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>The outbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+export namespace RevokeSecurityGroupEgressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupIngressRequest {
+  /**
+   * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,
+   *         use <code>-1</code> to specify all ICMP types.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ID of the security group. You must specify either the security group ID or the
+   *            security group name in the request. For security groups in a nondefault VPC, you must
+   *            specify the security group ID.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
+   *            security group ID or the security group name in the request.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
+   *         (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).
+   *         Use <code>-1</code> to specify all.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number,
+   *         use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+}
+
+export namespace RevokeSecurityGroupIngressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupIngressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>The inbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+export namespace RevokeSecurityGroupIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressResult): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
+ * <p>The CPU options for the instance. Both the core count and threads per core must be
+ *             specified in the request.</p>
  */
-export interface DescribeNetworkInterfaceAttributeResult {
+export interface CpuOptionsRequest {
   /**
-   * <p>The attachment (if any) of the network interface.</p>
+   * <p>The number of CPU cores for the instance.</p>
    */
-  Attachment?: NetworkInterfaceAttachment;
+  CoreCount?: number;
 
   /**
-   * <p>The description of the network interface.</p>
+   * <p>The number of threads per CPU core. To disable multithreading for the instance,
+   *             specify a value of <code>1</code>. Otherwise, specify the default value of
+   *                 <code>2</code>.</p>
    */
-  Description?: AttributeValue;
+  ThreadsPerCore?: number;
+}
+
+export namespace CpuOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *            Describes an elastic inference accelerator.
+ *         </p>
+ */
+export interface ElasticInferenceAccelerator {
+  /**
+   * <p>
+   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
+   *         </p>
+   */
+  Type: string | undefined;
 
   /**
-   * <p>The security groups associated with the network interface.</p>
+   * <p>
+   *             The number of elastic inference accelerators to attach to the instance.
+   *         </p>
+   *          <p>Default: 1</p>
    */
-  Groups?: GroupIdentifier[];
+  Count?: number;
+}
+
+export namespace ElasticInferenceAccelerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
+ *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
+ *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
+ *                 Guide</i>.</p>
+ */
+export interface EnclaveOptionsRequest {
+  /**
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
+   *                 <code>true</code>.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace EnclaveOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnclaveOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface HibernationOptionsRequest {
+  /**
+   * <p>If you set this parameter to <code>true</code>, your instance is enabled for
+   *             hibernation.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  Configured?: boolean;
+}
+
+export namespace HibernationOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for Spot Instances.</p>
+ */
+export interface SpotMarketOptions {
+  /**
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
+   *             the On-Demand price.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent
+   *             Spot Instance requests are only supported when the instance interruption behavior is
+   *             either <code>hibernate</code> or <code>stop</code>.</p>
+   */
+  SpotInstanceType?: SpotInstanceType | string;
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             Supported only for persistent requests.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
+   *                     remains active until all instances launch or you cancel the request.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace SpotMarketOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the market (purchasing) option for the instances.</p>
+ */
+export interface InstanceMarketOptionsRequest {
+  /**
+   * <p>The market type.</p>
+   */
+  MarketType?: MarketType | string;
+
+  /**
+   * <p>The options for Spot Instances.</p>
+   */
+  SpotOptions?: SpotMarketOptions;
+}
+
+export namespace InstanceMarketOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The launch template to use. You must specify either the launch template ID or launch
+ *             template name in the request, but not both.</p>
+ */
+export interface LaunchTemplateSpecification {
+  /**
+   * <p>The ID of the launch template.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   *         <p>Default: The default version for the launch template.</p>
+   */
+  Version?: string;
+}
+
+export namespace LaunchTemplateSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a license configuration.</p>
+ */
+export interface LicenseConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+export namespace LicenseConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LicenseConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The maintenance options for the instance.</p>
+ */
+export interface InstanceMaintenanceOptionsRequest {
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+}
+
+export namespace InstanceMaintenanceOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMaintenanceOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metadata options for the instance.</p>
+ */
+export interface InstanceMetadataOptionsRequest {
+  /**
+   * <p>The state of token usage for your instance metadata requests.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
+   *             returned. If you retrieve the IAM role credentials using a valid signed
+   *             token, the version 2.0 role credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a signed token header with any
+   *             instance metadata retrieval requests. In this state, retrieving the IAM
+   *             role credentials always returns the version 2.0 credentials; the version 1.0 credentials
+   *             are not available.</p>
+   *         <p>Default: <code>optional</code>
+   *          </p>
+   */
+  HttpTokens?: HttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances.</p>
+   *         <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
+   *         <p>Default: <code>enabled</code>
+   *          </p>
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+}
+
+export namespace InstanceMetadataOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMetadataOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsRequest {
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace PrivateDnsNameOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RunInstancesRequest {
+  /**
+   * <p>The block device mapping, which defines the EBS volumes and instance store volumes to
+   *             attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
+   *                 mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be specified
+   *             here or in a launch template.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>Default: <code>m1.small</code>
+   *          </p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
+   *             interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
+   *             cannot specify this option and the option to assign specific IPv6 addresses in the same
+   *             request. You can specify this option if you've specified a minimum number of instances
+   *             to launch.</p>
+   *         <p>You cannot specify this option and the network interfaces option in the same
+   *             request.</p>
+   */
+  Ipv6AddressCount?: number;
+
+  /**
+   * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the
+   *             primary network interface. You cannot specify this option and the option to assign a
+   *             number of IPv6 addresses in the same request. You cannot specify this option if you've
+   *             specified a minimum number of instances to launch.</p>
+   *         <p>You cannot specify this option and the network interfaces option in the same
+   *             request.</p>
+   */
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The ID of the kernel.</p>
+   *         <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
+   *                     <i>Amazon EC2 User Guide</i>.</p>
+   *         </important>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+   *         <important>
+   *             <p>If you do not specify a key pair, you can't connect to the instance unless you
+   *                 choose an AMI that is configured to allow users another way to log in.</p>
+   *         </important>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The maximum number of instances to launch. If you specify more instances than Amazon
+   *             EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible
+   *             number of instances above <code>MinCount</code>.</p>
+   *         <p>Constraints: Between 1 and the maximum number you're allowed for the specified
+   *             instance type. For more information about the default limits, and how to request an
+   *             increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I
+   *                 run in Amazon EC2</a> in the Amazon EC2 FAQ.</p>
+   */
+  MaxCount: number | undefined;
+
+  /**
+   * <p>The minimum number of instances to launch. If you specify a minimum that is more
+   *             instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
+   *             launches no instances.</p>
+   *         <p>Constraints: Between 1 and the maximum number you're allowed for the specified
+   *             instance type. For more information about the default limits, and how to request an
+   *             increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I
+   *                 run in Amazon EC2</a> in the Amazon EC2 General FAQ.</p>
+   */
+  MinCount: number | undefined;
+
+  /**
+   * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
+   */
+  Monitoring?: RunInstancesMonitoringEnabled;
+
+  /**
+   * <p>The placement for the instance.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
+   *             Check the kernel requirements for information about whether you need to specify a RAM
+   *             disk. To find kernel requirements, go to the Amazon Web Services Resource Center and
+   *             search for the kernel ID.</p>
+   *         <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
+   *                     <i>Amazon EC2 User Guide</i>.</p>
+   *         </important>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+   *         <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you
+   *             must use security group IDs instead.</p>
+   *         <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface.</p>
+   *         <p>Default: Amazon EC2 uses the default security group.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
+   *         <p>If you specify a network interface, you must specify any subnets as part of the
+   *             network interface.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The user data script to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
+   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
+   *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
+   *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
+   */
+  UserData?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. If you do not specify a client token, a randomly generated token is used for
+   *             the request to ensure idempotency.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 Idempotency</a>.</p>
+   *         <p>Constraints: Maximum 64 ASCII characters</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
+   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
+   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set
+   *                 <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can
+   *             terminate the instance by running the shutdown command from the instance.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  DisableApiTermination?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
+   *             instance types. Additional usage charges apply when using an EBS-optimized
+   *             instance.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of an IAM instance
+   *             profile.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   *         <p>Default: <code>stop</code>
+   *         </p>
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+
+  /**
+   * <p>The network interfaces to associate with the instance. If you specify a network
+   *             interface, you must specify any security groups and subnets as part of the network
+   *             interface.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+
+  /**
+   * <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
+   *             range of the subnet.</p>
+   *         <p>Only one private IP address can be designated as primary. You can't specify this
+   *             option if you've specified the option to designate a private IP address as the primary
+   *             IP address in a network interface specification. You cannot specify this option if
+   *             you're launching more than one instance in the request.</p>
+   *         <p>You cannot specify this option and the network interfaces option in the same
+   *             request.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
+   *             you can attach to your Windows instance to accelerate the graphics performance of your
+   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon EC2 Elastic GPUs</a> in
+   *             the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  ElasticGpuSpecification?: ElasticGpuSpecification[];
+
+  /**
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *         <p>You cannot specify accelerators from different generations in the same request.</p>
+   */
+  ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
+
+  /**
+   * <p>The tags to apply to the resources during launch. You can only tag instances and
+   *             volumes on launch. The specified tags are applied to all instances or volumes that are
+   *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The launch template to use to launch the instances. Any parameters that you specify in
+   *                 <a>RunInstances</a> override the same parameters in the launch template.
+   *             You can specify either the name or ID of a launch template, but not both.</p>
+   */
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The market (purchasing) option for the instances.</p>
+   *         <p>For <a>RunInstances</a>, persistent Spot Instance requests are
+   *             only supported when <b>InstanceInterruptionBehavior</b> is set
+   *             to either <code>hibernate</code> or <code>stop</code>.</p>
+   */
+  InstanceMarketOptions?: InstanceMarketOptionsRequest;
+
+  /**
+   * <p>The credit option for CPU usage of the burstable performance instance. Valid values
+   *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
+   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+   *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
+   *             instances)</p>
+   *
+   *         <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
+   *             supported.</p>
+   */
+  CreditSpecification?: CreditSpecificationRequest;
+
+  /**
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  CpuOptions?: CpuOptionsRequest;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
+   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
+   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
+   *             platform, Availability Zone).</p>
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecification;
+
+  /**
+   * <p>Indicates whether an instance is enabled for hibernation. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
+   *             instance.</p>
+   */
+  HibernationOptions?: HibernationOptionsRequest;
+
+  /**
+   * <p>The license configurations.</p>
+   */
+  LicenseSpecifications?: LicenseConfigurationRequest[];
+
+  /**
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptionsRequest;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
+   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
+   *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
+   *                 Guide</i>.</p>
+   *         <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
+   *             instance.</p>
+   */
+  EnclaveOptions?: EnclaveOptionsRequest;
+
+  /**
+   * <p>The options for the instance hostname. The default values are inherited from the
+   *             subnet.</p>
+   */
+  PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest;
+
+  /**
+   * <p>The maintenance and recovery options for the instance.</p>
+   */
+  MaintenanceOptions?: InstanceMaintenanceOptionsRequest;
+
+  /**
+   * <p>Indicates whether an instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.
+   *         </p>
+   */
+  DisableApiStop?: boolean;
+}
+
+export namespace RunInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
+    ...obj,
+    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Describes an EBS volume for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesEbs {
+  /**
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) to provision for an <code>io1</code> or <code>io2</code> volume, with a maximum
+   *    		ratio of 50 IOPS/GiB for <code>io1</code>, and 500 IOPS/GiB for <code>io2</code>. Range is 100 to 64,000 IOPS for
+   *    		volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on
+   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances built on the Nitro System</a>. Other instance families guarantee performance up to
+   *    		32,000 IOPS. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
+   *    		<i>Amazon EC2 User Guide</i>.</p>
+   *    	     <p>This parameter is valid only for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>) volumes.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   *          <p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The volume type. <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code> io2</code> for Provisioned IOPS SSD, Throughput Optimized HDD
+   *          for <code>st1</code>, Cold HDD for <code>sc1</code>, or <code>standard</code> for
+   *          Magnetic.</p>
+   *          <p>Default: <code>gp2</code>
+   *          </p>
+   */
+  VolumeType?: string;
+}
+
+export namespace ScheduledInstancesEbs {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesEbs): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesBlockDeviceMapping {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Parameters used to set up EBS volumes automatically when the instance is launched.</p>
+   */
+  Ebs?: ScheduledInstancesEbs;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
+   */
+  NoDevice?: string;
+
+  /**
+   * <p>The virtual device name (<code>ephemeral</code>N). Instance store volumes are numbered
+   *          starting from 0. An instance type with two available instance store volumes can specify mappings
+   *          for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of available instance store
+   *          volumes depends on the instance type. After you connect to the instance, you must mount the
+   *          volume.</p>
+   *          <p>Constraints: For M3 instances, you must specify instance store volumes in the block device
+   *          mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes
+   *          specified in the block device mapping for the AMI.</p>
+   */
+  VirtualName?: string;
+}
+
+export namespace ScheduledInstancesBlockDeviceMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesBlockDeviceMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IAM instance profile for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesIamInstanceProfile {
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name.</p>
+   */
+  Name?: string;
+}
+
+export namespace ScheduledInstancesIamInstanceProfile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesIamInstanceProfile): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesMonitoring {
+  /**
+   * <p>Indicates whether monitoring is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace ScheduledInstancesMonitoring {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesMonitoring): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv6 address.</p>
+ */
+export interface ScheduledInstancesIpv6Address {
+  /**
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+}
+
+export namespace ScheduledInstancesIpv6Address {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesIpv6Address): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a private IPv4 address for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesPrivateIpAddressConfig {
+  /**
+   * <p>Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * <p>The IPv4 address.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+export namespace ScheduledInstancesPrivateIpAddressConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledInstancesPrivateIpAddressConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network interface for a Scheduled Instance.</p>
+ */
+export interface ScheduledInstancesNetworkInterface {
+  /**
+   * <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The
+   *          public IPv4 address can only be assigned to a network interface for eth0, and can only be
+   *          assigned to a new network interface, not an existing one. You cannot specify more than one
+   *          network interface in the request. If launching into a default subnet, the default value is
+   *          <code>true</code>.</p>
+   */
+  AssociatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Indicates whether to delete the interface when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The index of the device for the network interface attachment.</p>
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.</p>
+   */
+  Ipv6AddressCount?: number;
+
+  /**
+   * <p>The specific IPv6 addresses from the subnet range.</p>
+   */
+  Ipv6Addresses?: ScheduledInstancesIpv6Address[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -11540,373 +10358,156 @@ export interface DescribeNetworkInterfaceAttributeResult {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
+   * <p>The IPv4 address of the network interface within the subnet.</p>
    */
-  SourceDestCheck?: AttributeBooleanValue;
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The private IPv4 addresses.</p>
+   */
+  PrivateIpAddressConfigs?: ScheduledInstancesPrivateIpAddressConfig[];
+
+  /**
+   * <p>The number of secondary private IPv4 addresses.</p>
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
 }
 
-export namespace DescribeNetworkInterfaceAttributeResult {
+export namespace ScheduledInstancesNetworkInterface {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeResult): any => ({
+  export const filterSensitiveLog = (obj: ScheduledInstancesNetworkInterface): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
+ * <p>Describes the placement for a Scheduled Instance.</p>
  */
-export interface DescribeNetworkInterfacePermissionsRequest {
+export interface ScheduledInstancesPlacement {
   /**
-   * <p>One or more network interface permission IDs.</p>
+   * <p>The Availability Zone.</p>
    */
-  NetworkInterfacePermissionIds?: string[];
+  AvailabilityZone?: string;
 
   /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.network-interface-permission-id</code> - The ID of the
-   * 				permission.</p>
-   *             </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.network-interface-id</code> - The ID of
-   * 					the network interface.</p>
-   * 			         </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p>
-   * 			         </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Service.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.permission</code> - The type of
-   * 					permission (<code>INSTANCE-ATTACH</code> |
-   * 					<code>EIP-ASSOCIATE</code>).</p>
-   * 			         </li>
-   *          </ul>
+   * <p>The name of the placement group.</p>
    */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
-   */
-  MaxResults?: number;
+  GroupName?: string;
 }
 
-export namespace DescribeNetworkInterfacePermissionsRequest {
+export namespace ScheduledInstancesPlacement {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsRequest): any => ({
+  export const filterSensitiveLog = (obj: ScheduledInstancesPlacement): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
+ * <p>Describes the launch specification for a Scheduled Instance.</p>
+ *          <p>If you are launching the Scheduled Instance in EC2-VPC, you must specify the ID of the subnet.
+ *           You can specify the subnet using either <code>SubnetId</code> or <code>NetworkInterface</code>.</p>
  */
-export interface DescribeNetworkInterfacePermissionsResult {
+export interface ScheduledInstancesLaunchSpecification {
   /**
-   * <p>The network interface permissions.</p>
+   * <p>The block device mapping entries.</p>
    */
-  NetworkInterfacePermissions?: NetworkInterfacePermission[];
+  BlockDeviceMappings?: ScheduledInstancesBlockDeviceMapping[];
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
-  NextToken?: string;
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: ScheduledInstancesIamInstanceProfile;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI).</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>Enable or disable monitoring for the instances.</p>
+   */
+  Monitoring?: ScheduledInstancesMonitoring;
+
+  /**
+   * <p>The network interfaces.</p>
+   */
+  NetworkInterfaces?: ScheduledInstancesNetworkInterface[];
+
+  /**
+   * <p>The placement information.</p>
+   */
+  Placement?: ScheduledInstancesPlacement;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the subnet in which to launch the instances.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The base64-encoded MIME user data.</p>
+   */
+  UserData?: string;
 }
 
-export namespace DescribeNetworkInterfacePermissionsResult {
+export namespace ScheduledInstancesLaunchSpecification {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsResult): any => ({
+  export const filterSensitiveLog = (obj: ScheduledInstancesLaunchSpecification): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains the parameters for DescribeNetworkInterfaces.</p>
+ * <p>Contains the parameters for RunScheduledInstances.</p>
  */
-export interface DescribeNetworkInterfacesRequest {
+export interface RunScheduledInstancesRequest {
   /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
-   *                     associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.primary</code> - Whether the private IPv4 address is the primary
-   *                     IP address associated with the network interface. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.association.public-ip</code> - The association ID returned when
-   *                     the network interface was associated with the Elastic IP address
-   *                     (IPv4).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.association-id</code> - The association ID returned when the
-   *                     network interface was associated with an IPv4 address.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.allocation-id</code> - The allocation ID returned when you
-   *                     allocated the Elastic IP address (IPv4) for your network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.ip-owner-id</code> - The owner of the Elastic IP address
-   *                     (IPv4) associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.public-ip</code> - The address of the Elastic IP address
-   *                     (IPv4) bound to the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		 		          <p>
-   *                   <code>association.public-dns-name</code> - The public DNS name for the network
-   *                     interface (IPv4).</p>
-   * 		 	        </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.device-index</code> - The device index to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>description</code> - The description of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>group-id</code> - The ID of a security group associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>group-name</code> - The name of a security group associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   *                   <p>
-   *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
-   *                     the network interface.</p>
-   *                </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
-   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>efa</code> |
-   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |
-   * 		               <code>interface</code> | <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> |
-   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> | <code>quicksight</code> |
-   * 		               <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>mac-address</code> - The MAC address of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>network-interface-id</code> - The ID of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>private-ip-address</code> - The private IPv4 address or addresses of the
-   *                     network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>requester-id</code> - The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service
-   * 		               (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking.
-   * 		            A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.
-   * 		            The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;
-   * 		            if a network interface is attached to an instance the status is <code>in-use</code>.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>subnet-id</code> - The ID of the subnet for the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the network interface.</p>
-   * 		          </li>
-   *          </ul>
+   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more network interface IDs.</p>
-   * 		       <p>Default: Describes all your network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you
-   *             can specify in a subsequent call to get the next set of results. You cannot specify this
-   *             parameter and the network interface IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeNetworkInterfacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeNetworkInterfaces.</p>
- */
-export interface DescribeNetworkInterfacesResult {
-  /**
-   * <p>Information about one or more network interfaces.</p>
-   */
-  NetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInterfacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePlacementGroupsRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>group-name</code> - The name of the placement group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement
-   *                     group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>state</code> - The state of the placement group (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>strategy</code> - The strategy of the placement group
-   *                         (<code>cluster</code> | <code>spread</code> |
-   *                     <code>partition</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
+  ClientToken?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -11916,61 +10517,85 @@ export interface DescribePlacementGroupsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The names of the placement groups.</p>
-   *         <p>Default: Describes all your placement groups, or only those otherwise
-   *             specified.</p>
+   * <p>The number of instances.</p>
+   *          <p>Default: 1</p>
    */
-  GroupNames?: string[];
+  InstanceCount?: number;
 
   /**
-   * <p>The IDs of the placement groups.</p>
+   * <p>The launch specification. You must match the instance type, Availability Zone,
+   *          network, and platform of the schedule that you purchased.</p>
    */
-  GroupIds?: string[];
+  LaunchSpecification: ScheduledInstancesLaunchSpecification | undefined;
+
+  /**
+   * <p>The Scheduled Instance ID.</p>
+   */
+  ScheduledInstanceId: string | undefined;
 }
 
-export namespace DescribePlacementGroupsRequest {
+export namespace RunScheduledInstancesRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
+  export const filterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
     ...obj,
   });
 }
 
-export interface DescribePlacementGroupsResult {
+/**
+ * <p>Contains the output of RunScheduledInstances.</p>
+ */
+export interface RunScheduledInstancesResult {
   /**
-   * <p>Information about the placement groups.</p>
+   * <p>The IDs of the newly launched instances.</p>
    */
-  PlacementGroups?: PlacementGroup[];
+  InstanceIdSet?: string[];
 }
 
-export namespace DescribePlacementGroupsResult {
+export namespace RunScheduledInstancesResult {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
+  export const filterSensitiveLog = (obj: RunScheduledInstancesResult): any => ({
     ...obj,
   });
 }
 
-export interface DescribePrefixListsRequest {
+export interface SearchLocalGatewayRoutesRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the local gateway route table.</p>
    */
-  DryRun?: boolean;
+  LocalGatewayRouteTableId: string | undefined;
 
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>prefix-list-id</code>: The ID of a prefix list.</p>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>prefix-list-name</code>: The name of a prefix list.</p>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter.
+   *                For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code>
+   *                as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The route type.</p>
    *             </li>
    *          </ul>
    */
@@ -11988,71 +10613,313 @@ export interface DescribePrefixListsRequest {
   NextToken?: string;
 
   /**
-   * <p>One or more prefix list IDs.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  PrefixListIds?: string[];
+  DryRun?: boolean;
 }
 
-export namespace DescribePrefixListsRequest {
+export namespace SearchLocalGatewayRoutesRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePrefixListsRequest): any => ({
+  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Describes prefixes for Amazon Web Services services.</p>
- */
-export interface PrefixList {
+export interface SearchLocalGatewayRoutesResult {
   /**
-   * <p>The IP address range of the Amazon Web Service.</p>
+   * <p>Information about the routes.</p>
    */
-  Cidrs?: string[];
+  Routes?: LocalGatewayRoute[];
 
-  /**
-   * <p>The ID of the prefix.</p>
-   */
-  PrefixListId?: string;
-
-  /**
-   * <p>The name of the prefix.</p>
-   */
-  PrefixListName?: string;
-}
-
-export namespace PrefixList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefixList): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePrefixListsResult {
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>All available prefix lists.</p>
-   */
-  PrefixLists?: PrefixList[];
 }
 
-export namespace DescribePrefixListsResult {
+export namespace SearchLocalGatewayRoutesResult {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePrefixListsResult): any => ({
+  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesResult): any => ({
     ...obj,
   });
 }
 
-export interface DescribePrincipalIdFormatRequest {
+export interface SearchTransitGatewayMulticastGroupsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>group-ip-address</code> - The IP address of the  transit gateway multicast group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>is-group-member</code> - The resource is a group member. Valid values are <code>true</code> | <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>is-group-source</code> - The resource is a group source. Valid values are <code>true</code> | <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>member-type</code> - The member type. Valid values are <code>igmp</code> | <code>static</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-type</code> - The type of resource. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>source-type</code> - The source type. Valid values are <code>igmp</code> | <code>static</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace SearchTransitGatewayMulticastGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchTransitGatewayMulticastGroupsResult {
+  /**
+   * <p>Information about the  transit gateway multicast group.</p>
+   */
+  MulticastGroups?: TransitGatewayMulticastGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchTransitGatewayMulticastGroupsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchTransitGatewayRoutesRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-type</code> - The attachment resource type. Valid values
+   *                     are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> |
+   *                         <code>peering</code> | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of route (<code>propagated</code> |
+   *                   <code>static</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of routes to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace SearchTransitGatewayRoutesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchTransitGatewayRoutesResult {
+  /**
+   * <p>Information about the routes.</p>
+   */
+  Routes?: TransitGatewayRoute[];
+
+  /**
+   * <p>Indicates whether there are additional routes available.</p>
+   */
+  AdditionalRoutesAvailable?: boolean;
+}
+
+export namespace SearchTransitGatewayRoutesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface SendDiagnosticInterruptRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace SendDiagnosticInterruptRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendDiagnosticInterruptRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace StartInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartInstancesResult {
+  /**
+   * <p>Information about the started instances.</p>
+   */
+  StartingInstances?: InstanceStateChange[];
+}
+
+export namespace StartInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface StartNetworkInsightsAccessScopeAnalysisRequest {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -12061,85 +10928,592 @@ export interface DescribePrincipalIdFormatRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The type of resource: <code>bundle</code> |
-   *             <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *             <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *             <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *             <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *             <code>network-acl</code> | <code>network-acl-association</code> |
-   *             <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *             <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *             <code>route-table-association</code> | <code>security-group</code> |
-   *             <code>snapshot</code> | <code>subnet</code> |
-   *             <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *             | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *             <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
+   * <p>The tags to apply.</p>
    */
-  Resources?: string[];
+  TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned NextToken value. </p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
+  ClientToken?: string;
 }
 
-export namespace DescribePrincipalIdFormatRequest {
+export namespace StartNetworkInsightsAccessScopeAnalysisRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatRequest): any => ({
+  export const filterSensitiveLog = (obj: StartNetworkInsightsAccessScopeAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartNetworkInsightsAccessScopeAnalysisResult {
+  /**
+   * <p>The Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysis?: NetworkInsightsAccessScopeAnalysis;
+}
+
+export namespace StartNetworkInsightsAccessScopeAnalysisResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartNetworkInsightsAccessScopeAnalysisResult): any => ({
+    ...obj,
+  });
+}
+
+export interface StartNetworkInsightsAnalysisRequest {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+   */
+  FilterInArns?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartNetworkInsightsAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartNetworkInsightsAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartNetworkInsightsAnalysisResult {
+  /**
+   * <p>Information about the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
+}
+
+export namespace StartNetworkInsightsAnalysisResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
+    ...obj,
+  });
+}
+
+export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   */
+  ServiceId: string | undefined;
+}
+
+export namespace StartVpcEndpointServicePrivateDnsVerificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartVpcEndpointServicePrivateDnsVerificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  ReturnValue?: boolean;
+}
+
+export namespace StartVpcEndpointServicePrivateDnsVerificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface StopInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
+   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p> Default: <code>false</code>
+   *          </p>
+   */
+  Hibernate?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
+   *             system caches or file system metadata. If you use this option, you must perform file
+   *             system check and repair procedures. This option is not recommended for Windows
+   *             instances.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  Force?: boolean;
+}
+
+export namespace StopInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopInstancesResult {
+  /**
+   * <p>Information about the stopped instances.</p>
+   */
+  StoppingInstances?: InstanceStateChange[];
+}
+
+export namespace StopInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface TerminateClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the client connection to be terminated.</p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
+   * 			the specified user. This option can only be used if the user has established up to five connections.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace TerminateClientVpnConnectionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TerminateClientVpnConnectionsResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The user who established the terminated client connections.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The current state of the client connections.</p>
+   */
+  ConnectionStatuses?: TerminateConnectionStatus[];
+}
+
+export namespace TerminateClientVpnConnectionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface TerminateInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   *         <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
+   *             smaller batches.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace TerminateInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TerminateInstancesResult {
+  /**
+   * <p>Information about the terminated instances.</p>
+   */
+  TerminatingInstances?: InstanceStateChange[];
+}
+
+export namespace TerminateInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TerminateInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UnassignIpv6AddressesRequest {
+  /**
+   * <p>The IPv6 addresses to unassign from the network interface.</p>
+   */
+  Ipv6Addresses?: string[];
+
+  /**
+   * <p>One or more IPv6 prefixes to unassign from the network interface.</p>
+   */
+  Ipv6Prefixes?: string[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+}
+
+export namespace UnassignIpv6AddressesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UnassignIpv6AddressesResult {
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The IPv6 addresses that have been unassigned from the network interface.</p>
+   */
+  UnassignedIpv6Addresses?: string[];
+
+  /**
+   * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
+   */
+  UnassignedIpv6Prefixes?: string[];
+}
+
+export namespace UnassignIpv6AddressesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>PrincipalIdFormat description</p>
+ * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
  */
-export interface PrincipalIdFormat {
+export interface UnassignPrivateIpAddressesRequest {
   /**
-   * <p>PrincipalIdFormatARN description</p>
+   * <p>The ID of the network interface.</p>
    */
-  Arn?: string;
+  NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>PrincipalIdFormatStatuses description</p>
+   * <p>The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.</p>
    */
-  Statuses?: IdFormat[];
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>The IPv4 prefixes to unassign from  the network interface.</p>
+   */
+  Ipv4Prefixes?: string[];
 }
 
-export namespace PrincipalIdFormat {
+export namespace UnassignPrivateIpAddressesRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PrincipalIdFormat): any => ({
+  export const filterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
     ...obj,
   });
 }
 
-export interface DescribePrincipalIdFormatResult {
+export interface UnmonitorInstancesRequest {
   /**
-   * <p>Information about the ID format settings for the ARN.</p>
+   * <p>The IDs of the instances.</p>
    */
-  Principals?: PrincipalIdFormat[];
+  InstanceIds: string[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  NextToken?: string;
+  DryRun?: boolean;
 }
 
-export namespace DescribePrincipalIdFormatResult {
+export namespace UnmonitorInstancesRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
+  export const filterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UnmonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   */
+  InstanceMonitorings?: InstanceMonitoring[];
+}
+
+export namespace UnmonitorInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the description of a security group rule.</p>
+ *         <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
+ */
+export interface SecurityGroupRuleDescription {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   */
+  Description?: string;
+}
+
+export namespace SecurityGroupRuleDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the security group. You must specify either the security group ID or the
+   * 			security group name in the request. For security groups in a nondefault VPC, you must
+   * 			specify the security group ID.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[Default VPC] The name of the security group. You must specify either the security group
+   * 			ID or the security group name in the request.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The IP permissions for the security group rule. You must specify either the IP permissions
+   * 		    or the description.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The description for the egress security group rules. You must specify either the
+   *             description or the IP permissions.</p>
+   */
+  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
+}
+
+export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace UpdateSecurityGroupRuleDescriptionsEgressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the security group. You must specify either the security group ID or the
+   * 			security group name in the request. For security groups in a nondefault VPC, you must
+   * 			specify the security group ID.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
+   * 			security group ID or the security group name in the request.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The IP permissions for the security group rule. You must specify either IP permissions
+   * 		    or a description.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>[VPC only] The description for the ingress security group rules. You must specify either
+   *             a description or IP permissions.</p>
+   */
+  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
+}
+
+export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace UpdateSecurityGroupRuleDescriptionsIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface WithdrawByoipCidrRequest {
+  /**
+   * <p>The address range, in CIDR notation.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace WithdrawByoipCidrRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface WithdrawByoipCidrResult {
+  /**
+   * <p>Information about the address pool.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace WithdrawByoipCidrResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
     ...obj,
   });
 }

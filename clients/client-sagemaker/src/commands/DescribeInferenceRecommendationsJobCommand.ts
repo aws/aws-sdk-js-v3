@@ -15,7 +15,7 @@ import {
 import {
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
   serializeAws_json1_1DescribeInferenceRecommendationsJobCommand,

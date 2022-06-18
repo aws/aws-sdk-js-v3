@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PauseClusterMessage } from "../models/models_0";
-import { PauseClusterResult } from "../models/models_1";
+import { PauseClusterMessage, PauseClusterResult } from "../models/models_0";
 import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

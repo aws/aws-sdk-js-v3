@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/models_2";
+import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListProcessingJobsCommand,
   serializeAws_json1_1ListProcessingJobsCommand,

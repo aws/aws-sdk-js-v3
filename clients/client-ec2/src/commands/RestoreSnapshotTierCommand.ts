@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_6";
+import { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_3";
 import {
   deserializeAws_ec2RestoreSnapshotTierCommand,
   serializeAws_ec2RestoreSnapshotTierCommand,

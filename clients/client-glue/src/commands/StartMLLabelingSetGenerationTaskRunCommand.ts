@@ -16,7 +16,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
   serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,

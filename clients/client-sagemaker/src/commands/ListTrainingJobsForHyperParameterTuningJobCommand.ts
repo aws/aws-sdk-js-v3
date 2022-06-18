@@ -15,7 +15,7 @@ import {
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
-} from "../models/models_3";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
   serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,

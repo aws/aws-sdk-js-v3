@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,

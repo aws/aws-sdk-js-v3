@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/models_1";
+import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListComplianceSummariesCommand,
   serializeAws_json1_1ListComplianceSummariesCommand,

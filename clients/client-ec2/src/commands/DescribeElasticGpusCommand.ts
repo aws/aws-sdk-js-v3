@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_3";
+import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeElasticGpusCommand,
   serializeAws_ec2DescribeElasticGpusCommand,

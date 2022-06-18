@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_1";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateCertificateCommand,
   serializeAws_restJson1AssociateCertificateCommand,

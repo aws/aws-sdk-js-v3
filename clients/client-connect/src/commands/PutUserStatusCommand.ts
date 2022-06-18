@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_1";
+import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutUserStatusCommand,
   serializeAws_restJson1PutUserStatusCommand,

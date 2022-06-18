@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
+import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PutComplianceItemsCommand,
   serializeAws_json1_1PutComplianceItemsCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_1";
+import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTemplatePermissionsCommand,
   serializeAws_restJson1UpdateTemplatePermissionsCommand,

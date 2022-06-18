@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult } from "../models/models_4";
+import { DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeVpcClassicLinkCommand,
   serializeAws_ec2DescribeVpcClassicLinkCommand,

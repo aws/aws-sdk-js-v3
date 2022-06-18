@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_1";
+import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFindingAggregatorCommand,
   serializeAws_restJson1DeleteFindingAggregatorCommand,

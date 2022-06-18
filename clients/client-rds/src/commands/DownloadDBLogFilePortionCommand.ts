@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
+import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_0";
 import {
   deserializeAws_queryDownloadDBLogFilePortionCommand,
   serializeAws_queryDownloadDBLogFilePortionCommand,

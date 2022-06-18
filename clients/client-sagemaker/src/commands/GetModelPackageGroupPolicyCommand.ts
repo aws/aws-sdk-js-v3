@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_2";
+import { GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetModelPackageGroupPolicyCommand,
   serializeAws_json1_1GetModelPackageGroupPolicyCommand,

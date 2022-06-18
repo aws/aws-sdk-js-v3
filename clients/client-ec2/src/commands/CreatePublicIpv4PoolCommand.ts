@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreatePublicIpv4PoolRequest, CreatePublicIpv4PoolResult } from "../models/models_1";
+import { CreatePublicIpv4PoolRequest, CreatePublicIpv4PoolResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreatePublicIpv4PoolCommand,
   serializeAws_ec2CreatePublicIpv4PoolCommand,

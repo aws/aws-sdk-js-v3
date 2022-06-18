@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAnalysisRequest, UpdateAnalysisResponse } from "../models/models_1";
+import { UpdateAnalysisRequest, UpdateAnalysisResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAnalysisCommand,
   serializeAws_restJson1UpdateAnalysisCommand,

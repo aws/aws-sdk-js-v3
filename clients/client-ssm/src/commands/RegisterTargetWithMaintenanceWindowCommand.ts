@@ -15,7 +15,7 @@ import {
 import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
   serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,

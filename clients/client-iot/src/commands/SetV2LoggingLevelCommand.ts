@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetV2LoggingLevelRequest } from "../models/models_2";
+import { SetV2LoggingLevelRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1SetV2LoggingLevelCommand,
   serializeAws_restJson1SetV2LoggingLevelCommand,

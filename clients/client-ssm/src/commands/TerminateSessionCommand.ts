@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TerminateSessionCommand,
   serializeAws_json1_1TerminateSessionCommand,

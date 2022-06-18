@@ -15,7 +15,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UploadPartOutput, UploadPartRequest } from "../models/models_1";
+import { UploadPartOutput, UploadPartRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlUploadPartCommand,
   serializeAws_restXmlUploadPartCommand,

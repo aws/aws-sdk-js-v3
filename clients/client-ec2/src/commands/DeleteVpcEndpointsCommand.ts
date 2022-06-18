@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_2";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand,

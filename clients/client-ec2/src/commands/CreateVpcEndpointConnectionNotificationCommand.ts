@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
-} from "../models/models_2";
+} from "../models/models_0";
 import {
   deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand,
   serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand,

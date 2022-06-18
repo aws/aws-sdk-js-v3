@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/models_1";
+import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePullRequestDescriptionCommand,
   serializeAws_json1_1UpdatePullRequestDescriptionCommand,

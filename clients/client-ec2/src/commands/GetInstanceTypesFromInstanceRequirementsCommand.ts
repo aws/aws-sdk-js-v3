@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
-} from "../models/models_5";
+} from "../models/models_2";
 import {
   deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
   serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartTriggerRequest, StartTriggerResponse } from "../models/models_2";
+import { StartTriggerRequest, StartTriggerResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartTriggerCommand,
   serializeAws_json1_1StartTriggerCommand,

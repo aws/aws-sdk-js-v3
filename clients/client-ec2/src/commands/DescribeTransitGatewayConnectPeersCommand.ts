@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeTransitGatewayConnectPeersRequest,
   DescribeTransitGatewayConnectPeersResult,
-} from "../models/models_4";
+} from "../models/models_1";
 import {
   deserializeAws_ec2DescribeTransitGatewayConnectPeersCommand,
   serializeAws_ec2DescribeTransitGatewayConnectPeersCommand,

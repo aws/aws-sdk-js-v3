@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_1";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,

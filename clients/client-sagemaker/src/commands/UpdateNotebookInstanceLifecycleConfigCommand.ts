@@ -15,7 +15,7 @@ import {
 import {
   UpdateNotebookInstanceLifecycleConfigInput,
   UpdateNotebookInstanceLifecycleConfigOutput,
-} from "../models/models_3";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_1";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeEndpointsCommand,
   serializeAws_restJson1DescribeEndpointsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagPolicyRequest } from "../models/models_1";
+import { UntagPolicyRequest } from "../models/models_0";
 import { deserializeAws_queryUntagPolicyCommand, serializeAws_queryUntagPolicyCommand } from "../protocols/Aws_query";
 
 export interface UntagPolicyCommandInput extends UntagPolicyRequest {}

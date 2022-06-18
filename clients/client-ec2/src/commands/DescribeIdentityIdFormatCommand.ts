@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_3";
+import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeIdentityIdFormatCommand,
   serializeAws_ec2DescribeIdentityIdFormatCommand,

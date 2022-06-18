@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartAutomationExecutionCommand,
   serializeAws_json1_1StartAutomationExecutionCommand,

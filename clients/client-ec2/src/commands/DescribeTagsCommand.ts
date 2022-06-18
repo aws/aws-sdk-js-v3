@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_4";
+import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_1";
 import { deserializeAws_ec2DescribeTagsCommand, serializeAws_ec2DescribeTagsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}

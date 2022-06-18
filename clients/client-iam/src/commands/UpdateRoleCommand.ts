@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateRoleRequest, UpdateRoleResponse } from "../models/models_1";
+import { UpdateRoleRequest, UpdateRoleResponse } from "../models/models_0";
 import { deserializeAws_queryUpdateRoleCommand, serializeAws_queryUpdateRoleCommand } from "../protocols/Aws_query";
 
 export interface UpdateRoleCommandInput extends UpdateRoleRequest {}

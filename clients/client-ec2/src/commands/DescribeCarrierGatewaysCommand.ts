@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeCarrierGatewaysRequest, DescribeCarrierGatewaysResult } from "../models/models_2";
+import { DescribeCarrierGatewaysRequest, DescribeCarrierGatewaysResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeCarrierGatewaysCommand,
   serializeAws_ec2DescribeCarrierGatewaysCommand,

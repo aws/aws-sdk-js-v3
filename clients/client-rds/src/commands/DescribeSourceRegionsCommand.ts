@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_1";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
   serializeAws_queryDescribeSourceRegionsCommand,

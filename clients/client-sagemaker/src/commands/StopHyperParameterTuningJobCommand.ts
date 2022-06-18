@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopHyperParameterTuningJobRequest } from "../models/models_3";
+import { StopHyperParameterTuningJobRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StopHyperParameterTuningJobCommand,
   serializeAws_json1_1StopHyperParameterTuningJobCommand,

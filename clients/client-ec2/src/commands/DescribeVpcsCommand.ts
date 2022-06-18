@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_4";
+import { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_2";
 import { deserializeAws_ec2DescribeVpcsCommand, serializeAws_ec2DescribeVpcsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}

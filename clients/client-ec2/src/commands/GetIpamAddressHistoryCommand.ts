@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetIpamAddressHistoryRequest, GetIpamAddressHistoryResult } from "../models/models_5";
+import { GetIpamAddressHistoryRequest, GetIpamAddressHistoryResult } from "../models/models_2";
 import {
   deserializeAws_ec2GetIpamAddressHistoryCommand,
   serializeAws_ec2GetIpamAddressHistoryCommand,

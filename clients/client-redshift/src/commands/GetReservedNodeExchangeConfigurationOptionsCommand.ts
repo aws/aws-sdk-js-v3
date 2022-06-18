@@ -15,7 +15,7 @@ import {
 import {
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
   serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,

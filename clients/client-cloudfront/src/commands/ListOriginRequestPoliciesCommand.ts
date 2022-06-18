@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListOriginRequestPoliciesRequest, ListOriginRequestPoliciesResult } from "../models/models_1";
+import { ListOriginRequestPoliciesRequest, ListOriginRequestPoliciesResult } from "../models/models_0";
 import {
   deserializeAws_restXmlListOriginRequestPoliciesCommand,
   serializeAws_restXmlListOriginRequestPoliciesCommand,

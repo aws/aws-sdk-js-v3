@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_1";
+import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartAssociationsOnceCommand,
   serializeAws_json1_1StartAssociationsOnceCommand,

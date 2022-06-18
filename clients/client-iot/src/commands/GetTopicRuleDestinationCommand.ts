@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetTopicRuleDestinationRequest, GetTopicRuleDestinationResponse } from "../models/models_1";
+import { GetTopicRuleDestinationRequest, GetTopicRuleDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTopicRuleDestinationCommand,
   serializeAws_restJson1GetTopicRuleDestinationCommand,

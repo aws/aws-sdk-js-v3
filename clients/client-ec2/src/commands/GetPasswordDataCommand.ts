@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_5";
+import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_2";
 import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}

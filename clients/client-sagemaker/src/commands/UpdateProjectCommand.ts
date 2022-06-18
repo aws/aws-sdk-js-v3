@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_3";
+import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
   serializeAws_json1_1UpdateProjectCommand,

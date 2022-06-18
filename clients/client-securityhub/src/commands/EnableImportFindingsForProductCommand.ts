@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse } from "../models/models_1";
+import { EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableImportFindingsForProductCommand,
   serializeAws_restJson1EnableImportFindingsForProductCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/models_4";
+import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/models_2";
 import {
   deserializeAws_ec2ExportTransitGatewayRoutesCommand,
   serializeAws_ec2ExportTransitGatewayRoutesCommand,

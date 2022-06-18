@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_1";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFlowDefinitionCommand,
   serializeAws_json1_1DescribeFlowDefinitionCommand,

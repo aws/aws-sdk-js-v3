@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_1";
+import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeReservedNodesCommand,
   serializeAws_queryDescribeReservedNodesCommand,

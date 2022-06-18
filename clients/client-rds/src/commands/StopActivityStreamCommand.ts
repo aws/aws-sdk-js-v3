@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_1";
+import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_0";
 import {
   deserializeAws_queryStopActivityStreamCommand,
   serializeAws_queryStopActivityStreamCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/models_1";
+import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartRelationalDatabaseCommand,
   serializeAws_json1_1StartRelationalDatabaseCommand,

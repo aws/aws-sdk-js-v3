@@ -16,7 +16,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   ListChannelsModeratedByAppInstanceUserRequest,
   ListChannelsModeratedByAppInstanceUserResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand,
   serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand,

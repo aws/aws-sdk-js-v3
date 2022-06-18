@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAssociationRequest, DeleteAssociationResponse } from "../models/models_1";
+import { DeleteAssociationRequest, DeleteAssociationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssociationCommand,
   serializeAws_json1_1DeleteAssociationCommand,

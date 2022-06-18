@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult } from "../models/models_5";
+import { MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult } from "../models/models_2";
 import {
   deserializeAws_ec2MoveByoipCidrToIpamCommand,
   serializeAws_ec2MoveByoipCidrToIpamCommand,

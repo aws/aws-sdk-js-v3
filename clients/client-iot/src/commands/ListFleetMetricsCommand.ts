@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListFleetMetricsRequest, ListFleetMetricsResponse } from "../models/models_1";
+import { ListFleetMetricsRequest, ListFleetMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFleetMetricsCommand,
   serializeAws_restJson1ListFleetMetricsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListManagedJobTemplatesRequest, ListManagedJobTemplatesResponse } from "../models/models_1";
+import { ListManagedJobTemplatesRequest, ListManagedJobTemplatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListManagedJobTemplatesCommand,
   serializeAws_restJson1ListManagedJobTemplatesCommand,

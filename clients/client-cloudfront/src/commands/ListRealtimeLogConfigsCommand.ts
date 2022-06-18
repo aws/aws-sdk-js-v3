@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListRealtimeLogConfigsRequest, ListRealtimeLogConfigsResult } from "../models/models_1";
+import { ListRealtimeLogConfigsRequest, ListRealtimeLogConfigsResult } from "../models/models_0";
 import {
   deserializeAws_restXmlListRealtimeLogConfigsCommand,
   serializeAws_restXmlListRealtimeLogConfigsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_6";
+import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_3";
 import {
   deserializeAws_ec2RevokeSecurityGroupIngressCommand,
   serializeAws_ec2RevokeSecurityGroupIngressCommand,

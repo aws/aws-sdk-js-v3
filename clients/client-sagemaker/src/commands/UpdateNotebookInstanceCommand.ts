@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_3";
+import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceCommand,
   serializeAws_json1_1UpdateNotebookInstanceCommand,

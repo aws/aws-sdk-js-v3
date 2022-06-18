@@ -15,7 +15,7 @@ import {
 import {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDeployablePatchSnapshotForInstanceResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
   serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,

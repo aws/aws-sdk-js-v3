@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterDevicesRequest } from "../models/models_3";
+import { RegisterDevicesRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1RegisterDevicesCommand,
   serializeAws_json1_1RegisterDevicesCommand,

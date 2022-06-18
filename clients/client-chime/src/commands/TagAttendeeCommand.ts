@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { TagAttendeeRequest } from "../models/models_1";
+import { TagAttendeeRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1TagAttendeeCommand,
   serializeAws_restJson1TagAttendeeCommand,

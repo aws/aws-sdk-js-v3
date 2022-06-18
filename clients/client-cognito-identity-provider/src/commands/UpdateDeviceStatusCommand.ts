@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_1";
+import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDeviceStatusCommand,
   serializeAws_json1_1UpdateDeviceStatusCommand,

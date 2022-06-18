@@ -15,7 +15,7 @@ import {
 import {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
   serializeAws_restJson1DisassociateFromAdministratorAccountCommand,

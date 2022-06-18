@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePatchGroupStateRequest, DescribePatchGroupStateResult } from "../models/models_1";
+import { DescribePatchGroupStateRequest, DescribePatchGroupStateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePatchGroupStateCommand,
   serializeAws_json1_1DescribePatchGroupStateCommand,

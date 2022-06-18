@@ -13,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ListJobsRequest } from "../models/models_1";
-import { ListJobsResponse } from "../models/models_2";
+import { ListJobsRequest, ListJobsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobsCommand,
   serializeAws_restJson1ListJobsCommand,

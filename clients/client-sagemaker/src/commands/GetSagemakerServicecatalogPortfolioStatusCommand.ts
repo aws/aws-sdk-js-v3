@@ -15,7 +15,7 @@ import {
 import {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-} from "../models/models_2";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
   serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,

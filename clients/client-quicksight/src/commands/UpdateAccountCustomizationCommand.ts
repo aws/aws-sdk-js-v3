@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAccountCustomizationRequest, UpdateAccountCustomizationResponse } from "../models/models_1";
+import { UpdateAccountCustomizationRequest, UpdateAccountCustomizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAccountCustomizationCommand,
   serializeAws_restJson1UpdateAccountCustomizationCommand,

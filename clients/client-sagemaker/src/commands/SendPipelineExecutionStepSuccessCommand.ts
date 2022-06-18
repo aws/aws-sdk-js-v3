@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_3";
+import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
   serializeAws_json1_1SendPipelineExecutionStepSuccessCommand,

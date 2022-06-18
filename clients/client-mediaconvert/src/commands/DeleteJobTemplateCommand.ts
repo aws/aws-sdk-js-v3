@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_1";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobTemplateCommand,
   serializeAws_restJson1DeleteJobTemplateCommand,

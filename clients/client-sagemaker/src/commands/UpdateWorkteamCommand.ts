@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_3";
+import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateWorkteamCommand,
   serializeAws_json1_1UpdateWorkteamCommand,

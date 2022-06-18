@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_0";
 import {
   deserializeAws_json1_1SendAutomationSignalCommand,
   serializeAws_json1_1SendAutomationSignalCommand,

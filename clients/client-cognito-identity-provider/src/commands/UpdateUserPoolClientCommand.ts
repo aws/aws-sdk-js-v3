@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateUserPoolClientRequest, UpdateUserPoolClientResponse } from "../models/models_1";
+import { UpdateUserPoolClientRequest, UpdateUserPoolClientResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateUserPoolClientCommand,
   serializeAws_json1_1UpdateUserPoolClientCommand,

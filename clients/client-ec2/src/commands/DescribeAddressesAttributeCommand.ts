@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_2";
+import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_1";
 import {
   deserializeAws_ec2DescribeAddressesAttributeCommand,
   serializeAws_ec2DescribeAddressesAttributeCommand,

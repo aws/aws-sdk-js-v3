@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand,

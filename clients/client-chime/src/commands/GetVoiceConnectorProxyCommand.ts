@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetVoiceConnectorProxyRequest, GetVoiceConnectorProxyResponse } from "../models/models_1";
+import { GetVoiceConnectorProxyRequest, GetVoiceConnectorProxyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetVoiceConnectorProxyCommand,
   serializeAws_restJson1GetVoiceConnectorProxyCommand,

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_1";
+import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchGroupsCommand,
   serializeAws_restJson1SearchGroupsCommand,

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSnapshotRequest } from "../models/models_2";
+import { DeleteSnapshotRequest } from "../models/models_0";
 import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}

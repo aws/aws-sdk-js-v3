@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_1";
+import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSessionEmbedUrlCommand,
   serializeAws_restJson1GetSessionEmbedUrlCommand,

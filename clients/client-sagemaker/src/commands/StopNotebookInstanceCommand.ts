@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopNotebookInstanceInput } from "../models/models_3";
+import { StopNotebookInstanceInput } from "../models/models_1";
 import {
   deserializeAws_json1_1StopNotebookInstanceCommand,
   serializeAws_json1_1StopNotebookInstanceCommand,

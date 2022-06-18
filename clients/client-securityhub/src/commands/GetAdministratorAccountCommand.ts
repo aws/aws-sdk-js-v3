@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_1";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAdministratorAccountCommand,
   serializeAws_restJson1GetAdministratorAccountCommand,

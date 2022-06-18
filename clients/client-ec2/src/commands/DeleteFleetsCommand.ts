@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
+import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_0";
 import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}

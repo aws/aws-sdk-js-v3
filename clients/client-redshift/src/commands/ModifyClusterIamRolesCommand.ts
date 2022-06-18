@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_1";
+import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_0";
 import {
   deserializeAws_queryModifyClusterIamRolesCommand,
   serializeAws_queryModifyClusterIamRolesCommand,
