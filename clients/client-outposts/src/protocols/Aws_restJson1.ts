@@ -56,6 +56,7 @@ import {
   AccessDeniedException,
   Address,
   AssetInfo,
+  AssetLocation,
   CatalogItem,
   ComputeAttributes,
   ConflictException,
@@ -2523,6 +2524,10 @@ const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1AssetInfo = (output: any, context: __SerdeContext): AssetInfo => {
   return {
     AssetId: __expectString(output.AssetId),
+    AssetLocation:
+      output.AssetLocation !== undefined && output.AssetLocation !== null
+        ? deserializeAws_restJson1AssetLocation(output.AssetLocation, context)
+        : undefined,
     AssetType: __expectString(output.AssetType),
     ComputeAttributes:
       output.ComputeAttributes !== undefined && output.ComputeAttributes !== null
@@ -2542,6 +2547,12 @@ const deserializeAws_restJson1AssetListDefinition = (output: any, context: __Ser
       return deserializeAws_restJson1AssetInfo(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AssetLocation = (output: any, context: __SerdeContext): AssetLocation => {
+  return {
+    RackElevation: __limitedParseFloat32(output.RackElevation),
+  } as any;
 };
 
 const deserializeAws_restJson1CatalogItem = (output: any, context: __SerdeContext): CatalogItem => {

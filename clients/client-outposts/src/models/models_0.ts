@@ -100,6 +100,29 @@ export enum AddressType {
   SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
 }
 
+/**
+ * <p>
+ *       Information about the position of the asset in a rack.
+ *     </p>
+ */
+export interface AssetLocation {
+  /**
+   * <p>
+   *       The position of an asset in a rack measured in rack units.
+   *     </p>
+   */
+  RackElevation?: number;
+}
+
+export namespace AssetLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssetLocation): any => ({
+    ...obj,
+  });
+}
+
 export enum AssetType {
   COMPUTE = "COMPUTE",
 }
@@ -160,6 +183,13 @@ export interface AssetInfo {
    *     </p>
    */
   ComputeAttributes?: ComputeAttributes;
+
+  /**
+   * <p>
+   *       The position of an asset in a rack.
+   *     </p>
+   */
+  AssetLocation?: AssetLocation;
 }
 
 export namespace AssetInfo {
