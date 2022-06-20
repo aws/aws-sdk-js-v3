@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.113.0...v3.114.0) (2022-06-20)
+
+
+### Features
+
+* **client-outposts:** This release adds the AssetLocation structure to the ListAssets response. AssetLocation includes the RackElevation for an Asset. ([f24a55d](https://github.com/aws/aws-sdk-js-v3/commit/f24a55df1d36841f729bdf706cf527f87083e303))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

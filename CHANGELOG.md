@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.113.0...v3.114.0) (2022-06-20)
+
+
+### Features
+
+* **client-directory-service:** This release adds support for describing and updating AWS Managed Microsoft AD settings ([64f990a](https://github.com/aws/aws-sdk-js-v3/commit/64f990ab6be784ac46dd5d296c0c2e0227ea7a21))
+* **client-outposts:** This release adds the AssetLocation structure to the ListAssets response. AssetLocation includes the RackElevation for an Asset. ([f24a55d](https://github.com/aws/aws-sdk-js-v3/commit/f24a55df1d36841f729bdf706cf527f87083e303))
+
+
+
+
+
 # [3.113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.112.0...v3.113.0) (2022-06-17)
 
 
