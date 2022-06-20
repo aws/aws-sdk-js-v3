@@ -34,8 +34,8 @@ export function marshall(data: Set<NativeAttributeBinary>, options?: marshallOpt
 export function marshall<M extends { [K in keyof M]: NativeAttributeValue }>(
   data: M,
   options?: marshallOptions
-): Record<string, AttributeValue>;
-export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue[];
+): AttributeValue.MMember;
+export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue.LMember;
 export function marshall(data: string, options?: marshallOptions): AttributeValue.SMember;
 export function marshall(data: number, options?: marshallOptions): AttributeValue.NMember;
 export function marshall(data: NativeAttributeBinary, options?: marshallOptions): AttributeValue.BMember;
@@ -43,22 +43,5 @@ export function marshall(data: null, options?: marshallOptions): AttributeValue.
 export function marshall(data: boolean, options?: marshallOptions): AttributeValue.BOOLMember;
 export function marshall(data: unknown, options?: marshallOptions): AttributeValue.$UnknownMember;
 export function marshall(data: unknown, options?: marshallOptions) {
-  const attributeValue: AttributeValue = convertToAttr(data, options);
-  const [key, value] = Object.entries(attributeValue)[0];
-  switch (key) {
-    case "M":
-    case "L":
-      return value;
-    case "SS":
-    case "NS":
-    case "BS":
-    case "S":
-    case "N":
-    case "B":
-    case "NULL":
-    case "BOOL":
-    case "$unknown":
-    default:
-      return attributeValue;
-  }
+  return convertToAttr(data, options);
 }

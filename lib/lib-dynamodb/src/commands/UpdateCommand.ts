@@ -59,7 +59,7 @@ export class UpdateCommand extends $Command<
     {
       key: "AttributeUpdates",
       children: {
-        children: [{ key: "Value" }],
+        children: [{ key: "Value", marshallTopLevelArrays: true }],
       },
     },
     {

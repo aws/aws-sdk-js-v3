@@ -43,17 +43,17 @@ describe("marshall type discernment", () => {
       const value = new Set([new Uint8Array([1, 0]), new Uint8Array([0, 1])]);
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
-  });
 
-  describe("unwraps one level for input data which are lists or maps", () => {
     it("marshals and unwraps map", () => {
       expect(marshall({ a: 1, b: { a: 2, b: [1, 2, 3] } })).toEqual({
-        a: { N: "1" },
-        b: {
-          M: {
-            a: { N: "2" },
-            b: {
-              L: [{ N: "1" }, { N: "2" }, { N: "3" }],
+        M: {
+          a: { N: "1" },
+          b: {
+            M: {
+              a: { N: "2" },
+              b: {
+                L: [{ N: "1" }, { N: "2" }, { N: "3" }],
+              },
             },
           },
         },
@@ -61,7 +61,7 @@ describe("marshall type discernment", () => {
     });
 
     it("marshals and unwraps list", () => {
-      expect(marshall(["test", 2, null])).toEqual([{ S: "test" }, { N: "2" }, { NULL: true }]);
+      expect(marshall(["test", 2, null])).toEqual({ L: [{ S: "test" }, { N: "2" }, { NULL: true }] });
     });
   });
 });

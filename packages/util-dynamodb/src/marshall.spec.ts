@@ -4,8 +4,8 @@ import { marshall } from "./marshall";
 jest.mock("./convertToAttr");
 
 describe("marshall", () => {
-  const mockOutput = { S: "mockOutput" };
-  (convertToAttr as jest.Mock).mockReturnValue({ M: mockOutput });
+  const mockOutput = { M: { S: "mockOutput" } };
+  (convertToAttr as jest.Mock).mockReturnValue(mockOutput);
 
   afterEach(() => {
     jest.clearAllMocks();

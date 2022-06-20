@@ -89,4 +89,32 @@ describe("marshallInput for commands", () => {
     };
     expect(marshallInput(input, inputKeyNodes)).toEqual(output);
   });
+
+  it("marshals UpdateCommand input", () => {
+    const input = {
+      AttributeUpdates: {
+        stringAttr: { Action: "PUT", Value: "Some string value" },
+        numberAttr: { Action: "PUT", Value: 12345 },
+        listAttr: { Action: "PUT", Value: ["list item 1", "list item 2"] },
+      },
+    };
+
+    const inputKeyNodes = [
+      {
+        key: "AttributeUpdates",
+        children: {
+          children: [{ key: "Value", marshallTopLevelArrays: true }],
+        },
+      },
+    ];
+
+    const output = {
+      AttributeUpdates: {
+        stringAttr: { Action: "PUT", Value: { S: "Some string value" } },
+        numberAttr: { Action: "PUT", Value: { N: "12345" } },
+        listAttr: { Action: "PUT", Value: { L: [{ S: "list item 1" }, { S: "list item 2" }] } },
+      },
+    };
+    expect(marshallInput(input, inputKeyNodes)).toEqual(output);
+  });
 });
