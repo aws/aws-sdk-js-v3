@@ -127,6 +127,7 @@ import {
   DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
 import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand";
+import { DescribeSettingsCommandInput, DescribeSettingsCommandOutput } from "./commands/DescribeSettingsCommand";
 import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -198,6 +199,7 @@ import {
   UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand";
 import { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "./commands/UpdateRadiusCommand";
+import { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "./commands/UpdateSettingsCommand";
 import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
 import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -232,6 +234,7 @@ export type ServiceInputTypes =
   | DescribeEventTopicsCommandInput
   | DescribeLDAPSSettingsCommandInput
   | DescribeRegionsCommandInput
+  | DescribeSettingsCommandInput
   | DescribeSharedDirectoriesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeTrustsCommandInput
@@ -264,6 +267,7 @@ export type ServiceInputTypes =
   | UpdateConditionalForwarderCommandInput
   | UpdateNumberOfDomainControllersCommandInput
   | UpdateRadiusCommandInput
+  | UpdateSettingsCommandInput
   | UpdateTrustCommandInput
   | VerifyTrustCommandInput;
 
@@ -297,6 +301,7 @@ export type ServiceOutputTypes =
   | DescribeEventTopicsCommandOutput
   | DescribeLDAPSSettingsCommandOutput
   | DescribeRegionsCommandOutput
+  | DescribeSettingsCommandOutput
   | DescribeSharedDirectoriesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeTrustsCommandOutput
@@ -329,6 +334,7 @@ export type ServiceOutputTypes =
   | UpdateConditionalForwarderCommandOutput
   | UpdateNumberOfDomainControllersCommandOutput
   | UpdateRadiusCommandOutput
+  | UpdateSettingsCommandOutput
   | UpdateTrustCommandOutput
   | VerifyTrustCommandOutput;
 

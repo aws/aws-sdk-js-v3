@@ -1143,6 +1143,7 @@ export enum ClientAuthenticationStatus {
 
 export enum ClientAuthenticationType {
   SMART_CARD = "SmartCard",
+  SMART_CARD_OR_PASSWORD = "SmartCardOrPassword",
 }
 
 /**
@@ -3300,6 +3301,137 @@ export namespace DescribeRegionsResult {
   });
 }
 
+export enum DirectoryConfigurationStatus {
+  DEFAULT = "Default",
+  FAILED = "Failed",
+  REQUESTED = "Requested",
+  UPDATED = "Updated",
+  UPDATING = "Updating",
+}
+
+export interface DescribeSettingsRequest {
+  /**
+   * <p>The identifier of the directory for which to retrieve information.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The status of the directory settings for which to retrieve information.</p>
+   */
+  Status?: DirectoryConfigurationStatus | string;
+
+  /**
+   * <p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the specified configurable setting for a directory.</p>
+ */
+export interface SettingEntry {
+  /**
+   * <p>The type of directory setting. For example, <code>Protocol</code> or <code>Cipher</code>.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The name of the directory setting. For example:</p>
+   *          <p>
+   *             <code>TLS_1_0</code>
+   *          </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The valid range of values for the directory setting.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>The value of the directory setting that is applied to the directory.</p>
+   */
+  AppliedValue?: string;
+
+  /**
+   * <p>The value that was last requested for the directory setting.</p>
+   */
+  RequestedValue?: string;
+
+  /**
+   * <p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>
+   */
+  RequestStatus?: DirectoryConfigurationStatus | string;
+
+  /**
+   * <p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>
+   */
+  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus | string>;
+
+  /**
+   * <p>The last status message for the directory status request.</p>
+   */
+  RequestStatusMessage?: string;
+
+  /**
+   * <p>The date and time when the directory setting was last updated.</p>
+   */
+  LastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The date and time when the request to update a directory setting was last submitted.</p>
+   */
+  LastRequestedDateTime?: Date;
+}
+
+export namespace SettingEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SettingEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSettingsResult {
+  /**
+   * <p>The identifier of the directory.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The list of <a>SettingEntry</a> objects that were retrieved.</p>
+   *          <p>It is possible that this list contains less than the number of items specified in the
+   *       <code>Limit</code> member of the request. This occurs if there are less than the requested
+   *       number of items left to retrieve, or if the limitations of the operation have been
+   *       exceeded.</p>
+   */
+  SettingEntries?: SettingEntry[];
+
+  /**
+   * <p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeSettingsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSettingsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSharedDirectoriesRequest {
   /**
    * <p>Returns the identifier of the directory in the directory owner account. </p>
@@ -5434,6 +5566,130 @@ export namespace UpdateRadiusResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateRadiusResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified directory setting is not compatible with other settings.</p>
+ */
+export class IncompatibleSettingsException extends __BaseException {
+  readonly name: "IncompatibleSettingsException" = "IncompatibleSettingsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleSettingsException, __BaseException>) {
+    super({
+      name: "IncompatibleSettingsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleSettingsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The specified directory setting is not supported.</p>
+ */
+export class UnsupportedSettingsException extends __BaseException {
+  readonly name: "UnsupportedSettingsException" = "UnsupportedSettingsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedSettingsException, __BaseException>) {
+    super({
+      name: "UnsupportedSettingsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedSettingsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>Contains information about the configurable settings for a directory.</p>
+ */
+export interface Setting {
+  /**
+   * <p>The name of the directory setting. For example:</p>
+   *          <p>
+   *             <code>TLS_1_0</code>
+   *          </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the directory setting for which to retrieve information. For example, for <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and <code>Disable</code>.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Setting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Setting): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSettingsRequest {
+  /**
+   * <p>The identifier of the directory for which to update settings.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The list of <a>Setting</a> objects.</p>
+   */
+  Settings: Setting[] | undefined;
+}
+
+export namespace UpdateSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSettingsResult {
+  /**
+   * <p>The identifier of the directory.</p>
+   */
+  DirectoryId?: string;
+}
+
+export namespace UpdateSettingsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSettingsResult): any => ({
     ...obj,
   });
 }

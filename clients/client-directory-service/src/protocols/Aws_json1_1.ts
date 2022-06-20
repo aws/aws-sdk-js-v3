@@ -90,6 +90,7 @@ import {
   DescribeLDAPSSettingsCommandOutput,
 } from "../commands/DescribeLDAPSSettingsCommand";
 import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "../commands/DescribeRegionsCommand";
+import { DescribeSettingsCommandInput, DescribeSettingsCommandOutput } from "../commands/DescribeSettingsCommand";
 import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -161,6 +162,7 @@ import {
   UpdateNumberOfDomainControllersCommandOutput,
 } from "../commands/UpdateNumberOfDomainControllersCommand";
 import { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "../commands/UpdateRadiusCommand";
+import { UpdateSettingsCommandInput, UpdateSettingsCommandOutput } from "../commands/UpdateSettingsCommand";
 import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "../commands/UpdateTrustCommand";
 import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "../commands/VerifyTrustCommand";
 import { DirectoryServiceServiceException as __BaseException } from "../models/DirectoryServiceServiceException";
@@ -237,6 +239,8 @@ import {
   DescribeLDAPSSettingsResult,
   DescribeRegionsRequest,
   DescribeRegionsResult,
+  DescribeSettingsRequest,
+  DescribeSettingsResult,
   DescribeSharedDirectoriesRequest,
   DescribeSharedDirectoriesResult,
   DescribeSnapshotsRequest,
@@ -245,6 +249,7 @@ import {
   DescribeTrustsResult,
   DirectoryAlreadyInRegionException,
   DirectoryAlreadySharedException,
+  DirectoryConfigurationStatus,
   DirectoryConnectSettings,
   DirectoryConnectSettingsDescription,
   DirectoryDescription,
@@ -280,6 +285,7 @@ import {
   GetDirectoryLimitsResult,
   GetSnapshotLimitsRequest,
   GetSnapshotLimitsResult,
+  IncompatibleSettingsException,
   InsufficientPermissionsException,
   InvalidCertificateException,
   InvalidClientAuthStatusException,
@@ -328,6 +334,8 @@ import {
   RestoreFromSnapshotResult,
   SchemaExtensionInfo,
   ServiceException,
+  Setting,
+  SettingEntry,
   SharedDirectory,
   ShareDirectoryRequest,
   ShareDirectoryResult,
@@ -345,12 +353,15 @@ import {
   UnshareDirectoryResult,
   UnshareTarget,
   UnsupportedOperationException,
+  UnsupportedSettingsException,
   UpdateConditionalForwarderRequest,
   UpdateConditionalForwarderResult,
   UpdateNumberOfDomainControllersRequest,
   UpdateNumberOfDomainControllersResult,
   UpdateRadiusRequest,
   UpdateRadiusResult,
+  UpdateSettingsRequest,
+  UpdateSettingsResult,
   UpdateTrustRequest,
   UpdateTrustResult,
   UserDoesNotExistException,
@@ -732,6 +743,19 @@ export const serializeAws_json1_1DescribeRegionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRegionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeSettingsCommand = async (
+  input: DescribeSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.DescribeSettings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1148,6 +1172,19 @@ export const serializeAws_json1_1UpdateRadiusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRadiusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSettingsCommand = async (
+  input: UpdateSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.UpdateSettings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2788,6 +2825,64 @@ const deserializeAws_json1_1DescribeRegionsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.directoryservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeSettingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeSettingsResult(data, context);
+  const response: DescribeSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
       throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
@@ -4622,6 +4717,70 @@ const deserializeAws_json1_1UpdateRadiusCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSettingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSettingsResult(data, context);
+  const response: UpdateSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+    case "IncompatibleSettingsException":
+    case "com.amazonaws.directoryservice#IncompatibleSettingsException":
+      throw await deserializeAws_json1_1IncompatibleSettingsExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    case "UnsupportedSettingsException":
+    case "com.amazonaws.directoryservice#UnsupportedSettingsException":
+      throw await deserializeAws_json1_1UnsupportedSettingsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UpdateTrustCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4937,6 +5096,19 @@ const deserializeAws_json1_1EntityDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1IncompatibleSettingsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IncompatibleSettingsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IncompatibleSettingsException(body, context);
+  const exception = new IncompatibleSettingsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InsufficientPermissionsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5152,6 +5324,19 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
   const exception = new UnsupportedOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1UnsupportedSettingsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedSettingsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedSettingsException(body, context);
+  const exception = new UnsupportedSettingsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5533,6 +5718,14 @@ const serializeAws_json1_1DescribeRegionsRequest = (input: DescribeRegionsReques
   };
 };
 
+const serializeAws_json1_1DescribeSettingsRequest = (input: DescribeSettingsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   input: DescribeSharedDirectoriesRequest,
   context: __SerdeContext
@@ -5898,6 +6091,24 @@ const serializeAws_json1_1Servers = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1Setting = (input: Setting, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1Settings = (input: Setting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Setting(entry, context);
+    });
+};
+
 const serializeAws_json1_1ShareDirectoryRequest = (input: ShareDirectoryRequest, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
@@ -6050,6 +6261,14 @@ const serializeAws_json1_1UpdateRadiusRequest = (input: UpdateRadiusRequest, con
       input.RadiusSettings !== null && {
         RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
       }),
+  };
+};
+
+const serializeAws_json1_1UpdateSettingsRequest = (input: UpdateSettingsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
   };
 };
 
@@ -6530,6 +6749,17 @@ const deserializeAws_json1_1DescribeRegionsResult = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DescribeSettingsResult = (output: any, context: __SerdeContext): DescribeSettingsResult => {
+  return {
+    DirectoryId: __expectString(output.DirectoryId),
+    NextToken: __expectString(output.NextToken),
+    SettingEntries:
+      output.SettingEntries !== undefined && output.SettingEntries !== null
+        ? deserializeAws_json1_1SettingEntries(output.SettingEntries, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeSharedDirectoriesResult = (
   output: any,
   context: __SerdeContext
@@ -6584,6 +6814,24 @@ const deserializeAws_json1_1DirectoryAlreadySharedException = (
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
   } as any;
+};
+
+const deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DirectoryConfigurationStatus | string> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, DirectoryConfigurationStatus | string>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: __expectString(value) as any,
+      };
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1DirectoryConnectSettingsDescription = (
@@ -6916,6 +7164,16 @@ const deserializeAws_json1_1GetSnapshotLimitsResult = (
       output.SnapshotLimits !== undefined && output.SnapshotLimits !== null
         ? deserializeAws_json1_1SnapshotLimits(output.SnapshotLimits, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1IncompatibleSettingsException = (
+  output: any,
+  context: __SerdeContext
+): IncompatibleSettingsException => {
+  return {
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
   } as any;
 };
 
@@ -7364,6 +7622,45 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1SettingEntries = (output: any, context: __SerdeContext): SettingEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SettingEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SettingEntry = (output: any, context: __SerdeContext): SettingEntry => {
+  return {
+    AllowedValues: __expectString(output.AllowedValues),
+    AppliedValue: __expectString(output.AppliedValue),
+    LastRequestedDateTime:
+      output.LastRequestedDateTime !== undefined && output.LastRequestedDateTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRequestedDateTime)))
+        : undefined,
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    RequestDetailedStatus:
+      output.RequestDetailedStatus !== undefined && output.RequestDetailedStatus !== null
+        ? deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus(
+            output.RequestDetailedStatus,
+            context
+          )
+        : undefined,
+    RequestStatus: __expectString(output.RequestStatus),
+    RequestStatusMessage: __expectString(output.RequestStatusMessage),
+    RequestedValue: __expectString(output.RequestedValue),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeContext): SharedDirectory[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -7559,6 +7856,16 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   } as any;
 };
 
+const deserializeAws_json1_1UnsupportedSettingsException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedSettingsException => {
+  return {
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
@@ -7575,6 +7882,12 @@ const deserializeAws_json1_1UpdateNumberOfDomainControllersResult = (
 
 const deserializeAws_json1_1UpdateRadiusResult = (output: any, context: __SerdeContext): UpdateRadiusResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateSettingsResult = (output: any, context: __SerdeContext): UpdateSettingsResult => {
+  return {
+    DirectoryId: __expectString(output.DirectoryId),
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTrustResult = (output: any, context: __SerdeContext): UpdateTrustResult => {

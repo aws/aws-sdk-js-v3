@@ -127,6 +127,11 @@ import {
   DescribeRegionsCommandOutput,
 } from "./commands/DescribeRegionsCommand";
 import {
+  DescribeSettingsCommand,
+  DescribeSettingsCommandInput,
+  DescribeSettingsCommandOutput,
+} from "./commands/DescribeSettingsCommand";
+import {
   DescribeSharedDirectoriesCommand,
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -274,6 +279,11 @@ import {
   UpdateRadiusCommandInput,
   UpdateRadiusCommandOutput,
 } from "./commands/UpdateRadiusCommand";
+import {
+  UpdateSettingsCommand,
+  UpdateSettingsCommandInput,
+  UpdateSettingsCommandOutput,
+} from "./commands/UpdateSettingsCommand";
 import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
 import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { DirectoryServiceClient } from "./DirectoryServiceClient";
@@ -1248,6 +1258,38 @@ export class DirectoryService extends DirectoryServiceClient {
     cb?: (err: any, data?: DescribeRegionsCommandOutput) => void
   ): Promise<DescribeRegionsCommandOutput> | void {
     const command = new DescribeRegionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about the configurable settings for the specified directory.</p>
+   */
+  public describeSettings(
+    args: DescribeSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSettingsCommandOutput>;
+  public describeSettings(
+    args: DescribeSettingsCommandInput,
+    cb: (err: any, data?: DescribeSettingsCommandOutput) => void
+  ): void;
+  public describeSettings(
+    args: DescribeSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSettingsCommandOutput) => void
+  ): void;
+  public describeSettings(
+    args: DescribeSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSettingsCommandOutput) => void
+  ): Promise<DescribeSettingsCommandOutput> | void {
+    const command = new DescribeSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2297,6 +2339,38 @@ export class DirectoryService extends DirectoryServiceClient {
     cb?: (err: any, data?: UpdateRadiusCommandOutput) => void
   ): Promise<UpdateRadiusCommandOutput> | void {
     const command = new UpdateRadiusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configurable settings for the specified directory.</p>
+   */
+  public updateSettings(
+    args: UpdateSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSettingsCommandOutput>;
+  public updateSettings(
+    args: UpdateSettingsCommandInput,
+    cb: (err: any, data?: UpdateSettingsCommandOutput) => void
+  ): void;
+  public updateSettings(
+    args: UpdateSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSettingsCommandOutput) => void
+  ): void;
+  public updateSettings(
+    args: UpdateSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSettingsCommandOutput) => void
+  ): Promise<UpdateSettingsCommandOutput> | void {
+    const command = new UpdateSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
