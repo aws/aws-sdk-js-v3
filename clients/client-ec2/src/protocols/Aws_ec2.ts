@@ -34642,7 +34642,7 @@ const serializeAws_ec2CreateCustomerGatewayRequest = (
     entries["BgpAsn"] = input.BgpAsn;
   }
   if (input.PublicIp !== undefined && input.PublicIp !== null) {
-    entries["IpAddress"] = input.PublicIp;
+    entries["PublicIp"] = input.PublicIp;
   }
   if (input.CertificateArn !== undefined && input.CertificateArn !== null) {
     entries["CertificateArn"] = input.CertificateArn;
@@ -34659,6 +34659,9 @@ const serializeAws_ec2CreateCustomerGatewayRequest = (
   }
   if (input.DeviceName !== undefined && input.DeviceName !== null) {
     entries["DeviceName"] = input.DeviceName;
+  }
+  if (input.IpAddress !== undefined && input.IpAddress !== null) {
+    entries["IpAddress"] = input.IpAddress;
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -53500,6 +53503,12 @@ const serializeAws_ec2VpnConnectionOptionsSpecification = (
   }
   if (input.RemoteIpv6NetworkCidr !== undefined && input.RemoteIpv6NetworkCidr !== null) {
     entries["RemoteIpv6NetworkCidr"] = input.RemoteIpv6NetworkCidr;
+  }
+  if (input.OutsideIpAddressType !== undefined && input.OutsideIpAddressType !== null) {
+    entries["OutsideIpAddressType"] = input.OutsideIpAddressType;
+  }
+  if (input.TransportTransitGatewayAttachmentId !== undefined && input.TransportTransitGatewayAttachmentId !== null) {
+    entries["TransportTransitGatewayAttachmentId"] = input.TransportTransitGatewayAttachmentId;
   }
   return entries;
 };
@@ -81457,6 +81466,8 @@ const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeCon
     RemoteIpv4NetworkCidr: undefined,
     LocalIpv6NetworkCidr: undefined,
     RemoteIpv6NetworkCidr: undefined,
+    OutsideIpAddressType: undefined,
+    TransportTransitGatewayAttachmentId: undefined,
     TunnelInsideIpVersion: undefined,
     TunnelOptions: undefined,
   };
@@ -81477,6 +81488,12 @@ const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeCon
   }
   if (output["remoteIpv6NetworkCidr"] !== undefined) {
     contents.RemoteIpv6NetworkCidr = __expectString(output["remoteIpv6NetworkCidr"]);
+  }
+  if (output["outsideIpAddressType"] !== undefined) {
+    contents.OutsideIpAddressType = __expectString(output["outsideIpAddressType"]);
+  }
+  if (output["transportTransitGatewayAttachmentId"] !== undefined) {
+    contents.TransportTransitGatewayAttachmentId = __expectString(output["transportTransitGatewayAttachmentId"]);
   }
   if (output["tunnelInsideIpVersion"] !== undefined) {
     contents.TunnelInsideIpVersion = __expectString(output["tunnelInsideIpVersion"]);

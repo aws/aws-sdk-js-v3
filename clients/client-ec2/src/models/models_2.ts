@@ -2675,6 +2675,21 @@ export interface VpnConnectionOptionsSpecification {
    *          </p>
    */
   RemoteIpv6NetworkCidr?: string;
+
+  /**
+   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>
+   *         <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          </p>
+   *         <p>Default: <code>PublicIpv4</code>
+   *          </p>
+   */
+  OutsideIpAddressType?: string;
+
+  /**
+   * <p>The transit gateway attachment ID to use for the VPN tunnel.</p>
+   *         <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
+   */
+  TransportTransitGatewayAttachmentId?: string;
 }
 
 export namespace VpnConnectionOptionsSpecification {
@@ -3032,6 +3047,20 @@ export interface VpnConnectionOptions {
    * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
    */
   RemoteIpv6NetworkCidr?: string;
+
+  /**
+   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>
+   *         <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          </p>
+   *         <p>Default: <code>PublicIpv4</code>
+   *          </p>
+   */
+  OutsideIpAddressType?: string;
+
+  /**
+   * <p>The transit gateway attachment ID in use for the VPN tunnel.</p>
+   */
+  TransportTransitGatewayAttachmentId?: string;
 
   /**
    * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>

@@ -8112,7 +8112,8 @@ export interface CreateCustomerGatewayRequest {
   BgpAsn: number | undefined;
 
   /**
-   * <p>The Internet-routable IP address for the customer gateway's outside interface. The
+   * <p>
+   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
    *             address must be static.</p>
    */
   PublicIp?: string;
@@ -8138,6 +8139,13 @@ export interface CreateCustomerGatewayRequest {
    *         <p>Length Constraints: Up to 255 characters.</p>
    */
   DeviceName?: string;
+
+  /**
+   * <p>
+   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
+   *         </p>
+   */
+  IpAddress?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -8173,7 +8181,7 @@ export interface CustomerGateway {
   CustomerGatewayId?: string;
 
   /**
-   * <p>The Internet-routable IP address of the customer gateway's outside interface.</p>
+   * <p>The IP address of the customer gateway device's outside interface.</p>
    */
   IpAddress?: string;
 

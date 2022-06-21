@@ -10506,7 +10506,7 @@
         "target": "com.amazonaws.ec2#CreateCustomerGatewayResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides information to Amazon Web Services about your VPN customer gateway device. The\n            customer gateway is the appliance at your end of the VPN connection. (The device on the\n                Amazon Web Services side of the VPN connection is the virtual private gateway.) You\n            must provide the internet-routable IP address of the customer gateway's external\n            interface. The IP address must be static and can be behind a device performing network\n            address translation (NAT).</p>\n        <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's\n            BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.\n            If you don't have an ASN already, you can use a private ASN. For more information, see \n            <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\">Customer gateway \n                options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>\n        <p>To create more than one customer gateway with the same VPN type, IP address, and\n            BGP ASN, specify a unique device name for each customer gateway. An identical request\n            returns information about the existing customer gateway; it doesn't create a new customer\n            gateway.</p>"
+        "smithy.api#documentation": "<p>Provides information to Amazon Web Services about your customer gateway device. The\n            customer gateway device is the appliance at your end of the VPN connection. You\n            must provide the IP address of the customer gateway device’s external\n            interface. The IP address must be static and can be behind a device performing network\n            address translation (NAT).</p>\n        <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's\n            BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.\n            If you don't have an ASN already, you can use a private ASN. For more information, see \n            <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\">Customer gateway \n                options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>\n        <p>To create more than one customer gateway with the same VPN type, IP address, and\n            BGP ASN, specify a unique device name for each customer gateway. An identical request\n            returns information about the existing customer gateway; it doesn't create a new customer\n            gateway.</p>"
       }
     },
     "com.amazonaws.ec2#CreateCustomerGatewayRequest": {
@@ -10522,8 +10522,7 @@
         "PublicIp": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Internet-routable IP address for the customer gateway's outside interface. The\n            address must be static.</p>",
-            "smithy.api#xmlName": "IpAddress"
+            "smithy.api#documentation": "<p>\n            <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The\n            address must be static.</p>"
           }
         },
         "CertificateArn": {
@@ -10550,6 +10549,12 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>A name for the customer gateway device.</p>\n        <p>Length Constraints: Up to 255 characters.</p>"
+          }
+        },
+        "IpAddress": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            IPv4 address for the customer gateway device's outside interface. The address must be static.\n        </p>"
           }
         },
         "DryRun": {
@@ -15679,7 +15684,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "IpAddress",
-            "smithy.api#documentation": "<p>The Internet-routable IP address of the customer gateway's outside interface.</p>",
+            "smithy.api#documentation": "<p>The IP address of the customer gateway device's outside interface.</p>",
             "smithy.api#xmlName": "ipAddress"
           }
         },
@@ -20616,7 +20621,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)\n                    Autonomous System Number (ASN).</p>\n            </li>\n            <li>\n                <p>\n                  <code>customer-gateway-id</code> - The ID of the customer gateway.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ip-address</code> - The IP address of the customer gateway's\n                    Internet-routable external interface.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the customer gateway (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>type</code> - The type of customer gateway. Currently, the only\n                    supported type is <code>ipsec.1</code>.</p>\n            </li>\n            <li> \n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> \n            </li>\n            <li> \n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> \n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)\n                    Autonomous System Number (ASN).</p>\n            </li>\n            <li>\n                <p>\n                  <code>customer-gateway-id</code> - The ID of the customer gateway.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ip-address</code> - The IP address of the customer gateway\n                    device's external interface.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the customer gateway (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>type</code> - The type of customer gateway. Currently, the only\n                    supported type is <code>ipsec.1</code>.</p>\n            </li>\n            <li> \n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> \n            </li>\n            <li> \n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> \n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -80085,6 +80090,22 @@
             "smithy.api#xmlName": "remoteIpv6NetworkCidr"
           }
         },
+        "OutsideIpAddressType": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OutsideIpAddressType",
+            "smithy.api#documentation": "<p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>\n        <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>\n         </p>\n        <p>Default: <code>PublicIpv4</code>\n         </p>",
+            "smithy.api#xmlName": "outsideIpAddressType"
+          }
+        },
+        "TransportTransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransportTransitGatewayAttachmentId",
+            "smithy.api#documentation": "<p>The transit gateway attachment ID in use for the VPN tunnel.</p>",
+            "smithy.api#xmlName": "transportTransitGatewayAttachmentId"
+          }
+        },
         "TunnelInsideIpVersion": {
           "target": "com.amazonaws.ec2#TunnelInsideIpVersion",
           "traits": {
@@ -80157,6 +80178,18 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>\n        <p>Default: <code>::/0</code>\n         </p>"
+          }
+        },
+        "OutsideIpAddressType": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>\n        <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>\n         </p>\n        <p>Default: <code>PublicIpv4</code>\n         </p>"
+          }
+        },
+        "TransportTransitGatewayAttachmentId": {
+          "target": "com.amazonaws.ec2#TransitGatewayAttachmentId",
+          "traits": {
+            "smithy.api#documentation": "<p>The transit gateway attachment ID to use for the VPN tunnel.</p>\n        <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>"
           }
         }
       },

@@ -675,8 +675,8 @@ export interface DescribeCustomerGatewaysRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ip-address</code> - The IP address of the customer gateway's
-   *                     Internet-routable external interface.</p>
+   *                   <code>ip-address</code> - The IP address of the customer gateway
+   *                     device's external interface.</p>
    *             </li>
    *             <li>
    *                 <p>
