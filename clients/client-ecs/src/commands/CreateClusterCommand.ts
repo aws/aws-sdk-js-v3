@@ -32,7 +32,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * 				required resources in other Amazon Web Services services on your behalf. However, if the IAM user
  * 				that makes the call doesn't have permissions to create the service-linked role, it
  * 				isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
- * 					Service-Linked Roles for Amazon ECS</a> in the
+ * 					service-linked roles for Amazon ECS</a> in the
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
  * @example

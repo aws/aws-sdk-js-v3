@@ -26,15 +26,16 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
- * 			service, see the UpdateService action.</p>
+ * 			service, see the <a>UpdateService</a> action.</p>
  * 		       <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service Load Balancing</a> in the
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
- * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as healthy by the load balancer.</p>
+ * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as
+ * 			healthy by the load balancer.</p>
  * 		       <p>There are two service scheduler strategies available:</p>
  * 		       <ul>
  *             <li>
@@ -43,7 +44,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 					maintains your desired number of tasks across your cluster. By default, the
  * 					service scheduler spreads tasks across Availability Zones. You can use task
  * 					placement strategies and constraints to customize task placement decisions. For
- * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service Scheduler Concepts</a> in the
+ * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
  * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *             <li>
@@ -54,7 +55,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 					evaluates the task placement constraints for running tasks. It also stops tasks
  * 					that don't meet the placement constraints. When using this strategy, you don't
  * 					need to specify a desired number of tasks, a task placement strategy, or use
- * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service Scheduler Concepts</a> in the
+ * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
  * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *          </ul>
@@ -98,7 +99,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			currently visible when describing your service.</p>
  * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
- * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>When the service scheduler launches new tasks, it determines task placement in your
  * 			cluster using the following logic:</p>
  * 		       <ul>

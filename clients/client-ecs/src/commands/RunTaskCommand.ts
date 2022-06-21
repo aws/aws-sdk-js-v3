@@ -27,11 +27,11 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
  * 			place tasks manually on specific container instances.</p>
- * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because of the distributed
- * 			nature of the system supporting the API. This means that the result of an API command
- * 			you run that affects your Amazon ECS resources might not be immediately visible to all
- * 			subsequent commands you run. Keep this in mind when you carry out an API command that
- * 			immediately follows a previous API command.</p>
+ * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because of the
+ * 			distributed nature of the system supporting the API. This means that the result of an
+ * 			API command you run that affects your Amazon ECS resources might not be immediately visible
+ * 			to all subsequent commands you run. Keep this in mind when you carry out an API command
+ * 			that immediately follows a previous API command.</p>
  * 		       <p>To manage eventual consistency, you can do the following:</p>
  * 		       <ul>
  *             <li>
