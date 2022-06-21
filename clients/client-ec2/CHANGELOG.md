@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.114.0...v3.115.0) (2022-06-21)
+
+
+### Features
+
+* **client-ec2:** This release adds support for Private IP VPNs, a new feature allowing S2S VPN connections to use private ip addresses as the tunnel outside ip address over Direct Connect as transport. ([8f2eb0c](https://github.com/aws/aws-sdk-js-v3/commit/8f2eb0cff2321db7ee3623599d7173dfba9e3785))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
