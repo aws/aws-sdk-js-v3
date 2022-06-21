@@ -86,6 +86,7 @@ import {
 import { UpgradeLensReviewCommandInput, UpgradeLensReviewCommandOutput } from "../commands/UpgradeLensReviewCommand";
 import {
   AccessDeniedException,
+  AdditionalResources,
   Answer,
   AnswerSummary,
   Choice,
@@ -4232,6 +4233,31 @@ const serializeAws_restJson1WorkloadPillarPriorities = (input: string[], context
     });
 };
 
+const deserializeAws_restJson1AdditionalResources = (output: any, context: __SerdeContext): AdditionalResources => {
+  return {
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? deserializeAws_restJson1Urls(output.Content, context)
+        : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1AdditionalResourcesList = (
+  output: any,
+  context: __SerdeContext
+): AdditionalResources[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AdditionalResources(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): Answer => {
   return {
     ChoiceAnswers:
@@ -4297,6 +4323,10 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Choice = (output: any, context: __SerdeContext): Choice => {
   return {
+    AdditionalResources:
+      output.AdditionalResources !== undefined && output.AdditionalResources !== null
+        ? deserializeAws_restJson1AdditionalResourcesList(output.AdditionalResources, context)
+        : undefined,
     ChoiceId: __expectString(output.ChoiceId),
     Description: __expectString(output.Description),
     HelpfulResource:
@@ -4428,6 +4458,10 @@ const deserializeAws_restJson1Lens = (output: any, context: __SerdeContext): Len
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
     ShareInvitationId: __expectString(output.ShareInvitationId),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 
@@ -4765,6 +4799,18 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1Urls = (output: any, context: __SerdeContext): ChoiceContent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChoiceContent(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (

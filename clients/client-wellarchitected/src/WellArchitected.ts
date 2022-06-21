@@ -1119,6 +1119,9 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>List the tags for a resource.</p>
+   *         <note>
+   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
+   *          </note>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1215,6 +1218,9 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Adds one or more tags to the specified resource.</p>
+   *         <note>
+   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
+   *          </note>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1241,6 +1247,10 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Deletes specified tags from a resource.</p>
+   *         <note>
+   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
+   *          </note>
+   *
    *         <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
    *         <p>
    *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>

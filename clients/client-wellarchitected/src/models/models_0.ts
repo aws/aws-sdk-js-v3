@@ -27,6 +27,59 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * <p>The choice content.</p>
+ */
+export interface ChoiceContent {
+  /**
+   * <p>The display text for the choice content.</p>
+   */
+  DisplayText?: string;
+
+  /**
+   * <p>The URL for the choice content.</p>
+   */
+  Url?: string;
+}
+
+export namespace ChoiceContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceContent): any => ({
+    ...obj,
+  });
+}
+
+export enum AdditionalResourceType {
+  HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
+  IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
+}
+
+/**
+ * <p>The choice level additional resources.</p>
+ */
+export interface AdditionalResources {
+  /**
+   * <p>Type of additional resource.</p>
+   */
+  Type?: AdditionalResourceType | string;
+
+  /**
+   * <p>The URLs for additional resources, either helpful resources or improvement plans. Up to five additional URLs can be specified.</p>
+   */
+  Content?: ChoiceContent[];
+}
+
+export namespace AdditionalResources {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdditionalResources): any => ({
+    ...obj,
+  });
+}
+
 export enum ChoiceReason {
   ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
   BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
@@ -76,30 +129,6 @@ export namespace ChoiceAnswer {
 }
 
 /**
- * <p>The choice content.</p>
- */
-export interface ChoiceContent {
-  /**
-   * <p>The display text for the choice content.</p>
-   */
-  DisplayText?: string;
-
-  /**
-   * <p>The URL for the choice content.</p>
-   */
-  Url?: string;
-}
-
-export namespace ChoiceContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceContent): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A choice available to answer question.</p>
  */
 export interface Choice {
@@ -127,6 +156,12 @@ export interface Choice {
    * <p>The choice level improvement plan.</p>
    */
   ImprovementPlan?: ChoiceContent;
+
+  /**
+   * <p>The additional resources for a choice. A choice can have up to two additional resources: one of type <code>HELPFUL_RESOURCE</code>,
+   *             one of type <code>IMPROVEMENT_PLAN</code>, or both.</p>
+   */
+  AdditionalResources?: AdditionalResources[];
 }
 
 export namespace Choice {
@@ -616,7 +651,10 @@ export namespace ChoiceUpdate {
 
 export interface CreateLensShareInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -716,7 +754,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 export interface CreateLensVersionInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -897,7 +938,7 @@ export interface CreateWorkloadInput {
    * <p>The review owner of the workload. The name, email address, or identifier for the
    *             primary group or individual that owns the workload review process.</p>
    */
-  ReviewOwner: string | undefined;
+  ReviewOwner?: string;
 
   /**
    * <p>The industry type for the workload.</p>
@@ -1190,7 +1231,10 @@ export enum LensStatusType {
 
 export interface DeleteLensInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1231,7 +1275,10 @@ export interface DeleteLensShareInput {
   ShareId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1364,7 +1411,10 @@ export namespace DisassociateLensesInput {
 
 export interface ExportLensInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1410,7 +1460,10 @@ export interface GetAnswerInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1452,7 +1505,10 @@ export interface GetAnswerOutput {
   MilestoneNumber?: number;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -1479,7 +1535,10 @@ export namespace GetAnswerOutput {
 
 export interface GetLensInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1532,6 +1591,11 @@ export interface Lens {
    * <p>The ID assigned to the share invitation.</p>
    */
   ShareInvitationId?: string;
+
+  /**
+   * <p>The tags assigned to the lens.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 export namespace Lens {
@@ -1569,7 +1633,10 @@ export interface GetLensReviewInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1638,7 +1705,10 @@ export namespace PillarReviewSummary {
  */
 export interface LensReview {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -1738,7 +1808,10 @@ export interface GetLensReviewReportInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1764,7 +1837,10 @@ export namespace GetLensReviewReportInput {
  */
 export interface LensReviewReport {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -1822,7 +1898,10 @@ export namespace GetLensReviewReportOutput {
 
 export interface GetLensVersionDifferenceInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -1932,7 +2011,10 @@ export namespace VersionDifferences {
 
 export interface GetLensVersionDifferenceOutput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2381,7 +2463,10 @@ export namespace GetWorkloadOutput {
 
 export interface ImportLensInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2498,7 +2583,10 @@ export namespace ImprovementSummary {
  */
 export interface LensReviewSummary {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2596,7 +2684,10 @@ export interface LensSummary {
   LensArn?: string;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2668,7 +2759,10 @@ export interface LensUpgradeSummary {
   WorkloadName?: string;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2708,7 +2802,10 @@ export interface ListAnswersInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -2761,7 +2858,10 @@ export interface ListAnswersOutput {
   MilestoneNumber?: number;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -2864,7 +2964,10 @@ export interface ListLensReviewImprovementsInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -2917,7 +3020,10 @@ export interface ListLensReviewImprovementsOutput {
   MilestoneNumber?: number;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -3019,7 +3125,10 @@ export namespace ListLensReviewsOutput {
 
 export interface ListLensSharesInput {
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -3629,7 +3738,10 @@ export interface ShareInvitation {
   WorkloadId?: string;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -3729,7 +3841,10 @@ export interface UpdateAnswerInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -3786,7 +3901,10 @@ export interface UpdateAnswerOutput {
   WorkloadId?: string;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
@@ -3821,7 +3939,10 @@ export interface UpdateLensReviewInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
@@ -4276,7 +4397,10 @@ export interface UpgradeLensReviewInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   * <p>The alias of the lens.</p>
+   *         <p>For Amazon Web Services official lenses, this is either the lens alias,
+   *             such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2::lens/serverless</code>.</p>
+   *         <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1:123456789012:lens/my-lens</code>. </p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;

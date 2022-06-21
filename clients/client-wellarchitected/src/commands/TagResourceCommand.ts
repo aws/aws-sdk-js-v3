@@ -24,6 +24,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 
 /**
  * <p>Adds one or more tags to the specified resource.</p>
+ *         <note>
+ *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
