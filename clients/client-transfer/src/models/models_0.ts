@@ -659,7 +659,7 @@ export interface ProtocolDetails {
   /**
    * <p>
    *       Indicates passive mode, for FTP and FTPS protocols.
-   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *       Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
    *       For example:
    *     </p>
    *          <p>
@@ -672,17 +672,17 @@ export interface ProtocolDetails {
    *             </code> in the example above with the actual IP address you want to use.</p>
    *          <note>
    *             <p>
-   *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer server for the change to take effect. For details on using Passive IP (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
+   *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Transfer Family</a>.
    *       </p>
    *          </note>
    */
   PassiveIp?: string;
 
   /**
-   * <p>A property used with Transfer servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret
+   * <p>A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret
    *       key between the control and data connection for an FTPS session. <code>TlsSessionResumptionMode</code> determines whether or not the server resumes recent,
    *       negotiated sessions through a unique session ID. This property is available during <code>CreateServer</code> and <code>UpdateServer</code> calls.
-   *       If a <code>TlsSessionResumptionMode</code> value is not specified during CreateServer, it is set to <code>ENFORCED</code> by default.</p>
+   *       If a <code>TlsSessionResumptionMode</code> value is not specified during <code>CreateServer</code>, it is set to <code>ENFORCED</code> by default.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -710,15 +710,15 @@ export interface ProtocolDetails {
   TlsSessionResumptionMode?: TlsSessionResumptionMode | string;
 
   /**
-   * <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use SETSTAT on a file you are uploading to an S3 bucket.</p>
-   *          <p>Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as SETSTAT when uploading the file.
+   * <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use <code>SETSTAT</code> on a file you are uploading to an S3 bucket.</p>
+   *          <p>Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as <code>SETSTAT</code> when uploading the file.
    *         However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when
    *         the file is otherwise successfully uploaded.</p>
-   *          <p>Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the SETSTAT command, and upload files without needing to make any changes to your SFTP client.
+   *          <p>Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore the <code>SETSTAT</code> command, and upload files without needing to make any changes to your SFTP client.
    *         While the <code>SetStatOption</code>
-   *             <code>ENABLE_NO_OP</code> setting ignores the error, it does generate a log entry in CloudWatch Logs, so you can determine when the client is making a SETSTAT call.</p>
+   *             <code>ENABLE_NO_OP</code> setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a <code>SETSTAT</code> call.</p>
    *          <note>
-   *             <p>If you want to preserve the original timestamp for your file, and modify other file attributes using SETSTAT, you can use Amazon EFS as backend storage with Transfer Family.</p>
+   *             <p>If you want to preserve the original timestamp for your file, and modify other file attributes using <code>SETSTAT</code>, you can use Amazon EFS as backend storage with Transfer Family.</p>
    *          </note>
    */
   SetStatOption?: SetStatOption | string;
@@ -903,8 +903,23 @@ export interface CreateServerRequest {
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>The RSA private key as generated by the <code>ssh-keygen -N "" -m PEM -f
-   *         my-new-server-key</code> command.</p>
+   * <p>The RSA, ECDSA, or ED25519 private key to use for your server.</p>
+   *
+   *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Use a minimum value of 2048 for the <code>-b</code> option: you can create a stronger key using 3072 or 4096.</p>
+   *
+   *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
+   *
+   *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
+   *
+   *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
    *
    *          <important>
    *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
@@ -1077,8 +1092,6 @@ export namespace CreateServerResponse {
 
 /**
  * <p>The request was denied due to request throttling.</p>
- *
- *          <p> HTTP Status Code: 400</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -1191,11 +1204,7 @@ export interface CreateUserRequest {
   /**
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
-   *          <note>
-   *             <p>
-   *         Currently, Transfer Family does not accept elliptical curve keys (keys beginning with <code>ecdsa</code>).
-   *       </p>
-   *          </note>
+   *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
    */
   SshPublicKeyBody?: string;
 
@@ -2246,7 +2255,7 @@ export interface DescribedServer {
    *     </p>
    *          <p>
    *       Use the <code>PassiveIp</code> parameter to indicate passive mode.
-   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *       Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
    *     </p>
    */
   ProtocolDetails?: ProtocolDetails;
@@ -2416,6 +2425,7 @@ export interface SshPublicKey {
   /**
    * <p>Specifies the content of the SSH public key as specified by the
    *       <code>PublicKeyId</code>.</p>
+   *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
    */
   SshPublicKeyBody: string | undefined;
 
@@ -2765,6 +2775,7 @@ export interface ImportSshPublicKeyRequest {
 
   /**
    * <p>The public key portion of an SSH key pair.</p>
+   *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
    */
   SshPublicKeyBody: string | undefined;
 
@@ -3946,18 +3957,33 @@ export interface UpdateServerRequest {
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>The RSA private key as generated by <code>ssh-keygen -N "" -m PEM -f
-   *         my-new-server-key</code>.</p>
+   * <p>The RSA, ECDSA, or ED25519 private key to use for your server.</p>
+   *
+   *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Use a minimum value of 2048 for the <code>-b</code> option: you can create a stronger key using 3072 or 4096.</p>
+   *
+   *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
+   *
+   *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
+   *
+   *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
    *
    *          <important>
-   *             <p>If you aren't planning to migrate existing users from an existing server to a new
-   *         server, don't update the host key. Accidentally changing a server's host key can
-   *         be disruptive.</p>
+   *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
+   *         server to a new server, don't update the host key. Accidentally changing a
+   *         server's host key can be disruptive.</p>
    *          </important>
    *
    *
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web ServicesTransfer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer
    *         Family User Guide</i>.</p>
    */
   HostKey?: string;
