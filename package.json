@@ -95,7 +95,7 @@
     "karma-sourcemap-loader": "0.3.8",
     "karma-typescript": "5.5.3",
     "karma-webpack": "5.0.0",
-    "lerna": "3.22.1",
+    "lerna": "5.1.4",
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
     "prettier": "2.7.1",
