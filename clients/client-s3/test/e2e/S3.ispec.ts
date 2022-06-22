@@ -7,7 +7,7 @@ import { Credentials } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 
-import { S3 } from "../../src/index";
+import { S3, SelectObjectContentEventStream } from "../../src/index";
 import { createBuffer } from "./helpers";
 chai.use(chaiAsPromised);
 const { expect } = chai;
@@ -278,13 +278,13 @@ esfuture,29`;
           CSV: {},
         },
       });
-      const events = [];
-      for await (const event of Payload) {
+      const events: SelectObjectContentEventStream[] = [];
+      for await (const event of Payload!) {
         events.push(event);
       }
       expect(events.length).to.equal(3);
-      expect(Buffer.from(events[0].Records.Payload).toString("utf8")).to.equal("node4life\nesfuture\n");
-      expect(events[1].Stats.Details).to.be.exist;
+      expect(new TextDecoder().decode(events[0].Records?.Payload)).to.equal("node4life\nesfuture\n");
+      expect(events[1].Stats?.Details).to.be.exist;
       expect(events[2].End).to.be.exist;
     });
   });
