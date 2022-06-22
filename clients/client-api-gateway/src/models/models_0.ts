@@ -1571,6 +1571,10 @@ export interface TlsConfig {
    *             validation, which includes checking the certificate's expiration date, hostname, and
    *             presence of a root certificate authority. Supported only for <code>HTTP</code> and
    *             <code>HTTP_PROXY</code> integrations.</p>
+   *          <important>
+   *             <p>Enabling <code>insecureSkipVerification</code> isn't recommended, especially for integrations with public
+   *           HTTPS endpoints. If you enable <code>insecureSkipVerification</code>, you increase the risk of man-in-the-middle attacks.</p>
+   *          </important>
    */
   insecureSkipVerification?: boolean;
 }
