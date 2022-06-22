@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.115.0...v3.116.0) (2022-06-22)
+
+
+### Features
+
+* **client-pricing:** This release introduces 1 update to the GetProducts API. The serviceCode attribute is now required when you use the GetProductsRequest. ([bdf3c9a](https://github.com/aws/aws-sdk-js-v3/commit/bdf3c9a8f500633688564e4bf4b82d36fd0e2e77))
+* **client-transfer:** Until today, the service supported only RSA host keys and user keys. Now with this launch, Transfer Family has expanded the support for ECDSA and ED25519 host keys and user keys, enabling customers to support a broader set of clients by choosing RSA, ECDSA, and ED25519 host and user keys. ([9b215d2](https://github.com/aws/aws-sdk-js-v3/commit/9b215d2f8389738c0fb31dfebebbda255ef9b417))
+
+
+
+
+
 # [3.115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.114.0...v3.115.0) (2022-06-21)
 
 

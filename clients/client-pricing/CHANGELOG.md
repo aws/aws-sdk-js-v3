@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.115.0...v3.116.0) (2022-06-22)
+
+
+### Features
+
+* **client-pricing:** This release introduces 1 update to the GetProducts API. The serviceCode attribute is now required when you use the GetProductsRequest. ([bdf3c9a](https://github.com/aws/aws-sdk-js-v3/commit/bdf3c9a8f500633688564e4bf4b82d36fd0e2e77))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-pricing

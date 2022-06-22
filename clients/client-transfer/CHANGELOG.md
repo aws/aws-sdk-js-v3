@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.115.0...v3.116.0) (2022-06-22)
+
+
+### Features
+
+* **client-transfer:** Until today, the service supported only RSA host keys and user keys. Now with this launch, Transfer Family has expanded the support for ECDSA and ED25519 host keys and user keys, enabling customers to support a broader set of clients by choosing RSA, ECDSA, and ED25519 host and user keys. ([9b215d2](https://github.com/aws/aws-sdk-js-v3/commit/9b215d2f8389738c0fb31dfebebbda255ef9b417))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer
