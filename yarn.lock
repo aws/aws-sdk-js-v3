@@ -4655,7 +4655,7 @@ cucumber-tag-expressions@^2.0.2:
   resolved "https://registry.yarnpkg.com/cucumber-tag-expressions/-/cucumber-tag-expressions-2.0.3.tgz#5525d60fbecb3fa2707051ace27004e0512e700e"
   integrity sha512-+x5j1IfZrBtbvYHuoUX0rl4nUGxaey6Do9sM0CABmZfDCcWXuuRm1fQeCaklIYQgOFHQ6xOHvDSdkMHHpni6tQ==
 
-cucumber@^6.0.7:
+cucumber@6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-6.0.7.tgz#66a803bee90978b14b5d546ec2b06eb329cc6fc2"
   integrity sha512-pN3AgWxHx8rOi+wOlqjASNETOjf3TgeyqhMNLQam7nSTXgQzju1oAmXkleRQRcXvpVvejcDHiZBLFSfBkqbYpA==
