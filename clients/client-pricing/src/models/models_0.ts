@@ -70,7 +70,7 @@ export interface Service {
   /**
    * <p>The code for the Amazon Web Services service.</p>
    */
-  ServiceCode?: string;
+  ServiceCode: string | undefined;
 
   /**
    * <p>The attributes that are available for this service.</p>
@@ -322,7 +322,7 @@ export interface GetProductsRequest {
   /**
    * <p>The code for the service whose products you want to retrieve. </p>
    */
-  ServiceCode?: string;
+  ServiceCode: string | undefined;
 
   /**
    * <p>The list of filters that limit the returned products. only products that match all filters

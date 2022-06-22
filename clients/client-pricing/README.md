@@ -9,11 +9,11 @@
 
 AWS SDK for JavaScript Pricing Client for Node.js, Browser and React Native.
 
-<p>Amazon Web Services Price List Service API (Amazon Web Services Price List Service) is a centralized and convenient way to
-programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List Service
+<p>Amazon Web Services Price List API is a centralized and convenient way to
+programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List
 uses standardized product attributes such as <code>Location</code>, <code>Storage
 Class</code>, and <code>Operating System</code>, and provides prices at the SKU
-level. You can use the Amazon Web Services Price List Service to build cost control and scenario planning tools, reconcile
+level. You can use the Amazon Web Services Price List to build cost control and scenario planning tools, reconcile
 billing data, forecast future spend for budgeting purposes, and provide cost benefit
 analysis that compare your internal workloads with Amazon Web Services.</p>
 <p>Use <code>GetServices</code> without a service code to retrieve the service codes for all AWS services, then
@@ -24,7 +24,7 @@ you can use <code>GetProducts</code> to find specific products that you're inter
 an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
 <code>volumeType</code>.</p>
 <p>Service Endpoint</p>
-<p>Amazon Web Services Price List Service API provides the following two endpoints:</p>
+<p>Amazon Web Services Price List service API provides the following two endpoints:</p>
 <ul>
 <li>
 <p>https://api.pricing.us-east-1.amazonaws.com</p>
