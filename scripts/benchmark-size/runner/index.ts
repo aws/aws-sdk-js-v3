@@ -100,7 +100,7 @@ export const sizeReport = async (options: SizeReportOptions) => {
         packageContext,
       }),
     })),
-    { concurrent: 6 }
+    { concurrent: 10 }
   );
   try {
     await tasks.run();

@@ -78,4 +78,4 @@ logs:
 
 userRateLimit:
   windowMS: 900000 # 15 minutes
-  max: 5000
+  max: 20000
