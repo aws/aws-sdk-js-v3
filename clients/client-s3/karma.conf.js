@@ -14,6 +14,9 @@ module.exports = function (config) {
     webpack: {
       resolve: {
         extensions: [".ts", ".js"],
+        fallback: {
+          stream: false,
+        },
       },
       mode: "development",
       module: {
