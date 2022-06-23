@@ -11,7 +11,7 @@ import { createWaiter } from "./createWaiter";
 
 describe("createWaiter", () => {
   beforeEach(() => {
-    jest.useFakeTimers("legacy");
+    jest.useFakeTimers({ legacyFakeTimers: true });
   });
 
   afterEach(() => {
