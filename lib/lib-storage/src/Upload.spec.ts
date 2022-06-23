@@ -51,6 +51,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
 }));
 
 import { CompleteMultipartUploadCommandOutput, S3 } from "@aws-sdk/client-s3";
+import { createHash } from "crypto";
 import { Readable } from "stream";
 
 import { Progress, Upload } from "./index";
@@ -75,6 +76,24 @@ describe(Upload.name, () => {
     Bucket: "example-bucket",
     Body: "this-is-a-sample-payload",
   };
+
+  expect.extend({
+    toHaveSameHashAsBuffer: (received: Uint8Array, expected: Uint8Array) => {
+      const receivedHash = createHash("sha256").update(received).digest("hex");
+      const expectHash = createHash("sha256").update(expected).digest("hex");
+      if (expectHash === receivedHash) {
+        return {
+          message: () => "received buffer has the correct hash",
+          pass: true,
+        };
+      } else {
+        return {
+          message: () => `received buffer hash is incorrect, expect ${expectHash}, got ${receivedHash}.`,
+          pass: false,
+        };
+      }
+    },
+  });
 
   it("correctly exposes the event emitter API", () => {
     const upload = new Upload({
@@ -237,9 +256,7 @@ describe(Upload.name, () => {
       params: actionParams,
       client: new S3({}),
     });
-
     await upload.done();
-
     expect(sendMock).toHaveBeenCalledTimes(4);
     // create multipartMock is called correctly.
     expect(createMultipartMock).toHaveBeenCalledTimes(1);
@@ -247,23 +264,22 @@ describe(Upload.name, () => {
       ...actionParams,
       Body: undefined,
     });
-
     // upload parts is called correctly.
     expect(uploadPartMock).toHaveBeenCalledTimes(2);
     expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
       ...actionParams,
-      Body: firstBuffer,
+      // @ts-ignore extended custom matcher
+      Body: expect.toHaveSameHashAsBuffer(firstBuffer),
       PartNumber: 1,
       UploadId: "mockuploadId",
     });
-
     expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
       ...actionParams,
-      Body: secondBuffer,
+      // @ts-ignore extended custom matcher
+      Body: expect.toHaveSameHashAsBuffer(secondBuffer),
       PartNumber: 2,
       UploadId: "mockuploadId",
     });
-
     // complete multipart upload is called correctly.
     expect(completeMultipartMock).toHaveBeenCalledTimes(1);
     expect(completeMultipartMock).toHaveBeenLastCalledWith({
@@ -320,14 +336,16 @@ describe(Upload.name, () => {
     expect(uploadPartMock).toHaveBeenCalledTimes(2);
     expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
       ...actionParams,
-      Body: firstBuffer,
+      // @ts-ignore extended custom matcher
+      Body: expect.toHaveSameHashAsBuffer(firstBuffer),
       PartNumber: 1,
       UploadId: "mockuploadId",
     });
 
     expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
       ...actionParams,
-      Body: secondBuffer,
+      // @ts-ignore extended custom matcher
+      Body: expect.toHaveSameHashAsBuffer(secondBuffer),
       PartNumber: 2,
       UploadId: "mockuploadId",
     });
@@ -418,6 +436,8 @@ describe(Upload.name, () => {
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
     expect(putObjectTaggingMock).toHaveBeenCalledWith({
       ...actionParams,
+      // @ts-ignore extended custom matcher
+      Body: expect.toHaveSameHashAsBuffer(largeBuffer),
       Tagging: {
         TagSet: tags,
       },
