@@ -127,7 +127,8 @@
       "**/karma*/**",
       "**/@types/mocha*",
       "**/@types/mocha*/**",
-      "**/@aws-sdk/client-sso/**"
+      "**/@aws-sdk/client-sso/**",
+      "**/@babel/**"
     ]
   },
   "husky": {
