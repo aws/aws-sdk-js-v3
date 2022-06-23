@@ -34,6 +34,8 @@ const args = [
   "--no-git-reset",
   "--ignore-scripts",
   "--no-verify-access",
+  "--concurrency",
+  "8",
   "--dist-tag",
   "ci",
 ];
