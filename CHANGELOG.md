@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.116.0...v3.117.0) (2022-06-23)
+
+
+### Features
+
+* **client-lookoutequipment:** This release adds visualizations to the scheduled inference results. Users will be able to see interference results, including diagnostic results from their running inference schedulers. ([d809dff](https://github.com/aws/aws-sdk-js-v3/commit/d809dff8ce56fda66244ff364ee0e3c6ed733e47))
+* **client-mgn:** New and modified APIs for the Post-Migration Framework ([7af6954](https://github.com/aws/aws-sdk-js-v3/commit/7af69543f857d29eb89b3b4037c262ec6605d29d))
+* **client-migration-hub-refactor-spaces:** This release adds the new API UpdateRoute that allows route to be updated to ACTIVE/INACTIVE state. In addition, CreateRoute API will now allow users to create route in ACTIVE/INACTIVE state. ([7cb6642](https://github.com/aws/aws-sdk-js-v3/commit/7cb66421811c0bbca5fbfd10d88e6e61cad620dd))
+* **client-sagemaker:** SageMaker Ground Truth now supports Virtual Private Cloud. Customers can launch labeling jobs and access to their private workforce in VPC mode. ([d2cbd47](https://github.com/aws/aws-sdk-js-v3/commit/d2cbd47bdc957c39a1407176eb609f56f4978c99))
+
+
+
+
+
 # [3.116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.115.0...v3.116.0) (2022-06-22)
 
 

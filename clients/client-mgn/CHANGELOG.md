@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.116.0...v3.117.0) (2022-06-23)
+
+
+### Features
+
+* **client-mgn:** New and modified APIs for the Post-Migration Framework ([7af6954](https://github.com/aws/aws-sdk-js-v3/commit/7af69543f857d29eb89b3b4037c262ec6605d29d))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-mgn
