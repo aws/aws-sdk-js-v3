@@ -13,7 +13,6 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 
 public class AwsServiceIdIntegrationTest {
@@ -28,7 +27,7 @@ public class AwsServiceIdIntegrationTest {
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
         settings.setService(ShapeId.from("smithy.example#OriginalName"));
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider provider = TypeScriptSettings.ArtifactType.CLIENT.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
@@ -47,7 +46,7 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider provider = TypeScriptSettings.ArtifactType.CLIENT.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
@@ -67,7 +66,7 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider provider = TypeScriptSettings.ArtifactType.CLIENT.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
