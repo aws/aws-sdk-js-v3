@@ -4554,10 +4554,10 @@ cucumber-tag-expressions@^2.0.2:
   resolved "https://registry.yarnpkg.com/cucumber-tag-expressions/-/cucumber-tag-expressions-2.0.3.tgz#5525d60fbecb3fa2707051ace27004e0512e700e"
   integrity sha512-+x5j1IfZrBtbvYHuoUX0rl4nUGxaey6Do9sM0CABmZfDCcWXuuRm1fQeCaklIYQgOFHQ6xOHvDSdkMHHpni6tQ==
 
-cucumber@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-6.0.5.tgz#cdc752ad18b551bcf7bc92774c925302f4408714"
-  integrity sha512-x+W9Fwk6TvcapQsYMxwFU5AsQJDOIJVGrPKmH15OC7jzb9/Dk7Hb0ZAyw4WcpaDcUDRc8bi2k2yJejDp5eTRlg==
+cucumber@6.0.7:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-6.0.7.tgz#66a803bee90978b14b5d546ec2b06eb329cc6fc2"
+  integrity sha512-pN3AgWxHx8rOi+wOlqjASNETOjf3TgeyqhMNLQam7nSTXgQzju1oAmXkleRQRcXvpVvejcDHiZBLFSfBkqbYpA==
   dependencies:
     assertion-error-formatter "^3.0.0"
     bluebird "^3.4.1"
