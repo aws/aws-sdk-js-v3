@@ -23,9 +23,9 @@ export interface ListSensorStatisticsCommandInput extends ListSensorStatisticsRe
 export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Lists statistics about the data collected for each of the sensors that have been successfully ingested in the particular dataset. Can also be used to retreive Sensor Statistics for a previous ingestion job.
- * </p>
+ * <p> Lists statistics about the data collected for each of the sensors that have been
+ *          successfully ingested in the particular dataset. Can also be used to retreive Sensor
+ *          Statistics for a previous ingestion job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

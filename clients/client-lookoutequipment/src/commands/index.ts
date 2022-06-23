@@ -11,6 +11,7 @@ export * from "./DescribeInferenceSchedulerCommand";
 export * from "./DescribeModelCommand";
 export * from "./ListDataIngestionJobsCommand";
 export * from "./ListDatasetsCommand";
+export * from "./ListInferenceEventsCommand";
 export * from "./ListInferenceExecutionsCommand";
 export * from "./ListInferenceSchedulersCommand";
 export * from "./ListModelsCommand";

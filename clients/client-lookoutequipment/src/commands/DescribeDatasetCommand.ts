@@ -23,7 +23,8 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a JSON description of the data in each time series dataset, including names, column names, and data types.</p>
+ * <p>Provides a JSON description of the data in each time series dataset, including names,
+ *          column names, and data types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

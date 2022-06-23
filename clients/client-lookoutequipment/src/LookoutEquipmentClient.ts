@@ -81,6 +81,10 @@ import {
 } from "./commands/ListDataIngestionJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import {
+  ListInferenceEventsCommandInput,
+  ListInferenceEventsCommandOutput,
+} from "./commands/ListInferenceEventsCommand";
+import {
   ListInferenceExecutionsCommandInput,
   ListInferenceExecutionsCommandOutput,
 } from "./commands/ListInferenceExecutionsCommand";
@@ -130,6 +134,7 @@ export type ServiceInputTypes =
   | DescribeModelCommandInput
   | ListDataIngestionJobsCommandInput
   | ListDatasetsCommandInput
+  | ListInferenceEventsCommandInput
   | ListInferenceExecutionsCommandInput
   | ListInferenceSchedulersCommandInput
   | ListModelsCommandInput
@@ -155,6 +160,7 @@ export type ServiceOutputTypes =
   | DescribeModelCommandOutput
   | ListDataIngestionJobsCommandOutput
   | ListDatasetsCommandOutput
+  | ListInferenceEventsCommandOutput
   | ListInferenceExecutionsCommandOutput
   | ListInferenceSchedulersCommandOutput
   | ListModelsCommandOutput
@@ -321,8 +327,9 @@ type LookoutEquipmentClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface LookoutEquipmentClientResolvedConfig extends LookoutEquipmentClientResolvedConfigType {}
 
 /**
- * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
- *          anomalies in machines from sensor data for use in predictive maintenance. </p>
+ * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics
+ *          to identify anomalies in machines from sensor data for use in predictive maintenance.
+ *       </p>
  */
 export class LookoutEquipmentClient extends __Client<
   __HttpHandlerOptions,

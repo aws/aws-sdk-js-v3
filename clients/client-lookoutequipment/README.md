@@ -9,8 +9,9 @@
 
 AWS SDK for JavaScript LookoutEquipment Client for Node.js, Browser and React Native.
 
-<p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
-anomalies in machines from sensor data for use in predictive maintenance. </p>
+<p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics
+to identify anomalies in machines from sensor data for use in predictive maintenance.
+</p>
 
 ## Installing
 

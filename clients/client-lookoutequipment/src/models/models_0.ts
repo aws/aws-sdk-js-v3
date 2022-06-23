@@ -107,7 +107,8 @@ export interface CreateDatasetRequest {
   DatasetSchema?: DatasetSchema;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout
+   *          for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -229,8 +230,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related AWS
- *          service that's being utilized. </p>
+ * <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -302,18 +303,19 @@ export namespace InferenceS3InputConfiguration {
 }
 
 /**
- * <p>Specifies configuration information for the input data for the inference, including Amazon S3
- *          location of input data.. </p>
+ * <p>Specifies configuration information for the input data for the inference, including
+ *             Amazon S3 location of input data.. </p>
  */
 export interface InferenceInputConfiguration {
   /**
-   * <p> Specifies configuration information for the input data for the inference, including Amazon S3
-   *          location of input data.</p>
+   * <p> Specifies configuration information for the input data for the inference, including
+   *             Amazon S3 location of input data.</p>
    */
   S3InputConfiguration?: InferenceS3InputConfiguration;
 
   /**
-   * <p>Indicates the difference between your time zone and Coordinated Universal Time (UTC).</p>
+   * <p>Indicates the difference between your time zone and Coordinated Universal Time
+   *          (UTC).</p>
    */
   InputTimeZoneOffset?: string;
 
@@ -407,19 +409,20 @@ export interface CreateInferenceSchedulerRequest {
   /**
    * <p>A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if you select an offset delay time of five minutes, inference will
-   *          not begin on the data until the first data measurement after the five minute mark. For example, if
-   *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
-   *          additional five minute delay time to check the customer S3 bucket. The customer can upload data at
-   *          the same frequency and they don't need to stop and restart the scheduler when uploading new data. </p>
+   *          not begin on the data until the first data measurement after the five minute mark. For
+   *          example, if five minutes is selected, the inference scheduler will wake up at the
+   *          configured frequency with the additional five minute delay time to check the customer S3
+   *          bucket. The customer can upload data at the same frequency and they don't need to stop and
+   *          restart the scheduler when uploading new data. </p>
    */
   DataDelayOffsetInMinutes?: number;
 
   /**
    * <p> How often data is uploaded to the source S3 bucket for the input data. The value chosen
    *          is the length of time between data uploads. For instance, if you select 5 minutes, Amazon
-   *          Lookout for Equipment will upload the real-time data to the source bucket once every 5 minutes. This frequency
-   *          also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In this
-   *          example, it starts once every 5 minutes. </p>
+   *          Lookout for Equipment will upload the real-time data to the source bucket once every 5
+   *          minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
+   *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
    */
   DataUploadFrequency: DataUploadFrequency | string | undefined;
 
@@ -442,7 +445,8 @@ export interface CreateInferenceSchedulerRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by
+   *          Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -538,28 +542,26 @@ export enum TargetSamplingRate {
 
 /**
  * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
- *          the data after post processing by
- *          Amazon Lookout for Equipment. For example, if you provide data that
- *          has been collected at a 1 second level and you want the system to resample
- *          the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
- *             <p>When providing a value for the <code>TargetSamplingRate</code>, you must
- *                attach the prefix "PT" to the rate you want.  The value for a 1 second rate
- *                is therefore <i>PT1S</i>, the value for a 15 minute rate
- *                is <i>PT15M</i>, and the value for a 1 hour rate
- *                is <i>PT1H</i>
+ *          the data after post processing by Amazon Lookout for Equipment. For example, if you provide
+ *          data that has been collected at a 1 second level and you want the system to resample the
+ *          data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1
+ *          minute.</p>
+ *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the
+ *          prefix "PT" to the rate you want. The value for a 1 second rate is therefore
+ *             <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>,
+ *          and the value for a 1 hour rate is <i>PT1H</i>
  *          </p>
  */
 export interface DataPreProcessingConfiguration {
   /**
-   * <p>The sampling rate of the data after post processing by Amazon Lookout for Equipment.
-   *          For example, if you provide data that has been collected at a 1 second level and
-   *          you want the system to resample the data at a 1 minute rate before training,
-   *          the <code>TargetSamplingRate</code> is 1 minute.</p>
-   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach
-   *             the prefix "PT" to the rate you want.  The value for a 1 second rate is
-   *             therefore <i>PT1S</i>, the value for a 15 minute
-   *             rate is <i>PT15M</i>, and the value for a 1 hour rate
-   *             is <i>PT1H</i>
+   * <p>The sampling rate of the data after post processing by Amazon Lookout for Equipment. For
+   *          example, if you provide data that has been collected at a 1 second level and you want the
+   *          system to resample the data at a 1 minute rate before training, the
+   *             <code>TargetSamplingRate</code> is 1 minute.</p>
+   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the
+   *          prefix "PT" to the rate you want. The value for a 1 second rate is therefore
+   *             <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>,
+   *          and the value for a 1 hour rate is <i>PT1H</i>
    *          </p>
    */
   TargetSamplingRate?: TargetSamplingRate | string;
@@ -679,21 +681,21 @@ export interface CreateModelRequest {
 
   /**
    * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
-   *          the data after post processing by
-   *          Amazon Lookout for Equipment. For example, if you provide data that
-   *          has been collected at a 1 second level and you want the system to resample
-   *          the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
-   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must
-   *             attach the prefix "PT" to the rate you want.  The value for a 1 second rate
-   *             is therefore <i>PT1S</i>, the value for a 15 minute rate
-   *             is <i>PT15M</i>, and the value for a 1 hour rate
-   *             is <i>PT1H</i>
+   *          the data after post processing by Amazon Lookout for Equipment. For example, if you provide
+   *          data that has been collected at a 1 second level and you want the system to resample the
+   *          data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1
+   *          minute.</p>
+   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the
+   *          prefix "PT" to the rate you want. The value for a 1 second rate is therefore
+   *             <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>,
+   *          and the value for a 1 hour rate is <i>PT1H</i>
    *          </p>
    */
   DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout
+   *          for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -703,7 +705,9 @@ export interface CreateModelRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
+   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this
+   *          condition is met, Lookout for Equipment will not use data from this asset for training,
+   *          evaluation, or inference.</p>
    */
   OffCondition?: string;
 }
@@ -809,17 +813,11 @@ export namespace DescribeDataIngestionJobRequest {
 }
 
 /**
- * <p>
- *
- * Entity that comprises information abount duplicate timestamps in the dataset.
- *
- * </p>
+ * <p> Entity that comprises information abount duplicate timestamps in the dataset. </p>
  */
 export interface DuplicateTimestamps {
   /**
-   * <p>
-   * Indicates the total number of duplicate timestamps.
-   * </p>
+   * <p> Indicates the total number of duplicate timestamps. </p>
    */
   TotalNumberOfDuplicateTimestamps: number | undefined;
 }
@@ -834,19 +832,12 @@ export namespace DuplicateTimestamps {
 }
 
 /**
- * <p>
- *
- * Entity that comprises information on sensors that have sensor data completely missing.
- *
- * </p>
+ * <p> Entity that comprises information on sensors that have sensor data completely missing.
+ *       </p>
  */
 export interface MissingCompleteSensorData {
   /**
-   * <p>
-   *
-   * Indicates the number of sensors that have data missing completely.
-   *
-   * </p>
+   * <p> Indicates the number of sensors that have data missing completely. </p>
    */
   AffectedSensorCount: number | undefined;
 }
@@ -861,19 +852,11 @@ export namespace MissingCompleteSensorData {
 }
 
 /**
- * <p>
- *
- * Entity that comprises information on sensors that have shorter date range.
- *
- * </p>
+ * <p> Entity that comprises information on sensors that have shorter date range. </p>
  */
 export interface SensorsWithShortDateRange {
   /**
-   * <p>
-   *
-   * Indicates the number of sensors that have less than 90 days of data.
-   *
-   * </p>
+   * <p> Indicates the number of sensors that have less than 90 days of data. </p>
    */
   AffectedSensorCount: number | undefined;
 }
@@ -888,28 +871,19 @@ export namespace SensorsWithShortDateRange {
 }
 
 /**
- * <p>
- *
- * Entity that comprises aggregated information on sensors having insufficient data.
- *
- * </p>
+ * <p> Entity that comprises aggregated information on sensors having insufficient data.
+ *       </p>
  */
 export interface InsufficientSensorData {
   /**
-   * <p>
-   *
-   * Parameter that describes the total number of sensors that have data completely missing for it.
-   *
-   * </p>
+   * <p> Parameter that describes the total number of sensors that have data completely missing
+   *          for it. </p>
    */
   MissingCompleteSensorData: MissingCompleteSensorData | undefined;
 
   /**
-   * <p>
-   *
-   * Parameter that describes the total number of sensors that have a short date range of less than 90 days of data overall.
-   *
-   * </p>
+   * <p> Parameter that describes the total number of sensors that have a short date range of
+   *          less than 90 days of data overall. </p>
    */
   SensorsWithShortDateRange: SensorsWithShortDateRange | undefined;
 }
@@ -924,28 +898,17 @@ export namespace InsufficientSensorData {
 }
 
 /**
- * <p>
- *
- * Entity that comprises aggregated information on sensors having insufficient data.
- *
- * </p>
+ * <p> Entity that comprises aggregated information on sensors having insufficient data.
+ *       </p>
  */
 export interface InvalidSensorData {
   /**
-   * <p>
-   *
-   * Indicates the number of sensors that have at least some invalid values.
-   *
-   * </p>
+   * <p> Indicates the number of sensors that have at least some invalid values. </p>
    */
   AffectedSensorCount: number | undefined;
 
   /**
-   * <p>
-   *
-   * Indicates the total number of invalid values across all the sensors.
-   *
-   * </p>
+   * <p> Indicates the total number of invalid values across all the sensors. </p>
    */
   TotalNumberOfInvalidValues: number | undefined;
 }
@@ -960,28 +923,16 @@ export namespace InvalidSensorData {
 }
 
 /**
- * <p>
- *
- * Entity that comprises aggregated information on sensors having missing data.
- *
- * </p>
+ * <p> Entity that comprises aggregated information on sensors having missing data. </p>
  */
 export interface MissingSensorData {
   /**
-   * <p>
-   *
-   * Indicates the number of sensors that have atleast some data missing.
-   *
-   * </p>
+   * <p> Indicates the number of sensors that have atleast some data missing. </p>
    */
   AffectedSensorCount: number | undefined;
 
   /**
-   * <p>
-   *
-   * Indicates the total number of missing values across all the sensors.
-   *
-   * </p>
+   * <p> Indicates the total number of missing values across all the sensors. </p>
    */
   TotalNumberOfMissingValues: number | undefined;
 }
@@ -996,19 +947,11 @@ export namespace MissingSensorData {
 }
 
 /**
- * <p>
- *
- * Entity that comprises information abount unsupported timestamps in the dataset.
- *
- * </p>
+ * <p> Entity that comprises information abount unsupported timestamps in the dataset. </p>
  */
 export interface UnsupportedTimestamps {
   /**
-   * <p>
-   *
-   * Indicates the total number of unsupported timestamps across the ingested data.
-   *
-   * </p>
+   * <p> Indicates the total number of unsupported timestamps across the ingested data. </p>
    */
   TotalNumberOfUnsupportedTimestamps: number | undefined;
 }
@@ -1023,55 +966,39 @@ export namespace UnsupportedTimestamps {
 }
 
 /**
- * <p>
- *
- * DataQualitySummary gives aggregated statistics over all the sensors about a completed ingestion job. It primarily gives more information about statistics over different incorrect data like MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, DuplicateTimeStamps.
- *
- * </p>
+ * <p> DataQualitySummary gives aggregated statistics over all the sensors about a completed
+ *          ingestion job. It primarily gives more information about statistics over different
+ *          incorrect data like MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats,
+ *          InsufficientSensorData, DuplicateTimeStamps. </p>
  */
 export interface DataQualitySummary {
   /**
-   * <p>
-   *
-   * Parameter that gives information about insufficient data for sensors in the dataset. This includes information about those sensors that have complete data missing and those with a short date range.
-   *
-   * </p>
+   * <p> Parameter that gives information about insufficient data for sensors in the dataset.
+   *          This includes information about those sensors that have complete data missing and those
+   *          with a short date range. </p>
    */
   InsufficientSensorData: InsufficientSensorData | undefined;
 
   /**
-   * <p>
-   *
-   * Parameter that gives information about data that is missing over all the sensors in the input data.
-   *
-   * </p>
+   * <p> Parameter that gives information about data that is missing over all the sensors in the
+   *          input data. </p>
    */
   MissingSensorData: MissingSensorData | undefined;
 
   /**
-   * <p>
-   *
-   * Parameter that gives information about data that is invalid over all the sensors in the input data.
-   *
-   * </p>
+   * <p> Parameter that gives information about data that is invalid over all the sensors in the
+   *          input data. </p>
    */
   InvalidSensorData: InvalidSensorData | undefined;
 
   /**
-   * <p>
-   *
-   * Parameter that gives information about unsupported timestamps in the input data.
-   *
-   * </p>
+   * <p> Parameter that gives information about unsupported timestamps in the input data.
+   *       </p>
    */
   UnsupportedTimestamps: UnsupportedTimestamps | undefined;
 
   /**
-   * <p>
-   *
-   * Parameter that gives information about duplicate timestamps in the input data.
-   *
-   * </p>
+   * <p> Parameter that gives information about duplicate timestamps in the input data. </p>
    */
   DuplicateTimestamps: DuplicateTimestamps | undefined;
 }
@@ -1111,7 +1038,8 @@ export namespace S3Object {
 }
 
 /**
- * <p>Gives statistics about how many files have been ingested, and which files have not been ingested, for a particular ingestion job.</p>
+ * <p>Gives statistics about how many files have been ingested, and which files have not been
+ *          ingested, for a particular ingestion job.</p>
  */
 export interface IngestedFilesSummary {
   /**
@@ -1125,7 +1053,8 @@ export interface IngestedFilesSummary {
   IngestedNumberOfFiles: number | undefined;
 
   /**
-   * <p>Indicates the number of files that were discarded. A file could be discarded because its format is invalid (for example, a jpg or pdf) or not readable.</p>
+   * <p>Indicates the number of files that were discarded. A file could be discarded because its
+   *          format is invalid (for example, a jpg or pdf) or not readable.</p>
    */
   DiscardedFiles?: S3Object[];
 }
@@ -1156,10 +1085,9 @@ export interface IngestionS3InputConfiguration {
   Prefix?: string;
 
   /**
-   * <p>
-   * Pattern for matching the Amazon S3 files which will be used for ingestion.
-   * If no KeyPattern is provided, we will use the default hierarchy file structure, which is same as KeyPattern {prefix}/{component_name}/*
-   * </p>
+   * <p> Pattern for matching the Amazon S3 files which will be used for ingestion. If
+   *          no KeyPattern is provided, we will use the default hierarchy file structure, which is same
+   *          as KeyPattern {prefix}/{component_name}/* </p>
    */
   KeyPattern?: string;
 }
@@ -1240,14 +1168,15 @@ export interface DescribeDataIngestionJobResponse {
   FailedReason?: string;
 
   /**
-   * <p>
-   * Gives statistics about a completed ingestion job. These statistics primarily relate to quantifying incorrect data such as MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps.
-   * </p>
+   * <p> Gives statistics about a completed ingestion job. These statistics primarily relate to
+   *          quantifying incorrect data such as MissingCompleteSensorData, MissingSensorData,
+   *          UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps. </p>
    */
   DataQualitySummary?: DataQualitySummary;
 
   /**
-   * <p>Gives statistics about how many files have been ingested, and which files have not been ingested, for a particular ingestion job.</p>
+   * <p>Gives statistics about how many files have been ingested, and which files have not been
+   *          ingested, for a particular ingestion job.</p>
    */
   IngestedFilesSummary?: IngestedFilesSummary;
 
@@ -1317,7 +1246,7 @@ export interface DescribeDatasetResponse {
   DatasetArn?: string;
 
   /**
-   * <p>Specifies the time the dataset was created in Amazon Lookout for Equipment. </p>
+   * <p>Specifies the time the dataset was created in Lookout for Equipment. </p>
    */
   CreatedAt?: Date;
 
@@ -1338,26 +1267,28 @@ export interface DescribeDatasetResponse {
   Schema?: __LazyJsonString | string;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout
+   *          for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
   /**
-   * <p>Specifies the S3 location configuration for the data input for the data ingestion job. </p>
+   * <p>Specifies the S3 location configuration for the data input for the data ingestion job.
+   *       </p>
    */
   IngestionInputConfiguration?: IngestionInputConfiguration;
 
   /**
-   * <p>
-   * Gives statistics associated with the given dataset for the latest successful associated ingestion job id. These statistics primarily relate to quantifying incorrect data such as MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps.
-   * </p>
+   * <p> Gives statistics associated with the given dataset for the latest successful associated
+   *          ingestion job id. These statistics primarily relate to quantifying incorrect data such as
+   *          MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats,
+   *          InsufficientSensorData, and DuplicateTimeStamps. </p>
    */
   DataQualitySummary?: DataQualitySummary;
 
   /**
-   * <p>
-   * IngestedFilesSummary associated with the given dataset for the latest successful associated ingestion job id.
-   * </p>
+   * <p> IngestedFilesSummary associated with the given dataset for the latest successful
+   *          associated ingestion job id. </p>
    */
   IngestedFilesSummary?: IngestedFilesSummary;
 
@@ -1438,19 +1369,20 @@ export interface DescribeInferenceSchedulerResponse {
   /**
    * <p> A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if you select an offset delay time of five minutes, inference will
-   *          not begin on the data until the first data measurement after the five minute mark. For example, if
-   *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
-   *          additional five minute delay time to check the customer S3 bucket. The customer can upload data at
-   *          the same frequency and they don't need to stop and restart the scheduler when uploading new data.</p>
+   *          not begin on the data until the first data measurement after the five minute mark. For
+   *          example, if five minutes is selected, the inference scheduler will wake up at the
+   *          configured frequency with the additional five minute delay time to check the customer S3
+   *          bucket. The customer can upload data at the same frequency and they don't need to stop and
+   *          restart the scheduler when uploading new data.</p>
    */
   DataDelayOffsetInMinutes?: number;
 
   /**
    * <p>Specifies how often data is uploaded to the source S3 bucket for the input data. This
    *          value is the length of time between data uploads. For instance, if you select 5 minutes,
-   *          Amazon Lookout for Equipment will upload the real-time data to the source bucket once every 5 minutes. This
-   *          frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data.
-   *          In this example, it starts once every 5 minutes. </p>
+   *          Amazon Lookout for Equipment will upload the real-time data to the source bucket once every
+   *          5 minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
+   *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
    */
   DataUploadFrequency?: DataUploadFrequency | string;
 
@@ -1471,8 +1403,8 @@ export interface DescribeInferenceSchedulerResponse {
   DataInputConfiguration?: InferenceInputConfiguration;
 
   /**
-   * <p> Specifies information for the output results for the inference scheduler,
-   *          including the output S3 location. </p>
+   * <p> Specifies information for the output results for the inference scheduler, including
+   *          the output S3 location. </p>
    */
   DataOutputConfiguration?: InferenceOutputConfiguration;
 
@@ -1483,7 +1415,8 @@ export interface DescribeInferenceSchedulerResponse {
   RoleArn?: string;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by
+   *          Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 }
@@ -1579,15 +1512,14 @@ export interface DescribeModelResponse {
 
   /**
    * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
-   *          the data after post processing by
-   *          Amazon Lookout for Equipment. For example, if you provide data that
-   *          has been collected at a 1 second level and you want the system to resample
-   *          the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
-   *             <p>When providing a value for the <code>TargetSamplingRate</code>, you must
-   *                attach the prefix "PT" to the rate you want.  The value for a 1 second rate
-   *                is therefore <i>PT1S</i>, the value for a 15 minute rate
-   *                is <i>PT15M</i>, and the value for a 1 hour rate
-   *                is <i>PT1H</i>
+   *          the data after post processing by Amazon Lookout for Equipment. For example, if you provide
+   *          data that has been collected at a 1 second level and you want the system to resample the
+   *          data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1
+   *          minute.</p>
+   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the
+   *          prefix "PT" to the rate you want. The value for a 1 second rate is therefore
+   *             <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>,
+   *          and the value for a 1 hour rate is <i>PT1H</i>
    *          </p>
    */
   DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
@@ -1615,8 +1547,9 @@ export interface DescribeModelResponse {
   FailedReason?: string;
 
   /**
-   * <p>The Model Metrics show an aggregated summary of the model's performance within the evaluation time
-   *          range. This is the JSON content of the metrics created when evaluating the model. </p>
+   * <p>The Model Metrics show an aggregated summary of the model's performance within the
+   *          evaluation time range. This is the JSON content of the metrics created when evaluating the
+   *          model. </p>
    */
   ModelMetrics?: __LazyJsonString | string;
 
@@ -1632,12 +1565,15 @@ export interface DescribeModelResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout
+   *          for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
   /**
-   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
+   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this
+   *          condition is met, Lookout for Equipment will not use data from this asset for training,
+   *          evaluation, or inference.</p>
    */
   OffCondition?: string;
 }
@@ -1704,8 +1640,8 @@ export interface DataIngestionJobSummary {
   DatasetArn?: string;
 
   /**
-   * <p> Specifies information for the input data for the data inference job, including data Amazon S3
-   *          location parameters. </p>
+   * <p> Specifies information for the input data for the data inference job, including data
+   *             Amazon S3 location parameters. </p>
    */
   IngestionInputConfiguration?: IngestionInputConfiguration;
 
@@ -1832,6 +1768,116 @@ export namespace ListDatasetsResponse {
   });
 }
 
+export interface ListInferenceEventsRequest {
+  /**
+   * <p>An opaque pagination token indicating where to continue the listing of inference
+   *          events.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies the maximum number of inference events to list. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name of the inference scheduler for the inference events listed. </p>
+   */
+  InferenceSchedulerName: string | undefined;
+
+  /**
+   * <p> Lookout for Equipment will return all the inference events with start time equal to or greater than the start time given.</p>
+   */
+  IntervalStartTime: Date | undefined;
+
+  /**
+   * <p>Lookout for Equipment will return all the inference events with end time equal to or less than the end time given.</p>
+   */
+  IntervalEndTime: Date | undefined;
+}
+
+export namespace ListInferenceEventsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInferenceEventsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the specific inference event, including start and end time,
+ *          diagnostics information, event duration and so on.</p>
+ */
+export interface InferenceEventSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the inference scheduler being used for the inference
+   *          event. </p>
+   */
+  InferenceSchedulerArn?: string;
+
+  /**
+   * <p>The name of the inference scheduler being used for the inference events. </p>
+   */
+  InferenceSchedulerName?: string;
+
+  /**
+   * <p>Indicates the starting time of an inference event.
+   *       </p>
+   */
+  EventStartTime?: Date;
+
+  /**
+   * <p>Indicates the ending time of an inference event.
+   *       </p>
+   */
+  EventEndTime?: Date;
+
+  /**
+   * <p> An array which specifies the names and values of all sensors contributing to an inference event.</p>
+   */
+  Diagnostics?: string;
+
+  /**
+   * <p> Indicates the size of an inference event in seconds.
+   *       </p>
+   */
+  EventDurationInSeconds?: number;
+}
+
+export namespace InferenceEventSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceEventSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInferenceEventsResponse {
+  /**
+   * <p>An opaque pagination token indicating where to continue the listing of inference
+   *          executions. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Provides an array of information about the individual inference events returned from
+   *          the <code>ListInferenceEvents</code> operation, including scheduler used, event start time,
+   *          event end time, diagnostics, and so on. </p>
+   */
+  InferenceEventSummaries?: InferenceEventSummary[];
+}
+
+export namespace ListInferenceEventsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInferenceEventsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum InferenceExecutionStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1856,14 +1902,14 @@ export interface ListInferenceExecutionsRequest {
   InferenceSchedulerName: string | undefined;
 
   /**
-   * <p>The time reference in the inferenced dataset after which Amazon Lookout for Equipment started the
-   *          inference execution. </p>
+   * <p>The time reference in the inferenced dataset after which Amazon Lookout for Equipment
+   *          started the inference execution. </p>
    */
   DataStartTimeAfter?: Date;
 
   /**
-   * <p>The time reference in the inferenced dataset before which Amazon Lookout for Equipment stopped the
-   *          inference execution. </p>
+   * <p>The time reference in the inferenced dataset before which Amazon Lookout for Equipment
+   *          stopped the inference execution. </p>
    */
   DataEndTimeBefore?: Date;
 
@@ -1934,7 +1980,8 @@ export interface InferenceExecutionSummary {
 
   /**
    * <p> Specifies configuration information for the output results from for the inference
-   *          execution, including the output Amazon S3 location. </p>
+   *          execution, including the output Amazon S3 location.
+   *       </p>
    */
   DataOutputConfiguration?: InferenceOutputConfiguration;
 
@@ -2053,20 +2100,20 @@ export interface InferenceSchedulerSummary {
   /**
    * <p>A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if an offset delay time of five minutes was selected, inference will
-   *          not begin on the data until the first data measurement after the five minute mark. For example, if
-   *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
-   *          additional five minute delay time to check the customer S3 bucket. The customer can upload data at
-   *          the same frequency and they don't need to stop and restart the scheduler when uploading new data.
-   *       </p>
+   *          not begin on the data until the first data measurement after the five minute mark. For
+   *          example, if five minutes is selected, the inference scheduler will wake up at the
+   *          configured frequency with the additional five minute delay time to check the customer S3
+   *          bucket. The customer can upload data at the same frequency and they don't need to stop and
+   *          restart the scheduler when uploading new data. </p>
    */
   DataDelayOffsetInMinutes?: number;
 
   /**
    * <p>How often data is uploaded to the source S3 bucket for the input data. This value is the
-   *          length of time between data uploads. For instance, if you select 5 minutes, Amazon Lookout for Equipment
-   *          will upload the real-time data to the source bucket once every 5 minutes. This frequency also
-   *          determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In this
-   *          example, it starts once every 5 minutes. </p>
+   *          length of time between data uploads. For instance, if you select 5 minutes, Amazon Lookout
+   *          for Equipment will upload the real-time data to the source bucket once every 5 minutes.
+   *          This frequency also determines how often Amazon Lookout for Equipment starts a scheduled
+   *          inference on your data. In this example, it starts once every 5 minutes. </p>
    */
   DataUploadFrequency?: DataUploadFrequency | string;
 }
@@ -2210,30 +2257,25 @@ export namespace ListModelsResponse {
 
 export interface ListSensorStatisticsRequest {
   /**
-   * <p>
-   * The name of the dataset associated with the list of Sensor Statistics.
-   * </p>
+   * <p> The name of the dataset associated with the list of Sensor Statistics. </p>
    */
   DatasetName: string | undefined;
 
   /**
-   * <p>
-   * The ingestion job id associated with the list of Sensor Statistics. To get sensor statistics for a particular ingestion job id, both dataset name and ingestion job id must be submitted as inputs.
-   * </p>
+   * <p> The ingestion job id associated with the list of Sensor Statistics. To get sensor
+   *          statistics for a particular ingestion job id, both dataset name and ingestion job id must
+   *          be submitted as inputs. </p>
    */
   IngestionJobId?: string;
 
   /**
-   * <p>
-   * Specifies the maximum number of sensors for which to retrieve statistics.
-   * </p>
+   * <p> Specifies the maximum number of sensors for which to retrieve statistics. </p>
    */
   MaxResults?: number;
 
   /**
-   * <p>
-   * An opaque pagination token indicating where to continue the listing of sensor statistics.
-   * </p>
+   * <p> An opaque pagination token indicating where to continue the listing of sensor
+   *          statistics. </p>
    */
   NextToken?: string;
 }
@@ -2253,22 +2295,17 @@ export enum StatisticalIssueStatus {
 }
 
 /**
- * <p>
- * Entity that comprises information on categorical values in data.
- * </p>
+ * <p> Entity that comprises information on categorical values in data. </p>
  */
 export interface CategoricalValues {
   /**
-   * <p>
-   * Indicates whether there is a potential data issue related to categorical values.
-   * </p>
+   * <p> Indicates whether there is a potential data issue related to categorical values.
+   *       </p>
    */
   Status: StatisticalIssueStatus | string | undefined;
 
   /**
-   * <p>
-   * Indicates the number of categories in the data.
-   * </p>
+   * <p> Indicates the number of categories in the data. </p>
    */
   NumberOfCategory?: number;
 }
@@ -2283,28 +2320,16 @@ export namespace CategoricalValues {
 }
 
 /**
- * <p>
- *
- * Entity that comprises information of count and percentage.
- *
- * </p>
+ * <p> Entity that comprises information of count and percentage. </p>
  */
 export interface CountPercent {
   /**
-   * <p>
-   *
-   * Indicates the count of occurences of the given statistic.
-   *
-   * </p>
+   * <p> Indicates the count of occurences of the given statistic. </p>
    */
   Count: number | undefined;
 
   /**
-   * <p>
-   *
-   * Indicates the percentage of occurances of the given statistic.
-   *
-   * </p>
+   * <p> Indicates the percentage of occurances of the given statistic. </p>
    */
   Percentage: number | undefined;
 }
@@ -2319,29 +2344,23 @@ export namespace CountPercent {
 }
 
 /**
- * <p>
- * Entity that comprises information on large gaps between consecutive timestamps in data.
- * </p>
+ * <p> Entity that comprises information on large gaps between consecutive timestamps in data.
+ *       </p>
  */
 export interface LargeTimestampGaps {
   /**
-   * <p>
-   * Indicates whether there is a potential data issue related to large gaps in timestamps.
-   * </p>
+   * <p> Indicates whether there is a potential data issue related to large gaps in timestamps.
+   *       </p>
    */
   Status: StatisticalIssueStatus | string | undefined;
 
   /**
-   * <p>
-   * Indicates the number of large timestamp gaps, if there are any.
-   * </p>
+   * <p> Indicates the number of large timestamp gaps, if there are any. </p>
    */
   NumberOfLargeTimestampGaps?: number;
 
   /**
-   * <p>
-   * Indicates the size of the largest timestamp gap, in days.
-   * </p>
+   * <p> Indicates the size of the largest timestamp gap, in days. </p>
    */
   MaxTimestampGapInDays?: number;
 }
@@ -2362,22 +2381,17 @@ export enum Monotonicity {
 }
 
 /**
- * <p>
- * Entity that comprises information on monotonic values in the data.
- * </p>
+ * <p> Entity that comprises information on monotonic values in the data. </p>
  */
 export interface MonotonicValues {
   /**
-   * <p>
-   * Indicates whether there is a potential data issue related to having monotonic values.
-   * </p>
+   * <p> Indicates whether there is a potential data issue related to having monotonic values.
+   *       </p>
    */
   Status: StatisticalIssueStatus | string | undefined;
 
   /**
-   * <p>
-   * Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC.
-   * </p>
+   * <p> Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC. </p>
    */
   Monotonicity?: Monotonicity | string;
 }
@@ -2392,15 +2406,12 @@ export namespace MonotonicValues {
 }
 
 /**
- * <p>
- * Entity that comprises information on operating modes in data.
- * </p>
+ * <p> Entity that comprises information on operating modes in data. </p>
  */
 export interface MultipleOperatingModes {
   /**
-   * <p>
-   *     Indicates whether there is a potential data issue related to having multiple operating modes.
-   * </p>
+   * <p> Indicates whether there is a potential data issue related to having multiple operating
+   *          modes. </p>
    */
   Status: StatisticalIssueStatus | string | undefined;
 }
@@ -2415,113 +2426,84 @@ export namespace MultipleOperatingModes {
 }
 
 /**
- * <p>
- *
- * Summary of ingestion statistics like whether data exists, number of missing values, number of invalid values and so on related to the particular sensor.
- *
- * </p>
+ * <p> Summary of ingestion statistics like whether data exists, number of missing values,
+ *          number of invalid values and so on related to the particular sensor. </p>
  */
 export interface SensorStatisticsSummary {
   /**
-   * <p>
-   *
-   * Name of the component to which the particular sensor belongs for which the statistics belong to.
-   *
-   * </p>
+   * <p> Name of the component to which the particular sensor belongs for which the statistics
+   *          belong to. </p>
    */
   ComponentName?: string;
 
   /**
-   * <p>
-   *
-   * Name of the sensor that the statistics belong to.
-   *
-   * </p>
+   * <p> Name of the sensor that the statistics belong to. </p>
    */
   SensorName?: string;
 
   /**
-   * <p>
-   *
-   * Parameter that indicates whether data exists for the sensor that the statistics belong to.
-   *
-   * </p>
+   * <p> Parameter that indicates whether data exists for the sensor that the statistics belong
+   *          to. </p>
    */
   DataExists?: boolean;
 
   /**
-   * <p>
-   *
-   * Parameter that describes the total number of, and percentage of, values that are missing for the sensor that the statistics belong to.
-   *
-   * </p>
+   * <p> Parameter that describes the total number of, and percentage of, values that are
+   *          missing for the sensor that the statistics belong to. </p>
    */
   MissingValues?: CountPercent;
 
   /**
-   * <p>
-   *
-   * Parameter that describes the total number of, and percentage of, values that are invalid for the sensor that the statistics belong to.
-   *
-   * </p>
+   * <p> Parameter that describes the total number of, and percentage of, values that are
+   *          invalid for the sensor that the statistics belong to. </p>
    */
   InvalidValues?: CountPercent;
 
   /**
-   * <p>
-   *
-   * Parameter that describes the total number of invalid date entries associated with the sensor that the statistics belong to.
-   *
-   * </p>
+   * <p> Parameter that describes the total number of invalid date entries associated with the
+   *          sensor that the statistics belong to. </p>
    */
   InvalidDateEntries?: CountPercent;
 
   /**
-   * <p>
-   * Parameter that describes the total number of duplicate timestamp records associated with the sensor that the statistics belong to.
-   * </p>
+   * <p> Parameter that describes the total number of duplicate timestamp records associated
+   *          with the sensor that the statistics belong to. </p>
    */
   DuplicateTimestamps?: CountPercent;
 
   /**
-   * <p>
-   * Parameter that describes potential risk about whether data associated with the sensor is categorical.
-   * </p>
+   * <p> Parameter that describes potential risk about whether data associated with the sensor
+   *          is categorical. </p>
    */
   CategoricalValues?: CategoricalValues;
 
   /**
-   * <p>
-   * Parameter that describes potential risk about whether data associated with the sensor has more than one operating mode.
-   * </p>
+   * <p> Parameter that describes potential risk about whether data associated with the sensor
+   *          has more than one operating mode. </p>
    */
   MultipleOperatingModes?: MultipleOperatingModes;
 
   /**
-   * <p>
-   * Parameter that describes potential risk about whether data associated with the sensor contains one or more large gaps between consecutive timestamps.
-   * </p>
+   * <p> Parameter that describes potential risk about whether data associated with the sensor
+   *          contains one or more large gaps between consecutive timestamps. </p>
    */
   LargeTimestampGaps?: LargeTimestampGaps;
 
   /**
-   * <p>
-   * Parameter that describes potential risk about whether data associated with the sensor is mostly monotonic.
-   * </p>
+   * <p> Parameter that describes potential risk about whether data associated with the sensor
+   *          is mostly monotonic. </p>
    */
   MonotonicValues?: MonotonicValues;
 
   /**
-   * <p>
-   * Indicates the time reference to indicate the beginning of valid data associated with the sensor that the statistics belong to.
-   * </p>
+   * <p> Indicates the time reference to indicate the beginning of valid data associated with
+   *          the sensor that the statistics belong to. </p>
    */
   DataStartTime?: Date;
 
   /**
-   * <p>
-   * Indicates the time reference to indicate the end of valid data associated with the sensor that the statistics belong to.
-   * </p>
+   * <p> Indicates the time reference to indicate the end of valid data associated with the
+   *          sensor that the statistics belong to. </p>
    */
   DataEndTime?: Date;
 }
@@ -2537,16 +2519,15 @@ export namespace SensorStatisticsSummary {
 
 export interface ListSensorStatisticsResponse {
   /**
-   * <p>
-   * Provides ingestion-based statistics regarding the specified sensor with respect to various validation types, such as whether data exists, the number and percentage of missing values, and the number and percentage of duplicate timestamps.
-   * </p>
+   * <p> Provides ingestion-based statistics regarding the specified sensor with respect to
+   *          various validation types, such as whether data exists, the number and percentage of missing
+   *          values, and the number and percentage of duplicate timestamps. </p>
    */
   SensorStatisticsSummaries?: SensorStatisticsSummary[];
 
   /**
-   * <p>
-   * An opaque pagination token indicating where to continue the listing of sensor statistics.
-   * </p>
+   * <p> An opaque pagination token indicating where to continue the listing of sensor
+   *          statistics. </p>
    */
   NextToken?: string;
 }
@@ -2830,19 +2811,20 @@ export interface UpdateInferenceSchedulerRequest {
   /**
    * <p> A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if you select an offset delay time of five minutes, inference will
-   *          not begin on the data until the first data measurement after the five minute mark. For example, if
-   *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
-   *          additional five minute delay time to check the customer S3 bucket. The customer can upload data at
-   *          the same frequency and they don't need to stop and restart the scheduler when uploading new data.</p>
+   *          not begin on the data until the first data measurement after the five minute mark. For
+   *          example, if five minutes is selected, the inference scheduler will wake up at the
+   *          configured frequency with the additional five minute delay time to check the customer S3
+   *          bucket. The customer can upload data at the same frequency and they don't need to stop and
+   *          restart the scheduler when uploading new data.</p>
    */
   DataDelayOffsetInMinutes?: number;
 
   /**
    * <p>How often data is uploaded to the source S3 bucket for the input data. The value chosen
    *          is the length of time between data uploads. For instance, if you select 5 minutes, Amazon
-   *          Lookout for Equipment will upload the real-time data to the source bucket once every 5 minutes. This frequency
-   *          also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In this
-   *          example, it starts once every 5 minutes. </p>
+   *          Lookout for Equipment will upload the real-time data to the source bucket once every 5
+   *          minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
+   *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
    */
   DataUploadFrequency?: DataUploadFrequency | string;
 
@@ -2853,7 +2835,8 @@ export interface UpdateInferenceSchedulerRequest {
   DataInputConfiguration?: InferenceInputConfiguration;
 
   /**
-   * <p> Specifies information for the output results from the inference scheduler, including the output S3 location. </p>
+   * <p> Specifies information for the output results from the inference scheduler, including
+   *          the output S3 location. </p>
    */
   DataOutputConfiguration?: InferenceOutputConfiguration;
 

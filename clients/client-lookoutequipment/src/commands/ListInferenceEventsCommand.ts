@@ -13,42 +13,42 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StartDataIngestionJobRequest, StartDataIngestionJobResponse } from "../models/models_0";
+import { ListInferenceEventsRequest, ListInferenceEventsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0StartDataIngestionJobCommand,
-  serializeAws_json1_0StartDataIngestionJobCommand,
+  deserializeAws_json1_0ListInferenceEventsCommand,
+  serializeAws_json1_0ListInferenceEventsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface StartDataIngestionJobCommandInput extends StartDataIngestionJobRequest {}
-export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJobResponse, __MetadataBearer {}
+export interface ListInferenceEventsCommandInput extends ListInferenceEventsRequest {}
+export interface ListInferenceEventsCommandOutput extends ListInferenceEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status.
- *       </p>
+ * <p> Lists all inference events that have been found for the specified inference
+ *          scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ListInferenceEventsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ListInferenceEventsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const command = new StartDataIngestionJobCommand(input);
+ * const command = new ListInferenceEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartDataIngestionJobCommandInput} for command's `input` shape.
- * @see {@link StartDataIngestionJobCommandOutput} for command's `response` shape.
+ * @see {@link ListInferenceEventsCommandInput} for command's `input` shape.
+ * @see {@link ListInferenceEventsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
-export class StartDataIngestionJobCommand extends $Command<
-  StartDataIngestionJobCommandInput,
-  StartDataIngestionJobCommandOutput,
+export class ListInferenceEventsCommand extends $Command<
+  ListInferenceEventsCommandInput,
+  ListInferenceEventsCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: StartDataIngestionJobCommandInput) {
+  constructor(readonly input: ListInferenceEventsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +61,20 @@ export class StartDataIngestionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartDataIngestionJobCommandInput, StartDataIngestionJobCommandOutput> {
+  ): Handler<ListInferenceEventsCommandInput, ListInferenceEventsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StartDataIngestionJobCommand";
+    const commandName = "ListInferenceEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataIngestionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDataIngestionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInferenceEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInferenceEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +84,12 @@ export class StartDataIngestionJobCommand extends $Command<
     );
   }
 
-  private serialize(input: StartDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartDataIngestionJobCommand(input, context);
+  private serialize(input: ListInferenceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0ListInferenceEventsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDataIngestionJobCommandOutput> {
-    return deserializeAws_json1_0StartDataIngestionJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceEventsCommandOutput> {
+    return deserializeAws_json1_0ListInferenceEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

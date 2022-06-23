@@ -48,6 +48,10 @@ import {
 } from "../commands/ListDataIngestionJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import {
+  ListInferenceEventsCommandInput,
+  ListInferenceEventsCommandOutput,
+} from "../commands/ListInferenceEventsCommand";
+import {
   ListInferenceExecutionsCommandInput,
   ListInferenceExecutionsCommandOutput,
 } from "../commands/ListInferenceExecutionsCommand";
@@ -111,6 +115,7 @@ import {
   DescribeModelRequest,
   DescribeModelResponse,
   DuplicateTimestamps,
+  InferenceEventSummary,
   InferenceExecutionSummary,
   InferenceInputConfiguration,
   InferenceInputNameConfiguration,
@@ -131,6 +136,8 @@ import {
   ListDataIngestionJobsResponse,
   ListDatasetsRequest,
   ListDatasetsResponse,
+  ListInferenceEventsRequest,
+  ListInferenceEventsResponse,
   ListInferenceExecutionsRequest,
   ListInferenceExecutionsResponse,
   ListInferenceSchedulersRequest,
@@ -321,6 +328,19 @@ export const serializeAws_json1_0ListDatasetsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListDatasetsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListInferenceEventsCommand = async (
+  input: ListInferenceEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListInferenceEvents",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListInferenceEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1113,6 +1133,61 @@ const deserializeAws_json1_0ListDatasetsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.lookoutequipment#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListInferenceEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListInferenceEventsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListInferenceEventsResponse(data, context);
+  const response: ListInferenceEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListInferenceEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -2126,6 +2201,22 @@ const serializeAws_json1_0ListDatasetsRequest = (input: ListDatasetsRequest, con
   };
 };
 
+const serializeAws_json1_0ListInferenceEventsRequest = (
+  input: ListInferenceEventsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InferenceSchedulerName !== undefined &&
+      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.IntervalEndTime !== undefined &&
+      input.IntervalEndTime !== null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
+    ...(input.IntervalStartTime !== undefined &&
+      input.IntervalStartTime !== null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_0ListInferenceExecutionsRequest = (
   input: ListInferenceExecutionsRequest,
   context: __SerdeContext
@@ -2622,6 +2713,38 @@ const deserializeAws_json1_0DuplicateTimestamps = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_0InferenceEventSummaries = (
+  output: any,
+  context: __SerdeContext
+): InferenceEventSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0InferenceEventSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0InferenceEventSummary = (output: any, context: __SerdeContext): InferenceEventSummary => {
+  return {
+    Diagnostics: __expectString(output.Diagnostics),
+    EventDurationInSeconds: __expectLong(output.EventDurationInSeconds),
+    EventEndTime:
+      output.EventEndTime !== undefined && output.EventEndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventEndTime)))
+        : undefined,
+    EventStartTime:
+      output.EventStartTime !== undefined && output.EventStartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventStartTime)))
+        : undefined,
+    InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
+    InferenceSchedulerName: __expectString(output.InferenceSchedulerName),
+  } as any;
+};
+
 const deserializeAws_json1_0InferenceExecutionSummaries = (
   output: any,
   context: __SerdeContext
@@ -2876,6 +2999,19 @@ const deserializeAws_json1_0ListDatasetsResponse = (output: any, context: __Serd
     DatasetSummaries:
       output.DatasetSummaries !== undefined && output.DatasetSummaries !== null
         ? deserializeAws_json1_0DatasetSummaries(output.DatasetSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_0ListInferenceEventsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceEventsResponse => {
+  return {
+    InferenceEventSummaries:
+      output.InferenceEventSummaries !== undefined && output.InferenceEventSummaries !== null
+        ? deserializeAws_json1_0InferenceEventSummaries(output.InferenceEventSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;

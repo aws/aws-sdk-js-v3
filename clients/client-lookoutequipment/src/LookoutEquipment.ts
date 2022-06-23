@@ -54,6 +54,11 @@ import {
   ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
+  ListInferenceEventsCommand,
+  ListInferenceEventsCommandInput,
+  ListInferenceEventsCommandOutput,
+} from "./commands/ListInferenceEventsCommand";
+import {
   ListInferenceExecutionsCommand,
   ListInferenceExecutionsCommandInput,
   ListInferenceExecutionsCommandOutput,
@@ -103,8 +108,9 @@ import {
 import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 
 /**
- * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
- *          anomalies in machines from sensor data for use in predictive maintenance. </p>
+ * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics
+ *          to identify anomalies in machines from sensor data for use in predictive maintenance.
+ *       </p>
  */
 export class LookoutEquipment extends LookoutEquipmentClient {
   /**
@@ -181,10 +187,10 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   /**
    * <p>Creates an ML model for data inference. </p>
    *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
-   *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and detects abnormal
-   *          behavior that could be potential equipment failure (or maintenance events). The models are
-   *          made by analyzing normal data and abnormalities in machine behavior that have already
-   *          occurred.</p>
+   *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and
+   *          detects abnormal behavior that could be potential equipment failure (or maintenance
+   *          events). The models are made by analyzing normal data and abnormalities in machine behavior
+   *          that have already occurred.</p>
    *          <p>Your model is trained using a portion of the data from your dataset and uses that data
    *          to learn patterns of normal behavior and abnormal patterns that lead to equipment failure.
    *          Another portion of the data is used to evaluate the model's accuracy. </p>
@@ -282,8 +288,9 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>Deletes an ML model currently available for Amazon Lookout for Equipment. This will prevent it from
-   *          being used with an inference scheduler, even one that is already set up. </p>
+   * <p>Deletes an ML model currently available for Amazon Lookout for Equipment. This will
+   *          prevent it from being used with an inference scheduler, even one that is already set up.
+   *       </p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -342,7 +349,8 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>Provides a JSON description of the data in each time series dataset, including names, column names, and data types.</p>
+   * <p>Provides a JSON description of the data in each time series dataset, including names,
+   *          column names, and data types.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -407,8 +415,9 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>Provides a JSON containing the overall information about a specific ML model, including model name and ARN,
-   *          dataset, training and evaluation information, status, and so on. </p>
+   * <p>Provides a JSON containing the overall information about a specific ML model, including
+   *          model name and ARN, dataset, training and evaluation information, status, and so on.
+   *       </p>
    */
   public describeModel(
     args: DescribeModelCommandInput,
@@ -492,6 +501,39 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Lists all inference events that have been found for the specified inference
+   *          scheduler. </p>
+   */
+  public listInferenceEvents(
+    args: ListInferenceEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceEventsCommandOutput>;
+  public listInferenceEvents(
+    args: ListInferenceEventsCommandInput,
+    cb: (err: any, data?: ListInferenceEventsCommandOutput) => void
+  ): void;
+  public listInferenceEvents(
+    args: ListInferenceEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceEventsCommandOutput) => void
+  ): void;
+  public listInferenceEvents(
+    args: ListInferenceEventsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInferenceEventsCommandOutput) => void),
+    cb?: (err: any, data?: ListInferenceEventsCommandOutput) => void
+  ): Promise<ListInferenceEventsCommandOutput> | void {
+    const command = new ListInferenceEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -596,9 +638,9 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>
-   * Lists statistics about the data collected for each of the sensors that have been successfully ingested in the particular dataset. Can also be used to retreive Sensor Statistics for a previous ingestion job.
-   * </p>
+   * <p> Lists statistics about the data collected for each of the sensors that have been
+   *          successfully ingested in the particular dataset. Can also be used to retreive Sensor
+   *          Statistics for a previous ingestion job. </p>
    */
   public listSensorStatistics(
     args: ListSensorStatisticsCommandInput,
@@ -662,7 +704,8 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status. </p>
+   * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status.
+   *       </p>
    */
   public startDataIngestionJob(
     args: StartDataIngestionJobCommandInput,
@@ -759,10 +802,10 @@ export class LookoutEquipment extends LookoutEquipmentClient {
 
   /**
    * <p>Associates a given tag to a resource in your account. A tag is a key-value pair which
-   *          can be added to an Amazon Lookout for Equipment resource as metadata. Tags can be used for organizing your
-   *          resources as well as helping you to search and filter by tag. Multiple tags can be added to
-   *          a resource, either when you create it, or later. Up to 50 tags can be associated with each
-   *          resource. </p>
+   *          can be added to an Amazon Lookout for Equipment resource as metadata. Tags can be used for
+   *          organizing your resources as well as helping you to search and filter by tag. Multiple tags
+   *          can be added to a resource, either when you create it, or later. Up to 50 tags can be
+   *          associated with each resource. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
