@@ -21,6 +21,7 @@ web:
 auth:
   htpasswd:
     file: ./htpasswd
+    algorithm: bcrypt
     # Maximum amount of users allowed to register, defaults to "+inf".
     # You can set this to -1 to disable registration.
     # max_users: 1000
@@ -74,3 +75,7 @@ middlewares:
 logs:
   - { type: stdout, format: pretty, level: http }
   #- {type: file, path: verdaccio.log, level: info}
+
+userRateLimit:
+  windowMS: 900000 # 15 minutes
+  max: 5000
