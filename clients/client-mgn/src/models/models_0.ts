@@ -111,6 +111,40 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>Error details.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * <p>Error details message.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Error details code.</p>
+   */
+  code?: string;
+
+  /**
+   * <p>Error details resourceId.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>Error details resourceType.</p>
+   */
+  resourceType?: string;
+}
+
+export namespace ErrorDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ErrorDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -128,6 +162,11 @@ export class ConflictException extends __BaseException {
   resourceType?: string;
 
   /**
+   * <p>Conflict Exception specific errors.</p>
+   */
+  errors?: ErrorDetails[];
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
@@ -140,6 +179,7 @@ export class ConflictException extends __BaseException {
     this.code = opts.code;
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
+    this.errors = opts.errors;
   }
 }
 
@@ -423,6 +463,147 @@ export enum LaunchStatus {
   TERMINATED = "TERMINATED",
 }
 
+export enum PostLaunchActionExecutionStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCESS = "SUCCESS",
+}
+
+export enum SsmParameterStoreParameterType {
+  STRING = "STRING",
+}
+
+/**
+ * <p>Source server replication type.</p>
+ */
+export interface SsmParameterStoreParameter {
+  /**
+   * <p>Source server replication type.</p>
+   */
+  parameterType: SsmParameterStoreParameterType | string | undefined;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  parameterName: string | undefined;
+}
+
+export namespace SsmParameterStoreParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SsmParameterStoreParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Source server replication type.</p>
+ */
+export interface SsmDocument {
+  /**
+   * <p>Source server replication type.</p>
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  ssmDocumentName: string | undefined;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  timeoutSeconds?: number;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  mustSucceedForCutover?: boolean;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  parameters?: Record<string, SsmParameterStoreParameter[]>;
+}
+
+export namespace SsmDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SsmDocument): any => ({
+    ...obj,
+  });
+}
+
+export enum SsmDocumentType {
+  AUTOMATION = "AUTOMATION",
+  COMMAND = "COMMAND",
+}
+
+/**
+ * <p>Job type.</p>
+ */
+export interface JobPostLaunchActionsLaunchStatus {
+  /**
+   * <p>Job type.</p>
+   */
+  ssmDocument?: SsmDocument;
+
+  /**
+   * <p>Job type.</p>
+   */
+  ssmDocumentType?: SsmDocumentType | string;
+
+  /**
+   * <p>Job type.</p>
+   */
+  executionID?: string;
+
+  /**
+   * <p>Job type.</p>
+   */
+  executionStatus?: PostLaunchActionExecutionStatus | string;
+
+  /**
+   * <p>Job type.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace JobPostLaunchActionsLaunchStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobPostLaunchActionsLaunchStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Server participating in Job.</p>
+ */
+export interface PostLaunchActionsStatus {
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  ssmAgentDiscoveryDatetime?: string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  postLaunchActionsLaunchStatusList?: JobPostLaunchActionsLaunchStatus[];
+}
+
+export namespace PostLaunchActionsStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostLaunchActionsStatus): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Server participating in Job.</p>
  */
@@ -430,12 +611,22 @@ export interface ParticipatingServer {
   /**
    * <p>Participating server Source Server ID.</p>
    */
-  sourceServerID?: string;
+  sourceServerID: string | undefined;
 
   /**
    * <p>Participating server launch status.</p>
    */
   launchStatus?: LaunchStatus | string;
+
+  /**
+   * <p>Participating server Source Server ID.</p>
+   */
+  launchedEc2InstanceID?: string;
+
+  /**
+   * <p>Participating server Source Server ID.</p>
+   */
+  postLaunchActionsStatus?: PostLaunchActionsStatus;
 }
 
 export namespace ParticipatingServer {
@@ -537,6 +728,200 @@ export namespace DescribeJobsResponse {
   export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
     ...obj,
     ...(obj.items && { items: obj.items.map((item) => Job.filterSensitiveLog(item)) }),
+  });
+}
+
+export enum PostLaunchActionsDeploymentType {
+  CUTOVER_ONLY = "CUTOVER_ONLY",
+  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
+}
+
+/**
+ * <p>Server participating in Job.</p>
+ */
+export interface PostLaunchActions {
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  deployment?: PostLaunchActionsDeploymentType | string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  s3LogBucket?: string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  s3OutputKeyPrefix?: string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  cloudWatchLogGroupName?: string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  ssmDocuments?: SsmDocument[];
+}
+
+export namespace PostLaunchActions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostLaunchActions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>
+   */
+  postLaunchActions?: PostLaunchActions;
+
+  /**
+   * <p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export namespace CreateLaunchConfigurationTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLaunchConfigurationTemplateRequest): any => ({
+    ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface LaunchConfigurationTemplate {
+  /**
+   * <p>Copy Private IP during Launch Configuration.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Copy Private IP during Launch Configuration.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Copy Private IP during Launch Configuration.</p>
+   */
+  postLaunchActions?: PostLaunchActions;
+
+  /**
+   * <p>Copy Private IP during Launch Configuration.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export namespace LaunchConfigurationTemplate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchConfigurationTemplate): any => ({
+    ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface DeleteLaunchConfigurationTemplateRequest {
+  /**
+   * <p>ID of resource to be deleted.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+}
+
+export namespace DeleteLaunchConfigurationTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchConfigurationTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLaunchConfigurationTemplateResponse {}
+
+export namespace DeleteLaunchConfigurationTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchConfigurationTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLaunchConfigurationTemplatesRequest {
+  /**
+   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   */
+  launchConfigurationTemplateIDs?: string[];
+
+  /**
+   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace DescribeLaunchConfigurationTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLaunchConfigurationTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLaunchConfigurationTemplatesResponse {
+  /**
+   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   */
+  items?: LaunchConfigurationTemplate[];
+
+  /**
+   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace DescribeLaunchConfigurationTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLaunchConfigurationTemplatesResponse): any => ({
+    ...obj,
+    ...(obj.items && { items: obj.items.map((item) => LaunchConfigurationTemplate.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface UpdateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Update Launch configuration Target instance right sizing request.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Update Launch configuration Target instance right sizing request.</p>
+   */
+  postLaunchActions?: PostLaunchActions;
+}
+
+export namespace UpdateLaunchConfigurationTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLaunchConfigurationTemplateRequest): any => ({
+    ...obj,
   });
 }
 
@@ -2012,6 +2397,11 @@ export interface LaunchConfiguration {
    * <p>Launch configuration boot mode.</p>
    */
   bootMode?: BootMode | string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  postLaunchActions?: PostLaunchActions;
 }
 
 export namespace LaunchConfiguration {
@@ -2432,6 +2822,11 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>Update Launch configuration boot mode request.</p>
    */
   bootMode?: BootMode | string;
+
+  /**
+   * <p>Server participating in Job.</p>
+   */
+  postLaunchActions?: PostLaunchActions;
 }
 
 export namespace UpdateLaunchConfigurationRequest {

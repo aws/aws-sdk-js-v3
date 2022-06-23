@@ -22,10 +22,18 @@ import {
   ChangeServerLifeCycleStateCommandOutput,
 } from "../commands/ChangeServerLifeCycleStateCommand";
 import {
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "../commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "../commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
@@ -40,6 +48,10 @@ import {
   DescribeJobLogItemsCommandOutput,
 } from "../commands/DescribeJobLogItemsCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "../commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "../commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeReplicationConfigurationTemplatesCommandInput,
   DescribeReplicationConfigurationTemplatesCommandOutput,
@@ -89,6 +101,10 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "../commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "../commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "../commands/UpdateReplicationConfigurationCommand";
@@ -114,11 +130,14 @@ import {
   DescribeJobsRequestFilters,
   DescribeSourceServersRequestFilters,
   Disk,
+  ErrorDetails,
   IdentificationHints,
   InternalServerException,
   Job,
   JobLog,
   JobLogEventData,
+  JobPostLaunchActionsLaunchStatus,
+  LaunchConfigurationTemplate,
   LaunchedInstance,
   Licensing,
   LifeCycle,
@@ -134,6 +153,8 @@ import {
   NetworkInterface,
   OS,
   ParticipatingServer,
+  PostLaunchActions,
+  PostLaunchActionsStatus,
   ReplicationConfigurationReplicatedDisk,
   ReplicationConfigurationTemplate,
   ReplicationType,
@@ -141,6 +162,8 @@ import {
   ServiceQuotaExceededException,
   SourceProperties,
   SourceServer,
+  SsmDocument,
+  SsmParameterStoreParameter,
   ThrottlingException,
   UninitializedAccountException,
   ValidationException,
@@ -166,6 +189,36 @@ export const serializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
       }),
     ...(input.sourceServerID !== undefined &&
       input.sourceServerID !== null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateLaunchConfigurationTemplateCommand = async (
+  input: CreateLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.postLaunchActions !== undefined &&
+      input.postLaunchActions !== null && {
+        postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
+      }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -252,6 +305,34 @@ export const serializeAws_restJson1DeleteJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.jobID !== undefined && input.jobID !== null && { jobID: input.jobID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand = async (
+  input: DeleteLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.launchConfigurationTemplateID !== undefined &&
+      input.launchConfigurationTemplateID !== null && {
+        launchConfigurationTemplateID: input.launchConfigurationTemplateID,
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -381,6 +462,39 @@ export const serializeAws_restJson1DescribeJobsCommand = async (
   body = JSON.stringify({
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_restJson1DescribeJobsRequestFilters(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand = async (
+  input: DescribeLaunchConfigurationTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeLaunchConfigurationTemplates";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.launchConfigurationTemplateIDs !== undefined &&
+      input.launchConfigurationTemplateIDs !== null && {
+        launchConfigurationTemplateIDs: serializeAws_restJson1LaunchConfigurationTemplateIDs(
+          input.launchConfigurationTemplateIDs,
+          context
+        ),
+      }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
@@ -887,11 +1001,47 @@ export const serializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     ...(input.licensing !== undefined &&
       input.licensing !== null && { licensing: serializeAws_restJson1Licensing(input.licensing, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.postLaunchActions !== undefined &&
+      input.postLaunchActions !== null && {
+        postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
+      }),
     ...(input.sourceServerID !== undefined &&
       input.sourceServerID !== null && { sourceServerID: input.sourceServerID }),
     ...(input.targetInstanceTypeRightSizingMethod !== undefined &&
       input.targetInstanceTypeRightSizingMethod !== null && {
         targetInstanceTypeRightSizingMethod: input.targetInstanceTypeRightSizingMethod,
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand = async (
+  input: UpdateLaunchConfigurationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLaunchConfigurationTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.launchConfigurationTemplateID !== undefined &&
+      input.launchConfigurationTemplateID !== null && {
+        launchConfigurationTemplateID: input.launchConfigurationTemplateID,
+      }),
+    ...(input.postLaunchActions !== undefined &&
+      input.postLaunchActions !== null && {
+        postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
       }),
   });
   return new __HttpRequest({
@@ -1154,6 +1304,68 @@ const deserializeAws_restJson1ChangeServerLifeCycleStateCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: CreateLaunchConfigurationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    launchConfigurationTemplateID: undefined,
+    postLaunchActions: undefined,
+    tags: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.launchConfigurationTemplateID !== undefined && data.launchConfigurationTemplateID !== null) {
+    contents.launchConfigurationTemplateID = __expectString(data.launchConfigurationTemplateID);
+  }
+  if (data.postLaunchActions !== undefined && data.postLaunchActions !== null) {
+    contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1281,6 +1493,52 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: DeleteLaunchConfigurationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1532,6 +1790,60 @@ const deserializeAws_restJson1DescribeJobsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommandError(output, context);
+  }
+  const contents: DescribeLaunchConfigurationTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    items: undefined,
+    nextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items !== undefined && data.items !== null) {
+    contents.items = deserializeAws_restJson1LaunchConfigurationTemplates(data.items, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
@@ -1899,6 +2211,7 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
     launchDisposition: undefined,
     licensing: undefined,
     name: undefined,
+    postLaunchActions: undefined,
     sourceServerID: undefined,
     targetInstanceTypeRightSizingMethod: undefined,
   };
@@ -1923,6 +2236,9 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
+  }
+  if (data.postLaunchActions !== undefined && data.postLaunchActions !== null) {
+    contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
   }
   if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
     contents.sourceServerID = __expectString(data.sourceServerID);
@@ -2704,6 +3020,7 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     launchDisposition: undefined,
     licensing: undefined,
     name: undefined,
+    postLaunchActions: undefined,
     sourceServerID: undefined,
     targetInstanceTypeRightSizingMethod: undefined,
   };
@@ -2729,6 +3046,9 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
   }
+  if (data.postLaunchActions !== undefined && data.postLaunchActions !== null) {
+    contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
+  }
   if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
     contents.sourceServerID = __expectString(data.sourceServerID);
   }
@@ -2753,6 +3073,71 @@ const deserializeAws_restJson1UpdateLaunchConfigurationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mgn#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommandError(output, context);
+  }
+  const contents: UpdateLaunchConfigurationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    launchConfigurationTemplateID: undefined,
+    postLaunchActions: undefined,
+    tags: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.launchConfigurationTemplateID !== undefined && data.launchConfigurationTemplateID !== null) {
+    contents.launchConfigurationTemplateID = __expectString(data.launchConfigurationTemplateID);
+  }
+  if (data.postLaunchActions !== undefined && data.postLaunchActions !== null) {
+    contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.mgn#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3120,6 +3505,9 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   if (data.code !== undefined && data.code !== null) {
     contents.code = __expectString(data.code);
   }
+  if (data.errors !== undefined && data.errors !== null) {
+    contents.errors = deserializeAws_restJson1ConflictExceptionErrors(data.errors, context);
+  }
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
@@ -3352,6 +3740,17 @@ const serializeAws_restJson1DescribeSourceServersRequestFiltersIDs = (
     });
 };
 
+const serializeAws_restJson1LaunchConfigurationTemplateIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Licensing = (input: Licensing, context: __SerdeContext): any => {
   return {
     ...(input.osByol !== undefined && input.osByol !== null && { osByol: input.osByol }),
@@ -3367,6 +3766,19 @@ const serializeAws_restJson1LifeCycleStates = (input: (LifeCycleState | string)[
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1PostLaunchActions = (input: PostLaunchActions, context: __SerdeContext): any => {
+  return {
+    ...(input.cloudWatchLogGroupName !== undefined &&
+      input.cloudWatchLogGroupName !== null && { cloudWatchLogGroupName: input.cloudWatchLogGroupName }),
+    ...(input.deployment !== undefined && input.deployment !== null && { deployment: input.deployment }),
+    ...(input.s3LogBucket !== undefined && input.s3LogBucket !== null && { s3LogBucket: input.s3LogBucket }),
+    ...(input.s3OutputKeyPrefix !== undefined &&
+      input.s3OutputKeyPrefix !== null && { s3OutputKeyPrefix: input.s3OutputKeyPrefix }),
+    ...(input.ssmDocuments !== undefined &&
+      input.ssmDocuments !== null && { ssmDocuments: serializeAws_restJson1SsmDocuments(input.ssmDocuments, context) }),
+  };
 };
 
 const serializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
@@ -3430,6 +3842,72 @@ const serializeAws_restJson1ReplicationTypes = (input: (ReplicationType | string
     });
 };
 
+const serializeAws_restJson1SsmDocument = (input: SsmDocument, context: __SerdeContext): any => {
+  return {
+    ...(input.actionName !== undefined && input.actionName !== null && { actionName: input.actionName }),
+    ...(input.mustSucceedForCutover !== undefined &&
+      input.mustSucceedForCutover !== null && { mustSucceedForCutover: input.mustSucceedForCutover }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && {
+        parameters: serializeAws_restJson1SsmDocumentParameters(input.parameters, context),
+      }),
+    ...(input.ssmDocumentName !== undefined &&
+      input.ssmDocumentName !== null && { ssmDocumentName: input.ssmDocumentName }),
+    ...(input.timeoutSeconds !== undefined &&
+      input.timeoutSeconds !== null && { timeoutSeconds: input.timeoutSeconds }),
+  };
+};
+
+const serializeAws_restJson1SsmDocumentParameters = (
+  input: Record<string, SsmParameterStoreParameter[]>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1SsmParameterStoreParameters(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1SsmDocuments = (input: SsmDocument[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SsmDocument(entry, context);
+    });
+};
+
+const serializeAws_restJson1SsmParameterStoreParameter = (
+  input: SsmParameterStoreParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.parameterName !== undefined && input.parameterName !== null && { parameterName: input.parameterName }),
+    ...(input.parameterType !== undefined && input.parameterType !== null && { parameterType: input.parameterType }),
+  };
+};
+
+const serializeAws_restJson1SsmParameterStoreParameters = (
+  input: SsmParameterStoreParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SsmParameterStoreParameter(entry, context);
+    });
+};
+
 const serializeAws_restJson1StartCutoverRequestSourceServerIDs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3476,6 +3954,18 @@ const serializeAws_restJson1TerminateTargetInstancesRequestSourceServerIDs = (
       }
       return entry;
     });
+};
+
+const deserializeAws_restJson1ConflictExceptionErrors = (output: any, context: __SerdeContext): ErrorDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ErrorDetails(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1CPU = (output: any, context: __SerdeContext): CPU => {
@@ -3611,6 +4101,15 @@ const deserializeAws_restJson1Disks = (output: any, context: __SerdeContext): Di
   return retVal;
 };
 
+const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+    resourceId: __expectString(output.resourceId),
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
 const deserializeAws_restJson1IdentificationHints = (output: any, context: __SerdeContext): IdentificationHints => {
   return {
     awsInstanceID: __expectString(output.awsInstanceID),
@@ -3685,6 +4184,22 @@ const deserializeAws_restJson1JobLogs = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1JobPostLaunchActionsLaunchStatus = (
+  output: any,
+  context: __SerdeContext
+): JobPostLaunchActionsLaunchStatus => {
+  return {
+    executionID: __expectString(output.executionID),
+    executionStatus: __expectString(output.executionStatus),
+    failureReason: __expectString(output.failureReason),
+    ssmDocument:
+      output.ssmDocument !== undefined && output.ssmDocument !== null
+        ? deserializeAws_restJson1SsmDocument(output.ssmDocument, context)
+        : undefined,
+    ssmDocumentType: __expectString(output.ssmDocumentType),
+  } as any;
+};
+
 const deserializeAws_restJson1JobsList = (output: any, context: __SerdeContext): Job[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3693,6 +4208,39 @@ const deserializeAws_restJson1JobsList = (output: any, context: __SerdeContext):
         return null as any;
       }
       return deserializeAws_restJson1Job(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LaunchConfigurationTemplate = (
+  output: any,
+  context: __SerdeContext
+): LaunchConfigurationTemplate => {
+  return {
+    arn: __expectString(output.arn),
+    launchConfigurationTemplateID: __expectString(output.launchConfigurationTemplateID),
+    postLaunchActions:
+      output.postLaunchActions !== undefined && output.postLaunchActions !== null
+        ? deserializeAws_restJson1PostLaunchActions(output.postLaunchActions, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagsMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LaunchConfigurationTemplates = (
+  output: any,
+  context: __SerdeContext
+): LaunchConfigurationTemplate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LaunchConfigurationTemplate(entry, context);
     });
   return retVal;
 };
@@ -3851,6 +4399,11 @@ const deserializeAws_restJson1OS = (output: any, context: __SerdeContext): OS =>
 const deserializeAws_restJson1ParticipatingServer = (output: any, context: __SerdeContext): ParticipatingServer => {
   return {
     launchStatus: __expectString(output.launchStatus),
+    launchedEc2InstanceID: __expectString(output.launchedEc2InstanceID),
+    postLaunchActionsStatus:
+      output.postLaunchActionsStatus !== undefined && output.postLaunchActionsStatus !== null
+        ? deserializeAws_restJson1PostLaunchActionsStatus(output.postLaunchActionsStatus, context)
+        : undefined,
     sourceServerID: __expectString(output.sourceServerID),
   } as any;
 };
@@ -3865,6 +4418,47 @@ const deserializeAws_restJson1ParticipatingServers = (output: any, context: __Se
       return deserializeAws_restJson1ParticipatingServer(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1PostLaunchActions = (output: any, context: __SerdeContext): PostLaunchActions => {
+  return {
+    cloudWatchLogGroupName: __expectString(output.cloudWatchLogGroupName),
+    deployment: __expectString(output.deployment),
+    s3LogBucket: __expectString(output.s3LogBucket),
+    s3OutputKeyPrefix: __expectString(output.s3OutputKeyPrefix),
+    ssmDocuments:
+      output.ssmDocuments !== undefined && output.ssmDocuments !== null
+        ? deserializeAws_restJson1SsmDocuments(output.ssmDocuments, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PostLaunchActionsLaunchStatusList = (
+  output: any,
+  context: __SerdeContext
+): JobPostLaunchActionsLaunchStatus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobPostLaunchActionsLaunchStatus(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PostLaunchActionsStatus = (
+  output: any,
+  context: __SerdeContext
+): PostLaunchActionsStatus => {
+  return {
+    postLaunchActionsLaunchStatusList:
+      output.postLaunchActionsLaunchStatusList !== undefined && output.postLaunchActionsLaunchStatusList !== null
+        ? deserializeAws_restJson1PostLaunchActionsLaunchStatusList(output.postLaunchActionsLaunchStatusList, context)
+        : undefined,
+    ssmAgentDiscoveryDatetime: __expectString(output.ssmAgentDiscoveryDatetime),
+  } as any;
 };
 
 const deserializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
@@ -4023,6 +4617,74 @@ const deserializeAws_restJson1SourceServersList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_restJson1SourceServer(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SsmDocument = (output: any, context: __SerdeContext): SsmDocument => {
+  return {
+    actionName: __expectString(output.actionName),
+    mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1SsmDocumentParameters(output.parameters, context)
+        : undefined,
+    ssmDocumentName: __expectString(output.ssmDocumentName),
+    timeoutSeconds: __expectInt32(output.timeoutSeconds),
+  } as any;
+};
+
+const deserializeAws_restJson1SsmDocumentParameters = (
+  output: any,
+  context: __SerdeContext
+): Record<string, SsmParameterStoreParameter[]> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, SsmParameterStoreParameter[]>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1SsmParameterStoreParameters(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1SsmDocuments = (output: any, context: __SerdeContext): SsmDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SsmDocument(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SsmParameterStoreParameter = (
+  output: any,
+  context: __SerdeContext
+): SsmParameterStoreParameter => {
+  return {
+    parameterName: __expectString(output.parameterName),
+    parameterType: __expectString(output.parameterType),
+  } as any;
+};
+
+const deserializeAws_restJson1SsmParameterStoreParameters = (
+  output: any,
+  context: __SerdeContext
+): SsmParameterStoreParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SsmParameterStoreParameter(entry, context);
     });
   return retVal;
 };

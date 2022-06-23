@@ -7,11 +7,21 @@ import {
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
 import {
+  CreateLaunchConfigurationTemplateCommand,
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateCommandInput,
@@ -37,6 +47,11 @@ import {
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeReplicationConfigurationTemplatesCommand,
   DescribeReplicationConfigurationTemplatesCommandInput,
@@ -120,6 +135,11 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -162,6 +182,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void
   ): Promise<ChangeServerLifeCycleStateCommandOutput> | void {
     const command = new ChangeServerLifeCycleStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   */
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new CreateLaunchConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -222,6 +274,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   */
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput>;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new DeleteLaunchConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -381,6 +465,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: DescribeJobsCommandOutput) => void
   ): Promise<DescribeJobsCommandOutput> | void {
     const command = new DescribeJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   */
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> | void {
+    const command = new DescribeLaunchConfigurationTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -944,6 +1060,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): Promise<UpdateLaunchConfigurationCommandOutput> | void {
     const command = new UpdateLaunchConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   */
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput>;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new UpdateLaunchConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
