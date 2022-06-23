@@ -12,8 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLabelingJobRequest } from "../models/models_1";
-import { DescribeLabelingJobResponse } from "../models/models_2";
+import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeLabelingJobCommand,
   serializeAws_json1_1DescribeLabelingJobCommand,

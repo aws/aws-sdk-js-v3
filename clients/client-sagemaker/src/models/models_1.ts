@@ -2489,6 +2489,14 @@ export interface LabelingJobResourceConfig {
    *          </ul>
    */
   VolumeKmsKeyId?: string;
+
+  /**
+   * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
+   *             access to and from your training and model containers by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
 }
 
 export namespace LabelingJobResourceConfig {
@@ -2985,7 +2993,7 @@ export interface ModelBiasAppSpecification {
 
   /**
    * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON
-   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html">Configure bias
+   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure bias
    *          parameters</a>.</p>
    */
   ConfigUri: string | undefined;
@@ -3163,7 +3171,7 @@ export interface ModelExplainabilityAppSpecification {
 
   /**
    * <p>JSON formatted S3 file that defines explainability parameters. For more information on
-   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html">Configure model
+   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model
    *             explainability parameters</a>.</p>
    */
   ConfigUri: string | undefined;
@@ -6877,6 +6885,35 @@ export namespace SourceIpConfig {
   });
 }
 
+/**
+ * <p>The VPC object you use to create or update a workforce.</p>
+ */
+export interface WorkforceVpcConfigRequest {
+  /**
+   * <p>The ID of the VPC that the workforce uses for communication.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the subnets in the VPC that you want to connect.</p>
+   */
+  Subnets?: string[];
+}
+
+export namespace WorkforceVpcConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkforceVpcConfigRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateWorkforceRequest {
   /**
    * <p>Use this parameter to configure an Amazon Cognito private workforce.
@@ -6914,6 +6951,11 @@ export interface CreateWorkforceRequest {
    *       both of which you define.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Use this parameter to configure a workforce using VPC.</p>
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
 }
 
 export namespace CreateWorkforceRequest {
@@ -11323,22 +11365,6 @@ export namespace DescribeInferenceRecommendationsJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to return information for.</p>
-   */
-  LabelingJobName: string | undefined;
-}
-
-export namespace DescribeLabelingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLabelingJobRequest): any => ({
     ...obj,
   });
 }

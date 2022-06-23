@@ -62,11 +62,13 @@ import {
   ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
   SourceIpConfig,
+  StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  WorkforceVpcConfigRequest,
 } from "./models_1";
 import {
   DesiredWeightAndCapacity,
@@ -104,6 +106,95 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * <p>Details of the Studio Lifecycle Configuration.</p>
+ */
+export interface StudioLifecycleConfigDetails {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>
+   */
+  StudioLifecycleConfigArn?: string;
+
+  /**
+   * <p>The name of the Studio Lifecycle Configuration.</p>
+   */
+  StudioLifecycleConfigName?: string;
+
+  /**
+   * <p>The creation time of the Studio Lifecycle Configuration.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The App type to which the Lifecycle Configuration is attached.</p>
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+}
+
+export namespace StudioLifecycleConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StudioLifecycleConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudioLifecycleConfigsResponse {
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of Lifecycle Configurations and their properties.</p>
+   */
+  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
+}
+
+export namespace ListStudioLifecycleConfigsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSubscribedWorkteamsRequest {
+  /**
+   * <p>A string in the work team name. This filter returns only work teams whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             labeling jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of work teams to return in each page of the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSubscribedWorkteamsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSubscribedWorkteamsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListSubscribedWorkteamsResponse {
   /**
@@ -4853,6 +4944,11 @@ export interface UpdateWorkforceRequest {
    *       configuration for a workforce made using your own IdP.</p>
    */
   OidcConfig?: OidcConfig;
+
+  /**
+   * <p>Use this parameter to update your VPC configuration for a workforce.</p>
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
 }
 
 export namespace UpdateWorkforceRequest {

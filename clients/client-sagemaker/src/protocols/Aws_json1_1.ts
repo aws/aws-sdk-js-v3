@@ -1037,7 +1037,6 @@ import {
   DescribeImageVersionResponse,
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
-  DescribeLabelingJobRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1144,8 +1143,10 @@ import {
   TrialComponentStatus,
   UiConfig,
   UiTemplateInfo,
+  WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
@@ -1340,8 +1341,6 @@ import {
   ListProjectsInput,
   ListProjectsOutput,
   ListStudioLifecycleConfigsRequest,
-  ListStudioLifecycleConfigsResponse,
-  ListSubscribedWorkteamsRequest,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1376,7 +1375,6 @@ import {
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
-  StudioLifecycleConfigDetails,
   SubscribedWorkteam,
   SuggestionQuery,
   TrainingJobStepMetadata,
@@ -1386,9 +1384,12 @@ import {
   TrialSource,
   TuningJobStepMetaData,
   Workforce,
+  WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_2";
 import {
+  ListStudioLifecycleConfigsResponse,
+  ListSubscribedWorkteamsRequest,
   ListSubscribedWorkteamsResponse,
   ListTagsInput,
   ListTagsOutput,
@@ -1455,6 +1456,7 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
   TransformJob,
@@ -15299,6 +15301,9 @@ const deserializeAws_json1_1UpdateWorkforceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -17451,6 +17456,10 @@ const serializeAws_json1_1CreateWorkforceRequest = (input: CreateWorkforceReques
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.WorkforceName !== undefined && input.WorkforceName !== null && { WorkforceName: input.WorkforceName }),
+    ...(input.WorkforceVpcConfig !== undefined &&
+      input.WorkforceVpcConfig !== null && {
+        WorkforceVpcConfig: serializeAws_json1_1WorkforceVpcConfigRequest(input.WorkforceVpcConfig, context),
+      }),
   };
 };
 
@@ -19562,6 +19571,8 @@ const serializeAws_json1_1LabelingJobResourceConfig = (
   return {
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined &&
+      input.VpcConfig !== null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -23627,6 +23638,10 @@ const serializeAws_json1_1UpdateWorkforceRequest = (input: UpdateWorkforceReques
         SourceIpConfig: serializeAws_json1_1SourceIpConfig(input.SourceIpConfig, context),
       }),
     ...(input.WorkforceName !== undefined && input.WorkforceName !== null && { WorkforceName: input.WorkforceName }),
+    ...(input.WorkforceVpcConfig !== undefined &&
+      input.WorkforceVpcConfig !== null && {
+        WorkforceVpcConfig: serializeAws_json1_1WorkforceVpcConfigRequest(input.WorkforceVpcConfig, context),
+      }),
   };
 };
 
@@ -23732,6 +23747,43 @@ const serializeAws_json1_1VpcSecurityGroupIds = (input: string[], context: __Ser
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1WorkforceSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1WorkforceSubnets = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1WorkforceVpcConfigRequest = (
+  input: WorkforceVpcConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1WorkforceSecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+    ...(input.Subnets !== undefined &&
+      input.Subnets !== null && { Subnets: serializeAws_json1_1WorkforceSubnets(input.Subnets, context) }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+  };
 };
 
 const deserializeAws_json1_1ActionSource = (output: any, context: __SerdeContext): ActionSource => {
@@ -29618,6 +29670,10 @@ const deserializeAws_json1_1LabelingJobResourceConfig = (
 ): LabelingJobResourceConfig => {
   return {
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig:
+      output.VpcConfig !== undefined && output.VpcConfig !== null
+        ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -34757,6 +34813,7 @@ const deserializeAws_json1_1Workforce = (output: any, context: __SerdeContext): 
       output.CreateDate !== undefined && output.CreateDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
+    FailureReason: __expectString(output.FailureReason),
     LastUpdatedDate:
       output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
@@ -34769,9 +34826,14 @@ const deserializeAws_json1_1Workforce = (output: any, context: __SerdeContext): 
       output.SourceIpConfig !== undefined && output.SourceIpConfig !== null
         ? deserializeAws_json1_1SourceIpConfig(output.SourceIpConfig, context)
         : undefined,
+    Status: __expectString(output.Status),
     SubDomain: __expectString(output.SubDomain),
     WorkforceArn: __expectString(output.WorkforceArn),
     WorkforceName: __expectString(output.WorkforceName),
+    WorkforceVpcConfig:
+      output.WorkforceVpcConfig !== undefined && output.WorkforceVpcConfig !== null
+        ? deserializeAws_json1_1WorkforceVpcConfigResponse(output.WorkforceVpcConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -34785,6 +34847,48 @@ const deserializeAws_json1_1Workforces = (output: any, context: __SerdeContext):
       return deserializeAws_json1_1Workforce(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1WorkforceSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1WorkforceSubnets = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1WorkforceVpcConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): WorkforceVpcConfigResponse => {
+  return {
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_1WorkforceSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_json1_1WorkforceSubnets(output.Subnets, context)
+        : undefined,
+    VpcEndpointId: __expectString(output.VpcEndpointId),
+    VpcId: __expectString(output.VpcId),
+  } as any;
 };
 
 const deserializeAws_json1_1Workteam = (output: any, context: __SerdeContext): Workteam => {

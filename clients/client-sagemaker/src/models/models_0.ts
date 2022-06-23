@@ -4547,6 +4547,23 @@ export enum AutoMLS3DataType {
 export interface AutoMLS3DataSource {
   /**
    * <p>The data type.</p>
+   *          <p>A ManifestFile should have the format shown below:</p>
+   *          <p>
+   *             <code>[ {"prefix": "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"}, </code>
+   *          </p>
+   *          <p>
+   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
+   *          </p>
+   *          <p>
+   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-2",</code>
+   *          </p>
+   *          <p>
+   *             <code>... "DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-N" ]</code>
+   *          </p>
+   *          <p>An S3Prefix should have the following format: </p>
+   *          <p>
+   *             <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
+   *          </p>
    */
   S3DataType: AutoMLS3DataType | string | undefined;
 
@@ -4571,9 +4588,6 @@ export namespace AutoMLS3DataSource {
 export interface AutoMLDataSource {
   /**
    * <p>The Amazon S3 location of the input data.</p>
-   *          <note>
-   *             <p>The input data must be in CSV format and contain at least 500 rows.</p>
-   *          </note>
    */
   S3DataSource: AutoMLS3DataSource | undefined;
 }
@@ -4642,7 +4656,7 @@ export namespace AutoMLChannel {
 }
 
 /**
- * <p>This structure specifies how to split the data into train and test datasets. The
+ * <p>This structure specifies how to split the data into train and validation datasets. The
  *          validation and training datasets must contain the same headers. The validation dataset must
  *          be less than 2 GB in size.</p>
  */
@@ -6989,7 +7003,11 @@ export interface ResourceSpec {
   /**
    * <p>The instance type that the image version runs on.</p>
    *          <note>
-   *             <p>JupyterServer Apps only support the <code>system</code> value. KernelGateway Apps do not support the <code>system</code> value, but support all other values for available instance types.</p>
+   *             <p>
+   *                <b>JupyterServer apps</b> only support the <code>system</code> value.</p>
+   *             <p>For <b>KernelGateway apps</b>, the <code>system</code>
+   *              value is translated to <code>ml.t3.medium</code>. KernelGateway apps also support all other values for available
+   *             instance types.</p>
    *          </note>
    */
   InstanceType?: AppInstanceType | string;
@@ -7039,6 +7057,11 @@ export interface CreateAppRequest {
 
   /**
    * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   *          <note>
+   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code> in the <code>CreateApp</code> call overrides the value passed as part of the <code>ResourceSpec</code> configured for
+   *           the user profile or the domain. If <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code> values for a
+   *           <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a request validation error.</p>
+   *          </note>
    */
   ResourceSpec?: ResourceSpec;
 }
