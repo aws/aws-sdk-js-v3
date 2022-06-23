@@ -50,6 +50,7 @@ import {
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "../commands/UpdateRouteCommand";
 import { MigrationHubRefactorSpacesServiceException as __BaseException } from "../models/MigrationHubRefactorSpacesServiceException";
 import {
   AccessDeniedException,
@@ -58,6 +59,7 @@ import {
   ApiGatewayProxySummary,
   ApplicationSummary,
   ConflictException,
+  DefaultRouteInput,
   EnvironmentSummary,
   EnvironmentVpc,
   ErrorResponse,
@@ -183,6 +185,10 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DefaultRoute !== undefined &&
+      input.DefaultRoute !== null && {
+        DefaultRoute: serializeAws_restJson1DefaultRouteInput(input.DefaultRoute, context),
+      }),
     ...(input.RouteType !== undefined && input.RouteType !== null && { RouteType: input.RouteType }),
     ...(input.ServiceIdentifier !== undefined &&
       input.ServiceIdentifier !== null && { ServiceIdentifier: input.ServiceIdentifier }),
@@ -942,6 +948,60 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRouteCommand = async (
+  input: UpdateRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}";
+  if (input.EnvironmentIdentifier !== undefined) {
+    const labelValue: string = input.EnvironmentIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentIdentifier.");
+  }
+  if (input.ApplicationIdentifier !== undefined) {
+    const labelValue: string = input.ApplicationIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationIdentifier.");
+  }
+  if (input.RouteIdentifier !== undefined) {
+    const labelValue: string = input.RouteIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RouteIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{RouteIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RouteIdentifier.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ActivationState !== undefined &&
+      input.ActivationState !== null && { ActivationState: input.ActivationState }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2775,6 +2835,82 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRouteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRouteCommandError(output, context);
+  }
+  const contents: UpdateRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ApplicationId: undefined,
+    Arn: undefined,
+    LastUpdatedTime: undefined,
+    RouteId: undefined,
+    ServiceId: undefined,
+    State: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
+    contents.ApplicationId = __expectString(data.ApplicationId);
+  }
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.LastUpdatedTime !== undefined && data.LastUpdatedTime !== null) {
+    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
+  }
+  if (data.RouteId !== undefined && data.RouteId !== null) {
+    contents.RouteId = __expectString(data.RouteId);
+  }
+  if (data.ServiceId !== undefined && data.ServiceId !== null) {
+    contents.ServiceId = __expectString(data.ServiceId);
+  }
+  if (data.State !== undefined && data.State !== null) {
+    contents.State = __expectString(data.State);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.migrationhubrefactorspaces#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.migrationhubrefactorspaces#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.migrationhubrefactorspaces#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubrefactorspaces#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.migrationhubrefactorspaces#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2940,6 +3076,13 @@ const serializeAws_restJson1ApiGatewayProxyInput = (input: ApiGatewayProxyInput,
   return {
     ...(input.EndpointType !== undefined && input.EndpointType !== null && { EndpointType: input.EndpointType }),
     ...(input.StageName !== undefined && input.StageName !== null && { StageName: input.StageName }),
+  };
+};
+
+const serializeAws_restJson1DefaultRouteInput = (input: DefaultRouteInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ActivationState !== undefined &&
+      input.ActivationState !== null && { ActivationState: input.ActivationState }),
   };
 };
 

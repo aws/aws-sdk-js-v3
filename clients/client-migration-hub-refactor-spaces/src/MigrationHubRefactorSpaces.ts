@@ -92,6 +92,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesClient";
 
 /**
@@ -184,6 +185,10 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    *       the application. If an application does not have any routes, then the first route must be
    *       created as a <code>DEFAULT</code>
    *             <code>RouteType</code>.</p>
+   *          <p>When created, the default route defaults to an active state so state is not a required
+   *       input. However, like all other state values the state of the default route can be updated
+   *       after creation, but only when all other routes are also inactive. Conversely, no route can be
+   *       active without the default route also being active.</p>
    *          <p>When you create a route, Refactor Spaces configures the Amazon API Gateway to send traffic
    *       to the target service as follows:</p>
    *          <ul>
@@ -201,24 +206,28 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    *             API Gateway to invoke the function.</p>
    *             </li>
    *          </ul>
-   *          <p>A one-time health check is performed on the service when the route is created. If the
-   *       health check fails, the route transitions to <code>FAILED</code>, and no traffic is sent to
+   *          <p>A one-time health check is performed on the service when either the route is updated from
+   *       inactive to active, or when it is created with an active state. If the health check fails, the
+   *       route transitions the route state to <code>FAILED</code>, an error code of
+   *         <code>SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE</code> is provided, and no traffic is sent to
    *       the service.</p>
    *          <p>For Lambda functions, the Lambda function state is checked. If the
    *       function is not active, the function configuration is updated so that Lambda
    *       resources are provisioned. If the Lambda state is <code>Failed</code>, then the
    *       route creation fails. For more information, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's State response parameter</a> in the <i>Lambda Developer Guide</i>.</p>
-   *          <p>For public URLs, a connection is opened to the public endpoint. If the URL is not
-   *       reachable, the health check fails. For private URLs, a target group is created and the target
-   *       group health check is run.</p>
-   *          <p>The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>, and
-   *         <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
+   *          <p>For Lambda endpoints, a check is performed to determine that a Lambda function with the
+   *       specified ARN exists. If it does not exist, the health check fails. For public URLs, a
+   *       connection is opened to the public endpoint. If the URL is not reachable, the health check
+   *       fails. </p>
+   *          <p>For private URLS, a target group is created on the Elastic Load Balancing and the target
+   *       group health check is run. The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>,
+   *       and <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
    *       health URL, if used. All other settings use the default values, as described in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health checks
    *         for your target groups</a>. The health check is considered successful if at least one
    *       target within the target group transitions to a healthy state.</p>
    *          <p>Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs, publicly-signed
    *       certificates are supported. Private Certificate Authorities (CAs) are permitted only if the
-   *       CA's domain is publicly resolvable.</p>
+   *       CA's domain is also publicly resolvable.</p>
    */
   public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
   public createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
@@ -866,6 +875,34 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *     Updates an Amazon Web Services Migration Hub Refactor Spaces route.
+   *   </p>
+   */
+  public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
+  public updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
+  public updateRoute(
+    args: UpdateRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRouteCommandOutput) => void
+  ): void;
+  public updateRoute(
+    args: UpdateRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRouteCommandOutput) => void
+  ): Promise<UpdateRouteCommandOutput> | void {
+    const command = new UpdateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

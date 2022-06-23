@@ -774,13 +774,36 @@ export namespace CreateEnvironmentResponse {
   });
 }
 
+export enum RouteActivationState {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>
+ *       The configuration for the default route type.
+ *     </p>
+ */
+export interface DefaultRouteInput {
+  /**
+   * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
+   *       route is created. </p>
+   */
+  ActivationState?: RouteActivationState | string;
+}
+
+export namespace DefaultRouteInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DefaultRouteInput): any => ({
+    ...obj,
+  });
+}
+
 export enum RouteType {
   DEFAULT = "DEFAULT",
   URI_PATH = "URI_PATH",
-}
-
-export enum RouteActivationState {
-  ACTIVE = "ACTIVE",
 }
 
 export enum HttpMethod {
@@ -804,8 +827,8 @@ export interface UriPathRouteInput {
   SourcePath: string | undefined;
 
   /**
-   * <p>Indicates whether traffic is forwarded to this route’s service after the route is created.
-   *     </p>
+   * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
+   *       route is created. </p>
    */
   ActivationState: RouteActivationState | string | undefined;
 
@@ -856,6 +879,13 @@ export interface CreateRouteRequest {
    *       on a URI path.</p>
    */
   RouteType: RouteType | string | undefined;
+
+  /**
+   * <p>
+   *       Configuration for the default route type.
+   *     </p>
+   */
+  DefaultRoute?: DefaultRouteInput;
 
   /**
    * <p>The configuration for the URI path route type. </p>
@@ -936,12 +966,14 @@ export interface CreateRouteResponse {
   ApplicationId?: string;
 
   /**
-   * <p>onfiguration for the URI path route type. </p>
+   * <p>Configuration for the URI path route type. </p>
    */
   UriPathRoute?: UriPathRouteInput;
 
   /**
-   * <p>The current state of the route. </p>
+   * <p>The current state of the route. Activation state only allows <code>ACTIVE</code> or
+   *         <code>INACTIVE</code> as user inputs. <code>FAILED</code> is a route state that is system
+   *       generated.</p>
    */
   State?: RouteState | string;
 
@@ -2722,12 +2754,12 @@ export namespace PutResourcePolicyResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The new or modified tags for the resource. </p>
+   * <p>The new or modified tags for the resource.</p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -2782,6 +2814,102 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRouteRequest {
+  /**
+   * <p>
+   *       The ID of the environment in which the route is being updated.
+   *     </p>
+   */
+  EnvironmentIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *       The ID of the application within which the route is being updated.
+   *     </p>
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *       The unique identifier of the route to update.
+   *     </p>
+   */
+  RouteIdentifier: string | undefined;
+
+  /**
+   * <p> If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
+   *       route is updated. </p>
+   */
+  ActivationState: RouteActivationState | string | undefined;
+}
+
+export namespace UpdateRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRouteRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRouteResponse {
+  /**
+   * <p>
+   *       The unique identifier of the route.
+   *     </p>
+   */
+  RouteId?: string;
+
+  /**
+   * <p>
+   *       The Amazon Resource Name (ARN) of the route. The format for this ARN is
+   * <code>arn:aws:refactor-spaces:<i>region</i>:<i>account-id</i>:<i>resource-type/resource-id</i>
+   *             </code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i>.
+   *     </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   *       The ID of service in which the route was created. Traffic that matches this route is forwarded to this service.
+   *     </p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>
+   *       The ID of the application in which the route is being updated.
+   *     </p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>
+   *       The current state of the route.
+   *     </p>
+   */
+  State?: RouteState | string;
+
+  /**
+   * <p>
+   *       A timestamp that indicates when the route was last updated.
+   *     </p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export namespace UpdateRouteResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRouteResponse): any => ({
     ...obj,
   });
 }
