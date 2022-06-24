@@ -834,6 +834,7 @@ const serializeAws_json1_1HostLabelInput = (input: HostLabelInput, context: __Se
 const serializeAws_json1_1JsonEnumsInputOutput = (input: JsonEnumsInputOutput, context: __SerdeContext): any => {
   return {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ...(input.fooEnum1 != null && { fooEnum1: input.fooEnum1 }),
     ...(input.fooEnum2 != null && { fooEnum2: input.fooEnum2 }),
     ...(input.fooEnum3 != null && { fooEnum3: input.fooEnum3 }),
@@ -843,19 +844,29 @@ const serializeAws_json1_1JsonEnumsInputOutput = (input: JsonEnumsInputOutput, c
 =======
     ...(input.fooEnumSet !== undefined &&
       input.fooEnumSet !== null && { fooEnumSet: serializeAws_json1_1FooEnumSet(input.fooEnumSet, context) }),
+=======
+    ...(input.fooEnum1 !== undefined && input.fooEnum1 !== null && { fooEnum1: input.fooEnum1 }),
+    ...(input.fooEnum2 !== undefined && input.fooEnum2 !== null && { fooEnum2: input.fooEnum2 }),
+    ...(input.fooEnum3 !== undefined && input.fooEnum3 !== null && { fooEnum3: input.fooEnum3 }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
     ...(input.fooEnumList !== undefined &&
       input.fooEnumList !== null && { fooEnumList: serializeAws_json1_1FooEnumList(input.fooEnumList, context) }),
-    ...(input.fooEnum3 !== undefined && input.fooEnum3 !== null && { fooEnum3: input.fooEnum3 }),
     ...(input.fooEnumMap !== undefined &&
       input.fooEnumMap !== null && { fooEnumMap: serializeAws_json1_1FooEnumMap(input.fooEnumMap, context) }),
+<<<<<<< HEAD
     ...(input.fooEnum2 !== undefined && input.fooEnum2 !== null && { fooEnum2: input.fooEnum2 }),
     ...(input.fooEnum1 !== undefined && input.fooEnum1 !== null && { fooEnum1: input.fooEnum1 }),
 >>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
+=======
+    ...(input.fooEnumSet !== undefined &&
+      input.fooEnumSet !== null && { fooEnumSet: serializeAws_json1_1FooEnumSet(input.fooEnumSet, context) }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
   return {
+<<<<<<< HEAD
 <<<<<<< HEAD
     ...(input.Blob != null && { Blob: context.base64Encoder(input.Blob) }),
     ...(input.Boolean != null && { Boolean: input.Boolean }),
@@ -917,59 +928,77 @@ const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeCon
         StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
       }),
     ...(input.String !== undefined && input.String !== null && { String: input.String }),
+=======
+    ...(input.Blob !== undefined && input.Blob !== null && { Blob: context.base64Encoder(input.Blob) }),
+    ...(input.Boolean !== undefined && input.Boolean !== null && { Boolean: input.Boolean }),
+    ...(input.Double !== undefined && input.Double !== null && { Double: __serializeFloat(input.Double) }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
     ...(input.EmptyStruct !== undefined &&
       input.EmptyStruct !== null && { EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context) }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.ListOfMapsOfStrings !== undefined &&
-      input.ListOfMapsOfStrings !== null && {
-        ListOfMapsOfStrings: serializeAws_json1_1ListOfMapsOfStrings(input.ListOfMapsOfStrings, context),
+    ...(input.Float !== undefined && input.Float !== null && { Float: __serializeFloat(input.Float) }),
+    ...(input.HttpdateTimestamp !== undefined &&
+      input.HttpdateTimestamp !== null && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
+    ...(input.Integer !== undefined && input.Integer !== null && { Integer: input.Integer }),
+    ...(input.Iso8601Timestamp !== undefined &&
+      input.Iso8601Timestamp !== null && {
+        Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
       }),
-    ...(input.MapOfStrings !== undefined &&
-      input.MapOfStrings !== null && { MapOfStrings: serializeAws_json1_1MapOfStrings(input.MapOfStrings, context) }),
-    ...(input.MapOfMaps !== undefined &&
-      input.MapOfMaps !== null && { MapOfMaps: serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context) }),
-    ...(input.Boolean !== undefined && input.Boolean !== null && { Boolean: input.Boolean }),
-    ...(input.RecursiveStruct !== undefined &&
-      input.RecursiveStruct !== null && {
-        RecursiveStruct: serializeAws_json1_1KitchenSink(input.RecursiveStruct, context),
-      }),
-    ...(input.Blob !== undefined && input.Blob !== null && { Blob: context.base64Encoder(input.Blob) }),
+    ...(input.JsonValue !== undefined &&
+      input.JsonValue !== null && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
     ...(input.ListOfLists !== undefined &&
       input.ListOfLists !== null && {
         ListOfLists: serializeAws_json1_1ListOfListOfStrings(input.ListOfLists, context),
+      }),
+    ...(input.ListOfMapsOfStrings !== undefined &&
+      input.ListOfMapsOfStrings !== null && {
+        ListOfMapsOfStrings: serializeAws_json1_1ListOfMapsOfStrings(input.ListOfMapsOfStrings, context),
       }),
     ...(input.ListOfStrings !== undefined &&
       input.ListOfStrings !== null && {
         ListOfStrings: serializeAws_json1_1ListOfStrings(input.ListOfStrings, context),
       }),
-    ...(input.JsonValue !== undefined &&
-      input.JsonValue !== null && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
+    ...(input.ListOfStructs !== undefined &&
+      input.ListOfStructs !== null && {
+        ListOfStructs: serializeAws_json1_1ListOfStructs(input.ListOfStructs, context),
+      }),
+    ...(input.Long !== undefined && input.Long !== null && { Long: input.Long }),
+    ...(input.MapOfListsOfStrings !== undefined &&
+      input.MapOfListsOfStrings !== null && {
+        MapOfListsOfStrings: serializeAws_json1_1MapOfListsOfStrings(input.MapOfListsOfStrings, context),
+      }),
+    ...(input.MapOfMaps !== undefined &&
+      input.MapOfMaps !== null && { MapOfMaps: serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context) }),
+    ...(input.MapOfStrings !== undefined &&
+      input.MapOfStrings !== null && { MapOfStrings: serializeAws_json1_1MapOfStrings(input.MapOfStrings, context) }),
     ...(input.MapOfStructs !== undefined &&
       input.MapOfStructs !== null && { MapOfStructs: serializeAws_json1_1MapOfStructs(input.MapOfStructs, context) }),
-    ...(input.Double !== undefined && input.Double !== null && { Double: __serializeFloat(input.Double) }),
-    ...(input.SimpleStruct !== undefined &&
-      input.SimpleStruct !== null && { SimpleStruct: serializeAws_json1_1SimpleStruct(input.SimpleStruct, context) }),
-    ...(input.Integer !== undefined && input.Integer !== null && { Integer: input.Integer }),
-    ...(input.Float !== undefined && input.Float !== null && { Float: __serializeFloat(input.Float) }),
-    ...(input.Iso8601Timestamp !== undefined &&
-      input.Iso8601Timestamp !== null && {
-        Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
+    ...(input.RecursiveList !== undefined &&
+      input.RecursiveList !== null && {
+        RecursiveList: serializeAws_json1_1ListOfKitchenSinks(input.RecursiveList, context),
       }),
     ...(input.RecursiveMap !== undefined &&
       input.RecursiveMap !== null && {
         RecursiveMap: serializeAws_json1_1MapOfKitchenSinks(input.RecursiveMap, context),
       }),
-    ...(input.Long !== undefined && input.Long !== null && { Long: input.Long }),
-    ...(input.ListOfStructs !== undefined &&
-      input.ListOfStructs !== null && {
-        ListOfStructs: serializeAws_json1_1ListOfStructs(input.ListOfStructs, context),
+    ...(input.RecursiveStruct !== undefined &&
+      input.RecursiveStruct !== null && {
+        RecursiveStruct: serializeAws_json1_1KitchenSink(input.RecursiveStruct, context),
       }),
-    ...(input.RecursiveList !== undefined &&
-      input.RecursiveList !== null && {
-        RecursiveList: serializeAws_json1_1ListOfKitchenSinks(input.RecursiveList, context),
+    ...(input.SimpleStruct !== undefined &&
+      input.SimpleStruct !== null && { SimpleStruct: serializeAws_json1_1SimpleStruct(input.SimpleStruct, context) }),
+    ...(input.String !== undefined && input.String !== null && { String: input.String }),
+    ...(input.StructWithJsonName !== undefined &&
+      input.StructWithJsonName !== null && {
+        StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
       }),
+<<<<<<< HEAD
 >>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
+=======
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UnixTimestamp !== undefined &&
+      input.UnixTimestamp !== null && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -1112,6 +1141,7 @@ const serializeAws_json1_1NullOperationInputOutput = (
 ): any => {
   return {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ...(input.sparseStringList != null && {
       sparseStringList: serializeAws_json1_1SparseStringList(input.sparseStringList, context),
     }),
@@ -1120,16 +1150,25 @@ const serializeAws_json1_1NullOperationInputOutput = (
     }),
     ...(input.string != null && { string: input.string }),
 =======
+=======
+    ...(input.sparseStringList !== undefined &&
+      input.sparseStringList !== null && {
+        sparseStringList: serializeAws_json1_1SparseStringList(input.sparseStringList, context),
+      }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
     ...(input.sparseStringMap !== undefined &&
       input.sparseStringMap !== null && {
         sparseStringMap: serializeAws_json1_1SparseStringMap(input.sparseStringMap, context),
       }),
     ...(input.string !== undefined && input.string !== null && { string: input.string }),
+<<<<<<< HEAD
     ...(input.sparseStringList !== undefined &&
       input.sparseStringList !== null && {
         sparseStringList: serializeAws_json1_1SparseStringList(input.sparseStringList, context),
       }),
 >>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
+=======
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -1159,6 +1198,7 @@ const serializeAws_json1_1SimpleScalarPropertiesInputOutput = (
 ): any => {
   return {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
 =======
@@ -1167,6 +1207,12 @@ const serializeAws_json1_1SimpleScalarPropertiesInputOutput = (
     ...(input.doubleValue !== undefined &&
       input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
 >>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
+=======
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
+    ...(input.floatValue !== undefined &&
+      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
+>>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 

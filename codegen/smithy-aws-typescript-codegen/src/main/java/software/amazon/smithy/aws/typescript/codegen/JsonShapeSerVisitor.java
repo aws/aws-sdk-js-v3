@@ -142,19 +142,16 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
 
-        Map<String, MemberShape> eventHeaders = members.entrySet().stream()
-            .filter(entry -> entry.getValue().hasTrait(EventHeaderTrait.class))
-            .collect(Collectors.toMap(
-                Map.Entry::getKey,
-                Map.Entry::getValue
-            ));
+        Map<String, MemberShape> eventHeaders = new TreeMap<>();
+        Map<String, MemberShape> nonHeaders = new TreeMap<>();
 
-        Map<String, MemberShape> nonHeaders = members.entrySet().stream()
-            .filter(entry -> !entry.getValue().hasTrait(EventHeaderTrait.class))
-            .collect(Collectors.toMap(
-                Map.Entry::getKey,
-                Map.Entry::getValue
-            ));
+        members.forEach((key, value) -> {
+            if (value.hasTrait(EventHeaderTrait.class)) {
+                eventHeaders.put(key, value);
+            } else {
+                nonHeaders.put(key, value);
+            }
+        });
 
         eventHeaders.forEach((memberName, memberShape) -> {
             Shape target = context.getModel().expectShape(memberShape.getTarget());
