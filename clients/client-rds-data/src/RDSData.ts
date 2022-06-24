@@ -48,6 +48,12 @@ export class RDSData extends RDSDataClient {
    *             <p>If a call isn't part of a transaction because it doesn't include the
    *                     <code>transactionID</code> parameter, changes that result from the call are
    *                 committed automatically.</p>
+   *             <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request
+   *                 submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't
+   *                 process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the
+   *                 number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and
+   *                 the size of each parameter set.</p>
+   *             <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p>
    *         </important>
    */
   public batchExecuteStatement(
@@ -193,8 +199,8 @@ export class RDSData extends RDSDataClient {
    *             <p>If a call isn't part of a transaction because it doesn't include the
    *                     <code>transactionID</code> parameter, changes that result from the call are
    *                 committed automatically.</p>
+   *             <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
    *         </important>
-   *         <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
    */
   public executeStatement(
     args: ExecuteStatementCommandInput,

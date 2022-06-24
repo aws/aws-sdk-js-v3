@@ -28,8 +28,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *             <p>If a call isn't part of a transaction because it doesn't include the
  *                     <code>transactionID</code> parameter, changes that result from the call are
  *                 committed automatically.</p>
+ *             <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
  *         </important>
- *         <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
