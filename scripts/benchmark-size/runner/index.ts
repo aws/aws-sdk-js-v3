@@ -87,7 +87,6 @@ export const sizeReport = async (options: SizeReportOptions) => {
   const packageContextToTest = testScope.filter((perTestScope) => changedPackageNames.includes(perTestScope.package));
   console.info(`Found ${packageContextToTest.length} packages in the defined scope have size test scope.`);
   const localRegistryProcess = spawnLocalRegistry(PORT);
-  localRegistryProcess.stdout.pipe(process.stdout);
 
   // Wait for the register to spin up.
   await sleep(1000);
