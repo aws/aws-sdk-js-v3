@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  deserEventStream as __deserEventStream,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -10,6 +11,7 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseEventStream as __parseEventStream,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -555,7 +557,7 @@ export const deserializeAws_json1_1AddTagsToStreamCommand = async (
   const response: AddTagsToStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1AddTagsToStreamCommandError = async (
@@ -605,7 +607,7 @@ export const deserializeAws_json1_1CreateStreamCommand = async (
   const response: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1CreateStreamCommandError = async (
@@ -652,7 +654,7 @@ export const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand = async 
   const response: DecreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
@@ -702,7 +704,7 @@ export const deserializeAws_json1_1DeleteStreamCommand = async (
   const response: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DeleteStreamCommandError = async (
@@ -749,7 +751,7 @@ export const deserializeAws_json1_1DeregisterStreamConsumerCommand = async (
   const response: DeregisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
@@ -799,7 +801,7 @@ export const deserializeAws_json1_1DescribeLimitsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DescribeLimitsCommandError = async (
@@ -843,7 +845,7 @@ export const deserializeAws_json1_1DescribeStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DescribeStreamCommandError = async (
@@ -890,7 +892,7 @@ export const deserializeAws_json1_1DescribeStreamConsumerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
@@ -940,7 +942,7 @@ export const deserializeAws_json1_1DescribeStreamSummaryCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DescribeStreamSummaryCommandError = async (
@@ -987,7 +989,7 @@ export const deserializeAws_json1_1DisableEnhancedMonitoringCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
@@ -1040,7 +1042,7 @@ export const deserializeAws_json1_1EnableEnhancedMonitoringCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
@@ -1093,7 +1095,7 @@ export const deserializeAws_json1_1GetRecordsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1GetRecordsCommandError = async (
@@ -1164,7 +1166,7 @@ export const deserializeAws_json1_1GetShardIteratorCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1GetShardIteratorCommandError = async (
@@ -1211,7 +1213,7 @@ export const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand = async 
   const response: IncreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
@@ -1264,7 +1266,7 @@ export const deserializeAws_json1_1ListShardsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1ListShardsCommandError = async (
@@ -1320,7 +1322,7 @@ export const deserializeAws_json1_1ListStreamConsumersCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1ListStreamConsumersCommandError = async (
@@ -1376,7 +1378,7 @@ export const deserializeAws_json1_1ListStreamsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1ListStreamsCommandError = async (
@@ -1420,7 +1422,7 @@ export const deserializeAws_json1_1ListTagsForStreamCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1ListTagsForStreamCommandError = async (
@@ -1467,7 +1469,7 @@ export const deserializeAws_json1_1MergeShardsCommand = async (
   const response: MergeShardsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1MergeShardsCommandError = async (
@@ -1523,7 +1525,7 @@ export const deserializeAws_json1_1PutRecordCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1PutRecordCommandError = async (
@@ -1591,7 +1593,7 @@ export const deserializeAws_json1_1PutRecordsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1PutRecordsCommandError = async (
@@ -1659,7 +1661,7 @@ export const deserializeAws_json1_1RegisterStreamConsumerCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
@@ -1709,7 +1711,7 @@ export const deserializeAws_json1_1RemoveTagsFromStreamCommand = async (
   const response: RemoveTagsFromStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
@@ -1759,7 +1761,7 @@ export const deserializeAws_json1_1SplitShardCommand = async (
   const response: SplitShardCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1SplitShardCommandError = async (
@@ -1812,7 +1814,7 @@ export const deserializeAws_json1_1StartStreamEncryptionCommand = async (
   const response: StartStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
@@ -1880,7 +1882,7 @@ export const deserializeAws_json1_1StopStreamEncryptionCommand = async (
   const response: StopStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
@@ -1928,19 +1930,14 @@ export const deserializeAws_json1_1SubscribeToShardCommand = async (
   }
   const contents: any = {};
   contents.EventStream = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
-    const eventName = Object.keys(event)[0];
-    const parsedEvent = {
-      EventStream: {
-        [eventName]: JSON.parse(Buffer.from(event[eventName].body).toString()),
-      },
-    };
-    return deserializeAws_json1_1SubscribeToShardOutput(parsedEvent, context).EventStream;
+    const parsedEvent = __deserEventStream(event);
+    return deserializeAws_json1_1SubscribeToShardOutput({ EventStream: parsedEvent }, context).EventStream;
   });
   const response: SubscribeToShardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1SubscribeToShardCommandError = async (
@@ -1993,7 +1990,7 @@ export const deserializeAws_json1_1UpdateShardCountCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1UpdateShardCountCommandError = async (
@@ -2046,7 +2043,7 @@ export const deserializeAws_json1_1UpdateStreamModeCommand = async (
   const response: UpdateStreamModeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1UpdateStreamModeCommandError = async (
@@ -3139,6 +3136,19 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
   output: any,
   context: __SerdeContext
 ): SubscribeToShardEventStream => {
+  const targetTypes = {
+    InternalFailureException: "structure",
+    KMSAccessDeniedException: "structure",
+    KMSDisabledException: "structure",
+    KMSInvalidStateException: "structure",
+    KMSNotFoundException: "structure",
+    KMSOptInRequired: "structure",
+    KMSThrottlingException: "structure",
+    ResourceInUseException: "structure",
+    ResourceNotFoundException: "structure",
+    SubscribeToShardEvent: "structure",
+  };
+  __parseEventStream(output, targetTypes);
   if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
     return {
       InternalFailureException: deserializeAws_json1_1InternalFailureException(

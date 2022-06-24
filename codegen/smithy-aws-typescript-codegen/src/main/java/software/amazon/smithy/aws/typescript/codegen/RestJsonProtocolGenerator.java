@@ -54,7 +54,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     /**
-     * Creates a AWS JSON RPC protocol generator.
+     * Creates an AWS JSON RPC protocol generator.
      */
     RestJsonProtocolGenerator() {
         super(true);

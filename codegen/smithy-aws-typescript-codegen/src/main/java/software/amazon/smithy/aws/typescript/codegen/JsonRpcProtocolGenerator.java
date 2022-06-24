@@ -58,8 +58,14 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         return "/";
     }
 
+    @Override
     protected Format getDocumentTimestampFormat() {
         return Format.EPOCH_SECONDS;
+    }
+
+    @Override
+    protected boolean requiresNumericEpochSecondsInPayload() {
+        return false;
     }
 
     @Override

@@ -15,11 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
-
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.function.BiFunction;
+import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -30,9 +26,11 @@ import software.amazon.smithy.model.shapes.NumberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
@@ -43,13 +41,19 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserV
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.function.BiFunction;
+
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
+
 /**
  * Visitor to generate deserialization functions for shapes in AWS JSON protocol
  * document bodies.
- *
+ * <p>
  * No standard visitation methods are overridden; function body generation for all
  * expected deserializers is handled by this class.
- *
+ * <p>
  * Timestamps are deserialized from {@link Format}.EPOCH_SECONDS by default.
  */
 @SmithyInternalApi
@@ -59,8 +63,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
     JsonShapeDeserVisitor(GenerationContext context) {
         this(context,
-                // Use the jsonName trait value if present, otherwise use the member name.
-                (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
+            // Use the jsonName trait value if present, otherwise use the member name.
+            (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
                 .map(JsonNameTrait::getValue)
                 .orElse(memberName));
     }
@@ -92,7 +96,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 // In the SSDK we want to be very strict about not accepting nulls in non-sparse lists.
                 if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
                     writer.write("throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
-                                 shape.getId());
+                        shape.getId());
                 } else {
                     writer.write("return null as any;");
                 }
@@ -100,14 +104,14 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
             // Dispatch to the output value provider for any additional handling.
             writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                    usesExpect(target) ? " as any" : "");
+                usesExpect(target) ? " as any" : "");
         });
         if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
             writer.addDependency(TypeScriptDependency.SERVER_COMMON);
             writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
             writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
                 writer.write("throw new TypeError('All elements of the set $S must be unique.');",
-                        shape.getId());
+                    shape.getId());
             });
         }
         writer.write("return retVal;");
@@ -148,7 +152,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     writer.write("...acc,");
                     // Dispatch to the output value provider for any additional handling.
                     writer.write("[key]: $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
-                            usesExpect(target) ? " as any" : "");
+                        usesExpect(target) ? " as any" : "");
                 });
             }
         );
@@ -161,28 +165,35 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+
         writer.openBlock("return {", "} as any;", () -> {
-            // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> {
                 String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
-
                 String propertyAccess = getFrom("output", locationName);
+                boolean isHeader = memberShape.hasTrait(EventHeaderTrait.class);
 
-                if (usesExpect(target)) {
-                    // Booleans and numbers will call expectBoolean/expectNumber which will handle
-                    // null/undefined properly.
-                    writer.write("$L: $L,",
+                if (isHeader) {
+                    // we currently don't do anything with response headers in events?
+                    throw new RuntimeException(
+                        "no handling exists for response struct members with EventHeader trait."
+                    );
+                } else {
+                    if (usesExpect(target)) {
+                        // Booleans and numbers will call expectBoolean/expectNumber which will handle
+                        // null/undefined properly.
+                        writer.write("$L: $L,",
                             memberName,
                             target.accept(getMemberVisitor(memberShape, propertyAccess)));
-                } else {
-                    writer.write(
-                        "$1L: ($2L != null) ? $3L: undefined,",
-                        memberName,
-                        propertyAccess,
-                        // Dispatch to the output value provider for any additional handling.
-                        target.accept(getMemberVisitor(memberShape, propertyAccess))
-                    );
+                    } else {
+                        writer.write(
+                            "$1L: ($2L != null) ? $3L: undefined,",
+                            memberName,
+                            propertyAccess,
+                            // Dispatch to the output value provider for any additional handling.
+                            target.accept(getMemberVisitor(memberShape, propertyAccess))
+                        );
+                    }
                 }
             });
         });
@@ -202,15 +213,42 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     protected void deserializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
+        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+
+        boolean isStreamingUnion = shape.hasTrait(StreamingTrait.class);
+        if (isStreamingUnion) {
+            writer.addImport("parseEventStream", "__parseEventStream", "@aws-sdk/smithy-client");
+            writer.openBlock("const targetTypes = {", "};", () -> {
+                members.forEach((memberName, memberShape) -> {
+                    Shape memberTargetShape = model.expectShape(memberShape.getTarget());
+                    if (memberTargetShape.isBlobShape() ||
+                        memberTargetShape.isStructureShape() ||
+                        memberTargetShape.isStringShape()) {
+                        writer.write("$L: \"$L\",", memberName, memberTargetShape.getType().toString());
+                    } else {
+                        throw new CodegenException(
+                            String.format(
+                                "Unexpected shape type bound to event payload: `%s` `%s`",
+                                memberName, memberTargetShape.getType().toString()
+                            )
+                        );
+                    }
+                });
+            });
+            writer.write("await __parseEventStream(output, targetTypes);");
+        }
 
         // Check for any known union members and return when we find one.
-        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         members.forEach((memberName, memberShape) -> {
-            Shape target = model.expectShape(memberShape.getTarget());
+            Shape memberTarget = model.expectShape(memberShape.getTarget());
             String locationName = memberNameStrategy.apply(memberShape, memberName);
 
-            String memberValue = target.accept(getMemberVisitor(memberShape, getFrom("output", locationName)));
-            if (usesExpect(target)) {
+            String memberValue = memberTarget.accept(getMemberVisitor(
+                memberShape,
+                getFrom("output", locationName)
+            ));
+
+            if (usesExpect(memberTarget)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.
                 writer.openBlock("if ($L !== undefined) {", "}", memberValue, () -> {

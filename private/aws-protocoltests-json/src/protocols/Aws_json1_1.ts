@@ -268,7 +268,7 @@ export const deserializeAws_json1_1EmptyOperationCommand = async (
   const response: EmptyOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1EmptyOperationCommandError = async (
@@ -306,7 +306,7 @@ export const deserializeAws_json1_1EndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1EndpointOperationCommandError = async (
@@ -344,7 +344,7 @@ export const deserializeAws_json1_1EndpointWithHostLabelOperationCommand = async
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1EndpointWithHostLabelOperationCommandError = async (
@@ -385,7 +385,7 @@ export const deserializeAws_json1_1GreetingWithErrorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1GreetingWithErrorsCommandError = async (
@@ -432,7 +432,7 @@ export const deserializeAws_json1_1HostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1HostWithPathOperationCommandError = async (
@@ -473,7 +473,7 @@ export const deserializeAws_json1_1JsonEnumsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1JsonEnumsCommandError = async (
@@ -514,7 +514,7 @@ export const deserializeAws_json1_1JsonUnionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1JsonUnionsCommandError = async (
@@ -555,7 +555,7 @@ export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
@@ -602,7 +602,7 @@ export const deserializeAws_json1_1NullOperationCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1NullOperationCommandError = async (
@@ -643,7 +643,7 @@ export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = asy
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1OperationWithOptionalInputOutputCommandError = async (
@@ -684,7 +684,7 @@ export const deserializeAws_json1_1PutAndGetInlineDocumentsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1PutAndGetInlineDocumentsCommandError = async (
@@ -725,7 +725,7 @@ export const deserializeAws_json1_1SimpleScalarPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_json1_1SimpleScalarPropertiesCommandError = async (

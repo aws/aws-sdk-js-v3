@@ -7,6 +7,7 @@ import {
 import {
   dateToUtcString as __dateToUtcString,
   decorateServiceException as __decorateServiceException,
+  deserEventStream as __deserEventStream,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -9706,18 +9707,7 @@ export const deserializeAws_restXmlSelectObjectContentCommand = async (
     Payload: undefined,
   };
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
-    const eventName = Object.keys(event)[0];
-    const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
-      accummulator[curr[0]] = curr[1].value;
-      return accummulator;
-    }, {} as Record<string, any>);
-    const eventMessage = {
-      headers: eventHeaders,
-      body: event[eventName].body,
-    };
-    const parsedEvent = {
-      [eventName]: eventMessage,
-    };
+    const parsedEvent = __deserEventStream(event);
     return await deserializeAws_restXmlSelectObjectContentEventStream_event(parsedEvent, context);
   });
   contents.Payload = data;

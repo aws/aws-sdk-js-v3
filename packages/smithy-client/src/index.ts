@@ -3,6 +3,7 @@ export * from "./command";
 export * from "./constants";
 export * from "./date-utils";
 export * from "./defaults-mode";
+export * from "./deserialize-eventstream";
 export * from "./emitWarningIfUnsupportedVersion";
 export * from "./exceptions";
 export * from "./extended-encode-uri-component";

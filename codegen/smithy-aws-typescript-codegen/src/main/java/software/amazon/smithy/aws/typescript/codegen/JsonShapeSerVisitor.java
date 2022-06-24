@@ -18,6 +18,9 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -28,6 +31,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
@@ -38,6 +42,8 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVi
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
+
+import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
 
 /**
  * Visitor to generate serialization functions for shapes in AWS JSON protocol
@@ -133,11 +139,42 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        // Use a TreeMap to sort the members.
+        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+
+        Map<String, MemberShape> eventHeaders = members.entrySet().stream()
+            .filter(entry -> entry.getValue().hasTrait(EventHeaderTrait.class))
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue
+            ));
+
+        Map<String, MemberShape> nonHeaders = members.entrySet().stream()
+            .filter(entry -> !entry.getValue().hasTrait(EventHeaderTrait.class))
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue
+            ));
+
+        eventHeaders.forEach((memberName, memberShape) -> {
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
+            String inputLocation = "input." + memberName;
+
+            String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
+                TIMESTAMP_FORMAT, inputLocation)
+                : target.accept(getMemberVisitor(inputLocation));
+
+            writer.write(
+                "$L = $L;",
+                getFrom("headers", memberName),
+                valueProvider
+            );
+        });
 
         writer.openBlock("return {", "};", () -> {
-            // Use a TreeMap to sort the members.
-            Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-            members.forEach((memberName, memberShape) -> {
+            nonHeaders.forEach((memberName, memberShape) -> {
+
                 String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
                 String inputLocation = "input." + memberName;
@@ -152,10 +189,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
                     writer.write("...($1L != null && { $2S: $3L }),",
-                            inputLocation, locationName, valueProvider);
+                        inputLocation, locationName, valueProvider);
                 }
             });
-
         });
     }
 
@@ -179,4 +215,5 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("_: (name, value) => ({ name: value } as any)");
         });
     }
+
 }

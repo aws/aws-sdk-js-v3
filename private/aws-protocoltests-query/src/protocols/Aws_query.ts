@@ -583,7 +583,7 @@ export const deserializeAws_queryEmptyInputAndEmptyOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryEmptyInputAndEmptyOutputCommandError = async (
@@ -621,7 +621,7 @@ export const deserializeAws_queryEndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryEndpointOperationCommandError = async (
@@ -659,7 +659,7 @@ export const deserializeAws_queryEndpointWithHostLabelOperationCommand = async (
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryEndpointWithHostLabelOperationCommandError = async (
@@ -700,7 +700,7 @@ export const deserializeAws_queryFlattenedXmlMapCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryFlattenedXmlMapCommandError = async (
@@ -741,7 +741,7 @@ export const deserializeAws_queryFlattenedXmlMapWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryFlattenedXmlMapWithXmlNameCommandError = async (
@@ -785,7 +785,7 @@ export const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand = async 
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommandError = async (
@@ -826,7 +826,7 @@ export const deserializeAws_queryGreetingWithErrorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryGreetingWithErrorsCommandError = async (
@@ -873,7 +873,7 @@ export const deserializeAws_queryHostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryHostWithPathOperationCommandError = async (
@@ -914,7 +914,7 @@ export const deserializeAws_queryIgnoresWrappingXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryIgnoresWrappingXmlNameCommandError = async (
@@ -952,7 +952,7 @@ export const deserializeAws_queryNestedStructuresCommand = async (
   const response: NestedStructuresCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryNestedStructuresCommandError = async (
@@ -990,7 +990,7 @@ export const deserializeAws_queryNoInputAndNoOutputCommand = async (
   const response: NoInputAndNoOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryNoInputAndNoOutputCommandError = async (
@@ -1031,7 +1031,7 @@ export const deserializeAws_queryNoInputAndOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryNoInputAndOutputCommandError = async (
@@ -1069,7 +1069,7 @@ export const deserializeAws_queryQueryIdempotencyTokenAutoFillCommand = async (
   const response: QueryIdempotencyTokenAutoFillCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryQueryIdempotencyTokenAutoFillCommandError = async (
@@ -1107,7 +1107,7 @@ export const deserializeAws_queryQueryListsCommand = async (
   const response: QueryListsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryQueryListsCommandError = async (
@@ -1145,7 +1145,7 @@ export const deserializeAws_queryQueryMapsCommand = async (
   const response: QueryMapsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryQueryMapsCommandError = async (
@@ -1183,7 +1183,7 @@ export const deserializeAws_queryQueryTimestampsCommand = async (
   const response: QueryTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryQueryTimestampsCommandError = async (
@@ -1224,7 +1224,7 @@ export const deserializeAws_queryRecursiveXmlShapesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryRecursiveXmlShapesCommandError = async (
@@ -1262,7 +1262,7 @@ export const deserializeAws_querySimpleInputParamsCommand = async (
   const response: SimpleInputParamsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_querySimpleInputParamsCommandError = async (
@@ -1303,7 +1303,7 @@ export const deserializeAws_querySimpleScalarXmlPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_querySimpleScalarXmlPropertiesCommandError = async (
@@ -1344,7 +1344,7 @@ export const deserializeAws_queryXmlBlobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlBlobsCommandError = async (
@@ -1385,7 +1385,7 @@ export const deserializeAws_queryXmlEmptyBlobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlEmptyBlobsCommandError = async (
@@ -1426,7 +1426,7 @@ export const deserializeAws_queryXmlEmptyListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlEmptyListsCommandError = async (
@@ -1467,7 +1467,7 @@ export const deserializeAws_queryXmlEmptyMapsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlEmptyMapsCommandError = async (
@@ -1508,7 +1508,7 @@ export const deserializeAws_queryXmlEnumsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlEnumsCommandError = async (
@@ -1549,7 +1549,7 @@ export const deserializeAws_queryXmlListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlListsCommandError = async (
@@ -1590,7 +1590,7 @@ export const deserializeAws_queryXmlMapsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlMapsCommandError = async (
@@ -1631,7 +1631,7 @@ export const deserializeAws_queryXmlMapsXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlMapsXmlNameCommandError = async (
@@ -1672,7 +1672,7 @@ export const deserializeAws_queryXmlNamespacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlNamespacesCommandError = async (
@@ -1713,7 +1713,7 @@ export const deserializeAws_queryXmlTimestampsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 const deserializeAws_queryXmlTimestampsCommandError = async (
