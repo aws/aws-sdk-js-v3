@@ -25,4 +25,5 @@ export const localPublishChangedPackages = async (): Promise<string> => {
 export const spawnLocalRegistry = (port: number) =>
   exec("npx", ["verdaccio", "-c", "verdaccio/config.yaml", "-l", "" + port], {
     cwd: PROJECT_ROOT,
+    stdio: "inherit",
   });

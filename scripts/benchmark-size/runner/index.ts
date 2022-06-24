@@ -1,11 +1,11 @@
 import { appendFileSync, mkdirSync, promises as fsPromise, readFileSync, rmdirSync } from "fs";
 import { ensureDirSync, ensureFile } from "fs-extra";
 import hbs from "handlebars";
-import { Listr } from "listr2";
 import { tmpdir } from "os";
+import map from "p-map";
 import { join } from "path";
 
-import { getPackageSizeReportRunner, PackageSizeReportOutput } from "./calculate-size";
+import { generatePackageSizeReport, PackageSizeReportOutput } from "./calculate-size";
 import {
   DEFAULT_LIMIT_CONFIG_PATH,
   DEFAULT_RAW_OUTPUT_PATH,
@@ -91,19 +91,18 @@ export const sizeReport = async (options: SizeReportOptions) => {
   // Wait for the register to spin up.
   await sleep(1000);
   const sizeReportContext = await getSizeReportContext({ port: PORT });
-  const tasks = new Listr(
-    packageContextToTest.map((packageContext) => ({
-      title: packageContext.package,
-      task: getPackageSizeReportRunner({
-        ...sizeReportContext,
-        packageName: packageContext.package,
-        packageContext,
-      }),
-    })),
-    { concurrent: 4 }
-  );
   try {
-    await tasks.run();
+    await map(
+      packageContextToTest,
+      async (packageContext) => {
+        await generatePackageSizeReport({
+          ...sizeReportContext,
+          packageName: packageContext.package,
+          packageContext,
+        });
+      },
+      { concurrency: 10 }
+    );
   } finally {
     localRegistryProcess.kill();
     rmdirSync(sizeReportContext.tmpDir, { recursive: true });
