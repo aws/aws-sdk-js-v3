@@ -50,11 +50,13 @@ export const getSignedUrl = async (
       },
     } as any;
   };
+  const middlewareName = "presignInterceptMiddleware";
 
   client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
-    name: "presignInterceptMiddleware",
+    name: middlewareName,
     relation: "before",
     toMiddleware: "awsAuthMiddleware",
+    override: true,
   });
 
   let presigned: HttpRequest;
@@ -63,7 +65,7 @@ export const getSignedUrl = async (
     //@ts-ignore the output is faked, so it's not actually OutputType
     presigned = output.presigned;
   } finally {
-    client.middlewareStack.remove("presignInterceptMiddleware");
+    client.middlewareStack.remove(middlewareName);
   }
 
   return formatUrl(presigned);
