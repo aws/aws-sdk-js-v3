@@ -444,7 +444,7 @@ export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
@@ -482,7 +482,7 @@ export const deserializeAws_ec2EndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2EndpointOperationCommandError = async (
@@ -520,7 +520,7 @@ export const deserializeAws_ec2EndpointWithHostLabelOperationCommand = async (
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2EndpointWithHostLabelOperationCommandError = async (
@@ -561,7 +561,7 @@ export const deserializeAws_ec2GreetingWithErrorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2GreetingWithErrorsCommandError = async (
@@ -605,7 +605,7 @@ export const deserializeAws_ec2HostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2HostWithPathOperationCommandError = async (
@@ -646,7 +646,7 @@ export const deserializeAws_ec2IgnoresWrappingXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
@@ -684,7 +684,7 @@ export const deserializeAws_ec2NestedStructuresCommand = async (
   const response: NestedStructuresCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2NestedStructuresCommandError = async (
@@ -725,7 +725,7 @@ export const deserializeAws_ec2NoInputAndOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2NoInputAndOutputCommandError = async (
@@ -763,7 +763,7 @@ export const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   const response: QueryIdempotencyTokenAutoFillCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
@@ -801,7 +801,7 @@ export const deserializeAws_ec2QueryListsCommand = async (
   const response: QueryListsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2QueryListsCommandError = async (
@@ -839,7 +839,7 @@ export const deserializeAws_ec2QueryTimestampsCommand = async (
   const response: QueryTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2QueryTimestampsCommandError = async (
@@ -880,7 +880,7 @@ export const deserializeAws_ec2RecursiveXmlShapesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
@@ -918,7 +918,7 @@ export const deserializeAws_ec2SimpleInputParamsCommand = async (
   const response: SimpleInputParamsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2SimpleInputParamsCommandError = async (
@@ -959,7 +959,7 @@ export const deserializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
@@ -1000,7 +1000,7 @@ export const deserializeAws_ec2XmlBlobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlBlobsCommandError = async (
@@ -1041,7 +1041,7 @@ export const deserializeAws_ec2XmlEmptyBlobsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlEmptyBlobsCommandError = async (
@@ -1082,7 +1082,7 @@ export const deserializeAws_ec2XmlEmptyListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlEmptyListsCommandError = async (
@@ -1123,7 +1123,7 @@ export const deserializeAws_ec2XmlEnumsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlEnumsCommandError = async (
@@ -1164,7 +1164,7 @@ export const deserializeAws_ec2XmlListsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlListsCommandError = async (
@@ -1205,7 +1205,7 @@ export const deserializeAws_ec2XmlNamespacesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlNamespacesCommandError = async (
@@ -1246,7 +1246,7 @@ export const deserializeAws_ec2XmlTimestampsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_ec2XmlTimestampsCommandError = async (

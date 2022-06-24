@@ -211,7 +211,7 @@ export const deserializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0EmptyInputAndEmptyOutputCommandError = async (
@@ -249,7 +249,7 @@ export const deserializeAws_json1_0EndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0EndpointOperationCommandError = async (
@@ -287,7 +287,7 @@ export const deserializeAws_json1_0EndpointWithHostLabelOperationCommand = async
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0EndpointWithHostLabelOperationCommandError = async (
@@ -328,7 +328,7 @@ export const deserializeAws_json1_0GreetingWithErrorsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0GreetingWithErrorsCommandError = async (
@@ -375,7 +375,7 @@ export const deserializeAws_json1_0HostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0HostWithPathOperationCommandError = async (
@@ -416,7 +416,7 @@ export const deserializeAws_json1_0JsonUnionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0JsonUnionsCommandError = async (
@@ -454,7 +454,7 @@ export const deserializeAws_json1_0NoInputAndNoOutputCommand = async (
   const response: NoInputAndNoOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0NoInputAndNoOutputCommandError = async (
@@ -495,7 +495,7 @@ export const deserializeAws_json1_0NoInputAndOutputCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0NoInputAndOutputCommandError = async (
@@ -536,7 +536,7 @@ export const deserializeAws_json1_0SimpleScalarPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return response;
+  return Promise.resolve(response);
 };
 
 const deserializeAws_json1_0SimpleScalarPropertiesCommandError = async (
@@ -650,8 +650,15 @@ const serializeAws_json1_0SimpleScalarPropertiesInput = (
   context: __SerdeContext
 ): any => {
   return {
+<<<<<<< HEAD
     ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
+=======
+    ...(input.floatValue !== undefined &&
+      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
+>>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
   };
 };
 

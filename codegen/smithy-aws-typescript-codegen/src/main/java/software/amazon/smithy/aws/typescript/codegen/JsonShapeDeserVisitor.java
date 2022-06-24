@@ -218,7 +218,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         boolean isStreamingUnion = shape.hasTrait(StreamingTrait.class);
         if (isStreamingUnion) {
             writer.addImport("parseEventStream", "__parseEventStream", "@aws-sdk/smithy-client");
-            writer.openBlock("const targetTypes = {", "};", () -> {
+            writer.addImport("ParseEventStreamValidTargetTypes", "ParseEventStreamValidTargetTypes", "@aws-sdk/smithy-client");
+            writer.openBlock("const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {", "};", () -> {
                 members.forEach((memberName, memberShape) -> {
                     Shape memberTargetShape = model.expectShape(memberShape.getTarget());
                     if (memberTargetShape.isBlobShape() ||
@@ -235,7 +236,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     }
                 });
             });
-            writer.write("await __parseEventStream(output, targetTypes);");
+            writer.write("__parseEventStream(output, targetTypes);");
         }
 
         // Check for any known union members and return when we find one.

@@ -25,11 +25,13 @@ export type ParsedEventBody = {
   [isEventStream]: true;
 };
 
+export type ParseEventStreamValidTargetTypes = "blob" | "structure" | "string";
+
 /**
- * Deserializes the response of Smithy's streaming trait with union.
+ * Converts a streaming event into an intermediate format.
  * @see https://awslabs.github.io/smithy/1.0/spec/core/stream-traits.html#event-streams
  */
-export function deserEventStream(event: EventInput): EventOutput<keyof typeof event> {
+export function toEventMessage(event: EventInput): EventOutput<keyof typeof event> {
   const eventName = Object.keys(event)[0];
   const { headers, body } = event[eventName];
 
@@ -49,15 +51,14 @@ export function deserEventStream(event: EventInput): EventOutput<keyof typeof ev
   return parsedEvent as EventOutput<keyof typeof event>;
 }
 
-export type ParseEventStreamValidTargetTypes = "blob" | "structure" | "string";
-
 /**
- * Traverse an object and parse any detected EventStream components.
+ * This function parses the streaming response using
+ * the union's member type information.
+ *
+ * @param input - a streaming union response.
+ * @param targetTypes - a description of the union's members target types.
  */
-export function parseEventStream(
-  input: any,
-  targetTypes: Record<string, ParseEventStreamValidTargetTypes>
-): Promise<void> {
+export function parseEventStream(input: any, targetTypes: Record<string, ParseEventStreamValidTargetTypes>): void {
   if (!input) {
     return;
   }
