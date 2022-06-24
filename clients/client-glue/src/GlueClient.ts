@@ -293,6 +293,7 @@ import {
 } from "./commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
+import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
 import {
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,
@@ -530,6 +531,7 @@ export type ServiceInputTypes =
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
   | ListCrawlersCommandInput
+  | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
@@ -715,6 +717,7 @@ export type ServiceOutputTypes =
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
   | ListCrawlersCommandOutput
+  | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput

@@ -64,6 +64,7 @@ import {
   S3ParquetSource,
   SchemaChangePolicy,
   SchemaId,
+  SchemaVersionStatus,
   SelectFields,
   SelectFromCollection,
   SparkConnectorSource,
@@ -78,7 +79,212 @@ import {
   UserDefinedFunctionInput,
   WorkerType,
 } from "./models_0";
-import { ColumnStatistics, ResourceShareType, SchemaVersionNumber, Table } from "./models_1";
+import {
+  ColumnStatistics,
+  JobBookmarkEntry,
+  MetadataKeyValuePair,
+  ResourceShareType,
+  SchemaVersionNumber,
+  Table,
+} from "./models_1";
+
+export interface RegisterSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
+   */
+  SchemaDefinition: string | undefined;
+}
+
+export namespace RegisterSchemaVersionInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterSchemaVersionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterSchemaVersionResponse {
+  /**
+   * <p>The unique ID that represents the version of this schema.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version.</p>
+   */
+  Status?: SchemaVersionStatus | string;
+}
+
+export namespace RegisterSchemaVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterSchemaVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+export namespace RemoveSchemaVersionMetadataInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveSchemaVersionMetadataInput): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The version ID for the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataValue?: string;
+}
+
+export namespace RemoveSchemaVersionMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveSchemaVersionMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetJobBookmarkRequest {
+  /**
+   * <p>The name of the job in question.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The unique run identifier associated with this job run.</p>
+   */
+  RunId?: string;
+}
+
+export namespace ResetJobBookmarkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetJobBookmarkRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetJobBookmarkResponse {
+  /**
+   * <p>The reset bookmark entry.</p>
+   */
+  JobBookmarkEntry?: JobBookmarkEntry;
+}
+
+export namespace ResetJobBookmarkResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetJobBookmarkResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Too many jobs are being run concurrently.</p>
+ */
+export class ConcurrentRunsExceededException extends __BaseException {
+  readonly name: "ConcurrentRunsExceededException" = "ConcurrentRunsExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentRunsExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentRunsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
@@ -1639,7 +1845,7 @@ export interface UpdateCrawlerRequest {
   LineageConfiguration?: LineageConfiguration;
 
   /**
-   * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+   * <p>Specifies Lake Formation configuration settings for the crawler.</p>
    */
   LakeFormationConfiguration?: LakeFormationConfiguration;
 

@@ -259,6 +259,7 @@ import {
 } from "../commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "../commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "../commands/ListCrawlersCommand";
+import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "../commands/ListCrawlsCommand";
 import {
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,
@@ -636,14 +637,15 @@ import {
   ColumnRowFilter,
   ColumnStatistics,
   ColumnStatisticsData,
-  ConcurrentRunsExceededException,
   ConditionCheckFailureException,
   ConflictException,
   ConfusionMatrix,
   Connection,
   ConnectionPasswordEncryption,
+  CrawlerHistory,
   CrawlerMetrics,
   CrawlerRunningException,
+  CrawlsFilter,
   CsvClassifier,
   Database,
   DataCatalogEncryptionSettings,
@@ -836,6 +838,8 @@ import {
   ListBlueprintsResponse,
   ListCrawlersRequest,
   ListCrawlersResponse,
+  ListCrawlsRequest,
+  ListCrawlsResponse,
   ListCustomEntityTypesRequest,
   ListCustomEntityTypesResponse,
   ListDevEndpointsRequest,
@@ -878,13 +882,7 @@ import {
   PutWorkflowRunPropertiesResponse,
   QuerySchemaVersionMetadataInput,
   QuerySchemaVersionMetadataResponse,
-  RegisterSchemaVersionInput,
-  RegisterSchemaVersionResponse,
   RegistryListItem,
-  RemoveSchemaVersionMetadataInput,
-  RemoveSchemaVersionMetadataResponse,
-  ResetJobBookmarkRequest,
-  ResetJobBookmarkResponse,
   SchedulerTransitioningException,
   SchemaColumn,
   SchemaListItem,
@@ -914,6 +912,7 @@ import {
   BatchGetJobsResponse,
   CodeGenConfigurationNode,
   ColumnStatisticsError,
+  ConcurrentRunsExceededException,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   CreateJobRequest,
@@ -928,6 +927,12 @@ import {
   MLTransformNotReadyException,
   NoScheduleException,
   PropertyPredicate,
+  RegisterSchemaVersionInput,
+  RegisterSchemaVersionResponse,
+  RemoveSchemaVersionMetadataInput,
+  RemoveSchemaVersionMetadataResponse,
+  ResetJobBookmarkRequest,
+  ResetJobBookmarkResponse,
   ResumeWorkflowRunRequest,
   ResumeWorkflowRunResponse,
   RunStatementRequest,
@@ -2650,6 +2655,19 @@ export const serializeAws_json1_1ListCrawlersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCrawlersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCrawlsCommand = async (
+  input: ListCrawlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.ListCrawls",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCrawlsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -10099,6 +10117,55 @@ const deserializeAws_json1_1ListCrawlersCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListCrawlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrawlsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCrawlsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCrawlsResponse(data, context);
+  const response: ListCrawlsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCrawlsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrawlsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListCustomEntityTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14642,6 +14709,26 @@ const serializeAws_json1_1CrawlerTargets = (input: CrawlerTargets, context: __Se
   };
 };
 
+const serializeAws_json1_1CrawlsFilter = (input: CrawlsFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldName !== undefined && input.FieldName !== null && { FieldName: input.FieldName }),
+    ...(input.FieldValue !== undefined && input.FieldValue !== null && { FieldValue: input.FieldValue }),
+    ...(input.FilterOperator !== undefined &&
+      input.FilterOperator !== null && { FilterOperator: input.FilterOperator }),
+  };
+};
+
+const serializeAws_json1_1CrawlsFilterList = (input: CrawlsFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CrawlsFilter(entry, context);
+    });
+};
+
 const serializeAws_json1_1CreateBlueprintRequest = (input: CreateBlueprintRequest, context: __SerdeContext): any => {
   return {
     ...(input.BlueprintLocation !== undefined &&
@@ -16865,6 +16952,16 @@ const serializeAws_json1_1ListCrawlersRequest = (input: ListCrawlersRequest, con
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1ListCrawlsRequest = (input: ListCrawlsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CrawlerName !== undefined && input.CrawlerName !== null && { CrawlerName: input.CrawlerName }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1CrawlsFilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -20499,6 +20596,39 @@ const deserializeAws_json1_1Crawler = (output: any, context: __SerdeContext): Cr
   } as any;
 };
 
+const deserializeAws_json1_1CrawlerHistory = (output: any, context: __SerdeContext): CrawlerHistory => {
+  return {
+    CrawlId: __expectString(output.CrawlId),
+    DPUHour: __limitedParseDouble(output.DPUHour),
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
+    LogGroup: __expectString(output.LogGroup),
+    LogStream: __expectString(output.LogStream),
+    MessagePrefix: __expectString(output.MessagePrefix),
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+    State: __expectString(output.State),
+    Summary: __expectString(output.Summary),
+  } as any;
+};
+
+const deserializeAws_json1_1CrawlerHistoryList = (output: any, context: __SerdeContext): CrawlerHistory[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CrawlerHistory(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1CrawlerList = (output: any, context: __SerdeContext): Crawler[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -23188,6 +23318,16 @@ const deserializeAws_json1_1ListCrawlersResponse = (output: any, context: __Serd
     CrawlerNames:
       output.CrawlerNames !== undefined && output.CrawlerNames !== null
         ? deserializeAws_json1_1CrawlerNameList(output.CrawlerNames, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListCrawlsResponse = (output: any, context: __SerdeContext): ListCrawlsResponse => {
+  return {
+    Crawls:
+      output.Crawls !== undefined && output.Crawls !== null
+        ? deserializeAws_json1_1CrawlerHistoryList(output.Crawls, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;

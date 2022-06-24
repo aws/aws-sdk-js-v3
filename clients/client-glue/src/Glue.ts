@@ -543,6 +543,7 @@ import {
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
 } from "./commands/ListCrawlersCommand";
+import { ListCrawlsCommand, ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
 import {
   ListCustomEntityTypesCommand,
   ListCustomEntityTypesCommandInput,
@@ -4771,6 +4772,48 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: ListCrawlersCommandOutput) => void
   ): Promise<ListCrawlersCommandOutput> | void {
     const command = new ListCrawlersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
+   *
+   * 	        <p>You may use this API to:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Retrive all the crawls of a specified crawler.</p>
+   *             </li>
+   *             <li>
+   *                <p>Retrieve all the crawls of a specified crawler within a limited count.</p>
+   *             </li>
+   *             <li>
+   *                <p>Retrieve all the crawls of a specified crawler in a specific time range.</p>
+   *             </li>
+   *             <li>
+   *                <p>Retrieve all the crawls of a specified crawler with a particular state, crawl ID, or DPU hour value.</p>
+   *             </li>
+   *          </ul>
+   */
+  public listCrawls(args: ListCrawlsCommandInput, options?: __HttpHandlerOptions): Promise<ListCrawlsCommandOutput>;
+  public listCrawls(args: ListCrawlsCommandInput, cb: (err: any, data?: ListCrawlsCommandOutput) => void): void;
+  public listCrawls(
+    args: ListCrawlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCrawlsCommandOutput) => void
+  ): void;
+  public listCrawls(
+    args: ListCrawlsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCrawlsCommandOutput) => void),
+    cb?: (err: any, data?: ListCrawlsCommandOutput) => void
+  ): Promise<ListCrawlsCommandOutput> | void {
+    const command = new ListCrawlsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -125,6 +125,7 @@ export * from "./GetWorkflowRunsCommand";
 export * from "./ImportCatalogToGlueCommand";
 export * from "./ListBlueprintsCommand";
 export * from "./ListCrawlersCommand";
+export * from "./ListCrawlsCommand";
 export * from "./ListCustomEntityTypesCommand";
 export * from "./ListDevEndpointsCommand";
 export * from "./ListJobsCommand";

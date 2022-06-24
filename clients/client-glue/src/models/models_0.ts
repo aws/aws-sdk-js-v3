@@ -1356,11 +1356,11 @@ export namespace BatchGetCrawlersRequest {
 }
 
 /**
- * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+ * <p>Specifies Lake Formation configuration settings for the crawler.</p>
  */
 export interface LakeFormationConfiguration {
   /**
-   * <p>Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
+   * <p>Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
    */
   UseLakeFormationCredentials?: boolean;
 
@@ -1916,7 +1916,7 @@ export interface Crawler {
   CrawlerSecurityConfiguration?: string;
 
   /**
-   * <p>Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
+   * <p>Specifies whether the crawler should use Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
    */
   LakeFormationConfiguration?: LakeFormationConfiguration;
 }
@@ -6933,7 +6933,7 @@ export interface CreateCrawlerRequest {
   LineageConfiguration?: LineageConfiguration;
 
   /**
-   * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+   * <p>Specifies Lake Formation configuration settings for the crawler.</p>
    */
   LakeFormationConfiguration?: LakeFormationConfiguration;
 
