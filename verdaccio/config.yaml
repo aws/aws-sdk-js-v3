@@ -18,13 +18,13 @@ web:
   # by default packages are ordercer ascendant (asc|desc)
   # sort_packages: asc
 
-auth:
-  htpasswd:
-    file: ./htpasswd
-    algorithm: bcrypt
-    # Maximum amount of users allowed to register, defaults to "+inf".
-    # You can set this to -1 to disable registration.
-    # max_users: 1000
+# auth:
+#   htpasswd:
+#     file: ./htpasswd
+#     algorithm: bcrypt
+#     # Maximum amount of users allowed to register, defaults to "+inf".
+#     # You can set this to -1 to disable registration.
+#     max_users: 1000
 
 # a list of other known repositories we can talk to
 uplinks:
@@ -33,18 +33,10 @@ uplinks:
 
 packages:
   "@aws-sdk/*":
-    # scoped packages
     access: $all
     publish: $all
     unpublish: $all
     proxy: npmjs
-  "@*/*":
-    # scoped packages
-    access: $all
-    publish: $authenticated
-    unpublish: $authenticated
-    proxy: npmjs
-
   "**":
     # allow all users (including non-authenticated users) to read and
     # publish all packages
@@ -66,10 +58,6 @@ packages:
 # WORKAROUND: Through given configuration you can workaround following issue https://github.com/verdaccio/verdaccio/issues/301. Set to 0 in case 60 is not enought.
 server:
   keepAliveTimeout: 60
-
-middlewares:
-  audit:
-    enabled: true
 
 # log settings
 logs:
