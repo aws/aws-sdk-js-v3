@@ -221,24 +221,32 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         if (isStreamingUnion && isRpc) {
             writer.addImport("parseEventStream", "__parseEventStream", "@aws-sdk/smithy-client");
-            writer.addImport("ParseEventStreamValidTargetTypes", "ParseEventStreamValidTargetTypes", "@aws-sdk/smithy-client");
-            writer.openBlock("const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {", "};", () -> {
-                members.forEach((memberName, memberShape) -> {
-                    Shape memberTargetShape = model.expectShape(memberShape.getTarget());
-                    if (memberTargetShape.isBlobShape() ||
-                        memberTargetShape.isStructureShape() ||
-                        memberTargetShape.isStringShape()) {
-                        writer.write("$L: \"$L\",", memberName, memberTargetShape.getType().toString());
-                    } else {
-                        throw new CodegenException(
-                            String.format(
-                                "Unexpected shape type bound to event payload: `%s` `%s`",
-                                memberName, memberTargetShape.getType().toString()
-                            )
-                        );
-                    }
-                });
-            });
+            writer.addImport(
+                "ParseEventStreamValidTargetTypes",
+                "ParseEventStreamValidTargetTypes",
+                "@aws-sdk/smithy-client"
+            );
+            writer.openBlock(
+                "const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {",
+                "};",
+                () -> {
+                    members.forEach((memberName, memberShape) -> {
+                        Shape memberTargetShape = model.expectShape(memberShape.getTarget());
+                        if (memberTargetShape.isBlobShape()
+                            || memberTargetShape.isStructureShape()
+                            || memberTargetShape.isStringShape()) {
+                            writer.write("$L: \"$L\",", memberName, memberTargetShape.getType().toString());
+                        } else {
+                            throw new CodegenException(
+                                String.format(
+                                    "Unexpected shape type bound to event payload: `%s` `%s`",
+                                    memberName, memberTargetShape.getType().toString()
+                                )
+                            );
+                        }
+                    });
+                }
+            );
             writer.write("__parseEventStream(output, targetTypes);");
         }
 
