@@ -12,50 +12,17 @@ export interface Message {
 
 export type MessageHeaders = Record<string, MessageHeaderValue>;
 
-export interface BooleanHeaderValue {
-  type: "boolean";
-  value: boolean;
-}
+type HeaderValue<K extends string, V> = { type: K; value: V };
 
-export interface ByteHeaderValue {
-  type: "byte";
-  value: number;
-}
-
-export interface ShortHeaderValue {
-  type: "short";
-  value: number;
-}
-
-export interface IntegerHeaderValue {
-  type: "integer";
-  value: number;
-}
-
-export interface LongHeaderValue {
-  type: "long";
-  value: Int64;
-}
-
-export interface BinaryHeaderValue {
-  type: "binary";
-  value: Uint8Array;
-}
-
-export interface StringHeaderValue {
-  type: "string";
-  value: string;
-}
-
-export interface TimestampHeaderValue {
-  type: "timestamp";
-  value: Date;
-}
-
-export interface UuidHeaderValue {
-  type: "uuid";
-  value: string;
-}
+export type BooleanHeaderValue = HeaderValue<"boolean", boolean>;
+export type ByteHeaderValue = HeaderValue<"byte", number>;
+export type ShortHeaderValue = HeaderValue<"short", number>;
+export type IntegerHeaderValue = HeaderValue<"integer", number>;
+export type LongHeaderValue = HeaderValue<"long", Int64>;
+export type BinaryHeaderValue = HeaderValue<"binary", Uint8Array>;
+export type StringHeaderValue = HeaderValue<"string", string>;
+export type TimestampHeaderValue = HeaderValue<"timestamp", Date>;
+export type UuidHeaderValue = HeaderValue<"uuid", string>;
 
 export type MessageHeaderValue =
   | BooleanHeaderValue
