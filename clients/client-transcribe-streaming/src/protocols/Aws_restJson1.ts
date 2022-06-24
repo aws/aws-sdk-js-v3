@@ -6,8 +6,6 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseBoolean as __parseBoolean,
-  parseEventStream as __parseEventStream,
-  ParseEventStreamValidTargetTypes,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -972,15 +970,6 @@ const deserializeAws_restJson1MedicalTranscriptResultStream = (
   output: any,
   context: __SerdeContext
 ): MedicalTranscriptResultStream => {
-  const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {
-    BadRequestException: "structure",
-    ConflictException: "structure",
-    InternalFailureException: "structure",
-    LimitExceededException: "structure",
-    ServiceUnavailableException: "structure",
-    TranscriptEvent: "structure",
-  };
-  __parseEventStream(output, targetTypes);
   if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
     return {
       BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),
@@ -1074,15 +1063,6 @@ const deserializeAws_restJson1TranscriptResultStream = (
   output: any,
   context: __SerdeContext
 ): TranscriptResultStream => {
-  const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {
-    BadRequestException: "structure",
-    ConflictException: "structure",
-    InternalFailureException: "structure",
-    LimitExceededException: "structure",
-    ServiceUnavailableException: "structure",
-    TranscriptEvent: "structure",
-  };
-  __parseEventStream(output, targetTypes);
   if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
     return {
       BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),

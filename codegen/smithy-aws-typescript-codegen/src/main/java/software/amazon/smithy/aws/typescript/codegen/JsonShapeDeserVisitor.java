@@ -215,8 +215,12 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         Model model = context.getModel();
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
 
+        String protocolName = context.getProtocolName();
+
         boolean isStreamingUnion = shape.hasTrait(StreamingTrait.class);
-        if (isStreamingUnion) {
+        boolean isRpc = protocolName.equals("aws.json-1.1") || protocolName.equals("aws.json-1.0");
+
+        if (isStreamingUnion && isRpc) {
             writer.addImport("parseEventStream", "__parseEventStream", "@aws-sdk/smithy-client");
             writer.addImport("ParseEventStreamValidTargetTypes", "ParseEventStreamValidTargetTypes", "@aws-sdk/smithy-client");
             writer.openBlock("const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {", "};", () -> {

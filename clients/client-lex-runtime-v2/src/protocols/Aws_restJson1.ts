@@ -8,8 +8,6 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  parseEventStream as __parseEventStream,
-  ParseEventStreamValidTargetTypes,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2106,23 +2104,6 @@ const deserializeAws_restJson1StartConversationResponseEventStream = (
   output: any,
   context: __SerdeContext
 ): StartConversationResponseEventStream => {
-  const targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {
-    AccessDeniedException: "structure",
-    AudioResponseEvent: "structure",
-    BadGatewayException: "structure",
-    ConflictException: "structure",
-    DependencyFailedException: "structure",
-    HeartbeatEvent: "structure",
-    IntentResultEvent: "structure",
-    InternalServerException: "structure",
-    PlaybackInterruptionEvent: "structure",
-    ResourceNotFoundException: "structure",
-    TextResponseEvent: "structure",
-    ThrottlingException: "structure",
-    TranscriptEvent: "structure",
-    ValidationException: "structure",
-  };
-  __parseEventStream(output, targetTypes);
   if (output.AccessDeniedException !== undefined && output.AccessDeniedException !== null) {
     return {
       AccessDeniedException: deserializeAws_restJson1AccessDeniedException(output.AccessDeniedException, context),
