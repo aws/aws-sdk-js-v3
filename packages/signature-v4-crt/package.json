@@ -26,7 +26,7 @@
     "@aws-sdk/util-hex-encoding": "*",
     "@aws-sdk/util-middleware": "*",
     "@aws-sdk/util-uri-escape": "*",
-    "aws-crt": "^1.12.2",
+    "aws-crt": "^1.12.5",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
