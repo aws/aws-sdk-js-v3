@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.117.0...v3.118.0) (2022-06-24)
+
+
+### Features
+
+* **client-glue:** This release enables the new ListCrawls API for viewing the AWS Glue Crawler run history. ([95c192f](https://github.com/aws/aws-sdk-js-v3/commit/95c192fbf1f6fe1dfa60696e0f82a5093ff7295c))
+
+
+
+
+
 # [3.112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.111.0...v3.112.0) (2022-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

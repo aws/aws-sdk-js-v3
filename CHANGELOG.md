@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.117.0...v3.118.0) (2022-06-24)
+
+
+### Bug Fixes
+
+* **client-redshiftserverless:** remove redshift-serverless client ([#3733](https://github.com/aws/aws-sdk-js-v3/issues/3733)) ([0b69c9b](https://github.com/aws/aws-sdk-js-v3/commit/0b69c9b48ad1a78a47d3f029b290c57141ed3844))
+* **signature-v4-crt:** bump aws-crt to 1.12.5 ([#3734](https://github.com/aws/aws-sdk-js-v3/issues/3734)) ([647d02e](https://github.com/aws/aws-sdk-js-v3/commit/647d02e9e3e7068828edf14372206fa926ae94dd))
+
+
+### Features
+
+* **client-glue:** This release enables the new ListCrawls API for viewing the AWS Glue Crawler run history. ([95c192f](https://github.com/aws/aws-sdk-js-v3/commit/95c192fbf1f6fe1dfa60696e0f82a5093ff7295c))
+
+
+
+
+
 # [3.117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.116.0...v3.117.0) (2022-06-23)
 
 

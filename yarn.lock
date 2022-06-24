@@ -87,7 +87,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.112.0"
+  version "3.118.0"
   dependencies:
     "@aws-crypto/sha256-browser" "2.0.0"
     "@aws-crypto/sha256-js" "2.0.0"
@@ -3268,17 +3268,17 @@ available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
-aws-crt@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.12.2.tgz#8e29050bd00a026d43255ffcb00bba0e813fc0be"
-  integrity sha512-Z8uJggZOnIZlsoTcJY3WCrG2lIEfy3aCtsGIVEEtgLGiMbeg4YWJEjZywkx+DtWW5+/GDxyTPrKfHEH6fEwiyw==
+aws-crt@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.12.5.tgz#7b40dcc5bbae1144f7e35a9c22dc91542d18737b"
+  integrity sha512-fIMKy7BKHEWC4gzqewYJTlmp+m9ioZuBSfcKf2zYFSIZxtmweHji6n+sicHDcynxNA5zUsFPcVbKhOryfyAKfw==
   dependencies:
     "@httptoolkit/websocket-stream" "^6.0.0"
     axios "^0.24.0"
     cmake-js "6.3.0"
     crypto-js "^4.0.0"
     fastestsmallesttextencoderdecoder "^1.0.22"
-    mqtt "^4.3.4"
+    mqtt "^4.3.7"
     tar "^6.1.11"
     ws "^7.5.5"
 
@@ -8830,10 +8830,10 @@ mqtt-packet@^6.8.0:
     debug "^4.1.1"
     process-nextick-args "^2.0.1"
 
-mqtt@^4.3.4:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-4.3.6.tgz#4d4aa66a09058ca0b764299b96b636d8da832d75"
-  integrity sha512-1dgQbkbh1Bba9iAGDNIrhSZ4nLDjbhmNHjOEvsmKI1Bb+2orj0gHwjqUKJ5CKUMKBYbkQYRM1fy+N1/2iZOj5w==
+mqtt@^4.3.7:
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-4.3.7.tgz#42985ca490ea25d2c12c119d83c632db6dc9d589"
+  integrity sha512-ew3qwG/TJRorTz47eW46vZ5oBw5MEYbQZVaEji44j5lAUSQSqIEoul7Kua/BatBW0H0kKQcC9kwUHa1qzaWHSw==
   dependencies:
     commist "^1.0.0"
     concat-stream "^2.0.0"
