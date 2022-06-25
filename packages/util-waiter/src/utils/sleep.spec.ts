@@ -2,7 +2,7 @@ import { sleep } from "./sleep";
 
 describe("Sleep Module", () => {
   beforeEach(() => {
-    jest.useFakeTimers("legacy");
+    jest.useFakeTimers({ legacyFakeTimers: true });
   });
 
   afterEach(() => {
