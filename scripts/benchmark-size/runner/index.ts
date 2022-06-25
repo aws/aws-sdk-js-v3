@@ -5,19 +5,19 @@ import { tmpdir } from "os";
 import map from "p-map";
 import { join } from "path";
 
-import { generatePackageSizeReport, PackageSizeReportOutput } from "./calculate-size";
+import { generatePackageSizeReport, PackageSizeReportOutput } from "./calculate-size/index.js";
 import {
   DEFAULT_LIMIT_CONFIG_PATH,
   DEFAULT_RAW_OUTPUT_PATH,
   DEFAULT_REPORT_PATH,
   PORT,
   PROJECT_TEMPLATES_DIR,
-} from "./constants";
-import { loadPackageContext } from "./load-test-scope";
-import { localPublishChangedPackages, spawnLocalRegistry } from "./local-registry";
-import { updateReport } from "./reporter";
-import { sleep, validateRuntime } from "./utils";
-import { loadWorkspacePackages, SinceOption, validatePackagesAlreadyBuilt, WorkspacePackage } from "./workspace";
+} from "./constants.js";
+import { loadPackageContext } from "./load-test-scope.js";
+import { localPublishChangedPackages, spawnLocalRegistry } from "./local-registry.js";
+import { updateReport } from "./reporter/index.js";
+import { sleep, validateRuntime } from "./utils.js";
+import { loadWorkspacePackages, SinceOption, validatePackagesAlreadyBuilt, WorkspacePackage } from "./workspace.js";
 
 export interface SizeReportContext {
   localRegistry: string;

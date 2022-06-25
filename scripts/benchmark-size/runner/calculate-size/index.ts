@@ -1,12 +1,11 @@
 import { promises as fsPromise } from "fs";
-import { ListrContext, ListrTaskWrapper } from "listr2";
 import { join } from "path";
 
 import { SizeReportContext } from "../index";
 import { PackageContext } from "../load-test-scope";
-import { getEsbuildSize, getRollupSize, getWebpackSize } from "./bundlers-size";
-import { generateProject } from "./generate-project";
-import { calculateNpmSize } from "./npm-size";
+import { getEsbuildSize, getRollupSize, getWebpackSize } from "./bundlers-size.js";
+import { generateProject } from "./generate-project.js";
+import { calculateNpmSize } from "./npm-size.js";
 
 export interface PackageSizeReportOptions extends SizeReportContext {
   packageName: string;

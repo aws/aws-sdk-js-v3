@@ -1,7 +1,7 @@
-import exec from "execa";
-import { promises as fsPromise, existsSync } from "fs";
+import { execa as exec } from "execa";
+import { existsSync, promises as fsPromise } from "fs";
 
-import { PROJECT_ROOT } from "./constants";
+import { PROJECT_ROOT } from "./constants.js";
 
 export const sleep = (ms: number) =>
   new Promise<void>((resolve) => {
