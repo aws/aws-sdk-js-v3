@@ -7,7 +7,7 @@ import { downlevelWorkspace } from "./downlevelWorkspace.mjs";
 import { getWorkspaces } from "./getWorkspaces.mjs";
 
 // ToDo: Write downlevel-dts as a yargs command, and import yargs in scripts instead.
-yargs
+yargs(process.argv.slice(2))
   .usage(
     "Runs build:types:downlevel npm script (if present) in each workspace of monorepo," +
       " and strips comments from *.d.ts files.\n\n" +

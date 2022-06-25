@@ -5,7 +5,7 @@ const { promises: fsPromises } = require("fs");
 const { join } = require("path");
 const { spawnProcess } = require("../utils/spawn-process");
 
-const { models } = yargs
+const { models } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
   .describe("m", "The path to directory with aws-models.")

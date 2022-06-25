@@ -34,7 +34,7 @@
     "test:integration:legacy:since:release": "./tests/integ-legacy/index.js",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-protocoltests-*'",
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
-    "test:size": "cd scripts/benchmark-size/runner && yarn && ./cli.ts",
+    "test:size": "cd scripts/benchmark-size/runner && yarn && ts-node ./cli.ts",
     "test:unit": "jest --config jest.config.js",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
     "update:versions:default": "node --es-module-specifier-resolution=node ./scripts/update-versions/default.mjs",
@@ -51,7 +51,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "glob": "^7.1.6",
-    "yargs": "^15.1.0"
+    "yargs": "17.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.2",
@@ -106,7 +106,7 @@
     "ts-jest": "28.0.5",
     "ts-loader": "^7.0.5",
     "ts-mocha": "10.0.0",
-    "ts-node": "^10.4.0",
+    "ts-node": "10.8.1",
     "typedoc": "0.19.2",
     "typedoc-plugin-lerna-packages": "0.3.1",
     "typescript": "~4.6.2",

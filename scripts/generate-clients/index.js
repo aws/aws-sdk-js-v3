@@ -24,7 +24,7 @@ const {
   noPrivateClients,
   s: serverOnly,
   batchSize,
-} = yargs
+} = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
   .describe("m", "The path to directory with models.")
