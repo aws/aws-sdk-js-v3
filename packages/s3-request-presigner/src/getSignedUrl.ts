@@ -26,7 +26,6 @@ export const getSignedUrl = async <
       delete request.headers["amz-sdk-request"];
       // User agent header would leak sensitive information
       delete request.headers["x-amz-user-agent"];
-
       const presigned = await s3Presigner.presign(request, {
         ...options,
         signingRegion: options.signingRegion ?? context["signing_region"],
@@ -42,21 +41,18 @@ export const getSignedUrl = async <
       } as any;
     };
   const middlewareName = "presignInterceptMiddleware";
-  client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
+  const clientStack = client.middlewareStack.clone();
+  clientStack.addRelativeTo(presignInterceptMiddleware, {
     name: middlewareName,
     relation: "before",
     toMiddleware: "awsAuthMiddleware",
     override: true,
   });
 
-  let presigned: HttpRequest;
-  try {
-    const output = await client.send(command);
-    //@ts-ignore the output is faked, so it's not actually OutputType
-    presigned = output.presigned;
-  } finally {
-    client.middlewareStack.remove(middlewareName);
-  }
+  const handler = command.resolveMiddleware(clientStack, client.config, {});
+  const { output } = await handler({ input: command.input });
+  //@ts-ignore the output is faked, so it's not actually OutputType
+  const { presigned } = output;
 
   return formatUrl(presigned);
 };

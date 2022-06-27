@@ -42,7 +42,12 @@ describe("getSignedUrl", () => {
       Bucket: "Bucket",
       Key: "Key",
     });
-    const signed = await getSignedUrl(client, command);
+    const presignPromise = getSignedUrl(client, command);
+    // do not mutate to the client or command
+    expect(client.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
+    expect(command.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
+
+    const signed = await presignPromise;
     expect(signed).toBe(mockPresigned);
     expect(mockPresign).toBeCalled();
     expect(mockV4Presign).not.toBeCalled();
