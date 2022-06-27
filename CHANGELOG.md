@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
+
+
+### Features
+
+* **client-iot:** This release ease the restriction for the input of tag value to align with AWS standard, now instead of min length 1, we change it to min length 0. ([c6dabb2](https://github.com/aws/aws-sdk-js-v3/commit/c6dabb2a60a3888b986e79af730933005c0e8aa1))
+
+
+
+
+
 # [3.118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.117.0...v3.118.0) (2022-06-24)
 
 
