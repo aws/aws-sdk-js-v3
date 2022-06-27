@@ -183,8 +183,11 @@ final class DocumentClientCommandGenerator implements Runnable {
                         });
                     }
                 });
+
+            writer.write("const stack = clientStack.concat(this.middlewareStack);");
+
             String handlerVarName = "handler";
-            writer.write("const $L = $L.resolveMiddleware(clientStack, configuration, options);",
+            writer.write("const $L = $L.resolveMiddleware(stack, configuration, options);",
                 handlerVarName, commandVarName);
             writer.write("");
 

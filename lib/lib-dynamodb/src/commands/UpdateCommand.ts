@@ -89,7 +89,8 @@ export class UpdateCommand extends $Command<
   ): Handler<UpdateCommandInput, UpdateCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
     const command = new __UpdateItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const stack = clientStack.concat(this.middlewareStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
     return async () => {
       const data = await handler(command);

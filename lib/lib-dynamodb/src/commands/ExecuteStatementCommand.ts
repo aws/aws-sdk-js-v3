@@ -49,7 +49,8 @@ export class ExecuteStatementCommand extends $Command<
   ): Handler<ExecuteStatementCommandInput, ExecuteStatementCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
     const command = new __ExecuteStatementCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const stack = clientStack.concat(this.middlewareStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
     return async () => {
       const data = await handler(command);
