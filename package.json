@@ -80,7 +80,7 @@
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",
-    "jasmine-core": "^3.5.0",
+    "jasmine-core": "^4.2.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jmespath": "^0.15.0",
