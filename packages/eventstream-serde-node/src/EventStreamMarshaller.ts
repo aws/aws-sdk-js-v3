@@ -1,4 +1,3 @@
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
 import { EventStreamMarshaller as UniversalEventStreamMarshaller } from "@aws-sdk/eventstream-serde-universal";
 import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
 import { Readable } from "stream";
@@ -13,10 +12,8 @@ export interface EventStreamMarshallerOptions {
 }
 
 export class EventStreamMarshaller {
-  private readonly eventMarshaller: EventMarshaller;
   private readonly universalMarshaller: UniversalEventStreamMarshaller;
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {
-    this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
     this.universalMarshaller = new UniversalEventStreamMarshaller({
       utf8Decoder,
       utf8Encoder,
