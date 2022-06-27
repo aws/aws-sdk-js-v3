@@ -1,4 +1,4 @@
-import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Message, MessageHeaders } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 
@@ -6,11 +6,13 @@ import { EventSigningStream } from "./EventSigningStream";
 
 describe("EventSigningStream", () => {
   const originalDate = Date;
+
   afterEach(() => {
     Date = originalDate;
   });
+
   it("should sign a eventstream payload properly", (done) => {
-    const marshaller = new EventStreamMarshaller(toUtf8, fromUtf8);
+    const marshaller = new EventStreamCodec(toUtf8, fromUtf8);
     const inputChunks: Array<Uint8Array> = (
       [
         {

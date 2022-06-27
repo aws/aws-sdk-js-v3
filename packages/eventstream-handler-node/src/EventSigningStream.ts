@@ -1,11 +1,11 @@
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { EventSigner, MessageHeaders } from "@aws-sdk/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
 export interface EventSigningStreamOptions extends TransformOptions {
   priorSignature: string;
   eventSigner: EventSigner;
-  eventMarshaller: EventMarshaller;
+  eventStreamCodec: EventStreamCodec;
 }
 
 /**
@@ -14,16 +14,19 @@ export interface EventSigningStreamOptions extends TransformOptions {
 export class EventSigningStream extends Transform {
   private priorSignature: string;
   private eventSigner: EventSigner;
-  private eventMarshaller: EventMarshaller;
+  private eventStreamCodec: EventStreamCodec;
+
   constructor(options: EventSigningStreamOptions) {
     super({
       readableObjectMode: true,
       writableObjectMode: true,
       ...options,
     });
+
     this.priorSignature = options.priorSignature;
     this.eventSigner = options.eventSigner;
-    this.eventMarshaller = options.eventMarshaller;
+    this.eventStreamCodec = options.eventStreamCodec;
+
     //TODO: use 'autoDestroy' when targeting Node 11
     //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
     this.on("error", () => {
@@ -43,7 +46,7 @@ export class EventSigningStream extends Transform {
       const signature = await this.eventSigner.sign(
         {
           payload: chunk,
-          headers: this.eventMarshaller.formatHeaders(dateHeader),
+          headers: this.eventStreamCodec.formatHeaders(dateHeader),
         },
         {
           priorSignature: this.priorSignature,
@@ -51,7 +54,7 @@ export class EventSigningStream extends Transform {
         }
       );
       this.priorSignature = signature;
-      const serializedSigned = this.eventMarshaller.marshall({
+      const serializedSigned = this.eventStreamCodec.encode({
         headers: {
           ...dateHeader,
           ":chunk-signature": {

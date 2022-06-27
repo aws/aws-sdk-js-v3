@@ -1,13 +1,12 @@
-import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
-import { once } from "events";
 import { PassThrough, Readable } from "stream";
 
 import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
 jest.mock("./EventSigningStream");
-jest.mock("@aws-sdk/eventstream-marshaller");
+jest.mock("@aws-sdk/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
   const mockSigner: EventSigner = {
@@ -19,7 +18,7 @@ describe(EventStreamPayloadHandler.name, () => {
 
   beforeEach(() => {
     (EventSigningStream as unknown as jest.Mock).mockImplementation(() => new PassThrough());
-    (EventStreamMarshaller as jest.Mock).mockImplementation(() => {});
+    (EventStreamCodec as jest.Mock).mockImplementation(() => {});
   });
 
   afterEach(() => {
