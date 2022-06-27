@@ -19,7 +19,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "*",
     "@aws-sdk/eventstream-serde-universal": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.3.1"
