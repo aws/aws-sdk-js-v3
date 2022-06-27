@@ -52,7 +52,7 @@
     "@aws-sdk/util-utf8-node": "*",
     "@aws-sdk/util-waiter": "*",
     "entities": "2.2.0",
-    "fast-xml-parser": "3.19.0",
+    "fast-xml-parser": "4.0.8",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
