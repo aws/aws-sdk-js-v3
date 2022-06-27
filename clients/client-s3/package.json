@@ -70,7 +70,7 @@
     "@aws-sdk/util-utf8-node": "*",
     "@aws-sdk/util-waiter": "*",
     "@aws-sdk/xml-builder": "*",
-    "entities": "2.2.0",
+    "entities": "4.3.0",
     "fast-xml-parser": "3.19.0",
     "tslib": "^2.3.1"
   },
