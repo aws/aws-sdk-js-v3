@@ -1,8 +1,8 @@
-import exec from "execa";
+import { execa as exec } from "execa";
 import { readdirSync } from "fs";
 import { join } from "path";
 
-import { PROJECT_ROOT } from "./constants";
+import { PROJECT_ROOT } from "./constants.js";
 
 /**
  * Publish the changed packages locally using Verdaccio. Return the path containing
@@ -25,4 +25,5 @@ export const localPublishChangedPackages = async (): Promise<string> => {
 export const spawnLocalRegistry = (port: number) =>
   exec("npx", ["verdaccio", "-c", "verdaccio/config.yaml", "-l", "" + port], {
     cwd: PROJECT_ROOT,
+    stdio: "inherit",
   });

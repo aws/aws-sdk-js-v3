@@ -3,7 +3,7 @@ const webpack = require("webpack");
 module.exports = function (config) {
   config.set({
     basePath: "",
-    frameworks: ["mocha", "chai"],
+    frameworks: ["mocha", "chai", "webpack"],
     files: ["test/e2e/**/*.ispec.ts"],
     preprocessors: {
       "test/e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],

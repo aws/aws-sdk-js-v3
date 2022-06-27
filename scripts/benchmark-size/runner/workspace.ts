@@ -1,9 +1,9 @@
-import exec from "execa";
+import { execa as exec } from "execa";
 import { promises as fsPromise } from "fs";
 import { join } from "path";
 
-import { PROJECT_ROOT } from "./constants";
-import { isFile } from "./utils";
+import { PROJECT_ROOT } from "./constants.js";
+import { isFile } from "./utils.js";
 
 export interface WorkspacePackage {
   name: string;

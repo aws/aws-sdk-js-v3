@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-import { readSize } from "../utils";
+import { readSize } from "../utils.js";
 
 const validatingKeys = ["publishSize", "publishFiles"];
 type ValidatingKeys = "publishSize" | "publishFiles";
