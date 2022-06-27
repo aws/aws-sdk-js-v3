@@ -64,6 +64,6 @@ export const generatePackageSizeReport = async (options: PackageSizeReportOption
       rollupSize,
     });
   } catch (e) {
-    e.message = `[${options.packageName}]` + e.message;
+    e.message = `[${options.packageName}] ` + e.message;
   }
 };
