@@ -112,7 +112,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.openBlock("const loadRestXmlErrorCode = (\n"
                        + "  output: $T,\n"
                        + "  data: any\n"
-                       + "): string => {", "};", responseType, () -> {
+                       + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
             String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
             writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
@@ -121,9 +121,6 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
             // Default a 404 status code to the NotFound code.
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-
-            // Default to an empty error code so an unmodeled exception is built.
-            writer.write("return '';");
         });
         writer.write("");
     }
@@ -319,7 +316,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
     }
 
     @Override

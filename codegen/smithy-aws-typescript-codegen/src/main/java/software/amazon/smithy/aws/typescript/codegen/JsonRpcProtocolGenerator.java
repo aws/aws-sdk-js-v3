@@ -128,7 +128,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
     }
 
     @Override
