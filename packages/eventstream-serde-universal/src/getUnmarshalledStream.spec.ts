@@ -1,4 +1,4 @@
-import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Message } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 
@@ -53,7 +53,7 @@ describe("getUnmarshalledStream", () => {
       yield endEventMessage;
     };
     const unmarshallerStream = getUnmarshalledStream(source(), {
-      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      eventStreamCodec: new EventStreamCodec(toUtf8, fromUtf8),
       deserializer: (message) => Promise.resolve(message),
       toUtf8,
     });
@@ -73,7 +73,7 @@ describe("getUnmarshalledStream", () => {
       },
     };
     const deserStream = getUnmarshalledStream(source, {
-      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      eventStreamCodec: new EventStreamCodec(toUtf8, fromUtf8),
       deserializer: () => {
         throw new Error("error event");
       },
@@ -100,7 +100,7 @@ describe("getUnmarshalledStream", () => {
       },
     };
     const deserStream = getUnmarshalledStream(source, {
-      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      eventStreamCodec: new EventStreamCodec(toUtf8, fromUtf8),
       deserializer: (message) =>
         Promise.resolve({
           $unknown: message,
@@ -126,7 +126,7 @@ describe("getUnmarshalledStream", () => {
       yield recordEventMessage;
     };
     const unmarshallerStream = getUnmarshalledStream(source(), {
-      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      eventStreamCodec: new EventStreamCodec(toUtf8, fromUtf8),
       deserializer: (message) =>
         Promise.resolve({
           $unknown: message,

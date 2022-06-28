@@ -1,4 +1,4 @@
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import {
   Decoder,
   Encoder,
@@ -31,11 +31,11 @@ export interface EventStreamPayloadHandlerOptions {
  */
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly eventSigner: Provider<EventSigner>;
-  private readonly eventMarshaller: EventMarshaller;
+  private readonly eventStreamCodec: EventStreamCodec;
 
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.eventSigner = options.eventSigner;
-    this.eventMarshaller = new EventMarshaller(options.utf8Encoder, options.utf8Decoder);
+    this.eventStreamCodec = new EventStreamCodec(options.utf8Encoder, options.utf8Decoder);
   }
 
   async handle<T extends MetadataBearer>(
@@ -72,7 +72,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     const priorSignature = (match || [])[1];
     const signingStream = new EventSigningStream({
       priorSignature,
-      eventMarshaller: this.eventMarshaller,
+      eventStreamCodec: this.eventStreamCodec,
       eventSigner: await this.eventSigner(),
     });
 

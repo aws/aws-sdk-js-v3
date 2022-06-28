@@ -1,8 +1,8 @@
-import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Encoder, Message } from "@aws-sdk/types";
 
 export type UnmarshalledStreamOptions<T> = {
-  eventMarshaller: EventMarshaller;
+  eventStreamCodec: EventStreamCodec;
   deserializer: (input: Record<string, Message>) => Promise<T>;
   toUtf8: Encoder;
 };
@@ -14,7 +14,7 @@ export function getUnmarshalledStream<T extends Record<string, any>>(
   return {
     [Symbol.asyncIterator]: async function* () {
       for await (const chunk of source) {
-        const message = options.eventMarshaller.unmarshall(chunk);
+        const message = options.eventStreamCodec.decode(chunk);
         const { value: messageType } = message.headers[":message-type"];
         if (messageType === "error") {
           // Unmodeled exception in event
