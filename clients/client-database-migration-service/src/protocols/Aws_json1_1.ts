@@ -1307,18 +1307,19 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1350,18 +1351,19 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1393,8 +1395,7 @@ const deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1407,10 +1408,12 @@ const deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommandError = asy
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1442,8 +1445,7 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1468,10 +1470,12 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
       throw await deserializeAws_json1_1S3AccessDeniedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1503,8 +1507,7 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "KMSAccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
@@ -1538,10 +1541,12 @@ const deserializeAws_json1_1CreateEventSubscriptionCommandError = async (
       throw await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1573,8 +1578,7 @@ const deserializeAws_json1_1CreateFleetAdvisorCollectorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1593,10 +1597,12 @@ const deserializeAws_json1_1CreateFleetAdvisorCollectorCommandError = async (
       throw await deserializeAws_json1_1S3ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1628,8 +1634,7 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1663,10 +1668,12 @@ const deserializeAws_json1_1CreateReplicationInstanceCommandError = async (
       throw await deserializeAws_json1_1StorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1698,8 +1705,7 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1721,10 +1727,12 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1756,8 +1764,7 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1779,10 +1786,12 @@ const deserializeAws_json1_1CreateReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1814,8 +1823,7 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -1825,10 +1833,12 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1860,8 +1870,7 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -1874,10 +1883,12 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1909,8 +1920,7 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -1920,10 +1930,12 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1955,8 +1967,7 @@ const deserializeAws_json1_1DeleteEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -1966,10 +1977,12 @@ const deserializeAws_json1_1DeleteEventSubscriptionCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1998,8 +2011,7 @@ const deserializeAws_json1_1DeleteFleetAdvisorCollectorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CollectorNotFoundFault":
     case "com.amazonaws.databasemigrationservice#CollectorNotFoundFault":
@@ -2009,10 +2021,12 @@ const deserializeAws_json1_1DeleteFleetAdvisorCollectorCommandError = async (
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2044,8 +2058,7 @@ const deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOperationFault":
     case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
@@ -2055,10 +2068,12 @@ const deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2090,8 +2105,7 @@ const deserializeAws_json1_1DeleteReplicationInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -2101,10 +2115,12 @@ const deserializeAws_json1_1DeleteReplicationInstanceCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2136,8 +2152,7 @@ const deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -2147,10 +2162,12 @@ const deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2182,8 +2199,7 @@ const deserializeAws_json1_1DeleteReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -2193,10 +2209,12 @@ const deserializeAws_json1_1DeleteReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2228,8 +2246,7 @@ const deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -2242,10 +2259,12 @@ const deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommandError = asy
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2277,15 +2296,16 @@ const deserializeAws_json1_1DescribeAccountAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2317,8 +2337,7 @@ const deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -2331,10 +2350,12 @@ const deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommandError 
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2366,18 +2387,19 @@ const deserializeAws_json1_1DescribeCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2409,18 +2431,19 @@ const deserializeAws_json1_1DescribeConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2452,18 +2475,19 @@ const deserializeAws_json1_1DescribeEndpointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2495,15 +2519,16 @@ const deserializeAws_json1_1DescribeEndpointSettingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2535,15 +2560,16 @@ const deserializeAws_json1_1DescribeEndpointTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2575,15 +2601,16 @@ const deserializeAws_json1_1DescribeEventCategoriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2615,15 +2642,16 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2655,18 +2683,19 @@ const deserializeAws_json1_1DescribeEventSubscriptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2698,18 +2727,19 @@ const deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2741,18 +2771,19 @@ const deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2784,18 +2815,19 @@ const deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2827,18 +2859,19 @@ const deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2870,18 +2903,19 @@ const deserializeAws_json1_1DescribeFleetAdvisorSchemasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2913,15 +2947,16 @@ const deserializeAws_json1_1DescribeOrderableReplicationInstancesCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2953,18 +2988,19 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2996,8 +3032,7 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3007,10 +3042,12 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3042,18 +3079,19 @@ const deserializeAws_json1_1DescribeReplicationInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3085,8 +3123,7 @@ const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3096,10 +3133,12 @@ const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError = as
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3131,18 +3170,19 @@ const deserializeAws_json1_1DescribeReplicationSubnetGroupsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3174,18 +3214,19 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommandError
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3217,18 +3258,19 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3260,18 +3302,19 @@ const deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommandE
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3303,18 +3346,19 @@ const deserializeAws_json1_1DescribeReplicationTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3346,8 +3390,7 @@ const deserializeAws_json1_1DescribeSchemasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3357,10 +3400,12 @@ const deserializeAws_json1_1DescribeSchemasCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3392,8 +3437,7 @@ const deserializeAws_json1_1DescribeTableStatisticsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3403,10 +3447,12 @@ const deserializeAws_json1_1DescribeTableStatisticsCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3438,8 +3484,7 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidCertificateFault":
     case "com.amazonaws.databasemigrationservice#InvalidCertificateFault":
@@ -3452,10 +3497,12 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3487,18 +3534,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3530,8 +3578,7 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -3550,10 +3597,12 @@ const deserializeAws_json1_1ModifyEndpointCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3585,8 +3634,7 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "KMSAccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
@@ -3617,10 +3665,12 @@ const deserializeAws_json1_1ModifyEventSubscriptionCommandError = async (
       throw await deserializeAws_json1_1SNSNoAuthorizationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3652,8 +3702,7 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -3678,10 +3727,12 @@ const deserializeAws_json1_1ModifyReplicationInstanceCommandError = async (
       throw await deserializeAws_json1_1UpgradeDependencyFailureFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3713,8 +3764,7 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -3736,10 +3786,12 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError = async (
       throw await deserializeAws_json1_1SubnetAlreadyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3771,8 +3823,7 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3788,10 +3839,12 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3823,8 +3876,7 @@ const deserializeAws_json1_1MoveReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -3843,10 +3895,12 @@ const deserializeAws_json1_1MoveReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3878,8 +3932,7 @@ const deserializeAws_json1_1RebootReplicationInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3889,10 +3942,12 @@ const deserializeAws_json1_1RebootReplicationInstanceCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3924,8 +3979,7 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3941,10 +3995,12 @@ const deserializeAws_json1_1RefreshSchemasCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -3976,8 +4032,7 @@ const deserializeAws_json1_1ReloadTablesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -3987,10 +4042,12 @@ const deserializeAws_json1_1ReloadTablesCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4022,18 +4079,19 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4065,8 +4123,7 @@ const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -4076,10 +4133,12 @@ const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4111,8 +4170,7 @@ const deserializeAws_json1_1StartReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -4125,10 +4183,12 @@ const deserializeAws_json1_1StartReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4160,8 +4220,7 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -4171,10 +4230,12 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4206,8 +4267,7 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentRunCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -4247,10 +4307,12 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentRunCommandError = asyn
       throw await deserializeAws_json1_1S3ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4282,8 +4344,7 @@ const deserializeAws_json1_1StopReplicationTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
@@ -4293,10 +4354,12 @@ const deserializeAws_json1_1StopReplicationTaskCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4328,8 +4391,7 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
@@ -4348,10 +4410,12 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
       throw await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -8995,7 +9059,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
@@ -9021,6 +9085,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

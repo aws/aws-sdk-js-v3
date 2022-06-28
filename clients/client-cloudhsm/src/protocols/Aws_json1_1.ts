@@ -372,8 +372,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -386,10 +385,12 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -421,8 +422,7 @@ const deserializeAws_json1_1CreateHapgCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -435,10 +435,12 @@ const deserializeAws_json1_1CreateHapgCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -470,8 +472,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -484,10 +485,12 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -519,8 +522,7 @@ const deserializeAws_json1_1CreateLunaClientCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -533,10 +535,12 @@ const deserializeAws_json1_1CreateLunaClientCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -568,8 +572,7 @@ const deserializeAws_json1_1DeleteHapgCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -582,10 +585,12 @@ const deserializeAws_json1_1DeleteHapgCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -617,8 +622,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -631,10 +635,12 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -666,8 +672,7 @@ const deserializeAws_json1_1DeleteLunaClientCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -680,10 +685,12 @@ const deserializeAws_json1_1DeleteLunaClientCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -715,8 +722,7 @@ const deserializeAws_json1_1DescribeHapgCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -729,10 +735,12 @@ const deserializeAws_json1_1DescribeHapgCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -764,8 +772,7 @@ const deserializeAws_json1_1DescribeHsmCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -778,10 +785,12 @@ const deserializeAws_json1_1DescribeHsmCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -813,8 +822,7 @@ const deserializeAws_json1_1DescribeLunaClientCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -827,10 +835,12 @@ const deserializeAws_json1_1DescribeLunaClientCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -862,8 +872,7 @@ const deserializeAws_json1_1GetConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -876,10 +885,12 @@ const deserializeAws_json1_1GetConfigCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -911,8 +922,7 @@ const deserializeAws_json1_1ListAvailableZonesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -925,10 +935,12 @@ const deserializeAws_json1_1ListAvailableZonesCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -960,8 +972,7 @@ const deserializeAws_json1_1ListHapgsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -974,10 +985,12 @@ const deserializeAws_json1_1ListHapgsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1009,8 +1022,7 @@ const deserializeAws_json1_1ListHsmsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1023,10 +1035,12 @@ const deserializeAws_json1_1ListHsmsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1058,8 +1072,7 @@ const deserializeAws_json1_1ListLunaClientsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1072,10 +1085,12 @@ const deserializeAws_json1_1ListLunaClientsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1107,8 +1122,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1121,10 +1135,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1156,8 +1172,7 @@ const deserializeAws_json1_1ModifyHapgCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1170,10 +1185,12 @@ const deserializeAws_json1_1ModifyHapgCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1205,8 +1222,7 @@ const deserializeAws_json1_1ModifyHsmCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1219,10 +1235,12 @@ const deserializeAws_json1_1ModifyHsmCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1254,18 +1272,19 @@ const deserializeAws_json1_1ModifyLunaClientCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
       throw await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1297,8 +1316,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
@@ -1311,10 +1329,12 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1964,7 +1984,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
@@ -1990,6 +2010,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

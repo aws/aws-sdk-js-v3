@@ -496,8 +496,7 @@ const deserializeAws_restJson1ClaimDevicesByClaimCodeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.iot1clickdevicesservice#ForbiddenException":
@@ -510,10 +509,12 @@ const deserializeAws_restJson1ClaimDevicesByClaimCodeCommandError = async (
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -546,8 +547,7 @@ const deserializeAws_restJson1DescribeDeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -560,10 +560,12 @@ const deserializeAws_restJson1DescribeDeviceCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -596,8 +598,7 @@ const deserializeAws_restJson1FinalizeDeviceClaimCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -616,10 +617,12 @@ const deserializeAws_restJson1FinalizeDeviceClaimCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -652,8 +655,7 @@ const deserializeAws_restJson1GetDeviceMethodsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -666,10 +668,12 @@ const deserializeAws_restJson1GetDeviceMethodsCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -702,8 +706,7 @@ const deserializeAws_restJson1InitiateDeviceClaimCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -719,10 +722,12 @@ const deserializeAws_restJson1InitiateDeviceClaimCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -755,8 +760,7 @@ const deserializeAws_restJson1InvokeDeviceMethodCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -778,10 +782,12 @@ const deserializeAws_restJson1InvokeDeviceMethodCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -818,8 +824,7 @@ const deserializeAws_restJson1ListDeviceEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -835,10 +840,12 @@ const deserializeAws_restJson1ListDeviceEventsCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -875,8 +882,7 @@ const deserializeAws_restJson1ListDevicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -889,10 +895,12 @@ const deserializeAws_restJson1ListDevicesCommandError = async (
       throw await deserializeAws_restJson1RangeNotSatisfiableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -925,8 +933,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -936,10 +943,12 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -968,8 +977,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -982,10 +990,12 @@ const deserializeAws_restJson1TagResourceCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1018,8 +1028,7 @@ const deserializeAws_restJson1UnclaimDeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -1032,10 +1041,12 @@ const deserializeAws_restJson1UnclaimDeviceCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1064,8 +1075,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -1078,10 +1088,12 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1110,8 +1122,7 @@ const deserializeAws_restJson1UpdateDeviceStateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1clickdevicesservice#InternalFailureException":
@@ -1124,10 +1135,12 @@ const deserializeAws_restJson1UpdateDeviceStateCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1435,7 +1448,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
@@ -1461,6 +1474,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

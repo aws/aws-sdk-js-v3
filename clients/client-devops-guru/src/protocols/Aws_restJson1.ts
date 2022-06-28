@@ -1079,8 +1079,7 @@ const deserializeAws_restJson1AddNotificationChannelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1105,10 +1104,12 @@ const deserializeAws_restJson1AddNotificationChannelCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1137,8 +1138,7 @@ const deserializeAws_restJson1DeleteInsightCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1160,10 +1160,12 @@ const deserializeAws_restJson1DeleteInsightCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1208,8 +1210,7 @@ const deserializeAws_restJson1DescribeAccountHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1225,10 +1226,12 @@ const deserializeAws_restJson1DescribeAccountHealthCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1269,8 +1272,7 @@ const deserializeAws_restJson1DescribeAccountOverviewCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1286,10 +1288,12 @@ const deserializeAws_restJson1DescribeAccountOverviewCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1326,8 +1330,7 @@ const deserializeAws_restJson1DescribeAnomalyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1346,10 +1349,12 @@ const deserializeAws_restJson1DescribeAnomalyCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1382,8 +1387,7 @@ const deserializeAws_restJson1DescribeEventSourcesConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1399,10 +1403,12 @@ const deserializeAws_restJson1DescribeEventSourcesConfigCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1435,8 +1441,7 @@ const deserializeAws_restJson1DescribeFeedbackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1455,10 +1460,12 @@ const deserializeAws_restJson1DescribeFeedbackCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1495,8 +1502,7 @@ const deserializeAws_restJson1DescribeInsightCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1515,10 +1521,12 @@ const deserializeAws_restJson1DescribeInsightCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1563,8 +1571,7 @@ const deserializeAws_restJson1DescribeOrganizationHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1580,10 +1587,12 @@ const deserializeAws_restJson1DescribeOrganizationHealthCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1620,8 +1629,7 @@ const deserializeAws_restJson1DescribeOrganizationOverviewCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1637,10 +1645,12 @@ const deserializeAws_restJson1DescribeOrganizationOverviewCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1689,8 +1699,7 @@ const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthComman
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1706,10 +1715,12 @@ const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthComman
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1754,8 +1765,7 @@ const deserializeAws_restJson1DescribeResourceCollectionHealthCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1771,10 +1781,12 @@ const deserializeAws_restJson1DescribeResourceCollectionHealthCommandError = asy
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1807,8 +1819,7 @@ const deserializeAws_restJson1DescribeServiceIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1824,10 +1835,12 @@ const deserializeAws_restJson1DescribeServiceIntegrationCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1883,8 +1896,7 @@ const deserializeAws_restJson1GetCostEstimationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1903,10 +1915,12 @@ const deserializeAws_restJson1GetCostEstimationCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -1943,8 +1957,7 @@ const deserializeAws_restJson1GetResourceCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -1963,10 +1976,12 @@ const deserializeAws_restJson1GetResourceCollectionCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2007,8 +2022,7 @@ const deserializeAws_restJson1ListAnomaliesForInsightCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2027,10 +2041,12 @@ const deserializeAws_restJson1ListAnomaliesForInsightCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2067,8 +2083,7 @@ const deserializeAws_restJson1ListEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2087,10 +2102,12 @@ const deserializeAws_restJson1ListEventsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2131,8 +2148,7 @@ const deserializeAws_restJson1ListInsightsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2148,10 +2164,12 @@ const deserializeAws_restJson1ListInsightsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2188,8 +2206,7 @@ const deserializeAws_restJson1ListNotificationChannelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2205,10 +2222,12 @@ const deserializeAws_restJson1ListNotificationChannelsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2249,8 +2268,7 @@ const deserializeAws_restJson1ListOrganizationInsightsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2266,10 +2284,12 @@ const deserializeAws_restJson1ListOrganizationInsightsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2306,8 +2326,7 @@ const deserializeAws_restJson1ListRecommendationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2326,10 +2345,12 @@ const deserializeAws_restJson1ListRecommendationsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2358,8 +2379,7 @@ const deserializeAws_restJson1PutFeedbackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2381,10 +2401,12 @@ const deserializeAws_restJson1PutFeedbackCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2413,8 +2435,7 @@ const deserializeAws_restJson1RemoveNotificationChannelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2436,10 +2457,12 @@ const deserializeAws_restJson1RemoveNotificationChannelCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2480,8 +2503,7 @@ const deserializeAws_restJson1SearchInsightsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2497,10 +2519,12 @@ const deserializeAws_restJson1SearchInsightsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2541,8 +2565,7 @@ const deserializeAws_restJson1SearchOrganizationInsightsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2558,10 +2581,12 @@ const deserializeAws_restJson1SearchOrganizationInsightsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2590,8 +2615,7 @@ const deserializeAws_restJson1StartCostEstimationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2613,10 +2637,12 @@ const deserializeAws_restJson1StartCostEstimationCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2645,8 +2671,7 @@ const deserializeAws_restJson1UpdateEventSourcesConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2662,10 +2687,12 @@ const deserializeAws_restJson1UpdateEventSourcesConfigCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2694,8 +2721,7 @@ const deserializeAws_restJson1UpdateResourceCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2714,10 +2740,12 @@ const deserializeAws_restJson1UpdateResourceCollectionCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -2746,8 +2774,7 @@ const deserializeAws_restJson1UpdateServiceIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.devopsguru#AccessDeniedException":
@@ -2766,10 +2793,12 @@ const deserializeAws_restJson1UpdateServiceIntegrationCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode,
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody);
   }
@@ -4981,7 +5010,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
@@ -5007,6 +5036,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

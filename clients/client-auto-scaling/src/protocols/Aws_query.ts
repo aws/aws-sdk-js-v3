@@ -1375,8 +1375,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -1386,10 +1385,12 @@ const deserializeAws_queryAttachInstancesCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1421,8 +1422,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -1432,10 +1432,12 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1470,8 +1472,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -1481,10 +1482,12 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1516,18 +1519,19 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1562,8 +1566,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
@@ -1576,10 +1579,12 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1611,8 +1616,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActiveInstanceRefreshNotFoundFault":
     case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
@@ -1625,10 +1629,12 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1660,18 +1666,19 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1700,8 +1707,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
@@ -1717,10 +1723,12 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1749,8 +1757,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
@@ -1763,10 +1770,12 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1795,8 +1804,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
@@ -1812,10 +1820,12 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1844,8 +1854,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -1858,10 +1867,12 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1890,8 +1901,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -1901,10 +1911,12 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1936,18 +1948,19 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1976,18 +1989,19 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2016,8 +2030,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -2027,10 +2040,12 @@ const deserializeAws_queryDeletePolicyCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2059,18 +2074,19 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2099,8 +2115,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -2110,10 +2125,12 @@ const deserializeAws_queryDeleteTagsCommandError = async (
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2145,8 +2162,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -2162,10 +2178,12 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2197,18 +2215,19 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2240,18 +2259,19 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2283,8 +2303,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2294,10 +2313,12 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2329,8 +2350,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2340,10 +2360,12 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2378,18 +2400,19 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2421,8 +2444,7 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2432,10 +2454,12 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2467,8 +2491,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2478,10 +2501,12 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2513,18 +2538,19 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2556,18 +2582,19 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2599,8 +2626,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2610,10 +2636,12 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2648,8 +2676,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2659,10 +2686,12 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2694,18 +2723,19 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2740,8 +2770,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2751,10 +2780,12 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2786,8 +2817,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2800,10 +2830,12 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2835,8 +2867,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2846,10 +2877,12 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2881,18 +2914,19 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2924,8 +2958,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2935,10 +2968,12 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2970,8 +3005,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -2981,10 +3015,12 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3019,18 +3055,19 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3062,8 +3099,7 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
@@ -3076,10 +3112,12 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3111,18 +3149,19 @@ const deserializeAws_queryDetachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3154,18 +3193,19 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3200,18 +3240,19 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3240,18 +3281,19 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3280,18 +3322,19 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3323,18 +3366,19 @@ const deserializeAws_queryEnterStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3363,8 +3407,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -3374,10 +3417,12 @@ const deserializeAws_queryExecutePolicyCommandError = async (
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3409,18 +3454,19 @@ const deserializeAws_queryExitStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3452,18 +3498,19 @@ const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3495,8 +3542,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -3506,10 +3552,12 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3538,8 +3586,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -3552,10 +3599,12 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3587,8 +3636,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -3601,10 +3649,12 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3633,8 +3683,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
@@ -3647,10 +3696,12 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3682,8 +3733,7 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -3693,10 +3743,12 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3731,18 +3783,19 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3771,8 +3824,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -3782,10 +3834,12 @@ const deserializeAws_queryResumeProcessesCommandError = async (
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3814,8 +3868,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -3825,10 +3878,12 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3857,18 +3912,19 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3900,8 +3956,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
@@ -3911,10 +3966,12 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3946,8 +4003,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceRefreshInProgressFault":
     case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
@@ -3960,10 +4016,12 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3992,8 +4050,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -4003,10 +4060,12 @@ const deserializeAws_querySuspendProcessesCommandError = async (
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4038,8 +4097,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -4049,10 +4107,12 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4081,8 +4141,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
@@ -4095,10 +4154,12 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
       throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -10126,12 +10187,11 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
-const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
+const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };

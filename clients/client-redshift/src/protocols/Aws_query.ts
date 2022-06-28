@@ -2752,8 +2752,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
@@ -2778,10 +2777,12 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2813,8 +2814,7 @@ const deserializeAws_queryAddPartnerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -2827,10 +2827,12 @@ const deserializeAws_queryAddPartnerCommandError = async (
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2862,8 +2864,7 @@ const deserializeAws_queryAssociateDataShareConsumerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
@@ -2873,10 +2874,12 @@ const deserializeAws_queryAssociateDataShareConsumerCommandError = async (
       throw await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2911,8 +2914,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
@@ -2928,10 +2930,12 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -2963,18 +2967,19 @@ const deserializeAws_queryAuthorizeDataShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
       throw await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3006,8 +3011,7 @@ const deserializeAws_queryAuthorizeEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -3029,10 +3033,12 @@ const deserializeAws_queryAuthorizeEndpointAccessCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3064,8 +3070,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
@@ -3087,10 +3092,12 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3122,18 +3129,19 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchDeleteRequestSizeExceededFault":
     case "com.amazonaws.redshift#BatchDeleteRequestSizeExceededFault":
       throw await deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3168,8 +3176,7 @@ const deserializeAws_queryBatchModifyClusterSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchModifyClusterSnapshotsLimitExceededFault":
     case "com.amazonaws.redshift#BatchModifyClusterSnapshotsLimitExceededFault":
@@ -3179,10 +3186,12 @@ const deserializeAws_queryBatchModifyClusterSnapshotsCommandError = async (
       throw await deserializeAws_queryInvalidRetentionPeriodFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3214,8 +3223,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -3231,10 +3239,12 @@ const deserializeAws_queryCancelResizeCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3266,8 +3276,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
@@ -3286,10 +3295,12 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
       throw await deserializeAws_queryInvalidRetentionPeriodFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3321,8 +3332,7 @@ const deserializeAws_queryCreateAuthenticationProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationProfileAlreadyExistsFault":
     case "com.amazonaws.redshift#AuthenticationProfileAlreadyExistsFault":
@@ -3335,10 +3345,12 @@ const deserializeAws_queryCreateAuthenticationProfileCommandError = async (
       throw await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3370,8 +3382,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
@@ -3441,10 +3452,12 @@ const deserializeAws_queryCreateClusterCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3476,8 +3489,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterParameterGroupAlreadyExistsFault":
@@ -3493,10 +3505,12 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3528,8 +3542,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterSecurityGroupAlreadyExistsFault":
@@ -3545,10 +3558,12 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3580,8 +3595,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -3606,10 +3620,12 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3641,8 +3657,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupAlreadyExistsFault":
@@ -3670,10 +3685,12 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3705,8 +3722,7 @@ const deserializeAws_queryCreateEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToClusterDeniedFault":
     case "com.amazonaws.redshift#AccessToClusterDeniedFault":
@@ -3740,10 +3756,12 @@ const deserializeAws_queryCreateEndpointAccessCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3775,8 +3793,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "com.amazonaws.redshift#EventSubscriptionQuotaExceededFault":
@@ -3813,10 +3830,12 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3848,8 +3867,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateAlreadyExistsFault":
     case "com.amazonaws.redshift#HsmClientCertificateAlreadyExistsFault":
@@ -3865,10 +3883,12 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3900,8 +3920,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationAlreadyExistsFault":
     case "com.amazonaws.redshift#HsmConfigurationAlreadyExistsFault":
@@ -3917,10 +3936,12 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3952,8 +3973,7 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduledActionFault":
     case "com.amazonaws.redshift#InvalidScheduledActionFault":
@@ -3975,10 +3995,12 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4010,8 +4032,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceRequestThrottlingFault":
     case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
@@ -4033,10 +4054,12 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4068,8 +4091,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "com.amazonaws.redshift#InvalidScheduleFault":
@@ -4091,10 +4113,12 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4123,8 +4147,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClusterStateFault":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
@@ -4140,10 +4163,12 @@ const deserializeAws_queryCreateTagsCommandError = async (
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4175,8 +4200,7 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -4201,10 +4225,12 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
       throw await deserializeAws_queryUsageLimitAlreadyExistsFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4236,18 +4262,19 @@ const deserializeAws_queryDeauthorizeDataShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
       throw await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4279,8 +4306,7 @@ const deserializeAws_queryDeleteAuthenticationProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationProfileNotFoundFault":
     case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
@@ -4290,10 +4316,12 @@ const deserializeAws_queryDeleteAuthenticationProfileCommandError = async (
       throw await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4325,8 +4353,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -4345,10 +4372,12 @@ const deserializeAws_queryDeleteClusterCommandError = async (
       throw await deserializeAws_queryInvalidRetentionPeriodFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4377,8 +4406,7 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
@@ -4388,10 +4416,12 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4420,8 +4450,7 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
@@ -4431,10 +4460,12 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4466,8 +4497,7 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
@@ -4477,10 +4507,12 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4509,8 +4541,7 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
@@ -4523,10 +4554,12 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
       throw await deserializeAws_queryInvalidClusterSubnetStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4558,8 +4591,7 @@ const deserializeAws_queryDeleteEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -4578,10 +4610,12 @@ const deserializeAws_queryDeleteEndpointAccessCommandError = async (
       throw await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4610,8 +4644,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
     case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
@@ -4621,10 +4654,12 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4653,8 +4688,7 @@ const deserializeAws_queryDeleteHsmClientCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
     case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
@@ -4664,10 +4698,12 @@ const deserializeAws_queryDeleteHsmClientCertificateCommandError = async (
       throw await deserializeAws_queryInvalidHsmClientCertificateStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4696,8 +4732,7 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
     case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
@@ -4707,10 +4742,12 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
       throw await deserializeAws_queryInvalidHsmConfigurationStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4742,8 +4779,7 @@ const deserializeAws_queryDeletePartnerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -4756,10 +4792,12 @@ const deserializeAws_queryDeletePartnerCommandError = async (
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4788,8 +4826,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
@@ -4799,10 +4836,12 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4831,8 +4870,7 @@ const deserializeAws_queryDeleteSnapshotCopyGrantCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSnapshotCopyGrantStateFault":
     case "com.amazonaws.redshift#InvalidSnapshotCopyGrantStateFault":
@@ -4842,10 +4880,12 @@ const deserializeAws_queryDeleteSnapshotCopyGrantCommandError = async (
       throw await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4874,8 +4914,7 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClusterSnapshotScheduleStateFault":
     case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
@@ -4885,10 +4924,12 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4917,8 +4958,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
@@ -4928,10 +4968,12 @@ const deserializeAws_queryDeleteTagsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4960,8 +5002,7 @@ const deserializeAws_queryDeleteUsageLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UnsupportedOperationFault":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
@@ -4971,10 +5012,12 @@ const deserializeAws_queryDeleteUsageLimitCommandError = async (
       throw await deserializeAws_queryUsageLimitNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5006,15 +5049,16 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5049,8 +5093,7 @@ const deserializeAws_queryDescribeAuthenticationProfilesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationProfileNotFoundFault":
     case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
@@ -5060,10 +5103,12 @@ const deserializeAws_queryDescribeAuthenticationProfilesCommandError = async (
       throw await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5095,8 +5140,7 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -5106,10 +5150,12 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5141,8 +5187,7 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
@@ -5152,10 +5197,12 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5187,18 +5234,19 @@ const deserializeAws_queryDescribeClusterParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5230,8 +5278,7 @@ const deserializeAws_queryDescribeClustersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -5241,10 +5288,12 @@ const deserializeAws_queryDescribeClustersCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5276,8 +5325,7 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSecurityGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
@@ -5287,10 +5335,12 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5322,8 +5372,7 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -5336,10 +5385,12 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5371,8 +5422,7 @@ const deserializeAws_queryDescribeClusterSubnetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
@@ -5382,10 +5432,12 @@ const deserializeAws_queryDescribeClusterSubnetGroupsCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5417,8 +5469,7 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClusterTrackFault":
     case "com.amazonaws.redshift#InvalidClusterTrackFault":
@@ -5428,10 +5479,12 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5463,15 +5516,16 @@ const deserializeAws_queryDescribeClusterVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5503,18 +5557,19 @@ const deserializeAws_queryDescribeDataSharesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
       throw await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5546,18 +5601,19 @@ const deserializeAws_queryDescribeDataSharesForConsumerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNamespaceFault":
     case "com.amazonaws.redshift#InvalidNamespaceFault":
       throw await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5589,18 +5645,19 @@ const deserializeAws_queryDescribeDataSharesForProducerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNamespaceFault":
     case "com.amazonaws.redshift#InvalidNamespaceFault":
       throw await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5635,15 +5692,16 @@ const deserializeAws_queryDescribeDefaultClusterParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5675,8 +5733,7 @@ const deserializeAws_queryDescribeEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -5689,10 +5746,12 @@ const deserializeAws_queryDescribeEndpointAccessCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5724,8 +5783,7 @@ const deserializeAws_queryDescribeEndpointAuthorizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -5735,10 +5793,12 @@ const deserializeAws_queryDescribeEndpointAuthorizationCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5770,15 +5830,16 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5810,15 +5871,16 @@ const deserializeAws_queryDescribeEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5850,8 +5912,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
@@ -5861,10 +5922,12 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5896,8 +5959,7 @@ const deserializeAws_queryDescribeHsmClientCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmClientCertificateNotFoundFault":
     case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
@@ -5907,10 +5969,12 @@ const deserializeAws_queryDescribeHsmClientCertificatesCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5942,8 +6006,7 @@ const deserializeAws_queryDescribeHsmConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HsmConfigurationNotFoundFault":
     case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
@@ -5953,10 +6016,12 @@ const deserializeAws_queryDescribeHsmConfigurationsCommandError = async (
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5988,18 +6053,19 @@ const deserializeAws_queryDescribeLoggingStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6031,8 +6097,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
@@ -6048,10 +6113,12 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6083,15 +6150,16 @@ const deserializeAws_queryDescribeOrderableClusterOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6123,8 +6191,7 @@ const deserializeAws_queryDescribePartnersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6134,10 +6201,12 @@ const deserializeAws_queryDescribePartnersCommandError = async (
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6172,8 +6241,7 @@ const deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedNodeExchangeNotFoundFault":
     case "com.amazonaws.redshift#ReservedNodeExchangeNotFoundFault":
@@ -6186,10 +6254,12 @@ const deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError = async
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6221,8 +6291,7 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
@@ -6235,10 +6304,12 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6270,8 +6341,7 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
@@ -6281,10 +6351,12 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6316,8 +6388,7 @@ const deserializeAws_queryDescribeResizeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6327,10 +6398,12 @@ const deserializeAws_queryDescribeResizeCommandError = async (
       throw await deserializeAws_queryResizeNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6362,8 +6435,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ScheduledActionNotFoundFault":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
@@ -6373,10 +6445,12 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6408,8 +6482,7 @@ const deserializeAws_queryDescribeSnapshotCopyGrantsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
@@ -6419,10 +6492,12 @@ const deserializeAws_queryDescribeSnapshotCopyGrantsCommandError = async (
       throw await deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6454,15 +6529,16 @@ const deserializeAws_queryDescribeSnapshotSchedulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6494,15 +6570,16 @@ const deserializeAws_queryDescribeStorageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6534,8 +6611,7 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6545,10 +6621,12 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
       throw await deserializeAws_queryTableRestoreNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6580,8 +6658,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
@@ -6591,10 +6668,12 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6626,8 +6705,7 @@ const deserializeAws_queryDescribeUsageLimitsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6637,10 +6715,12 @@ const deserializeAws_queryDescribeUsageLimitsCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6672,8 +6752,7 @@ const deserializeAws_queryDisableLoggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6683,10 +6762,12 @@ const deserializeAws_queryDisableLoggingCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6718,8 +6799,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6735,10 +6815,12 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6770,8 +6852,7 @@ const deserializeAws_queryDisassociateDataShareConsumerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
@@ -6781,10 +6862,12 @@ const deserializeAws_queryDisassociateDataShareConsumerCommandError = async (
       throw await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6816,8 +6899,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BucketNotFoundFault":
     case "com.amazonaws.redshift#BucketNotFoundFault":
@@ -6839,10 +6921,12 @@ const deserializeAws_queryEnableLoggingCommandError = async (
       throw await deserializeAws_queryInvalidS3KeyPrefixFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6874,8 +6958,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6912,10 +6995,12 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
       throw await deserializeAws_queryUnknownSnapshotCopyRegionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6947,8 +7032,7 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -6958,10 +7042,12 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6993,8 +7079,7 @@ const deserializeAws_queryGetClusterCredentialsWithIAMCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7004,10 +7089,12 @@ const deserializeAws_queryGetClusterCredentialsWithIAMCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7042,8 +7129,7 @@ const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7071,10 +7157,12 @@ const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandErro
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7109,8 +7197,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
@@ -7132,10 +7219,12 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7167,8 +7256,7 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7181,10 +7269,12 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7216,8 +7306,7 @@ const deserializeAws_queryModifyAuthenticationProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationProfileNotFoundFault":
     case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
@@ -7230,10 +7319,12 @@ const deserializeAws_queryModifyAuthenticationProfileCommandError = async (
       throw await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7265,8 +7356,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
@@ -7327,10 +7417,12 @@ const deserializeAws_queryModifyClusterCommandError = async (
       throw await deserializeAws_queryUnsupportedOptionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7362,8 +7454,7 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7376,10 +7467,12 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7411,8 +7504,7 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7422,10 +7514,12 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7457,8 +7551,7 @@ const deserializeAws_queryModifyClusterMaintenanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7468,10 +7561,12 @@ const deserializeAws_queryModifyClusterMaintenanceCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7503,8 +7598,7 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
@@ -7514,10 +7608,12 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7549,8 +7645,7 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSnapshotNotFoundFault":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
@@ -7563,10 +7658,12 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
       throw await deserializeAws_queryInvalidRetentionPeriodFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7595,8 +7692,7 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7609,10 +7705,12 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7644,8 +7742,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterSubnetGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
@@ -7667,10 +7764,12 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7702,8 +7801,7 @@ const deserializeAws_queryModifyEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7725,10 +7823,12 @@ const deserializeAws_queryModifyEndpointAccessCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7760,8 +7860,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidSubscriptionStateFault":
     case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
@@ -7792,10 +7891,12 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
       throw await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7827,8 +7928,7 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduledActionFault":
     case "com.amazonaws.redshift#InvalidScheduledActionFault":
@@ -7847,10 +7947,12 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7885,8 +7987,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -7905,10 +8006,12 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7940,8 +8043,7 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidScheduleFault":
     case "com.amazonaws.redshift#InvalidScheduleFault":
@@ -7954,10 +8056,12 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
       throw await deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7989,8 +8093,7 @@ const deserializeAws_queryModifyUsageLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidUsageLimitFault":
     case "com.amazonaws.redshift#InvalidUsageLimitFault":
@@ -8003,10 +8106,12 @@ const deserializeAws_queryModifyUsageLimitCommandError = async (
       throw await deserializeAws_queryUsageLimitNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8038,8 +8143,7 @@ const deserializeAws_queryPauseClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8049,10 +8153,12 @@ const deserializeAws_queryPauseClusterCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8084,8 +8190,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedNodeAlreadyExistsFault":
     case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
@@ -8101,10 +8206,12 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8136,8 +8243,7 @@ const deserializeAws_queryRebootClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8147,10 +8253,12 @@ const deserializeAws_queryRebootClusterCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8182,18 +8290,19 @@ const deserializeAws_queryRejectDataShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
       throw await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8225,8 +8334,7 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterParameterGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
@@ -8236,10 +8344,12 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8271,8 +8381,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8321,10 +8430,12 @@ const deserializeAws_queryResizeClusterCommandError = async (
       throw await deserializeAws_queryUnsupportedOptionFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8356,8 +8467,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
@@ -8457,10 +8567,12 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8495,8 +8607,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8521,10 +8632,12 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8556,8 +8669,7 @@ const deserializeAws_queryResumeClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8570,10 +8682,12 @@ const deserializeAws_queryResumeClusterCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8608,8 +8722,7 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.redshift#AuthorizationNotFoundFault":
@@ -8622,10 +8735,12 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8657,8 +8772,7 @@ const deserializeAws_queryRevokeEndpointAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8683,10 +8797,12 @@ const deserializeAws_queryRevokeEndpointAccessCommandError = async (
       throw await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8718,8 +8834,7 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessToSnapshotDeniedFault":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
@@ -8732,10 +8847,12 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8767,8 +8884,7 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8781,10 +8897,12 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8816,8 +8934,7 @@ const deserializeAws_queryUpdatePartnerStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
@@ -8830,10 +8947,12 @@ const deserializeAws_queryUpdatePartnerStatusCommandError = async (
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -19865,12 +19984,11 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
-const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
+const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };

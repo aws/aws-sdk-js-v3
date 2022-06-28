@@ -622,8 +622,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -639,10 +638,12 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -674,8 +675,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -694,10 +694,12 @@ const deserializeAws_queryCreateDomainCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -729,8 +731,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -752,10 +753,12 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -787,8 +790,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -810,10 +812,12 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -845,8 +849,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -868,10 +871,12 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -903,8 +908,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -926,10 +930,12 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -961,8 +967,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -981,10 +986,12 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1016,8 +1023,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1027,10 +1033,12 @@ const deserializeAws_queryDeleteDomainCommandError = async (
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1062,8 +1070,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1082,10 +1089,12 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1117,8 +1126,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1137,10 +1145,12 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1172,8 +1182,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1192,10 +1201,12 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1227,8 +1238,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1241,10 +1251,12 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1276,8 +1288,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1299,10 +1310,12 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1337,8 +1350,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1357,10 +1369,12 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1392,8 +1406,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1403,10 +1416,12 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1438,8 +1453,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1452,10 +1466,12 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1487,8 +1503,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1501,10 +1516,12 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1536,8 +1553,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1550,10 +1566,12 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1588,8 +1606,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1602,10 +1619,12 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1637,8 +1656,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1651,10 +1669,12 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1686,8 +1706,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1703,10 +1722,12 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1738,18 +1759,19 @@ const deserializeAws_queryListDomainNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1781,8 +1803,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1807,10 +1828,12 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1842,8 +1865,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1868,10 +1890,12 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1903,8 +1927,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1926,10 +1949,12 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -1961,8 +1986,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
@@ -1984,10 +2008,12 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4278,12 +4304,11 @@ const buildFormUrlencodedString = (formEntries: Record<string, string>): string 
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
-const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
+const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };

@@ -3645,8 +3645,7 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -3665,10 +3664,12 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
       throw await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3707,8 +3708,7 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -3736,10 +3736,12 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3778,8 +3780,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudFrontOriginAccessIdentityAlreadyExists":
     case "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityAlreadyExists":
@@ -3798,10 +3799,12 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -3840,8 +3843,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4034,10 +4036,12 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4076,8 +4080,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4273,10 +4276,12 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4315,8 +4320,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionConfigAlreadyExists":
     case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigAlreadyExists":
@@ -4344,10 +4348,12 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4386,8 +4392,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionProfileAlreadyExists":
     case "com.amazonaws.cloudfront#FieldLevelEncryptionProfileAlreadyExists":
@@ -4415,10 +4420,12 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4457,8 +4464,7 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionAlreadyExists":
     case "com.amazonaws.cloudfront#FunctionAlreadyExists":
@@ -4477,10 +4483,12 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4515,8 +4523,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4541,10 +4548,12 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       throw await deserializeAws_restXmlTooManyInvalidationsInProgressResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4583,8 +4592,7 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -4600,10 +4608,12 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysInKeyGroupResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4634,8 +4644,7 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4648,10 +4657,12 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4690,8 +4701,7 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4719,10 +4729,12 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4761,8 +4773,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -4775,10 +4786,12 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4811,8 +4824,7 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4828,10 +4840,12 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlTooManyRealtimeLogConfigsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4870,8 +4884,7 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4896,10 +4909,12 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -4938,8 +4953,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -4979,10 +4993,12 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5021,8 +5037,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5065,10 +5080,12 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5097,8 +5114,7 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5120,10 +5136,12 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5152,8 +5170,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5172,10 +5189,12 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5204,8 +5223,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5224,10 +5242,12 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5256,8 +5276,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5276,10 +5295,12 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5308,8 +5329,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5328,10 +5348,12 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5360,8 +5382,7 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionInUse":
     case "com.amazonaws.cloudfront#FunctionInUse":
@@ -5380,10 +5401,12 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5412,8 +5435,7 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidIfMatchVersion":
     case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
@@ -5429,10 +5451,12 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
       throw await deserializeAws_restXmlResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5461,8 +5485,7 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5475,10 +5498,12 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5507,8 +5532,7 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5530,10 +5554,12 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5562,8 +5588,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5582,10 +5607,12 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       throw await deserializeAws_restXmlPublicKeyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5614,8 +5641,7 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5631,10 +5657,12 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlRealtimeLogConfigInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5663,8 +5691,7 @@ const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5686,10 +5713,12 @@ const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlResponseHeadersPolicyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5718,8 +5747,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5738,10 +5766,12 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlStreamingDistributionNotDisabledResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5776,8 +5806,7 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
     case "com.amazonaws.cloudfront#NoSuchFunctionExists":
@@ -5787,10 +5816,12 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5825,8 +5856,7 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5836,10 +5866,12 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5874,8 +5906,7 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5885,10 +5916,12 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5923,8 +5956,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5934,10 +5966,12 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
       throw await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -5975,8 +6009,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -5986,10 +6019,12 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
       throw await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6024,8 +6059,7 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6035,10 +6069,12 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6073,8 +6109,7 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6084,10 +6119,12 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6122,8 +6159,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6133,10 +6169,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6171,8 +6209,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6182,10 +6219,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6220,8 +6259,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6231,10 +6269,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6269,8 +6309,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6280,10 +6319,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6322,8 +6363,7 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
     case "com.amazonaws.cloudfront#NoSuchFunctionExists":
@@ -6333,10 +6373,12 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6367,8 +6409,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6381,10 +6422,12 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
       throw await deserializeAws_restXmlNoSuchInvalidationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6419,18 +6462,19 @@ const deserializeAws_restXmlGetKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
     case "com.amazonaws.cloudfront#NoSuchResource":
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6465,18 +6509,19 @@ const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
     case "com.amazonaws.cloudfront#NoSuchResource":
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6507,8 +6552,7 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6521,10 +6565,12 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6559,8 +6605,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6570,10 +6615,12 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6608,8 +6655,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6619,10 +6665,12 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6657,8 +6705,7 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6668,10 +6715,12 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
       throw await deserializeAws_restXmlNoSuchPublicKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6706,8 +6755,7 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6717,10 +6765,12 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchPublicKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6753,8 +6803,7 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6767,10 +6816,12 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6805,8 +6856,7 @@ const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6816,10 +6866,12 @@ const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6854,8 +6906,7 @@ const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6865,10 +6916,12 @@ const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6903,8 +6956,7 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6914,10 +6966,12 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlNoSuchStreamingDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6952,8 +7006,7 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -6963,10 +7016,12 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchStreamingDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -6997,8 +7052,7 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7011,10 +7065,12 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7045,18 +7101,19 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7087,8 +7144,7 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -7098,10 +7154,12 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7132,18 +7190,19 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7174,8 +7233,7 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7188,10 +7246,12 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7222,8 +7282,7 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -7233,10 +7292,12 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7267,8 +7328,7 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7281,10 +7341,12 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7315,18 +7377,19 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7357,8 +7420,7 @@ const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7371,10 +7433,12 @@ const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandErr
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7405,8 +7469,7 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -7416,10 +7479,12 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
       throw await deserializeAws_restXmlInvalidWebACLIdResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7450,18 +7515,19 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7492,18 +7558,19 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7534,8 +7601,7 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -7545,10 +7611,12 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7579,8 +7647,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7593,10 +7660,12 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7627,18 +7696,19 @@ const deserializeAws_restXmlListKeyGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7669,8 +7739,7 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7683,10 +7752,12 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7717,18 +7788,19 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7759,8 +7831,7 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7773,10 +7844,12 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7807,8 +7880,7 @@ const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7821,10 +7893,12 @@ const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7855,18 +7929,19 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7897,8 +7972,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -7914,10 +7988,12 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -7948,8 +8024,7 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -7968,10 +8043,12 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8000,8 +8077,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8017,10 +8093,12 @@ const deserializeAws_restXmlTagResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8051,8 +8129,7 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -8071,10 +8148,12 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8103,8 +8182,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8120,10 +8198,12 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8158,8 +8238,7 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8196,10 +8275,12 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8234,8 +8315,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8263,10 +8343,12 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8301,8 +8383,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8495,10 +8576,12 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8533,8 +8616,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8571,10 +8653,12 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8609,8 +8693,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8650,10 +8733,12 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8688,8 +8773,7 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionSizeLimitExceeded":
     case "com.amazonaws.cloudfront#FunctionSizeLimitExceeded":
@@ -8711,10 +8795,12 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8749,8 +8835,7 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.cloudfront#InvalidArgument":
@@ -8772,10 +8857,12 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysInKeyGroupResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8810,8 +8897,7 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8848,10 +8934,12 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8886,8 +8974,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8912,10 +8999,12 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -8948,8 +9037,7 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -8962,10 +9050,12 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -9000,8 +9090,7 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -9035,10 +9124,12 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -9073,8 +9164,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __BaseException;
-  let errorCode = "UnknownError";
-  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
     case "com.amazonaws.cloudfront#AccessDenied":
@@ -9117,10 +9207,12 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
       response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata,
       });
       throw __decorateServiceException(response, parsedBody.Error);
   }
@@ -17649,12 +17741,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };
