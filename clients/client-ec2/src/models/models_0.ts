@@ -1400,7 +1400,7 @@ export interface PathComponent {
   AdditionalDetails?: AdditionalDetail[];
 
   /**
-   * <p>Describes a path component.</p>
+   * <p>The transit gateway.</p>
    */
   TransitGateway?: AnalysisComponent;
 
@@ -6364,8 +6364,9 @@ export interface CreateCapacityReservationRequest {
   EbsOptimized?: boolean;
 
   /**
-   * <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level
-   * 			storage.</p>
+   * <p>
+   *             <i>Deprecated.</i>
+   *          </p>
    */
   EphemeralStorage?: boolean;
 
@@ -6533,8 +6534,9 @@ export interface CapacityReservation {
   EbsOptimized?: boolean;
 
   /**
-   * <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level
-   * 			storage.</p>
+   * <p>
+   *             <i>Deprecated.</i>
+   *          </p>
    */
   EphemeralStorage?: boolean;
 

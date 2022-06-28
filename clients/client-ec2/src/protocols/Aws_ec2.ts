@@ -2093,7 +2093,6 @@ import {
   CreateTrafficMirrorSessionResult,
   CreateTrafficMirrorTargetRequest,
   CreateTrafficMirrorTargetResult,
-  CreateTransitGatewayConnectRequestOptions,
   CreateTransitGatewayRequest,
   CreateTransitGatewayResult,
   CreditSpecification,
@@ -2258,6 +2257,7 @@ import {
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
   CreateTransitGatewayConnectRequest,
+  CreateTransitGatewayConnectRequestOptions,
   CreateTransitGatewayConnectResult,
   CreateTransitGatewayMulticastDomainRequest,
   CreateTransitGatewayMulticastDomainRequestOptions,
@@ -2441,7 +2441,6 @@ import {
   DescribeClientVpnConnectionsResult,
   DescribeClientVpnEndpointsRequest,
   DescribeClientVpnEndpointsResult,
-  DescribeClientVpnRoutesRequest,
   DirectoryServiceAuthentication,
   DnsEntry,
   DnsOptions,
@@ -2515,6 +2514,7 @@ import {
   CoipPool,
   ConversionTask,
   CpuOptions,
+  DescribeClientVpnRoutesRequest,
   DescribeClientVpnRoutesResult,
   DescribeClientVpnTargetNetworksRequest,
   DescribeClientVpnTargetNetworksResult,
@@ -2643,7 +2643,6 @@ import {
   DescribePrefixListsRequest,
   DescribePrefixListsResult,
   DescribePrincipalIdFormatRequest,
-  DescribePrincipalIdFormatResult,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2763,6 +2762,7 @@ import {
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   CreateVolumePermission,
+  DescribePrincipalIdFormatResult,
   DescribePublicIpv4PoolsRequest,
   DescribePublicIpv4PoolsResult,
   DescribeRegionsRequest,
@@ -2972,7 +2972,6 @@ import {
   GetDefaultCreditSpecificationRequest,
   GetDefaultCreditSpecificationResult,
   GetEbsDefaultKmsKeyIdRequest,
-  GetEbsDefaultKmsKeyIdResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -3048,6 +3047,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
   GetFlowLogsIntegrationTemplateRequest,
@@ -3298,7 +3298,6 @@ import {
   ReplaceRouteRequest,
   ReplaceRouteTableAssociationRequest,
   ReplaceRouteTableAssociationResult,
-  ReplaceTransitGatewayRouteRequest,
   ReservationValue,
   ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
@@ -3337,6 +3336,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ReplaceTransitGatewayRouteRequest,
   ReplaceTransitGatewayRouteResult,
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
@@ -35615,6 +35615,9 @@ const serializeAws_ec2CreatePlacementGroupRequest = (
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.SpreadLevel !== undefined && input.SpreadLevel !== null) {
+    entries["SpreadLevel"] = input.SpreadLevel;
   }
   return entries;
 };
@@ -73192,6 +73195,7 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
     GroupId: undefined,
     Tags: undefined,
     GroupArn: undefined,
+    SpreadLevel: undefined,
   };
   if (output["groupName"] !== undefined) {
     contents.GroupName = __expectString(output["groupName"]);
@@ -73215,6 +73219,9 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
   }
   if (output["groupArn"] !== undefined) {
     contents.GroupArn = __expectString(output["groupArn"]);
+  }
+  if (output["spreadLevel"] !== undefined) {
+    contents.SpreadLevel = __expectString(output["spreadLevel"]);
   }
   return contents;
 };

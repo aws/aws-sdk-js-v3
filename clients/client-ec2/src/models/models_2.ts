@@ -37,7 +37,6 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  CreateTransitGatewayConnectRequestOptions,
   GroupIdentifier,
   Ipam,
   IpamPool,
@@ -51,6 +50,25 @@ import {
   TransitGateway,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>The options for a Connect attachment.</p>
+ */
+export interface CreateTransitGatewayConnectRequestOptions {
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol: ProtocolValue | string | undefined;
+}
+
+export namespace CreateTransitGatewayConnectRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateTransitGatewayConnectRequest {
   /**
@@ -8453,56 +8471,6 @@ export namespace DescribeClientVpnEndpointsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnRoutesRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>destination-cidr</code> - The CIDR of the route destination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code> | <code>add-route</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-subnet</code> - The ID of the subnet through which traffic is routed.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeClientVpnRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesRequest): any => ({
     ...obj,
   });
 }

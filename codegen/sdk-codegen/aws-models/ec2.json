@@ -7229,7 +7229,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "EphemeralStorage",
-            "smithy.api#documentation": "<p>Indicates whether the Capacity Reservation supports instances with temporary, block-level\n\t\t\tstorage.</p>",
+            "smithy.api#documentation": "<p>\n            <i>Deprecated.</i>\n         </p>",
             "smithy.api#xmlName": "ephemeralStorage"
           }
         },
@@ -10148,7 +10148,7 @@
         "EphemeralStorage": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the Capacity Reservation supports instances with temporary, block-level\n\t\t\tstorage.</p>"
+            "smithy.api#documentation": "<p>\n            <i>Deprecated.</i>\n         </p>"
           }
         },
         "EndDate": {
@@ -11857,7 +11857,7 @@
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#TagSpecificationList",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the launch template during creation.</p>",
+            "smithy.api#documentation": "<p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p>\n        <note>\n            <p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the \n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html\">launch template data</a> structure.</p>\n        </note>",
             "smithy.api#xmlName": "TagSpecification"
           }
         }
@@ -12833,6 +12833,12 @@
             "smithy.api#documentation": "<p>The tags to apply to the new placement group.</p>",
             "smithy.api#xmlName": "TagSpecification"
           }
+        },
+        "SpreadLevel": {
+          "target": "com.amazonaws.ec2#SpreadLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines how placement groups spread instances. </p>\n        <ul>\n            <li>\n               <p>Host – You can use <code>host</code> only with Outpost placement groups.</p>\n            </li>\n            <li>\n               <p>Rack – No usage restrictions.</p>\n            </li>\n         </ul>"
+          }
         }
       }
     },
@@ -13098,7 +13104,7 @@
         "target": "com.amazonaws.ec2#CreateRouteResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a route in a route table within a VPC.</p>\n         <p>You must specify one of the following targets: internet gateway or virtual private\n\t\t\tgateway, NAT instance, NAT gateway, VPC peering connection, network interface, egress-only internet gateway, or transit gateway.</p>\n         <p>When determining how to route traffic, we use the route with the most specific match.\n            For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the\n            route table includes the following two IPv4 routes:</p>\n\t\t\t      <ul>\n            <li>\n\t\t\t\t\t          <p>\n                  <code>192.0.2.0/24</code> (goes to some target A)</p>\n\t\t\t\t        </li>\n            <li>\n\t\t\t\t\t          <p>\n                  <code>192.0.2.0/28</code> (goes to some target B)</p>\n\t\t\t\t        </li>\n         </ul>\n\t\t       <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route\n\t\t\t\tin the list covers a smaller number of IP addresses and is therefore more specific,\n\t\t\t\tso we use that route to determine where to target the traffic.</p>\n         <p>For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the\n         <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a route in a route table within a VPC.</p>\n         <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify  \n         exactly one of the resources from the parameter list.</p>\n         <p>When determining how to route traffic, we use the route with the most specific match.\n            For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the\n            route table includes the following two IPv4 routes:</p>\n\t\t\t      <ul>\n            <li>\n\t\t\t\t\t          <p>\n                  <code>192.0.2.0/24</code> (goes to some target A)</p>\n\t\t\t\t        </li>\n            <li>\n\t\t\t\t\t          <p>\n                  <code>192.0.2.0/28</code> (goes to some target B)</p>\n\t\t\t\t        </li>\n         </ul>\n\t\t       <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route\n\t\t\t\tin the list covers a smaller number of IP addresses and is therefore more specific,\n\t\t\t\tso we use that route to determine where to target the traffic.</p>\n         <p>For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the\n         <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateRouteRequest": {
@@ -14418,7 +14424,7 @@
         "target": "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Requests a transit gateway peering attachment between the specified transit gateway\n            (requester) and a peer transit gateway (accepter). The transit gateways must be in\n            different Regions. The peer transit gateway can be in your account or a different \n            Amazon Web Services account.</p>\n        <p>After you create the peering attachment, the owner of the accepter transit gateway \n            must accept the attachment request.</p>"
+        "smithy.api#documentation": "<p>Requests a transit gateway peering attachment between the specified transit gateway\n            (requester) and a peer transit gateway (accepter). The peer transit gateway can be in \n            your account or a different Amazon Web Services account.</p>\n        <p>After you create the peering attachment, the owner of the accepter transit gateway \n            must accept the attachment request.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentRequest": {
@@ -24981,7 +24987,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n\t\t       <ul>\n            <li>\n\t\t             <p>\n                  <code>association.association-id</code> - The ID of an association ID for the ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p>\n\t\t          </li>\n            <li>\n                  <p>\n                  <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p>\n               </li>\n            <li>\n\t\t             <p>\n                  <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.rule-number</code> - The number of an entry (in other words, rule) in\n                    the set of ACL entries.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>network-acl-id</code> - The ID of the network ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>vpc-id</code> - The ID of the VPC for the network ACL.</p>\n\t\t          </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n\t\t       <ul>\n            <li>\n\t\t             <p>\n                  <code>association.association-id</code> - The ID of an association ID for the ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p>\n\t\t          </li>\n            <li>\n                  <p>\n                  <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p>\n               </li>\n            <li>\n\t\t             <p>\n                  <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>\n\t\t          </li>\n            <li>\n\t\t            <p>\n                  <code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code> \n\t\t                for egress rules, or <code>false</code> for ingress rules.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>entry.rule-number</code> - The number of an entry (in other words, rule) in\n                    the set of ACL entries.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>network-acl-id</code> - The ID of the network ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n\t\t          </li>\n            <li>\n\t\t             <p>\n                  <code>vpc-id</code> - The ID of the VPC for the network ACL.</p>\n\t\t          </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -25689,7 +25695,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>group-name</code> - The name of the placement group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>state</code> - The state of the placement group (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>strategy</code> - The strategy of the placement group\n                        (<code>cluster</code> | <code>spread</code> |\n                    <code>partition</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>group-name</code> - The name of the placement group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>).\n                </p>\n            </li>\n            <li>\n                <p>\n                    <code>state</code> - The state of the placement group (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>strategy</code> - The strategy of the placement group\n                        (<code>cluster</code> | <code>spread</code> |\n                    <code>partition</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -34279,7 +34285,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "EventSubType",
-            "smithy.api#documentation": "<p>The event.</p>\n        \n        <p>\n            <code>error</code> events:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required\n                    permissions either to launch or terminate an instance.</p>\n            </li>\n            <li>\n                <p>\n                  <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations\n                    are valid, and several attempts to launch instances have failed. For more\n                    information, see the description of the event.</p>\n            </li>\n            <li>\n                <p>\n                    <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the\n                    number of Spot Instances that you can launch.</p>\n            </li>\n            <li>\n                <p>\n                    <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not\n                    valid. For more information, see the description of the event.</p>\n            </li>\n         </ul>\n\n        <p>\n            <code>fleetRequestChange</code> events:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is\n                    attempting to maintain the target number of running instances.</p>\n            </li>\n            <li>\n                <p>\n                    <code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running\n                    instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are\n                    terminated.</p>\n            </li>\n            <li>\n                <p>\n                    <code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does\n                    not launch additional instances. Its existing instances continue to run until\n                    they are interrupted or terminated. The request remains in this state until all\n                    instances are interrupted or terminated.</p>\n            </li>\n            <li>\n                <p>\n                    <code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and\n                    its instances are terminating. The request remains in this state until all\n                    instances are terminated.</p>\n            </li>\n            <li>\n                <p>\n                    <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was\n                    created with <code>TerminateInstancesWithExpiration</code> set, a subsequent\n                        <code>terminated</code> event indicates that the instances are\n                    terminated.</p>\n            </li>\n            <li>\n                <p>\n                    <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.\n                    The request remains in this state until the modification is fully\n                    processed.</p>\n            </li>\n            <li>\n                <p>\n                    <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>\n            </li>\n            <li>\n                <p>\n                    <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2\n                    is preparing to launch the target number of instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>\n            </li>\n         </ul>\n\n        <p>\n            <code>instanceChange</code> events:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>launched</code> - A new instance was launched.</p>\n            </li>\n            <li>\n                <p>\n                  <code>terminated</code> - An instance was terminated by the user.</p>\n            </li>\n            <li>\n                <p>\n                  <code>termination_notified</code> - An instance termination notification was\n                    sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target\n                    capacity of the fleet was modified down, for example, from a target capacity of\n                    4 to a target capacity of 3.</p>\n            </li>\n         </ul>\n\n        <p>\n            <code>Information</code> events:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>fleetProgressHalted</code> - The price in every launch specification is\n                    not valid because it is below the Spot price (all the launch specifications have\n                    produced <code>launchSpecUnusable</code> events). A launch specification might\n                    become valid if the Spot price changes.</p>\n            </li>\n            <li>\n                <p>\n                  <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid\n                    and several attempts to launch instances have failed. For more information, see\n                    the description of the event.</p>\n            </li>\n            <li>\n                <p>\n                  <code>launchSpecUnusable</code> - The price in a launch specification is not\n                    valid because it is below the Spot price.</p>\n            </li>\n            <li>\n                <p>\n                  <code>registerWithLoadBalancersFailed</code> - An attempt to register\n                    instances with load balancers failed. For more information, see the description\n                    of the event.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The event.</p>\n      \n         <p>\n            <code>error</code> events:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required\n               permissions either to launch or terminate an instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations\n               are valid, and several attempts to launch instances have failed. For more\n               information, see the description of the event.</p>\n            </li>\n            <li>\n               <p>\n                  <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the\n               number of Spot Instances that you can launch.</p>\n            </li>\n            <li>\n               <p>\n                  <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not\n               valid. For more information, see the description of the event.</p>\n            </li>\n         </ul>\n      \n         <p>\n            <code>fleetRequestChange</code> events:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is\n               attempting to maintain the target number of running instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted</code> (EC2 Fleet) / <code>cancelled</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and has no running\n               instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are\n               terminated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted_running</code> (EC2 Fleet) / <code>cancelled_running</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and does\n               not launch additional instances. Its existing instances continue to run until\n               they are interrupted or terminated. The request remains in this state until all\n               instances are interrupted or terminated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleted_terminating</code> (EC2 Fleet) / <code>cancelled_terminating</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and\n               its instances are terminating. The request remains in this state until all\n               instances are terminated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was\n               created with <code>TerminateInstancesWithExpiration</code> set, a subsequent\n               <code>terminated</code> event indicates that the instances are\n               terminated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.\n               The request remains in this state until the modification is fully\n               processed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>\n            </li>\n            <li>\n               <p>\n                  <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2\n               is preparing to launch the target number of instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>\n            </li>\n         </ul>\n      \n         <p>\n            <code>instanceChange</code> events:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>launched</code> - A new instance was launched.</p>\n            </li>\n            <li>\n               <p>\n                  <code>terminated</code> - An instance was terminated by the user.</p>\n            </li>\n            <li>\n               <p>\n                  <code>termination_notified</code> - An instance termination notification was\n               sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target\n               capacity of the fleet was modified down, for example, from a target capacity of\n               4 to a target capacity of 3.</p>\n            </li>\n         </ul>\n      \n         <p>\n            <code>Information</code> events:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>fleetProgressHalted</code> - The price in every launch specification is\n               not valid because it is below the Spot price (all the launch specifications have\n               produced <code>launchSpecUnusable</code> events). A launch specification might\n               become valid if the Spot price changes.</p>\n            </li>\n            <li>\n               <p>\n                  <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid\n               and several attempts to launch instances have failed. For more information, see\n               the description of the event.</p>\n            </li>\n            <li>\n               <p>\n                  <code>launchSpecUnusable</code> - The price in a launch specification is not\n               valid because it is below the Spot price.</p>\n            </li>\n            <li>\n               <p>\n                  <code>registerWithLoadBalancersFailed</code> - An attempt to register\n               instances with load balancers failed. For more information, see the description\n               of the event.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "eventSubType"
           }
         },
@@ -34287,7 +34293,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "InstanceId",
-            "smithy.api#documentation": "<p>The ID of the instance. This information is available only for\n                <code>instanceChange</code> events.</p>",
+            "smithy.api#documentation": "<p>The ID of the instance. This information is available only for\n         <code>instanceChange</code> events.</p>",
             "smithy.api#xmlName": "instanceId"
           }
         }
@@ -39272,7 +39278,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n                <p>\n                  <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>\n            </li>\n            <li>\n                \n                <p>\n                  <code>state</code> - The state of the subnet association. Valid values are\n                        <code>associated</code> |\n                        <code>associating</code>\n                    | <code>disassociated</code> | <code>disassociating</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n                <p>\n                  <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the subnet association. Valid values are\n                        <code>associated</code> | <code>associating</code> |\n                        <code>disassociated</code> | <code>disassociating</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -44923,7 +44929,7 @@
           "target": "com.amazonaws.ec2#LocalStorageTypeSet",
           "traits": {
             "aws.protocols#ec2QueryName": "LocalStorageTypeSet",
-            "smithy.api#documentation": "<p>The type of local storage that is required.</p>\n         <ul>\n            <li>\n               <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>\n            </li>\n         </ul>\n         <p>Default: <code>hdd</code> and <code>sdd</code>\n         </p>",
+            "smithy.api#documentation": "<p>The type of local storage that is required.</p>\n         <ul>\n            <li>\n               <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with solid state drive (SSD) storage, specify\n               <code>ssd</code>.</p>\n            </li>\n         </ul>\n         <p>Default: <code>hdd</code> and <code>ssd</code>\n         </p>",
             "smithy.api#xmlName": "localStorageTypeSet"
           }
         },
@@ -45077,7 +45083,7 @@
         "LocalStorageTypes": {
           "target": "com.amazonaws.ec2#LocalStorageTypeSet",
           "traits": {
-            "smithy.api#documentation": "<p>The type of local storage that is required.</p>\n         <ul>\n            <li>\n               <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>\n            </li>\n         </ul>\n         <p>Default: <code>hdd</code> and <code>sdd</code>\n         </p>",
+            "smithy.api#documentation": "<p>The type of local storage that is required.</p>\n         <ul>\n            <li>\n               <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with solid state drive (SSD) storage, specify\n               <code>ssd</code>.</p>\n            </li>\n         </ul>\n         <p>Default: <code>hdd</code> and <code>ssd</code>\n         </p>",
             "smithy.api#xmlName": "LocalStorageType"
           }
         },
@@ -52037,7 +52043,7 @@
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceType",
-            "smithy.api#documentation": "<p>The type of resource.</p>",
+            "smithy.api#documentation": "<p>The type of resource to tag.</p>",
             "smithy.api#xmlName": "resourceType"
           }
         },
@@ -52051,7 +52057,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The tag specification for the launch template.</p>"
+        "smithy.api#documentation": "<p>The tags specification for the launch template.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateTagSpecificationList": {
@@ -52069,7 +52075,7 @@
         "ResourceType": {
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n            creation are <code>instance</code>, <code>volume</code>, <code>elastic-gpu</code>,\n                <code>network-interface</code>, and <code>spot-instances-request</code>. To tag a\n            resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>"
+            "smithy.api#documentation": "<p>The type of resource to tag.</p> \n        <p>The <code>Valid Values</code> are all the resource types that can be tagged. However, when creating \n            a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |\n                <code>network-interface</code> | <code>spot-instances-request</code>\n         </p>\n        <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>"
           }
         },
         "Tags": {
@@ -52081,7 +52087,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The tags specification for the launch template.</p>"
+        "smithy.api#documentation": "<p>The tags specification for the resources that are created during instance launch.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateTagSpecificationRequestList": {
@@ -60096,6 +60102,7 @@
           "target": "com.amazonaws.ec2#AnalysisComponent",
           "traits": {
             "aws.protocols#ec2QueryName": "TransitGateway",
+            "smithy.api#documentation": "<p>The transit gateway.</p>",
             "smithy.api#xmlName": "transitGateway"
           }
         },
@@ -60769,6 +60776,14 @@
             "aws.protocols#ec2QueryName": "GroupArn",
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the placement group.</p>",
             "smithy.api#xmlName": "groupArn"
+          }
+        },
+        "SpreadLevel": {
+          "target": "com.amazonaws.ec2#SpreadLevel",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SpreadLevel",
+            "smithy.api#documentation": "<p> The spread level for the placement group. <i>Only</i> Outpost placement\n            groups can be spread across hosts. </p>",
+            "smithy.api#xmlName": "spreadLevel"
           }
         }
       },
@@ -63334,7 +63349,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Releases the specified Elastic IP address.</p>\n         <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it\n\t\t\t\tfrom any instance that it's associated with. To disassociate an Elastic IP address without\n\t\t\t\treleasing it, use <a>DisassociateAddress</a>.</p>\n         <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address\n\t\t\t  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>\n         <p>After releasing an Elastic IP address, it is released to the IP address pool. \n        Be sure to update your DNS records and any servers or devices that communicate with the address. \n        If you attempt to release an Elastic IP address that you already released, you'll get an\n       <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>\n         <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.\n        For more information, see <a>AllocateAddress</a>.</p>"
+        "smithy.api#documentation": "<p>Releases the specified Elastic IP address.</p>\n         <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it\n\t\t\t\tfrom any instance that it's associated with. To disassociate an Elastic IP address without\n\t\t\t\treleasing it, use <a>DisassociateAddress</a>.</p>\n         <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address\n\t\t\t  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>\n         <p>After releasing an Elastic IP address, it is released to the IP address pool. \n        Be sure to update your DNS records and any servers or devices that communicate with the address. \n        If you attempt to release an Elastic IP address that you already released, you'll get an\n       <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>\n         <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.\n        For more information, see <a>AllocateAddress</a>.</p>\n         <p>For more\n       information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n         Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ReleaseAddressRequest": {
@@ -63843,7 +63858,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Replaces an existing route within a route table in a VPC. You must provide only one of\n            the following: internet gateway, virtual private gateway, NAT instance, NAT gateway, VPC\n            peering connection, network interface, egress-only internet gateway, or transit\n            gateway.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Replaces an existing route within a route table in a VPC.</p>\n         <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify  \n           exactly one of the resources from the parameter list, or reset the local route to its default \n           target.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ReplaceRouteRequest": {
@@ -64400,7 +64415,7 @@
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#LaunchTemplateTagSpecificationRequestList",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the resources during launch. You can only tag instances and\n            volumes on launch. The specified tags are applied to all instances or volumes that are\n            created during launch. To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
+            "smithy.api#documentation": "<p>The tags to apply to the resources that are created during instance launch.</p>\n        <p>You can specify tags for the following resources only:</p>\n        <ul>\n            <li>\n                <p>Instances</p>\n            </li>\n            <li>\n                <p>Volumes</p>\n            </li>\n            <li>\n                <p>Elastic graphics</p>\n            </li>\n            <li>\n                <p>Spot Instance requests</p>\n            </li>\n            <li>\n                <p>Network interfaces</p>\n            </li>\n         </ul>\n            <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>\n        <note>\n            <p>To tag the launch template itself, you must use the \n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html\">TagSpecification</a> parameter.</p>\n        </note>",
             "smithy.api#xmlName": "TagSpecification"
           }
         },
@@ -64441,7 +64456,7 @@
         "CreditSpecification": {
           "target": "com.amazonaws.ec2#CreditSpecificationRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances\n            only.</p>"
+            "smithy.api#documentation": "<p>The credit option for CPU usage of the instance. Valid only for T instances.</p>"
           }
         },
         "CpuOptions": {
@@ -66585,7 +66600,7 @@
           "target": "com.amazonaws.ec2#LaunchTemplateTagSpecificationList",
           "traits": {
             "aws.protocols#ec2QueryName": "TagSpecificationSet",
-            "smithy.api#documentation": "<p>The tags.</p>",
+            "smithy.api#documentation": "<p>The tags that are applied to the resources that are created during instance launch.</p>",
             "smithy.api#xmlName": "tagSpecificationSet"
           }
         },
@@ -72015,6 +72030,21 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#SpreadLevel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "host",
+            "name": "host"
+          },
+          {
+            "value": "rack",
+            "name": "rack"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#StaleIpPermission": {

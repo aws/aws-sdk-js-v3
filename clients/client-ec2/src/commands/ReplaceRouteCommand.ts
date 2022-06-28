@@ -20,11 +20,11 @@ export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Replaces an existing route within a route table in a VPC. You must provide only one of
- *             the following: internet gateway, virtual private gateway, NAT instance, NAT gateway, VPC
- *             peering connection, network interface, egress-only internet gateway, or transit
- *             gateway.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
+ * <p>Replaces an existing route within a route table in a VPC.</p>
+ *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
+ *            exactly one of the resources from the parameter list, or reset the local route to its default
+ *            target.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -92,8 +92,30 @@ import {
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   PermissionGroup,
+  PrincipalIdFormat,
   ProductCode,
 } from "./models_3";
+
+export interface DescribePrincipalIdFormatResult {
+  /**
+   * <p>Information about the ID format settings for the ARN.</p>
+   */
+  Principals?: PrincipalIdFormat[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePrincipalIdFormatResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribePublicIpv4PoolsRequest {
   /**
@@ -11403,22 +11425,6 @@ export namespace GetEbsDefaultKmsKeyIdRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace GetEbsDefaultKmsKeyIdResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
     ...obj,
   });
 }

@@ -32,6 +32,9 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  *        <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>
  *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
  *         For more information, see <a>AllocateAddress</a>.</p>
+ *          <p>For more
+ *        information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
+ *          Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

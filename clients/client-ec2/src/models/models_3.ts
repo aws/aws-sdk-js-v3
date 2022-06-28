@@ -75,6 +75,56 @@ import {
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
 
+export interface DescribeClientVpnRoutesRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>destination-cidr</code> - The CIDR of the route destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code> | <code>add-route</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-subnet</code> - The ID of the subnet through which traffic is routed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeClientVpnRoutesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Information about a Client VPN endpoint route.</p>
  */
@@ -1678,133 +1728,133 @@ export interface EventInformation {
   /**
    * <p>The event.</p>
    *
-   *         <p>
+   *          <p>
    *             <code>error</code> events:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required
-   *                     permissions either to launch or terminate an instance.</p>
+   *                <p>
+   *                   <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required
+   *                permissions either to launch or terminate an instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations
-   *                     are valid, and several attempts to launch instances have failed. For more
-   *                     information, see the description of the event.</p>
+   *                are valid, and several attempts to launch instances have failed. For more
+   *                information, see the description of the event.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
-   *                     number of Spot Instances that you can launch.</p>
+   *                <p>
+   *                   <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
+   *                number of Spot Instances that you can launch.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
-   *                     valid. For more information, see the description of the event.</p>
+   *                <p>
+   *                   <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
+   *                valid. For more information, see the description of the event.</p>
    *             </li>
    *          </ul>
    *
-   *         <p>
+   *          <p>
    *             <code>fleetRequestChange</code> events:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
-   *                     attempting to maintain the target number of running instances.</p>
+   *                <p>
+   *                   <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
+   *                attempting to maintain the target number of running instances.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running
-   *                     instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are
-   *                     terminated.</p>
+   *                <p>
+   *                   <code>deleted</code> (EC2 Fleet) / <code>cancelled</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and has no running
+   *                instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are
+   *                terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does
-   *                     not launch additional instances. Its existing instances continue to run until
-   *                     they are interrupted or terminated. The request remains in this state until all
-   *                     instances are interrupted or terminated.</p>
+   *                <p>
+   *                   <code>deleted_running</code> (EC2 Fleet) / <code>cancelled_running</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and does
+   *                not launch additional instances. Its existing instances continue to run until
+   *                they are interrupted or terminated. The request remains in this state until all
+   *                instances are interrupted or terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and
-   *                     its instances are terminating. The request remains in this state until all
-   *                     instances are terminated.</p>
+   *                <p>
+   *                   <code>deleted_terminating</code> (EC2 Fleet) / <code>cancelled_terminating</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and
+   *                its instances are terminating. The request remains in this state until all
+   *                instances are terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was
-   *                     created with <code>TerminateInstancesWithExpiration</code> set, a subsequent
-   *                         <code>terminated</code> event indicates that the instances are
-   *                     terminated.</p>
+   *                <p>
+   *                   <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was
+   *                created with <code>TerminateInstancesWithExpiration</code> set, a subsequent
+   *                <code>terminated</code> event indicates that the instances are
+   *                terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.
-   *                     The request remains in this state until the modification is fully
-   *                     processed.</p>
+   *                <p>
+   *                   <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.
+   *                The request remains in this state until the modification is fully
+   *                processed.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
+   *                <p>
+   *                   <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
-   *                     is preparing to launch the target number of instances.</p>
+   *                <p>
+   *                   <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
+   *                is preparing to launch the target number of instances.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>
    *             </li>
    *          </ul>
    *
-   *         <p>
+   *          <p>
    *             <code>instanceChange</code> events:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>launched</code> - A new instance was launched.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>terminated</code> - An instance was terminated by the user.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>termination_notified</code> - An instance termination notification was
-   *                     sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target
-   *                     capacity of the fleet was modified down, for example, from a target capacity of
-   *                     4 to a target capacity of 3.</p>
+   *                sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target
+   *                capacity of the fleet was modified down, for example, from a target capacity of
+   *                4 to a target capacity of 3.</p>
    *             </li>
    *          </ul>
    *
-   *         <p>
+   *          <p>
    *             <code>Information</code> events:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>fleetProgressHalted</code> - The price in every launch specification is
-   *                     not valid because it is below the Spot price (all the launch specifications have
-   *                     produced <code>launchSpecUnusable</code> events). A launch specification might
-   *                     become valid if the Spot price changes.</p>
+   *                not valid because it is below the Spot price (all the launch specifications have
+   *                produced <code>launchSpecUnusable</code> events). A launch specification might
+   *                become valid if the Spot price changes.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid
-   *                     and several attempts to launch instances have failed. For more information, see
-   *                     the description of the event.</p>
+   *                and several attempts to launch instances have failed. For more information, see
+   *                the description of the event.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>launchSpecUnusable</code> - The price in a launch specification is not
-   *                     valid because it is below the Spot price.</p>
+   *                valid because it is below the Spot price.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>registerWithLoadBalancersFailed</code> - An attempt to register
-   *                     instances with load balancers failed. For more information, see the description
-   *                     of the event.</p>
+   *                instances with load balancers failed. For more information, see the description
+   *                of the event.</p>
    *             </li>
    *          </ul>
    */
@@ -1812,7 +1862,7 @@ export interface EventInformation {
 
   /**
    * <p>The ID of the instance. This information is available only for
-   *                 <code>instanceChange</code> events.</p>
+   *          <code>instanceChange</code> events.</p>
    */
   InstanceId?: string;
 }
@@ -10617,6 +10667,11 @@ export interface DescribeNetworkAclsRequest {
    *                   <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>
    * 		          </li>
    *             <li>
+   * 		            <p>
+   *                   <code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code>
+   * 		                for egress rules, or <code>false</code> for ingress rules.</p>
+   * 		          </li>
+   *             <li>
    * 		             <p>
    *                   <code>entry.rule-number</code> - The number of an entry (in other words, rule) in
    *                     the set of ACL entries.</p>
@@ -11885,6 +11940,11 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
+   *                     <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>).
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>state</code> - The state of the placement group (<code>pending</code> |
    *                         <code>available</code> | <code>deleting</code> |
    *                     <code>deleted</code>).</p>
@@ -12119,27 +12179,6 @@ export namespace PrincipalIdFormat {
    * @internal
    */
   export const filterSensitiveLog = (obj: PrincipalIdFormat): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePrincipalIdFormatResult {
-  /**
-   * <p>Information about the ID format settings for the ARN.</p>
-   */
-  Principals?: PrincipalIdFormat[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePrincipalIdFormatResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
     ...obj,
   });
 }

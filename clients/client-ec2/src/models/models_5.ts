@@ -137,6 +137,22 @@ import {
   VolumeModification,
 } from "./models_4";
 
+export interface GetEbsDefaultKmsKeyIdResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace GetEbsDefaultKmsKeyIdResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2028,12 +2044,10 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
    *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
    *             </li>
    *             <li>
-   *
    *                 <p>
    *                   <code>state</code> - The state of the subnet association. Valid values are
-   *                         <code>associated</code> |
-   *                         <code>associating</code>
-   *                     | <code>disassociated</code> | <code>disassociating</code>.</p>
+   *                         <code>associated</code> | <code>associating</code> |
+   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9680,44 +9694,6 @@ export namespace ReplaceRouteTableAssociationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceTransitGatewayRouteRequest {
-  /**
-   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>Indicates whether traffic matching this route is to be dropped.</p>
-   */
-  Blackhole?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ReplaceTransitGatewayRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
     ...obj,
   });
 }

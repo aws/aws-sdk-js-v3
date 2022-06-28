@@ -49,6 +49,44 @@ import {
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
 
+export interface ReplaceTransitGatewayRouteRequest {
+  /**
+   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>Indicates whether traffic matching this route is to be dropped.</p>
+   */
+  Blackhole?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ReplaceTransitGatewayRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface ReplaceTransitGatewayRouteResult {
   /**
    * <p>Information about the modified route.</p>

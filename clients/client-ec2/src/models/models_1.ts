@@ -379,10 +379,11 @@ export interface InstanceRequirementsRequest {
    *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *                <p>For instance types with solid state drive (SSD) storage, specify
+   *                <code>ssd</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
   LocalStorageTypes?: (LocalStorageType | string)[];
@@ -1533,10 +1534,11 @@ export interface InstanceRequirements {
    *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *                <p>For instance types with solid state drive (SSD) storage, specify
+   *                <code>ssd</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
   LocalStorageTypes?: (LocalStorageType | string)[];
@@ -4450,14 +4452,16 @@ export namespace LaunchTemplatePrivateDnsNameOptionsRequest {
 }
 
 /**
- * <p>The tags specification for the launch template.</p>
+ * <p>The tags specification for the resources that are created during instance launch.</p>
  */
 export interface LaunchTemplateTagSpecificationRequest {
   /**
-   * <p>The type of resource to tag. Currently, the resource types that support tagging on
-   *             creation are <code>instance</code>, <code>volume</code>, <code>elastic-gpu</code>,
-   *                 <code>network-interface</code>, and <code>spot-instances-request</code>. To tag a
-   *             resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * <p>The type of resource to tag.</p>
+   *         <p>The <code>Valid Values</code> are all the resource types that can be tagged. However, when creating
+   *             a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
+   *                 <code>network-interface</code> | <code>spot-instances-request</code>
+   *          </p>
+   *         <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   ResourceType?: ResourceType | string;
 
@@ -4589,9 +4593,30 @@ export interface RequestLaunchTemplateData {
   UserData?: string;
 
   /**
-   * <p>The tags to apply to the resources during launch. You can only tag instances and
-   *             volumes on launch. The specified tags are applied to all instances or volumes that are
-   *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * <p>The tags to apply to the resources that are created during instance launch.</p>
+   *         <p>You can specify tags for the following resources only:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Instances</p>
+   *             </li>
+   *             <li>
+   *                 <p>Volumes</p>
+   *             </li>
+   *             <li>
+   *                 <p>Elastic graphics</p>
+   *             </li>
+   *             <li>
+   *                 <p>Spot Instance requests</p>
+   *             </li>
+   *             <li>
+   *                 <p>Network interfaces</p>
+   *             </li>
+   *          </ul>
+   *             <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   *         <note>
+   *             <p>To tag the launch template itself, you must use the
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p>
+   *         </note>
    */
   TagSpecifications?: LaunchTemplateTagSpecificationRequest[];
 
@@ -4624,8 +4649,7 @@ export interface RequestLaunchTemplateData {
   InstanceMarketOptions?: LaunchTemplateInstanceMarketOptionsRequest;
 
   /**
-   * <p>The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances
-   *             only.</p>
+   * <p>The credit option for CPU usage of the instance. Valid only for T instances.</p>
    */
   CreditSpecification?: CreditSpecificationRequest;
 
@@ -4739,7 +4763,11 @@ export interface CreateLaunchTemplateRequest {
   LaunchTemplateData: RequestLaunchTemplateData | undefined;
 
   /**
-   * <p>The tags to apply to the launch template during creation.</p>
+   * <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p>
+   *         <note>
+   *             <p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p>
+   *         </note>
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -5707,11 +5735,11 @@ export namespace LaunchTemplatePrivateDnsNameOptions {
 }
 
 /**
- * <p>The tag specification for the launch template.</p>
+ * <p>The tags specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecification {
   /**
-   * <p>The type of resource.</p>
+   * <p>The type of resource to tag.</p>
    */
   ResourceType?: ResourceType | string;
 
@@ -5807,7 +5835,7 @@ export interface ResponseLaunchTemplateData {
   UserData?: string;
 
   /**
-   * <p>The tags.</p>
+   * <p>The tags that are applied to the resources that are created during instance launch.</p>
    */
   TagSpecifications?: LaunchTemplateTagSpecification[];
 
@@ -7804,6 +7832,11 @@ export namespace CreateNetworkInterfacePermissionResult {
   });
 }
 
+export enum SpreadLevel {
+  host = "host",
+  rack = "rack",
+}
+
 export type PlacementStrategy = "cluster" | "partition" | "spread";
 
 export interface CreatePlacementGroupRequest {
@@ -7836,6 +7869,19 @@ export interface CreatePlacementGroupRequest {
    * <p>The tags to apply to the new placement group.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Determines how placement groups spread instances. </p>
+   *         <ul>
+   *             <li>
+   *                <p>Host – You can use <code>host</code> only with Outpost placement groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rack – No usage restrictions.</p>
+   *             </li>
+   *          </ul>
+   */
+  SpreadLevel?: SpreadLevel | string;
 }
 
 export namespace CreatePlacementGroupRequest {
@@ -7888,6 +7934,12 @@ export interface PlacementGroup {
    * <p>The Amazon Resource Name (ARN) of the placement group.</p>
    */
   GroupArn?: string;
+
+  /**
+   * <p> The spread level for the placement group. <i>Only</i> Outpost placement
+   *             groups can be spread across hosts. </p>
+   */
+  SpreadLevel?: SpreadLevel | string;
 }
 
 export namespace PlacementGroup {
@@ -10343,22 +10395,3 @@ export namespace CreateTransitGatewayResult {
 }
 
 export type ProtocolValue = "gre";
-
-/**
- * <p>The options for a Connect attachment.</p>
- */
-export interface CreateTransitGatewayConnectRequestOptions {
-  /**
-   * <p>The tunnel protocol.</p>
-   */
-  Protocol: ProtocolValue | string | undefined;
-}
-
-export namespace CreateTransitGatewayConnectRequestOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
-    ...obj,
-  });
-}
