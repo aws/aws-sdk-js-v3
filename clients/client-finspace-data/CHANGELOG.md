@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.1...v3.119.0) (2022-06-28)
+
+
+### Features
+
+* **client-finspace-data:** Release new API GetExternalDataViewAccessDetails ([af6b52c](https://github.com/aws/aws-sdk-js-v3/commit/af6b52c6eb2e03187a4765d2ef731db258980472))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace-data

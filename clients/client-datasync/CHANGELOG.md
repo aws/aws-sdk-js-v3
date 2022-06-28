@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.1...v3.119.0) (2022-06-28)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports Amazon FSx for NetApp ONTAP locations. ([87a3aac](https://github.com/aws/aws-sdk-js-v3/commit/87a3aac3af7566b6e0fe02f15a77521813534a74))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

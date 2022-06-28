@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.1...v3.119.0) (2022-06-28)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports Amazon FSx for NetApp ONTAP locations. ([87a3aac](https://github.com/aws/aws-sdk-js-v3/commit/87a3aac3af7566b6e0fe02f15a77521813534a74))
+* **client-ec2:** This release adds a new spread placement group to EC2 Placement Groups: host level spread, which spread instances between physical hosts, available to Outpost customers only. CreatePlacementGroup and DescribePlacementGroups APIs were updated with a new parameter: SpreadLevel to support this feature. ([89baffe](https://github.com/aws/aws-sdk-js-v3/commit/89baffe64c90d3cbc83222d3ce26e6f2fbe70ccb))
+* **client-finspace-data:** Release new API GetExternalDataViewAccessDetails ([af6b52c](https://github.com/aws/aws-sdk-js-v3/commit/af6b52c6eb2e03187a4765d2ef731db258980472))
+* **client-polly:** Add 4 new neural voices - Pedro (es-US), Liam (fr-CA), Daniel (de-DE) and Arthur (en-GB). ([6fbb85a](https://github.com/aws/aws-sdk-js-v3/commit/6fbb85a5eab8425275ff1fe467cab747a35607ef))
+* **eventstream-codec:** add EventStreamCodec ([#3747](https://github.com/aws/aws-sdk-js-v3/issues/3747)) ([9a71e60](https://github.com/aws/aws-sdk-js-v3/commit/9a71e608f93c792d1a591c2a30506955c97f61da))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 
