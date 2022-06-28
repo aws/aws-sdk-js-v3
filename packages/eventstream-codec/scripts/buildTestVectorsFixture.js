@@ -2,18 +2,7 @@ const { Buffer } = require("buffer");
 const { readdirSync, readFileSync, writeFileSync } = require("fs");
 const { dirname, join } = require("path");
 
-const HEADER_TYPES = [
-  "boolean",
-  "boolean",
-  "byte",
-  "short",
-  "integer",
-  "long",
-  "binary",
-  "string",
-  "timestamp",
-  "uuid",
-];
+const HEADER_TYPES = ["boolean", "byte", "short", "integer", "long", "binary", "string", "timestamp", "uuid"];
 
 const vectorsDir = join(dirname(__dirname), "test_vectors");
 let vectors = "\n";
