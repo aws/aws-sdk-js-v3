@@ -25,8 +25,7 @@ export interface CreateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for a self-managed object storage bucket. For more information
- *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+ * <p>Creates an endpoint for an object storage system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

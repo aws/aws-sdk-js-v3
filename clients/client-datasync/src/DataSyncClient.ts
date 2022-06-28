@@ -64,6 +64,10 @@ import {
   CreateLocationFsxLustreCommandOutput,
 } from "./commands/CreateLocationFsxLustreCommand";
 import {
+  CreateLocationFsxOntapCommandInput,
+  CreateLocationFsxOntapCommandOutput,
+} from "./commands/CreateLocationFsxOntapCommand";
+import {
   CreateLocationFsxOpenZfsCommandInput,
   CreateLocationFsxOpenZfsCommandOutput,
 } from "./commands/CreateLocationFsxOpenZfsCommand";
@@ -92,6 +96,10 @@ import {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "./commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOntapCommandInput,
+  DescribeLocationFsxOntapCommandOutput,
+} from "./commands/DescribeLocationFsxOntapCommand";
 import {
   DescribeLocationFsxOpenZfsCommandInput,
   DescribeLocationFsxOpenZfsCommandOutput,
@@ -153,6 +161,7 @@ export type ServiceInputTypes =
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
   | CreateLocationFsxLustreCommandInput
+  | CreateLocationFsxOntapCommandInput
   | CreateLocationFsxOpenZfsCommandInput
   | CreateLocationFsxWindowsCommandInput
   | CreateLocationHdfsCommandInput
@@ -167,6 +176,7 @@ export type ServiceInputTypes =
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
   | DescribeLocationFsxLustreCommandInput
+  | DescribeLocationFsxOntapCommandInput
   | DescribeLocationFsxOpenZfsCommandInput
   | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationHdfsCommandInput
@@ -197,6 +207,7 @@ export type ServiceOutputTypes =
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
   | CreateLocationFsxLustreCommandOutput
+  | CreateLocationFsxOntapCommandOutput
   | CreateLocationFsxOpenZfsCommandOutput
   | CreateLocationFsxWindowsCommandOutput
   | CreateLocationHdfsCommandOutput
@@ -211,6 +222,7 @@ export type ServiceOutputTypes =
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
   | DescribeLocationFsxLustreCommandOutput
+  | DescribeLocationFsxOntapCommandOutput
   | DescribeLocationFsxOpenZfsCommandOutput
   | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationHdfsCommandOutput

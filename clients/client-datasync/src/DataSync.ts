@@ -18,6 +18,11 @@ import {
   CreateLocationFsxLustreCommandOutput,
 } from "./commands/CreateLocationFsxLustreCommand";
 import {
+  CreateLocationFsxOntapCommand,
+  CreateLocationFsxOntapCommandInput,
+  CreateLocationFsxOntapCommandOutput,
+} from "./commands/CreateLocationFsxOntapCommand";
+import {
   CreateLocationFsxOpenZfsCommand,
   CreateLocationFsxOpenZfsCommandInput,
   CreateLocationFsxOpenZfsCommandOutput,
@@ -75,6 +80,11 @@ import {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "./commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOntapCommand,
+  DescribeLocationFsxOntapCommandInput,
+  DescribeLocationFsxOntapCommandOutput,
+} from "./commands/DescribeLocationFsxOntapCommand";
 import {
   DescribeLocationFsxOpenZfsCommand,
   DescribeLocationFsxOpenZfsCommandInput,
@@ -332,6 +342,39 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
+   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
+   */
+  public createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxOntapCommandOutput>;
+  public createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
+  ): void;
+  public createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
+  ): void;
+  public createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxOntapCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
+  ): Promise<CreateLocationFsxOntapCommandOutput> | void {
+    const command = new CreateLocationFsxOntapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system.</p>
    */
   public createLocationFsxOpenZfs(
@@ -461,8 +504,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for a self-managed object storage bucket. For more information
-   *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+   * <p>Creates an endpoint for an object storage system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
    */
   public createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
@@ -795,6 +837,38 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
+   */
+  public describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxOntapCommandOutput>;
+  public describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
+  ): void;
+  public describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
+  ): void;
+  public describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxOntapCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
+  ): Promise<DescribeLocationFsxOntapCommandOutput> | void {
+    const command = new DescribeLocationFsxOntapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns metadata about an Amazon FSx for OpenZFS
    *       location, such as information about its path.</p>
    */
@@ -926,8 +1000,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata about a self-managed object storage server location. For more information
-   *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
+   * <p>Returns metadata about your DataSync location for an object storage system.</p>
    */
   public describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,

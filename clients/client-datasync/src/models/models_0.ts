@@ -321,7 +321,8 @@ export interface CreateLocationEfsRequest {
   FileSystemAccessRoleArn?: string;
 
   /**
-   * <p>Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system.</p>
+   * <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it copies data to
+   *       or from the Amazon EFS file system.</p>
    *          <p>If you specify an access point using <code>AccessPointArn</code> or an IAM
    *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
    *         <code>TLS1_2</code>.</p>
@@ -414,41 +415,38 @@ export enum NfsVersion {
 }
 
 /**
- * <p>Represents the mount options that are available for DataSync to access an NFS
- *       location.</p>
+ * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
  */
 export interface NfsMountOptions {
   /**
-   * <p>The specific NFS version that you want DataSync to use to mount your NFS share. If the
-   *       server refuses to use the version specified, the sync will fail. If you don't specify a
-   *       version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync automatically
-   *       selects a version based on negotiation with the NFS server.</p>
+   * <p>Specifies the NFS version that you want DataSync to use when mounting your NFS share. If the server refuses to use the version specified, the task fails.</p>
    *
-   *          <p>You can specify the following NFS versions:</p>
+   *          <p>You can specify the following options:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc1813">NFSv3</a>
-   *                   </b> - stateless protocol version that allows for asynchronous
+   *                   <code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NFS3</code>: Stateless protocol version that allows for asynchronous
    *           writes on the server.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a>
-   *                   </b> - stateful, firewall-friendly protocol version that supports
+   *                   <code>NFSv4_0</code>: Stateful, firewall-friendly protocol version that supports
    *           delegations and pseudo file systems.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a>
-   *                   </b> - stateful protocol version that supports sessions,
-   *           directory delegations, and parallel data processing. Version 4.1 also includes all
+   *                   <code>NFSv4_1</code>: Stateful protocol version that supports sessions,
+   *           directory delegations, and parallel data processing. NFS version 4.1 also includes all
    *           features available in version 4.0.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</p>
+   *          </note>
    */
   Version?: NfsVersion | string;
 }
@@ -463,12 +461,11 @@ export namespace NfsMountOptions {
 }
 
 /**
- * <p>Represents the Network File System (NFS) protocol that DataSync uses to access your Amazon FSx for OpenZFS file system.</p>
+ * <p>Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP file system.</p>
  */
 export interface FsxProtocolNfs {
   /**
-   * <p>Represents the mount options that are available for DataSync to access an NFS
-   *       location.</p>
+   * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
    */
   MountOptions?: NfsMountOptions;
 }
@@ -482,14 +479,80 @@ export namespace FsxProtocolNfs {
   });
 }
 
+export enum SmbVersion {
+  AUTOMATIC = "AUTOMATIC",
+  SMB2 = "SMB2",
+  SMB3 = "SMB3",
+}
+
 /**
- * <p>Represents the protocol that DataSync uses to access your Amazon FSx for OpenZFS file system.</p>
+ * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+ */
+export interface SmbMountOptions {
+  /**
+   * <p>Specifies the SMB version that you want DataSync to use when mounting your SMB share. If you
+   *       don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses a version based on negotiation with the SMB server.</p>
+   */
+  Version?: SmbVersion | string;
+}
+
+export namespace SmbMountOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SmbMountOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Accessing FSx for ONTAP file systems</a>.</p>
+ */
+export interface FsxProtocolSmb {
+  /**
+   * <p>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory that your storage virtual machine (SVM) belongs to.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+   */
+  MountOptions?: SmbMountOptions;
+
+  /**
+   * <p>Specifies the password of a user who has permission to access your SVM.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>Specifies a user who has permission to access your SVM.</p>
+   */
+  User: string | undefined;
+}
+
+export namespace FsxProtocolSmb {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FsxProtocolSmb): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
  */
 export interface FsxProtocol {
   /**
-   * <p>Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.</p>
+   * <p>Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for OpenZFS file system or FSx for ONTAP file system's storage virtual machine (SVM).</p>
    */
   NFS?: FsxProtocolNfs;
+
+  /**
+   * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.</p>
+   */
+  SMB?: FsxProtocolSmb;
 }
 
 export namespace FsxProtocol {
@@ -497,6 +560,79 @@ export namespace FsxProtocol {
    * @internal
    */
   export const filterSensitiveLog = (obj: FsxProtocol): any => ({
+    ...obj,
+    ...(obj.SMB && { SMB: FsxProtocolSmb.filterSensitiveLog(obj.SMB) }),
+  });
+}
+
+export interface CreateLocationFsxOntapRequest {
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
+   */
+  Protocol: FsxProtocol | undefined;
+
+  /**
+   * <p>Specifies the security groups that DataSync can use to access your FSx for ONTAP file system. You must configure the security groups to allow outbound
+   *       traffic on the following ports (depending on the protocol that you're using):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Network File System (NFS)</b>: TCP port 2049</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Server Message Block (SMB)</b>: TCP port 445</p>
+   *             </li>
+   *          </ul>
+   *          <p>Your file system's security groups must also allow inbound traffic on the same port.</p>
+   */
+  SecurityGroupArns: string[] | undefined;
+
+  /**
+   * <p>Specifies the ARN of the storage virtual machine (SVM) on your file system where you're
+   *       copying data to or from.</p>
+   */
+  StorageVirtualMachineArn: string | undefined;
+
+  /**
+   * <p>Specifies the junction path (also known as a mount point) in the SVM volume where you're
+   *       copying data to or from (for example, <code>/vol1</code>).</p>
+   *          <note>
+   *             <p>Don't specify a junction path in the SVM's root volume. For more
+   *         information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP
+   *           storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   *          </note>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
+   */
+  Tags?: TagListEntry[];
+}
+
+export namespace CreateLocationFsxOntapRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxOntapRequest): any => ({
+    ...obj,
+    ...(obj.Protocol && { Protocol: FsxProtocol.filterSensitiveLog(obj.Protocol) }),
+  });
+}
+
+export interface CreateLocationFsxOntapResponse {
+  /**
+   * <p>Specifies the ARN of the FSx for ONTAP file system location that you create.</p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationFsxOntapResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxOntapResponse): any => ({
     ...obj,
   });
 }
@@ -538,6 +674,7 @@ export namespace CreateLocationFsxOpenZfsRequest {
    */
   export const filterSensitiveLog = (obj: CreateLocationFsxOpenZfsRequest): any => ({
     ...obj,
+    ...(obj.Protocol && { Protocol: FsxProtocol.filterSensitiveLog(obj.Protocol) }),
   });
 }
 
@@ -951,62 +1088,48 @@ export enum ObjectStorageServerProtocol {
  */
 export interface CreateLocationObjectStorageRequest {
   /**
-   * <p>The name of the self-managed object storage server. This value is the IP address or Domain
-   *       Name Service (DNS) name of the object storage server. An agent uses this hostname to mount the
-   *       object storage server in a network. </p>
+   * <p>Specifies the domain name or IP address of the object storage server. A DataSync agent uses this hostname to mount the
+   *       object storage server in a network.</p>
    */
   ServerHostname: string | undefined;
 
   /**
-   * <p>The port that your self-managed object storage server accepts inbound network traffic on.
-   *       The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can
-   *       specify a custom port if your self-managed object storage server requires one.</p>
+   * <p>Specifies the port that your object storage server accepts inbound network traffic on (for example, port 443).</p>
    */
   ServerPort?: number;
 
   /**
-   * <p>The protocol that the object storage server uses to communicate.
-   *       Valid values are HTTP or HTTPS.</p>
+   * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
   ServerProtocol?: ObjectStorageServerProtocol | string;
 
   /**
-   * <p>The subdirectory in the self-managed object storage server that is used
-   *       to read data from.</p>
+   * <p>Specifies the object prefix for your object storage server. If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix. </p>
    */
   Subdirectory?: string;
 
   /**
-   * <p>The bucket on the self-managed object storage server that is used
-   *       to read data from.</p>
+   * <p>Specifies the name of the object storage bucket involved in the transfer.</p>
    */
   BucketName: string | undefined;
 
   /**
-   * <p>Optional. The access key is used if credentials are required to access the self-managed
-   *       object storage server. If your object storage requires a user name and password to
-   *       authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name
-   *       and password, respectively.</p>
+   * <p>Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.</p>
    */
   AccessKey?: string;
 
   /**
-   * <p>Optional. The secret key is used if credentials are required to access the self-managed
-   *       object storage server. If your object storage requires a user name and password to
-   *       authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name
-   *       and password, respectively.</p>
+   * <p>Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.</p>
    */
   SecretKey?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agents associated with the
-   *       self-managed object storage server location.</p>
+   * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.</p>
    */
   AgentArns: string[] | undefined;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The
-   *       value can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>Specifies the key-value pair that represents a tag that you want to add to the resource. Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
 }
@@ -1026,8 +1149,7 @@ export namespace CreateLocationObjectStorageRequest {
  */
 export interface CreateLocationObjectStorageResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agents associated with the
-   *       self-managed object storage server location.</p>
+   * <p>Specifies the ARN of the object storage system location that you create.</p>
    */
   LocationArn?: string;
 }
@@ -1153,34 +1275,6 @@ export namespace CreateLocationS3Response {
   });
 }
 
-export enum SmbVersion {
-  AUTOMATIC = "AUTOMATIC",
-  SMB2 = "SMB2",
-  SMB3 = "SMB3",
-}
-
-/**
- * <p>Represents the mount options that are available for DataSync to access an SMB
- *       location.</p>
- */
-export interface SmbMountOptions {
-  /**
-   * <p>The specific SMB version that you want DataSync to use to mount your SMB share. If you
-   *       don't specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync
-   *       automatically selects a version based on negotiation with the SMB server.</p>
-   */
-  Version?: SmbVersion | string;
-}
-
-export namespace SmbMountOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmbMountOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CreateLocationSmbRequest</p>
  */
@@ -1221,7 +1315,7 @@ export interface CreateLocationSmbRequest {
    *       SMB share.</p>
    *
    *          <p>For information about choosing a user name that ensures sufficient permissions to files,
-   *       folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
+   *       folders, and metadata, see the <a href="create-smb-location.html#SMBuser">User setting</a> for SMB locations.</p>
    */
   User: string | undefined;
 
@@ -1409,17 +1503,20 @@ export interface Options {
    *       For more information, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure task settings</a>.
    *     </p>
-   *          <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-   *          <p>ONLY_FILES_TRANSFERRED (recommended): Perform verification only on files that were transferred.
-   *     </p>
+   *          <p>Default value: <code>POINT_IN_TIME_CONSISTENT</code>
+   *          </p>
+   *          <p>
+   *             <code>ONLY_FILES_TRANSFERRED</code> (recommended): Perform verification only on files
+   *       that were transferred. </p>
    *
-   *          <p>POINT_IN_TIME_CONSISTENT: Scan the entire source and entire destination
-   *       at the end of the transfer
-   *       to verify that source and destination are fully
-   *       synchronized. This option isn't supported when transferring to S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes.</p>
-   *          <p>NONE: No additional verification is done at the end of the
-   *       transfer, but all data transmissions are integrity-checked with
-   *       checksum verification during the transfer.</p>
+   *          <p>
+   *             <code>POINT_IN_TIME_CONSISTENT</code>: Scan the entire source and entire destination at
+   *       the end of the transfer to verify that source and destination are fully synchronized. This
+   *       option isn't supported when transferring to S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes.</p>
+   *          <p>
+   *             <code>NONE</code>: No additional verification is done at the end of the transfer, but
+   *       all data transmissions are integrity-checked with checksum verification during the
+   *       transfer.</p>
    */
   VerifyMode?: VerifyMode | string;
 
@@ -1437,55 +1534,66 @@ export interface Options {
 
   /**
    * <p>A file metadata value that shows the last time a file was accessed (that is, when the
-   *       file was read or written to). If you set <code>Atime</code> to BEST_EFFORT, DataSync
-   *       attempts to preserve the original <code>Atime</code> attribute on all source files (that is,
-   *       the version before the PREPARING phase). However, <code>Atime</code>'s behavior is not
-   *       fully standard across platforms, so DataSync can only do this on a best-effort basis. </p>
-   *          <p>Default value: BEST_EFFORT.</p>
-   *          <p>BEST_EFFORT: Attempt to preserve the per-file <code>Atime</code> value
+   *       file was read or written to). If you set <code>Atime</code> to <code>BEST_EFFORT</code>,
+   *         DataSync attempts to preserve the original <code>Atime</code> attribute on all
+   *       source files (that is, the version before the <code>PREPARING</code> phase). However,
+   *         <code>Atime</code>'s behavior is not fully standard across platforms, so DataSync can only do this on a best-effort basis. </p>
+   *          <p>Default value: <code>BEST_EFFORT</code>
+   *          </p>
+   *          <p>
+   *             <code>BEST_EFFORT</code>: Attempt to preserve the per-file <code>Atime</code> value
    *       (recommended).</p>
-   *          <p>NONE: Ignore <code>Atime</code>.</p>
+   *          <p>
+   *             <code>NONE</code>: Ignore <code>Atime</code>.</p>
    *          <note>
-   *             <p>If <code>Atime</code> is set to BEST_EFFORT, <code>Mtime</code> must be set to PRESERVE. </p>
-   *             <p>If <code>Atime</code> is set to NONE, <code>Mtime</code> must also be NONE. </p>
+   *             <p>If <code>Atime</code> is set to <code>BEST_EFFORT</code>, <code>Mtime</code> must be set
+   *         to <code>PRESERVE</code>. </p>
+   *             <p>If <code>Atime</code> is set to <code>NONE</code>, <code>Mtime</code> must also be
+   *           <code>NONE</code>. </p>
    *          </note>
    */
   Atime?: Atime | string;
 
   /**
    * <p>A value that indicates the last time that a file was modified (that is, a file was
-   *       written to) before the PREPARING phase. This option is required for cases when you need to run
-   *       the same task more than one time. </p>
+   *       written to) before the <code>PREPARING</code> phase. This option is required for cases when
+   *       you need to run the same task more than one time. </p>
    *          <p>Default Value: <code>PRESERVE</code>
    *          </p>
-   *          <p>PRESERVE: Preserve original <code>Mtime</code> (recommended)</p>
-   *          <p> NONE: Ignore <code>Mtime</code>. </p>
+   *          <p>
+   *             <code>PRESERVE</code>: Preserve original <code>Mtime</code> (recommended)</p>
+   *          <p>
+   *             <code>NONE</code>: Ignore <code>Mtime</code>. </p>
    *          <note>
-   *             <p>If <code>Mtime</code> is set to PRESERVE, <code>Atime</code> must be set to
-   *         BEST_EFFORT.</p>
-   *             <p>If <code>Mtime</code> is set to NONE, <code>Atime</code> must also be set to NONE.
-   *       </p>
+   *             <p>If <code>Mtime</code> is set to <code>PRESERVE</code>, <code>Atime</code> must be set to
+   *           <code>BEST_EFFORT</code>.</p>
+   *             <p>If <code>Mtime</code> is set to <code>NONE</code>, <code>Atime</code> must also be set
+   *         to <code>NONE</code>. </p>
    *          </note>
    */
   Mtime?: Mtime | string;
 
   /**
-   * <p>The POSIX user ID (UID) of the file's owner. This option should only be set for NFS,
-   *       EFS, and S3 locations. To learn more about what metadata is copied by DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>.</p>
-   *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
-   *          <p>INT_VALUE: Preserve the integer value of UID and group ID (GID)
+   * <p>The POSIX user ID (UID) of the file's owner.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>Default value: <code>INT_VALUE</code>. This preserves the integer value of the ID.</p>
+   *          <p>
+   *             <code>INT_VALUE</code>: Preserve the integer value of UID and group ID (GID)
    *       (recommended).</p>
-   *          <p>NONE: Ignore UID and GID. </p>
+   *          <p>
+   *             <code>NONE</code>: Ignore UID and GID. </p>
    */
   Uid?: Uid | string;
 
   /**
-   * <p>The POSIX group ID (GID) of the file's owners. This option should only be set for
-   *       NFS, EFS, and S3 locations. For more information about what metadata is copied by DataSync,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p>
-   *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
-   *          <p>INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).</p>
-   *          <p>NONE: Ignore UID and GID. </p>
+   * <p>The POSIX group ID (GID) of the file's owners.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>Default value: <code>INT_VALUE</code>. This preserves the integer value of the ID.</p>
+   *          <p>
+   *             <code>INT_VALUE</code>: Preserve the integer value of user ID (UID) and GID
+   *       (recommended).</p>
+   *          <p>
+   *             <code>NONE</code>: Ignore UID and GID.</p>
    */
   Gid?: Gid | string;
 
@@ -1495,9 +1603,13 @@ export interface Options {
    *       If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed
    *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>DataSync User
    *         Guide</i>.</p>
-   *          <p>Default value: PRESERVE.</p>
-   *          <p>PRESERVE: Ignore such destination files (recommended). </p>
-   *          <p>REMOVE: Delete destination files that aren’t present in the source.</p>
+   *          <p>Default value: <code>PRESERVE</code>
+   *          </p>
+   *          <p>
+   *             <code>PRESERVE</code>: Ignore such destination files (recommended). </p>
+   *          <p>
+   *             <code>REMOVE</code>: Delete destination files that aren’t present in the
+   *       source.</p>
    */
   PreserveDeletedFiles?: PreserveDeletedFiles | string;
 
@@ -1510,21 +1622,26 @@ export interface Options {
    *             <p>DataSync can't sync the actual contents of such devices, because they are
    *         nonterminal and don't return an end-of-file (EOF) marker.</p>
    *          </note>
-   *          <p>Default value: NONE.</p>
-   *          <p>NONE: Ignore special devices (recommended). </p>
-   *          <p>PRESERVE: Preserve character and block device metadata. This option isn't currently
-   *       supported for Amazon EFS. </p>
+   *          <p>Default value: <code>NONE</code>
+   *          </p>
+   *          <p>
+   *             <code>NONE</code>: Ignore special devices (recommended). </p>
+   *          <p>
+   *             <code>PRESERVE</code>: Preserve character and block device metadata. This option isn't
+   *       currently supported for Amazon EFS. </p>
    */
   PreserveDevices?: PreserveDevices | string;
 
   /**
    * <p>A value that determines which users or groups can access a file for a specific purpose
-   *       such as reading, writing, or execution of the file. This option should only be set for NFS,
-   *       EFS, and S3 locations. For more information about what metadata is copied by DataSync, see
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p>
-   *          <p>Default value: PRESERVE.</p>
-   *          <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p>
-   *          <p>NONE: Ignore permissions. </p>
+   *       such as reading, writing, or execution of the file.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
+   *          <p>Default value: <code>PRESERVE</code>
+   *          </p>
+   *          <p>
+   *             <code>PRESERVE</code>: Preserve POSIX-style permissions (recommended).</p>
+   *          <p>
+   *             <code>NONE</code>: Ignore permissions. </p>
    *          <note>
    *             <p>DataSync can preserve extant permissions of a source location.</p>
    *          </note>
@@ -1561,10 +1678,12 @@ export interface Options {
    * <p>A value that determines whether DataSync transfers only the data and metadata that differ between the source
    *       and the destination location, or whether DataSync transfers all the content from the source, without comparing to
    *       the destination location. </p>
-   *          <p>CHANGED: DataSync copies only data or metadata that is new or different content from the source location to the
-   *       destination location.</p>
-   *          <p>ALL: DataSync copies all source location content to the destination, without comparing to existing content on
-   *       the destination.</p>
+   *          <p>
+   *             <code>CHANGED</code>: DataSync copies only data or metadata that is new or
+   *       different content from the source location to the destination location.</p>
+   *          <p>
+   *             <code>ALL</code>: DataSync copies all source location content to the
+   *       destination, without comparing to existing content on the destination.</p>
    */
   TransferMode?: TransferMode | string;
 
@@ -1578,10 +1697,12 @@ export interface Options {
    *       DataSync handles metadata, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">How DataSync Handles Metadata and Special Files</a>.
    *     </p>
-   *          <p>Default value: OWNER_DACL.</p>
+   *          <p>Default value: <code>OWNER_DACL</code>
+   *          </p>
    *
    *          <p>
-   *             <b>OWNER_DACL</b>: For each copied object, DataSync copies the following metadata:</p>
+   *             <code>OWNER_DACL</code>: For each copied object, DataSync copies the following
+   *       metadata:</p>
    *          <ul>
    *             <li>
    *                <p>Object owner.</p>
@@ -1595,7 +1716,8 @@ export interface Options {
    *       (SACLs), which are used by administrators to log attempts to access a secured object.</p>
    *
    *          <p>
-   *             <b>OWNER_DACL_SACL</b>: For each copied object, DataSync copies the following metadata:</p>
+   *             <code>OWNER_DACL_SACL</code>: For each copied object, DataSync copies the following
+   *       metadata:</p>
    *          <ul>
    *             <li>
    *                <p>Object owner.</p>
@@ -1614,10 +1736,9 @@ export interface Options {
    *       sufficient permissions to files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
    *
    *          <p>
-   *             <b>NONE</b>: None of the SMB security descriptor components
-   *       are copied. Destination objects are owned by the user that was provided for accessing the
-   *       destination location. DACLs and SACLs are set based on the destination server’s configuration.
-   *     </p>
+   *             <code>NONE</code>: None of the SMB security descriptor components are copied. Destination
+   *       objects are owned by the user that was provided for accessing the destination location. DACLs
+   *       and SACLs are set based on the destination server’s configuration. </p>
    */
   SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | string;
 
@@ -2018,7 +2139,8 @@ export interface DescribeLocationEfsResponse {
   FileSystemAccessRoleArn?: string;
 
   /**
-   * <p>Whether DataSync uses TLS encryption when transferring data to or from your Amazon EFS file system.</p>
+   * <p>Describes whether DataSync uses Transport Layer Security (TLS) encryption when
+   *       copying data to or from the Amazon EFS file system.</p>
    */
   InTransitEncryption?: EfsInTransitEncryption | string;
 }
@@ -2079,6 +2201,70 @@ export namespace DescribeLocationFsxLustreResponse {
   });
 }
 
+export interface DescribeLocationFsxOntapRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP file system location that you want information about.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationFsxOntapRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxOntapRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocationFsxOntapResponse {
+  /**
+   * <p>The time that the location was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The ARN of the FSx for ONTAP file system location.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The uniform resource identifier (URI) of the FSx for ONTAP file system
+   *       location.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
+   */
+  Protocol?: FsxProtocol;
+
+  /**
+   * <p>The security groups that DataSync uses to access your FSx for ONTAP file system.</p>
+   */
+  SecurityGroupArns?: string[];
+
+  /**
+   * <p>The ARN of the storage virtual machine (SVM) on your FSx for ONTAP file system where you're copying data to or from.</p>
+   */
+  StorageVirtualMachineArn?: string;
+
+  /**
+   * <p>The ARN of the FSx for ONTAP file system.</p>
+   */
+  FsxFilesystemArn?: string;
+}
+
+export namespace DescribeLocationFsxOntapResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxOntapResponse): any => ({
+    ...obj,
+    ...(obj.Protocol && { Protocol: FsxProtocol.filterSensitiveLog(obj.Protocol) }),
+  });
+}
+
 export interface DescribeLocationFsxOpenZfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</p>
@@ -2133,6 +2319,7 @@ export namespace DescribeLocationFsxOpenZfsResponse {
    */
   export const filterSensitiveLog = (obj: DescribeLocationFsxOpenZfsResponse): any => ({
     ...obj,
+    ...(obj.Protocol && { Protocol: FsxProtocol.filterSensitiveLog(obj.Protocol) }),
   });
 }
 
@@ -2353,7 +2540,7 @@ export namespace DescribeLocationNfsResponse {
  */
 export interface DescribeLocationObjectStorageRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location that was described.</p>
+   * <p>The Amazon Resource Name (ARN) of the object storage system location that you want information about.</p>
    */
   LocationArn: string | undefined;
 }
@@ -2372,43 +2559,37 @@ export namespace DescribeLocationObjectStorageRequest {
  */
 export interface DescribeLocationObjectStorageResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location to describe.</p>
+   * <p>The ARN of the object storage system location.</p>
    */
   LocationArn?: string;
 
   /**
-   * <p>The URL of the source self-managed object storage server location that was described.</p>
+   * <p>The URL of the object storage system location.</p>
    */
   LocationUri?: string;
 
   /**
-   * <p>Optional. The access key is used if credentials are required to access the self-managed
-   *       object storage server. If your object storage requires a user name and password to
-   *       authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name
-   *       and password, respectively.</p>
+   * <p>The access key (for example, a user name) required to authenticate with the object storage server.</p>
    */
   AccessKey?: string;
 
   /**
-   * <p>The port that your self-managed object storage server accepts inbound network traffic on.
-   *       The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS).</p>
+   * <p>The port that your object storage server accepts inbound network traffic on (for example, port 443).</p>
    */
   ServerPort?: number;
 
   /**
-   * <p>The protocol that the object storage server uses to communicate.
-   *       Valid values are HTTP or HTTPS.</p>
+   * <p>The protocol that your object storage server uses to communicate.</p>
    */
   ServerProtocol?: ObjectStorageServerProtocol | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agents associated with the
-   *       self-managed object storage server location.</p>
+   * <p>The ARNs of the DataSync agents that can securely connect with your location.</p>
    */
   AgentArns?: string[];
 
   /**
-   * <p>The time that the self-managed object storage server agent was created.</p>
+   * <p>The time that the location was created.</p>
    */
   CreationTime?: Date;
 }
@@ -3709,8 +3890,7 @@ export interface UpdateLocationNfsRequest {
   OnPremConfig?: OnPremConfig;
 
   /**
-   * <p>Represents the mount options that are available for DataSync to access an NFS
-   *       location.</p>
+   * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
    */
   MountOptions?: NfsMountOptions;
 }
@@ -3863,8 +4043,7 @@ export interface UpdateLocationSmbRequest {
   AgentArns?: string[];
 
   /**
-   * <p>Represents the mount options that are available for DataSync to access an SMB
-   *       location.</p>
+   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
    */
   MountOptions?: SmbMountOptions;
 }

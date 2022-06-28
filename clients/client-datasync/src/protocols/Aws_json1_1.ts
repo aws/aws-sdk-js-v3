@@ -27,6 +27,10 @@ import {
   CreateLocationFsxLustreCommandOutput,
 } from "../commands/CreateLocationFsxLustreCommand";
 import {
+  CreateLocationFsxOntapCommandInput,
+  CreateLocationFsxOntapCommandOutput,
+} from "../commands/CreateLocationFsxOntapCommand";
+import {
   CreateLocationFsxOpenZfsCommandInput,
   CreateLocationFsxOpenZfsCommandOutput,
 } from "../commands/CreateLocationFsxOpenZfsCommand";
@@ -55,6 +59,10 @@ import {
   DescribeLocationFsxLustreCommandInput,
   DescribeLocationFsxLustreCommandOutput,
 } from "../commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOntapCommandInput,
+  DescribeLocationFsxOntapCommandOutput,
+} from "../commands/DescribeLocationFsxOntapCommand";
 import {
   DescribeLocationFsxOpenZfsCommandInput,
   DescribeLocationFsxOpenZfsCommandOutput,
@@ -120,6 +128,8 @@ import {
   CreateLocationEfsResponse,
   CreateLocationFsxLustreRequest,
   CreateLocationFsxLustreResponse,
+  CreateLocationFsxOntapRequest,
+  CreateLocationFsxOntapResponse,
   CreateLocationFsxOpenZfsRequest,
   CreateLocationFsxOpenZfsResponse,
   CreateLocationFsxWindowsRequest,
@@ -148,6 +158,8 @@ import {
   DescribeLocationEfsResponse,
   DescribeLocationFsxLustreRequest,
   DescribeLocationFsxLustreResponse,
+  DescribeLocationFsxOntapRequest,
+  DescribeLocationFsxOntapResponse,
   DescribeLocationFsxOpenZfsRequest,
   DescribeLocationFsxOpenZfsResponse,
   DescribeLocationFsxWindowsRequest,
@@ -170,6 +182,7 @@ import {
   FilterRule,
   FsxProtocol,
   FsxProtocolNfs,
+  FsxProtocolSmb,
   HdfsNameNode,
   InternalException,
   InvalidRequestException,
@@ -269,6 +282,19 @@ export const serializeAws_json1_1CreateLocationFsxLustreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLocationFsxLustreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationFsxOntapCommand = async (
+  input: CreateLocationFsxOntapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.CreateLocationFsxOntap",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationFsxOntapRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -451,6 +477,19 @@ export const serializeAws_json1_1DescribeLocationFsxLustreCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxLustreRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLocationFsxOntapCommand = async (
+  input: DescribeLocationFsxOntapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.DescribeLocationFsxOntap",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxOntapRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -925,6 +964,52 @@ const deserializeAws_json1_1CreateLocationFsxLustreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocationFsxLustreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateLocationFsxOntapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxOntapCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLocationFsxOntapCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationFsxOntapResponse(data, context);
+  const response: CreateLocationFsxOntapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationFsxOntapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxOntapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1569,6 +1654,52 @@ const deserializeAws_json1_1DescribeLocationFsxLustreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationFsxLustreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeLocationFsxOntapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxOntapCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLocationFsxOntapCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationFsxOntapResponse(data, context);
+  const response: DescribeLocationFsxOntapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationFsxOntapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxOntapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2799,6 +2930,25 @@ const serializeAws_json1_1CreateLocationFsxLustreRequest = (
   };
 };
 
+const serializeAws_json1_1CreateLocationFsxOntapRequest = (
+  input: CreateLocationFsxOntapRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Protocol !== undefined &&
+      input.Protocol !== null && { Protocol: serializeAws_json1_1FsxProtocol(input.Protocol, context) }),
+    ...(input.SecurityGroupArns !== undefined &&
+      input.SecurityGroupArns !== null && {
+        SecurityGroupArns: serializeAws_json1_1Ec2SecurityGroupArnList(input.SecurityGroupArns, context),
+      }),
+    ...(input.StorageVirtualMachineArn !== undefined &&
+      input.StorageVirtualMachineArn !== null && { StorageVirtualMachineArn: input.StorageVirtualMachineArn }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLocationFsxOpenZfsRequest = (
   input: CreateLocationFsxOpenZfsRequest,
   context: __SerdeContext
@@ -3012,6 +3162,15 @@ const serializeAws_json1_1DescribeLocationFsxLustreRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeLocationFsxOntapRequest = (
+  input: DescribeLocationFsxOntapRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeLocationFsxOpenZfsRequest = (
   input: DescribeLocationFsxOpenZfsRequest,
   context: __SerdeContext
@@ -3145,6 +3304,8 @@ const serializeAws_json1_1FsxProtocol = (input: FsxProtocol, context: __SerdeCon
   return {
     ...(input.NFS !== undefined &&
       input.NFS !== null && { NFS: serializeAws_json1_1FsxProtocolNfs(input.NFS, context) }),
+    ...(input.SMB !== undefined &&
+      input.SMB !== null && { SMB: serializeAws_json1_1FsxProtocolSmb(input.SMB, context) }),
   };
 };
 
@@ -3154,6 +3315,18 @@ const serializeAws_json1_1FsxProtocolNfs = (input: FsxProtocolNfs, context: __Se
       input.MountOptions !== null && {
         MountOptions: serializeAws_json1_1NfsMountOptions(input.MountOptions, context),
       }),
+  };
+};
+
+const serializeAws_json1_1FsxProtocolSmb = (input: FsxProtocolSmb, context: __SerdeContext): any => {
+  return {
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+    ...(input.MountOptions !== undefined &&
+      input.MountOptions !== null && {
+        MountOptions: serializeAws_json1_1SmbMountOptions(input.MountOptions, context),
+      }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.User !== undefined && input.User !== null && { User: input.User }),
   };
 };
 
@@ -3595,6 +3768,15 @@ const deserializeAws_json1_1CreateLocationFsxLustreResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLocationFsxOntapResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationFsxOntapResponse => {
+  return {
+    LocationArn: __expectString(output.LocationArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLocationFsxOpenZfsResponse = (
   output: any,
   context: __SerdeContext
@@ -3733,6 +3915,30 @@ const deserializeAws_json1_1DescribeLocationFsxLustreResponse = (
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLocationFsxOntapResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationFsxOntapResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FsxFilesystemArn: __expectString(output.FsxFilesystemArn),
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
+    Protocol:
+      output.Protocol !== undefined && output.Protocol !== null
+        ? deserializeAws_json1_1FsxProtocol(output.Protocol, context)
+        : undefined,
+    SecurityGroupArns:
+      output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
+        ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
+        : undefined,
+    StorageVirtualMachineArn: __expectString(output.StorageVirtualMachineArn),
   } as any;
 };
 
@@ -4036,6 +4242,10 @@ const deserializeAws_json1_1FsxProtocol = (output: any, context: __SerdeContext)
       output.NFS !== undefined && output.NFS !== null
         ? deserializeAws_json1_1FsxProtocolNfs(output.NFS, context)
         : undefined,
+    SMB:
+      output.SMB !== undefined && output.SMB !== null
+        ? deserializeAws_json1_1FsxProtocolSmb(output.SMB, context)
+        : undefined,
   } as any;
 };
 
@@ -4045,6 +4255,18 @@ const deserializeAws_json1_1FsxProtocolNfs = (output: any, context: __SerdeConte
       output.MountOptions !== undefined && output.MountOptions !== null
         ? deserializeAws_json1_1NfsMountOptions(output.MountOptions, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FsxProtocolSmb = (output: any, context: __SerdeContext): FsxProtocolSmb => {
+  return {
+    Domain: __expectString(output.Domain),
+    MountOptions:
+      output.MountOptions !== undefined && output.MountOptions !== null
+        ? deserializeAws_json1_1SmbMountOptions(output.MountOptions, context)
+        : undefined,
+    Password: __expectString(output.Password),
+    User: __expectString(output.User),
   } as any;
 };
 
