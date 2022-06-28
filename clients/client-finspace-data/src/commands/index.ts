@@ -13,6 +13,7 @@ export * from "./EnableUserCommand";
 export * from "./GetChangesetCommand";
 export * from "./GetDataViewCommand";
 export * from "./GetDatasetCommand";
+export * from "./GetExternalDataViewAccessDetailsCommand";
 export * from "./GetPermissionGroupCommand";
 export * from "./GetProgrammaticAccessCredentialsCommand";
 export * from "./GetUserCommand";

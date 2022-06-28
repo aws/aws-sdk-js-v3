@@ -79,6 +79,10 @@ import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/Enab
 import { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
 import { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
+import {
+  GetExternalDataViewAccessDetailsCommandInput,
+  GetExternalDataViewAccessDetailsCommandOutput,
+} from "./commands/GetExternalDataViewAccessDetailsCommand";
 import { GetPermissionGroupCommandInput, GetPermissionGroupCommandOutput } from "./commands/GetPermissionGroupCommand";
 import {
   GetProgrammaticAccessCredentialsCommandInput,
@@ -127,6 +131,7 @@ export type ServiceInputTypes =
   | GetChangesetCommandInput
   | GetDataViewCommandInput
   | GetDatasetCommandInput
+  | GetExternalDataViewAccessDetailsCommandInput
   | GetPermissionGroupCommandInput
   | GetProgrammaticAccessCredentialsCommandInput
   | GetUserCommandInput
@@ -159,6 +164,7 @@ export type ServiceOutputTypes =
   | GetChangesetCommandOutput
   | GetDataViewCommandOutput
   | GetDatasetCommandOutput
+  | GetExternalDataViewAccessDetailsCommandOutput
   | GetPermissionGroupCommandOutput
   | GetProgrammaticAccessCredentialsCommandOutput
   | GetUserCommandOutput

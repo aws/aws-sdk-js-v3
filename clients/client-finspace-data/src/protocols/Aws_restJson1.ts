@@ -42,6 +42,10 @@ import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/Ena
 import { GetChangesetCommandInput, GetChangesetCommandOutput } from "../commands/GetChangesetCommand";
 import { GetDatasetCommandInput, GetDatasetCommandOutput } from "../commands/GetDatasetCommand";
 import { GetDataViewCommandInput, GetDataViewCommandOutput } from "../commands/GetDataViewCommand";
+import {
+  GetExternalDataViewAccessDetailsCommandInput,
+  GetExternalDataViewAccessDetailsCommandOutput,
+} from "../commands/GetExternalDataViewAccessDetailsCommand";
 import { GetPermissionGroupCommandInput, GetPermissionGroupCommandOutput } from "../commands/GetPermissionGroupCommand";
 import {
   GetProgrammaticAccessCredentialsCommandInput,
@@ -77,6 +81,7 @@ import { FinspaceDataServiceException as __BaseException } from "../models/Finsp
 import {
   AccessDeniedException,
   ApplicationPermission,
+  AwsCredentials,
   ChangesetErrorInfo,
   ChangesetSummary,
   ColumnDefinition,
@@ -94,6 +99,7 @@ import {
   PermissionGroupParams,
   ResourceNotFoundException,
   ResourcePermission,
+  S3Location,
   SchemaDefinition,
   SchemaUnion,
   ThrottlingException,
@@ -608,6 +614,45 @@ export const serializeAws_restJson1GetDataViewCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetExternalDataViewAccessDetailsCommand = async (
+  input: GetExternalDataViewAccessDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details";
+  if (input.dataViewId !== undefined) {
+    const labelValue: string = input.dataViewId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: dataViewId.");
+    }
+    resolvedPath = resolvedPath.replace("{dataViewId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: dataViewId.");
+  }
+  if (input.datasetId !== undefined) {
+    const labelValue: string = input.datasetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: datasetId.");
+    }
+    resolvedPath = resolvedPath.replace("{datasetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: datasetId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2108,6 +2153,66 @@ const deserializeAws_restJson1GetDataViewCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetExternalDataViewAccessDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExternalDataViewAccessDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetExternalDataViewAccessDetailsCommandError(output, context);
+  }
+  const contents: GetExternalDataViewAccessDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    credentials: undefined,
+    s3Location: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.credentials !== undefined && data.credentials !== null) {
+    contents.credentials = deserializeAws_restJson1AwsCredentials(data.credentials, context);
+  }
+  if (data.s3Location !== undefined && data.s3Location !== null) {
+    contents.s3Location = deserializeAws_restJson1S3Location(data.s3Location, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetExternalDataViewAccessDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExternalDataViewAccessDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspacedata#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspacedata#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspacedata#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspacedata#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspacedata#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetPermissionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3422,6 +3527,15 @@ const deserializeAws_restJson1ApplicationPermissionList = (
   return retVal;
 };
 
+const deserializeAws_restJson1AwsCredentials = (output: any, context: __SerdeContext): AwsCredentials => {
+  return {
+    accessKeyId: __expectString(output.accessKeyId),
+    expiration: __expectLong(output.expiration),
+    secretAccessKey: __expectString(output.secretAccessKey),
+    sessionToken: __expectString(output.sessionToken),
+  } as any;
+};
+
 const deserializeAws_restJson1ChangesetErrorInfo = (output: any, context: __SerdeContext): ChangesetErrorInfo => {
   return {
     errorCategory: __expectString(output.errorCategory),
@@ -3698,6 +3812,13 @@ const deserializeAws_restJson1S3DestinationFormatOptions = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
+  return {
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
+  } as any;
 };
 
 const deserializeAws_restJson1SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {

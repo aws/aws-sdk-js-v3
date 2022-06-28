@@ -181,6 +181,42 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * <p> The credentials required to access the external Dataview from the S3 location.</p>
+ */
+export interface AwsCredentials {
+  /**
+   * <p> The unique identifier for the security credentials.</p>
+   */
+  accessKeyId?: string;
+
+  /**
+   * <p> The secret access key that can be used to sign requests.</p>
+   */
+  secretAccessKey?: string;
+
+  /**
+   * <p> The token that users must pass to use the credentials.</p>
+   */
+  sessionToken?: string;
+
+  /**
+   * <p> The Epoch time when the current credentials expire.</p>
+   */
+  expiration?: number;
+}
+
+export namespace AwsCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCredentials): any => ({
+    ...obj,
+    ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
+  });
+}
+
 export enum ChangeType {
   APPEND = "APPEND",
   MODIFY = "MODIFY",
@@ -820,6 +856,9 @@ export interface CreatePermissionGroupRequest {
 
   /**
    * <p>The option to indicate FinSpace application permissions that are granted to a specific group.</p>
+   *          <important>
+   *             <p>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code> allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.</p>
+   *          </important>
    *          <ul>
    *             <li>
    *                <p>
@@ -831,7 +870,7 @@ export interface CreatePermissionGroupRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1695,6 +1734,73 @@ export namespace GetDataViewResponse {
   });
 }
 
+export interface GetExternalDataViewAccessDetailsRequest {
+  /**
+   * <p>The unique identifier for the Dataview that you want to access.</p>
+   */
+  dataViewId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the Dataset.</p>
+   */
+  datasetId: string | undefined;
+}
+
+export namespace GetExternalDataViewAccessDetailsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExternalDataViewAccessDetailsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The location of an external Dataview in an S3 bucket.</p>
+ */
+export interface S3Location {
+  /**
+   * <p> The name of the S3 bucket.</p>
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p> The path of the folder, within the S3 bucket that contains the Dataset.</p>
+   */
+  key: string | undefined;
+}
+
+export namespace S3Location {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Location): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExternalDataViewAccessDetailsResponse {
+  /**
+   * <p>The credentials required to access the external Dataview from the S3 location.</p>
+   */
+  credentials?: AwsCredentials;
+
+  /**
+   * <p>The location where the external Dataview is stored.</p>
+   */
+  s3Location?: S3Location;
+}
+
+export namespace GetExternalDataViewAccessDetailsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExternalDataViewAccessDetailsResponse): any => ({
+    ...obj,
+    ...(obj.credentials && { credentials: AwsCredentials.filterSensitiveLog(obj.credentials) }),
+  });
+}
+
 export interface GetPermissionGroupRequest {
   /**
    * <p>The unique identifier for the permission group.</p>
@@ -1738,6 +1844,9 @@ export interface PermissionGroup {
 
   /**
    * <p>Indicates the permissions that are granted to a specific group for accessing the FinSpace application.</p>
+   *          <important>
+   *             <p>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code> allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.</p>
+   *          </important>
    *          <ul>
    *             <li>
    *                <p>
@@ -1749,7 +1858,7 @@ export interface PermissionGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3275,6 +3384,9 @@ export interface UpdatePermissionGroupRequest {
 
   /**
    * <p>The permissions that are granted to a specific group for accessing the FinSpace application.</p>
+   *          <important>
+   *             <p>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code> allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.</p>
+   *          </important>
    *          <ul>
    *             <li>
    *                <p>
@@ -3286,7 +3398,7 @@ export interface UpdatePermissionGroupRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.</p>
    *             </li>
    *             <li>
    *                <p>

@@ -52,6 +52,11 @@ import {
 import { GetDatasetCommand, GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import { GetDataViewCommand, GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
 import {
+  GetExternalDataViewAccessDetailsCommand,
+  GetExternalDataViewAccessDetailsCommandInput,
+  GetExternalDataViewAccessDetailsCommandOutput,
+} from "./commands/GetExternalDataViewAccessDetailsCommand";
+import {
   GetPermissionGroupCommand,
   GetPermissionGroupCommandInput,
   GetPermissionGroupCommandOutput,
@@ -530,6 +535,46 @@ export class FinspaceData extends FinspaceDataClient {
     cb?: (err: any, data?: GetDataViewCommandOutput) => void
   ): Promise<GetDataViewCommandOutput> | void {
     const command = new GetDataViewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must retrieve the programmatic credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>You must be a member of a FinSpace user group, where the dataset that you want to access has <code>Read Dataset Data</code> permissions.</p>
+   *             </li>
+   *          </ul>
+   */
+  public getExternalDataViewAccessDetails(
+    args: GetExternalDataViewAccessDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExternalDataViewAccessDetailsCommandOutput>;
+  public getExternalDataViewAccessDetails(
+    args: GetExternalDataViewAccessDetailsCommandInput,
+    cb: (err: any, data?: GetExternalDataViewAccessDetailsCommandOutput) => void
+  ): void;
+  public getExternalDataViewAccessDetails(
+    args: GetExternalDataViewAccessDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExternalDataViewAccessDetailsCommandOutput) => void
+  ): void;
+  public getExternalDataViewAccessDetails(
+    args: GetExternalDataViewAccessDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExternalDataViewAccessDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetExternalDataViewAccessDetailsCommandOutput) => void
+  ): Promise<GetExternalDataViewAccessDetailsCommandOutput> | void {
+    const command = new GetExternalDataViewAccessDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
