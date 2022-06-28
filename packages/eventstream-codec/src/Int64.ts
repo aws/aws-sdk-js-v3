@@ -19,7 +19,7 @@ export class Int64 {
 
   static fromNumber(number: number): Int64 {
     // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
-    if (number > 9223372036854775807 || number < -9223372036854775808) {
+    if (number > 9_223_372_036_854_775_807 || number < -9_223_372_036_854_775_808) {
       throw new Error(`${number} is too large (or, if negative, too small) to represent as an Int64`);
     }
 
