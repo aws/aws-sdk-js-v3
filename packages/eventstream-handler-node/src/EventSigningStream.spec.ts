@@ -12,7 +12,7 @@ describe("EventSigningStream", () => {
   });
 
   it("should sign a eventstream payload properly", (done) => {
-    const marshaller = new EventStreamCodec(toUtf8, fromUtf8);
+    const eventStreamCodec = new EventStreamCodec(toUtf8, fromUtf8);
     const inputChunks: Array<Uint8Array> = (
       [
         {
@@ -24,7 +24,7 @@ describe("EventSigningStream", () => {
           body: fromUtf8("bar"),
         },
       ] as Array<Message>
-    ).map((event) => marshaller.marshall(event));
+    ).map((event) => eventStreamCodec.encode(event));
     const expected: Array<MessageHeaders> = [
       {
         ":date": { type: "timestamp", value: new Date(1546045446000) },
@@ -59,11 +59,11 @@ describe("EventSigningStream", () => {
     const signingStream = new EventSigningStream({
       priorSignature: "initial",
       eventSigner: { sign: mockEventSigner },
-      eventMarshaller: marshaller,
+      eventStreamCodec,
     });
     const output: Array<MessageHeaders> = [];
     signingStream.on("data", (chunk) => {
-      output.push(marshaller.unmarshall(chunk).headers);
+      output.push(eventStreamCodec.decode(chunk).headers);
     });
     signingStream.on("end", () => {
       expect(output).toEqual(expected);

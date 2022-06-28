@@ -87,7 +87,7 @@ describe(EventStreamPayloadHandler.name, () => {
     expect(EventSigningStream).toHaveBeenCalledTimes(1);
     expect(EventSigningStream).toHaveBeenCalledWith({
       priorSignature,
-      eventMarshaller: expect.anything(),
+      eventStreamCodec: expect.anything(),
       eventSigner: expect.anything(),
     });
   });
