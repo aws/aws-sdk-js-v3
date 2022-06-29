@@ -566,6 +566,7 @@ const serializeAws_restJson1AudioEvent_event = (input: AudioEvent, context: __Se
     headers: {
       ":event-type": { type: "string", value: "AudioEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/octet-stream" },
     },
     body: new Uint8Array(),
   };

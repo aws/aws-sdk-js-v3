@@ -1037,6 +1037,7 @@ const serializeAws_restJson1AudioInputEvent_event = (input: AudioInputEvent, con
     headers: {
       ":event-type": { type: "string", value: "AudioInputEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
@@ -1052,6 +1053,7 @@ const serializeAws_restJson1ConfigurationEvent_event = (
     headers: {
       ":event-type": { type: "string", value: "ConfigurationEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
@@ -1067,6 +1069,7 @@ const serializeAws_restJson1DisconnectionEvent_event = (
     headers: {
       ":event-type": { type: "string", value: "DisconnectionEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
@@ -1079,6 +1082,7 @@ const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, conte
     headers: {
       ":event-type": { type: "string", value: "DTMFInputEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
@@ -1094,6 +1098,7 @@ const serializeAws_restJson1PlaybackCompletionEvent_event = (
     headers: {
       ":event-type": { type: "string", value: "PlaybackCompletionEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
@@ -1106,6 +1111,7 @@ const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, conte
     headers: {
       ":event-type": { type: "string", value: "TextInputEvent" },
       ":message-type": { type: "string", value: "event" },
+      ":content-type": { type: "string", value: "application/json" },
     },
     body: new Uint8Array(),
   };
