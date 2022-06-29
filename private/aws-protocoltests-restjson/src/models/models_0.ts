@@ -98,6 +98,20 @@ export class ComplexError extends __BaseException {
   }
 }
 
+export interface ComplexSetStruct {
+  foo?: boolean;
+  blob?: Uint8Array;
+}
+
+export namespace ComplexSetStruct {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComplexSetStruct): any => ({
+    ...obj,
+  });
+}
+
 export interface ConstantAndVariableQueryStringInput {
   baz?: string;
   maybeSet?: string;
@@ -893,7 +907,7 @@ export namespace UnionInputOutput {
 }
 
 export interface MalformedAcceptWithGenericStringInput {
-  payload?: Uint8Array;
+  payload?: string;
 }
 
 export namespace MalformedAcceptWithGenericStringInput {
@@ -1089,20 +1103,6 @@ export namespace MalformedRequestBodyInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
-    ...obj,
-  });
-}
-
-export interface MalformedSetInput {
-  set?: string[];
-  blobSet?: Uint8Array[];
-}
-
-export namespace MalformedSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedSetInput): any => ({
     ...obj,
   });
 }
@@ -1349,6 +1349,20 @@ export namespace MalformedUnionInput {
   });
 }
 
+export interface MalformedUniqueItemsInput {
+  set?: string[];
+  complexSet?: ComplexSetStruct[];
+}
+
+export namespace MalformedUniqueItemsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedUniqueItemsInput): any => ({
+    ...obj,
+  });
+}
+
 export interface MediaTypeHeaderInput {
   json?: __LazyJsonString | string;
 }
@@ -1499,6 +1513,94 @@ export namespace PostPlayerActionOutput {
   export const filterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
     ...obj,
     ...(obj.action && { action: PlayerAction.filterSensitiveLog(obj.action) }),
+  });
+}
+
+export type UnionWithJsonName =
+  | UnionWithJsonName.BarMember
+  | UnionWithJsonName.BazMember
+  | UnionWithJsonName.FooMember
+  | UnionWithJsonName.$UnknownMember;
+
+export namespace UnionWithJsonName {
+  export interface FooMember {
+    foo: string;
+    bar?: never;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BarMember {
+    foo?: never;
+    bar: string;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BazMember {
+    foo?: never;
+    bar?: never;
+    baz: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    foo?: never;
+    bar?: never;
+    baz?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    foo: (value: string) => T;
+    bar: (value: string) => T;
+    baz: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionWithJsonName, visitor: Visitor<T>): T => {
+    if (value.foo !== undefined) return visitor.foo(value.foo);
+    if (value.bar !== undefined) return visitor.bar(value.bar);
+    if (value.baz !== undefined) return visitor.baz(value.baz);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnionWithJsonName): any => {
+    if (obj.foo !== undefined) return { foo: obj.foo };
+    if (obj.bar !== undefined) return { bar: obj.bar };
+    if (obj.baz !== undefined) return { baz: obj.baz };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+export interface PostUnionWithJsonNameInput {
+  value: UnionWithJsonName | undefined;
+}
+
+export namespace PostUnionWithJsonNameInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostUnionWithJsonNameInput): any => ({
+    ...obj,
+    ...(obj.value && { value: UnionWithJsonName.filterSensitiveLog(obj.value) }),
+  });
+}
+
+export interface PostUnionWithJsonNameOutput {
+  value: UnionWithJsonName | undefined;
+}
+
+export namespace PostUnionWithJsonNameOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostUnionWithJsonNameOutput): any => ({
+    ...obj,
+    ...(obj.value && { value: UnionWithJsonName.filterSensitiveLog(obj.value) }),
   });
 }
 

@@ -121,7 +121,7 @@ export const serializeAws_restJson1CreateConnectorCommand = async (
       input.capacity !== null && { capacity: serializeAws_restJson1Capacity(input.capacity, context) }),
     ...(input.connectorConfiguration !== undefined &&
       input.connectorConfiguration !== null && {
-        connectorConfiguration: serializeAws_restJson1__mapOf__string(input.connectorConfiguration, context),
+        connectorConfiguration: serializeAws_restJson1__sensitive__mapOf__string(input.connectorConfiguration, context),
       }),
     ...(input.connectorDescription !== undefined &&
       input.connectorDescription !== null && { connectorDescription: input.connectorDescription }),
@@ -879,7 +879,10 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     contents.connectorArn = __expectString(data.connectorArn);
   }
   if (data.connectorConfiguration !== undefined && data.connectorConfiguration !== null) {
-    contents.connectorConfiguration = deserializeAws_restJson1__mapOf__string(data.connectorConfiguration, context);
+    contents.connectorConfiguration = deserializeAws_restJson1__sensitive__mapOf__string(
+      data.connectorConfiguration,
+      context
+    );
   }
   if (data.connectorDescription !== undefined && data.connectorDescription !== null) {
     contents.connectorDescription = __expectString(data.connectorDescription);
@@ -1563,7 +1566,10 @@ const serializeAws_restJson1__listOfPlugin = (input: Plugin[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
+const serializeAws_restJson1__sensitive__mapOf__string = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1882,7 +1888,10 @@ const deserializeAws_restJson1__listOfWorkerConfigurationSummary = (
   return retVal;
 };
 
-const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
+const deserializeAws_restJson1__sensitive__mapOf__string = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

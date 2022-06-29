@@ -208,7 +208,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       StringList: (input.queryStringList || []).map((_entry) => _entry as any),
     }),
     ...(input.queryStringSet !== undefined && {
-      StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry as any),
+      StringSet: (input.queryStringSet || []).map((_entry) => _entry as any),
     }),
     ...(input.queryByte !== undefined && { Byte: input.queryByte.toString() }),
     ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
@@ -217,7 +217,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString() as any),
     }),
     ...(input.queryIntegerSet !== undefined && {
-      IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString() as any),
+      IntegerSet: (input.queryIntegerSet || []).map((_entry) => _entry.toString() as any),
     }),
     ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
     ...(input.queryFloat !== undefined && {
@@ -1156,7 +1156,7 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
       "x-stringlist": (input.headerStringList! || []).map((_entry) => _entry as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerStringSet) && {
-      "x-stringset": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry as any).join(", "),
+      "x-stringset": (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerIntegerList) && {
       "x-integerlist": (input.headerIntegerList! || []).map((_entry) => _entry.toString() as any).join(", "),

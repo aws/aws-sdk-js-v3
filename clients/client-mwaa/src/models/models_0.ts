@@ -758,6 +758,7 @@ export namespace Environment {
    */
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
+    ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
   });
 }
 
@@ -774,6 +775,7 @@ export namespace GetEnvironmentOutput {
    */
   export const filterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
     ...obj,
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
 }
 

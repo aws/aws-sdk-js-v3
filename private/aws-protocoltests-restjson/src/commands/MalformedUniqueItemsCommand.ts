@@ -12,25 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedSetInput } from "../models/models_0";
+import { MalformedUniqueItemsInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedSetCommand,
-  serializeAws_restJson1MalformedSetCommand,
+  deserializeAws_restJson1MalformedUniqueItemsCommand,
+  serializeAws_restJson1MalformedUniqueItemsCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface MalformedSetCommandInput extends MalformedSetInput {}
-export interface MalformedSetCommandOutput extends __MetadataBearer {}
+export interface MalformedUniqueItemsCommandInput extends MalformedUniqueItemsInput {}
+export interface MalformedUniqueItemsCommandOutput extends __MetadataBearer {}
 
-export class MalformedSetCommand extends $Command<
-  MalformedSetCommandInput,
-  MalformedSetCommandOutput,
+export class MalformedUniqueItemsCommand extends $Command<
+  MalformedUniqueItemsCommandInput,
+  MalformedUniqueItemsCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: MalformedSetCommandInput) {
+  constructor(readonly input: MalformedUniqueItemsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,19 +43,19 @@ export class MalformedSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<MalformedSetCommandInput, MalformedSetCommandOutput> {
+  ): Handler<MalformedUniqueItemsCommandInput, MalformedUniqueItemsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "MalformedSetCommand";
+    const commandName = "MalformedUniqueItemsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedSetInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedUniqueItemsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
@@ -66,12 +66,12 @@ export class MalformedSetCommand extends $Command<
     );
   }
 
-  private serialize(input: MalformedSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedSetCommand(input, context);
+  private serialize(input: MalformedUniqueItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1MalformedUniqueItemsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedSetCommandOutput> {
-    return deserializeAws_restJson1MalformedSetCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedUniqueItemsCommandOutput> {
+    return deserializeAws_restJson1MalformedUniqueItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

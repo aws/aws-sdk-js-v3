@@ -1,427 +1,429 @@
 {
-  "smithy": "1.0",
-  "shapes": {
-    "com.amazonaws.appconfigdata#AppConfigData": {
-      "type": "service",
-      "traits": {
-        "aws.api#dataPlane": {},
-        "aws.api#service": {
-          "sdkId": "AppConfigData",
-          "arnNamespace": "appconfigdata",
-          "cloudFormationName": "AppConfigData",
-          "cloudTrailEventSource": "appconfigdata.amazonaws.com",
-          "endpointPrefix": "appconfigdata"
+    "smithy": "1.0",
+    "shapes": {
+        "com.amazonaws.appconfigdata#AppConfigData": {
+            "type": "service",
+            "traits": {
+                "aws.api#dataPlane": {},
+                "aws.api#service": {
+                    "sdkId": "AppConfigData",
+                    "arnNamespace": "appconfigdata",
+                    "cloudFormationName": "AppConfigData",
+                    "cloudTrailEventSource": "appconfigdata.amazonaws.com",
+                    "endpointPrefix": "appconfigdata"
+                },
+                "aws.auth#sigv4": {
+                    "name": "appconfig"
+                },
+                "aws.protocols#restJson1": {},
+                "smithy.api#documentation": "<p>AppConfig Data provides the data plane APIs your application uses to retrieve configuration data.\n         Here's how it works:</p>\n         <p>Your application retrieves configuration data by first establishing a configuration\n         session using the AppConfig Data <a>StartConfigurationSession</a> API action. Your session's\n         client then makes periodic calls to <a>GetLatestConfiguration</a> to check for\n         and retrieve the latest data available.</p>\n         <p>When calling <code>StartConfigurationSession</code>, your code sends the following\n         information:</p>\n         <ul>\n            <li>\n               <p>Identifiers (ID or name) of an AppConfig application, environment, and\n               configuration profile that the session tracks.</p>\n            </li>\n            <li>\n               <p>(Optional) The minimum amount of time the session's client must wait between calls\n               to <code>GetLatestConfiguration</code>.</p>\n            </li>\n         </ul>\n         <p>In response, AppConfig provides an <code>InitialConfigurationToken</code> to be given to\n         the session's client and used the first time it calls <code>GetLatestConfiguration</code>\n         for that session.</p>\n         <p>When calling <code>GetLatestConfiguration</code>, your client code sends the most recent\n            <code>ConfigurationToken</code> value it has and receives in response:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>NextPollConfigurationToken</code>: the <code>ConfigurationToken</code> value\n               to use on the next call to <code>GetLatestConfiguration</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NextPollIntervalInSeconds</code>: the duration the client should wait before\n               making its next call to <code>GetLatestConfiguration</code>. This duration may vary\n               over the course of the session, so it should be used instead of the value sent on the\n                  <code>StartConfigurationSession</code> call.</p>\n            </li>\n            <li>\n               <p>The configuration: the latest data intended for the session. This may be empty if\n               the client already has the latest version of the configuration.</p>\n            </li>\n         </ul>\n         <p>For more information and to view example CLI commands that show how to retrieve a\n         configuration using the AppConfig Data <code>StartConfigurationSession</code> and\n            <code>GetLatestConfiguration</code> API actions, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>.</p>",
+                "smithy.api#title": "AWS AppConfig Data"
+            },
+            "version": "2021-11-11",
+            "operations": [
+                {
+                    "target": "com.amazonaws.appconfigdata#GetLatestConfiguration"
+                }
+            ],
+            "resources": [
+                {
+                    "target": "com.amazonaws.appconfigdata#ConfigurationSession"
+                }
+            ]
         },
-        "aws.auth#sigv4": {
-          "name": "appconfig"
+        "com.amazonaws.appconfigdata#BadRequestDetails": {
+            "type": "union",
+            "members": {
+                "InvalidParameters": {
+                    "target": "com.amazonaws.appconfigdata#InvalidParameterMap",
+                    "traits": {
+                        "smithy.api#documentation": "<p>One or more specified parameters are not valid for the call.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Detailed information about the input that failed to satisfy the constraints specified by\n         a call.</p>"
+            }
         },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AppConfig Data provides the data plane APIs your application uses to retrieve configuration data.\n         Here's how it works:</p>\n         <p>Your application retrieves configuration data by first establishing a configuration\n         session using the AppConfig Data <a>StartConfigurationSession</a> API action. Your session's\n         client then makes periodic calls to <a>GetLatestConfiguration</a> to check for\n         and retrieve the latest data available.</p>\n         <p>When calling <code>StartConfigurationSession</code>, your code sends the following\n         information:</p>\n         <ul>\n            <li>\n               <p>Identifiers (ID or name) of an AppConfig application, environment, and\n               configuration profile that the session tracks.</p>\n            </li>\n            <li>\n               <p>(Optional) The minimum amount of time the session's client must wait between calls\n               to <code>GetLatestConfiguration</code>.</p>\n            </li>\n         </ul>\n         <p>In response, AppConfig provides an <code>InitialConfigurationToken</code> to be given to\n         the session's client and used the first time it calls <code>GetLatestConfiguration</code>\n         for that session.</p>\n         <p>When calling <code>GetLatestConfiguration</code>, your client code sends the most recent\n            <code>ConfigurationToken</code> value it has and receives in response:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>NextPollConfigurationToken</code>: the <code>ConfigurationToken</code> value\n               to use on the next call to <code>GetLatestConfiguration</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NextPollIntervalInSeconds</code>: the duration the client should wait before\n               making its next call to <code>GetLatestConfiguration</code>. This duration may vary\n               over the course of the session, so it should be used instead of the value sent on the\n                  <code>StartConfigurationSession</code> call.</p>\n            </li>\n            <li>\n               <p>The configuration: the latest data intended for the session. This may be empty if\n               the client already has the latest version of the configuration.</p>\n            </li>\n         </ul>\n         <p>For more information and to view example CLI commands that show how to retrieve a\n         configuration using the AppConfig Data <code>StartConfigurationSession</code> and\n            <code>GetLatestConfiguration</code> API actions, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>.</p>",
-        "smithy.api#title": "AWS AppConfig Data"
-      },
-      "version": "2021-11-11",
-      "operations": [
-        {
-          "target": "com.amazonaws.appconfigdata#GetLatestConfiguration"
+        "com.amazonaws.appconfigdata#BadRequestException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.appconfigdata#String"
+                },
+                "Reason": {
+                    "target": "com.amazonaws.appconfigdata#BadRequestReason",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Code indicating the reason the request was invalid.</p>"
+                    }
+                },
+                "Details": {
+                    "target": "com.amazonaws.appconfigdata#BadRequestDetails",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Details describing why the request was invalid.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by the service.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.appconfigdata#BadRequestReason": {
+            "type": "string",
+            "traits": {
+                "smithy.api#enum": [
+                    {
+                        "value": "InvalidParameters",
+                        "name": "INVALID_PARAMETERS",
+                        "documentation": "Indicates there was a problem with one or more of the parameters.\nSee InvalidParameters in the BadRequestDetails for more information."
+                    }
+                ]
+            }
+        },
+        "com.amazonaws.appconfigdata#ConfigurationSession": {
+            "type": "resource",
+            "identifiers": {
+                "SessionId": {
+                    "target": "com.amazonaws.appconfigdata#Id"
+                }
+            },
+            "create": {
+                "target": "com.amazonaws.appconfigdata#StartConfigurationSession"
+            }
+        },
+        "com.amazonaws.appconfigdata#GetLatestConfiguration": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.appconfigdata#GetLatestConfigurationRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.appconfigdata#GetLatestConfigurationResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.appconfigdata#BadRequestException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Retrieves the latest deployed configuration. This API may return empty configuration\n         data if the client already has the latest version. For more information about this API\n         action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>. </p>\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.\n                  The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code> that\n                  should always replace the token used for the just-completed call in preparation\n                  for the next one. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>GetLatestConfiguration</code> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n            </ul>\n         </important>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/configuration",
+                    "code": 200
+                },
+                "smithy.api#readonly": {}
+            }
+        },
+        "com.amazonaws.appconfigdata#GetLatestConfigurationRequest": {
+            "type": "structure",
+            "members": {
+                "ConfigurationToken": {
+                    "target": "com.amazonaws.appconfigdata#Token",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Token describing the current state of the configuration session. To obtain a token,\n         first call the <a>StartConfigurationSession</a> API. Note that every call to\n            <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>\n            (<code>NextPollConfigurationToken</code> in the response) and MUST be provided to\n         subsequent <code>GetLatestConfiguration</code> API calls.</p>",
+                        "smithy.api#httpQuery": "configuration_token",
+                        "smithy.api#required": {}
+                    }
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#GetLatestConfigurationResponse": {
+            "type": "structure",
+            "members": {
+                "NextPollConfigurationToken": {
+                    "target": "com.amazonaws.appconfigdata#Token",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The latest token describing the current state of the configuration session. This MUST be\n         provided to the next call to <code>GetLatestConfiguration.</code>\n         </p>",
+                        "smithy.api#httpHeader": "Next-Poll-Configuration-Token"
+                    }
+                },
+                "NextPollIntervalInSeconds": {
+                    "target": "com.amazonaws.appconfigdata#Integer",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The amount of time the client should wait before polling for configuration updates\n         again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll\n         interval.</p>",
+                        "smithy.api#httpHeader": "Next-Poll-Interval-In-Seconds"
+                    }
+                },
+                "ContentType": {
+                    "target": "com.amazonaws.appconfigdata#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A standard MIME type describing the format of the configuration content.</p>",
+                        "smithy.api#httpHeader": "Content-Type"
+                    }
+                },
+                "Configuration": {
+                    "target": "com.amazonaws.appconfigdata#SensitiveBlob",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The data of the configuration. This may be empty if the client already has the latest\n         version of configuration.</p>",
+                        "smithy.api#httpPayload": {}
+                    }
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#Id": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^[a-z0-9]{7}$"
+            }
+        },
+        "com.amazonaws.appconfigdata#Identifier": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 64
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#Integer": {
+            "type": "integer"
+        },
+        "com.amazonaws.appconfigdata#InternalServerException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.appconfigdata#String"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>There was an internal failure in the service.</p>",
+                "smithy.api#error": "server",
+                "smithy.api#httpError": 500
+            }
+        },
+        "com.amazonaws.appconfigdata#InvalidParameterDetail": {
+            "type": "structure",
+            "members": {
+                "Problem": {
+                    "target": "com.amazonaws.appconfigdata#InvalidParameterProblem",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The reason the parameter is invalid.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Information about an invalid parameter.</p>"
+            }
+        },
+        "com.amazonaws.appconfigdata#InvalidParameterMap": {
+            "type": "map",
+            "key": {
+                "target": "com.amazonaws.appconfigdata#String"
+            },
+            "value": {
+                "target": "com.amazonaws.appconfigdata#InvalidParameterDetail"
+            }
+        },
+        "com.amazonaws.appconfigdata#InvalidParameterProblem": {
+            "type": "string",
+            "traits": {
+                "smithy.api#enum": [
+                    {
+                        "value": "Corrupted",
+                        "name": "CORRUPTED",
+                        "documentation": "The parameter was corrupted and could not be understood by the service."
+                    },
+                    {
+                        "value": "Expired",
+                        "name": "EXPIRED",
+                        "documentation": "The parameter was expired and can no longer be used."
+                    },
+                    {
+                        "value": "PollIntervalNotSatisfied",
+                        "name": "POLL_INTERVAL_NOT_SATISFIED",
+                        "documentation": "The client called the service before the time specified in the poll interval."
+                    }
+                ]
+            }
+        },
+        "com.amazonaws.appconfigdata#OptionalPollSeconds": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#box": {},
+                "smithy.api#range": {
+                    "min": 15,
+                    "max": 86400
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#ResourceNotFoundException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.appconfigdata#String"
+                },
+                "ResourceType": {
+                    "target": "com.amazonaws.appconfigdata#ResourceType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of resource that was not found.</p>"
+                    }
+                },
+                "ReferencedBy": {
+                    "target": "com.amazonaws.appconfigdata#StringMap",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A map indicating which parameters in the request reference the resource that was not found.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The requested resource could not be found.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 404
+            }
+        },
+        "com.amazonaws.appconfigdata#ResourceType": {
+            "type": "string",
+            "traits": {
+                "smithy.api#enum": [
+                    {
+                        "value": "Application",
+                        "name": "APPLICATION",
+                        "documentation": "Resource type value for the Application resource."
+                    },
+                    {
+                        "value": "ConfigurationProfile",
+                        "name": "CONFIGURATION_PROFILE",
+                        "documentation": "Resource type value for the ConfigurationProfile resource."
+                    },
+                    {
+                        "value": "Deployment",
+                        "name": "DEPLOYMENT",
+                        "documentation": "Resource type value for the Deployment resource."
+                    },
+                    {
+                        "value": "Environment",
+                        "name": "ENVIRONMENT",
+                        "documentation": "Resource type value for the Environment resource."
+                    },
+                    {
+                        "value": "Configuration",
+                        "name": "CONFIGURATION",
+                        "documentation": "Resource type value for the Configuration resource."
+                    }
+                ]
+            }
+        },
+        "com.amazonaws.appconfigdata#SensitiveBlob": {
+            "type": "blob",
+            "traits": {
+                "smithy.api#sensitive": {}
+            }
+        },
+        "com.amazonaws.appconfigdata#StartConfigurationSession": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.appconfigdata#StartConfigurationSessionRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.appconfigdata#StartConfigurationSessionResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.appconfigdata#BadRequestException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#InternalServerException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.appconfigdata#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Starts a configuration session used to retrieve a deployed configuration. For more\n         information about this API action and to view example CLI commands that show how to use\n         it with the <a>GetLatestConfiguration</a> API action, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>. </p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/configurationsessions",
+                    "code": 201
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#StartConfigurationSessionRequest": {
+            "type": "structure",
+            "members": {
+                "ApplicationIdentifier": {
+                    "target": "com.amazonaws.appconfigdata#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The application ID or the application name.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "EnvironmentIdentifier": {
+                    "target": "com.amazonaws.appconfigdata#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The environment ID or the environment name.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "ConfigurationProfileIdentifier": {
+                    "target": "com.amazonaws.appconfigdata#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration profile ID or the configuration profile name.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "RequiredMinimumPollIntervalInSeconds": {
+                    "target": "com.amazonaws.appconfigdata#OptionalPollSeconds",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then\n         the client that established the session can't call <a>GetLatestConfiguration</a>\n         more frequently then every 60 seconds.</p>"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#StartConfigurationSessionResponse": {
+            "type": "structure",
+            "members": {
+                "InitialConfigurationToken": {
+                    "target": "com.amazonaws.appconfigdata#Token",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Token encapsulating state about the configuration session. Provide this token to the\n            <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>\n         <important>\n            <p>This token should only be used once in your first call to\n               <code>GetLatestConfiguration</code>. You MUST use the new token in the\n               <code>GetLatestConfiguration</code> response\n            (<code>NextPollConfigurationToken</code>) in each subsequent call to\n               <code>GetLatestConfiguration</code>.</p>\n         </important>"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.appconfigdata#String": {
+            "type": "string"
+        },
+        "com.amazonaws.appconfigdata#StringMap": {
+            "type": "map",
+            "key": {
+                "target": "com.amazonaws.appconfigdata#String"
+            },
+            "value": {
+                "target": "com.amazonaws.appconfigdata#String"
+            }
+        },
+        "com.amazonaws.appconfigdata#ThrottlingException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.appconfigdata#String"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 429
+            }
+        },
+        "com.amazonaws.appconfigdata#Token": {
+            "type": "string",
+            "traits": {
+                "smithy.api#pattern": "^\\S{1,8192}$"
+            }
         }
-      ],
-      "resources": [
-        {
-          "target": "com.amazonaws.appconfigdata#ConfigurationSession"
-        }
-      ]
-    },
-    "com.amazonaws.appconfigdata#BadRequestDetails": {
-      "type": "union",
-      "members": {
-        "InvalidParameters": {
-          "target": "com.amazonaws.appconfigdata#InvalidParameterMap",
-          "traits": {
-            "smithy.api#documentation": "<p>One or more specified parameters are not valid for the call.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Detailed information about the input that failed to satisfy the constraints specified by\n         a call.</p>"
-      }
-    },
-    "com.amazonaws.appconfigdata#BadRequestException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.appconfigdata#String"
-        },
-        "Reason": {
-          "target": "com.amazonaws.appconfigdata#BadRequestReason",
-          "traits": {
-            "smithy.api#documentation": "<p>Code indicating the reason the request was invalid.</p>"
-          }
-        },
-        "Details": {
-          "target": "com.amazonaws.appconfigdata#BadRequestDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>Details describing why the request was invalid.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by the service.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 400
-      }
-    },
-    "com.amazonaws.appconfigdata#BadRequestReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InvalidParameters",
-            "name": "INVALID_PARAMETERS",
-            "documentation": "Indicates there was a problem with one or more of the parameters.\nSee InvalidParameters in the BadRequestDetails for more information."
-          }
-        ]
-      }
-    },
-    "com.amazonaws.appconfigdata#Blob": {
-      "type": "blob"
-    },
-    "com.amazonaws.appconfigdata#ConfigurationSession": {
-      "type": "resource",
-      "identifiers": {
-        "SessionId": {
-          "target": "com.amazonaws.appconfigdata#Id"
-        }
-      },
-      "create": {
-        "target": "com.amazonaws.appconfigdata#StartConfigurationSession"
-      }
-    },
-    "com.amazonaws.appconfigdata#GetLatestConfiguration": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.appconfigdata#GetLatestConfigurationRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.appconfigdata#GetLatestConfigurationResponse"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.appconfigdata#BadRequestException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#ThrottlingException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Retrieves the latest deployed configuration. This API may return empty configuration\n         data if the client already has the latest version. For more information about this API\n         action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>. </p>\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.\n                  The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code> that\n                  should always replace the token used for the just-completed call in preparation\n                  for the next one. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>GetLatestConfiguration</code> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n            </ul>\n         </important>",
-        "smithy.api#http": {
-          "method": "GET",
-          "uri": "/configuration",
-          "code": 200
-        },
-        "smithy.api#readonly": {}
-      }
-    },
-    "com.amazonaws.appconfigdata#GetLatestConfigurationRequest": {
-      "type": "structure",
-      "members": {
-        "ConfigurationToken": {
-          "target": "com.amazonaws.appconfigdata#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>Token describing the current state of the configuration session. To obtain a token,\n         first call the <a>StartConfigurationSession</a> API. Note that every call to\n            <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>\n            (<code>NextPollConfigurationToken</code> in the response) and MUST be provided to\n         subsequent <code>GetLatestConfiguration</code> API calls.</p>",
-            "smithy.api#httpQuery": "configuration_token",
-            "smithy.api#required": {}
-          }
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#GetLatestConfigurationResponse": {
-      "type": "structure",
-      "members": {
-        "NextPollConfigurationToken": {
-          "target": "com.amazonaws.appconfigdata#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>The latest token describing the current state of the configuration session. This MUST be\n         provided to the next call to <code>GetLatestConfiguration.</code>\n         </p>",
-            "smithy.api#httpHeader": "Next-Poll-Configuration-Token"
-          }
-        },
-        "NextPollIntervalInSeconds": {
-          "target": "com.amazonaws.appconfigdata#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The amount of time the client should wait before polling for configuration updates\n         again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll\n         interval.</p>",
-            "smithy.api#httpHeader": "Next-Poll-Interval-In-Seconds"
-          }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.appconfigdata#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A standard MIME type describing the format of the configuration content.</p>",
-            "smithy.api#httpHeader": "Content-Type"
-          }
-        },
-        "Configuration": {
-          "target": "com.amazonaws.appconfigdata#Blob",
-          "traits": {
-            "smithy.api#documentation": "<p>The data of the configuration. This may be empty if the client already has the latest\n         version of configuration.</p>",
-            "smithy.api#httpPayload": {},
-            "smithy.api#sensitive": {}
-          }
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#Id": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^[a-z0-9]{7}$"
-      }
-    },
-    "com.amazonaws.appconfigdata#Identifier": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 64
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#Integer": {
-      "type": "integer"
-    },
-    "com.amazonaws.appconfigdata#InternalServerException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.appconfigdata#String"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>There was an internal failure in the service.</p>",
-        "smithy.api#error": "server",
-        "smithy.api#httpError": 500
-      }
-    },
-    "com.amazonaws.appconfigdata#InvalidParameterDetail": {
-      "type": "structure",
-      "members": {
-        "Problem": {
-          "target": "com.amazonaws.appconfigdata#InvalidParameterProblem",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason the parameter is invalid.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Information about an invalid parameter.</p>"
-      }
-    },
-    "com.amazonaws.appconfigdata#InvalidParameterMap": {
-      "type": "map",
-      "key": {
-        "target": "com.amazonaws.appconfigdata#String"
-      },
-      "value": {
-        "target": "com.amazonaws.appconfigdata#InvalidParameterDetail"
-      }
-    },
-    "com.amazonaws.appconfigdata#InvalidParameterProblem": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Corrupted",
-            "name": "CORRUPTED",
-            "documentation": "The parameter was corrupted and could not be understood by the service."
-          },
-          {
-            "value": "Expired",
-            "name": "EXPIRED",
-            "documentation": "The parameter was expired and can no longer be used."
-          },
-          {
-            "value": "PollIntervalNotSatisfied",
-            "name": "POLL_INTERVAL_NOT_SATISFIED",
-            "documentation": "The client called the service before the time specified in the poll interval."
-          }
-        ]
-      }
-    },
-    "com.amazonaws.appconfigdata#OptionalPollSeconds": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {},
-        "smithy.api#range": {
-          "min": 15,
-          "max": 86400
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#ResourceNotFoundException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.appconfigdata#String"
-        },
-        "ResourceType": {
-          "target": "com.amazonaws.appconfigdata#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of resource that was not found.</p>"
-          }
-        },
-        "ReferencedBy": {
-          "target": "com.amazonaws.appconfigdata#StringMap",
-          "traits": {
-            "smithy.api#documentation": "<p>A map indicating which parameters in the request reference the resource that was not found.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The requested resource could not be found.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 404
-      }
-    },
-    "com.amazonaws.appconfigdata#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Application",
-            "name": "APPLICATION",
-            "documentation": "Resource type value for the Application resource."
-          },
-          {
-            "value": "ConfigurationProfile",
-            "name": "CONFIGURATION_PROFILE",
-            "documentation": "Resource type value for the ConfigurationProfile resource."
-          },
-          {
-            "value": "Deployment",
-            "name": "DEPLOYMENT",
-            "documentation": "Resource type value for the Deployment resource."
-          },
-          {
-            "value": "Environment",
-            "name": "ENVIRONMENT",
-            "documentation": "Resource type value for the Environment resource."
-          },
-          {
-            "value": "Configuration",
-            "name": "CONFIGURATION",
-            "documentation": "Resource type value for the Configuration resource."
-          }
-        ]
-      }
-    },
-    "com.amazonaws.appconfigdata#StartConfigurationSession": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.appconfigdata#StartConfigurationSessionRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.appconfigdata#StartConfigurationSessionResponse"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.appconfigdata#BadRequestException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.appconfigdata#ThrottlingException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Starts a configuration session used to retrieve a deployed configuration. For more\n         information about this API action and to view example CLI commands that show how to use\n         it with the <a>GetLatestConfiguration</a> API action, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration\">Receiving the\n            configuration</a> in the <i>AppConfig User Guide</i>. </p>",
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/configurationsessions",
-          "code": 201
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#StartConfigurationSessionRequest": {
-      "type": "structure",
-      "members": {
-        "ApplicationIdentifier": {
-          "target": "com.amazonaws.appconfigdata#Identifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The application ID or the application name.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EnvironmentIdentifier": {
-          "target": "com.amazonaws.appconfigdata#Identifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The environment ID or the environment name.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ConfigurationProfileIdentifier": {
-          "target": "com.amazonaws.appconfigdata#Identifier",
-          "traits": {
-            "smithy.api#documentation": "<p>The configuration profile ID or the configuration profile name.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "RequiredMinimumPollIntervalInSeconds": {
-          "target": "com.amazonaws.appconfigdata#OptionalPollSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then\n         the client that established the session can't call <a>GetLatestConfiguration</a>\n         more frequently then every 60 seconds.</p>"
-          }
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#StartConfigurationSessionResponse": {
-      "type": "structure",
-      "members": {
-        "InitialConfigurationToken": {
-          "target": "com.amazonaws.appconfigdata#Token",
-          "traits": {
-            "smithy.api#documentation": "<p>Token encapsulating state about the configuration session. Provide this token to the\n            <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>\n         <important>\n            <p>This token should only be used once in your first call to\n               <code>GetLatestConfiguration</code>. You MUST use the new token in the\n               <code>GetLatestConfiguration</code> response\n            (<code>NextPollConfigurationToken</code>) in each subsequent call to\n               <code>GetLatestConfiguration</code>.</p>\n         </important>"
-          }
-        }
-      }
-    },
-    "com.amazonaws.appconfigdata#String": {
-      "type": "string"
-    },
-    "com.amazonaws.appconfigdata#StringMap": {
-      "type": "map",
-      "key": {
-        "target": "com.amazonaws.appconfigdata#String"
-      },
-      "value": {
-        "target": "com.amazonaws.appconfigdata#String"
-      }
-    },
-    "com.amazonaws.appconfigdata#ThrottlingException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.appconfigdata#String"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 429
-      }
-    },
-    "com.amazonaws.appconfigdata#Token": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^\\S{1,8192}$"
-      }
     }
-  }
 }

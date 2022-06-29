@@ -175,7 +175,6 @@ import {
   MalformedRequestBodyCommandInput,
   MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
-import { MalformedSetCommandInput, MalformedSetCommandOutput } from "./commands/MalformedSetCommand";
 import { MalformedShortCommandInput, MalformedShortCommandOutput } from "./commands/MalformedShortCommand";
 import { MalformedStringCommandInput, MalformedStringCommandOutput } from "./commands/MalformedStringCommand";
 import {
@@ -227,6 +226,10 @@ import {
   MalformedTimestampQueryHttpDateCommandOutput,
 } from "./commands/MalformedTimestampQueryHttpDateCommand";
 import { MalformedUnionCommandInput, MalformedUnionCommandOutput } from "./commands/MalformedUnionCommand";
+import {
+  MalformedUniqueItemsCommandInput,
+  MalformedUniqueItemsCommandOutput,
+} from "./commands/MalformedUniqueItemsCommand";
 import { MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput } from "./commands/MediaTypeHeaderCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
@@ -243,6 +246,10 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
+import {
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "./commands/PostUnionWithJsonNameCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -330,7 +337,6 @@ export type ServiceInputTypes =
   | MalformedLongCommandInput
   | MalformedMapCommandInput
   | MalformedRequestBodyCommandInput
-  | MalformedSetCommandInput
   | MalformedShortCommandInput
   | MalformedStringCommandInput
   | MalformedTimestampBodyDateTimeCommandInput
@@ -346,6 +352,7 @@ export type ServiceInputTypes =
   | MalformedTimestampQueryEpochCommandInput
   | MalformedTimestampQueryHttpDateCommandInput
   | MalformedUnionCommandInput
+  | MalformedUniqueItemsCommandInput
   | MediaTypeHeaderCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
@@ -353,6 +360,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
   | PostPlayerActionCommandInput
+  | PostUnionWithJsonNameCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -418,7 +426,6 @@ export type ServiceOutputTypes =
   | MalformedLongCommandOutput
   | MalformedMapCommandOutput
   | MalformedRequestBodyCommandOutput
-  | MalformedSetCommandOutput
   | MalformedShortCommandOutput
   | MalformedStringCommandOutput
   | MalformedTimestampBodyDateTimeCommandOutput
@@ -434,6 +441,7 @@ export type ServiceOutputTypes =
   | MalformedTimestampQueryEpochCommandOutput
   | MalformedTimestampQueryHttpDateCommandOutput
   | MalformedUnionCommandOutput
+  | MalformedUniqueItemsCommandOutput
   | MediaTypeHeaderCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
@@ -441,6 +449,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
   | PostPlayerActionCommandOutput
+  | PostUnionWithJsonNameCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput
