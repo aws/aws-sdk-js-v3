@@ -933,6 +933,34 @@
             }
           }
         },
+        "api.iotdeviceadvisor": {
+          "endpoints": {
+            "ap-northeast-1": {
+              "credentialScope": {
+                "region": "ap-northeast-1"
+              },
+              "hostname": "api.iotdeviceadvisor.ap-northeast-1.amazonaws.com"
+            },
+            "eu-west-1": {
+              "credentialScope": {
+                "region": "eu-west-1"
+              },
+              "hostname": "api.iotdeviceadvisor.eu-west-1.amazonaws.com"
+            },
+            "us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "api.iotdeviceadvisor.us-east-1.amazonaws.com"
+            },
+            "us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "hostname": "api.iotdeviceadvisor.us-west-2.amazonaws.com"
+            }
+          }
+        },
         "api.iotwireless": {
           "endpoints": {
             "ap-northeast-1": {
@@ -2376,6 +2404,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ap-southeast-3": {},
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
@@ -9726,6 +9755,12 @@
               },
               "hostname": "oidc.eu-north-1.amazonaws.com"
             },
+            "eu-south-1": {
+              "credentialScope": {
+                "region": "eu-south-1"
+              },
+              "hostname": "oidc.eu-south-1.amazonaws.com"
+            },
             "eu-west-1": {
               "credentialScope": {
                 "region": "eu-west-1"
@@ -10733,6 +10768,21 @@
                 }
               ]
             }
+          }
+        },
+        "redshift-serverless": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-west-1": {},
+            "eu-west-2": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
           }
         },
         "rekognition": {
@@ -18711,12 +18761,27 @@
         },
         "lakeformation": {
           "endpoints": {
+            "fips-us-gov-east-1": {
+              "credentialScope": {
+                "region": "us-gov-east-1"
+              },
+              "deprecated": true,
+              "hostname": "lakeformation-fips.us-gov-east-1.amazonaws.com"
+            },
             "fips-us-gov-west-1": {
               "credentialScope": {
                 "region": "us-gov-west-1"
               },
               "deprecated": true,
               "hostname": "lakeformation-fips.us-gov-west-1.amazonaws.com"
+            },
+            "us-gov-east-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation-fips.us-gov-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
             },
             "us-gov-west-1": {
               "variants": [

@@ -2,7 +2,44 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "ap-northeast-1": {
+    variants: [
+      {
+        hostname: "api.iotdeviceadvisor.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-northeast-1",
+  },
+  "eu-west-1": {
+    variants: [
+      {
+        hostname: "api.iotdeviceadvisor.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "eu-west-1",
+  },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "api.iotdeviceadvisor.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "api.iotdeviceadvisor.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-west-2",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
