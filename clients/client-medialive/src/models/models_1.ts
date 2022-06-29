@@ -40,7 +40,6 @@ import {
   HlsRedundantManifest,
   HlsSegmentationMode,
   HlsStreamInfResolution,
-  HlsTimedMetadataId3Frame,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -88,6 +87,12 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+export enum HlsTimedMetadataId3Frame {
+  NONE = "NONE",
+  PRIV = "PRIV",
+  TDRL = "TDRL",
+}
 
 export enum HlsTsFileMode {
   SEGMENTED_FILES = "SEGMENTED_FILES",
@@ -823,6 +828,36 @@ export namespace PipelinePauseStateSettings {
   });
 }
 
+export enum ReservationAutomaticRenewal {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  UNAVAILABLE = "UNAVAILABLE",
+}
+
+/**
+ * The Renewal settings for Reservations
+ */
+export interface RenewalSettings {
+  /**
+   * Automatic renewal status for the reservation
+   */
+  AutomaticRenewal?: ReservationAutomaticRenewal | string;
+
+  /**
+   * Count for the reservation renewal
+   */
+  RenewalCount?: number;
+}
+
+export namespace RenewalSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RenewalSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum ReservationState {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -893,6 +928,11 @@ export interface Reservation {
    * AWS region, e.g. 'us-west-2'
    */
   Region?: string;
+
+  /**
+   * Renewal settings for the reservation
+   */
+  RenewalSettings?: RenewalSettings;
 
   /**
    * Unique reservation ID, e.g. '1234567'
@@ -5431,6 +5471,11 @@ export interface DeleteReservationResponse {
   Region?: string;
 
   /**
+   * Renewal settings for the reservation
+   */
+  RenewalSettings?: RenewalSettings;
+
+  /**
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId?: string;
@@ -6304,6 +6349,11 @@ export interface DescribeReservationResponse {
   Region?: string;
 
   /**
+   * Renewal settings for the reservation
+   */
+  RenewalSettings?: RenewalSettings;
+
+  /**
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId?: string;
@@ -7037,6 +7087,11 @@ export interface PurchaseOfferingRequest {
    * Offering to purchase, e.g. '87654321'
    */
   OfferingId: string | undefined;
+
+  /**
+   * Renewal settings for the reservation
+   */
+  RenewalSettings?: RenewalSettings;
 
   /**
    * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
@@ -7939,83 +7994,6 @@ export namespace UpdateInputSecurityGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateInputSecurityGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * A request to update a multiplex.
- */
-export interface UpdateMultiplexRequest {
-  /**
-   * ID of the multiplex to update.
-   */
-  MultiplexId: string | undefined;
-
-  /**
-   * The new settings for a multiplex.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * Name of the multiplex.
-   */
-  Name?: string;
-}
-
-export namespace UpdateMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Placeholder documentation for UpdateMultiplexResponse
- */
-export interface UpdateMultiplexResponse {
-  /**
-   * The updated multiplex.
-   */
-  Multiplex?: Multiplex;
-}
-
-export namespace UpdateMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * A request to update a program in a multiplex.
- */
-export interface UpdateMultiplexProgramRequest {
-  /**
-   * The ID of the multiplex of the program to update.
-   */
-  MultiplexId: string | undefined;
-
-  /**
-   * The new settings for a multiplex program.
-   */
-  MultiplexProgramSettings?: MultiplexProgramSettings;
-
-  /**
-   * The name of the program to update.
-   */
-  ProgramName: string | undefined;
-}
-
-export namespace UpdateMultiplexProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexProgramRequest): any => ({
     ...obj,
   });
 }

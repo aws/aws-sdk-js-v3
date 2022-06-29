@@ -1060,6 +1060,11 @@ export namespace BatchSuccessfulResultModel {
   });
 }
 
+export enum AccessibilityType {
+  DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES = "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
+  IMPLEMENTS_ACCESSIBILITY_FEATURES = "IMPLEMENTS_ACCESSIBILITY_FEATURES",
+}
+
 /**
  * Arib Destination Settings
  */
@@ -1667,6 +1672,11 @@ export namespace CaptionDestinationSettings {
  * Caption Description
  */
 export interface CaptionDescription {
+  /**
+   * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+   */
+  Accessibility?: AccessibilityType | string;
+
   /**
    * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
    */
@@ -3291,6 +3301,7 @@ export enum DeviceSettingsSyncState {
 
 export enum DeviceUpdateStatus {
   NOT_UP_TO_DATE = "NOT_UP_TO_DATE",
+  UPDATING = "UPDATING",
   UP_TO_DATE = "UP_TO_DATE",
 }
 
@@ -5711,10 +5722,4 @@ export enum HlsSegmentationMode {
 export enum HlsStreamInfResolution {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
-}
-
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
 }

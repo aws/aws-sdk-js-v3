@@ -351,6 +351,7 @@ import {
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
+  RenewalSettings,
   Reservation,
   RtmpAdMarkers,
   RtmpGroupSettings,
@@ -1726,6 +1727,10 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
   body = JSON.stringify({
     ...(input.Count !== undefined && input.Count !== null && { count: input.Count }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.RenewalSettings !== undefined &&
+      input.RenewalSettings !== null && {
+        renewalSettings: serializeAws_restJson1RenewalSettings(input.RenewalSettings, context),
+      }),
     requestId: input.RequestId ?? generateIdempotencyToken(),
     ...(input.Start !== undefined && input.Start !== null && { start: input.Start }),
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
@@ -2266,6 +2271,10 @@ export const serializeAws_restJson1UpdateReservationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.RenewalSettings !== undefined &&
+      input.RenewalSettings !== null && {
+        renewalSettings: serializeAws_restJson1RenewalSettings(input.RenewalSettings, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -3628,6 +3637,7 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
     OfferingId: undefined,
     OfferingType: undefined,
     Region: undefined,
+    RenewalSettings: undefined,
     ReservationId: undefined,
     ResourceSpecification: undefined,
     Start: undefined,
@@ -3671,6 +3681,9 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
   }
   if (data.region !== undefined && data.region !== null) {
     contents.Region = __expectString(data.region);
+  }
+  if (data.renewalSettings !== undefined && data.renewalSettings !== null) {
+    contents.RenewalSettings = deserializeAws_restJson1RenewalSettings(data.renewalSettings, context);
   }
   if (data.reservationId !== undefined && data.reservationId !== null) {
     contents.ReservationId = __expectString(data.reservationId);
@@ -4677,6 +4690,7 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
     OfferingId: undefined,
     OfferingType: undefined,
     Region: undefined,
+    RenewalSettings: undefined,
     ReservationId: undefined,
     ResourceSpecification: undefined,
     Start: undefined,
@@ -4720,6 +4734,9 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
   }
   if (data.region !== undefined && data.region !== null) {
     contents.Region = __expectString(data.region);
+  }
+  if (data.renewalSettings !== undefined && data.renewalSettings !== null) {
+    contents.RenewalSettings = deserializeAws_restJson1RenewalSettings(data.renewalSettings, context);
   }
   if (data.reservationId !== undefined && data.reservationId !== null) {
     contents.ReservationId = __expectString(data.reservationId);
@@ -7618,6 +7635,7 @@ const serializeAws_restJson1BurnInDestinationSettings = (
 
 const serializeAws_restJson1CaptionDescription = (input: CaptionDescription, context: __SerdeContext): any => {
   return {
+    ...(input.Accessibility !== undefined && input.Accessibility !== null && { accessibility: input.Accessibility }),
     ...(input.CaptionSelectorName !== undefined &&
       input.CaptionSelectorName !== null && { captionSelectorName: input.CaptionSelectorName }),
     ...(input.DestinationSettings !== undefined &&
@@ -9474,6 +9492,14 @@ const serializeAws_restJson1RemixSettings = (input: RemixSettings, context: __Se
   };
 };
 
+const serializeAws_restJson1RenewalSettings = (input: RenewalSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.AutomaticRenewal !== undefined &&
+      input.AutomaticRenewal !== null && { automaticRenewal: input.AutomaticRenewal }),
+    ...(input.RenewalCount !== undefined && input.RenewalCount !== null && { renewalCount: input.RenewalCount }),
+  };
+};
+
 const serializeAws_restJson1RtmpCaptionInfoDestinationSettings = (
   input: RtmpCaptionInfoDestinationSettings,
   context: __SerdeContext
@@ -11107,6 +11133,7 @@ const deserializeAws_restJson1BurnInDestinationSettings = (
 
 const deserializeAws_restJson1CaptionDescription = (output: any, context: __SerdeContext): CaptionDescription => {
   return {
+    Accessibility: __expectString(output.accessibility),
     CaptionSelectorName: __expectString(output.captionSelectorName),
     DestinationSettings:
       output.destinationSettings !== undefined && output.destinationSettings !== null
@@ -13138,6 +13165,13 @@ const deserializeAws_restJson1RemixSettings = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1RenewalSettings = (output: any, context: __SerdeContext): RenewalSettings => {
+  return {
+    AutomaticRenewal: __expectString(output.automaticRenewal),
+    RenewalCount: __expectInt32(output.renewalCount),
+  } as any;
+};
+
 const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
   return {
     Arn: __expectString(output.arn),
@@ -13152,6 +13186,10 @@ const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContex
     OfferingId: __expectString(output.offeringId),
     OfferingType: __expectString(output.offeringType),
     Region: __expectString(output.region),
+    RenewalSettings:
+      output.renewalSettings !== undefined && output.renewalSettings !== null
+        ? deserializeAws_restJson1RenewalSettings(output.renewalSettings, context)
+        : undefined,
     ReservationId: __expectString(output.reservationId),
     ResourceSpecification:
       output.resourceSpecification !== undefined && output.resourceSpecification !== null
