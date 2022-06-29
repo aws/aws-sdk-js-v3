@@ -2677,6 +2677,30 @@ export namespace StorageConnector {
   });
 }
 
+export enum PreferredProtocol {
+  TCP = "TCP",
+  UDP = "UDP",
+}
+
+/**
+ * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+ */
+export interface StreamingExperienceSettings {
+  /**
+   * <p>The preferred protocol that you want to use while streaming your application.</p>
+   */
+  PreferredProtocol?: PreferredProtocol | string;
+}
+
+export namespace StreamingExperienceSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamingExperienceSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum Permission {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2768,6 +2792,11 @@ export interface CreateStackRequest {
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
    */
   EmbedHostDomains?: string[];
+
+  /**
+   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   */
+  StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
 export namespace CreateStackRequest {
@@ -2876,6 +2905,11 @@ export interface Stack {
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
   EmbedHostDomains?: string[];
+
+  /**
+   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   */
+  StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
 export namespace Stack {
@@ -5693,6 +5727,7 @@ export enum StackAttribute {
   STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
   STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
   STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
+  STREAMING_EXPERIENCE_SETTINGS = "STREAMING_EXPERIENCE_SETTINGS",
   THEME_NAME = "THEME_NAME",
   USER_SETTINGS = "USER_SETTINGS",
 }
@@ -5759,6 +5794,11 @@ export interface UpdateStackRequest {
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
    */
   EmbedHostDomains?: string[];
+
+  /**
+   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   */
+  StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
 export namespace UpdateStackRequest {

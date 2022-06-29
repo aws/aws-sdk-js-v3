@@ -324,6 +324,7 @@ import {
   StopImageBuilderRequest,
   StopImageBuilderResult,
   StorageConnector,
+  StreamingExperienceSettings,
   TagResourceRequest,
   TagResourceResponse,
   UntagResourceRequest,
@@ -4976,6 +4977,13 @@ const serializeAws_json1_1CreateStackRequest = (input: CreateStackRequest, conte
       input.StorageConnectors !== null && {
         StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
       }),
+    ...(input.StreamingExperienceSettings !== undefined &&
+      input.StreamingExperienceSettings !== null && {
+        StreamingExperienceSettings: serializeAws_json1_1StreamingExperienceSettings(
+          input.StreamingExperienceSettings,
+          context
+        ),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.UserSettings !== undefined &&
       input.UserSettings !== null && {
@@ -5590,6 +5598,16 @@ const serializeAws_json1_1StorageConnectorList = (input: StorageConnector[], con
     });
 };
 
+const serializeAws_json1_1StreamingExperienceSettings = (
+  input: StreamingExperienceSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PreferredProtocol !== undefined &&
+      input.PreferredProtocol !== null && { PreferredProtocol: input.PreferredProtocol }),
+  };
+};
+
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5807,6 +5825,13 @@ const serializeAws_json1_1UpdateStackRequest = (input: UpdateStackRequest, conte
     ...(input.StorageConnectors !== undefined &&
       input.StorageConnectors !== null && {
         StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
+      }),
+    ...(input.StreamingExperienceSettings !== undefined &&
+      input.StreamingExperienceSettings !== null && {
+        StreamingExperienceSettings: serializeAws_json1_1StreamingExperienceSettings(
+          input.StreamingExperienceSettings,
+          context
+        ),
       }),
     ...(input.UserSettings !== undefined &&
       input.UserSettings !== null && {
@@ -7222,6 +7247,10 @@ const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stac
       output.StorageConnectors !== undefined && output.StorageConnectors !== null
         ? deserializeAws_json1_1StorageConnectorList(output.StorageConnectors, context)
         : undefined,
+    StreamingExperienceSettings:
+      output.StreamingExperienceSettings !== undefined && output.StreamingExperienceSettings !== null
+        ? deserializeAws_json1_1StreamingExperienceSettings(output.StreamingExperienceSettings, context)
+        : undefined,
     UserSettings:
       output.UserSettings !== undefined && output.UserSettings !== null
         ? deserializeAws_json1_1UserSettingList(output.UserSettings, context)
@@ -7310,6 +7339,15 @@ const deserializeAws_json1_1StorageConnectorList = (output: any, context: __Serd
       return deserializeAws_json1_1StorageConnector(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1StreamingExperienceSettings = (
+  output: any,
+  context: __SerdeContext
+): StreamingExperienceSettings => {
+  return {
+    PreferredProtocol: __expectString(output.PreferredProtocol),
+  } as any;
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {

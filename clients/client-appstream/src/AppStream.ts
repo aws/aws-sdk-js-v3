@@ -2261,7 +2261,7 @@ export class AppStream extends AppStreamClient {
    *                <p>Elastic fleet type</p>
    *                 <p>You can update the  <code>DisplayName</code>,
    *                         <code>IdleDisconnectTimeoutInSeconds</code>,
-   *                         <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>,
+   *                     <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code>
    *                     and <code>UsbDeviceFilterStrings</code> attributes.</p>
    *             </li>
    *          </ul>
