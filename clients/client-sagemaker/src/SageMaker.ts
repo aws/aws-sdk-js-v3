@@ -493,6 +493,11 @@ import {
   DescribeFeatureGroupCommandOutput,
 } from "./commands/DescribeFeatureGroupCommand";
 import {
+  DescribeFeatureMetadataCommand,
+  DescribeFeatureMetadataCommandInput,
+  DescribeFeatureMetadataCommandOutput,
+} from "./commands/DescribeFeatureMetadataCommand";
+import {
   DescribeFlowDefinitionCommand,
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
@@ -1106,6 +1111,16 @@ import {
   UpdateExperimentCommandInput,
   UpdateExperimentCommandOutput,
 } from "./commands/UpdateExperimentCommand";
+import {
+  UpdateFeatureGroupCommand,
+  UpdateFeatureGroupCommandInput,
+  UpdateFeatureGroupCommandOutput,
+} from "./commands/UpdateFeatureGroupCommand";
+import {
+  UpdateFeatureMetadataCommand,
+  UpdateFeatureMetadataCommandInput,
+  UpdateFeatureMetadataCommandOutput,
+} from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
   UpdateModelPackageCommand,
@@ -5208,6 +5223,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeFeatureGroupCommandOutput) => void
   ): Promise<DescribeFeatureGroupCommandOutput> | void {
     const command = new DescribeFeatureGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Shows the metadata for a feature within a feature group.</p>
+   */
+  public describeFeatureMetadata(
+    args: DescribeFeatureMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFeatureMetadataCommandOutput>;
+  public describeFeatureMetadata(
+    args: DescribeFeatureMetadataCommandInput,
+    cb: (err: any, data?: DescribeFeatureMetadataCommandOutput) => void
+  ): void;
+  public describeFeatureMetadata(
+    args: DescribeFeatureMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFeatureMetadataCommandOutput) => void
+  ): void;
+  public describeFeatureMetadata(
+    args: DescribeFeatureMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFeatureMetadataCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFeatureMetadataCommandOutput) => void
+  ): Promise<DescribeFeatureMetadataCommandOutput> | void {
+    const command = new DescribeFeatureMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -9511,6 +9558,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateExperimentCommandOutput) => void
   ): Promise<UpdateExperimentCommandOutput> | void {
     const command = new UpdateExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the feature group.</p>
+   */
+  public updateFeatureGroup(
+    args: UpdateFeatureGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFeatureGroupCommandOutput>;
+  public updateFeatureGroup(
+    args: UpdateFeatureGroupCommandInput,
+    cb: (err: any, data?: UpdateFeatureGroupCommandOutput) => void
+  ): void;
+  public updateFeatureGroup(
+    args: UpdateFeatureGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFeatureGroupCommandOutput) => void
+  ): void;
+  public updateFeatureGroup(
+    args: UpdateFeatureGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFeatureGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFeatureGroupCommandOutput) => void
+  ): Promise<UpdateFeatureGroupCommandOutput> | void {
+    const command = new UpdateFeatureGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the description and parameters of the feature group.</p>
+   */
+  public updateFeatureMetadata(
+    args: UpdateFeatureMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFeatureMetadataCommandOutput>;
+  public updateFeatureMetadata(
+    args: UpdateFeatureMetadataCommandInput,
+    cb: (err: any, data?: UpdateFeatureMetadataCommandOutput) => void
+  ): void;
+  public updateFeatureMetadata(
+    args: UpdateFeatureMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFeatureMetadataCommandOutput) => void
+  ): void;
+  public updateFeatureMetadata(
+    args: UpdateFeatureMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFeatureMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFeatureMetadataCommandOutput) => void
+  ): Promise<UpdateFeatureMetadataCommandOutput> | void {
+    const command = new UpdateFeatureMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

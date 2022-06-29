@@ -299,6 +299,10 @@ import {
   DescribeFeatureGroupCommandOutput,
 } from "./commands/DescribeFeatureGroupCommand";
 import {
+  DescribeFeatureMetadataCommandInput,
+  DescribeFeatureMetadataCommandOutput,
+} from "./commands/DescribeFeatureMetadataCommand";
+import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "./commands/DescribeFlowDefinitionCommand";
@@ -650,6 +654,11 @@ import {
   UpdateEndpointWeightsAndCapacitiesCommandOutput,
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
+import { UpdateFeatureGroupCommandInput, UpdateFeatureGroupCommandOutput } from "./commands/UpdateFeatureGroupCommand";
+import {
+  UpdateFeatureMetadataCommandInput,
+  UpdateFeatureMetadataCommandOutput,
+} from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "./commands/UpdateModelPackageCommand";
 import {
@@ -789,6 +798,7 @@ export type ServiceInputTypes =
   | DescribeEndpointConfigCommandInput
   | DescribeExperimentCommandInput
   | DescribeFeatureGroupCommandInput
+  | DescribeFeatureMetadataCommandInput
   | DescribeFlowDefinitionCommandInput
   | DescribeHumanTaskUiCommandInput
   | DescribeHyperParameterTuningJobCommandInput
@@ -919,6 +929,8 @@ export type ServiceInputTypes =
   | UpdateEndpointCommandInput
   | UpdateEndpointWeightsAndCapacitiesCommandInput
   | UpdateExperimentCommandInput
+  | UpdateFeatureGroupCommandInput
+  | UpdateFeatureMetadataCommandInput
   | UpdateImageCommandInput
   | UpdateModelPackageCommandInput
   | UpdateMonitoringScheduleCommandInput
@@ -1042,6 +1054,7 @@ export type ServiceOutputTypes =
   | DescribeEndpointConfigCommandOutput
   | DescribeExperimentCommandOutput
   | DescribeFeatureGroupCommandOutput
+  | DescribeFeatureMetadataCommandOutput
   | DescribeFlowDefinitionCommandOutput
   | DescribeHumanTaskUiCommandOutput
   | DescribeHyperParameterTuningJobCommandOutput
@@ -1172,6 +1185,8 @@ export type ServiceOutputTypes =
   | UpdateEndpointCommandOutput
   | UpdateEndpointWeightsAndCapacitiesCommandOutput
   | UpdateExperimentCommandOutput
+  | UpdateFeatureGroupCommandOutput
+  | UpdateFeatureMetadataCommandOutput
   | UpdateImageCommandOutput
   | UpdateModelPackageCommandOutput
   | UpdateMonitoringScheduleCommandOutput

@@ -10,6 +10,7 @@ import {
   CheckpointConfig,
   DeploymentConfig,
   EdgeOutputConfig,
+  FeatureDefinition,
   InferenceSpecification,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -37,6 +38,7 @@ import {
   DebugRuleEvaluationStatus,
   DriftCheckBaselines,
   ExperimentConfig,
+  FeatureParameter,
   HyperParameterTrainingJobSummary,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
@@ -79,6 +81,7 @@ import {
   Endpoint,
   Experiment,
   FeatureGroup,
+  FeatureMetadata,
   Filter,
   GitConfigForUpdate,
   LineageType,
@@ -90,6 +93,7 @@ import {
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
+  ProjectSortBy,
   ProjectStatus,
   ResourceType,
   SecondaryStatus,
@@ -106,6 +110,195 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export enum ProjectSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
+
+export interface ListProjectsInput {
+  /**
+   * <p>A filter that returns the projects that were created after a specified
+   *             time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns the projects that were created before a specified
+   *             time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of projects to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns the projects whose name contains a specified
+   *             string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListProjects</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ProjectSortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: ProjectSortOrder | string;
+}
+
+export namespace ListProjectsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a project.</p>
+ */
+export interface ProjectSummary {
+  /**
+   * <p>The name of the project.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * <p>The time that the project was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The status of the project.</p>
+   */
+  ProjectStatus: ProjectStatus | string | undefined;
+}
+
+export namespace ProjectSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProjectsOutput {
+  /**
+   * <p>A list of summaries of projects.</p>
+   */
+  ProjectSummaryList: ProjectSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
+   *             compilation jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProjectsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
+    ...obj,
+  });
+}
+
+export enum StudioLifecycleConfigSortKey {
+  CreationTime = "CreationTime",
+  LastModifiedTime = "LastModifiedTime",
+  Name = "Name",
+}
+
+export interface ListStudioLifecycleConfigsRequest {
+  /**
+   * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
+   */
+  AppTypeEquals?: StudioLifecycleConfigAppType | string;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is CreationTime.</p>
+   */
+  SortBy?: StudioLifecycleConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is Descending.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListStudioLifecycleConfigsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Details of the Studio Lifecycle Configuration.</p>
@@ -1276,8 +1469,7 @@ export interface ModelPackage {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -1297,8 +1489,7 @@ export interface ModelPackage {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -3241,6 +3432,11 @@ export interface SearchRecord {
    * <p>The properties of a project.</p>
    */
   Project?: Project;
+
+  /**
+   * <p>The feature metadata used to search through the features.</p>
+   */
+  FeatureMetadata?: FeatureMetadata;
 }
 
 export namespace SearchRecord {
@@ -4187,6 +4383,79 @@ export namespace UpdateExperimentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFeatureGroupRequest {
+  /**
+   * <p>The name of the feature group that you're updating.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>A list of the features that you're adding to the feature group.</p>
+   */
+  FeatureAdditions?: FeatureDefinition[];
+}
+
+export namespace UpdateFeatureGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
+   */
+  FeatureGroupArn: string | undefined;
+}
+
+export namespace UpdateFeatureGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFeatureGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFeatureMetadataRequest {
+  /**
+   * <p>The name of the feature group containing the feature that you're updating.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you're updating.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>A description that you can write to better describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
+   */
+  ParameterAdditions?: FeatureParameter[];
+
+  /**
+   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
+   */
+  ParameterRemovals?: string[];
+}
+
+export namespace UpdateFeatureMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFeatureMetadataRequest): any => ({
     ...obj,
   });
 }

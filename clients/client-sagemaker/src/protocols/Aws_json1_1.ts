@@ -269,6 +269,10 @@ import {
   DescribeFeatureGroupCommandOutput,
 } from "../commands/DescribeFeatureGroupCommand";
 import {
+  DescribeFeatureMetadataCommandInput,
+  DescribeFeatureMetadataCommandOutput,
+} from "../commands/DescribeFeatureMetadataCommand";
+import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "../commands/DescribeFlowDefinitionCommand";
@@ -620,6 +624,11 @@ import {
   UpdateEndpointWeightsAndCapacitiesCommandOutput,
 } from "../commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "../commands/UpdateExperimentCommand";
+import { UpdateFeatureGroupCommandInput, UpdateFeatureGroupCommandOutput } from "../commands/UpdateFeatureGroupCommand";
+import {
+  UpdateFeatureMetadataCommandInput,
+  UpdateFeatureMetadataCommandOutput,
+} from "../commands/UpdateFeatureMetadataCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "../commands/UpdateModelPackageCommand";
 import {
@@ -1025,6 +1034,8 @@ import {
   DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
   DescribeFeatureGroupResponse,
+  DescribeFeatureMetadataRequest,
+  DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHumanTaskUiRequest,
@@ -1036,7 +1047,6 @@ import {
   DescribeImageVersionRequest,
   DescribeImageVersionResponse,
   DescribeInferenceRecommendationsJobRequest,
-  DescribeInferenceRecommendationsJobResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1046,17 +1056,16 @@ import {
   EdgePresetDeploymentOutput,
   EndpointInputConfiguration,
   EndpointOutputConfiguration,
-  EnvironmentParameter,
   EnvironmentParameterRanges,
   ExperimentConfig,
   ExperimentSource,
   Explainability,
+  FeatureParameter,
   FileSource,
   FinalHyperParameterTuningJobObjectiveMetric,
   HumanTaskConfig,
   HyperParameterTrainingJobSummary,
   InferenceExecutionConfig,
-  InferenceRecommendation,
   InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
@@ -1067,13 +1076,13 @@ import {
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
+  LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelClientConfig,
-  ModelConfiguration,
   ModelDataQuality,
   ModelDeployResult,
   ModelDigests,
@@ -1146,6 +1155,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
@@ -1217,11 +1227,13 @@ import {
   Endpoint,
   EndpointConfigSummary,
   EndpointSummary,
+  EnvironmentParameter,
   Experiment,
   ExperimentSummary,
   FailStepMetadata,
   FeatureGroup,
   FeatureGroupSummary,
+  FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
   GetDeviceFleetReportRequest,
@@ -1239,6 +1251,7 @@ import {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
+  InferenceRecommendation,
   InferenceRecommendationsJob,
   LabelCounters,
   LabelCountersForWorkteam,
@@ -1338,10 +1351,8 @@ import {
   ListPipelinesResponse,
   ListProcessingJobsRequest,
   ListProcessingJobsResponse,
-  ListProjectsInput,
-  ListProjectsOutput,
-  ListStudioLifecycleConfigsRequest,
   MetricData,
+  ModelConfiguration,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelMetadataSummary,
@@ -1367,7 +1378,6 @@ import {
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProfilerRuleEvaluationStatus,
-  ProjectSummary,
   PropertyNameQuery,
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
@@ -1388,6 +1398,9 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListProjectsInput,
+  ListProjectsOutput,
+  ListStudioLifecycleConfigsRequest,
   ListStudioLifecycleConfigsResponse,
   ListSubscribedWorkteamsRequest,
   ListSubscribedWorkteamsResponse,
@@ -1418,6 +1431,7 @@ import {
   ProcessingJob,
   ProfilerConfigForUpdate,
   Project,
+  ProjectSummary,
   PutModelPackageGroupPolicyInput,
   PutModelPackageGroupPolicyOutput,
   QueryFilters,
@@ -1487,6 +1501,9 @@ import {
   UpdateEndpointWeightsAndCapacitiesOutput,
   UpdateExperimentRequest,
   UpdateExperimentResponse,
+  UpdateFeatureGroupRequest,
+  UpdateFeatureGroupResponse,
+  UpdateFeatureMetadataRequest,
   UpdateImageRequest,
   UpdateImageResponse,
   UpdateModelPackageInput,
@@ -2909,6 +2926,19 @@ export const serializeAws_json1_1DescribeFeatureGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFeatureGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFeatureMetadataCommand = async (
+  input: DescribeFeatureMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeFeatureMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFeatureMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4599,6 +4629,32 @@ export const serializeAws_json1_1UpdateExperimentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFeatureGroupCommand = async (
+  input: UpdateFeatureGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateFeatureGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFeatureGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFeatureMetadataCommand = async (
+  input: UpdateFeatureMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateFeatureMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFeatureMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -9339,6 +9395,49 @@ const deserializeAws_json1_1DescribeFeatureGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFeatureGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeFeatureMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFeatureMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFeatureMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFeatureMetadataResponse(data, context);
+  const response: DescribeFeatureMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFeatureMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFeatureMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -14744,6 +14843,89 @@ const deserializeAws_json1_1UpdateExperimentCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateFeatureGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeatureGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFeatureGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateFeatureGroupResponse(data, context);
+  const response: UpdateFeatureGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFeatureGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeatureGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1UpdateFeatureMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeatureMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFeatureMetadataCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateFeatureMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFeatureMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeatureMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UpdateImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -18213,6 +18395,17 @@ const serializeAws_json1_1DescribeFeatureGroupRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeFeatureMetadataRequest = (
+  input: DescribeFeatureMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeatureGroupName !== undefined &&
+      input.FeatureGroupName !== null && { FeatureGroupName: input.FeatureGroupName }),
+    ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
+  };
+};
+
 const serializeAws_json1_1DescribeFlowDefinitionRequest = (
   input: DescribeFlowDefinitionRequest,
   context: __SerdeContext
@@ -18798,6 +18991,17 @@ const serializeAws_json1_1Explainability = (input: Explainability, context: __Se
   };
 };
 
+const serializeAws_json1_1FeatureAdditions = (input: FeatureDefinition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FeatureDefinition(entry, context);
+    });
+};
+
 const serializeAws_json1_1FeatureDefinition = (input: FeatureDefinition, context: __SerdeContext): any => {
   return {
     ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
@@ -18813,6 +19017,35 @@ const serializeAws_json1_1FeatureDefinitions = (input: FeatureDefinition[], cont
         return null as any;
       }
       return serializeAws_json1_1FeatureDefinition(entry, context);
+    });
+};
+
+const serializeAws_json1_1FeatureParameter = (input: FeatureParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1FeatureParameterAdditions = (input: FeatureParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FeatureParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1FeatureParameterRemovals = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -23358,6 +23591,40 @@ const serializeAws_json1_1UpdateExperimentRequest = (input: UpdateExperimentRequ
   };
 };
 
+const serializeAws_json1_1UpdateFeatureGroupRequest = (
+  input: UpdateFeatureGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeatureAdditions !== undefined &&
+      input.FeatureAdditions !== null && {
+        FeatureAdditions: serializeAws_json1_1FeatureAdditions(input.FeatureAdditions, context),
+      }),
+    ...(input.FeatureGroupName !== undefined &&
+      input.FeatureGroupName !== null && { FeatureGroupName: input.FeatureGroupName }),
+  };
+};
+
+const serializeAws_json1_1UpdateFeatureMetadataRequest = (
+  input: UpdateFeatureMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FeatureGroupName !== undefined &&
+      input.FeatureGroupName !== null && { FeatureGroupName: input.FeatureGroupName }),
+    ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
+    ...(input.ParameterAdditions !== undefined &&
+      input.ParameterAdditions !== null && {
+        ParameterAdditions: serializeAws_json1_1FeatureParameterAdditions(input.ParameterAdditions, context),
+      }),
+    ...(input.ParameterRemovals !== undefined &&
+      input.ParameterRemovals !== null && {
+        ParameterRemovals: serializeAws_json1_1FeatureParameterRemovals(input.ParameterRemovals, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeleteProperties !== undefined &&
@@ -26623,6 +26890,14 @@ const deserializeAws_json1_1DescribeFeatureGroupResponse = (
     FeatureGroupArn: __expectString(output.FeatureGroupArn),
     FeatureGroupName: __expectString(output.FeatureGroupName),
     FeatureGroupStatus: __expectString(output.FeatureGroupStatus),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LastUpdateStatus:
+      output.LastUpdateStatus !== undefined && output.LastUpdateStatus !== null
+        ? deserializeAws_json1_1LastUpdateStatus(output.LastUpdateStatus, context)
+        : undefined,
     NextToken: __expectString(output.NextToken),
     OfflineStoreConfig:
       output.OfflineStoreConfig !== undefined && output.OfflineStoreConfig !== null
@@ -26636,8 +26911,34 @@ const deserializeAws_json1_1DescribeFeatureGroupResponse = (
       output.OnlineStoreConfig !== undefined && output.OnlineStoreConfig !== null
         ? deserializeAws_json1_1OnlineStoreConfig(output.OnlineStoreConfig, context)
         : undefined,
+    OnlineStoreTotalSizeBytes: __expectLong(output.OnlineStoreTotalSizeBytes),
     RecordIdentifierFeatureName: __expectString(output.RecordIdentifierFeatureName),
     RoleArn: __expectString(output.RoleArn),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFeatureMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFeatureMetadataResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    FeatureGroupArn: __expectString(output.FeatureGroupArn),
+    FeatureGroupName: __expectString(output.FeatureGroupName),
+    FeatureName: __expectString(output.FeatureName),
+    FeatureType: __expectString(output.FeatureType),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1FeatureParameters(output.Parameters, context)
+        : undefined,
   } as any;
 };
 
@@ -28532,6 +28833,14 @@ const deserializeAws_json1_1FeatureGroup = (output: any, context: __SerdeContext
     FeatureGroupArn: __expectString(output.FeatureGroupArn),
     FeatureGroupName: __expectString(output.FeatureGroupName),
     FeatureGroupStatus: __expectString(output.FeatureGroupStatus),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LastUpdateStatus:
+      output.LastUpdateStatus !== undefined && output.LastUpdateStatus !== null
+        ? deserializeAws_json1_1LastUpdateStatus(output.LastUpdateStatus, context)
+        : undefined,
     OfflineStoreConfig:
       output.OfflineStoreConfig !== undefined && output.OfflineStoreConfig !== null
         ? deserializeAws_json1_1OfflineStoreConfig(output.OfflineStoreConfig, context)
@@ -28579,6 +28888,47 @@ const deserializeAws_json1_1FeatureGroupSummary = (output: any, context: __Serde
         ? deserializeAws_json1_1OfflineStoreStatus(output.OfflineStoreStatus, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1FeatureMetadata = (output: any, context: __SerdeContext): FeatureMetadata => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    FeatureGroupArn: __expectString(output.FeatureGroupArn),
+    FeatureGroupName: __expectString(output.FeatureGroupName),
+    FeatureName: __expectString(output.FeatureName),
+    FeatureType: __expectString(output.FeatureType),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1FeatureParameters(output.Parameters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FeatureParameter = (output: any, context: __SerdeContext): FeatureParameter => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1FeatureParameters = (output: any, context: __SerdeContext): FeatureParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeatureParameter(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1FileSource = (output: any, context: __SerdeContext): FileSource => {
@@ -29756,6 +30106,13 @@ const deserializeAws_json1_1LambdaStepMetadata = (output: any, context: __SerdeC
       output.OutputParameters !== undefined && output.OutputParameters !== null
         ? deserializeAws_json1_1OutputParameterList(output.OutputParameters, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LastUpdateStatus = (output: any, context: __SerdeContext): LastUpdateStatus => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -33283,6 +33640,10 @@ const deserializeAws_json1_1SearchRecord = (output: any, context: __SerdeContext
       output.FeatureGroup !== undefined && output.FeatureGroup !== null
         ? deserializeAws_json1_1FeatureGroup(output.FeatureGroup, context)
         : undefined,
+    FeatureMetadata:
+      output.FeatureMetadata !== undefined && output.FeatureMetadata !== null
+        ? deserializeAws_json1_1FeatureMetadata(output.FeatureMetadata, context)
+        : undefined,
     ModelPackage:
       output.ModelPackage !== undefined && output.ModelPackage !== null
         ? deserializeAws_json1_1ModelPackage(output.ModelPackage, context)
@@ -34564,6 +34925,15 @@ const deserializeAws_json1_1UpdateExperimentResponse = (
 ): UpdateExperimentResponse => {
   return {
     ExperimentArn: __expectString(output.ExperimentArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateFeatureGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateFeatureGroupResponse => {
+  return {
+    FeatureGroupArn: __expectString(output.FeatureGroupArn),
   } as any;
 };
 

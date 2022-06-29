@@ -12,10 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInferenceRecommendationsJobRequest,
-  DescribeInferenceRecommendationsJobResponse,
-} from "../models/models_1";
+import { DescribeInferenceRecommendationsJobRequest } from "../models/models_1";
+import { DescribeInferenceRecommendationsJobResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
   serializeAws_json1_1DescribeInferenceRecommendationsJobCommand,

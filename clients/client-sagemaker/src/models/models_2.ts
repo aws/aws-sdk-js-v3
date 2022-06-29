@@ -38,6 +38,7 @@ import {
   ContextSummary,
   EdgeOutputConfig,
   FeatureDefinition,
+  FeatureType,
   HyperParameterTuningJobStrategyType,
   InferenceSpecification,
   MetadataProperties,
@@ -75,10 +76,12 @@ import {
   DomainStatus,
   DriftCheckBaselines,
   EdgePackagingJobStatus,
+  EndpointOutputConfiguration,
   EndpointStatus,
   ExperimentConfig,
   ExperimentSource,
   FeatureGroupStatus,
+  FeatureParameter,
   FlowDefinitionStatus,
   HumanTaskConfig,
   HyperParameterTuningJobStatus,
@@ -90,6 +93,7 @@ import {
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
+  LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
   ModelBiasAppSpecification,
@@ -121,8 +125,10 @@ import {
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  RecommendationJobStatus,
+  RecommendationJobInputConfig,
+  RecommendationJobStoppingConditions,
   RecommendationJobType,
+  RecommendationMetrics,
   RootAccess,
   RuleEvaluationStatus,
   ServiceCatalogProvisioningDetails,
@@ -136,6 +142,176 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
+ */
+export interface EnvironmentParameter {
+  /**
+   * <p>The environment key suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value type suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  ValueType: string | undefined;
+
+  /**
+   * <p>The value suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace EnvironmentParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnvironmentParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
+ */
+export interface ModelConfiguration {
+  /**
+   * <p>The inference specification name in the model package version.</p>
+   */
+  InferenceSpecificationName?: string;
+
+  /**
+   * <p>Defines the environment parameters that includes key, value types, and values.</p>
+   */
+  EnvironmentParameters?: EnvironmentParameter[];
+}
+
+export namespace ModelConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
+ */
+export interface InferenceRecommendation {
+  /**
+   * <p>The metrics used to decide what recommendation to make.</p>
+   */
+  Metrics: RecommendationMetrics | undefined;
+
+  /**
+   * <p>Defines the endpoint configuration parameters.</p>
+   */
+  EndpointConfiguration: EndpointOutputConfiguration | undefined;
+
+  /**
+   * <p>Defines the model configuration.</p>
+   */
+  ModelConfiguration: ModelConfiguration | undefined;
+}
+
+export namespace InferenceRecommendation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceRecommendation): any => ({
+    ...obj,
+  });
+}
+
+export enum RecommendationJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+}
+
+export interface DescribeInferenceRecommendationsJobResponse {
+  /**
+   * <p>The name of the job. The name must be unique within an
+   *            Amazon Web Services Region in the Amazon Web Services account.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The job description that you provided when you initiated the job.</p>
+   */
+  JobDescription?: string;
+
+  /**
+   * <p>The job type that you provided when you initiated the job.</p>
+   */
+  JobType: RecommendationJobType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
+   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job completed.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the job was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If the job fails, provides information why the job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
+   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
+   */
+  InputConfig: RecommendationJobInputConfig | undefined;
+
+  /**
+   * <p>The stopping conditions that you provided when you initiated the job.</p>
+   */
+  StoppingConditions?: RecommendationJobStoppingConditions;
+
+  /**
+   * <p>The recommendations made by Inference Recommender.</p>
+   */
+  InferenceRecommendations?: InferenceRecommendation[];
+}
+
+export namespace DescribeInferenceRecommendationsJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeLabelingJobRequest {
   /**
@@ -4848,6 +5024,11 @@ export interface FeatureGroup {
   CreationTime?: Date;
 
   /**
+   * <p>A timestamp indicating the last time you updated the feature group.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
    * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
    *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
    *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
@@ -4880,6 +5061,11 @@ export interface FeatureGroup {
    * <p>The status of <code>OfflineStore</code>.</p>
    */
   OfflineStoreStatus?: OfflineStoreStatus;
+
+  /**
+   * <p>A value that indicates whether the feature group was updated successfully.</p>
+   */
+  LastUpdateStatus?: LastUpdateStatus;
 
   /**
    * <p>The reason that the <code>FeatureGroup</code> failed to
@@ -4961,6 +5147,60 @@ export namespace FeatureGroupSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: FeatureGroupSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that is updated automatically.</p>
+ */
+export interface FeatureMetadata {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group.</p>
+   */
+  FeatureGroupArn?: string;
+
+  /**
+   * <p>The name of the feature group containing the feature.</p>
+   */
+  FeatureGroupName?: string;
+
+  /**
+   * <p>The name of feature.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>The data type of the feature.</p>
+   */
+  FeatureType?: FeatureType | string;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A timestamp indicating when the feature was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>An optional description that you specify to better describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Optional key-value pairs that you specify to better describe the feature.</p>
+   */
+  Parameters?: FeatureParameter[];
+}
+
+export namespace FeatureMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FeatureMetadata): any => ({
     ...obj,
   });
 }
@@ -5401,6 +5641,7 @@ export enum ResourceType {
   EXPERIMENT_TRIAL = "ExperimentTrial",
   EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
   FEATURE_GROUP = "FeatureGroup",
+  FEATURE_METADATA = "FeatureMetadata",
   MODEL_PACKAGE = "ModelPackage",
   MODEL_PACKAGE_GROUP = "ModelPackageGroup",
   PIPELINE = "Pipeline",
@@ -10736,193 +10977,4 @@ export namespace ListProcessingJobsResponse {
 export enum ProjectSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-}
-
-export enum ProjectSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-export interface ListProjectsInput {
-  /**
-   * <p>A filter that returns the projects that were created after a specified
-   *             time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns the projects that were created before a specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of projects to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A filter that returns the projects whose name contains a specified
-   *             string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of the previous <code>ListProjects</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ProjectSortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: ProjectSortOrder | string;
-}
-
-export namespace ListProjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a project.</p>
- */
-export interface ProjectSummary {
-  /**
-   * <p>The name of the project.</p>
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>The description of the project.</p>
-   */
-  ProjectDescription?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The ID of the project.</p>
-   */
-  ProjectId: string | undefined;
-
-  /**
-   * <p>The time that the project was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the project.</p>
-   */
-  ProjectStatus: ProjectStatus | string | undefined;
-}
-
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListProjectsOutput {
-  /**
-   * <p>A list of summaries of projects.</p>
-   */
-  ProjectSummaryList: ProjectSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             compilation jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListProjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum StudioLifecycleConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
-
-export interface ListStudioLifecycleConfigsRequest {
-  /**
-   * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
-   */
-  AppTypeEquals?: StudioLifecycleConfigAppType | string;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
-   */
-  ModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
-   */
-  ModifiedTimeAfter?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is CreationTime.</p>
-   */
-  SortBy?: StudioLifecycleConfigSortKey | string;
-
-  /**
-   * <p>The sort order. The default value is Descending.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export namespace ListStudioLifecycleConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsRequest): any => ({
-    ...obj,
-  });
 }

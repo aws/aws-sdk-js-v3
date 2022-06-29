@@ -52,6 +52,7 @@ import {
   EdgePresetDeploymentType,
   EndpointInput,
   FeatureDefinition,
+  FeatureType,
   FlowDefinitionOutputConfig,
   GitConfig,
   HumanLoopActivationConfig,
@@ -3355,12 +3356,12 @@ export interface DriftCheckBias {
   ConfigFile?: FileSource;
 
   /**
-   * <p></p>
+   * <p>The pre-training constraints.</p>
    */
   PreTrainingConstraints?: MetricsSource;
 
   /**
-   * <p></p>
+   * <p>The post-training constraints.</p>
    */
   PostTrainingConstraints?: MetricsSource;
 }
@@ -3380,7 +3381,7 @@ export namespace DriftCheckBias {
  */
 export interface DriftCheckExplainability {
   /**
-   * <p></p>
+   * <p>The drift check explainability constraints.</p>
    */
   Constraints?: MetricsSource;
 
@@ -3405,12 +3406,12 @@ export namespace DriftCheckExplainability {
  */
 export interface DriftCheckModelDataQuality {
   /**
-   * <p></p>
+   * <p>The drift check model data quality statistics.</p>
    */
   Statistics?: MetricsSource;
 
   /**
-   * <p></p>
+   * <p>The drift check model data quality constraints.</p>
    */
   Constraints?: MetricsSource;
 }
@@ -3430,12 +3431,12 @@ export namespace DriftCheckModelDataQuality {
  */
 export interface DriftCheckModelQuality {
   /**
-   * <p></p>
+   * <p>The drift check model quality statistics.</p>
    */
   Statistics?: MetricsSource;
 
   /**
-   * <p></p>
+   * <p>The drift check model quality constraints.</p>
    */
   Constraints?: MetricsSource;
 }
@@ -10275,6 +10276,36 @@ export enum FeatureGroupStatus {
   DELETING = "Deleting",
 }
 
+export enum LastUpdateStatusValue {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  SUCCESSFUL = "Successful",
+}
+
+/**
+ * <p>A value that indicates whether the update was successful.</p>
+ */
+export interface LastUpdateStatus {
+  /**
+   * <p>A value that indicates whether the update was made successful.</p>
+   */
+  Status: LastUpdateStatusValue | string | undefined;
+
+  /**
+   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace LastUpdateStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LastUpdateStatus): any => ({
+    ...obj,
+  });
+}
+
 export enum OfflineStoreStatusValue {
   ACTIVE = "Active",
   BLOCKED = "Blocked",
@@ -10344,6 +10375,11 @@ export interface DescribeFeatureGroupResponse {
   CreationTime: Date | undefined;
 
   /**
+   * <p>A timestamp indicating when the feature group was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
    * <p>The configuration for the <code>OnlineStore</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
@@ -10375,6 +10411,11 @@ export interface DescribeFeatureGroupResponse {
   OfflineStoreStatus?: OfflineStoreStatus;
 
   /**
+   * <p>A value indicating whether the update made to the feature group was successful.</p>
+   */
+  LastUpdateStatus?: LastUpdateStatus;
+
+  /**
    * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
    *             <code>OfflineStore</code>. This is failure can occur because:</p>
    *          <ul>
@@ -10400,6 +10441,11 @@ export interface DescribeFeatureGroupResponse {
    *             (<code>FeatureDefinitions</code>).</p>
    */
   NextToken: string | undefined;
+
+  /**
+   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
+   */
+  OnlineStoreTotalSizeBytes?: number;
 }
 
 export namespace DescribeFeatureGroupResponse {
@@ -10407,6 +10453,102 @@ export namespace DescribeFeatureGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFeatureMetadataRequest {
+  /**
+   * <p>The name of the feature group containing the feature.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature.</p>
+   */
+  FeatureName: string | undefined;
+}
+
+export namespace DescribeFeatureMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A key-value pair that you specify to describe the feature.</p>
+ */
+export interface FeatureParameter {
+  /**
+   * <p>A key that must contain a value to describe the feature.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value that belongs to a key.</p>
+   */
+  Value?: string;
+}
+
+export namespace FeatureParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FeatureParameter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFeatureMetadataResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the feature group that you've specified.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you've specified.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The data type of the feature.</p>
+   */
+  FeatureType: FeatureType | string | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description you added to describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key-value pairs that you added to describe the feature.</p>
+   */
+  Parameters?: FeatureParameter[];
+}
+
+export namespace DescribeFeatureMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
     ...obj,
   });
 }
@@ -11195,176 +11337,6 @@ export namespace RecommendationMetrics {
    * @internal
    */
   export const filterSensitiveLog = (obj: RecommendationMetrics): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
- */
-export interface EnvironmentParameter {
-  /**
-   * <p>The environment key suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value type suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  ValueType: string | undefined;
-
-  /**
-   * <p>The value suggested by the Amazon SageMaker Inference Recommender.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace EnvironmentParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
- */
-export interface ModelConfiguration {
-  /**
-   * <p>The inference specification name in the model package version.</p>
-   */
-  InferenceSpecificationName?: string;
-
-  /**
-   * <p>Defines the environment parameters that includes key, value types, and values.</p>
-   */
-  EnvironmentParameters?: EnvironmentParameter[];
-}
-
-export namespace ModelConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
- */
-export interface InferenceRecommendation {
-  /**
-   * <p>The metrics used to decide what recommendation to make.</p>
-   */
-  Metrics: RecommendationMetrics | undefined;
-
-  /**
-   * <p>Defines the endpoint configuration parameters.</p>
-   */
-  EndpointConfiguration: EndpointOutputConfiguration | undefined;
-
-  /**
-   * <p>Defines the model configuration.</p>
-   */
-  ModelConfiguration: ModelConfiguration | undefined;
-}
-
-export namespace InferenceRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceRecommendation): any => ({
-    ...obj,
-  });
-}
-
-export enum RecommendationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
-
-export interface DescribeInferenceRecommendationsJobResponse {
-  /**
-   * <p>The name of the job. The name must be unique within an
-   *            Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The job description that you provided when you initiated the job.</p>
-   */
-  JobDescription?: string;
-
-  /**
-   * <p>The job type that you provided when you initiated the job.</p>
-   */
-  JobType: RecommendationJobType | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   */
-  JobArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
-   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   */
-  Status: RecommendationJobStatus | string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the job completed.</p>
-   */
-  CompletionTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the job was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If the job fails, provides information why the job failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
-   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
-   */
-  InputConfig: RecommendationJobInputConfig | undefined;
-
-  /**
-   * <p>The stopping conditions that you provided when you initiated the job.</p>
-   */
-  StoppingConditions?: RecommendationJobStoppingConditions;
-
-  /**
-   * <p>The recommendations made by Inference Recommender.</p>
-   */
-  InferenceRecommendations?: InferenceRecommendation[];
-}
-
-export namespace DescribeInferenceRecommendationsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobResponse): any => ({
     ...obj,
   });
 }

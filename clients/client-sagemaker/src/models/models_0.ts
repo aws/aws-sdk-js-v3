@@ -5272,21 +5272,21 @@ export namespace BatchDescribeModelPackageOutput {
 }
 
 /**
- * <p></p>
+ * <p>Details about the metrics source.</p>
  */
 export interface MetricsSource {
   /**
-   * <p></p>
+   * <p>The metric source content type.</p>
    */
   ContentType: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The hash key used for the metrics source.</p>
    */
   ContentDigest?: string;
 
   /**
-   * <p></p>
+   * <p>The S3 URI for the metrics source.</p>
    */
   S3Uri: string | undefined;
 }
@@ -5310,12 +5310,12 @@ export interface Bias {
   Report?: MetricsSource;
 
   /**
-   * <p></p>
+   * <p>The pre-training bias report for a model.</p>
    */
   PreTrainingReport?: MetricsSource;
 
   /**
-   * <p></p>
+   * <p>The post-training bias report for a model.</p>
    */
   PostTrainingReport?: MetricsSource;
 }

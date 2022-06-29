@@ -12,42 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListStudioLifecycleConfigsRequest, ListStudioLifecycleConfigsResponse } from "../models/models_3";
+import { UpdateFeatureMetadataRequest } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListStudioLifecycleConfigsCommand,
-  serializeAws_json1_1ListStudioLifecycleConfigsCommand,
+  deserializeAws_json1_1UpdateFeatureMetadataCommand,
+  serializeAws_json1_1UpdateFeatureMetadataCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
-export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecycleConfigsRequest {}
-export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
+export interface UpdateFeatureMetadataCommandInput extends UpdateFeatureMetadataRequest {}
+export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
+ * <p>Updates the description and parameters of the feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new ListStudioLifecycleConfigsCommand(input);
+ * const command = new UpdateFeatureMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListStudioLifecycleConfigsCommandInput} for command's `input` shape.
- * @see {@link ListStudioLifecycleConfigsCommandOutput} for command's `response` shape.
+ * @see {@link UpdateFeatureMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
-export class ListStudioLifecycleConfigsCommand extends $Command<
-  ListStudioLifecycleConfigsCommandInput,
-  ListStudioLifecycleConfigsCommandOutput,
+export class UpdateFeatureMetadataCommand extends $Command<
+  UpdateFeatureMetadataCommandInput,
+  UpdateFeatureMetadataCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListStudioLifecycleConfigsCommandInput) {
+  constructor(readonly input: UpdateFeatureMetadataCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListStudioLifecycleConfigsCommandInput, ListStudioLifecycleConfigsCommandOutput> {
+  ): Handler<UpdateFeatureMetadataCommandInput, UpdateFeatureMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "ListStudioLifecycleConfigsCommand";
+    const commandName = "UpdateFeatureMetadataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioLifecycleConfigsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStudioLifecycleConfigsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFeatureMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +83,12 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListStudioLifecycleConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudioLifecycleConfigsCommand(input, context);
+  private serialize(input: UpdateFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateFeatureMetadataCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListStudioLifecycleConfigsCommandOutput> {
-    return deserializeAws_json1_1ListStudioLifecycleConfigsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureMetadataCommandOutput> {
+    return deserializeAws_json1_1UpdateFeatureMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra
