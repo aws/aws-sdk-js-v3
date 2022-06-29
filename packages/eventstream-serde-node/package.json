@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-node",
-  "version": "3.118.1",
+  "version": "3.120.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

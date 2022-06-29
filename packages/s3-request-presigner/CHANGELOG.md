@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.119.0...v3.120.0) (2022-06-29)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** not mutate client mw stack ([#3751](https://github.com/aws/aws-sdk-js-v3/issues/3751)) ([cbe8126](https://github.com/aws/aws-sdk-js-v3/commit/cbe81261dc0ff430442de9213ea8e1cd06d0cebf))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/s3-request-presigner

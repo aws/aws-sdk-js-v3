@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.119.0...v3.120.0) (2022-06-29)
+
+
+### Bug Fixes
+
+* populate content-type header for all event messages ([#3760](https://github.com/aws/aws-sdk-js-v3/issues/3760)) ([4f3d41e](https://github.com/aws/aws-sdk-js-v3/commit/4f3d41e3d30207033487de947a461cbfe195767e))
+* **s3-request-presigner:** not mutate client mw stack ([#3751](https://github.com/aws/aws-sdk-js-v3/issues/3751)) ([cbe8126](https://github.com/aws/aws-sdk-js-v3/commit/cbe81261dc0ff430442de9213ea8e1cd06d0cebf))
+
+
+### Features
+
+* **client-appstream:** Includes support for StreamingExperienceSettings in CreateStack and UpdateStack APIs ([76b0af1](https://github.com/aws/aws-sdk-js-v3/commit/76b0af11efff05e57bb97e5791bbb96962cbb0a5))
+* **client-emr:** This release introduces additional optional parameter "Throughput" to VolumeSpecification to enable user to configure throughput for gp3 ebs volumes. ([e9259f0](https://github.com/aws/aws-sdk-js-v3/commit/e9259f0716864d860308226fd845a8abb18c36ab))
+* **client-medialive:** This release adds support for automatic renewal of MediaLive reservations at the end of each reservation term. Automatic renewal is optional. This release also adds support for labelling accessibility-focused audio and caption tracks in HLS outputs. ([1737bf6](https://github.com/aws/aws-sdk-js-v3/commit/1737bf6183f15701b0edfa43606dd37b5f619430))
+* **client-redshift-serverless:** Add new API operations for Amazon Redshift Serverless, a new way of using Amazon Redshift without needing to manually manage provisioned clusters. The new operations let you interact with Redshift Serverless resources, such as create snapshots, list VPC endpoints, delete resource policies, and more. ([ba28895](https://github.com/aws/aws-sdk-js-v3/commit/ba288953f91bc4f4764c71364ddc85bd5769f700))
+* **client-sagemaker:** This release adds: UpdateFeatureGroup, UpdateFeatureMetadata, DescribeFeatureMetadata APIs; FeatureMetadata type in Search API; LastModifiedTime, LastUpdateStatus, OnlineStoreTotalSizeBytes in DescribeFeatureGroup API. ([74b38f9](https://github.com/aws/aws-sdk-js-v3/commit/74b38f9098b9aaccc40839997303062836253ac5))
+* **client-translate:** Added ListLanguages API which can be used to list the languages supported by Translate. ([4ec076d](https://github.com/aws/aws-sdk-js-v3/commit/4ec076d3339948f276cb96ea9bfef6200a18793b))
+* **clients:** update client endpoints as of 2022-06-29 ([b078874](https://github.com/aws/aws-sdk-js-v3/commit/b07887465adfa10a71ff222faf41c70054f51f6e))
+
+
+
+
+
 # [3.119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.1...v3.119.0) (2022-06-28)
 
 

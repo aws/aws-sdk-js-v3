@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.119.0...v3.120.0) (2022-06-29)
+
+
+### Features
+
+* **client-medialive:** This release adds support for automatic renewal of MediaLive reservations at the end of each reservation term. Automatic renewal is optional. This release also adds support for labelling accessibility-focused audio and caption tracks in HLS outputs. ([1737bf6](https://github.com/aws/aws-sdk-js-v3/commit/1737bf6183f15701b0edfa43606dd37b5f619430))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
