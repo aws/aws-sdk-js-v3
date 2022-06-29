@@ -29,6 +29,8 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
 /**
  * <p>Modifies the health checks used when evaluating the health state of the targets in the
  *       specified target group.</p>
+ *          <p>If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the
+ *       health check protocol, interval, timeout, or success codes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

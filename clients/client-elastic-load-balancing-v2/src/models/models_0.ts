@@ -1380,7 +1380,8 @@ export interface CreateLoadBalancerInput {
 
   /**
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
+   *       must specify either subnets or subnet mappings, but not both. To specify an Elastic IP
+   *       address, specify subnet mappings instead of subnets.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
    *       Zones.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
@@ -1395,7 +1396,7 @@ export interface CreateLoadBalancerInput {
 
   /**
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
+   *       must specify either subnets or subnet mappings, but not both.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
    *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
@@ -1967,7 +1968,8 @@ export namespace SourceIpConditionConfig {
  *          <p>Each rule can optionally include up to one of each of the following conditions:
  *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
  *         <code>source-ip</code>. Each rule can also optionally include one or more of each of the
- *       following conditions: <code>http-header</code> and <code>query-string</code>.</p>
+ *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
+ *       value for a condition cannot be empty.</p>
  */
 export interface RuleCondition {
   /**
@@ -2375,10 +2377,11 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>The approximate amount of time, in seconds, between health checks of an individual target.
+   *       If the target group protocol is HTTP or HTTPS, the default is 30 seconds.
    *       If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30
-   *       seconds. If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the
-   *       target group protocol is GENEVE, the default is 10 seconds. If the target type is
-   *         <code>lambda</code>, the default is 35 seconds.</p>
+   *       seconds and the default is 30 seconds.
+   *       If the target group protocol is GENEVE, the default is 10 seconds.
+   *       If the target type is <code>lambda</code>, the default is 35 seconds.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
@@ -3114,9 +3117,9 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ipv6.deny-all-igw-traffic</code> - Blocks internet gateway (IGW) access to the
+   *                   <code>ipv6.deny_all_igw_traffic</code> - Blocks internet gateway (IGW) access to the
    *           load balancer. It is set to <code>false</code> for internet-facing load balancers and
-   *           <code>true</code> for internal load balancers, preventing unintended access to your
+   *             <code>true</code> for internal load balancers, preventing unintended access to your
    *           internal load balancer through an internet gateway.</p>
    *             </li>
    *          </ul>
@@ -3143,6 +3146,13 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>routing.http.preserve_host_header.enabled</code> - Indicates whether the
+   *           Application Load Balancer should preserve the <code>Host</code> header in the HTTP request
+   *           and send it to the target without any change. The possible values are <code>true</code>
+   *           and <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
    *           whether the two headers (<code>x-amzn-tls-version</code> and
    *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
@@ -3159,6 +3169,31 @@ export interface LoadBalancerAttribute {
    *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
    *           to connect to the load balancer. The possible values are <code>true</code> and
    *             <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.xff_header_processing.mode</code> - Enables you to modify,
+   *           preserve, or remove the <code>X-Forwarded-For</code> header in the HTTP request before the
+   *           Application Load Balancer sends the request to the target. The possible values are
+   *             <code>append</code>, <code>preserve</code>, and <code>remove</code>. The default is
+   *             <code>append</code>.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If the value is <code>append</code>, the Application Load Balancer adds the client
+   *               IP address (of the last hop) to the <code>X-Forwarded-For</code> header in the HTTP
+   *               request before it sends it to targets.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the value is <code>preserve</code> the Application Load Balancer preserves the
+   *                 <code>X-Forwarded-For</code> header in the HTTP request, and sends it to targets
+   *               without any change.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the value is <code>remove</code>, the Application Load Balancer removes the
+   *                 <code>X-Forwarded-For</code> header in the HTTP request before it sends it to
+   *               targets.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
@@ -4125,7 +4160,6 @@ export interface ModifyTargetGroupInput {
    *       protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the
    *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckProtocol?: ProtocolEnum | string;
 
@@ -4150,14 +4184,12 @@ export interface ModifyTargetGroupInput {
   /**
    * <p>The approximate amount of time, in seconds, between health checks of an individual target.
    *       For TCP health checks, the supported values are 10 or 30 seconds.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
    * <p>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means
    *       a failed health check.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckTimeoutSeconds?: number;
 
@@ -4177,7 +4209,6 @@ export interface ModifyTargetGroupInput {
   /**
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
    *       response from a target.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   Matcher?: Matcher;
 }
