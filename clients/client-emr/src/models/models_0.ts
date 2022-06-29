@@ -17,7 +17,7 @@ export enum InstanceFleetType {
 }
 
 /**
- * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be
+ * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
  *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
  */
 export interface VolumeSpecification {
@@ -36,6 +36,11 @@ export interface VolumeSpecification {
    *          type is EBS-optimized, the minimum value is 10.</p>
    */
   SizeInGB: number | undefined;
+
+  /**
+   * <p>The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.</p>
+   */
+  Throughput?: number;
 }
 
 export namespace VolumeSpecification {
@@ -49,17 +54,17 @@ export namespace VolumeSpecification {
 
 /**
  * <p>Configuration of requested EBS block device associated with the instance group with
- *          count of volumes that will be associated to every instance.</p>
+ *          count of volumes that are associated to every instance.</p>
  */
 export interface EbsBlockDeviceConfig {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
    *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification: VolumeSpecification | undefined;
 
   /**
-   * <p>Number of EBS volumes with a specific volume configuration that will be associated with
+   * <p>Number of EBS volumes with a specific volume configuration that are associated with
    *          every instance in the instance group</p>
    */
   VolumesPerInstance?: number;
@@ -3465,7 +3470,7 @@ export namespace DescribeStudioOutput {
  */
 export interface EbsBlockDevice {
   /**
-   * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be
+   * <p>EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are
    *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification?: VolumeSpecification;

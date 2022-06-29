@@ -4909,6 +4909,7 @@ const serializeAws_json1_1VolumeSpecification = (input: VolumeSpecification, con
   return {
     ...(input.Iops !== undefined && input.Iops !== null && { Iops: input.Iops }),
     ...(input.SizeInGB !== undefined && input.SizeInGB !== null && { SizeInGB: input.SizeInGB }),
+    ...(input.Throughput !== undefined && input.Throughput !== null && { Throughput: input.Throughput }),
     ...(input.VolumeType !== undefined && input.VolumeType !== null && { VolumeType: input.VolumeType }),
   };
 };
@@ -7037,6 +7038,7 @@ const deserializeAws_json1_1VolumeSpecification = (output: any, context: __Serde
   return {
     Iops: __expectInt32(output.Iops),
     SizeInGB: __expectInt32(output.SizeInGB),
+    Throughput: __expectInt32(output.Throughput),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };
