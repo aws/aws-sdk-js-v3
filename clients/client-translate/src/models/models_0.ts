@@ -227,8 +227,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
- *       correct it, and then retry your operation.</p>
+ * <p>The value of the parameter is not valid. Review the value of the parameter you are using
+ *       to correct it, and then retry your operation.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
   readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
@@ -249,8 +249,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request. </p>
+ * <p> The request that you made is not valid. Check your request to determine why it's not
+ *       valid and then retry the request. </p>
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -434,8 +434,15 @@ export namespace DescribeTextTranslationJobRequest {
  */
 export interface InputDataConfig {
   /**
-   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
-   *       same Region as the API endpoint you are calling.</p>
+   * <p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the
+   *       files in the folder. The folder must be in the same Region as the API endpoint you are
+   *       calling.</p>
+   *          <note>
+   *             <p>The URI can also point to a single input document, or it can provide the prefix for a collection of
+   *       input documents. For example. if you use the URI <code>S3://bucketName/prefix</code> and the
+   *       prefix is a single file, Amazon Translate uses that files as input. If more than one file begins with the
+   *       prefix, Amazon Translate uses all of them as input.</p>
+   *          </note>
    */
   S3Uri: string | undefined;
 
@@ -573,15 +580,28 @@ export enum Profanity {
  * <p>Settings that configure the translation output.</p>
  */
 export interface TranslationSettings {
+  /**
+   * <p>You can optionally specify the desired level of
+   *        formality for real-time translations to supported target languages. The formality
+   *       setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the
+   *       translation output.  You can set the value to informal or formal. If you don't specify a value for
+   *       formality, or if the target language doesn't support formality, the translation will
+   *       ignore the formality setting.</p>
+   *          <p>Note that asynchronous translation jobs don't support formality. If you provide a value
+   *       for formality, the <code>StartTextTranslationJob</code> API throws an exception (InvalidRequestException).</p>
+   *          <p>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
+   *         Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+   */
   Formality?: Formality | string;
+
   /**
    * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
    *       phrases in your translation output.</p>
    *          <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string
    *       “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the
    *       length or number of words.</p>
-   *          <p>Amazon Translate does not detect profanity in all of its supported languages. For
-   *       languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported
+   *          <p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
+   *       that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
    *         Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
    */
   Profanity?: Profanity | string;
@@ -737,7 +757,7 @@ export interface ParallelDataDataLocation {
 
   /**
    * <p>The Amazon S3 location of the parallel data input file. The location is returned as a
-   *       presigned URL to that has a 30 minute expiration.</p>
+   *       presigned URL to that has a 30-minute expiration.</p>
    *
    *          <important>
    *             <p>Amazon Translate doesn't scan all input files for the risk of CSV injection
@@ -875,8 +895,8 @@ export interface GetParallelDataResponse {
 
   /**
    * <p>The Amazon S3 location of the most recent parallel data input file that was successfully
-   *       imported into Amazon Translate. The location is returned as a presigned URL that has a 30
-   *       minute expiration.</p>
+   *       imported into Amazon Translate. The location is returned as a presigned URL that has a
+   *       30-minute expiration.</p>
    *
    *          <important>
    *             <p>Amazon Translate doesn't scan all input files for the risk of CSV injection
@@ -893,7 +913,7 @@ export interface GetParallelDataResponse {
   /**
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to create a parallel
-   *       data resource. The location is returned as a presigned URL to that has a 30 minute
+   *       data resource. The location is returned as a presigned URL to that has a 30-minute
    *       expiration.</p>
    */
   AuxiliaryDataLocation?: ParallelDataDataLocation;
@@ -901,7 +921,7 @@ export interface GetParallelDataResponse {
   /**
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to update a parallel
-   *       data resource. The location is returned as a presigned URL to that has a 30 minute
+   *       data resource. The location is returned as a presigned URL to that has a 30-minute
    *       expiration.</p>
    */
   LatestUpdateAttemptAuxiliaryDataLocation?: ParallelDataDataLocation;
@@ -930,11 +950,11 @@ export interface GetTerminologyRequest {
 
   /**
    * <p>The data format of the custom terminology being retrieved.</p>
-   *          <p>If you don't specify this parameter, Amazon Translate returns a file that has the same
-   *       format as the file that was imported to create the terminology. </p>
+   *          <p>If you don't specify this parameter, Amazon Translate returns a file with the same format
+   *       as the file that was imported to create the terminology. </p>
    *          <p>If you specify this parameter when you retrieve a multi-directional terminology resource,
-   *       you must specify the same format as that of the input file that was imported to create it.
-   *       Otherwise, Amazon Translate throws an error.</p>
+   *       you must specify the same format as the input file that was imported to create it. Otherwise,
+   *       Amazon Translate throws an error.</p>
    */
   TerminologyDataFormat?: TerminologyDataFormat | string;
 }
@@ -960,7 +980,7 @@ export interface TerminologyDataLocation {
   /**
    * <p>The Amazon S3 location of the most recent custom terminology input file that was
    *       successfully imported into Amazon Translate. The location is returned as a presigned URL that
-   *       has a 30 minute expiration.</p>
+   *       has a 30-minute expiration .</p>
    *
    *          <important>
    *             <p>Amazon Translate doesn't scan all input files for the risk of CSV injection
@@ -1097,7 +1117,7 @@ export interface GetTerminologyResponse {
   /**
    * <p>The Amazon S3 location of the most recent custom terminology input file that was
    *       successfully imported into Amazon Translate. The location is returned as a presigned URL that
-   *       has a 30 minute expiration.</p>
+   *       has a 30-minute expiration.</p>
    *
    *          <important>
    *             <p>Amazon Translate doesn't scan all input files for the risk of CSV injection
@@ -1114,7 +1134,7 @@ export interface GetTerminologyResponse {
   /**
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to create a
-   *       terminology resource. The location is returned as a presigned URL to that has a 30 minute
+   *       terminology resource. The location is returned as a presigned URL to that has a 30-minute
    *       expiration.</p>
    */
   AuxiliaryDataLocation?: TerminologyDataLocation;
@@ -1134,7 +1154,8 @@ export enum MergeStrategy {
 }
 
 /**
- * <p>The data associated with the custom terminology.</p>
+ * <p>The data associated with the custom terminology. For information about the custom terminology file, see <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html">
+ *       Creating a Custom Terminology</a>.</p>
  */
 export interface TerminologyData {
   /**
@@ -1162,9 +1183,9 @@ export interface TerminologyData {
    *             <dd>
    *                <p>Any language in the terminology resource can be the source language or a target
    *             language. A single multi-directional terminology resource can be used for jobs that
-   *             translate different language pairs. For example, if the terminology contains terms in
-   *             English and Spanish, then it can be used for jobs that translate English to Spanish and
-   *             jobs that translate Spanish to English.</p>
+   *             translate different language pairs. For example, if the terminology contains English and
+   *             Spanish terms, it can be used for jobs that translate English to Spanish and Spanish to
+   *             English.</p>
    *             </dd>
    *          </dl>
    *          <p>When you create a custom terminology resource without specifying the directionality, it
@@ -1244,6 +1265,123 @@ export namespace ImportTerminologyResponse {
   export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
     ...obj,
   });
+}
+
+export enum DisplayLanguageCode {
+  DE = "de",
+  EN = "en",
+  ES = "es",
+  FR = "fr",
+  IT = "it",
+  JA = "ja",
+  KO = "ko",
+  PT = "pt",
+  ZH = "zh",
+  ZH_TW = "zh-TW",
+}
+
+export interface ListLanguagesRequest {
+  /**
+   * <p>The language code for the language to use to display the language names in the response.
+   *       The language code is <code>en</code> by default. </p>
+   */
+  DisplayLanguageCode?: DisplayLanguageCode | string;
+
+  /**
+   * <p>Include the NextToken value to fetch the next group of supported languages. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in each response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLanguagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLanguagesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A supported language.</p>
+ */
+export interface Language {
+  /**
+   * <p>Language name of the supported language.</p>
+   */
+  LanguageName: string | undefined;
+
+  /**
+   * <p>Language code for the supported language.</p>
+   */
+  LanguageCode: string | undefined;
+}
+
+export namespace Language {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Language): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLanguagesResponse {
+  /**
+   * <p>The list of supported languages.</p>
+   */
+  Languages?: Language[];
+
+  /**
+   * <p>The language code passed in with the request.</p>
+   */
+  DisplayLanguageCode?: DisplayLanguageCode | string;
+
+  /**
+   * <p> If the response does not include all remaining results, use the NextToken
+   *       in the next request to fetch the next group of supported languages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLanguagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLanguagesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Requested display language code is not supported.</p>
+ */
+export class UnsupportedDisplayLanguageCodeException extends __BaseException {
+  readonly name: "UnsupportedDisplayLanguageCodeException" = "UnsupportedDisplayLanguageCodeException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>Language code passed in with the request.</p>
+   */
+  DisplayLanguageCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedDisplayLanguageCodeException, __BaseException>) {
+    super({
+      name: "UnsupportedDisplayLanguageCodeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedDisplayLanguageCodeException.prototype);
+    this.Message = opts.Message;
+    this.DisplayLanguageCode = opts.DisplayLanguageCode;
+  }
 }
 
 export interface ListParallelDataRequest {
@@ -1334,7 +1472,7 @@ export namespace ListTerminologiesResponse {
 }
 
 /**
- * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+ * <p>The filter specified for the operation is not valid. Specify a different filter.</p>
  */
 export class InvalidFilterException extends __BaseException {
   readonly name: "InvalidFilterException" = "InvalidFilterException";
@@ -1449,8 +1587,7 @@ export interface StartTextTranslationJobRequest {
   JobName?: string;
 
   /**
-   * <p>Specifies the format and S3 location of the input documents for the translation
-   *       job.</p>
+   * <p>Specifies the format and location of the input documents for the translation job.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
 
@@ -1502,14 +1639,14 @@ export interface StartTextTranslationJobRequest {
   ParallelDataNames?: string[];
 
   /**
-   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
+   * <p>A unique identifier for the request. This token is generated for you when using the Amazon Translate
    *       SDK.</p>
    */
   ClientToken?: string;
 
   /**
    * <p>Settings to configure your translation output, including the option to mask profane words
-   *       and phrases.</p>
+   *       and phrases. <code>StartTextTranslationJob</code> does not support the formality setting.</p>
    */
   Settings?: TranslationSettings;
 }
@@ -1680,7 +1817,7 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
+ * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
  *       request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1744,6 +1881,10 @@ export interface TranslateTextRequest {
    *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
    *         <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
    *         Comprehend</a> to determine the source language.</p>
+   *          <note>
+   *             <p>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request in a region that supports
+   *           Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p>
+   *          </note>
    */
   SourceLanguageCode: string | undefined;
 
@@ -1754,8 +1895,8 @@ export interface TranslateTextRequest {
   TargetLanguageCode: string | undefined;
 
   /**
-   * <p>Settings to configure your translation output, including the option to mask profane words
-   *       and phrases.</p>
+   * <p>Settings to configure your translation output, including the option to set the formality
+   *       level of the output text and the option to mask profane words and phrases.</p>
    */
   Settings?: TranslationSettings;
 }

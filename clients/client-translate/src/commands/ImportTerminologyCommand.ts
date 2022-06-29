@@ -23,14 +23,14 @@ export interface ImportTerminologyCommandInput extends ImportTerminologyRequest 
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a custom terminology, depending on whether or not one already exists
- *       for the given terminology name. Importing a terminology with the same name as an existing one
- *       will merge the terminologies based on the chosen merge strategy. Currently, the only supported
- *       merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing
- *       terminology of the same name.</p>
- *          <p>If you import a terminology that overwrites an existing one, the new terminology take up
- *       to 10 minutes to fully propagate and be available for use in a translation due to cache
- *       policies with the DataPlane service that performs the translations.</p>
+ * <p>Creates or updates a custom terminology, depending on whether one already exists for the
+ *       given terminology name. Importing a terminology with the same name as an existing one will
+ *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
+ *       is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
+ *       name.</p>
+ *          <p>If you import a terminology that overwrites an existing one, the new terminology takes up
+ *       to 10 minutes to fully propagate. After that, translations have access to the new
+ *       terminology.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

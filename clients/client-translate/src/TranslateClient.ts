@@ -63,6 +63,7 @@ import {
 import { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "./commands/GetParallelDataCommand";
 import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./commands/GetTerminologyCommand";
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "./commands/ImportTerminologyCommand";
+import { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "./commands/ListLanguagesCommand";
 import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "./commands/ListParallelDataCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "./commands/ListTerminologiesCommand";
 import {
@@ -89,6 +90,7 @@ export type ServiceInputTypes =
   | GetParallelDataCommandInput
   | GetTerminologyCommandInput
   | ImportTerminologyCommandInput
+  | ListLanguagesCommandInput
   | ListParallelDataCommandInput
   | ListTerminologiesCommandInput
   | ListTextTranslationJobsCommandInput
@@ -105,6 +107,7 @@ export type ServiceOutputTypes =
   | GetParallelDataCommandOutput
   | GetTerminologyCommandOutput
   | ImportTerminologyCommandOutput
+  | ListLanguagesCommandOutput
   | ListParallelDataCommandOutput
   | ListTerminologiesCommandOutput
   | ListTextTranslationJobsCommandOutput

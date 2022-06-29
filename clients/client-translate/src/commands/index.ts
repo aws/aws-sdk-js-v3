@@ -6,6 +6,7 @@ export * from "./DescribeTextTranslationJobCommand";
 export * from "./GetParallelDataCommand";
 export * from "./GetTerminologyCommand";
 export * from "./ImportTerminologyCommand";
+export * from "./ListLanguagesCommand";
 export * from "./ListParallelDataCommand";
 export * from "./ListTerminologiesCommand";
 export * from "./ListTextTranslationJobsCommand";

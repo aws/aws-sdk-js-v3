@@ -27,6 +27,7 @@ import {
 import { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "../commands/GetParallelDataCommand";
 import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "../commands/GetTerminologyCommand";
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "../commands/ImportTerminologyCommand";
+import { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "../commands/ListLanguagesCommand";
 import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "../commands/ListParallelDataCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "../commands/ListTerminologiesCommand";
 import {
@@ -68,7 +69,10 @@ import {
   InvalidParameterValueException,
   InvalidRequestException,
   JobDetails,
+  Language,
   LimitExceededException,
+  ListLanguagesRequest,
+  ListLanguagesResponse,
   ListParallelDataRequest,
   ListParallelDataResponse,
   ListTerminologiesRequest,
@@ -96,6 +100,7 @@ import {
   TranslateTextRequest,
   TranslateTextResponse,
   TranslationSettings,
+  UnsupportedDisplayLanguageCodeException,
   UnsupportedLanguagePairException,
   UpdateParallelDataRequest,
   UpdateParallelDataResponse,
@@ -190,6 +195,19 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportTerminologyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListLanguagesCommand = async (
+  input: ListLanguagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSShineFrontendService_20170701.ListLanguages",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLanguagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -637,6 +655,58 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListLanguagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLanguagesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLanguagesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLanguagesResponse(data, context);
+  const response: ListLanguagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLanguagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLanguagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnsupportedDisplayLanguageCodeException":
+    case "com.amazonaws.translate#UnsupportedDisplayLanguageCodeException":
+      throw await deserializeAws_json1_1UnsupportedDisplayLanguageCodeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1189,6 +1259,19 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1UnsupportedDisplayLanguageCodeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedDisplayLanguageCodeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedDisplayLanguageCodeException(body, context);
+  const exception = new UnsupportedDisplayLanguageCodeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1UnsupportedLanguagePairExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1292,6 +1375,15 @@ const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __
   return {
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_1ListLanguagesRequest = (input: ListLanguagesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DisplayLanguageCode !== undefined &&
+      input.DisplayLanguageCode !== null && { DisplayLanguageCode: input.DisplayLanguageCode }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1665,6 +1757,13 @@ const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1Language = (output: any, context: __SerdeContext): Language => {
+  return {
+    LanguageCode: __expectString(output.LanguageCode),
+    LanguageName: __expectString(output.LanguageName),
+  } as any;
+};
+
 const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -1677,9 +1776,32 @@ const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __Se
   return retVal;
 };
 
+const deserializeAws_json1_1LanguagesList = (output: any, context: __SerdeContext): Language[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Language(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ListLanguagesResponse = (output: any, context: __SerdeContext): ListLanguagesResponse => {
+  return {
+    DisplayLanguageCode: __expectString(output.DisplayLanguageCode),
+    Languages:
+      output.Languages !== undefined && output.Languages !== null
+        ? deserializeAws_json1_1LanguagesList(output.Languages, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2044,6 +2166,16 @@ const deserializeAws_json1_1TranslationSettings = (output: any, context: __Serde
   return {
     Formality: __expectString(output.Formality),
     Profanity: __expectString(output.Profanity),
+  } as any;
+};
+
+const deserializeAws_json1_1UnsupportedDisplayLanguageCodeException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedDisplayLanguageCodeException => {
+  return {
+    DisplayLanguageCode: __expectString(output.DisplayLanguageCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 

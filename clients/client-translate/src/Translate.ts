@@ -37,6 +37,11 @@ import {
   ImportTerminologyCommandOutput,
 } from "./commands/ImportTerminologyCommand";
 import {
+  ListLanguagesCommand,
+  ListLanguagesCommandInput,
+  ListLanguagesCommandOutput,
+} from "./commands/ListLanguagesCommand";
+import {
   ListParallelDataCommand,
   ListParallelDataCommandInput,
   ListParallelDataCommandOutput,
@@ -275,14 +280,14 @@ export class Translate extends TranslateClient {
   }
 
   /**
-   * <p>Creates or updates a custom terminology, depending on whether or not one already exists
-   *       for the given terminology name. Importing a terminology with the same name as an existing one
-   *       will merge the terminologies based on the chosen merge strategy. Currently, the only supported
-   *       merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing
-   *       terminology of the same name.</p>
-   *          <p>If you import a terminology that overwrites an existing one, the new terminology take up
-   *       to 10 minutes to fully propagate and be available for use in a translation due to cache
-   *       policies with the DataPlane service that performs the translations.</p>
+   * <p>Creates or updates a custom terminology, depending on whether one already exists for the
+   *       given terminology name. Importing a terminology with the same name as an existing one will
+   *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
+   *       is OVERWRITE, where the imported terminology overwrites the existing terminology of the same
+   *       name.</p>
+   *          <p>If you import a terminology that overwrites an existing one, the new terminology takes up
+   *       to 10 minutes to fully propagate. After that, translations have access to the new
+   *       terminology.</p>
    */
   public importTerminology(
     args: ImportTerminologyCommandInput,
@@ -303,6 +308,38 @@ export class Translate extends TranslateClient {
     cb?: (err: any, data?: ImportTerminologyCommandOutput) => void
   ): Promise<ImportTerminologyCommandOutput> | void {
     const command = new ImportTerminologyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
+   */
+  public listLanguages(
+    args: ListLanguagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLanguagesCommandOutput>;
+  public listLanguages(
+    args: ListLanguagesCommandInput,
+    cb: (err: any, data?: ListLanguagesCommandOutput) => void
+  ): void;
+  public listLanguages(
+    args: ListLanguagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLanguagesCommandOutput) => void
+  ): void;
+  public listLanguages(
+    args: ListLanguagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLanguagesCommandOutput) => void),
+    cb?: (err: any, data?: ListLanguagesCommandOutput) => void
+  ): Promise<ListLanguagesCommandOutput> | void {
+    const command = new ListLanguagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
