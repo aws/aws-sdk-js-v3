@@ -55,6 +55,10 @@ import {
 
 import { BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput } from "./commands/BatchGetNamedQueryCommand";
 import {
+  BatchGetPreparedStatementCommandInput,
+  BatchGetPreparedStatementCommandOutput,
+} from "./commands/BatchGetPreparedStatementCommand";
+import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
@@ -119,6 +123,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | BatchGetNamedQueryCommandInput
+  | BatchGetPreparedStatementCommandInput
   | BatchGetQueryExecutionCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
@@ -156,6 +161,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | BatchGetNamedQueryCommandOutput
+  | BatchGetPreparedStatementCommandOutput
   | BatchGetQueryExecutionCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput

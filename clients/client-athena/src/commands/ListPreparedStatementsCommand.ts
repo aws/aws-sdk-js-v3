@@ -23,7 +23,7 @@ export interface ListPreparedStatementsCommandInput extends ListPreparedStatemen
 export interface ListPreparedStatementsCommandOutput extends ListPreparedStatementsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the prepared statements in the specfied workgroup.</p>
+ * <p>Lists the prepared statements in the specified workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

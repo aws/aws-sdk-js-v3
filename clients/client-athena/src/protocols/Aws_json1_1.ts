@@ -20,6 +20,10 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput } from "../commands/BatchGetNamedQueryCommand";
 import {
+  BatchGetPreparedStatementCommandInput,
+  BatchGetPreparedStatementCommandOutput,
+} from "../commands/BatchGetPreparedStatementCommand";
+import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "../commands/BatchGetQueryExecutionCommand";
@@ -86,6 +90,8 @@ import {
   AthenaError,
   BatchGetNamedQueryInput,
   BatchGetNamedQueryOutput,
+  BatchGetPreparedStatementInput,
+  BatchGetPreparedStatementOutput,
   BatchGetQueryExecutionInput,
   BatchGetQueryExecutionOutput,
   Column,
@@ -172,6 +178,7 @@ import {
   TagResourceOutput,
   TooManyRequestsException,
   UnprocessedNamedQueryId,
+  UnprocessedPreparedStatementName,
   UnprocessedQueryExecutionId,
   UntagResourceInput,
   UntagResourceOutput,
@@ -199,6 +206,19 @@ export const serializeAws_json1_1BatchGetNamedQueryCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetNamedQueryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchGetPreparedStatementCommand = async (
+  input: BatchGetPreparedStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonAthena.BatchGetPreparedStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchGetPreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -665,6 +685,53 @@ const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetNamedQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1BatchGetPreparedStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetPreparedStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchGetPreparedStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetPreparedStatementOutput(data, context);
+  const response: BatchGetPreparedStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchGetPreparedStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetPreparedStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2402,6 +2469,19 @@ const serializeAws_json1_1BatchGetNamedQueryInput = (input: BatchGetNamedQueryIn
   };
 };
 
+const serializeAws_json1_1BatchGetPreparedStatementInput = (
+  input: BatchGetPreparedStatementInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PreparedStatementNames !== undefined &&
+      input.PreparedStatementNames !== null && {
+        PreparedStatementNames: serializeAws_json1_1PreparedStatementNameList(input.PreparedStatementNames, context),
+      }),
+    ...(input.WorkGroup !== undefined && input.WorkGroup !== null && { WorkGroup: input.WorkGroup }),
+  };
+};
+
 const serializeAws_json1_1BatchGetQueryExecutionInput = (
   input: BatchGetQueryExecutionInput,
   context: __SerdeContext
@@ -2506,6 +2586,17 @@ const serializeAws_json1_1EngineVersion = (input: EngineVersion, context: __Serd
     ...(input.SelectedEngineVersion !== undefined &&
       input.SelectedEngineVersion !== null && { SelectedEngineVersion: input.SelectedEngineVersion }),
   };
+};
+
+const serializeAws_json1_1ExecutionParameters = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetDatabaseInput = (input: GetDatabaseInput, context: __SerdeContext): any => {
@@ -2670,6 +2761,17 @@ const serializeAws_json1_1ParametersMap = (input: Record<string, string>, contex
   }, {});
 };
 
+const serializeAws_json1_1PreparedStatementNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1QueryExecutionContext = (input: QueryExecutionContext, context: __SerdeContext): any => {
   return {
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -2741,6 +2843,10 @@ const serializeAws_json1_1StartQueryExecutionInput = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ExecutionParameters !== undefined &&
+      input.ExecutionParameters !== null && {
+        ExecutionParameters: serializeAws_json1_1ExecutionParameters(input.ExecutionParameters, context),
+      }),
     ...(input.QueryExecutionContext !== undefined &&
       input.QueryExecutionContext !== null && {
         QueryExecutionContext: serializeAws_json1_1QueryExecutionContext(input.QueryExecutionContext, context),
@@ -2935,6 +3041,22 @@ const deserializeAws_json1_1BatchGetNamedQueryOutput = (
     UnprocessedNamedQueryIds:
       output.UnprocessedNamedQueryIds !== undefined && output.UnprocessedNamedQueryIds !== null
         ? deserializeAws_json1_1UnprocessedNamedQueryIdList(output.UnprocessedNamedQueryIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchGetPreparedStatementOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchGetPreparedStatementOutput => {
+  return {
+    PreparedStatements:
+      output.PreparedStatements !== undefined && output.PreparedStatements !== null
+        ? deserializeAws_json1_1PreparedStatementDetailsList(output.PreparedStatements, context)
+        : undefined,
+    UnprocessedPreparedStatementNames:
+      output.UnprocessedPreparedStatementNames !== undefined && output.UnprocessedPreparedStatementNames !== null
+        ? deserializeAws_json1_1UnprocessedPreparedStatementNameList(output.UnprocessedPreparedStatementNames, context)
         : undefined,
   } as any;
 };
@@ -3145,6 +3267,18 @@ const deserializeAws_json1_1EngineVersionsList = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1EngineVersion(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ExecutionParameters = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -3419,6 +3553,21 @@ const deserializeAws_json1_1PreparedStatement = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1PreparedStatementDetailsList = (
+  output: any,
+  context: __SerdeContext
+): PreparedStatement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PreparedStatement(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1PreparedStatementsList = (
   output: any,
   context: __SerdeContext
@@ -3452,6 +3601,10 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
     EngineVersion:
       output.EngineVersion !== undefined && output.EngineVersion !== null
         ? deserializeAws_json1_1EngineVersion(output.EngineVersion, context)
+        : undefined,
+    ExecutionParameters:
+      output.ExecutionParameters !== undefined && output.ExecutionParameters !== null
+        ? deserializeAws_json1_1ExecutionParameters(output.ExecutionParameters, context)
         : undefined,
     Query: __expectString(output.Query),
     QueryExecutionContext:
@@ -3719,6 +3872,32 @@ const deserializeAws_json1_1UnprocessedNamedQueryIdList = (
         return null as any;
       }
       return deserializeAws_json1_1UnprocessedNamedQueryId(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1UnprocessedPreparedStatementName = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedPreparedStatementName => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    StatementName: __expectString(output.StatementName),
+  } as any;
+};
+
+const deserializeAws_json1_1UnprocessedPreparedStatementNameList = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedPreparedStatementName[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UnprocessedPreparedStatementName(entry, context);
     });
   return retVal;
 };

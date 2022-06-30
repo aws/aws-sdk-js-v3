@@ -199,6 +199,134 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+export interface BatchGetPreparedStatementInput {
+  /**
+   * <p>A list of prepared statement names to return.</p>
+   */
+  PreparedStatementNames: string[] | undefined;
+
+  /**
+   * <p>The name of the workgroup to which the prepared statements belong.</p>
+   */
+  WorkGroup: string | undefined;
+}
+
+export namespace BatchGetPreparedStatementInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetPreparedStatementInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A prepared SQL statement for use with Athena.</p>
+ */
+export interface PreparedStatement {
+  /**
+   * <p>The name of the prepared statement.</p>
+   */
+  StatementName?: string;
+
+  /**
+   * <p>The query string for the prepared statement.</p>
+   */
+  QueryStatement?: string;
+
+  /**
+   * <p>The name of the workgroup to which the prepared statement belongs.</p>
+   */
+  WorkGroupName?: string;
+
+  /**
+   * <p>The description of the prepared statement.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The last modified time of the prepared statement.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace PreparedStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PreparedStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The name of a prepared statement that could not be returned.</p>
+ */
+export interface UnprocessedPreparedStatementName {
+  /**
+   * <p>The name of a prepared statement that could not be returned due to an error.</p>
+   */
+  StatementName?: string;
+
+  /**
+   * <p>The error code returned when the request for the prepared statement failed.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message containing the reason why the prepared statement could not be returned.
+   *             The following error messages are possible:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>INVALID_INPUT</code> - The name of the prepared statement that was
+   *                     provided is not valid (for example, the name is too long).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>STATEMENT_NOT_FOUND</code> - A prepared statement with the name provided
+   *                     could not be found.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>UNAUTHORIZED</code> - The requester does not have permission to access
+   *                     the workgroup that contains the prepared statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace UnprocessedPreparedStatementName {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnprocessedPreparedStatementName): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetPreparedStatementOutput {
+  /**
+   * <p>The list of prepared statements returned.</p>
+   */
+  PreparedStatements?: PreparedStatement[];
+
+  /**
+   * <p>A list of one or more prepared statements that were requested but could not be returned.</p>
+   */
+  UnprocessedPreparedStatementNames?: UnprocessedPreparedStatementName[];
+}
+
+export namespace BatchGetPreparedStatementOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetPreparedStatementOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface BatchGetQueryExecutionInput {
   /**
    * <p>An array of query execution IDs.</p>
@@ -603,6 +731,11 @@ export interface QueryExecution {
    * <p>The engine version that executed the query.</p>
    */
   EngineVersion?: EngineVersion;
+
+  /**
+   * <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
+   */
+  ExecutionParameters?: string[];
 }
 
 export namespace QueryExecution {
@@ -1143,6 +1276,9 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * <p>The name of the Amazon resource.</p>
+   */
   ResourceName?: string;
   /**
    * @internal
@@ -1466,45 +1602,6 @@ export namespace GetPreparedStatementInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetPreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A prepared SQL statement for use with Athena.</p>
- */
-export interface PreparedStatement {
-  /**
-   * <p>The name of the prepared statement.</p>
-   */
-  StatementName?: string;
-
-  /**
-   * <p>The query string for the prepared statement.</p>
-   */
-  QueryStatement?: string;
-
-  /**
-   * <p>The name of the workgroup to which the prepared statement belongs.</p>
-   */
-  WorkGroupName?: string;
-
-  /**
-   * <p>The description of the prepared statement.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The last modified time of the prepared statement.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-export namespace PreparedStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreparedStatement): any => ({
     ...obj,
   });
 }
@@ -2567,6 +2664,11 @@ export interface StartQueryExecutionInput {
    * <p>The name of the workgroup in which the query is being started.</p>
    */
   WorkGroup?: string;
+
+  /**
+   * <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
+   */
+  ExecutionParameters?: string[];
 }
 
 export namespace StartQueryExecutionInput {

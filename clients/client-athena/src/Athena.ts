@@ -8,6 +8,11 @@ import {
   BatchGetNamedQueryCommandOutput,
 } from "./commands/BatchGetNamedQueryCommand";
 import {
+  BatchGetPreparedStatementCommand,
+  BatchGetPreparedStatementCommandInput,
+  BatchGetPreparedStatementCommandOutput,
+} from "./commands/BatchGetPreparedStatementCommand";
+import {
   BatchGetQueryExecutionCommand,
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
@@ -217,6 +222,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
   ): Promise<BatchGetNamedQueryCommandOutput> | void {
     const command = new BatchGetNamedQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details of a single prepared statement or a list of up to 256 prepared statements for the array of prepared statement names that you provide. Requires you to have access to the workgroup to which the prepared statements belong. If a prepared statement cannot be retrieved for the name specified, the statement is listed in <code>UnprocessedPreparedStatementNames</code>.</p>
+   */
+  public batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetPreparedStatementCommandOutput>;
+  public batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    cb: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
+  ): void;
+  public batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
+  ): void;
+  public batchGetPreparedStatement(
+    args: BatchGetPreparedStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetPreparedStatementCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
+  ): Promise<BatchGetPreparedStatementCommandOutput> | void {
+    const command = new BatchGetPreparedStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -931,7 +968,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Lists the prepared statements in the specfied workgroup.</p>
+   * <p>Lists the prepared statements in the specified workgroup.</p>
    */
   public listPreparedStatements(
     args: ListPreparedStatementsCommandInput,
