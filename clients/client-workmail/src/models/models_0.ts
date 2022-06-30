@@ -328,6 +328,102 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * <p>Describes an EWS based availability provider when returned from the service. It does not
+ *          contain the password of the endpoint.</p>
+ */
+export interface RedactedEwsAvailabilityProvider {
+  /**
+   * <p>The endpoint of the remote EWS server.</p>
+   */
+  EwsEndpoint?: string;
+
+  /**
+   * <p>The username used to authenticate the remote EWS server.</p>
+   */
+  EwsUsername?: string;
+}
+
+export namespace RedactedEwsAvailabilityProvider {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RedactedEwsAvailabilityProvider): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Lambda based availability provider.</p>
+ */
+export interface LambdaAvailabilityProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda that acts as the availability provider.</p>
+   */
+  LambdaArn: string | undefined;
+}
+
+export namespace LambdaAvailabilityProvider {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LambdaAvailabilityProvider): any => ({
+    ...obj,
+  });
+}
+
+export enum AvailabilityProviderType {
+  EWS = "EWS",
+  LAMBDA = "LAMBDA",
+}
+
+/**
+ * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail
+ *          organization.</p>
+ */
+export interface AvailabilityConfiguration {
+  /**
+   * <p>Displays the domain to which the provider applies.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Displays the provider type that applies to this domain.</p>
+   */
+  ProviderType?: AvailabilityProviderType | string;
+
+  /**
+   * <p>If <code>ProviderType</code> is <code>EWS</code>, then this field contains
+   *             <code>RedactedEwsAvailabilityProvider</code>. Otherwise, it is not requried.</p>
+   */
+  EwsProvider?: RedactedEwsAvailabilityProvider;
+
+  /**
+   * <p>If ProviderType is <code>LAMBDA</code> then this field contains
+   *             <code>LambdaAvailabilityProvider</code>. Otherwise, it is not required.</p>
+   */
+  LambdaProvider?: LambdaAvailabilityProvider;
+
+  /**
+   * <p>The date and time at which the availability configuration was created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>The date and time at which the availability configuration was last modified.</p>
+   */
+  DateModified?: Date;
+}
+
+export namespace AvailabilityConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AvailabilityConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>At least one delegate must be associated to the resource to disable automatic replies
  *          from the resource.</p>
  */
@@ -518,6 +614,105 @@ export class MailDomainStateException extends __BaseException {
   }
 }
 
+/**
+ * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
+ */
+export interface EwsAvailabilityProvider {
+  /**
+   * <p>The endpoint of the remote EWS server.</p>
+   */
+  EwsEndpoint: string | undefined;
+
+  /**
+   * <p>The username used to authenticate the remote EWS server.</p>
+   */
+  EwsUsername: string | undefined;
+
+  /**
+   * <p>The password used to authenticate the remote EWS server.</p>
+   */
+  EwsPassword: string | undefined;
+}
+
+export namespace EwsAvailabilityProvider {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EwsAvailabilityProvider): any => ({
+    ...obj,
+    ...(obj.EwsPassword && { EwsPassword: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateAvailabilityConfigurationRequest {
+  /**
+   * <p>An idempotent token that ensures that an API request is executed only once.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be created.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain to which the provider applies.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Exchange Web Services (EWS) availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
+   */
+  EwsProvider?: EwsAvailabilityProvider;
+
+  /**
+   * <p>Lambda availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
+   */
+  LambdaProvider?: LambdaAvailabilityProvider;
+}
+
+export namespace CreateAvailabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAvailabilityConfigurationRequest): any => ({
+    ...obj,
+    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
+  });
+}
+
+export interface CreateAvailabilityConfigurationResponse {}
+
+export namespace CreateAvailabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAvailabilityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>
+ */
+export class NameAvailabilityException extends __BaseException {
+  readonly name: "NameAvailabilityException" = "NameAvailabilityException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NameAvailabilityException, __BaseException>) {
+    super({
+      name: "NameAvailabilityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameAvailabilityException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface CreateGroupRequest {
   /**
    * <p>The organization under which the group is to be created.</p>
@@ -553,27 +748,6 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>
- */
-export class NameAvailabilityException extends __BaseException {
-  readonly name: "NameAvailabilityException" = "NameAvailabilityException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NameAvailabilityException, __BaseException>) {
-    super({
-      name: "NameAvailabilityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NameAvailabilityException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1014,6 +1188,38 @@ export namespace DeleteAliasResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteAliasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAvailabilityConfigurationRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace DeleteAvailabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAvailabilityConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAvailabilityConfigurationResponse {}
+
+export namespace DeleteAvailabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAvailabilityConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -2704,6 +2910,54 @@ export namespace ListAliasesResponse {
   });
 }
 
+export interface ListAvailabilityConfigurationsRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be
+   *          listed.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAvailabilityConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailabilityConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAvailabilityConfigurationsResponse {
+  /**
+   * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified Amazon WorkMail organization.</p>
+   */
+  AvailabilityConfigurations?: AvailabilityConfiguration[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no further results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAvailabilityConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailabilityConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListGroupMembersRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -4239,6 +4493,59 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+export interface TestAvailabilityConfigurationRequest {
+  /**
+   * <p>The Amazon WorkMail organization where the availability provider will be tested.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain to which the provider applies. If this field is provided, a stored availability provider associated to this domain name will be tested.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
+   */
+  EwsProvider?: EwsAvailabilityProvider;
+
+  /**
+   * <p>Describes a Lambda based availability provider.</p>
+   */
+  LambdaProvider?: LambdaAvailabilityProvider;
+}
+
+export namespace TestAvailabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestAvailabilityConfigurationRequest): any => ({
+    ...obj,
+    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
+  });
+}
+
+export interface TestAvailabilityConfigurationResponse {
+  /**
+   * <p>Boolean indicating whether the test passed or failed.</p>
+   */
+  TestPassed?: boolean;
+
+  /**
+   * <p>String containing the reason for a failed test if <code>TestPassed</code> is false.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace TestAvailabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestAvailabilityConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -4267,6 +4574,54 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAvailabilityConfigurationRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code> will be
+   *          updated.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain to which the provider applies the availability configuration.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The EWS availability provider definition. The request must contain exactly one provider
+   *          definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The previously
+   *          stored provider will be overridden by the one provided.</p>
+   */
+  EwsProvider?: EwsAvailabilityProvider;
+
+  /**
+   * <p>The Lambda availability provider definition. The request must contain exactly one
+   *          provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The
+   *          previously stored provider will be overridden by the one provided.</p>
+   */
+  LambdaProvider?: LambdaAvailabilityProvider;
+}
+
+export namespace UpdateAvailabilityConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAvailabilityConfigurationRequest): any => ({
+    ...obj,
+    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
+  });
+}
+
+export interface UpdateAvailabilityConfigurationResponse {}
+
+export namespace UpdateAvailabilityConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAvailabilityConfigurationResponse): any => ({
     ...obj,
   });
 }

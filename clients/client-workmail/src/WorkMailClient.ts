@@ -66,6 +66,10 @@ import {
   CancelMailboxExportJobCommandOutput,
 } from "./commands/CancelMailboxExportJobCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import {
+  CreateAvailabilityConfigurationCommandInput,
+  CreateAvailabilityConfigurationCommandOutput,
+} from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateMobileDeviceAccessRuleCommandInput,
@@ -79,6 +83,10 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "./commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteAvailabilityConfigurationCommandInput,
+  DeleteAvailabilityConfigurationCommandOutput,
+} from "./commands/DeleteAvailabilityConfigurationCommand";
 import {
   DeleteEmailMonitoringConfigurationCommandInput,
   DeleteEmailMonitoringConfigurationCommandOutput,
@@ -161,6 +169,10 @@ import {
   ListAccessControlRulesCommandOutput,
 } from "./commands/ListAccessControlRulesCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import {
+  ListAvailabilityConfigurationsCommandInput,
+  ListAvailabilityConfigurationsCommandOutput,
+} from "./commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
@@ -220,7 +232,15 @@ import {
   StartMailboxExportJobCommandOutput,
 } from "./commands/StartMailboxExportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestAvailabilityConfigurationCommandInput,
+  TestAvailabilityConfigurationCommandOutput,
+} from "./commands/TestAvailabilityConfigurationCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityConfigurationCommandInput,
+  UpdateAvailabilityConfigurationCommandOutput,
+} from "./commands/UpdateAvailabilityConfigurationCommand";
 import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
@@ -242,6 +262,7 @@ export type ServiceInputTypes =
   | AssociateMemberToGroupCommandInput
   | CancelMailboxExportJobCommandInput
   | CreateAliasCommandInput
+  | CreateAvailabilityConfigurationCommandInput
   | CreateGroupCommandInput
   | CreateMobileDeviceAccessRuleCommandInput
   | CreateOrganizationCommandInput
@@ -249,6 +270,7 @@ export type ServiceInputTypes =
   | CreateUserCommandInput
   | DeleteAccessControlRuleCommandInput
   | DeleteAliasCommandInput
+  | DeleteAvailabilityConfigurationCommandInput
   | DeleteEmailMonitoringConfigurationCommandInput
   | DeleteGroupCommandInput
   | DeleteMailboxPermissionsCommandInput
@@ -277,6 +299,7 @@ export type ServiceInputTypes =
   | GetMobileDeviceAccessOverrideCommandInput
   | ListAccessControlRulesCommandInput
   | ListAliasesCommandInput
+  | ListAvailabilityConfigurationsCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
   | ListMailDomainsCommandInput
@@ -300,7 +323,9 @@ export type ServiceInputTypes =
   | ResetPasswordCommandInput
   | StartMailboxExportJobCommandInput
   | TagResourceCommandInput
+  | TestAvailabilityConfigurationCommandInput
   | UntagResourceCommandInput
+  | UpdateAvailabilityConfigurationCommandInput
   | UpdateDefaultMailDomainCommandInput
   | UpdateMailboxQuotaCommandInput
   | UpdateMobileDeviceAccessRuleCommandInput
@@ -312,6 +337,7 @@ export type ServiceOutputTypes =
   | AssociateMemberToGroupCommandOutput
   | CancelMailboxExportJobCommandOutput
   | CreateAliasCommandOutput
+  | CreateAvailabilityConfigurationCommandOutput
   | CreateGroupCommandOutput
   | CreateMobileDeviceAccessRuleCommandOutput
   | CreateOrganizationCommandOutput
@@ -319,6 +345,7 @@ export type ServiceOutputTypes =
   | CreateUserCommandOutput
   | DeleteAccessControlRuleCommandOutput
   | DeleteAliasCommandOutput
+  | DeleteAvailabilityConfigurationCommandOutput
   | DeleteEmailMonitoringConfigurationCommandOutput
   | DeleteGroupCommandOutput
   | DeleteMailboxPermissionsCommandOutput
@@ -347,6 +374,7 @@ export type ServiceOutputTypes =
   | GetMobileDeviceAccessOverrideCommandOutput
   | ListAccessControlRulesCommandOutput
   | ListAliasesCommandOutput
+  | ListAvailabilityConfigurationsCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
   | ListMailDomainsCommandOutput
@@ -370,7 +398,9 @@ export type ServiceOutputTypes =
   | ResetPasswordCommandOutput
   | StartMailboxExportJobCommandOutput
   | TagResourceCommandOutput
+  | TestAvailabilityConfigurationCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAvailabilityConfigurationCommandOutput
   | UpdateDefaultMailDomainCommandOutput
   | UpdateMailboxQuotaCommandOutput
   | UpdateMobileDeviceAccessRuleCommandOutput

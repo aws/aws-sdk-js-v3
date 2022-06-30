@@ -17,6 +17,11 @@ import {
   CancelMailboxExportJobCommandOutput,
 } from "./commands/CancelMailboxExportJobCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import {
+  CreateAvailabilityConfigurationCommand,
+  CreateAvailabilityConfigurationCommandInput,
+  CreateAvailabilityConfigurationCommandOutput,
+} from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateMobileDeviceAccessRuleCommand,
@@ -40,6 +45,11 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "./commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteAvailabilityConfigurationCommand,
+  DeleteAvailabilityConfigurationCommandInput,
+  DeleteAvailabilityConfigurationCommandOutput,
+} from "./commands/DeleteAvailabilityConfigurationCommand";
 import {
   DeleteEmailMonitoringConfigurationCommand,
   DeleteEmailMonitoringConfigurationCommandInput,
@@ -169,6 +179,11 @@ import {
 } from "./commands/ListAccessControlRulesCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListAvailabilityConfigurationsCommand,
+  ListAvailabilityConfigurationsCommandInput,
+  ListAvailabilityConfigurationsCommandOutput,
+} from "./commands/ListAvailabilityConfigurationsCommand";
+import {
   ListGroupMembersCommand,
   ListGroupMembersCommandInput,
   ListGroupMembersCommandOutput,
@@ -272,10 +287,20 @@ import {
 } from "./commands/StartMailboxExportJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TestAvailabilityConfigurationCommand,
+  TestAvailabilityConfigurationCommandInput,
+  TestAvailabilityConfigurationCommandOutput,
+} from "./commands/TestAvailabilityConfigurationCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityConfigurationCommand,
+  UpdateAvailabilityConfigurationCommandInput,
+  UpdateAvailabilityConfigurationCommandOutput,
+} from "./commands/UpdateAvailabilityConfigurationCommand";
 import {
   UpdateDefaultMailDomainCommand,
   UpdateDefaultMailDomainCommandInput,
@@ -458,6 +483,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
+   */
+  public createAvailabilityConfiguration(
+    args: CreateAvailabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAvailabilityConfigurationCommandOutput>;
+  public createAvailabilityConfiguration(
+    args: CreateAvailabilityConfigurationCommandInput,
+    cb: (err: any, data?: CreateAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public createAvailabilityConfiguration(
+    args: CreateAvailabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public createAvailabilityConfiguration(
+    args: CreateAvailabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAvailabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateAvailabilityConfigurationCommandOutput) => void
+  ): Promise<CreateAvailabilityConfigurationCommandOutput> | void {
+    const command = new CreateAvailabilityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -672,6 +729,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
+   */
+  public deleteAvailabilityConfiguration(
+    args: DeleteAvailabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAvailabilityConfigurationCommandOutput>;
+  public deleteAvailabilityConfiguration(
+    args: DeleteAvailabilityConfigurationCommandInput,
+    cb: (err: any, data?: DeleteAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public deleteAvailabilityConfiguration(
+    args: DeleteAvailabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public deleteAvailabilityConfiguration(
+    args: DeleteAvailabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAvailabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAvailabilityConfigurationCommandOutput) => void
+  ): Promise<DeleteAvailabilityConfigurationCommandOutput> | void {
+    const command = new DeleteAvailabilityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1576,6 +1665,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
+   */
+  public listAvailabilityConfigurations(
+    args: ListAvailabilityConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAvailabilityConfigurationsCommandOutput>;
+  public listAvailabilityConfigurations(
+    args: ListAvailabilityConfigurationsCommandInput,
+    cb: (err: any, data?: ListAvailabilityConfigurationsCommandOutput) => void
+  ): void;
+  public listAvailabilityConfigurations(
+    args: ListAvailabilityConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAvailabilityConfigurationsCommandOutput) => void
+  ): void;
+  public listAvailabilityConfigurations(
+    args: ListAvailabilityConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailabilityConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListAvailabilityConfigurationsCommandOutput) => void
+  ): Promise<ListAvailabilityConfigurationsCommandOutput> | void {
+    const command = new ListAvailabilityConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an overview of the members of a group. Users and groups can be members of a
    *          group.</p>
    */
@@ -2313,6 +2434,45 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
+   *          policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code> header.</p>
+   *          <note>
+   *             <p>The request must contain either one provider definition (<code>EwsProvider</code> or
+   *                <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the
+   *                <code>DomainName</code> parameter is provided, the configuration stored under the
+   *                <code>DomainName</code> will be tested. </p>
+   *          </note>
+   */
+  public testAvailabilityConfiguration(
+    args: TestAvailabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestAvailabilityConfigurationCommandOutput>;
+  public testAvailabilityConfiguration(
+    args: TestAvailabilityConfigurationCommandInput,
+    cb: (err: any, data?: TestAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public testAvailabilityConfiguration(
+    args: TestAvailabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public testAvailabilityConfiguration(
+    args: TestAvailabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestAvailabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: TestAvailabilityConfigurationCommandOutput) => void
+  ): Promise<TestAvailabilityConfigurationCommandOutput> | void {
+    const command = new TestAvailabilityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Untags the specified tags from the specified Amazon WorkMail organization
    *          resource.</p>
    */
@@ -2335,6 +2495,39 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
+   *          organization and domain.</p>
+   */
+  public updateAvailabilityConfiguration(
+    args: UpdateAvailabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAvailabilityConfigurationCommandOutput>;
+  public updateAvailabilityConfiguration(
+    args: UpdateAvailabilityConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public updateAvailabilityConfiguration(
+    args: UpdateAvailabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAvailabilityConfigurationCommandOutput) => void
+  ): void;
+  public updateAvailabilityConfiguration(
+    args: UpdateAvailabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAvailabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAvailabilityConfigurationCommandOutput) => void
+  ): Promise<UpdateAvailabilityConfigurationCommandOutput> | void {
+    const command = new UpdateAvailabilityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

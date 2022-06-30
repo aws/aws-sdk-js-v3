@@ -31,6 +31,10 @@ import {
   CancelMailboxExportJobCommandOutput,
 } from "../commands/CancelMailboxExportJobCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand";
+import {
+  CreateAvailabilityConfigurationCommandInput,
+  CreateAvailabilityConfigurationCommandOutput,
+} from "../commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import {
   CreateMobileDeviceAccessRuleCommandInput,
@@ -44,6 +48,10 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "../commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
+import {
+  DeleteAvailabilityConfigurationCommandInput,
+  DeleteAvailabilityConfigurationCommandOutput,
+} from "../commands/DeleteAvailabilityConfigurationCommand";
 import {
   DeleteEmailMonitoringConfigurationCommandInput,
   DeleteEmailMonitoringConfigurationCommandOutput,
@@ -126,6 +134,10 @@ import {
   ListAccessControlRulesCommandOutput,
 } from "../commands/ListAccessControlRulesCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
+import {
+  ListAvailabilityConfigurationsCommandInput,
+  ListAvailabilityConfigurationsCommandOutput,
+} from "../commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "../commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import {
@@ -185,7 +197,15 @@ import {
   StartMailboxExportJobCommandOutput,
 } from "../commands/StartMailboxExportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import {
+  TestAvailabilityConfigurationCommandInput,
+  TestAvailabilityConfigurationCommandOutput,
+} from "../commands/TestAvailabilityConfigurationCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityConfigurationCommandInput,
+  UpdateAvailabilityConfigurationCommandOutput,
+} from "../commands/UpdateAvailabilityConfigurationCommand";
 import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
@@ -206,11 +226,14 @@ import {
   AssociateDelegateToResourceResponse,
   AssociateMemberToGroupRequest,
   AssociateMemberToGroupResponse,
+  AvailabilityConfiguration,
   BookingOptions,
   CancelMailboxExportJobRequest,
   CancelMailboxExportJobResponse,
   CreateAliasRequest,
   CreateAliasResponse,
+  CreateAvailabilityConfigurationRequest,
+  CreateAvailabilityConfigurationResponse,
   CreateGroupRequest,
   CreateGroupResponse,
   CreateMobileDeviceAccessRuleRequest,
@@ -226,6 +249,8 @@ import {
   DeleteAccessControlRuleResponse,
   DeleteAliasRequest,
   DeleteAliasResponse,
+  DeleteAvailabilityConfigurationRequest,
+  DeleteAvailabilityConfigurationResponse,
   DeleteEmailMonitoringConfigurationRequest,
   DeleteEmailMonitoringConfigurationResponse,
   DeleteGroupRequest,
@@ -275,6 +300,7 @@ import {
   EntityAlreadyRegisteredException,
   EntityNotFoundException,
   EntityStateException,
+  EwsAvailabilityProvider,
   FolderConfiguration,
   GetAccessControlEffectRequest,
   GetAccessControlEffectResponse,
@@ -293,11 +319,14 @@ import {
   InvalidCustomSesConfigurationException,
   InvalidParameterException,
   InvalidPasswordException,
+  LambdaAvailabilityProvider,
   LimitExceededException,
   ListAccessControlRulesRequest,
   ListAccessControlRulesResponse,
   ListAliasesRequest,
   ListAliasesResponse,
+  ListAvailabilityConfigurationsRequest,
+  ListAvailabilityConfigurationsResponse,
   ListGroupMembersRequest,
   ListGroupMembersResponse,
   ListGroupsRequest,
@@ -349,6 +378,7 @@ import {
   PutMobileDeviceAccessOverrideResponse,
   PutRetentionPolicyRequest,
   PutRetentionPolicyResponse,
+  RedactedEwsAvailabilityProvider,
   RegisterMailDomainRequest,
   RegisterMailDomainResponse,
   RegisterToWorkMailRequest,
@@ -363,10 +393,14 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TestAvailabilityConfigurationRequest,
+  TestAvailabilityConfigurationResponse,
   TooManyTagsException,
   UnsupportedOperationException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateAvailabilityConfigurationRequest,
+  UpdateAvailabilityConfigurationResponse,
   UpdateDefaultMailDomainRequest,
   UpdateDefaultMailDomainResponse,
   UpdateMailboxQuotaRequest,
@@ -430,6 +464,19 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateAvailabilityConfigurationCommand = async (
+  input: CreateAvailabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.CreateAvailabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -521,6 +568,19 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAvailabilityConfigurationCommand = async (
+  input: DeleteAvailabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DeleteAvailabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -888,6 +948,19 @@ export const serializeAws_json1_1ListAliasesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListAvailabilityConfigurationsCommand = async (
+  input: ListAvailabilityConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.ListAvailabilityConfigurations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAvailabilityConfigurationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListGroupMembersCommand = async (
   input: ListGroupMembersCommandInput,
   context: __SerdeContext
@@ -1187,6 +1260,19 @@ export const serializeAws_json1_1TagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1TestAvailabilityConfigurationCommand = async (
+  input: TestAvailabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.TestAvailabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TestAvailabilityConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
@@ -1197,6 +1283,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateAvailabilityConfigurationCommand = async (
+  input: UpdateAvailabilityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.UpdateAvailabilityConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1488,6 +1587,62 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
       throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateAvailabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAvailabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAvailabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAvailabilityConfigurationResponse(data, context);
+  const response: CreateAvailabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAvailabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAvailabilityConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workmail#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
+      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
       throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
@@ -1895,6 +2050,53 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteAvailabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAvailabilityConfigurationResponse(data, context);
+  const response: DeleteAvailabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
       throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
@@ -3410,6 +3612,53 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListAvailabilityConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAvailabilityConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAvailabilityConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAvailabilityConfigurationsResponse(data, context);
+  const response: ListAvailabilityConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAvailabilityConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAvailabilityConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListGroupMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4644,6 +4893,59 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1TestAvailabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestAvailabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TestAvailabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TestAvailabilityConfigurationResponse(data, context);
+  const response: TestAvailabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TestAvailabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestAvailabilityConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4672,6 +4974,59 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1UpdateAvailabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAvailabilityConfigurationResponse(data, context);
+  const response: UpdateAvailabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -5355,6 +5710,26 @@ const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, conte
   };
 };
 
+const serializeAws_json1_1CreateAvailabilityConfigurationRequest = (
+  input: CreateAvailabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider !== undefined &&
+      input.EwsProvider !== null && {
+        EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
+      }),
+    ...(input.LambdaProvider !== undefined &&
+      input.LambdaProvider !== null && {
+        LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
 const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -5460,6 +5835,17 @@ const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, conte
   return {
     ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
     ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1DeleteAvailabilityConfigurationRequest = (
+  input: DeleteAvailabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.OrganizationId !== undefined &&
       input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
@@ -5732,6 +6118,14 @@ const serializeAws_json1_1Domains = (input: Domain[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1EwsAvailabilityProvider = (input: EwsAvailabilityProvider, context: __SerdeContext): any => {
+  return {
+    ...(input.EwsEndpoint !== undefined && input.EwsEndpoint !== null && { EwsEndpoint: input.EwsEndpoint }),
+    ...(input.EwsPassword !== undefined && input.EwsPassword !== null && { EwsPassword: input.EwsPassword }),
+    ...(input.EwsUsername !== undefined && input.EwsUsername !== null && { EwsUsername: input.EwsUsername }),
+  };
+};
+
 const serializeAws_json1_1FolderConfiguration = (input: FolderConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
@@ -5832,6 +6226,15 @@ const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContex
     });
 };
 
+const serializeAws_json1_1LambdaAvailabilityProvider = (
+  input: LambdaAvailabilityProvider,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LambdaArn !== undefined && input.LambdaArn !== null && { LambdaArn: input.LambdaArn }),
+  };
+};
+
 const serializeAws_json1_1ListAccessControlRulesRequest = (
   input: ListAccessControlRulesRequest,
   context: __SerdeContext
@@ -5845,6 +6248,18 @@ const serializeAws_json1_1ListAccessControlRulesRequest = (
 const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1ListAvailabilityConfigurationsRequest = (
+  input: ListAvailabilityConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.OrganizationId !== undefined &&
@@ -6171,11 +6586,49 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1TestAvailabilityConfigurationRequest = (
+  input: TestAvailabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider !== undefined &&
+      input.EwsProvider !== null && {
+        EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
+      }),
+    ...(input.LambdaProvider !== undefined &&
+      input.LambdaProvider !== null && {
+        LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateAvailabilityConfigurationRequest = (
+  input: UpdateAvailabilityConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider !== undefined &&
+      input.EwsProvider !== null && {
+        EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
+      }),
+    ...(input.LambdaProvider !== undefined &&
+      input.LambdaProvider !== null && {
+        LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6388,6 +6841,47 @@ const deserializeAws_json1_1AssociateMemberToGroupResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1AvailabilityConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AvailabilityConfiguration => {
+  return {
+    DateCreated:
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
+        : undefined,
+    DateModified:
+      output.DateModified !== undefined && output.DateModified !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
+        : undefined,
+    DomainName: __expectString(output.DomainName),
+    EwsProvider:
+      output.EwsProvider !== undefined && output.EwsProvider !== null
+        ? deserializeAws_json1_1RedactedEwsAvailabilityProvider(output.EwsProvider, context)
+        : undefined,
+    LambdaProvider:
+      output.LambdaProvider !== undefined && output.LambdaProvider !== null
+        ? deserializeAws_json1_1LambdaAvailabilityProvider(output.LambdaProvider, context)
+        : undefined,
+    ProviderType: __expectString(output.ProviderType),
+  } as any;
+};
+
+const deserializeAws_json1_1AvailabilityConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): AvailabilityConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AvailabilityConfiguration(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeContext): BookingOptions => {
   return {
     AutoAcceptRequests: __expectBoolean(output.AutoAcceptRequests),
@@ -6404,6 +6898,13 @@ const deserializeAws_json1_1CancelMailboxExportJobResponse = (
 };
 
 const deserializeAws_json1_1CreateAliasResponse = (output: any, context: __SerdeContext): CreateAliasResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1CreateAvailabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
@@ -6458,6 +6959,13 @@ const deserializeAws_json1_1DeleteAccessControlRuleResponse = (
 };
 
 const deserializeAws_json1_1DeleteAliasResponse = (output: any, context: __SerdeContext): DeleteAliasResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteAvailabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
@@ -6993,6 +7501,15 @@ const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): Mailb
   return retVal;
 };
 
+const deserializeAws_json1_1LambdaAvailabilityProvider = (
+  output: any,
+  context: __SerdeContext
+): LambdaAvailabilityProvider => {
+  return {
+    LambdaArn: __expectString(output.LambdaArn),
+  } as any;
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
@@ -7016,6 +7533,19 @@ const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __Serde
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListAvailabilityConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAvailabilityConfigurationsResponse => {
+  return {
+    AvailabilityConfigurations:
+      output.AvailabilityConfigurations !== undefined && output.AvailabilityConfigurations !== null
+        ? deserializeAws_json1_1AvailabilityConfigurationList(output.AvailabilityConfigurations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -7509,6 +8039,16 @@ const deserializeAws_json1_1PutRetentionPolicyResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1RedactedEwsAvailabilityProvider = (
+  output: any,
+  context: __SerdeContext
+): RedactedEwsAvailabilityProvider => {
+  return {
+    EwsEndpoint: __expectString(output.EwsEndpoint),
+    EwsUsername: __expectString(output.EwsUsername),
+  } as any;
+};
+
 const deserializeAws_json1_1RegisterMailDomainResponse = (
   output: any,
   context: __SerdeContext
@@ -7616,6 +8156,16 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1TestAvailabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): TestAvailabilityConfigurationResponse => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    TestPassed: __expectBoolean(output.TestPassed),
+  } as any;
+};
+
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     Message: __expectString(output.Message),
@@ -7632,6 +8182,13 @@ const deserializeAws_json1_1UnsupportedOperationException = (
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateAvailabilityConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
