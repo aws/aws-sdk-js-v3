@@ -96,7 +96,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         writer.openBlock("const loadQueryErrorCode = (\n"
                        + "  output: $T,\n"
                        + "  data: any\n"
-                       + "): string => {", "};", responseType, () -> {
+                       + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
             String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
             writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
@@ -105,9 +105,6 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
 
             // Default a 404 status code to the NotFound code.
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-
-            // Default to an empty error code so an unmodeled exception is built.
-            writer.write("return '';");
         });
         writer.write("");
     }
@@ -153,7 +150,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadQueryErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadQueryErrorCode(output, parsedOutput.body);");
     }
 
     @Override
