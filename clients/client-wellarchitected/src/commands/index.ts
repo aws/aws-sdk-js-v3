@@ -33,6 +33,7 @@ export * from "./ListWorkloadsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAnswerCommand";
+export * from "./UpdateGlobalSettingsCommand";
 export * from "./UpdateLensReviewCommand";
 export * from "./UpdateShareInvitationCommand";
 export * from "./UpdateWorkloadCommand";

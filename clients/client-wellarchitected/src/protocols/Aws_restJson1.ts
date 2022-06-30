@@ -73,6 +73,10 @@ import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAnswerCommandInput, UpdateAnswerCommandOutput } from "../commands/UpdateAnswerCommand";
+import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "../commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "../commands/UpdateLensReviewCommand";
 import {
   UpdateShareInvitationCommandInput,
@@ -1045,6 +1049,7 @@ export const serializeAws_restJson1ListLensSharesCommand = async (
     ...(input.SharedWithPrefix !== undefined && { SharedWithPrefix: input.SharedWithPrefix }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1224,6 +1229,7 @@ export const serializeAws_restJson1ListWorkloadSharesCommand = async (
     ...(input.SharedWithPrefix !== undefined && { SharedWithPrefix: input.SharedWithPrefix }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1354,6 +1360,31 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
       input.SelectedChoices !== null && {
         SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
       }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
+  input: UpdateGlobalSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.OrganizationSharingStatus !== undefined &&
+      input.OrganizationSharingStatus !== null && { OrganizationSharingStatus: input.OrganizationSharingStatus }),
   });
   return new __HttpRequest({
     protocol,
@@ -3699,6 +3730,59 @@ const deserializeAws_restJson1UpdateAnswerCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateGlobalSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGlobalSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateGlobalSettingsCommandError(output, context);
+  }
+  const contents: UpdateGlobalSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateGlobalSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGlobalSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateLensReviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4583,6 +4667,7 @@ const deserializeAws_restJson1LensShareSummary = (output: any, context: __SerdeC
     ShareId: __expectString(output.ShareId),
     SharedWith: __expectString(output.SharedWith),
     Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
   } as any;
 };
 
@@ -5034,6 +5119,7 @@ const deserializeAws_restJson1WorkloadShareSummary = (output: any, context: __Se
     ShareId: __expectString(output.ShareId),
     SharedWith: __expectString(output.SharedWith),
     Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
   } as any;
 };
 

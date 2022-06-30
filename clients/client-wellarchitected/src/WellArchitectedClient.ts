@@ -108,6 +108,10 @@ import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAnswerCommandInput, UpdateAnswerCommandOutput } from "./commands/UpdateAnswerCommand";
+import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "./commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
 import {
   UpdateShareInvitationCommandInput,
@@ -156,6 +160,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAnswerCommandInput
+  | UpdateGlobalSettingsCommandInput
   | UpdateLensReviewCommandInput
   | UpdateShareInvitationCommandInput
   | UpdateWorkloadCommandInput
@@ -197,6 +202,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnswerCommandOutput
+  | UpdateGlobalSettingsCommandOutput
   | UpdateLensReviewCommandOutput
   | UpdateShareInvitationCommandOutput
   | UpdateWorkloadCommandOutput

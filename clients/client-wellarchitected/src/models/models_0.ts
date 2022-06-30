@@ -2633,7 +2633,10 @@ export namespace LensReviewSummary {
 
 export enum ShareStatus {
   ACCEPTED = "ACCEPTED",
+  ASSOCIATED = "ASSOCIATED",
+  ASSOCIATING = "ASSOCIATING",
   EXPIRED = "EXPIRED",
+  FAILED = "FAILED",
   PENDING = "PENDING",
   REJECTED = "REJECTED",
   REVOKED = "REVOKED",
@@ -2657,6 +2660,11 @@ export interface LensShareSummary {
    * <p>The status of a workload share.</p>
    */
   Status?: ShareStatus | string;
+
+  /**
+   * <p>Optional message to compliment the Status field.</p>
+   */
+  StatusMessage?: string;
 }
 
 export namespace LensShareSummary {
@@ -3147,6 +3155,11 @@ export interface ListLensSharesInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The status of a workload share.</p>
+   */
+  Status?: ShareStatus | string;
 }
 
 export namespace ListLensSharesInput {
@@ -3644,6 +3657,11 @@ export interface ListWorkloadSharesInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The status of a workload share.</p>
+   */
+  Status?: ShareStatus | string;
 }
 
 export namespace ListWorkloadSharesInput {
@@ -3678,6 +3696,11 @@ export interface WorkloadShareSummary {
    * <p>The status of a workload share.</p>
    */
   Status?: ShareStatus | string;
+
+  /**
+   * <p>Optional message to compliment the Status field.</p>
+   */
+  StatusMessage?: string;
 }
 
 export namespace WorkloadShareSummary {
@@ -3716,6 +3739,11 @@ export namespace ListWorkloadSharesOutput {
   export const filterSensitiveLog = (obj: ListWorkloadSharesOutput): any => ({
     ...obj,
   });
+}
+
+export enum OrganizationSharingStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -3925,6 +3953,22 @@ export namespace UpdateAnswerOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateAnswerOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateGlobalSettingsInput {
+  /**
+   * <p>The status of organization sharing settings.</p>
+   */
+  OrganizationSharingStatus?: OrganizationSharingStatus | string;
+}
+
+export namespace UpdateGlobalSettingsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
     ...obj,
   });
 }

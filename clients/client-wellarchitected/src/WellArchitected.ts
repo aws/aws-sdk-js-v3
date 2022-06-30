@@ -136,6 +136,11 @@ import {
   UpdateAnswerCommandOutput,
 } from "./commands/UpdateAnswerCommand";
 import {
+  UpdateGlobalSettingsCommand,
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "./commands/UpdateGlobalSettingsCommand";
+import {
   UpdateLensReviewCommand,
   UpdateLensReviewCommandInput,
   UpdateLensReviewCommandOutput,
@@ -1304,6 +1309,38 @@ export class WellArchitected extends WellArchitectedClient {
     cb?: (err: any, data?: UpdateAnswerCommandOutput) => void
   ): Promise<UpdateAnswerCommandOutput> | void {
     const command = new UpdateAnswerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates whether the Amazon Web Services account is opted into organization sharing features.</p>
+   */
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlobalSettingsCommandOutput>;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): Promise<UpdateGlobalSettingsCommandOutput> | void {
+    const command = new UpdateGlobalSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
