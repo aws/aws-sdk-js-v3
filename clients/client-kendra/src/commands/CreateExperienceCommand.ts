@@ -24,7 +24,8 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
 
 /**
  * <p>Creates an Amazon Kendra experience such as a search application. For more information
- *             on creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+ *             on creating a search application experience, including using the Python and Java SDKs,
+ *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
  *                 search experience with no code</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

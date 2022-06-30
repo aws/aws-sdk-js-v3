@@ -30,7 +30,11 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *         <code>ACTIVE</code> when the index is ready to use.</p>
  *          <p>Once the index is active you can index your documents using the
  *         <code>BatchPutDocument</code> API or using one of the supported
- *       data sources. </p>
+ *       data sources.</p>
+ *          <p>For an example of creating an index and data source using the Python SDK,
+ *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
+ *         started with Python SDK</a>. For an example of creating an index and data
+ *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

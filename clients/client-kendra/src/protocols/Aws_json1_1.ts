@@ -154,6 +154,8 @@ import {
   AclConfiguration,
   AdditionalResultAttribute,
   AdditionalResultAttributeValue,
+  AlfrescoConfiguration,
+  AlfrescoEntity,
   AssociateEntitiesToExperienceRequest,
   AssociateEntitiesToExperienceResponse,
   AssociatePersonasToEntitiesRequest,
@@ -4424,6 +4426,50 @@ const serializeAws_json1_1AclConfiguration = (input: AclConfiguration, context: 
   };
 };
 
+const serializeAws_json1_1AlfrescoConfiguration = (input: AlfrescoConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.BlogFieldMappings !== undefined &&
+      input.BlogFieldMappings !== null && {
+        BlogFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.BlogFieldMappings, context),
+      }),
+    ...(input.CrawlComments !== undefined && input.CrawlComments !== null && { CrawlComments: input.CrawlComments }),
+    ...(input.CrawlSystemFolders !== undefined &&
+      input.CrawlSystemFolders !== null && { CrawlSystemFolders: input.CrawlSystemFolders }),
+    ...(input.DocumentLibraryFieldMappings !== undefined &&
+      input.DocumentLibraryFieldMappings !== null && {
+        DocumentLibraryFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.DocumentLibraryFieldMappings,
+          context
+        ),
+      }),
+    ...(input.EntityFilter !== undefined &&
+      input.EntityFilter !== null && { EntityFilter: serializeAws_json1_1EntityFilter(input.EntityFilter, context) }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.SiteUrl !== undefined && input.SiteUrl !== null && { SiteUrl: input.SiteUrl }),
+    ...(input.SslCertificateS3Path !== undefined &&
+      input.SslCertificateS3Path !== null && {
+        SslCertificateS3Path: serializeAws_json1_1S3Path(input.SslCertificateS3Path, context),
+      }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
+    ...(input.WikiFieldMappings !== undefined &&
+      input.WikiFieldMappings !== null && {
+        WikiFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.WikiFieldMappings, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1AssociateEntitiesToExperienceRequest = (
   input: AssociateEntitiesToExperienceRequest,
   context: __SerdeContext
@@ -5135,6 +5181,10 @@ const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration,
 
 const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.AlfrescoConfiguration !== undefined &&
+      input.AlfrescoConfiguration !== null && {
+        AlfrescoConfiguration: serializeAws_json1_1AlfrescoConfiguration(input.AlfrescoConfiguration, context),
+      }),
     ...(input.BoxConfiguration !== undefined &&
       input.BoxConfiguration !== null && {
         BoxConfiguration: serializeAws_json1_1BoxConfiguration(input.BoxConfiguration, context),
@@ -5686,6 +5736,17 @@ const serializeAws_json1_1EntityConfiguration = (input: EntityConfiguration, con
     ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
     ...(input.EntityType !== undefined && input.EntityType !== null && { EntityType: input.EntityType }),
   };
+};
+
+const serializeAws_json1_1EntityFilter = (input: (AlfrescoEntity | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1EntityIdsList = (input: string[], context: __SerdeContext): any => {
@@ -7670,6 +7731,48 @@ const deserializeAws_json1_1AdditionalResultAttributeValue = (
   } as any;
 };
 
+const deserializeAws_json1_1AlfrescoConfiguration = (output: any, context: __SerdeContext): AlfrescoConfiguration => {
+  return {
+    BlogFieldMappings:
+      output.BlogFieldMappings !== undefined && output.BlogFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.BlogFieldMappings, context)
+        : undefined,
+    CrawlComments: __expectBoolean(output.CrawlComments),
+    CrawlSystemFolders: __expectBoolean(output.CrawlSystemFolders),
+    DocumentLibraryFieldMappings:
+      output.DocumentLibraryFieldMappings !== undefined && output.DocumentLibraryFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.DocumentLibraryFieldMappings, context)
+        : undefined,
+    EntityFilter:
+      output.EntityFilter !== undefined && output.EntityFilter !== null
+        ? deserializeAws_json1_1EntityFilter(output.EntityFilter, context)
+        : undefined,
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    SecretArn: __expectString(output.SecretArn),
+    SiteId: __expectString(output.SiteId),
+    SiteUrl: __expectString(output.SiteUrl),
+    SslCertificateS3Path:
+      output.SslCertificateS3Path !== undefined && output.SslCertificateS3Path !== null
+        ? deserializeAws_json1_1S3Path(output.SslCertificateS3Path, context)
+        : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+    WikiFieldMappings:
+      output.WikiFieldMappings !== undefined && output.WikiFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.WikiFieldMappings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1AssociateEntitiesToExperienceFailedEntityList = (
   output: any,
   context: __SerdeContext
@@ -8313,6 +8416,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
   context: __SerdeContext
 ): DataSourceConfiguration => {
   return {
+    AlfrescoConfiguration:
+      output.AlfrescoConfiguration !== undefined && output.AlfrescoConfiguration !== null
+        ? deserializeAws_json1_1AlfrescoConfiguration(output.AlfrescoConfiguration, context)
+        : undefined,
     BoxConfiguration:
       output.BoxConfiguration !== undefined && output.BoxConfiguration !== null
         ? deserializeAws_json1_1BoxConfiguration(output.BoxConfiguration, context)
@@ -8968,6 +9075,18 @@ const deserializeAws_json1_1EntityDisplayData = (output: any, context: __SerdeCo
     LastName: __expectString(output.LastName),
     UserName: __expectString(output.UserName),
   } as any;
+};
+
+const deserializeAws_json1_1EntityFilter = (output: any, context: __SerdeContext): (AlfrescoEntity | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExcludeMimeTypesList = (output: any, context: __SerdeContext): string[] => {

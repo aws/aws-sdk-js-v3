@@ -32,6 +32,9 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *          <p>The documents are indexed asynchronously. You can see the progress of
  *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
  *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
+ *          <p>For an example of ingesting inline documents using Python and Java SDKs,
+ *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding
+ *         files directly to an index</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

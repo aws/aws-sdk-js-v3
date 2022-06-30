@@ -25,6 +25,9 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
 /**
  * <p>Creates a thesaurus for an index. The thesaurus
  *       contains a list of synonyms in Solr format.</p>
+ *          <p>For an example of adding a thesaurus file to an index, see
+ *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html">Adding
+ *             custom synonyms to an index</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

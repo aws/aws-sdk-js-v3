@@ -33,6 +33,10 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Otherwise, an exception is raised.</p>
  *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
  *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
+ *          <p>For an example of creating an index and data source using the Python SDK,
+ *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
+ *         started with Python SDK</a>. For an example of creating an index and data
+ *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

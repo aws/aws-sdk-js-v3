@@ -192,6 +192,219 @@ export namespace AdditionalResultAttribute {
   });
 }
 
+/**
+ * <p>Maps a column or attribute in the data source to an index field.
+ *             You must first create the fields in the index using the
+ *                 <code>UpdateIndex</code> API.</p>
+ */
+export interface DataSourceToIndexFieldMapping {
+  /**
+   * <p>The name of the column or attribute in the data source.</p>
+   */
+  DataSourceFieldName: string | undefined;
+
+  /**
+   * <p>The type of data stored in the column or attribute.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the field in the index.</p>
+   */
+  IndexFieldName: string | undefined;
+}
+
+export namespace DataSourceToIndexFieldMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+export enum AlfrescoEntity {
+  blog = "blog",
+  documentLibrary = "documentLibrary",
+  wiki = "wiki",
+}
+
+/**
+ * <p>Information required to find a specific file in an Amazon S3
+ *             bucket.</p>
+ */
+export interface S3Path {
+  /**
+   * <p>The name of the S3 bucket that contains the file.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the file.</p>
+   */
+  Key: string | undefined;
+}
+
+export namespace S3Path {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Path): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to an Amazon VPC.</p>
+ */
+export interface DataSourceVpcConfiguration {
+  /**
+   * <p>A list of identifiers for subnets within your Amazon VPC. The
+   *             subnets should be able to connect to each other in the VPC, and they
+   *             should have outgoing access to the Internet through a NAT
+   *             device.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of identifiers of security groups within your Amazon VPC.
+   *             The security groups should enable Amazon Kendra to connect to the data
+   *             source.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+}
+
+export namespace DataSourceVpcConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to Alfresco as your
+ *             data source.</p>
+ */
+export interface AlfrescoConfiguration {
+  /**
+   * <p>The URL of the Alfresco site. For example, <i>https://hostname:8080</i>.</p>
+   */
+  SiteUrl: string | undefined;
+
+  /**
+   * <p>The identifier of the Alfresco site. For example, <i>my-site</i>.</p>
+   */
+  SiteId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that
+   *             contains the key-value pairs required to connect to your Alfresco
+   *             data source. The secret must contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>username—The user name of the Alfresco account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>password—The password of the Alfresco account.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You
+   *             use this to connect to Alfresco.</p>
+   */
+  SslCertificateS3Path: S3Path | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index shared files.</p>
+   */
+  CrawlSystemFolders?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index comments of wikis and blogs.</p>
+   */
+  CrawlComments?: boolean;
+
+  /**
+   * <p>Specify whether to index document libraries, wikis,
+   *             or blogs. You can specify one or more of these options.</p>
+   */
+  EntityFilter?: (AlfrescoEntity | string)[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Alfresco document libraries to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to Alfresco
+   *             fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Alfresco data source field names
+   *             must exist in your Alfresco custom metadata.</p>
+   */
+  DocumentLibraryFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Alfresco blogs to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to Alfresco
+   *             fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Alfresco data source field names
+   *             must exist in your Alfresco custom metadata.</p>
+   */
+  BlogFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Alfresco wikis to Amazon Kendra index field names.
+   *             To create custom fields, use the <code>UpdateIndex</code> API before you map to Alfresco
+   *             fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Alfresco data source field names
+   *             must exist in your Alfresco custom metadata.</p>
+   */
+  WikiFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain files
+   *             in your Alfresco data source. Files that match
+   *             the patterns are included in the index. Files that don't match the patterns
+   *             are excluded from the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence and the
+   *             file isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files
+   *             in your Alfresco data source. Files that
+   *             match the patterns are excluded from the index. Files that don't match
+   *             the patterns are included in the index. If a file matches both an inclusion
+   *             pattern and an exclusion pattern, the exclusion pattern takes precedence
+   *             and the file isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an
+   *             Amazon Virtual Private Cloud to connect to your Alfresco. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring
+   *                 a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace AlfrescoConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlfrescoConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum EntityType {
   GROUP = "GROUP",
   USER = "USER",
@@ -1254,31 +1467,6 @@ export namespace HierarchicalPrincipal {
 }
 
 /**
- * <p>Information required to find a specific file in an Amazon S3
- *             bucket.</p>
- */
-export interface S3Path {
-  /**
-   * <p>The name of the S3 bucket that contains the file.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The name of the file.</p>
-   */
-  Key: string | undefined;
-}
-
-export namespace S3Path {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Path): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A document in an index.</p>
  */
 export interface Document {
@@ -1503,66 +1691,6 @@ export namespace ClearQuerySuggestionsRequest {
 }
 
 /**
- * <p>Maps a column or attribute in the data source to an index field.
- *             You must first create the fields in the index using the
- *                 <code>UpdateIndex</code> API.</p>
- */
-export interface DataSourceToIndexFieldMapping {
-  /**
-   * <p>The name of the column or attribute in the data source.</p>
-   */
-  DataSourceFieldName: string | undefined;
-
-  /**
-   * <p>The type of data stored in the column or attribute.</p>
-   */
-  DateFieldFormat?: string;
-
-  /**
-   * <p>The name of the field in the index.</p>
-   */
-  IndexFieldName: string | undefined;
-}
-
-export namespace DataSourceToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides the configuration information to connect to an Amazon VPC.</p>
- */
-export interface DataSourceVpcConfiguration {
-  /**
-   * <p>A list of identifiers for subnets within your Amazon VPC. The
-   *             subnets should be able to connect to each other in the VPC, and they
-   *             should have outgoing access to the Internet through a NAT
-   *             device.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of identifiers of security groups within your Amazon VPC.
-   *             The security groups should enable Amazon Kendra to connect to the data
-   *             source.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-}
-
-export namespace DataSourceVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Provides the configuration information to connect to Box as
  *             your data source.</p>
  */
@@ -1763,8 +1891,8 @@ export namespace ConfluenceAttachmentToIndexFieldMapping {
  */
 export interface ConfluenceAttachmentConfiguration {
   /**
-   * <p>Indicates whether Amazon Kendra indexes attachments to the pages and blogs
-   *             in the Confluence data source. </p>
+   * <p>
+   *             <code>TRUE</code> to index attachments of pages and blogs in Confluence.</p>
    */
   CrawlAttachments?: boolean;
 
@@ -1925,7 +2053,7 @@ export namespace ConfluencePageToIndexFieldMapping {
  */
 export interface ConfluencePageConfiguration {
   /**
-   * <p>>Maps attributes or field names of Confluence pages to Amazon Kendra index field
+   * <p>Maps attributes or field names of Confluence pages to Amazon Kendra index field
    *             names. To create custom fields, use the <code>UpdateIndex</code> API before
    *             you map to Confluence fields.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
@@ -1995,7 +2123,8 @@ export namespace ConfluenceSpaceToIndexFieldMapping {
  */
 export interface ConfluenceSpaceConfiguration {
   /**
-   * <p>Specifies whether Amazon Kendra should index personal spaces. Users can
+   * <p>
+   *             <code>TRUE</code> to index personal spaces. You can
    *             add restrictions to items in personal spaces. If personal spaces are
    *             indexed, queries without user context information may return
    *             restricted items from a personal space in their results. For more
@@ -2005,7 +2134,8 @@ export interface ConfluenceSpaceConfiguration {
   CrawlPersonalSpaces?: boolean;
 
   /**
-   * <p>Specifies whether Amazon Kendra should index archived spaces.</p>
+   * <p>
+   *             <code>TRUE</code> to index archived spaces.</p>
    */
   CrawlArchivedSpaces?: boolean;
 
@@ -2069,25 +2199,16 @@ export interface ConfluenceConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret
-   *             that contains the key-value pairs required to connect to your
-   *             Confluence server. The secret must contain a JSON structure with the
-   *             following keys:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>username—The user name or email address of a user with
-   *                     administrative privileges for the Confluence server.</p>
-   *             </li>
-   *             <li>
-   *                 <p>password—The password associated with the user logging
-   *                     in to the Confluence server.</p>
-   *             </li>
-   *          </ul>
+   *             that contains the user name and password required to connect to the
+   *             Confluence instance. If you use Confluence cloud, you use a
+   *             generated API token as the password. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html">Using a
+   *                 Confluemce data source</a>.</p>
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>Specifies the version of the Confluence installation that you are
-   *             connecting to.</p>
+   * <p>The version or the type of the Confluence installation to connect to.</p>
    */
   Version: ConfluenceVersion | string | undefined;
 
@@ -2128,7 +2249,7 @@ export interface ConfluenceConfiguration {
   InclusionPatterns?: string[];
 
   /**
-   * <p>>A list of regular expression patterns to exclude certain blog posts, pages,
+   * <p>A list of regular expression patterns to exclude certain blog posts, pages,
    *             spaces, or attachments in your Confluence. Content that matches the patterns are
    *             excluded from the index. Content that doesn't match the patterns is included in
    *             the index. If content matches both an inclusion and exclusion pattern, the
@@ -2498,7 +2619,8 @@ export interface OnPremiseConfiguration {
   OrganizationName: string | undefined;
 
   /**
-   * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
+   * <p>The path to the SSL certificate stored in an Amazon S3 bucket.
+   *             You use this to connect to GitHub. </p>
    */
   SslCertificateS3Path: S3Path | undefined;
 }
@@ -2828,30 +2950,31 @@ export enum IssueSubEntity {
  */
 export interface JiraConfiguration {
   /**
-   * <p>The URL of the Jira account. For example, company.attlassian.net or
-   *             https://jira.company.com. You can find your Jira account URL in the URL of
-   *             your profile page for Jira desktop.</p>
+   * <p>The URL of the Jira account. For example, <i>company.atlassian.net</i>
+   *             or <i>https://jira.company.com</i>. You can find your Jira account URL in
+   *             the URL of your profile page for Jira desktop.</p>
    */
   JiraAccountUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that
-   *             contains the key-value pairs required to connect to your Jira
-   *             data source. The secret must
-   *             contain a JSON structure with the following keys:</p>
+   * <p>The Amazon Resource Name (ARN) of a secret in Secrets Manager contains the
+   *             key-value pairs required to connect to your Jira data source. The secret must contain a
+   *             JSON structure with the following keys:</p>
    *         <ul>
    *             <li>
-   *                 <p>jira-id—The ID of the Jira account.</p>
+   *                 <p>jiraId—The Jira username.</p>
    *             </li>
    *             <li>
-   *                 <p>jiraCredentials—The password of the Jira account user.</p>
+   *                 <p>jiraCredentials—The Jira API token. For more information on creating an
+   *                     API token in Jira, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html#jira-authentication"> Authentication for a Jira data source</a>.</p>
    *             </li>
    *          </ul>
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>Specify to use the change log option to update your index.</p>
+   * <p>
+   *             <code>TRUE</code> to use the Jira change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Jira.</p>
    */
   UseChangeLog?: boolean;
 
@@ -3060,9 +3183,8 @@ export interface OneDriveConfiguration {
   FieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A Boolean value that specifies whether local
-   *       groups are disabled (<code>True</code>) or enabled (<code>False</code>).
-   *       </p>
+   * <p>
+   *             <code>TRUE</code> to disable local groups information.</p>
    */
   DisableLocalGroups?: boolean;
 }
@@ -3100,25 +3222,25 @@ export interface QuipConfiguration {
   SecretArn: string | undefined;
 
   /**
-   * <p>Specify whether to crawl file comments in Quip.
-   *             You can specify one or more of these options.</p>
+   * <p>
+   *             <code>TRUE</code> to index file comments.</p>
    */
   CrawlFileComments?: boolean;
 
   /**
-   * <p>Specify whether to crawl chat rooms in Quip.
-   *             You can specify one or more of these options.</p>
+   * <p>
+   *             <code>TRUE</code> to index the contents of chat rooms.</p>
    */
   CrawlChatRooms?: boolean;
 
   /**
-   * <p>Specify whether to crawl attachments in Quip.
-   *             You can specify one or more of these options.</p>
+   * <p>
+   *             <code>TRUE</code> to index attachments.</p>
    */
   CrawlAttachments?: boolean;
 
   /**
-   * <p>The identifier of the Quip folder IDs to index.</p>
+   * <p>The identifier of the Quip folders you want to index.</p>
    */
   FolderIds?: string[];
 
@@ -3836,7 +3958,10 @@ export interface ServiceNowConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret
    *             that contains the user name and password required to connect to the
-   *             ServiceNow instance.</p>
+   *             ServiceNow instance. You can also provide OAuth authentication credentials
+   *             of user name, password, client ID, and client secret. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html#servicenow-authentication">Authentication
+   *                 for a ServiceNow data source</a>.</p>
    */
   SecretArn: string | undefined;
 
@@ -3897,35 +4022,29 @@ export enum SharePointVersion {
  */
 export interface SharePointConfiguration {
   /**
-   * <p>The version of Microsoft SharePoint that you are using as a data
-   *             source.</p>
+   * <p>The version of Microsoft SharePoint that you use.</p>
    */
   SharePointVersion: SharePointVersion | string | undefined;
 
   /**
-   * <p>The URLs of the Microsoft SharePoint site that contains the
-   *             documents that should be indexed.</p>
+   * <p>The Microsoft SharePoint site URLs for the documents you want to indext.</p>
    */
   Urls: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of credentials stored in
-   *             Secrets Manager. The credentials should be a user/password pair.
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager
+   *             secret that contains the user name and password required to
+   *             connect to the SharePoint instance.
    *             If you use SharePoint Server, you also need to provide the sever
    *             domain name as part of the credentials. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using a
-   *                 Microsoft SharePoint Data Source</a>. For more information
-   *             about Secrets Manager see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is
-   *                 Secrets Manager</a> in the <i>Secrets Manager
-   *                 </i> user guide.</p>
+   *                 Microsoft SharePoint Data Source</a>.</p>
    */
   SecretArn: string | undefined;
 
   /**
    * <p>
-   *             <code>TRUE</code> to include attachments to documents stored in
-   *             your Microsoft SharePoint site in the index; otherwise,
-   *                 <code>FALSE</code>.</p>
+   *             <code>TRUE</code> to index document attachments.</p>
    */
   CrawlAttachments?: boolean;
 
@@ -3944,7 +4063,7 @@ export interface SharePointConfiguration {
    *             don't match the patterns are excluded from the index. If a document matches both
    *             an inclusion and exclusion pattern, the exclusion pattern takes precedence and the
    *             document isn't included in the index.</p>
-   *         <p>The regex is applied to the display URL of the SharePoint
+   *         <p>The regex applies to the display URL of the SharePoint
    *             document.</p>
    */
   InclusionPatterns?: string[];
@@ -3955,13 +4074,16 @@ export interface SharePointConfiguration {
    *             don't match the patterns are included in the index. If a document matches both
    *             an inclusion and exclusion pattern, the exclusion pattern takes precedence and the
    *             document isn't included in the index.</p>
-   *         <p>The regex is applied to the display URL of the SharePoint
+   *         <p>The regex applies to the display URL of the SharePoint
    *             document.</p>
    */
   ExclusionPatterns?: string[];
 
   /**
-   * <p>Provides the configuration information to connect to an Amazon VPC.</p>
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect
+   *             to your Microsoft SharePoint. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring
+   *                 a VPC</a>.</p>
    */
   VpcConfiguration?: DataSourceVpcConfiguration;
 
@@ -3981,15 +4103,14 @@ export interface SharePointConfiguration {
   DocumentTitleFieldName?: string;
 
   /**
-   * <p>A Boolean value that specifies whether local
-   *          groups are disabled (<code>True</code>) or enabled (<code>False</code>).
-   *       </p>
+   * <p>
+   *             <code>TRUE</code> to disable local groups information.</p>
    */
   DisableLocalGroups?: boolean;
 
   /**
-   * <p>Information required to find a specific file in an Amazon S3
-   *             bucket.</p>
+   * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You use
+   *             this to connect to SharePoint.</p>
    */
   SslCertificateS3Path?: S3Path;
 }
@@ -4594,6 +4715,12 @@ export interface DataSourceConfiguration {
    *             your data source.</p>
    */
   GitHubConfiguration?: GitHubConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Alfresco as your
+   *             data source.</p>
+   */
+  AlfrescoConfiguration?: AlfrescoConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -4634,6 +4761,7 @@ export namespace Tag {
 }
 
 export enum DataSourceType {
+  ALFRESCO = "ALFRESCO",
   BOX = "BOX",
   CONFLUENCE = "CONFLUENCE",
   CUSTOM = "CUSTOM",
@@ -6045,7 +6173,7 @@ export interface CapacityUnitsConfiguration {
   /**
    * <p>The amount of extra storage capacity for an index.
    *             A single capacity unit provides 30 GB of storage space or 100,000 documents,
-   *             whichever is reached first.</p>
+   *             whichever is reached first. You can add up to 100 extra capacity units.</p>
    */
   StorageCapacityUnits: number | undefined;
 
@@ -6054,7 +6182,7 @@ export interface CapacityUnitsConfiguration {
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
    *             capacity.</p>
    *         <p>A single extra capacity unit for an index provides 0.1 queries per second or approximately
-   *             8,000 queries per day.</p>
+   *             8,000 queries per day. You can add up to 100 extra capacity units.</p>
    *         <p>
    *             <code>GetQuerySuggestions</code> capacity is five times the
    *             provisioned query capacity for an index, or the base capacity of 2.5 calls per second,

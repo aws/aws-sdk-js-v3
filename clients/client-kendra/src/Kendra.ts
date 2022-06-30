@@ -404,6 +404,9 @@ export class Kendra extends KendraClient {
    *          <p>The documents are indexed asynchronously. You can see the progress of
    *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
    *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
+   *          <p>For an example of ingesting inline documents using Python and Java SDKs,
+   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding
+   *         files directly to an index</a>.</p>
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -486,6 +489,10 @@ export class Kendra extends KendraClient {
    *       Otherwise, an exception is raised.</p>
    *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
    *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
+   *          <p>For an example of creating an index and data source using the Python SDK,
+   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
+   *         started with Python SDK</a>. For an example of creating an index and data
+   *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -518,7 +525,8 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates an Amazon Kendra experience such as a search application. For more information
-   *             on creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+   *             on creating a search application experience, including using the Python and Java SDKs,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
    *                 search experience with no code</a>.</p>
    */
   public createExperience(
@@ -553,6 +561,9 @@ export class Kendra extends KendraClient {
   /**
    * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
    *         <p>Adding FAQs to an index is an asynchronous operation.</p>
+   *         <p>For an example of adding an FAQ to an index using Python and Java SDKs,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using you
+   *                 FAQ file</a>.</p>
    */
   public createFaq(args: CreateFaqCommandInput, options?: __HttpHandlerOptions): Promise<CreateFaqCommandOutput>;
   public createFaq(args: CreateFaqCommandInput, cb: (err: any, data?: CreateFaqCommandOutput) => void): void;
@@ -585,7 +596,11 @@ export class Kendra extends KendraClient {
    *         <code>ACTIVE</code> when the index is ready to use.</p>
    *          <p>Once the index is active you can index your documents using the
    *         <code>BatchPutDocument</code> API or using one of the supported
-   *       data sources. </p>
+   *       data sources.</p>
+   *          <p>For an example of creating an index and data source using the Python SDK,
+   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
+   *         started with Python SDK</a>. For an example of creating an index and data
+   *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
    */
   public createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
   public createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
@@ -623,6 +638,9 @@ export class Kendra extends KendraClient {
    *         <p>
    *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
+   *         <p>For an example of creating a block list for query suggestions using the
+   *             Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list">Query
+   *                 suggestions block list</a>.</p>
    */
   public createQuerySuggestionsBlockList(
     args: CreateQuerySuggestionsBlockListCommandInput,
@@ -656,6 +674,9 @@ export class Kendra extends KendraClient {
   /**
    * <p>Creates a thesaurus for an index. The thesaurus
    *       contains a list of synonyms in Solr format.</p>
+   *          <p>For an example of adding a thesaurus file to an index, see
+   *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html">Adding
+   *             custom synonyms to an index</a>.</p>
    */
   public createThesaurus(
     args: CreateThesaurusCommandInput,
