@@ -15035,6 +15035,7 @@ const serializeAws_json1_1CreateDatabaseRequest = (input: CreateDatabaseRequest,
       input.DatabaseInput !== null && {
         DatabaseInput: serializeAws_json1_1DatabaseInput(input.DatabaseInput, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
   };
 };
 

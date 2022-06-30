@@ -2374,6 +2374,9 @@ export interface UpdateTableRequest {
    */
   TransactionId?: string;
 
+  /**
+   * <p>The version ID at which to update the table contents. </p>
+   */
   VersionId?: string;
 }
 

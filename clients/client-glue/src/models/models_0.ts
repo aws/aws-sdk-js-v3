@@ -516,7 +516,11 @@ export interface StorageDescriptor {
    */
   Location?: string;
 
+  /**
+   * <p>A list of locations that point to the path where a Delta table is located.</p>
+   */
   AdditionalLocations?: string[];
+
   /**
    * <p>The input format: <code>SequenceFileInputFormat</code> (binary),
    *       or <code>TextInputFormat</code>, or a custom format.</p>
@@ -7207,6 +7211,11 @@ export interface CreateDatabaseRequest {
    * <p>The metadata for the database.</p>
    */
   DatabaseInput: DatabaseInput | undefined;
+
+  /**
+   * <p>The tags you assign to the database.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 export namespace CreateDatabaseRequest {
