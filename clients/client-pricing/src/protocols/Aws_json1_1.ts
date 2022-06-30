@@ -428,7 +428,7 @@ const deserializeAws_json1_1GetProductsResponse = (output: any, context: __Serde
     NextToken: __expectString(output.NextToken),
     PriceList:
       output.PriceList !== undefined && output.PriceList !== null
-        ? deserializeAws_json1_1PriceList(output.PriceList, context)
+        ? deserializeAws_json1_1PriceListJsonItems(output.PriceList, context)
         : undefined,
   } as any;
 };
@@ -463,7 +463,10 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): (__LazyJsonString | string)[] => {
+const deserializeAws_json1_1PriceListJsonItems = (
+  output: any,
+  context: __SerdeContext
+): (__LazyJsonString | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
