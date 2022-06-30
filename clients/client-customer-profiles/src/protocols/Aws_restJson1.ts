@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -629,6 +630,10 @@ export const serializeAws_restJson1GetAutoMergingPreviewCommand = async (
     ...(input.Consolidation !== undefined &&
       input.Consolidation !== null && {
         Consolidation: serializeAws_restJson1Consolidation(input.Consolidation, context),
+      }),
+    ...(input.MinAllowedConfidenceScoreForMerging !== undefined &&
+      input.MinAllowedConfidenceScoreForMerging !== null && {
+        MinAllowedConfidenceScoreForMerging: __serializeFloat(input.MinAllowedConfidenceScoreForMerging),
       }),
   });
   return new __HttpRequest({
@@ -4306,6 +4311,10 @@ const serializeAws_restJson1AutoMerging = (input: AutoMerging, context: __SerdeC
         Consolidation: serializeAws_restJson1Consolidation(input.Consolidation, context),
       }),
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.MinAllowedConfidenceScoreForMerging !== undefined &&
+      input.MinAllowedConfidenceScoreForMerging !== null && {
+        MinAllowedConfidenceScoreForMerging: __serializeFloat(input.MinAllowedConfidenceScoreForMerging),
+      }),
   };
 };
 
@@ -4913,6 +4922,7 @@ const deserializeAws_restJson1AutoMerging = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1Consolidation(output.Consolidation, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
+    MinAllowedConfidenceScoreForMerging: __limitedParseDouble(output.MinAllowedConfidenceScoreForMerging),
   } as any;
 };
 

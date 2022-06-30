@@ -31,7 +31,12 @@ export interface AddProfileKeyRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile.</p>
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use
+   *          include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone,
+   *          _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId,
+   *          _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+   *          _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId,
+   *          _shopifyOrderId.</p>
    */
   KeyName: string | undefined;
 
@@ -1076,6 +1081,13 @@ export interface AutoMerging {
    *             <code>EmailAddress</code> should be used? </p>
    */
   ConflictResolution?: ConflictResolution;
+
+  /**
+   * <p>A number between 0 and 1 that represents the minimum confidence score required for
+   *          profiles within a matching group to be merged during the auto-merge process. A higher
+   *          score means higher similarity required to merge profiles. </p>
+   */
+  MinAllowedConfidenceScoreForMerging?: number;
 }
 
 export namespace AutoMerging {
@@ -1872,6 +1884,11 @@ export interface GetAutoMergingPreviewRequest {
    * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
    */
   ConflictResolution: ConflictResolution | undefined;
+
+  /**
+   * <p>Minimum confidence score required for profiles within a matching group to be merged during the auto-merge process.</p>
+   */
+  MinAllowedConfidenceScoreForMerging?: number;
 }
 
 export namespace GetAutoMergingPreviewRequest {
@@ -2352,8 +2369,13 @@ export interface MatchItem {
   ProfileIds?: string[];
 
   /**
-   * <p>A number between 0 and 1 that represents the confidence level of assigning profiles to a
-   *          matching group. A score of 1 likely indicates an exact match.</p>
+   * <p>A number between 0 and 1, where a higher score means higher similarity.
+   *          Examining match confidence scores lets you distinguish between groups of similar records in which
+   *          the system is highly confident (which you may decide to merge), groups of similar records about
+   *          which the system is uncertain (which you may decide to have reviewed by a human),
+   *          and groups of similar records that the system deems to be unlikely (which you may decide to reject).
+   *          Given confidence scores vary as per the data input, it should not be used an absolute
+   *          measure of matching quality.</p>
    */
   ConfidenceScore?: number;
 }
@@ -3957,7 +3979,12 @@ export interface PutProfileObjectTypeRequest {
   Description: string | undefined;
 
   /**
-   * <p>A unique identifier for the object template.</p>
+   * <p>A unique identifier for the object template. For some attributes in the request, the
+   *          service will use the default value from the object template when TemplateId is present. If
+   *          these attributes are present in the request, the service may return a <code>BadRequestException</code>.
+   *          These attributes include: AllowProfileCreation, SourceLastUpdatedTimestampFormat,
+   *          Fields, and Keys. For example, if AllowProfileCreation is set to true when TemplateId is set, the service
+   *          may return a <code>BadRequestException</code>.</p>
    */
   TemplateId?: string;
 
