@@ -17,6 +17,7 @@ const region: string | undefined = (globalThis as any).defaultRegion || process?
 const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
 const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
 const Bucket = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET || process?.env?.AWS_SMOKE_TEST_BUCKET;
+const mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
 let Key = `${Date.now()}`;
 
@@ -287,5 +288,35 @@ esfuture,29`;
       expect(events[1].Stats?.Details).to.be.exist;
       expect(events[2].End).to.be.exist;
     });
+  });
+
+  describe("Multi-region access point", () => {
+    before(async () => {
+      Key = `${Date.now()}`;
+      await client.putObject({ Bucket, Key, Body: "foo" });
+    });
+    after(async () => {
+      await client.deleteObject({ Bucket, Key });
+    });
+    if (isBrowser) {
+      it("should throw for aws-crt no available in browser", async () => {
+        try {
+          await client.listObjects({
+            Bucket: mrapArn,
+          });
+          expect.fail("MRAP call in browser should throw");
+        } catch (e) {
+          expect(e.message).include("only available in Node.js");
+        }
+      });
+    } else {
+      it("should succeed with valid MRAP ARN", async () => {
+        const result = await client.listObjects({
+          Bucket: mrapArn,
+        });
+        expect(result.$metadata.httpStatusCode).to.equal(200);
+        expect(result.Contents).to.be.instanceOf(Array);
+      });
+    }
   });
 });

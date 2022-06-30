@@ -69,6 +69,17 @@
       "Metadata": {
         "aws:cdk:path": "IntegTestResourcesStack/IntegTestBucket/Resource"
       }
+    },
+    "MultiregionAccessPoint": {
+      "Type": "AWS::S3::MultiRegionAccessPoint",
+      "Properties": {
+        "Name": "v3-sdk-integration-test-001",
+        "Regions": [
+          {
+            "Bucket": { "Ref": "IntegTestBucketA93771AE" }
+          }
+        ]
+      }
     }
   }
 }
