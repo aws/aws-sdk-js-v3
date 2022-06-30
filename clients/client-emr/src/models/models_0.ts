@@ -932,6 +932,16 @@ export interface AddJobFlowStepsInput {
    * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
    */
   Steps: StepConfig[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
+   *          runtime role can be a cross-account IAM role. The runtime role ARN is a combination of
+   *          account ID, role name, and role type using the following format:
+   *             <code>arn:partition:service:region:account:resource</code>. </p>
+   *          <p>For example, <code>arn:aws:iam::1234567890:role/ReadOnly</code> is a correctly formatted
+   *          runtime role ARN.</p>
+   */
+  ExecutionRoleArn?: string;
 }
 
 export namespace AddJobFlowStepsInput {
@@ -3294,6 +3304,16 @@ export interface Step {
    * <p>The current execution status details of the cluster step.</p>
    */
   Status?: StepStatus;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
+   *          runtime role can be a cross-account IAM role. The runtime role ARN is a combination of
+   *          account ID, role name, and role type using the following format:
+   *             <code>arn:partition:service:region:account:resource</code>. </p>
+   *          <p>For example, <code>arn:aws:iam::1234567890:role/ReadOnly</code> is a correctly formatted
+   *          runtime role ARN.</p>
+   */
+  ExecutionRoleArn?: string;
 }
 
 export namespace Step {

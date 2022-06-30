@@ -3431,6 +3431,8 @@ const serializeAws_json1_1AddInstanceGroupsInput = (input: AddInstanceGroupsInpu
 
 const serializeAws_json1_1AddJobFlowStepsInput = (input: AddJobFlowStepsInput, context: __SerdeContext): any => {
   return {
+    ...(input.ExecutionRoleArn !== undefined &&
+      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.JobFlowId !== undefined && input.JobFlowId !== null && { JobFlowId: input.JobFlowId }),
     ...(input.Steps !== undefined &&
       input.Steps !== null && { Steps: serializeAws_json1_1StepConfigList(input.Steps, context) }),
@@ -6812,6 +6814,7 @@ const deserializeAws_json1_1Step = (output: any, context: __SerdeContext): Step 
       output.Config !== undefined && output.Config !== null
         ? deserializeAws_json1_1HadoopStepConfig(output.Config, context)
         : undefined,
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Status:
