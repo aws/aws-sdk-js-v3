@@ -251,7 +251,9 @@ export interface CreateEnvironmentInput {
   KmsKey?: string;
 
   /**
-   * <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
+   * <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version. Valid values:
+   *             <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.
+   *             To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
    */
   AirflowVersion?: string;
 
@@ -284,10 +286,10 @@ export interface CreateEnvironmentInput {
    * <p>The number of Apache Airflow schedulers to run in your environment. Valid values:</p>
    *         <ul>
    *             <li>
-   *                 <p>v2.0.2 - Accepts between 2 to 5. Defaults to 2.</p>
+   *                 <p>v2 - Accepts between 2 to 5. Defaults to 2.</p>
    *             </li>
    *             <li>
-   *                 <p>v1.10.12 - Accepts 1.</p>
+   *                 <p>v1 - Accepts 1.</p>
    *             </li>
    *          </ul>
    */
@@ -662,7 +664,7 @@ export interface Environment {
   KmsKey?: string;
 
   /**
-   * <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>.</p>
+   * <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
    */
   AirflowVersion?: string;
 
@@ -758,6 +760,7 @@ export namespace Environment {
    */
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
+    ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
   });
 }
 
@@ -774,6 +777,7 @@ export namespace GetEnvironmentOutput {
    */
   export const filterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
     ...obj,
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
 }
 
@@ -1127,7 +1131,8 @@ export interface UpdateEnvironmentInput {
   ExecutionRoleArn?: string;
 
   /**
-   * <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>.</p>
+   * <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version.
+   *             Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
    */
   AirflowVersion?: string;
 
