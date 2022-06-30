@@ -41,7 +41,7 @@ module.exports = function (config) {
       plugins: [new webpack.NormalModuleReplacementPlugin(/\.\/runtimeConfig$/, "./runtimeConfig.browser")],
       devtool: "inline-source-map",
     },
-    envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_BUCKET"],
+    envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_BUCKET", "AWS_SMOKE_TEST_MRAP_ARN"],
     plugins: [
       "@aws-sdk/karma-credential-loader",
       "karma-chrome-launcher",
