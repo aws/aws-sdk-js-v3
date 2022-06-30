@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
+
+
+### Features
+
+* **client-athena:** This feature introduces the API support for Athena's parameterized query and BatchGetPreparedStatement API. ([52a77f5](https://github.com/aws/aws-sdk-js-v3/commit/52a77f529a90406620037b7d3e02427582c39823))
+* **client-customer-profiles:** This release adds the optional MinAllowedConfidenceScoreForMerging parameter to the CreateDomain, UpdateDomain, and GetAutoMergingPreview APIs in Customer Profiles. This parameter is used as a threshold to influence the profile auto-merging step of the Identity Resolution process. ([a5865d3](https://github.com/aws/aws-sdk-js-v3/commit/a5865d31f357eb762ccea2fd7cae0e2104e00cde))
+* **client-emr:** This release adds support for the ExecutionRoleArn parameter in the AddJobFlowSteps and DescribeStep APIs. Customers can use ExecutionRoleArn to specify the IAM role used for each job they submit using the AddJobFlowSteps API. ([5232298](https://github.com/aws/aws-sdk-js-v3/commit/52322980a3ba87ccc12f19cc9780cf3300a8394d))
+* **client-glue:** This release adds tag as an input of CreateDatabase ([64d9e9f](https://github.com/aws/aws-sdk-js-v3/commit/64d9e9f7091539b856fa3652eb2f8f8238c5115e))
+* **client-kendra:** Amazon Kendra now provides a data source connector for alfresco ([104b8be](https://github.com/aws/aws-sdk-js-v3/commit/104b8bea02e626b2d80009b9a91deb712ef8bcd0))
+* **client-mwaa:** Documentation updates for Amazon Managed Workflows for Apache Airflow. ([debff58](https://github.com/aws/aws-sdk-js-v3/commit/debff58fb3fb126e630f2e8526575307396bf206))
+* **client-pricing:** Documentation update for GetProducts Response. ([8c5e287](https://github.com/aws/aws-sdk-js-v3/commit/8c5e2873190168ea2c1b06940e563716e18acd85))
+* **client-wellarchitected:** Added support for UpdateGlobalSettings API. Added status filter to ListWorkloadShares and ListLensShares. ([5d6f4e6](https://github.com/aws/aws-sdk-js-v3/commit/5d6f4e6f1257b2a92f3a6aebd409126fb53d4750))
+* **client-workmail:** This release adds support for managing user availability configurations in Amazon WorkMail. ([3e7e5cb](https://github.com/aws/aws-sdk-js-v3/commit/3e7e5cbabfcd6ba9b7064b87729c3d6c06ff500d))
+* **clients:** fallback to status code for unmodeled errors ([#3752](https://github.com/aws/aws-sdk-js-v3/issues/3752)) ([49bcc4f](https://github.com/aws/aws-sdk-js-v3/commit/49bcc4f153e890e798a8e82fd5fc397b2dcc449f))
+* **clients:** update client endpoints as of 2022-06-30 ([fe6a05a](https://github.com/aws/aws-sdk-js-v3/commit/fe6a05a556d9b3245a681b064898dcd7ee6ea4a1))
+
+
+
+
+
 # [3.120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.119.0...v3.120.0) (2022-06-29)
 
 

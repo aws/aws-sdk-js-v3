@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
+
+
+### Features
+
+* **client-customer-profiles:** This release adds the optional MinAllowedConfidenceScoreForMerging parameter to the CreateDomain, UpdateDomain, and GetAutoMergingPreview APIs in Customer Profiles. This parameter is used as a threshold to influence the profile auto-merging step of the Identity Resolution process. ([a5865d3](https://github.com/aws/aws-sdk-js-v3/commit/a5865d31f357eb762ccea2fd7cae0e2104e00cde))
+* **clients:** fallback to status code for unmodeled errors ([#3752](https://github.com/aws/aws-sdk-js-v3/issues/3752)) ([49bcc4f](https://github.com/aws/aws-sdk-js-v3/commit/49bcc4f153e890e798a8e82fd5fc397b2dcc449f))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

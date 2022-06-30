@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
+
+
+### Features
+
+* **client-emr:** This release adds support for the ExecutionRoleArn parameter in the AddJobFlowSteps and DescribeStep APIs. Customers can use ExecutionRoleArn to specify the IAM role used for each job they submit using the AddJobFlowSteps API. ([5232298](https://github.com/aws/aws-sdk-js-v3/commit/52322980a3ba87ccc12f19cc9780cf3300a8394d))
+* **clients:** fallback to status code for unmodeled errors ([#3752](https://github.com/aws/aws-sdk-js-v3/issues/3752)) ([49bcc4f](https://github.com/aws/aws-sdk-js-v3/commit/49bcc4f153e890e798a8e82fd5fc397b2dcc449f))
+
+
+
+
+
 # [3.120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.119.0...v3.120.0) (2022-06-29)
 
 

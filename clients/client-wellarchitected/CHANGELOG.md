@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
+
+
+### Features
+
+* **client-wellarchitected:** Added support for UpdateGlobalSettings API. Added status filter to ListWorkloadShares and ListLensShares. ([5d6f4e6](https://github.com/aws/aws-sdk-js-v3/commit/5d6f4e6f1257b2a92f3a6aebd409126fb53d4750))
+* **clients:** fallback to status code for unmodeled errors ([#3752](https://github.com/aws/aws-sdk-js-v3/issues/3752)) ([49bcc4f](https://github.com/aws/aws-sdk-js-v3/commit/49bcc4f153e890e798a8e82fd5fc397b2dcc449f))
+
+
+
+
+
 ## [3.118.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.118.0...v3.118.1) (2022-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-wellarchitected
