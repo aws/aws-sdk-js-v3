@@ -133,7 +133,8 @@ export const serializeAws_restJson1AssociateApiCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}/apiassociation";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/domainnames/{domainName}/apiassociation";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -309,7 +310,7 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames";
   let body: any;
   body = JSON.stringify({
     ...(input.certificateArn !== undefined &&
@@ -631,7 +632,7 @@ export const serializeAws_restJson1DeleteDomainNameCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames/{domainName}";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -812,7 +813,8 @@ export const serializeAws_restJson1DisassociateApiCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}/apiassociation";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/domainnames/{domainName}/apiassociation";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -870,7 +872,8 @@ export const serializeAws_restJson1GetApiAssociationCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}/apiassociation";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/domainnames/{domainName}/apiassociation";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -966,7 +969,7 @@ export const serializeAws_restJson1GetDomainNameCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames/{domainName}";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
@@ -1279,7 +1282,7 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1771,7 +1774,7 @@ export const serializeAws_restJson1UpdateDomainNameCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domainnames/{domainName}";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domainnames/{domainName}";
   if (input.domainName !== undefined) {
     const labelValue: string = input.domainName;
     if (labelValue.length <= 0) {
