@@ -708,6 +708,12 @@ export interface ElasticsearchSettings {
    *          OpenSearch cluster.</p>
    */
   ErrorRetryDuration?: number;
+
+  /**
+   * <p>Set this option to <code>true</code> for DMS to migrate documentation using the documentation type <code>_doc</code>.  OpenSearch and
+   *       an Elasticsearch cluster only support the _doc documentation type in versions 7. x and later. The default value is <code>false</code>.</p>
+   */
+  UseNewMappingType?: boolean;
 }
 
 export namespace ElasticsearchSettings {
@@ -1309,6 +1315,12 @@ export interface MicrosoftSQLServerSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the SQL Server endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
+   *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
+   */
+  TrimSpaceInChar?: boolean;
 }
 
 export namespace MicrosoftSQLServerSettings {
@@ -2030,6 +2042,12 @@ export interface OracleSettings {
    *          that contains the Oracle ASM connection details for the Oracle endpoint.</p>
    */
   SecretsManagerOracleAsmSecretId?: string;
+
+  /**
+   * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
+   *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
+   */
+  TrimSpaceInChar?: boolean;
 }
 
 export namespace OracleSettings {
@@ -2197,6 +2215,12 @@ export interface PostgreSQLSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the PostgreSQL endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
+   *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
+   */
+  TrimSpaceInChar?: boolean;
 }
 
 export namespace PostgreSQLSettings {
@@ -3144,6 +3168,22 @@ export interface S3Settings {
    *          </p>
    */
   DatePartitionTimezone?: string;
+
+  /**
+   * <p>Use the S3 target endpoint setting <code>AddTrailingPaddingCharacter</code> to add
+   *          padding on string data. The default value is <code>false</code>.</p>
+   */
+  AddTrailingPaddingCharacter?: boolean;
+
+  /**
+   * <p>To specify a bucket owner and prevent sniping, you can use the
+   *          <code>ExpectedBucketOwner</code> endpoint setting. </p>
+   *          <p>Example: <code>--s3-settings='{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"}'</code>
+   *          </p>
+   *          <p>When you make a request to test a connection or perform a migration, S3 checks the account
+   *          ID of the bucket owner against the specified parameter.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace S3Settings {
@@ -5348,24 +5388,68 @@ export interface ReplicationTask {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>"STOP_REASON_FULL_LOAD_COMPLETED"</code> – Full-load migration
-   *                completed.</p>
+   *                   <code>"Stop Reason NORMAL"</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"STOP_REASON_CACHED_CHANGES_APPLIED"</code> – Change data capture (CDC)
-   *                load completed.</p>
+   *                   <code>"Stop Reason RECOVERABLE_ERROR"</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"STOP_REASON_CACHED_CHANGES_NOT_APPLIED"</code> – In a
-   *                full-load and CDC migration, the full load stopped as specified before starting the
-   *                CDC migration.</p>
+   *                   <code>"Stop Reason FATAL_ERROR"</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"STOP_REASON_SERVER_TIME"</code> – The migration stopped at the
-   *                specified server time.</p>
+   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_FULL_LOAD"</code> – Full load completed, with cached changes not applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_CACHED_EVENTS"</code>  – Full load completed, with cached changes applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_DDL_APPLY"</code> – User-defined stop task after DDL applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_MEMORY"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_DISK"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_SERVER_TIME"</code> – User-defined server time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_COMMIT_TIME"</code> –  User-defined commit time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECONFIGURATION_RESTART"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECYCLE_TASK"</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -7074,8 +7158,7 @@ export interface DescribeFleetAdvisorDatabasesRequest {
    *             <ul>
    *             <li>
    *                <p>
-   *                   <code>database-id</code> – The ID of the database, for example
-   *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
+   *                   <code>database-id</code> – The ID of the database.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7100,7 +7183,7 @@ export interface DescribeFleetAdvisorDatabasesRequest {
    *          </ul>
    *
    *             <p>An example is: <code>describe-fleet-advisor-databases --filter
-   *                 Name="database-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</code>
+   *                 Name="database-id",Values="45"</code>
    *          </p>
    */
   Filters?: Filter[];

@@ -5481,6 +5481,8 @@ const serializeAws_json1_1ElasticsearchSettings = (input: ElasticsearchSettings,
       input.FullLoadErrorPercentage !== null && { FullLoadErrorPercentage: input.FullLoadErrorPercentage }),
     ...(input.ServiceAccessRoleArn !== undefined &&
       input.ServiceAccessRoleArn !== null && { ServiceAccessRoleArn: input.ServiceAccessRoleArn }),
+    ...(input.UseNewMappingType !== undefined &&
+      input.UseNewMappingType !== null && { UseNewMappingType: input.UseNewMappingType }),
   };
 };
 
@@ -5723,6 +5725,8 @@ const serializeAws_json1_1MicrosoftSQLServerSettings = (
     ...(input.SecretsManagerSecretId !== undefined &&
       input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
+    ...(input.TrimSpaceInChar !== undefined &&
+      input.TrimSpaceInChar !== null && { TrimSpaceInChar: input.TrimSpaceInChar }),
     ...(input.UseBcpFullLoad !== undefined &&
       input.UseBcpFullLoad !== null && { UseBcpFullLoad: input.UseBcpFullLoad }),
     ...(input.UseThirdPartyBackupDevice !== undefined &&
@@ -6069,6 +6073,8 @@ const serializeAws_json1_1OracleSettings = (input: OracleSettings, context: __Se
       }),
     ...(input.StandbyDelayTime !== undefined &&
       input.StandbyDelayTime !== null && { StandbyDelayTime: input.StandbyDelayTime }),
+    ...(input.TrimSpaceInChar !== undefined &&
+      input.TrimSpaceInChar !== null && { TrimSpaceInChar: input.TrimSpaceInChar }),
     ...(input.UseAlternateFolderForOnline !== undefined &&
       input.UseAlternateFolderForOnline !== null && { UseAlternateFolderForOnline: input.UseAlternateFolderForOnline }),
     ...(input.UseBFile !== undefined && input.UseBFile !== null && { UseBFile: input.UseBFile }),
@@ -6109,6 +6115,8 @@ const serializeAws_json1_1PostgreSQLSettings = (input: PostgreSQLSettings, conte
       input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.SlotName !== undefined && input.SlotName !== null && { SlotName: input.SlotName }),
+    ...(input.TrimSpaceInChar !== undefined &&
+      input.TrimSpaceInChar !== null && { TrimSpaceInChar: input.TrimSpaceInChar }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
 };
@@ -6223,6 +6231,8 @@ const serializeAws_json1_1RemoveTagsFromResourceMessage = (
 const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeContext): any => {
   return {
     ...(input.AddColumnName !== undefined && input.AddColumnName !== null && { AddColumnName: input.AddColumnName }),
+    ...(input.AddTrailingPaddingCharacter !== undefined &&
+      input.AddTrailingPaddingCharacter !== null && { AddTrailingPaddingCharacter: input.AddTrailingPaddingCharacter }),
     ...(input.BucketFolder !== undefined && input.BucketFolder !== null && { BucketFolder: input.BucketFolder }),
     ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
     ...(input.CannedAclForObjects !== undefined &&
@@ -6260,6 +6270,8 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
     ...(input.EncodingType !== undefined && input.EncodingType !== null && { EncodingType: input.EncodingType }),
     ...(input.EncryptionMode !== undefined &&
       input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
+    ...(input.ExpectedBucketOwner !== undefined &&
+      input.ExpectedBucketOwner !== null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
     ...(input.ExternalTableDefinition !== undefined &&
       input.ExternalTableDefinition !== null && { ExternalTableDefinition: input.ExternalTableDefinition }),
     ...(input.IgnoreHeaderRows !== undefined &&
@@ -7289,6 +7301,7 @@ const deserializeAws_json1_1ElasticsearchSettings = (output: any, context: __Ser
     ErrorRetryDuration: __expectInt32(output.ErrorRetryDuration),
     FullLoadErrorPercentage: __expectInt32(output.FullLoadErrorPercentage),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
+    UseNewMappingType: __expectBoolean(output.UseNewMappingType),
   } as any;
 };
 
@@ -7825,6 +7838,7 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
+    TrimSpaceInChar: __expectBoolean(output.TrimSpaceInChar),
     UseBcpFullLoad: __expectBoolean(output.UseBcpFullLoad),
     UseThirdPartyBackupDevice: __expectBoolean(output.UseThirdPartyBackupDevice),
     Username: __expectString(output.Username),
@@ -7989,6 +8003,7 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
     ServerName: __expectString(output.ServerName),
     SpatialDataOptionToGeoJsonFunctionName: __expectString(output.SpatialDataOptionToGeoJsonFunctionName),
     StandbyDelayTime: __expectInt32(output.StandbyDelayTime),
+    TrimSpaceInChar: __expectBoolean(output.TrimSpaceInChar),
     UseAlternateFolderForOnline: __expectBoolean(output.UseAlternateFolderForOnline),
     UseBFile: __expectBoolean(output.UseBFile),
     UseDirectPathFullLoad: __expectBoolean(output.UseDirectPathFullLoad),
@@ -8105,6 +8120,7 @@ const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeC
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
     SlotName: __expectString(output.SlotName),
+    TrimSpaceInChar: __expectBoolean(output.TrimSpaceInChar),
     Username: __expectString(output.Username),
   } as any;
 };
@@ -8635,6 +8651,7 @@ const deserializeAws_json1_1S3ResourceNotFoundFault = (
 const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext): S3Settings => {
   return {
     AddColumnName: __expectBoolean(output.AddColumnName),
+    AddTrailingPaddingCharacter: __expectBoolean(output.AddTrailingPaddingCharacter),
     BucketFolder: __expectString(output.BucketFolder),
     BucketName: __expectString(output.BucketName),
     CannedAclForObjects: __expectString(output.CannedAclForObjects),
@@ -8658,6 +8675,7 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     EnableStatistics: __expectBoolean(output.EnableStatistics),
     EncodingType: __expectString(output.EncodingType),
     EncryptionMode: __expectString(output.EncryptionMode),
+    ExpectedBucketOwner: __expectString(output.ExpectedBucketOwner),
     ExternalTableDefinition: __expectString(output.ExternalTableDefinition),
     IgnoreHeaderRows: __expectInt32(output.IgnoreHeaderRows),
     IncludeOpForFullLoad: __expectBoolean(output.IncludeOpForFullLoad),
