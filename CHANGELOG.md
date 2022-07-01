@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.121.0...v3.122.0) (2022-07-01)
+
+
+### Features
+
+* **client-database-migration-service:** Added new features for AWS DMS version 3.4.7 that includes new endpoint settings for S3, OpenSearch, Postgres, SQLServer and Oracle. ([294fef4](https://github.com/aws/aws-sdk-js-v3/commit/294fef445137e6e345155fae2089ac3b4626fbae))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 
