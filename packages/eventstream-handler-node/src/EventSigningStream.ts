@@ -18,6 +18,7 @@ export class EventSigningStream extends Transform {
 
   constructor(options: EventSigningStreamOptions) {
     super({
+      autoDestroy: true,
       readableObjectMode: true,
       writableObjectMode: true,
       ...options,
@@ -26,15 +27,6 @@ export class EventSigningStream extends Transform {
     this.priorSignature = options.priorSignature;
     this.eventSigner = options.eventSigner;
     this.eventStreamCodec = options.eventStreamCodec;
-
-    //TODO: use 'autoDestroy' when targeting Node 11
-    //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
-    this.on("error", () => {
-      this.destroy();
-    });
-    this.on("end", () => {
-      this.destroy();
-    });
   }
 
   async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
