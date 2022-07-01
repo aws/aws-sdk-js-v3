@@ -7,11 +7,10 @@ import {
   UpdateItemCommandInput as __UpdateItemCommandInput,
   UpdateItemCommandOutput as __UpdateItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type UpdateCommandInput = Omit<
@@ -49,12 +48,14 @@ export type UpdateCommandOutput = Omit<__UpdateItemCommandOutput, "Attributes" |
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class UpdateCommand extends $Command<
+export class UpdateCommand extends DynamoDBDocumentClientCommand<
   UpdateCommandInput,
   UpdateCommandOutput,
+  __UpdateItemCommandInput,
+  __UpdateItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [
+  protected readonly inputKeyNodes = [
     { key: "Key" },
     {
       key: "AttributeUpdates",
@@ -70,10 +71,17 @@ export class UpdateCommand extends $Command<
     },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     { key: "Attributes" },
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
+
+  protected readonly clientCommand = new __UpdateItemCommand(this.input as any);
+  protected readonly clientCommandName = __UpdateItemCommand.name;
+  public readonly middlewareStack: MiddlewareStack<
+    UpdateCommandInput | __UpdateItemCommandInput,
+    UpdateCommandOutput | __UpdateItemCommandOutput
+  > = this.clientCommand.middlewareStack;
 
   constructor(readonly input: UpdateCommandInput) {
     super();
@@ -87,16 +95,10 @@ export class UpdateCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateCommandInput, UpdateCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __UpdateItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

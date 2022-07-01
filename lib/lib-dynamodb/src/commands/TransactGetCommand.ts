@@ -7,11 +7,10 @@ import {
   TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
@@ -39,13 +38,22 @@ export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Re
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class TransactGetCommand extends $Command<
+export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   TransactGetCommandInput,
   TransactGetCommandOutput,
+  __TransactGetItemsCommandInput,
+  __TransactGetItemsCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
-  private readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
+  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+
+  protected readonly clientCommand = new __TransactGetItemsCommand(this.input as any);
+  protected readonly clientCommandName = __TransactGetItemsCommand.name;
+  public readonly middlewareStack: MiddlewareStack<
+    TransactGetCommandInput | __TransactGetItemsCommandInput,
+    TransactGetCommandOutput | __TransactGetItemsCommandOutput
+  > = this.clientCommand.middlewareStack;
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
@@ -59,16 +67,10 @@ export class TransactGetCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactGetCommandInput, TransactGetCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __TransactGetItemsCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

@@ -8,11 +8,10 @@ import {
   PutRequest,
   WriteRequest,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type BatchWriteCommandInput = Omit<__BatchWriteItemCommandInput, "RequestItems"> & {
@@ -61,12 +60,14 @@ export type BatchWriteCommandOutput = Omit<
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class BatchWriteCommand extends $Command<
+export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
   BatchWriteCommandInput,
   BatchWriteCommandOutput,
+  __BatchWriteItemCommandInput,
+  __BatchWriteItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [
+  protected readonly inputKeyNodes = [
     {
       key: "RequestItems",
       children: {
@@ -77,7 +78,7 @@ export class BatchWriteCommand extends $Command<
       },
     },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     {
       key: "UnprocessedItems",
       children: {
@@ -95,6 +96,13 @@ export class BatchWriteCommand extends $Command<
     },
   ];
 
+  protected readonly clientCommand = new __BatchWriteItemCommand(this.input as any);
+  protected readonly clientCommandName = __BatchWriteItemCommand.name;
+  public readonly middlewareStack: MiddlewareStack<
+    BatchWriteCommandInput | __BatchWriteItemCommandInput,
+    BatchWriteCommandOutput | __BatchWriteItemCommandOutput
+  > = this.clientCommand.middlewareStack;
+
   constructor(readonly input: BatchWriteCommandInput) {
     super();
   }
@@ -107,16 +115,10 @@ export class BatchWriteCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchWriteCommandInput, BatchWriteCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __BatchWriteItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

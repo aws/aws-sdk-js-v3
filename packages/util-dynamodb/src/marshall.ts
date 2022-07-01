@@ -45,6 +45,7 @@ export function marshall(data: unknown, options?: marshallOptions): AttributeVal
 export function marshall(data: unknown, options?: marshallOptions) {
   const attributeValue: AttributeValue = convertToAttr(data, options);
   const [key, value] = Object.entries(attributeValue)[0];
+
   switch (key) {
     case "M":
     case "L":
