@@ -1493,7 +1493,7 @@ export interface DomainNameConfig {
   appsyncDomainName?: string;
 
   /**
-   * <p>The ID of your Amazon Route 53 hosted zone.</p>
+   * <p>The ID of your Amazon Route 53 hosted zone.</p>
    */
   hostedZoneId?: string;
 }
