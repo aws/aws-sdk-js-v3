@@ -28,8 +28,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
  *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
  *                 Replicas</a> in the <i>Amazon RDS User Guide</i>.</p>
- *         <p>Amazon Aurora doesn't support this action. Call the <code>CreateDBInstance</code>
- *             action to create a DB instance for an Aurora DB cluster.</p>
+ *         <p>Amazon Aurora doesn't support this operation. Call the <code>CreateDBInstance</code>
+ *             operation to create a DB instance for an Aurora DB cluster.</p>
  *         <p>All read replica DB instances are created with backups disabled. All other DB
  *             instance attributes (including DB security groups and DB parameter groups) are inherited
  *             from the source DB instance, except as specified.</p>

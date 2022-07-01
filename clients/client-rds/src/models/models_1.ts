@@ -710,7 +710,8 @@ export namespace DescribeEventCategoriesMessage {
 }
 
 /**
- * <p>Contains the results of a successful invocation of the <code>DescribeEventCategories</code> operation.</p>
+ * <p>Contains the results of a successful invocation of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html">DescribeEventCategories</a>
+ *             operation.</p>
  */
 export interface EventCategoriesMap {
   /**
@@ -870,7 +871,7 @@ export namespace DescribeEventsMessage {
 }
 
 /**
- * <p>This data type is used as a response element in the <code>DescribeEvents</code> action.</p>
+ * <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> action.</p>
  */
 export interface Event {
   /**
@@ -3766,7 +3767,35 @@ export interface ModifyDBClusterMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -3937,7 +3966,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *             set this value to <code>restore</code>.</p>
    *         <note>
    *             <p>To view the list of attributes available to modify, use the
-   *                 <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
+   *                 <a>DescribeDBClusterSnapshotAttributes</a> API operation.</p>
    *         </note>
    */
   AttributeName: string | undefined;
@@ -4059,11 +4088,13 @@ export interface ModifyDBInstanceMessage {
   AllocatedStorage?: number;
 
   /**
-   * <p>The new compute and memory capacity of the DB instance, for example db.m4.large.
+   * <p>The new compute and memory capacity of the DB instance, for example db.m5.large.
    *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *           For the full list of DB instance classes, and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance
+   *           classes</a> in the <i>Amazon RDS User Guide</i> or
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
+   *           DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <p>If you modify the DB instance class, an outage occurs during the change.
    *         The change is applied during the next maintenance window,
    *         unless <code>ApplyImmediately</code> is enabled for this request.</p>
@@ -4168,7 +4199,7 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    *         <p>Constraints: Must contain from 8 to 128 characters.</p>
    *         <note>
-   *             <p>Amazon RDS API actions never return the password,
+   *             <p>Amazon RDS API operations never return the password,
    *               so this action provides a way to regain access to a primary instance user if the password is lost.
    *               This includes restoring privileges that might have been accidentally revoked.</p>
    *         </note>
@@ -4207,7 +4238,7 @@ export interface ModifyDBInstanceMessage {
    *         <ul>
    *             <li>
    *                 <p>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source to
-   *               read replicas. It can't be set to 0 or 35 for an RDS Custom for Oracle DB instance.</p>
+   *               read replicas. It can't be set to 0 for an RDS Custom for Oracle DB instance.</p>
    *             </li>
    *             <li>
    *                 <p>It can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
@@ -4585,7 +4616,7 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>A value that indicates whether to enable Performance Insights for the DB instance.</p>
    *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnablePerformanceInsights?: boolean;
@@ -4601,7 +4632,35 @@ export interface ModifyDBInstanceMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -5023,12 +5082,12 @@ export namespace ConnectionPoolConfiguration {
 
 export interface ModifyDBProxyTargetGroupRequest {
   /**
-   * <p>The name of the new target group to assign to the proxy.</p>
+   * <p>The name of the target group to modify.</p>
    */
   TargetGroupName: string | undefined;
 
   /**
-   * <p>The name of the new proxy to which to assign the target group.</p>
+   * <p>The name of the proxy.</p>
    */
   DBProxyName: string | undefined;
 
@@ -5165,7 +5224,7 @@ export interface ModifyDBSnapshotAttributeMessage {
    *       set this value to <code>restore</code>.</p>
    *         <note>
    *             <p>To view the list of attributes available to modify, use the
-   *               <a>DescribeDBSnapshotAttributes</a> API action.</p>
+   *               <a>DescribeDBSnapshotAttributes</a> API operation.</p>
    *         </note>
    */
   AttributeName: string | undefined;
@@ -6370,8 +6429,8 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
-   *         <p>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), and <code>aurora-postgresql</code>
-   *          </p>
+   *         <p>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora) and <code>aurora-mysql</code>
+   *             (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    */
   Engine: string | undefined;
 
@@ -6385,19 +6444,11 @@ export interface RestoreDBClusterFromS3Message {
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
-   *         <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
    *         <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>, <code>8.0.mysql_aurora.3.01.0</code>
-   *          </p>
-   *         <p>
-   *             <b>Aurora PostgreSQL</b>
-   *          </p>
-   *         <p>Example: <code>9.6.3</code>, <code>10.7</code>
+   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.mysql_aurora.2.07.1</code>,
+   *                 <code>8.0.mysql_aurora.3.02.0</code>
    *          </p>
    */
   EngineVersion?: string;
@@ -6908,7 +6959,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *             <b>Aurora PostgreSQL</b>
    *          </p>
    *         <p>Possible value is <code>postgresql</code>.</p>
-   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -7283,7 +7334,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *             <b>Aurora PostgreSQL</b>
    *          </p>
    *         <p>Possible value is <code>postgresql</code>.</p>
-   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -8249,7 +8300,7 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>A value that indicates whether to enable Performance Insights for the DB instance.</p>
    *         <p>For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   EnablePerformanceInsights?: boolean;
 
@@ -8263,7 +8314,35 @@ export interface RestoreDBInstanceFromS3Message {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
@@ -9104,10 +9183,25 @@ export interface StartDBInstanceAutomatedBackupsReplicationMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be
-   *             called in the Amazon Web Services Region of the source DB instance. The presigned URL must be a valid request for the
-   *             StartDBInstanceAutomatedBackupsReplication API action that can be executed in the Amazon Web Services Region that contains
-   *             the source DB instance.</p>
+   * <p>In an Amazon Web Services GovCloud (US) Region, an URL that contains a Signature Version 4 signed request
+   *             for the <code>StartDBInstanceAutomatedBackupsReplication</code> operation to call
+   *             in the Amazon Web Services Region of the source DB instance. The presigned URL must be a valid request for the
+   *             <code>StartDBInstanceAutomatedBackupsReplication</code> API operation that can run in
+   *             the Amazon Web Services Region that contains the source DB instance.</p>
+   *         <p>This setting applies only to Amazon Web Services GovCloud (US) Regions. It's ignored in other
+   *             Amazon Web Services Regions.</p>
+   *         <p>To learn how to generate a Signature Version 4 signed request, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+   *                 Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
+   *                 Signature Version 4 Signing Process</a>.</p>
+   *         <note>
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
+   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
+   *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
+   *                 for the operation that can run in the source Amazon Web Services Region.</p>
+   *         </note>
    */
   PreSignedUrl?: string;
 }

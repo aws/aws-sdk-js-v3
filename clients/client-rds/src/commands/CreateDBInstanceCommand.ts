@@ -24,6 +24,14 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
 
 /**
  * <p>Creates a new DB instance.</p>
+ *         <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
+ *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
+ *            to the cluster.</p>
+ *         <p>For more information about creating an RDS DB instance, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html">
+ *             Creating an Amazon RDS DB instance</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *         <p>For more information about creating a DB instance in an Aurora DB cluster, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html">
+ *             Creating an Amazon Aurora DB cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

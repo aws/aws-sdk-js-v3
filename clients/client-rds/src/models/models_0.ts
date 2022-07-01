@@ -1632,22 +1632,33 @@ export interface CopyDBClusterSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the
-   *             source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another Amazon Web Services Region.
-   *             Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same Amazon Web Services Region.</p>
-   *         <p>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be
-   *             executed in the source Amazon Web Services Region that contains the encrypted DB cluster snapshot to be copied.
-   *             The pre-signed URL request must contain the following parameter values:</p>
+   * <p>When you are copying a DB cluster snapshot from one Amazon Web Services GovCloud (US) Region
+   *             to another, the URL that contains a Signature Version 4 signed request for the
+   *                 <code>CopyDBClusterSnapshot</code> API operation in the Amazon Web Services Region that contains
+   *             the source DB cluster snapshot to copy. Use the <code>PreSignedUrl</code> parameter when
+   *             copying an encrypted DB cluster snapshot from another Amazon Web Services Region. Don't specify
+   *                 <code>PreSignedUrl</code> when copying an encrypted DB cluster snapshot in the same
+   *             Amazon Web Services Region.</p>
+   *         <p>This setting applies only to Amazon Web Services GovCloud (US) Regions. It's ignored in other
+   *             Amazon Web Services Regions.</p>
+   *         <p>The presigned URL must be a valid request for the
+   *                 <code>CopyDBClusterSnapshot</code> API operation that can run in the source
+   *             Amazon Web Services Region that contains the encrypted DB cluster snapshot to copy. The presigned URL request
+   *             must contain the following parameter values:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB
-   *                 cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
-   *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
+   *                   <code>KmsKeyId</code> - The KMS key identifier for the KMS key
+   *                     to use to encrypt the copy of the DB cluster snapshot in the destination
+   *                     Amazon Web Services Region. This is the same identifier for both the
+   *                         <code>CopyDBClusterSnapshot</code> operation that is called in the
+   *                     destination Amazon Web Services Region, and the operation contained in the presigned
+   *                     URL.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DestinationRegion</code> - The name of the Amazon Web Services Region that the DB cluster snapshot is to be created in.</p>
+   *                   <code>DestinationRegion</code> - The name of the Amazon Web Services Region
+   *                     that the DB cluster snapshot is to be created in.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1658,15 +1669,16 @@ export interface CopyDBClusterSnapshotMessage {
    *             </li>
    *          </ul>
    *         <p>To learn how to generate a Signature Version 4 signed request, see
-   *
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
    *                 Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
    *                 Signature Version 4 Signing Process</a>.</p>
    *         <note>
-   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
-   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                 request for the operation that can be executed in the source Amazon Web Services Region.</p>
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
+   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
+   *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
+   *                 for the operation that can run in the source Amazon Web Services Region.</p>
    *         </note>
    */
   PreSignedUrl?: string;
@@ -2085,9 +2097,7 @@ export interface CopyDBSnapshotMessage {
    *                 <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>.</p>
    *         <p>If you are copying from a shared manual DB snapshot,
    *           this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.</p>
-   *         <p>If you are copying an encrypted snapshot
-   *             this parameter must be in the ARN format for the source Amazon Web Services Region,
-   *             and must match the <code>SourceDBSnapshotIdentifier</code> in the <code>PreSignedUrl</code> parameter.</p>
+   *         <p>If you are copying an encrypted snapshot this parameter must be in the ARN format for the source Amazon Web Services Region.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -2154,32 +2164,40 @@ export interface CopyDBSnapshotMessage {
   CopyTags?: boolean;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the
-   *                 <code>CopyDBSnapshot</code> API action in the source Amazon Web Services Region that contains the
-   *             source DB snapshot to copy.</p>
+   * <p>When you are copying a snapshot from one Amazon Web Services GovCloud (US) Region to another,
+   *             the URL that contains a Signature Version 4 signed request for the <code>CopyDBSnapshot</code> API
+   *             operation in the source Amazon Web Services Region that contains the source DB snapshot to copy.</p>
+   *         <p>This setting applies only to Amazon Web Services GovCloud (US) Regions. It's ignored in other
+   *             Amazon Web Services Regions.</p>
    *         <p>You must specify this parameter when you copy an encrypted DB snapshot from another
    *             Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when you are
    *             copying an encrypted DB snapshot in the same Amazon Web Services Region.</p>
-   *         <p>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API action
-   *             that can be executed in the source Amazon Web Services Region that contains the encrypted DB snapshot to be copied.
-   *             The presigned URL request must contain the following parameter values:</p>
+   *         <p>The presigned URL must be a valid request for the
+   *             <code>CopyDBClusterSnapshot</code> API operation that can run in the source
+   *             Amazon Web Services Region that contains the encrypted DB cluster snapshot to copy. The presigned URL request
+   *             must contain the following parameter values:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted DB snapshot is copied to.
-   *                     This Amazon Web Services Region is the same one where the <code>CopyDBSnapshot</code> action is called that contains this presigned URL.</p>
-   *                 <p>For example, if you copy an encrypted DB snapshot from the us-west-2 Amazon Web Services Region
-   *                     to the us-east-1 Amazon Web Services Region, then you call the <code>CopyDBSnapshot</code> action in
-   *                     the us-east-1 Amazon Web Services Region and provide a presigned URL that contains a call to the
-   *                         <code>CopyDBSnapshot</code> action in the us-west-2 Amazon Web Services Region. For this
-   *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
-   *                     the us-east-1 Amazon Web Services Region.</p>
+   *                   <code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted DB
+   *                     snapshot is copied to. This Amazon Web Services Region is the same one where the
+   *                         <code>CopyDBSnapshot</code> operation is called that contains this presigned
+   *                     URL.</p>
+   *                 <p>For example, if you copy an encrypted DB snapshot from the us-west-2
+   *                     Amazon Web Services Region to the us-east-1 Amazon Web Services Region, then you call the
+   *                         <code>CopyDBSnapshot</code> operation in the us-east-1 Amazon Web Services Region and
+   *                     provide a presigned URL that contains a call to the <code>CopyDBSnapshot</code>
+   *                     operation in the us-west-2 Amazon Web Services Region. For this example, the
+   *                         <code>DestinationRegion</code> in the presigned URL must be set to the
+   *                     us-east-1 Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB snapshot in the destination Amazon Web Services Region.
-   *                     This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination Amazon Web Services Region,
-   *                     and the action contained in the presigned URL.</p>
+   *                   <code>KmsKeyId</code> - The KMS key identifier for the KMS key to use to
+   *                     encrypt the copy of the DB snapshot in the destination Amazon Web Services Region. This is the
+   *                     same identifier for both the <code>CopyDBSnapshot</code> operation that is
+   *                     called in the destination Amazon Web Services Region, and the operation contained in the
+   *                     presigned URL.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2193,9 +2211,11 @@ export interface CopyDBSnapshotMessage {
    *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *         <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.</p>
    *         <note>
-   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
-   *                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                request for the operation that can be executed in the source Amazon Web Services Region.</p>
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
+   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
+   *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
+   *                 for the operation that can run in the source Amazon Web Services Region.</p>
    *         </note>
    */
   PreSignedUrl?: string;
@@ -2755,7 +2775,8 @@ export interface VpcSecurityGroupMembership {
   VpcSecurityGroupId?: string;
 
   /**
-   * <p>The status of the VPC security group.</p>
+   * <p>The membership status of the VPC security group.</p>
+   *         <p>Currently, the only valid status is <code>active</code>.</p>
    */
   Status?: string;
 }
@@ -3773,18 +3794,24 @@ export interface CreateDBClusterMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A URL that contains a Signature Version 4 signed request for
-   *             the <code>CreateDBCluster</code> action to be called in the source Amazon Web Services Region where the DB cluster is replicated from.
-   *             Specify <code>PreSignedUrl</code> only when you are performing cross-Region replication from an encrypted DB cluster.</p>
-   *         <p>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API action
-   *             that can be executed in the source Amazon Web Services Region that contains the encrypted DB cluster to be copied.</p>
-   *         <p>The pre-signed URL request must contain the following parameter values:</p>
+   * <p>When you are replicating a DB cluster from one Amazon Web Services GovCloud (US) Region to another,
+   *             an URL that contains a Signature Version 4 signed request for the
+   *                 <code>CreateDBCluster</code> operation to be called in the source Amazon Web Services Region where
+   *             the DB cluster is replicated from. Specify <code>PreSignedUrl</code> only when you are
+   *             performing cross-Region replication from an encrypted DB cluster.</p>
+   *
+   *         <p>The presigned URL must be a valid request for the <code>CreateDBCluster</code> API
+   *             operation that can run in the source Amazon Web Services Region that contains the encrypted DB
+   *             cluster to copy.</p>
+   *         <p>The presigned URL request must contain the following parameter values:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of
-   *                 the DB cluster in the destination Amazon Web Services Region. This should refer to the same KMS key for both the <code>CreateDBCluster</code>
-   *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
+   *                   <code>KmsKeyId</code> - The KMS key identifier for the KMS key to use to
+   *                     encrypt the copy of the DB cluster in the destination Amazon Web Services Region. This should
+   *                     refer to the same KMS key for both the <code>CreateDBCluster</code> operation
+   *                     that is called in the destination Amazon Web Services Region, and the operation contained in
+   *                     the presigned URL.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3805,9 +3832,11 @@ export interface CreateDBClusterMessage {
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
    *                 Signature Version 4 Signing Process</a>.</p>
    *         <note>
-   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
-   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                 request for the operation that can be executed in the source Amazon Web Services Region.</p>
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
+   *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
+   *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
+   *                 for the operation that can run in the source Amazon Web Services Region.</p>
    *         </note>
    *         <p>Valid for: Aurora DB clusters only</p>
    */
@@ -3819,7 +3848,7 @@ export interface CreateDBClusterMessage {
    *             enabled.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>.</p>
+   *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
@@ -3871,6 +3900,7 @@ export interface CreateDBClusterMessage {
    *         <p>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and higher 1.x versions,
    *             and <code>global</code> engine mode isn't required for any 2.x versions.</p>
    *         <p>The <code>multimaster</code> engine mode only applies for DB clusters created with Aurora MySQL version 5.6.10a.</p>
+   *         <p>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</p>
    *         <p>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both the <code>parallelquery</code>
    *             and the <code>multimaster</code> engine modes currently aren't supported.</p>
    *         <p>Limitations and requirements apply to some DB engine modes. For more information, see the
@@ -3878,26 +3908,31 @@ export interface CreateDBClusterMessage {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
-   *                         Limitations of Aurora Serverless v1</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">Limitations of Aurora
+   *                         Serverless v1</a>
    *                </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
-   *                         Limitations of Parallel Query</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html">Requirements
+   *                         for Aurora Serverless v2</a>
    *                </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
-   *                         Limitations of Aurora Global Databases</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations of Parallel Query</a>
    *                </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
-   *                         Limitations of Multi-Master Clusters</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations of
+   *                         Aurora Global Databases</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">Limitations of
+   *                         Multi-Master Clusters</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -4089,7 +4124,35 @@ export interface CreateDBClusterMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -4828,7 +4891,34 @@ export interface DBCluster {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
    *         <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -5819,11 +5909,13 @@ export interface CreateDBInstanceMessage {
   AllocatedStorage?: number;
 
   /**
-   * <p>The compute and memory capacity of the DB instance, for example db.m4.large.
+   * <p>The compute and memory capacity of the DB instance, for example db.m5.large.
    *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *           For the full list of DB instance classes, and availability for your engine, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance
+   *           classes</a> in the <i>Amazon RDS User Guide</i> or
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
+   *           DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   DBInstanceClass: string | undefined;
 
@@ -5983,7 +6075,8 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A list of DB security groups to associate with this DB instance.</p>
-   *         <p>Default: The default DB security group for the database engine.</p>
+   *         <p>This setting applies to the legacy EC2-Classic platform, which is no longer used to create
+   *             new DB instances. Use the <code>VpcSecurityGroupIds</code> setting instead.</p>
    */
   DBSecurityGroups?: string[];
 
@@ -6074,7 +6167,7 @@ export interface CreateDBInstanceMessage {
    *                 <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
    *             </li>
    *             <li>
-   *                 <p>Can't be set to 0 or 35 for an RDS Custom for Oracle DB instance</p>
+   *                 <p>Can't be set to 0 for an RDS Custom for Oracle DB instance</p>
    *             </li>
    *          </ul>
    */
@@ -6165,12 +6258,17 @@ export interface CreateDBInstanceMessage {
    * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. You can't set
    *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. DB instance Availability Zones (AZs) are managed by the DB cluster.</p>
    */
   MultiAZ?: boolean;
 
   /**
    * <p>The version number of the database engine to use.</p>
-   *         <p>For a list of valid engine versions, use the  <code>DescribeDBEngineVersions</code> action.</p>
+   *         <p>For a list of valid engine versions, use the <code>DescribeDBEngineVersions</code>
+   *             operation.</p>
    *         <p>The following are the database engines and links to information about the major and minor versions that are available with
    *           Amazon RDS. Not every database engine is available for every Amazon Web Services Region.</p>
    *         <p>
@@ -6232,6 +6330,10 @@ export interface CreateDBInstanceMessage {
    *         <p>Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
    *          </p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable.</p>
    */
   LicenseModel?: string;
 
@@ -6241,6 +6343,10 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple between .5 and 50
    *           of the storage amount for the DB instance. For SQL Server DB instances, must be a multiple between 1 and 50
    *           of the storage amount for the DB instance.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. Storage is managed by the DB cluster.</p>
    */
   Iops?: number;
 
@@ -6250,6 +6356,10 @@ export interface CreateDBInstanceMessage {
    *           from an option group. Also, that option group can't be removed from a DB instance after it is
    *           associated with a DB instance.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable.</p>
    */
   OptionGroupName?: string;
 
@@ -6321,12 +6431,20 @@ export interface CreateDBInstanceMessage {
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
    *          </p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. Storage is managed by the DB cluster.</p>
    */
   StorageType?: string;
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable.</p>
    */
   TdeCredentialArn?: string;
 
@@ -6376,6 +6494,10 @@ export interface CreateDBInstanceMessage {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *            Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. The domain is managed by the DB cluster.</p>
    */
   Domain?: string;
 
@@ -6413,6 +6535,10 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. The domain is managed by the DB cluster.</p>
    */
   DomainIAMRoleName?: string;
 
@@ -6437,11 +6563,14 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access Management
    *             (IAM) accounts to database accounts. By default, mapping isn't enabled.</p>
-   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora. In Aurora, mapping Amazon Web Services IAM accounts
-   *         to database accounts is managed by the DB cluster.</p>
    *         <p>For more information, see
-   *        <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
-   *            IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+   *                 IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB cluster.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -6463,7 +6592,35 @@ export interface CreateDBInstanceMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -6508,6 +6665,10 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
@@ -6533,6 +6694,10 @@ export interface CreateDBInstanceMessage {
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting doesn't apply to RDS Custom.</p>
+   *         <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *         <p>Not applicable. Storage is managed by the DB cluster.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -7482,7 +7647,34 @@ export interface DBInstance {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
@@ -7910,8 +8102,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             uses the <code>DBParameterGroup</code> of source DB instance for a same Region read
    *             replica, or the default <code>DBParameterGroup</code> for the specified DB engine for a
    *             cross-Region read replica.</p>
-   *         <p>Specifying a parameter group for this operation is only supported for Oracle DB instances. It
-   *         isn't supported for RDS Custom.</p>
+   *         <p>Specifying a parameter group for this operation is only supported for MySQL and Oracle DB instances.
+   *             It isn't supported for RDS Custom.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -8045,36 +8237,42 @@ export interface CreateDBInstanceReadReplicaMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code> API action
-   *             in the source Amazon Web Services Region that contains the source DB instance.</p>
+   * <p>When you are creating a read replica from one Amazon Web Services GovCloud (US) Region to another or
+   *             from one China Amazon Web Services Region to another, the URL that contains a Signature Version 4
+   *             signed request for the <code>CreateDBInstanceReadReplica</code> API operation in the
+   *             source Amazon Web Services Region that contains the source DB instance.</p>
+   *         <p>This setting applies only to Amazon Web Services GovCloud (US) Regions and
+   *             China Amazon Web Services Regions. It's ignored in other Amazon Web Services Regions.</p>
    *         <p>You must specify this parameter when you create an encrypted read replica from
    *             another Amazon Web Services Region by using the Amazon RDS API. Don't specify
    *                 <code>PreSignedUrl</code> when you are creating an encrypted read replica in the
    *             same Amazon Web Services Region.</p>
-   *         <p>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code> API action
-   *             that can be executed in the source Amazon Web Services Region that contains the encrypted source DB instance.
-   *             The presigned URL request must contain the following parameter values:</p>
+   *         <p>The presigned URL must be a valid request for the
+   *                 <code>CreateDBInstanceReadReplica</code> API operation that can run in the
+   *             source Amazon Web Services Region that contains the encrypted source DB instance. The presigned URL
+   *             request must contain the following parameter values:</p>
    *         <ul>
    *             <li>
    *                 <p>
    *                   <code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted read
    *                     replica is created in. This Amazon Web Services Region is the same one where the
-   *                         <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned URL.</p>
-   *                 <p>For example, if you create an encrypted DB instance in the us-west-1 Amazon Web Services Region,
-   *                     from a source DB instance in the us-east-2 Amazon Web Services Region,
-   *                     then you call the <code>CreateDBInstanceReadReplica</code> action in
-   *                     the us-east-1 Amazon Web Services Region and provide a presigned URL that contains a call to the
-   *                     <code>CreateDBInstanceReadReplica</code> action in the us-west-2 Amazon Web Services Region. For this
-   *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
-   *                     the us-east-1 Amazon Web Services Region.</p>
+   *                         <code>CreateDBInstanceReadReplica</code> operation is called that contains
+   *                     this presigned URL.</p>
+   *                 <p>For example, if you create an encrypted DB instance in the us-west-1
+   *                     Amazon Web Services Region, from a source DB instance in the us-east-2 Amazon Web Services Region, then you
+   *                     call the <code>CreateDBInstanceReadReplica</code> operation in the us-east-1
+   *                     Amazon Web Services Region and provide a presigned URL that contains a call to the
+   *                         <code>CreateDBInstanceReadReplica</code> operation in the us-west-2
+   *                     Amazon Web Services Region. For this example, the <code>DestinationRegion</code> in the
+   *                     presigned URL must be set to the us-east-1 Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to use to
+   *                   <code>KmsKeyId</code> - The KMS key identifier for the key to use to
    *                     encrypt the read replica in the destination Amazon Web Services Region. This is the same
-   *                     identifier for both the <code>CreateDBInstanceReadReplica</code> action that is
-   *                     called in the destination Amazon Web Services Region, and the action contained in the presigned
-   *                     URL.</p>
+   *                     identifier for both the <code>CreateDBInstanceReadReplica</code> operation that
+   *                     is called in the destination Amazon Web Services Region, and the operation contained in the
+   *                     presigned URL.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -8095,9 +8293,9 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
    *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
-   *                 for the operation that can be executed in the source Amazon Web Services Region.</p>
+   *                 for the operation that can run in the source Amazon Web Services Region.</p>
    *             <p>
-   *                <code>SourceRegion</code> isn't supported for SQL Server, because SQL Server on Amazon RDS
+   *                <code>SourceRegion</code> isn't supported for SQL Server, because Amazon RDS for SQL Server
    *                 doesn't support cross-Region read replicas.</p>
    *         </note>
    *         <p>This setting doesn't apply to RDS Custom.</p>
@@ -8133,7 +8331,36 @@ export interface CreateDBInstanceReadReplicaMessage {
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>7</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, the following values are valid:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>93 (3 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>341 (11 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>589 (19 months * 31)</p>
+   *             </li>
+   *             <li>
+   *                 <p>731</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
+   *
    *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
@@ -9597,8 +9824,9 @@ export interface CreateGlobalClusterMessage {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon
-   *         Aurora will not create a database in the global database cluster you are creating.</p>
+   * <p>The name for your database of up to 64 alphanumeric characters. If you do not provide
+   *             a name, Amazon Aurora will not create a database in the global database cluster you are
+   *             creating.</p>
    */
   DatabaseName?: string;
 
