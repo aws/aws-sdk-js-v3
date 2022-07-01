@@ -5,11 +5,10 @@ import {
   ScanCommandInput as __ScanCommandInput,
   ScanCommandOutput as __ScanCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type ScanCommandInput = Omit<
@@ -38,8 +37,12 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  private readonly inputKeyNodes = [
+export class ScanCommand extends DynamoDBDocumentClientCommand<
+  ScanCommandInput,
+  ScanCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
+  protected readonly inputKeyNodes = [
     {
       key: "ScanFilter",
       children: {
@@ -49,7 +52,7 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     { key: "ExclusiveStartKey" },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
   constructor(readonly input: ScanCommandInput) {
     super();
@@ -63,16 +66,11 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ScanCommandInput, ScanCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __ScanCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const command = new __ScanCommand(this.input);
+    this.addMarshallingMiddleware(command, __ScanCommand.name, configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(command);
   }
 }

@@ -160,6 +160,79 @@ await ddbDocClient.put({
 });
 ```
 
+### Client and Command middleware stacks
+
+As with other AWS SDK for JavaScript v3 clients, you can apply middleware functions
+both on the client itself and individual `Command`s.
+
+For individual `Command`s, here are examples of how to add middleware before and after
+both marshalling and unmarshalling. We will use `QueryCommand` as an example.
+Others follow the same pattern.
+
+```js
+import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
+
+const client = new DynamoDBClient({
+  /*...*/
+});
+const doc = DynamoDBDocumentClient.from(client);
+const command = new QueryCommand({
+  /*...*/
+});
+```
+
+Before and after marshalling:
+
+```js
+command.middlewareStack.addRelativeTo(
+  (next) => async (args) => {
+    console.log("pre-marshall", args.input);
+    return next(args);
+  },
+  {
+    relation: "before",
+    toMiddleware: "QueryCommandMarshall",
+  }
+);
+command.middlewareStack.addRelativeTo(
+  (next) => async (args) => {
+    console.log("post-marshall", args.input);
+    return next(args);
+  },
+  {
+    relation: "after",
+    toMiddleware: "QueryCommandMarshall",
+  }
+);
+```
+
+Before and after unmarshalling:
+
+```js
+command.middlewareStack.addRelativeTo(
+  (next) => async (args) => {
+    const result = await next(args);
+    console.log("pre-unmarshall", result.output.Items);
+    return result;
+  },
+  {
+    relation: "after", // <- after for pre-unmarshall
+    toMiddleware: "QueryCommandUnmarshall",
+  }
+);
+command.middlewareStack.addRelativeTo(
+  (next) => async (args) => {
+    const result = await next(args);
+    console.log("post-unmarshall", result.output.Items);
+    return result;
+  },
+  {
+    relation: "before", // <- before for post-unmarshall
+    toMiddleware: "QueryCommandUnmarshall",
+  }
+);
+```
+
 ### Destroying document client
 
 The `destroy()` call on document client is a no-op as document client does not

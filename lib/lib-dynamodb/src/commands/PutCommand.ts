@@ -6,11 +6,10 @@ import {
   PutItemCommandInput as __PutItemCommandInput,
   PutItemCommandOutput as __PutItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type PutCommandInput = Omit<__PutItemCommandInput, "Item" | "Expected" | "ExpressionAttributeValues"> & {
@@ -39,8 +38,12 @@ export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "Item
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  private readonly inputKeyNodes = [
+export class PutCommand extends DynamoDBDocumentClientCommand<
+  PutCommandInput,
+  PutCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
+  protected readonly inputKeyNodes = [
     { key: "Item" },
     {
       key: "Expected",
@@ -50,7 +53,7 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     { key: "Attributes" },
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
@@ -67,16 +70,11 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __PutItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const command = new __PutItemCommand(this.input);
+    this.addMarshallingMiddleware(command, __PutItemCommand.name, configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(command);
   }
 }

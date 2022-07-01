@@ -5,11 +5,10 @@ import {
   QueryCommandInput as __QueryCommandInput,
   QueryCommandOutput as __QueryCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type QueryCommandInput = Omit<
@@ -44,12 +43,12 @@ export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvalu
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class QueryCommand extends $Command<
+export class QueryCommand extends DynamoDBDocumentClientCommand<
   QueryCommandInput,
   QueryCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [
+  protected readonly inputKeyNodes = [
     {
       key: "KeyConditions",
       children: {
@@ -65,7 +64,7 @@ export class QueryCommand extends $Command<
     { key: "ExclusiveStartKey" },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
   constructor(readonly input: QueryCommandInput) {
     super();
@@ -79,16 +78,11 @@ export class QueryCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __QueryCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const command = new __QueryCommand(this.input);
+    this.addMarshallingMiddleware(command, __QueryCommand.name, configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(command);
   }
 }

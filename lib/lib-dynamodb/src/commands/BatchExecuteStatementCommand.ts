@@ -6,11 +6,10 @@ import {
   BatchStatementRequest,
   BatchStatementResponse,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementCommandInput, "Statements"> & {
@@ -34,13 +33,13 @@ export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCom
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class BatchExecuteStatementCommand extends $Command<
+export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
-  private readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
+  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
 
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     super();
@@ -54,16 +53,11 @@ export class BatchExecuteStatementCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchExecuteStatementCommandInput, BatchExecuteStatementCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __BatchExecuteStatementCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const command = new __BatchExecuteStatementCommand(this.input);
+    this.addMarshallingMiddleware(command, __BatchExecuteStatementCommand.name, configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(command);
   }
 }

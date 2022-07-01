@@ -4,11 +4,10 @@ import {
   GetItemCommandInput as __GetItemCommandInput,
   GetItemCommandOutput as __GetItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
@@ -26,9 +25,13 @@ export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  private readonly inputKeyNodes = [{ key: "Key" }];
-  private readonly outputKeyNodes = [{ key: "Item" }];
+export class GetCommand extends DynamoDBDocumentClientCommand<
+  GetCommandInput,
+  GetCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
+  protected readonly inputKeyNodes = [{ key: "Key" }];
+  protected readonly outputKeyNodes = [{ key: "Item" }];
 
   constructor(readonly input: GetCommandInput) {
     super();
@@ -42,16 +45,11 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCommandInput, GetCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __GetItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    const command = new __GetItemCommand(this.input);
+    this.addMarshallingMiddleware(command, __GetItemCommand.name, configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = command.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(command);
   }
 }
