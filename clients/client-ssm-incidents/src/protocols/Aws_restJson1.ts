@@ -911,6 +911,10 @@ export const serializeAws_restJson1UpdateResponsePlanCommand = async (
       }),
     ...(input.incidentTemplateSummary !== undefined &&
       input.incidentTemplateSummary !== null && { incidentTemplateSummary: input.incidentTemplateSummary }),
+    ...(input.incidentTemplateTags !== undefined &&
+      input.incidentTemplateTags !== null && {
+        incidentTemplateTags: serializeAws_restJson1TagMapUpdate(input.incidentTemplateTags, context),
+      }),
     ...(input.incidentTemplateTitle !== undefined &&
       input.incidentTemplateTitle !== null && { incidentTemplateTitle: input.incidentTemplateTitle }),
   });
@@ -2902,6 +2906,8 @@ const serializeAws_restJson1IncidentTemplate = (input: IncidentTemplate, context
   return {
     ...(input.dedupeString !== undefined && input.dedupeString !== null && { dedupeString: input.dedupeString }),
     ...(input.impact !== undefined && input.impact !== null && { impact: input.impact }),
+    ...(input.incidentTags !== undefined &&
+      input.incidentTags !== null && { incidentTags: serializeAws_restJson1TagMap(input.incidentTags, context) }),
     ...(input.notificationTargets !== undefined &&
       input.notificationTargets !== null && {
         notificationTargets: serializeAws_restJson1NotificationTargetSet(input.notificationTargets, context),
@@ -3056,6 +3062,18 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1TagMapUpdate = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3326,6 +3344,10 @@ const deserializeAws_restJson1IncidentTemplate = (output: any, context: __SerdeC
   return {
     dedupeString: __expectString(output.dedupeString),
     impact: __expectInt32(output.impact),
+    incidentTags:
+      output.incidentTags !== undefined && output.incidentTags !== null
+        ? deserializeAws_restJson1TagMap(output.incidentTags, context)
+        : undefined,
     notificationTargets:
       output.notificationTargets !== undefined && output.notificationTargets !== null
         ? deserializeAws_restJson1NotificationTargetSet(output.notificationTargets, context)

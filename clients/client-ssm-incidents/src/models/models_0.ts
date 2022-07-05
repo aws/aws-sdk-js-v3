@@ -36,7 +36,8 @@ export type DynamicSsmParameterValue =
 
 export namespace DynamicSsmParameterValue {
   /**
-   * <p>Variable dynamic parameters. A parameter value is determined when an incident is created.</p>
+   * <p>Variable dynamic parameters. A parameter value is determined when an incident is
+   *          created.</p>
    */
   export interface VariableMember {
     variable: VariableType | string;
@@ -105,7 +106,8 @@ export interface SsmAutomation {
   parameters?: Record<string, string[]>;
 
   /**
-   * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.</p>
+   * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager
+   *          Automation runbook.</p>
    */
   dynamicParameters?: Record<string, DynamicSsmParameterValue>;
 }
@@ -723,6 +725,11 @@ export interface IncidentTemplate {
    *          incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
+
+  /**
+   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.</p>
+   */
+  incidentTags?: Record<string, string>;
 }
 
 export namespace IncidentTemplate {
@@ -2401,7 +2408,8 @@ export interface StartIncidentInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat
-   *             channels, Amazon SNS topics, runbooks, title, and impact of the incident. </p>
+   *             channels, Amazon SNS topics, runbooks, title, and impact of the incident.
+   *         </p>
    */
   responsePlanArn: string | undefined;
 
@@ -2430,12 +2438,12 @@ export interface StartIncidentInput {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>3</code> -  Medium impact, the application is providing reduced service
+   *                   <code>3</code> - Medium impact, the application is providing reduced service
    *                     to customers.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>4</code> -  Low impact, customer might aren't impacted by the problem
+   *                   <code>4</code> - Low impact, customer might aren't impacted by the problem
    *                     yet.</p>
    *             </li>
    *             <li>
@@ -2860,23 +2868,23 @@ export interface UpdateResponsePlanInput {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>5</code> - Severe impact</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>4</code> - High impact</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>3</code> - Medium impact</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>2</code> - Low impact</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>1</code> - No impact</p>
    *             </li>
    *          </ul>
@@ -2909,7 +2917,8 @@ export interface UpdateResponsePlanInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that Incident Manager engages at the start of the incident.</p>
+   * <p>The contacts and escalation plans that Incident Manager engages at the start of the
+   *             incident.</p>
    */
   engagements?: string[];
 
@@ -2917,6 +2926,13 @@ export interface UpdateResponsePlanInput {
    * <p>The actions that this response plan takes at the beginning of an incident.</p>
    */
   actions?: Action[];
+
+  /**
+   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.
+   *             To call this action, you must also have permission to call the <code>TagResource</code>
+   *             API action for the incident record resource.</p>
+   */
+  incidentTemplateTags?: Record<string, string>;
 }
 
 export namespace UpdateResponsePlanInput {
