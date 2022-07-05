@@ -25,6 +25,10 @@ import {
   CreateAccountCustomizationCommandInput,
   CreateAccountCustomizationCommandOutput,
 } from "../commands/CreateAccountCustomizationCommand";
+import {
+  CreateAccountSubscriptionCommandInput,
+  CreateAccountSubscriptionCommandOutput,
+} from "../commands/CreateAccountSubscriptionCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "../commands/CreateAnalysisCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
@@ -95,6 +99,10 @@ import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "../commands/DescribeAccountSettingsCommand";
+import {
+  DescribeAccountSubscriptionCommandInput,
+  DescribeAccountSubscriptionCommandOutput,
+} from "../commands/DescribeAccountSubscriptionCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "../commands/DescribeAnalysisCommand";
 import {
   DescribeAnalysisPermissionsCommandInput,
@@ -289,6 +297,7 @@ import {
   _Parameters,
   AccessDeniedException,
   AccountCustomization,
+  AccountInfo,
   AccountSettings,
   ActiveIAMPolicyAssignment,
   AdHocFilteringOption,
@@ -401,6 +410,7 @@ import {
   Sheet,
   SheetControlsOption,
   SheetStyle,
+  SignupResponse,
   SnowflakeParameters,
   SparkParameters,
   SqlServerParameters,
@@ -416,11 +426,9 @@ import {
   TemplateSourceTemplate,
   TemplateVersion,
   TeradataParameters,
-  Theme,
   ThemeAlias,
   ThemeConfiguration,
   ThemeError,
-  ThemeVersion,
   ThrottlingException,
   TileLayoutStyle,
   TileStyle,
@@ -449,7 +457,9 @@ import {
   SessionTag,
   TemplateSummary,
   TemplateVersionSummary,
+  Theme,
   ThemeSummary,
+  ThemeVersion,
   ThemeVersionSummary,
   UnsupportedPricingPlanException,
   User,
@@ -543,6 +553,58 @@ export const serializeAws_restJson1CreateAccountCustomizationCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateAccountSubscriptionCommand = async (
+  input: CreateAccountSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountName !== undefined && input.AccountName !== null && { AccountName: input.AccountName }),
+    ...(input.ActiveDirectoryName !== undefined &&
+      input.ActiveDirectoryName !== null && { ActiveDirectoryName: input.ActiveDirectoryName }),
+    ...(input.AdminGroup !== undefined &&
+      input.AdminGroup !== null && { AdminGroup: serializeAws_restJson1GroupsList(input.AdminGroup, context) }),
+    ...(input.AuthenticationMethod !== undefined &&
+      input.AuthenticationMethod !== null && { AuthenticationMethod: input.AuthenticationMethod }),
+    ...(input.AuthorGroup !== undefined &&
+      input.AuthorGroup !== null && { AuthorGroup: serializeAws_restJson1GroupsList(input.AuthorGroup, context) }),
+    ...(input.ContactNumber !== undefined && input.ContactNumber !== null && { ContactNumber: input.ContactNumber }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Edition !== undefined && input.Edition !== null && { Edition: input.Edition }),
+    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
+    ...(input.FirstName !== undefined && input.FirstName !== null && { FirstName: input.FirstName }),
+    ...(input.LastName !== undefined && input.LastName !== null && { LastName: input.LastName }),
+    ...(input.NotificationEmail !== undefined &&
+      input.NotificationEmail !== null && { NotificationEmail: input.NotificationEmail }),
+    ...(input.ReaderGroup !== undefined &&
+      input.ReaderGroup !== null && { ReaderGroup: serializeAws_restJson1GroupsList(input.ReaderGroup, context) }),
+    ...(input.Realm !== undefined && input.Realm !== null && { Realm: input.Realm }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2212,6 +2274,34 @@ export const serializeAws_restJson1DescribeAccountSettingsCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAccountSubscriptionCommand = async (
+  input: DescribeAccountSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeAnalysisCommand = async (
   input: DescribeAnalysisCommandInput,
   context: __SerdeContext
@@ -3246,6 +3336,10 @@ export const serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand = asy
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedDomains !== undefined &&
+      input.AllowedDomains !== null && {
+        AllowedDomains: serializeAws_restJson1StringList(input.AllowedDomains, context),
+      }),
     ...(input.AuthorizedResourceArns !== undefined &&
       input.AuthorizedResourceArns !== null && {
         AuthorizedResourceArns: serializeAws_restJson1ArnList(input.AuthorizedResourceArns, context),
@@ -3296,6 +3390,10 @@ export const serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand = as
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedDomains !== undefined &&
+      input.AllowedDomains !== null && {
+        AllowedDomains: serializeAws_restJson1StringList(input.AllowedDomains, context),
+      }),
     ...(input.ExperienceConfiguration !== undefined &&
       input.ExperienceConfiguration !== null && {
         ExperienceConfiguration: serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration(
@@ -6055,6 +6153,83 @@ const deserializeAws_restJson1CreateAccountCustomizationCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateAccountSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccountSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAccountSubscriptionCommandError(output, context);
+  }
+  const contents: CreateAccountSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RequestId: undefined,
+    SignupResponse: undefined,
+    Status: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.SignupResponse !== undefined && data.SignupResponse !== null) {
+    contents.SignupResponse = deserializeAws_restJson1SignupResponse(data.SignupResponse, context);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateAccountSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccountSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8583,6 +8758,74 @@ const deserializeAws_restJson1DescribeAccountSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeAccountSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAccountSubscriptionCommandError(output, context);
+  }
+  const contents: DescribeAccountSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AccountInfo: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccountInfo !== undefined && data.AccountInfo !== null) {
+    contents.AccountInfo = deserializeAws_restJson1AccountInfo(data.AccountInfo, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAccountSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -15671,6 +15914,17 @@ const serializeAws_restJson1GroupSearchFilterList = (input: GroupSearchFilter[],
     });
 };
 
+const serializeAws_restJson1GroupsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeContext): any => {
   return {
     ...(input.Show !== undefined && input.Show !== null && { Show: input.Show }),
@@ -16467,6 +16721,16 @@ const deserializeAws_restJson1AccountCustomization = (output: any, context: __Se
   return {
     DefaultEmailCustomizationTemplate: __expectString(output.DefaultEmailCustomizationTemplate),
     DefaultTheme: __expectString(output.DefaultTheme),
+  } as any;
+};
+
+const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {
+  return {
+    AccountName: __expectString(output.AccountName),
+    AccountSubscriptionStatus: __expectString(output.AccountSubscriptionStatus),
+    AuthenticationType: __expectString(output.AuthenticationType),
+    Edition: __expectString(output.Edition),
+    NotificationEmail: __expectString(output.NotificationEmail),
   } as any;
 };
 
@@ -18169,6 +18433,15 @@ const deserializeAws_restJson1SheetStyle = (output: any, context: __SerdeContext
       output.TileLayout !== undefined && output.TileLayout !== null
         ? deserializeAws_restJson1TileLayoutStyle(output.TileLayout, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SignupResponse = (output: any, context: __SerdeContext): SignupResponse => {
+  return {
+    IAMUser: __expectBoolean(output.IAMUser),
+    accountName: __expectString(output.accountName),
+    directoryType: __expectString(output.directoryType),
+    userLoginName: __expectString(output.userLoginName),
   } as any;
 };
 

@@ -58,7 +58,68 @@ export namespace AccountCustomization {
 
 export enum Edition {
   ENTERPRISE = "ENTERPRISE",
+  ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
   STANDARD = "STANDARD",
+}
+
+/**
+ * <p>A structure that contains the following account information
+ *             elements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Your Amazon QuickSight account name.</p>
+ *             </li>
+ *             <li>
+ *                <p>The edition of Amazon QuickSight that your account is using.</p>
+ *             </li>
+ *             <li>
+ *                <p>The notification email address that is associated with the Amazon QuickSight account.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The authentication type of the Amazon QuickSight account.</p>
+ *             </li>
+ *             <li>
+ *                <p>The status of the Amazon QuickSight account's subscription.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AccountInfo {
+  /**
+   * <p>The account name that you provided for the Amazon QuickSight subscription in your
+   *                 Amazon Web Services account. You create this name when you sign up for Amazon QuickSight. It's unique over all of Amazon Web Services, and it appears only when
+   *             users sign in.</p>
+   */
+  AccountName?: string;
+
+  /**
+   * <p>The edition of your Amazon QuickSight account.</p>
+   */
+  Edition?: Edition | string;
+
+  /**
+   * <p>The email address that will be used for Amazon QuickSight to send notifications regarding your Amazon Web Services account or Amazon QuickSight subscription.</p>
+   */
+  NotificationEmail?: string;
+
+  /**
+   * <p>The way that your Amazon QuickSight account is authenticated.</p>
+   */
+  AuthenticationType?: string;
+
+  /**
+   * <p>The status of your account subscription.</p>
+   */
+  AccountSubscriptionStatus?: string;
+}
+
+export namespace AccountInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccountInfo): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -89,7 +150,7 @@ export interface AccountSettings {
   NotificationEmail?: string;
 
   /**
-   * <p>A boolean that indicates whether or not public sharing is enabled on an Amazon QuickSight account. For more information about enabling public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
    */
   PublicSharingEnabled?: boolean;
 }
@@ -133,7 +194,7 @@ export enum DashboardBehavior {
 }
 
 /**
- * <p>Ad hoc (one-time) filtering option.</p>
+ * <p>An ad hoc (one-time) filtering option.</p>
  */
 export interface AdHocFilteringOption {
   /**
@@ -602,6 +663,12 @@ export namespace AuroraPostgreSqlParameters {
   export const filterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
     ...obj,
   });
+}
+
+export enum AuthenticationMethodOption {
+  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
+  IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
+  IAM_ONLY = "IAM_ONLY",
 }
 
 /**
@@ -1322,6 +1389,228 @@ export class ResourceUnavailableException extends __BaseException {
     Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
     this.Message = opts.Message;
     this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface CreateAccountSubscriptionRequest {
+  /**
+   * <p>The edition of Amazon QuickSight that you want your account to have. Currently, you can
+   *             choose from <code>ENTERPRISE</code> or
+   *                 <code>ENTERPRISE_AND_Q</code>.</p>
+   *          <p>If you choose <code>ENTERPRISE_AND_Q</code>, the following parameters are
+   *             required:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FirstName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EmailAddress</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContactNumber</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Edition: Edition | string | undefined;
+
+  /**
+   * <p>The method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are <code>IAM_AND_QUICKSIGHT</code>, <code>IAM_ONLY</code>, and <code>ACTIVE_DIRECTORY</code>.</p>
+   *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
+   *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
+   */
+  AuthenticationMethod: AuthenticationMethodOption | string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account that you're using to create your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of your Amazon QuickSight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change
+   *                 <code>AccountName</code> value after the Amazon QuickSight account is
+   *             created.</p>
+   */
+  AccountName: string | undefined;
+
+  /**
+   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.</p>
+   */
+  NotificationEmail: string | undefined;
+
+  /**
+   * <p>The name of your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
+   */
+  ActiveDirectoryName?: string;
+
+  /**
+   * <p>The realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
+   */
+  Realm?: string;
+
+  /**
+   * <p>The ID of the Active Directory that is associated with your Amazon QuickSight account.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The admin group associated with your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account. For more information about using
+   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
+   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+   *                 User Guide.</p>
+   */
+  AdminGroup?: string[];
+
+  /**
+   * <p>The author group associated with your Active Directory. For more information about using
+   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
+   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+   *                 User Guide.</p>
+   */
+  AuthorGroup?: string[];
+
+  /**
+   * <p>The reader group associated with your Active Direcrtory. For more information about
+   *             using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
+   *                     Amazon QuickSight Enterprise Edition</a> in the <i>Amazon QuickSight
+   *                 User Guide</i>.</p>
+   */
+  ReaderGroup?: string[];
+
+  /**
+   * <p>The first name of the author of the Amazon QuickSight account to use for future
+   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
+   *             edition of the new Amazon QuickSight account.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The last name of the author of the Amazon QuickSight account to use for future
+   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
+   *             edition of the new Amazon QuickSight account.</p>
+   */
+  LastName?: string;
+
+  /**
+   * <p>The email address of the author of the Amazon QuickSight account to use for future
+   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
+   *             edition of the new Amazon QuickSight account.</p>
+   */
+  EmailAddress?: string;
+
+  /**
+   * <p>A 10-digit phone number for the author of the Amazon QuickSight account to use for
+   *             future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the
+   *             selected edition of the new Amazon QuickSight account.</p>
+   */
+  ContactNumber?: string;
+}
+
+export namespace CreateAccountSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccountSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A <code>SignupResponse</code> object that contains a summary of a newly created account.</p>
+ */
+export interface SignupResponse {
+  /**
+   * <p>A Boolean that is <code>TRUE</code> if the Amazon QuickSight uses IAM as an
+   *             authentication method.</p>
+   */
+  IAMUser?: boolean;
+
+  /**
+   * <p>The user login name for your Amazon QuickSight account.</p>
+   */
+  userLoginName?: string;
+
+  /**
+   * <p>The name of your Amazon QuickSight account.</p>
+   */
+  accountName?: string;
+
+  /**
+   * <p>The type of Active Directory that is being used to authenticate the Amazon QuickSight
+   *             account. Valid values are <code>SIMPLE_AD</code>, <code>AD_CONNECTOR</code>, and
+   *                 <code>MICROSOFT_AD</code>.</p>
+   */
+  directoryType?: string;
+}
+
+export namespace SignupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SignupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAccountSubscriptionResponse {
+  /**
+   * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>
+   */
+  SignupResponse?: SignupResponse;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace CreateAccountSubscriptionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One or more preconditions aren't met.</p>
+ */
+export class PreconditionNotMetException extends __BaseException {
+  readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
+    super({
+      name: "PreconditionNotMetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
+    this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }
 }
@@ -4721,32 +5010,6 @@ export namespace CreateGroupResponse {
   });
 }
 
-/**
- * <p>One or more preconditions aren't met.</p>
- */
-export class PreconditionNotMetException extends __BaseException {
-  readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
-    super({
-      name: "PreconditionNotMetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
 export interface CreateGroupMembershipRequest {
   /**
    * <p>The name of the user that you want to add to the group membership.</p>
@@ -7535,12 +7798,13 @@ export namespace DescribeAccountSettingsRequest {
 
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information includes the edition of Amazon
-   *             Amazon QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
-   *             Amazon QuickSight subscription. In the QuickSight console, the Amazon QuickSight subscription is sometimes
-   *             referred to as a QuickSight "account" even though it's technically not an account
-   *             by itself. Instead, it's a subscription to the Amazon QuickSight service for your Amazon Web Services account. The
-   *             edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
+   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
+   *             includes the edition of Amazon Amazon QuickSight that you subscribed to (Standard or
+   *             Enterprise) and the notification email for the Amazon QuickSight subscription. </p>
+   *         <p>In the QuickSight console, the Amazon QuickSight subscription is sometimes referred to
+   *             as a QuickSight "account" even though it's technically not an account by
+   *             itself. Instead, it's a subscription to the Amazon QuickSight service for your
+   *                 Amazon Web Services account. The edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
    */
   AccountSettings?: AccountSettings;
 
@@ -7560,6 +7824,67 @@ export namespace DescribeAccountSettingsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeAccountSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccountSubscriptionRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+}
+
+export namespace DescribeAccountSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccountSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccountSubscriptionResponse {
+  /**
+   * <p>A structure that contains the following elements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Your Amazon QuickSight account name.</p>
+   *             </li>
+   *             <li>
+   *                <p>The edition of Amazon QuickSight that your account is using.</p>
+   *             </li>
+   *             <li>
+   *                <p>The notification email address that is associated with the Amazon QuickSight
+   *                     account.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>The authentication type of the Amazon QuickSight account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The status of the Amazon QuickSight account's subscription.</p>
+   *             </li>
+   *          </ul>
+   */
+  AccountInfo?: AccountInfo;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeAccountSubscriptionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccountSubscriptionResponse): any => ({
     ...obj,
   });
 }
@@ -9289,247 +9614,6 @@ export namespace ThemeError {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThemeError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A version of a theme.</p>
- */
-export interface ThemeVersion {
-  /**
-   * <p>The version number of the theme.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The description of the theme.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default Amazon QuickSight theme.</p>
-   */
-  BaseThemeId?: string;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The theme configuration, which contains all the theme display properties.</p>
-   */
-  Configuration?: ThemeConfiguration;
-
-  /**
-   * <p>Errors associated with the theme.</p>
-   */
-  Errors?: ThemeError[];
-
-  /**
-   * <p>The status of the theme version.</p>
-   */
-  Status?: ResourceStatus | string;
-}
-
-export namespace ThemeVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeVersion): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Summary information about a theme.</p>
- */
-export interface Theme {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name that the user gives to the theme.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The identifier that the user gives to the theme.</p>
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>A version of a theme.</p>
-   */
-  Version?: ThemeVersion;
-
-  /**
-   * <p>The date and time that the theme was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The date and time that the theme was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>The type of theme, based on how it was created. Valid values include:
-   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
-   */
-  Type?: ThemeType | string;
-}
-
-export namespace Theme {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Theme): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThemeResponse {
-  /**
-   * <p>The information about the theme that you are describing.</p>
-   */
-  Theme?: Theme;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace DescribeThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
-   * 			describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name of the theme alias that you want to describe.</p>
-   */
-  AliasName: string | undefined;
-}
-
-export namespace DescribeThemeAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThemeAliasResponse {
-  /**
-   * <p>Information about the theme alias.</p>
-   */
-  ThemeAlias?: ThemeAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace DescribeThemeAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThemePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that you want to describe permissions for.</p>
-   */
-  ThemeId: string | undefined;
-}
-
-export namespace DescribeThemePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeThemePermissionsResponse {
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>A list of resource permissions set on the theme. </p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace DescribeThemePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
     ...obj,
   });
 }

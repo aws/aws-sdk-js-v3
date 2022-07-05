@@ -32,11 +32,9 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  *                 <p>It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.</p>
  *             </li>
  *             <li>
- *                 <p>The URL validity period should not be confused with the actual session lifetime
- *         that can be customized using the <code>
+ *                 <p>The URL validity period should not be confused with the actual session lifetime that can be customized using the <code>
  *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
- *                   </code> parameter.</p>
- *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours. </p>
+ *                   </code> parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
  *             </li>
  *             <li>
  *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>

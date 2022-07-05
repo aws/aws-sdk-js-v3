@@ -25,9 +25,15 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use the UpdatePublicSharingSettings operation to enable or disable the public sharing settings of an Amazon QuickSight dashboard.</p>
- *          <p>To use this operation, enable session capacity pricing on your Amazon QuickSight account.</p>
- *          <p>Before you can enable public sharing on your account, you need to allow public sharing permissions to an administrative user in the IAM console. For more information on using IAM with Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Amazon QuickSight with IAM</a>.</p>
+ * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
+ *             public sharing settings of an Amazon QuickSight dashboard.</p>
+ *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
+ *             account.</p>
+ *          <p>Before you can turn on public sharing on your account, make sure to give public sharing
+ *             permissions to an administrative user in the Identity and Access Management (IAM)
+ *             console. For more information on using IAM with Amazon QuickSight, see
+ *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Amazon QuickSight with IAM</a> in the <i>Amazon QuickSight
+ *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -12,7 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeThemeRequest, DescribeThemeResponse } from "../models/models_0";
+import { DescribeThemeRequest } from "../models/models_0";
+import { DescribeThemeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeThemeCommand,
   serializeAws_restJson1DescribeThemeCommand,

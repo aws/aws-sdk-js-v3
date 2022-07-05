@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CancelIngestionCommand";
 export * from "./CreateAccountCustomizationCommand";
+export * from "./CreateAccountSubscriptionCommand";
 export * from "./CreateAnalysisCommand";
 export * from "./CreateDashboardCommand";
 export * from "./CreateDataSetCommand";
@@ -35,6 +36,7 @@ export * from "./DeleteUserByPrincipalIdCommand";
 export * from "./DeleteUserCommand";
 export * from "./DescribeAccountCustomizationCommand";
 export * from "./DescribeAccountSettingsCommand";
+export * from "./DescribeAccountSubscriptionCommand";
 export * from "./DescribeAnalysisCommand";
 export * from "./DescribeAnalysisPermissionsCommand";
 export * from "./DescribeDashboardCommand";

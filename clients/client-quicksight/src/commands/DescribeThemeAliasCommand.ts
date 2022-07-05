@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeThemeAliasRequest, DescribeThemeAliasResponse } from "../models/models_0";
+import { DescribeThemeAliasRequest, DescribeThemeAliasResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeThemeAliasCommand,
   serializeAws_restJson1DescribeThemeAliasCommand,

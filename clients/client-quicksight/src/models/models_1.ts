@@ -43,10 +43,252 @@ import {
   TemplateSourceEntity,
   ThemeAlias,
   ThemeConfiguration,
+  ThemeError,
   ThemeType,
   VpcConnectionProperties,
 } from "./models_0";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A version of a theme.</p>
+ */
+export interface ThemeVersion {
+  /**
+   * <p>The version number of the theme.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The description of the theme.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+   *             themes initially inherit from a default Amazon QuickSight theme.</p>
+   */
+  BaseThemeId?: string;
+
+  /**
+   * <p>The date and time that this theme version was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The theme configuration, which contains all the theme display properties.</p>
+   */
+  Configuration?: ThemeConfiguration;
+
+  /**
+   * <p>Errors associated with the theme.</p>
+   */
+  Errors?: ThemeError[];
+
+  /**
+   * <p>The status of the theme version.</p>
+   */
+  Status?: ResourceStatus | string;
+}
+
+export namespace ThemeVersion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThemeVersion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information about a theme.</p>
+ */
+export interface Theme {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name that the user gives to the theme.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier that the user gives to the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>A version of a theme.</p>
+   */
+  Version?: ThemeVersion;
+
+  /**
+   * <p>The date and time that the theme was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The date and time that the theme was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The type of theme, based on how it was created. Valid values include:
+   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
+   */
+  Type?: ThemeType | string;
+}
+
+export namespace Theme {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Theme): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeThemeResponse {
+  /**
+   * <p>The information about the theme that you are describing.</p>
+   */
+  Theme?: Theme;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeThemeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeThemeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
+   * 			describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to describe.</p>
+   */
+  AliasName: string | undefined;
+}
+
+export namespace DescribeThemeAliasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   */
+  ThemeAlias?: ThemeAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeThemeAliasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that you want to describe permissions for.</p>
+   */
+  ThemeId: string | undefined;
+}
+
+export namespace DescribeThemePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>A list of resource permissions set on the theme. </p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace DescribeThemePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeUserRequest {
   /**
@@ -401,21 +643,26 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   Namespace: string | undefined;
 
   /**
-   * <p>The session tags used for row-level security. Before you use this parameter, make sure that
-   *   you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session tags can be used to provide row-level security.</p>
-   *         <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>.</p>
+   * <p>The session tags used for row-level security. Before you use this parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session tags can be used to provide row-level security.</p>
+   *         <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
    */
   SessionTags?: SessionTag[];
 
   /**
-   * <p>The Amazon Resource Names for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each API call.</p>
+   * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each API call.</p>
    */
   AuthorizedResourceArns: string[] | undefined;
 
   /**
-   * <p>The configuration of the experience you are embedding.</p>
+   * <p>The configuration of the experience that you are embedding.</p>
    */
   ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration | undefined;
+
+  /**
+   * <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console and instead allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p>
+   *          <p>To include a subdomain, use <code>*</code> to include all subdomains under a specific domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+   */
+  AllowedDomains?: string[];
 }
 
 export namespace GenerateEmbedUrlForAnonymousUserRequest {
@@ -660,8 +907,8 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
 
   /**
    * <p>The configuration details for embedding the Q search bar.</p>
-   *          <p>For more information about embedding the Q search bar, see
-   *       <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a>.</p>
+   *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
+   *             the <i>Amazon QuickSight User Guide</i>.</p>
    */
   QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
 }
@@ -695,6 +942,12 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
    * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards or the entire Amazon QuickSight console.</p>
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
+
+  /**
+   * <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console and instead allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p>
+   *          <p>To include a subdomain, use <code>*</code> to include all subdomains under a specific domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+   */
+  AllowedDomains?: string[];
 }
 
 export namespace GenerateEmbedUrlForRegisteredUserRequest {
@@ -834,12 +1087,7 @@ export interface GetDashboardEmbedUrlRequest {
   Namespace?: string;
 
   /**
-   * <p>A list of one or more dashboard IDs that you want to add to a session that includes
-   *             anonymous users. The <code>IdentityType</code> parameter must be set to
-   *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
-   *             as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
-   *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
-   *             can access all three dashboards. </p>
+   * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.</p>
    */
   AdditionalDashboardIds?: string[];
 }
@@ -3276,9 +3524,10 @@ export interface UpdateAccountSettingsRequest {
 
   /**
    * <p>The default namespace for this Amazon Web Services account. Currently, the default is
-   *                 <code>default</code>. Identity and Access Management (IAM) users that register
-   *             for the first time with Amazon QuickSight provide an email that becomes associated with the
-   *             default namespace.</p>
+   *                 <code>default</code>. Identity and Access Management (IAM) users that
+   *             register for the first time with Amazon QuickSight provide an email address that becomes
+   *             associated with the default namespace.
+   *         </p>
    */
   DefaultNamespace: string | undefined;
 
@@ -4465,7 +4714,7 @@ export interface UpdatePublicSharingSettingsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>A boolean that indicates whether or not public sharing is enabled on a Amazon QuickSight account.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account.</p>
    */
   PublicSharingEnabled?: boolean;
 }

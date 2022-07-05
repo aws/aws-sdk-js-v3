@@ -58,6 +58,10 @@ import {
   CreateAccountCustomizationCommandInput,
   CreateAccountCustomizationCommandOutput,
 } from "./commands/CreateAccountCustomizationCommand";
+import {
+  CreateAccountSubscriptionCommandInput,
+  CreateAccountSubscriptionCommandOutput,
+} from "./commands/CreateAccountSubscriptionCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
@@ -128,6 +132,10 @@ import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
+import {
+  DescribeAccountSubscriptionCommandInput,
+  DescribeAccountSubscriptionCommandOutput,
+} from "./commands/DescribeAccountSubscriptionCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "./commands/DescribeAnalysisCommand";
 import {
   DescribeAnalysisPermissionsCommandInput,
@@ -323,6 +331,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
+  | CreateAccountSubscriptionCommandInput
   | CreateAnalysisCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
@@ -357,6 +366,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
+  | DescribeAccountSubscriptionCommandInput
   | DescribeAnalysisCommandInput
   | DescribeAnalysisPermissionsCommandInput
   | DescribeDashboardCommandInput
@@ -443,6 +453,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
+  | CreateAccountSubscriptionCommandOutput
   | CreateAnalysisCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
@@ -477,6 +488,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
+  | DescribeAccountSubscriptionCommandOutput
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
   | DescribeDashboardCommandOutput
