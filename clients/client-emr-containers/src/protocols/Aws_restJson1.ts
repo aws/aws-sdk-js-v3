@@ -3,12 +3,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1726,7 +1725,7 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
         : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
@@ -1793,14 +1792,14 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
         : undefined,
     createdBy: __expectString(output.createdBy),
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
     finishedAt:
       output.finishedAt !== undefined && output.finishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.finishedAt)))
+        ? __expectNonNull(__parseRfc3339DateTime(output.finishedAt))
         : undefined,
     id: __expectString(output.id),
     jobDriver:
@@ -1916,7 +1915,7 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
         : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
