@@ -258,6 +258,10 @@ export interface PutResourceConfigRequest {
 
   /**
    * <p>Tags associated with the resource.</p>
+   * 		       <note>
+   *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
+   * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
+   *          </note>
    */
   Tags?: Record<string, string>;
 }

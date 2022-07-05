@@ -36,6 +36,10 @@ export interface PutRemediationConfigurationsCommandOutput
  * 			         <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
  * 				the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.</p>
  *          </note>
+ * 		       <note>
+ *             <p>For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code> or use a value in the <code>assumeRole</code>field  to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.</p>
+ * 			         <p>However, for automatic remediation configuration, the only valid <code>assumeRole</code> field value is <code>AutomationAssumeRole</code> and you need to provide a value for <code>AutomationAssumeRole</code> to remediate your resources.</p>
+ * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

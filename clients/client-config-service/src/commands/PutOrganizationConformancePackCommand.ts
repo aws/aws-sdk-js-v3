@@ -25,10 +25,13 @@ export interface PutOrganizationConformancePackCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization.</p>
+ * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  * 		       <p>Only a master account and a delegated administrator can call this API.
  * 			When calling this API with a delegated administrator, you must ensure Organizations
- * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
+ * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
  * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
  * 			through the <code>EnableAWSServiceAccess</code> action and creates a
  * 			service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
@@ -44,7 +47,6 @@ export interface PutOrganizationConformancePackCommandOutput
  * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
  * 			         <p>Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
  * 				You cannot update a conformance pack while it is in this state.</p>
- * 			         <p>You can create 50 conformance packs with 25 Config rules in each pack and 3 delegated administrator per organization. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

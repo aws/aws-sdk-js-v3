@@ -1565,7 +1565,7 @@ export interface ConfigRule {
    * 				<code>MaximumExecutionFrequency</code> when:</p>
    * 		       <ul>
    *             <li>
-   * 				           <p>You are using an Config managed rule that is triggered at
+   * 				           <p>This is for an Config managed rule that is triggered at
    * 					a periodic frequency.</p>
    * 			         </li>
    *             <li>
@@ -2305,6 +2305,9 @@ export interface ConfigurationRecorder {
   /**
    * <p>Amazon Resource Name (ARN) of the IAM role used to describe the
    * 			Amazon Web Services resources associated with the account.</p>
+   * 		       <note>
+   *             <p>While the API model does not require this field, the server will reject a request without a defined roleARN for the configuration recorder.</p>
+   *          </note>
    */
   roleARN?: string;
 
@@ -4783,7 +4786,7 @@ export interface OrganizationManagedRuleMetadata {
   InputParameters?: string;
 
   /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule. You are using an Config managed rule that is triggered at a periodic frequency.</p>
+   * <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p>
    * 		       <note>
    *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
