@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+export * from "./waitForDBClusterAvailable";
+export * from "./waitForDBClusterDeleted";
 export * from "./waitForDBClusterSnapshotAvailable";
 export * from "./waitForDBClusterSnapshotDeleted";
 export * from "./waitForDBInstanceAvailable";

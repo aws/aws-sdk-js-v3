@@ -29,7 +29,7 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  *                 Backtracking an Aurora DB Cluster</a> in the
  *             <i>Amazon Aurora User Guide</i>.</p>
  *         <note>
- *             <p>This action applies only to Aurora MySQL DB clusters.</p>
+ *             <p>This action only applies to Aurora MySQL DB clusters.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

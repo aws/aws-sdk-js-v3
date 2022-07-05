@@ -27,7 +27,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
  *         <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
  *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
- *             PostgreSQL DB instance.</p>
+ *             PostgreSQL DB instance. For cross-Region replication where the DB cluster identified by
+ *                 <code>ReplicationSourceIdentifier</code> is encrypted, also specify the
+ *                 <code>PreSignedUrl</code> parameter.</p>
  *         <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
