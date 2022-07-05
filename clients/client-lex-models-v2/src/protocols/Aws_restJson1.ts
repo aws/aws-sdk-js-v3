@@ -9740,6 +9740,8 @@ const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, c
       input.messageGroups !== null && {
         messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
       }),
+    ...(input.messageSelectionStrategy !== undefined &&
+      input.messageSelectionStrategy !== null && { messageSelectionStrategy: input.messageSelectionStrategy }),
   };
 };
 
@@ -11230,6 +11232,7 @@ const deserializeAws_restJson1PromptSpecification = (output: any, context: __Ser
       output.messageGroups !== undefined && output.messageGroups !== null
         ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
         : undefined,
+    messageSelectionStrategy: __expectString(output.messageSelectionStrategy),
   } as any;
 };
 

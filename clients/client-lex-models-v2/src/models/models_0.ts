@@ -170,7 +170,7 @@ export namespace AggregatedUtterancesSummary {
 export interface AssociatedTranscript {
   /**
    * <p>The content of the transcript that meets the search filter criteria.
-   *          For the JSON format of the transcript, see <a href="https://docs.aws.amazon.com/lex/latest/dg/designing-output-format.html">Output transcript
+   *          For the JSON format of the transcript, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/designing-output-format.html">Output transcript
    *             format</a>.</p>
    */
   transcript?: string;
@@ -1005,7 +1005,7 @@ export namespace BotRecommendationResultStatistics {
 
 /**
  * <p>The object representing the URL of the bot definition, the URL of
- *          the associated transcript and a statistical summary of the bot
+ *          the associated transcript, and a statistical summary of the bot
  *          recommendation results.</p>
  */
 export interface BotRecommendationResults {
@@ -2314,7 +2314,7 @@ export interface CreateExportResponse {
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>,
-   *          you can use the <a href="https://docs.aws.amazon.com/latest/dg/API_DescribeExport.html">DescribeExport</a> operation to get the
+   *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a> operation to get the
    *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
   exportStatus?: ExportStatus | string;
@@ -2797,6 +2797,11 @@ export namespace IntentClosingSetting {
   });
 }
 
+export enum MessageSelectionStrategy {
+  Ordered = "Ordered",
+  Random = "Random",
+}
+
 /**
  * <p>Specifies a list of message groups that Amazon Lex sends to a user to
  *          elicit a response.</p>
@@ -2819,6 +2824,11 @@ export interface PromptSpecification {
    *          bot.</p>
    */
   allowInterrupt?: boolean;
+
+  /**
+   * <p>Indicates how a message is selected from a message group among retries.</p>
+   */
+  messageSelectionStrategy?: MessageSelectionStrategy | string;
 }
 
 export namespace PromptSpecification {
