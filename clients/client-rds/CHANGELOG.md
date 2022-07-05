@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.122.0...v3.123.0) (2022-07-05)
+
+
+### Features
+
+* **client-rds:** Adds waiters support for DBCluster. ([a23a0d7](https://github.com/aws/aws-sdk-js-v3/commit/a23a0d7a979d2373b5b8ff6408ae38336fe5b175))
+
+
+
+
+
 # [3.122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.121.0...v3.122.0) (2022-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

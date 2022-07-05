@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.122.0...v3.123.0) (2022-07-05)
+
+
+### Features
+
+* **client-ssm-incidents:** Adds support for tagging incident-record on creation by providing incident tags in the template within a response-plan. ([3aff9aa](https://github.com/aws/aws-sdk-js-v3/commit/3aff9aa485fa3dd3d347e3bd212d6d0b12d6946d))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

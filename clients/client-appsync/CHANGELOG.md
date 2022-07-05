@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.122.0...v3.123.0) (2022-07-05)
+
+
+### Bug Fixes
+
+* **client-appsync:** fix domainnames routes ([#3773](https://github.com/aws/aws-sdk-js-v3/issues/3773)) ([f1ce95e](https://github.com/aws/aws-sdk-js-v3/commit/f1ce95e40249a3c4b5150f38b6d54bceb054f5c3))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 
