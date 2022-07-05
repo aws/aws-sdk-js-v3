@@ -21,7 +21,7 @@ exports.ensureTestStack = async (client, stackName, templateBody) => {
   let hasExistingStack = false;
   try {
     const { Stacks } = await client.send(new DescribeStacksCommand({ StackName: stackName }));
-    hasExistingStack = Stacks[0]?.StackStatus !== "REVIEW_IN_PROGRESS" ? true : false;
+    hasExistingStack = Stacks[0]?.StackStatus !== "REVIEW_IN_PROGRESS";
   } catch (e) {
     if ((e.message || "").endsWith("does not exist")) {
       hasExistingStack = false;
