@@ -2498,10 +2498,11 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Sends a signal to the specified resource with a success or failure status. You can use
-   *          the <code>SignalResource</code> operation in conjunction with a creation policy or update policy. CloudFormation doesn't proceed with a stack creation or update until resources receive
-   *          the required number of signals or the timeout period is exceeded. The <code>SignalResource</code> operation is
-   *          useful in cases where you want to send signals from anywhere other than an Amazon EC2
-   *          instance.</p>
+   *          the <code>SignalResource</code> operation in conjunction with a creation policy or update
+   *          policy. CloudFormation doesn't proceed with a stack creation or update until
+   *          resources receive the required number of signals or the timeout period is exceeded. The
+   *             <code>SignalResource</code> operation is useful in cases where you want to send signals
+   *          from anywhere other than an Amazon EC2 instance.</p>
    */
   public signalResource(
     args: SignalResourceCommandInput,
@@ -2533,7 +2534,9 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets will cancel all the unstarted stack instance deployments and wait for those are in-progress to complete.</p>
+   * <p>Stops an in-progress operation on a stack set and its associated stack instances.
+   *          StackSets will cancel all the unstarted stack instance deployments and wait for those are
+   *          in-progress to complete.</p>
    */
   public stopStackSetOperation(
     args: StopStackSetOperationCommandInput,

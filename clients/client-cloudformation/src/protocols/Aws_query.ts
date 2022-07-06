@@ -5268,6 +5268,9 @@ const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: 
       entries[loc] = value;
     });
   }
+  if (input.AccountFilterType !== undefined && input.AccountFilterType !== null) {
+    entries["AccountFilterType"] = input.AccountFilterType;
+  }
   return entries;
 };
 
@@ -7289,6 +7292,7 @@ const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeCont
     Accounts: undefined,
     AccountsUrl: undefined,
     OrganizationalUnitIds: undefined,
+    AccountFilterType: undefined,
   };
   if (output.Accounts === "") {
     contents.Accounts = [];
@@ -7305,6 +7309,9 @@ const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeCont
       __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
       context
     );
+  }
+  if (output["AccountFilterType"] !== undefined) {
+    contents.AccountFilterType = __expectString(output["AccountFilterType"]);
   }
   return contents;
 };

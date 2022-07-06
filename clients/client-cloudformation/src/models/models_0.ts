@@ -3,6 +3,13 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
+export enum AccountFilterType {
+  DIFFERENCE = "DIFFERENCE",
+  INTERSECTION = "INTERSECTION",
+  NONE = "NONE",
+  UNION = "UNION",
+}
+
 export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
 
 /**
@@ -42,8 +49,8 @@ export interface AccountGateResult {
    *                <ul>
    *                   <li>
    *                      <p>An account gate function hasn't been specified for the account and Region.
-   *                         CloudFormation proceeds with the stack set operation in this account
-   *                      and Region.</p>
+   *                         CloudFormation proceeds with the stack set operation in this account and
+   *                      Region.</p>
    *                   </li>
    *                   <li>
    *                      <p>The <code>AWSCloudFormationStackSetExecutionRole</code> of the stack set
@@ -1379,8 +1386,8 @@ export interface Parameter {
   UsePreviousValue?: boolean;
 
   /**
-   * <p>Read-only. The value that corresponds to a SSM parameter key. This field is
-   *          returned only for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">
+   * <p>Read-only. The value that corresponds to a SSM parameter key. This field
+   *          is returned only for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">
    *                <code>SSM</code>
    *             </a> parameter types in the template.</p>
    */
@@ -2193,6 +2200,41 @@ export interface DeploymentTargets {
    *          deploys.</p>
    */
   OrganizationalUnitIds?: string[];
+
+  /**
+   * <p>Limit deployment targets to individual accounts or include additional accounts with
+   *          provided OUs.</p>
+   *
+   *          <p>The following is a list of possible values for the <code>AccountFilterType</code>
+   *          operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INTERSECTION</code>: StackSets deploys to the accounts specified in
+   *                <code>Accounts</code> parameter. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIFFERENCE</code>: StackSets excludes the accounts specified in
+   *                <code>Accounts</code> parameter. This enables user to avoid certain accounts within an OU
+   *                such as suspended accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNION</code>: (default value) StackSets includes additional accounts deployment
+   *                targets. </p>
+   *                <p>This is the default value if <code>AccountFilterType</code> is not provided. This
+   *                enables user to update an entire OU and individual accounts from a different OU in one
+   *                request, which used to be two separate requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Deploys to all the accounts in specified organizational units
+   *                (OU).</p>
+   *             </li>
+   *          </ul>
+   */
+  AccountFilterType?: AccountFilterType | string;
 }
 
 export namespace DeploymentTargets {
@@ -2228,8 +2270,7 @@ export interface StackSetOperationPreferences {
 
   /**
    * <p>The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a
-   *          Region, CloudFormation doesn't attempt the operation in any subsequent
-   *          Regions.</p>
+   *          Region, CloudFormation doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
    *             <code>FailureTolerancePercentage</code> (but not both).</p>
    *          <p>By default, <code>0</code> is specified.</p>
@@ -2238,9 +2279,8 @@ export interface StackSetOperationPreferences {
 
   /**
    * <p>The percentage of accounts, per Region, for which this stack operation can fail before
-   *             CloudFormation stops the operation in that Region. If the operation is stopped
-   *          in a Region, CloudFormation doesn't attempt the operation in any subsequent
-   *          Regions.</p>
+   *             CloudFormation stops the operation in that Region. If the operation is stopped in a
+   *          Region, CloudFormation doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds <i>down</i> to the next whole number.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
    *             <code>FailureTolerancePercentage</code>, but not both.</p>
@@ -4035,12 +4075,12 @@ export namespace StackInstanceComprehensiveStatus {
 export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
 
 /**
- * <p>An CloudFormation stack, in a specific account and Region, that's part of a
- *          stack set operation. A stack instance is a reference to an attempted or actual stack in a
- *          given account within a given Region. A stack instance can exist without a stack—for
- *          example, if the stack couldn't be created for some reason. A stack instance is associated
- *          with only one stack set. Each stack instance contains the ID of its associated stack set,
- *          in addition to the ID of the actual stack and the stack status.</p>
+ * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack
+ *          set operation. A stack instance is a reference to an attempted or actual stack in a given
+ *          account within a given Region. A stack instance can exist without a stack—for example, if
+ *          the stack couldn't be created for some reason. A stack instance is associated with only one
+ *          stack set. Each stack instance contains the ID of its associated stack set, in addition to
+ *          the ID of the actual stack and the stack status.</p>
  */
 export interface StackInstance {
   /**
@@ -5572,8 +5612,8 @@ export interface StackSetOperation {
    *                during stack create and update operations. If the number of failed stacks within a
    *                Region exceeds the failure tolerance, the status of the operation in the Region is
    *                set to <code>FAILED</code>. This in turn sets the status of the operation as a whole
-   *                to <code>FAILED</code>, and CloudFormation cancels the operation in any
-   *                remaining Regions.</p>
+   *                to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining
+   *                Regions.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5616,8 +5656,8 @@ export interface StackSetOperation {
   RetainStacks?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this
-   *          stack set operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack
+   *          set operation.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific
    *          stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple
    *             Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -5635,9 +5675,9 @@ export interface StackSetOperation {
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the
    *          stack set operation might differ from the creation time of the individual stacks
-   *          themselves. This is because CloudFormation needs to perform preparatory work for
-   *          the operation, such as dispatching the work to the requested Regions, before actually
-   *          creating the first stacks.</p>
+   *          themselves. This is because CloudFormation needs to perform preparatory work for the
+   *          operation, such as dispatching the work to the requested Regions, before actually creating
+   *          the first stacks.</p>
    */
   CreationTimestamp?: Date;
 
@@ -5850,7 +5890,8 @@ export interface DescribeTypeOutput {
    * <p>The ID of the default version of the extension. The default version is used when the
    *          extension version isn't specified.</p>
    *          <p>This applies only to private extensions you have registered in your account. For public
-   *          extensions, both those provided by Amazon Web Services and published by third parties, CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *          extensions, both those provided by Amazon Web Services and published by third parties,
+   *             CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *          <p>To set the default version of an extension, use <code>
    *                <a>SetTypeDefaultVersion</a>
    *             </code>.</p>
@@ -5982,8 +6023,8 @@ export interface DescribeTypeOutput {
   /**
    * <p>Contains logging configuration information for private extensions. This applies only to
    *          private extensions you have registered in your account. For public extensions, both those
-   *          provided by Amazon Web Services and published by third parties, CloudFormation returns
-   *             <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *          provided by Amazon Web Services and published by third parties, CloudFormation
+   *          returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    */
   LoggingConfig?: LoggingConfig;
 
@@ -6021,7 +6062,7 @@ export interface DescribeTypeOutput {
    *             <li>
    *                <p>
    *                   <code>PUBLIC</code>: The extension is publicly visible and usable within any
-   *                Amazon Web Services account.</p>
+   *                   Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    */
@@ -7813,8 +7854,8 @@ export interface StackSetOperationResultSummary {
   StatusReason?: string;
 
   /**
-   * <p>The results of the account gate function CloudFormation invokes, if present,
-   *          before proceeding with stack set operations in an account.</p>
+   * <p>The results of the account gate function CloudFormation invokes, if present, before
+   *          proceeding with stack set operations in an account.</p>
    */
   AccountGateResult?: AccountGateResult;
 
@@ -7942,8 +7983,8 @@ export interface StackSetOperationSummary {
    *                during stack create and update operations. If the number of failed stacks within a
    *                Region exceeds the failure tolerance, the status of the operation in the Region is
    *                set to <code>FAILED</code>. This in turn sets the status of the operation as a whole
-   *                to <code>FAILED</code>, and CloudFormation cancels the operation in any
-   *                remaining Regions.</p>
+   *                to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining
+   *                Regions.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7976,9 +8017,9 @@ export interface StackSetOperationSummary {
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the
    *          stack set operation might differ from the creation time of the individual stacks
-   *          themselves. This is because CloudFormation needs to perform preparatory work for
-   *          the operation, such as dispatching the work to the requested Regions, before actually
-   *          creating the first stacks.</p>
+   *          themselves. This is because CloudFormation needs to perform preparatory work for the
+   *          operation, such as dispatching the work to the requested Regions, before actually creating
+   *          the first stacks.</p>
    */
   CreationTimestamp?: Date;
 
@@ -8377,8 +8418,8 @@ export interface ListTypesInput {
    *             <li>
    *                <p>
    *                   <code>PUBLIC</code>: Extensions that are publicly visible and available to be
-   *                activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in
-   *                addition to third-party publishers.</p>
+   *                activated within any Amazon Web Services account. This includes extensions from
+   *                   Amazon Web Services, in addition to third-party publishers.</p>
    *             </li>
    *          </ul>
    *          <p>The default is <code>PRIVATE</code>.</p>
@@ -8838,8 +8879,7 @@ export namespace PublishTypeInput {
 
 export interface PublishTypeOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the public extension upon
-   *          publication.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
    */
   PublicTypeArn?: string;
 }
@@ -9046,7 +9086,8 @@ export interface RegisterTypeInput {
    *                   <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</p>
    *             </li>
    *             <li>
-   *                <p>For hooks, <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>
+   *                <p>For hooks,
+   *                   <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</p>
    *             </li>
    *          </ul>
    *
@@ -9705,8 +9746,8 @@ export interface UpdateStackInput {
    *                   <p>You should only update stacks directly from a stack template that contains
    *                   macros if you know what processing the macro performs.</p>
    *                   <p>Each macro relies on an underlying Lambda service function for
-   *                   processing stack templates. Be aware that the Lambda function owner can update the
-   *                   function operation without CloudFormation being notified.</p>
+   *                   processing stack templates. Be aware that the Lambda function owner
+   *                   can update the function operation without CloudFormation being notified.</p>
    *                </important>
    *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
    *                      CloudFormation Macros to Perform Custom Processing on
