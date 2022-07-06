@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.123.0...v3.124.0) (2022-07-06)
+
+
+### Features
+
+* **client-cloudformation:** My AWS Service (placeholder) - Add a new feature Account-level Targeting for StackSet operation ([2f877b3](https://github.com/aws/aws-sdk-js-v3/commit/2f877b37b001a249249ee16bcb3dcd0d835fb2fa))
+* **client-synthetics:** This release introduces Group feature, which enables users to group cross-region canaries. ([5e37998](https://github.com/aws/aws-sdk-js-v3/commit/5e379989f0f5dcc87bb93a0c4577f2ea2879f9e7))
+* **emr-containers:** set timestampeFormat for Date ([#3758](https://github.com/aws/aws-sdk-js-v3/issues/3758)) ([61df0f9](https://github.com/aws/aws-sdk-js-v3/commit/61df0f94b7f5924cbf63bc7fc75cb9d1d966f29d))
+
+
+
+
+
 # [3.123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.122.0...v3.123.0) (2022-07-05)
 
 

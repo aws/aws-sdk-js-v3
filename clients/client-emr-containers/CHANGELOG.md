@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.123.0...v3.124.0) (2022-07-06)
+
+
+### Features
+
+* **emr-containers:** set timestampeFormat for Date ([#3758](https://github.com/aws/aws-sdk-js-v3/issues/3758)) ([61df0f9](https://github.com/aws/aws-sdk-js-v3/commit/61df0f94b7f5924cbf63bc7fc75cb9d1d966f29d))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

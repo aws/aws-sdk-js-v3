@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.123.0...v3.124.0) (2022-07-06)
+
+
+### Features
+
+* **client-cloudformation:** My AWS Service (placeholder) - Add a new feature Account-level Targeting for StackSet operation ([2f877b3](https://github.com/aws/aws-sdk-js-v3/commit/2f877b37b001a249249ee16bcb3dcd0d835fb2fa))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

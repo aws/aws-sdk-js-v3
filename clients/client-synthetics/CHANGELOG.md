@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.123.0...v3.124.0) (2022-07-06)
+
+
+### Features
+
+* **client-synthetics:** This release introduces Group feature, which enables users to group cross-region canaries. ([5e37998](https://github.com/aws/aws-sdk-js-v3/commit/5e379989f0f5dcc87bb93a0c4577f2ea2879f9e7))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 
