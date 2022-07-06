@@ -23,7 +23,7 @@ export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
 export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to change the settings of a canary that has
+ * <p>Updates the configuration of a canary that has
  *          already been created.</p>
  *          <p>You can't use this operation to update the tags of an existing canary. To
  *          change the tags of an existing canary, use

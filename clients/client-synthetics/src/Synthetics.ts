@@ -2,15 +2,22 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateResourceCommand,
+  AssociateResourceCommandInput,
+  AssociateResourceCommandOutput,
+} from "./commands/AssociateResourceCommand";
+import {
   CreateCanaryCommand,
   CreateCanaryCommandInput,
   CreateCanaryCommandOutput,
 } from "./commands/CreateCanaryCommand";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   DeleteCanaryCommand,
   DeleteCanaryCommandInput,
   DeleteCanaryCommandOutput,
 } from "./commands/DeleteCanaryCommand";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DescribeCanariesCommand,
   DescribeCanariesCommandInput,
@@ -26,12 +33,29 @@ import {
   DescribeRuntimeVersionsCommandInput,
   DescribeRuntimeVersionsCommandOutput,
 } from "./commands/DescribeRuntimeVersionsCommand";
+import {
+  DisassociateResourceCommand,
+  DisassociateResourceCommandInput,
+  DisassociateResourceCommandOutput,
+} from "./commands/DisassociateResourceCommand";
 import { GetCanaryCommand, GetCanaryCommandInput, GetCanaryCommandOutput } from "./commands/GetCanaryCommand";
 import {
   GetCanaryRunsCommand,
   GetCanaryRunsCommandInput,
   GetCanaryRunsCommandOutput,
 } from "./commands/GetCanaryRunsCommand";
+import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import {
+  ListAssociatedGroupsCommand,
+  ListAssociatedGroupsCommandInput,
+  ListAssociatedGroupsCommandOutput,
+} from "./commands/ListAssociatedGroupsCommand";
+import {
+  ListGroupResourcesCommand,
+  ListGroupResourcesCommandInput,
+  ListGroupResourcesCommandOutput,
+} from "./commands/ListGroupResourcesCommand";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -72,6 +96,41 @@ import { SyntheticsClient } from "./SyntheticsClient";
  */
 export class Synthetics extends SyntheticsClient {
   /**
+   * <p>Associates a canary with a group. Using groups can help you with
+   *          managing and automating your canaries, and you can also view aggregated run results and statistics
+   *          for all canaries in a group. </p>
+   *          <p>You must run this operation in the Region where the canary exists.</p>
+   */
+  public associateResource(
+    args: AssociateResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateResourceCommandOutput>;
+  public associateResource(
+    args: AssociateResourceCommandInput,
+    cb: (err: any, data?: AssociateResourceCommandOutput) => void
+  ): void;
+  public associateResource(
+    args: AssociateResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateResourceCommandOutput) => void
+  ): void;
+  public associateResource(
+    args: AssociateResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResourceCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResourceCommandOutput) => void
+  ): Promise<AssociateResourceCommandOutput> | void {
+    const command = new AssociateResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the
    *          outside-in. Canaries help you check the availability and latency of your web services and
    *          troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and
@@ -79,7 +138,7 @@ export class Synthetics extends SyntheticsClient {
    *          <p>Do not use <code>CreateCanary</code> to modify an existing canary. Use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html">UpdateCanary</a> instead.</p>
    *          <p>To create canaries, you must have the <code>CloudWatchSyntheticsFullAccess</code> policy.
    *          If you are creating a new IAM role for the canary, you also need the
-   *          the <code>iam:CreateRole</code>, <code>iam:CreatePolicy</code> and
+   *          <code>iam:CreateRole</code>, <code>iam:CreatePolicy</code> and
    *             <code>iam:AttachRolePolicy</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles">Necessary
    *             Roles and Permissions</a>.</p>
    *          <p>Do not include secrets or proprietary information in your canary names. The canary name
@@ -114,10 +173,48 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * <p>Creates a group which you can use to associate canaries with each other, including cross-Region
+   *          canaries. Using groups can help you with
+   *          managing and automating your canaries, and you can also view aggregated run results and statistics
+   *       for all canaries in a group. </p>
+   *          <p>Groups are global resources. When you create a group, it is replicated across Amazon Web Services Regions, and
+   *          you can view it and add canaries to it from any Region.
+   *          Although the group ARN format reflects the Region name where it was created, a group is not constrained to any Region.
+   *          This means that you can put canaries from multiple Regions into the same group, and then use
+   *       that group to view and manage all of those canaries in a single view.</p>
+   *          <p>Groups are supported in all Regions except the Regions that are disabled by default. For more information
+   *          about these Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Enabling a Region</a>.</p>
+   *          <p>Each group can contain as many as 10 canaries. You can have as many as 20 groups in your account. Any single canary
+   *       can be a member of up to 10 groups.</p>
+   */
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  public createGroup(
+    args: CreateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
+  public createGroup(
+    args: CreateGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateGroupCommandOutput) => void
+  ): Promise<CreateGroupCommandOutput> | void {
+    const command = new CreateGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Permanently deletes the specified canary.</p>
    *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
    *          the Lambda functions and layers that are used by the canary.</p>
-   *          <p>Other esources used and created by the canary are not automatically deleted.
+   *          <p>Other resources used and created by the canary are not automatically deleted.
    *          After you delete a canary that you do not intend to
    *          use again, you
    *       should also delete the following:</p>
@@ -164,6 +261,36 @@ export class Synthetics extends SyntheticsClient {
     cb?: (err: any, data?: DeleteCanaryCommandOutput) => void
   ): Promise<DeleteCanaryCommandOutput> | void {
     const command = new DeleteCanaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a group. The group doesn't need to be empty to be deleted. If there are canaries in the group,
+   *          they are not deleted when you delete the group.
+   *       </p>
+   *          <p>Groups are a global resource that appear in all Regions, but the request to delete a group
+   *       must be made from its home Region. You can find the home Region of a group within its ARN.</p>
+   */
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): Promise<DeleteGroupCommandOutput> | void {
+    const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -291,6 +418,38 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
+   * <p>Removes a canary from a group. You must run this operation in the Region where the canary exists.</p>
+   */
+  public disassociateResource(
+    args: DisassociateResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateResourceCommandOutput>;
+  public disassociateResource(
+    args: DisassociateResourceCommandInput,
+    cb: (err: any, data?: DisassociateResourceCommandOutput) => void
+  ): void;
+  public disassociateResource(
+    args: DisassociateResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateResourceCommandOutput) => void
+  ): void;
+  public disassociateResource(
+    args: DisassociateResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResourceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResourceCommandOutput) => void
+  ): Promise<DisassociateResourceCommandOutput> | void {
+    const command = new DisassociateResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves complete information about one canary. You must specify
    *       the name of the canary that you want. To get a list of canaries
    *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -351,7 +510,126 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
-   * <p>Displays the tags associated with a canary.</p>
+   * <p>Returns information about one group. Groups are a global resource, so you can use this operation from
+   *       any Region.</p>
+   */
+  public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
+  public getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupCommandOutput) => void
+  ): Promise<GetGroupCommandOutput> | void {
+    const command = new GetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the groups that the specified canary is associated with. The canary
+   *       that you specify must be in the current Region.</p>
+   */
+  public listAssociatedGroups(
+    args: ListAssociatedGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedGroupsCommandOutput>;
+  public listAssociatedGroups(
+    args: ListAssociatedGroupsCommandInput,
+    cb: (err: any, data?: ListAssociatedGroupsCommandOutput) => void
+  ): void;
+  public listAssociatedGroups(
+    args: ListAssociatedGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedGroupsCommandOutput) => void
+  ): void;
+  public listAssociatedGroups(
+    args: ListAssociatedGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociatedGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociatedGroupsCommandOutput) => void
+  ): Promise<ListAssociatedGroupsCommandOutput> | void {
+    const command = new ListAssociatedGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation returns a list of the ARNs of the canaries that are associated with the specified group.</p>
+   */
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupResourcesCommandOutput>;
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
+    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
+  ): void;
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
+  ): void;
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupResourcesCommandOutput) => void
+  ): Promise<ListGroupResourcesCommandOutput> | void {
+    const command = new ListGroupResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups
+   *       from all Regions are returned.</p>
+   */
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupsCommandOutput) => void
+  ): Promise<ListGroupsCommandOutput> | void {
+    const command = new ListGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays the tags associated with a canary or group.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -411,8 +689,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
-   * <p>Stops the canary to prevent all future runs. If the canary is currently running,
-   *          Synthetics stops waiting for the current run of the specified canary to complete. The
+   * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
    *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
    *          it is not recorded in Synthetics as a completed run.</p>
    *          <p>You can use <code>StartCanary</code> to start it running again
@@ -442,16 +719,18 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the specified canary. </p>
+   * <p>Assigns one or more tags (key-value pairs) to the specified canary or group. </p>
    *          <p>Tags can help you organize and categorize your
    *          resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
    *          certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *          <p>You can use the <code>TagResource</code> action with a canary that already has tags. If you specify a new tag key for the alarm,
+   *          <p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new
+   *          tag key for the resource,
    *          this tag is appended to the list of tags associated
-   *          with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces
+   *          with the resource. If you specify a tag key that is already associated with the resource, the new tag
+   *          value that you specify replaces
    *          the previous value for that tag.</p>
-   *          <p>You can associate as many as 50 tags with a canary.</p>
+   *          <p>You can associate as many as 50 tags with a canary or group.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -477,7 +756,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
-   * <p>Removes one or more tags from the specified canary.</p>
+   * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -509,7 +788,7 @@ export class Synthetics extends SyntheticsClient {
   }
 
   /**
-   * <p>Use this operation to change the settings of a canary that has
+   * <p>Updates the configuration of a canary that has
    *          already been created.</p>
    *          <p>You can't use this operation to update the tags of an existing canary. To
    *          change the tags of an existing canary, use

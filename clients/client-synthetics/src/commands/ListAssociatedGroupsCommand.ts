@@ -12,42 +12,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { ListAssociatedGroupsRequest, ListAssociatedGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListTagsForResourceCommand,
-  serializeAws_restJson1ListTagsForResourceCommand,
+  deserializeAws_restJson1ListAssociatedGroupsCommand,
+  serializeAws_restJson1ListAssociatedGroupsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ListAssociatedGroupsCommandInput extends ListAssociatedGroupsRequest {}
+export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a canary or group.</p>
+ * <p>Returns a list of the groups that the specified canary is associated with. The canary
+ *       that you specify must be in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, ListTagsForResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, ListAssociatedGroupsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, ListAssociatedGroupsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link ListAssociatedGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociatedGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
-export class ListTagsForResourceCommand extends $Command<
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+export class ListAssociatedGroupsCommand extends $Command<
+  ListAssociatedGroupsCommandInput,
+  ListAssociatedGroupsCommandOutput,
   SyntheticsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListTagsForResourceCommandInput) {
+  constructor(readonly input: ListAssociatedGroupsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +61,20 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+  ): Handler<ListAssociatedGroupsCommandInput, ListAssociatedGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SyntheticsClient";
-    const commandName = "ListTagsForResourceCommand";
+    const commandName = "ListAssociatedGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssociatedGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociatedGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +84,12 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsForResourceCommand(input, context);
+  private serialize(input: ListAssociatedGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAssociatedGroupsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedGroupsCommandOutput> {
+    return deserializeAws_restJson1ListAssociatedGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

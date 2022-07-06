@@ -12,42 +12,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListTagsForResourceCommand,
-  serializeAws_restJson1ListTagsForResourceCommand,
+  deserializeAws_restJson1DeleteGroupCommand,
+  serializeAws_restJson1DeleteGroupCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
+export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a canary or group.</p>
+ * <p>Deletes a group. The group doesn't need to be empty to be deleted. If there are canaries in the group,
+ *          they are not deleted when you delete the group.
+ *       </p>
+ *          <p>Groups are a global resource that appear in all Regions, but the request to delete a group
+ *       must be made from its home Region. You can find the home Region of a group within its ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, ListTagsForResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, DeleteGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, DeleteGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link DeleteGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
-export class ListTagsForResourceCommand extends $Command<
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+export class DeleteGroupCommand extends $Command<
+  DeleteGroupCommandInput,
+  DeleteGroupCommandOutput,
   SyntheticsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListTagsForResourceCommandInput) {
+  constructor(readonly input: DeleteGroupCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +64,20 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+  ): Handler<DeleteGroupCommandInput, DeleteGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SyntheticsClient";
-    const commandName = "ListTagsForResourceCommand";
+    const commandName = "DeleteGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +87,12 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTagsForResourceCommand(input, context);
+  private serialize(input: DeleteGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteGroupCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupCommandOutput> {
+    return deserializeAws_restJson1DeleteGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

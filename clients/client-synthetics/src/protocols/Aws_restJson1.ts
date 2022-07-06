@@ -18,8 +18,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AssociateResourceCommandInput, AssociateResourceCommandOutput } from "../commands/AssociateResourceCommand";
 import { CreateCanaryCommandInput, CreateCanaryCommandOutput } from "../commands/CreateCanaryCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { DeleteCanaryCommandInput, DeleteCanaryCommandOutput } from "../commands/DeleteCanaryCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import { DescribeCanariesCommandInput, DescribeCanariesCommandOutput } from "../commands/DescribeCanariesCommand";
 import {
   DescribeCanariesLastRunCommandInput,
@@ -29,8 +32,19 @@ import {
   DescribeRuntimeVersionsCommandInput,
   DescribeRuntimeVersionsCommandOutput,
 } from "../commands/DescribeRuntimeVersionsCommand";
+import {
+  DisassociateResourceCommandInput,
+  DisassociateResourceCommandOutput,
+} from "../commands/DisassociateResourceCommand";
 import { GetCanaryCommandInput, GetCanaryCommandOutput } from "../commands/GetCanaryCommand";
 import { GetCanaryRunsCommandInput, GetCanaryRunsCommandOutput } from "../commands/GetCanaryRunsCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
+import {
+  ListAssociatedGroupsCommandInput,
+  ListAssociatedGroupsCommandOutput,
+} from "../commands/ListAssociatedGroupsCommand";
+import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "../commands/ListGroupResourcesCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -43,6 +57,7 @@ import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "../commands
 import {
   ArtifactConfigInput,
   ArtifactConfigOutput,
+  BadRequestException,
   BaseScreenshot,
   Canary,
   CanaryCodeInput,
@@ -58,11 +73,17 @@ import {
   CanaryStatus,
   CanaryTimeline,
   ConflictException,
+  Group,
+  GroupSummary,
+  InternalFailureException,
   InternalServerException,
+  NotFoundException,
   RequestEntityTooLargeException,
   ResourceNotFoundException,
   RuntimeVersion,
   S3EncryptionConfig,
+  ServiceQuotaExceededException,
+  TooManyRequestsException,
   ValidationException,
   VisualReferenceInput,
   VisualReferenceOutput,
@@ -70,6 +91,40 @@ import {
   VpcConfigOutput,
 } from "../models/models_0";
 import { SyntheticsServiceException as __BaseException } from "../models/SyntheticsServiceException";
+
+export const serializeAws_restJson1AssociateResourceCommand = async (
+  input: AssociateResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/associate";
+  if (input.GroupIdentifier !== undefined) {
+    const labelValue: string = input.GroupIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupIdentifier.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateCanaryCommand = async (
   input: CreateCanaryCommandInput,
@@ -122,6 +177,31 @@ export const serializeAws_restJson1CreateCanaryCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateGroupCommand = async (
+  input: CreateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteCanaryCommand = async (
   input: DeleteCanaryCommandInput,
   context: __SerdeContext
@@ -150,6 +230,34 @@ export const serializeAws_restJson1DeleteCanaryCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteGroupCommand = async (
+  input: DeleteGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}";
+  if (input.GroupIdentifier !== undefined) {
+    const labelValue: string = input.GroupIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupIdentifier.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -233,6 +341,40 @@ export const serializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateResourceCommand = async (
+  input: DisassociateResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/disassociate";
+  if (input.GroupIdentifier !== undefined) {
+    const labelValue: string = input.GroupIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupIdentifier.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetCanaryCommand = async (
   input: GetCanaryCommandInput,
   context: __SerdeContext
@@ -279,6 +421,129 @@ export const serializeAws_restJson1GetCanaryRunsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetGroupCommand = async (
+  input: GetGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}";
+  if (input.GroupIdentifier !== undefined) {
+    const labelValue: string = input.GroupIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupIdentifier.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAssociatedGroupsCommand = async (
+  input: ListAssociatedGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource/{ResourceArn}/groups";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListGroupResourcesCommand = async (
+  input: ListGroupResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/resources";
+  if (input.GroupIdentifier !== undefined) {
+    const labelValue: string = input.GroupIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupIdentifier.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListGroupsCommand = async (
+  input: ListGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -506,6 +771,59 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
   });
 };
 
+export const deserializeAws_restJson1AssociateResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateResourceCommandError(output, context);
+  }
+  const contents: AssociateResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.synthetics#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -557,6 +875,60 @@ const deserializeAws_restJson1CreateCanaryCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateGroupCommandError(output, context);
+  }
+  const contents: CreateGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Group: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Group !== undefined && data.Group !== null) {
+    contents.Group = deserializeAws_restJson1Group(data.Group, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.synthetics#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DeleteCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -575,6 +947,56 @@ const deserializeAws_restJson1DeleteCanaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCanaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteGroupCommandError(output, context);
+  }
+  const contents: DeleteGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -763,6 +1185,56 @@ const deserializeAws_restJson1DescribeRuntimeVersionsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DisassociateResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateResourceCommandError(output, context);
+  }
+  const contents: DisassociateResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -866,6 +1338,225 @@ const deserializeAws_restJson1GetCanaryRunsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetGroupCommandError(output, context);
+  }
+  const contents: GetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Group: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Group !== undefined && data.Group !== null) {
+    contents.Group = deserializeAws_restJson1Group(data.Group, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListAssociatedGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssociatedGroupsCommandError(output, context);
+  }
+  const contents: ListAssociatedGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Groups: undefined,
+    NextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Groups !== undefined && data.Groups !== null) {
+    contents.Groups = deserializeAws_restJson1GroupSummaryList(data.Groups, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAssociatedGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListGroupResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListGroupResourcesCommandError(output, context);
+  }
+  const contents: ListGroupResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    Resources: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Resources !== undefined && data.Resources !== null) {
+    contents.Resources = deserializeAws_restJson1StringList(data.Resources, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListGroupResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.synthetics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListGroupsCommandError(output, context);
+  }
+  const contents: ListGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Groups: undefined,
+    NextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Groups !== undefined && data.Groups !== null) {
+    contents.Groups = deserializeAws_restJson1GroupSummaryList(data.Groups, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.synthetics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.synthetics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -895,15 +1586,21 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.synthetics#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.synthetics#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.synthetics#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.synthetics#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.synthetics#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.synthetics#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.synthetics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -1042,15 +1739,21 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.synthetics#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.synthetics#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.synthetics#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.synthetics#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.synthetics#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.synthetics#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.synthetics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -1089,15 +1792,21 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.synthetics#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.synthetics#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.synthetics#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.synthetics#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.synthetics#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.synthetics#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.synthetics#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.synthetics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -1164,6 +1873,22 @@ const deserializeAws_restJson1UpdateCanaryCommandError = async (
   }
 };
 
+const deserializeAws_restJson1BadRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BadRequestException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1180,6 +1905,22 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1InternalFailureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new InternalFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1190,6 +1931,22 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1NotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotFoundException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1222,6 +1979,38 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyRequestsException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1641,6 +2430,46 @@ const deserializeAws_restJson1CanaryTimeline = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    Id: __expectString(output.Id),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GroupSummary = (output: any, context: __SerdeContext): GroupSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1GroupSummaryList = (output: any, context: __SerdeContext): GroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GroupSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeContext): RuntimeVersion => {
   return {
     DeprecationDate:
@@ -1676,6 +2505,18 @@ const deserializeAws_restJson1S3EncryptionConfig = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

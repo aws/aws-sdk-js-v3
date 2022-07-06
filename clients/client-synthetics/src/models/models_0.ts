@@ -88,6 +88,165 @@ export namespace ArtifactConfigOutput {
   });
 }
 
+export interface AssociateResourceRequest {
+  /**
+   * <p>Specifies the group. You can specify the group name, the ARN, or the
+   *          group ID as the <code>GroupIdentifier</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the canary that you want to associate with the specified group.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace AssociateResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateResourceResponse {}
+
+export namespace AssociateResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A conflicting operation is already in progress.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An unknown internal error occurred.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>One of the specified resources was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request exceeded a service quota value.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A parameter could not be validated.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was not valid.</p>
+ */
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 /**
  * <p>A structure representing a screenshot that is used as a baseline during visual monitoring comparisons made by the canary.</p>
  */
@@ -99,8 +258,12 @@ export interface BaseScreenshot {
   ScreenshotName: string | undefined;
 
   /**
-   * <p>Coordinates that define the part of a screen to ignore during screenshot comparisons. To obtain the coordinates to use here, use the
-   *          CloudWatch Logs console to draw the boundaries on the screen. For more information, see {LINK}</p>
+   * <p>Coordinates that define the part of a screen to ignore during screenshot comparisons. To obtain the
+   *          coordinates to use here, use the
+   *          CloudWatch console to draw the boundaries on the screen. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/synthetics_canaries_deletion.html">
+   *             Editing or deleting a canary</a>
+   *          </p>
    */
   IgnoreCoordinates?: string[];
 }
@@ -311,7 +474,8 @@ export interface VisualReferenceOutput {
   BaseScreenshots?: BaseScreenshot[];
 
   /**
-   * <p>The ID of the canary run that produced the screenshots that are used as the baseline for visual monitoring comparisons during future runs of this canary.</p>
+   * <p>The ID of the canary run that produced the baseline screenshots
+   *          that are used for visual monitoring comparisons by this canary.</p>
    */
   BaseCanaryRunId?: string;
 }
@@ -697,6 +861,10 @@ export interface CanaryRunConfigInput {
    *          reserved environment variables as the keys for your environment variables. For
    *          more information about reserved keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
    *             Runtime environment variables</a>.</p>
+   *          <important>
+   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
+   *          in this field.</p>
+   *          </important>
    */
   EnvironmentVariables?: Record<string, string>;
 }
@@ -748,27 +916,6 @@ export namespace CanaryScheduleInput {
   export const filterSensitiveLog = (obj: CanaryScheduleInput): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>A conflicting operation is already in progress.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -876,7 +1023,11 @@ export interface CreateCanaryRequest {
 
   /**
    * <p>A structure that contains the configuration for individual canary runs,
-   *          such as timeout value.</p>
+   *          such as timeout value and environment variables.</p>
+   *          <important>
+   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
+   *       in this field.</p>
+   *          </important>
    */
   RunConfig?: CanaryRunConfigInput;
 
@@ -951,27 +1102,6 @@ export namespace CreateCanaryResponse {
 }
 
 /**
- * <p>An unknown internal error occurred.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>One of the input resources is larger than is allowed.</p>
  */
 export class RequestEntityTooLargeException extends __BaseException {
@@ -992,25 +1122,91 @@ export class RequestEntityTooLargeException extends __BaseException {
   }
 }
 
-/**
- * <p>A parameter could not be validated.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
+export interface CreateGroupRequest {
+  /**
+   * <p>The name for the group. It can include any Unicode characters.</p>
+   *          <p>The names for all groups in your account, across all Regions, must be unique.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the group.
+   *          You can associate as many as 50 tags with a group.</p>
+   *          <p>Tags can help you organize and categorize your
+   *          resources. You can also use them to scope user permissions, by
+   *          granting a user permission to access or change only the resources that have
+   *          certain tag values.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export namespace CreateGroupRequest {
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
+  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure contains information about one group.</p>
+ */
+export interface Group {
+  /**
+   * <p>The unique ID of the group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The list of key-value pairs that are associated with the canary.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The date and time that the group was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The date and time that the group was most recently updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace Group {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Group): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateGroupResponse {
+  /**
+   * <p>A structure that contains information about the group that was just created.</p>
+   */
+  Group?: Group;
+}
+
+export namespace CreateGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface DeleteCanaryRequest {
@@ -1047,25 +1243,32 @@ export namespace DeleteCanaryResponse {
   });
 }
 
-/**
- * <p>One of the specified resources was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
+export interface DeleteGroupRequest {
+  /**
+   * <p>Specifies which group to delete. You can specify the group name, the ARN, or the
+   *       group ID as the <code>GroupIdentifier</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+}
+
+export namespace DeleteGroupRequest {
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
+  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteGroupResponse {}
+
+export namespace DeleteGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+    ...obj,
+  });
 }
 
 export interface DescribeCanariesRequest {
@@ -1132,7 +1335,7 @@ export namespace DescribeCanariesResponse {
 export interface DescribeCanariesLastRunRequest {
   /**
    * <p>A token that indicates that there is more data
-   *          available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next
+   *          available. You can use this token in a subsequent <code>DescribeCanariesLastRun</code> operation to retrieve the next
    *          set of results.</p>
    */
   NextToken?: string;
@@ -1276,6 +1479,39 @@ export namespace DescribeRuntimeVersionsResponse {
   });
 }
 
+export interface DisassociateResourceRequest {
+  /**
+   * <p>Specifies the group. You can specify the group name, the ARN, or the
+   *          group ID as the <code>GroupIdentifier</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the canary that you want to remove from the specified group.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DisassociateResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateResourceResponse {}
+
+export namespace DisassociateResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetCanaryRequest {
   /**
    * <p>The name of the canary that you want details for.</p>
@@ -1294,7 +1530,7 @@ export namespace GetCanaryRequest {
 
 export interface GetCanaryResponse {
   /**
-   * <p>A strucure that contains the full information about the canary.</p>
+   * <p>A structure that contains the full information about the canary.</p>
    */
   Canary?: Canary;
 }
@@ -1362,12 +1598,251 @@ export namespace GetCanaryRunsResponse {
   });
 }
 
+export interface GetGroupRequest {
+  /**
+   * <p>Specifies the group to return information for. You can specify the group name, the ARN, or the
+   *          group ID as the <code>GroupIdentifier</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+}
+
+export namespace GetGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGroupResponse {
+  /**
+   * <p>A structure that contains information about the group.</p>
+   */
+  Group?: Group;
+}
+
+export namespace GetGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing some information about a group.</p>
+ */
+export interface GroupSummary {
+  /**
+   * <p>The unique ID of the group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the group.</p>
+   */
+  Arn?: string;
+}
+
+export namespace GroupSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An internal failure occurred. Try the operation again.</p>
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface ListAssociatedGroupsRequest {
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specify this parameter to limit how many groups are returned each time you use
+   *          the <code>ListAssociatedGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ARN of the canary that you want to view groups for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListAssociatedGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssociatedGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAssociatedGroupsResponse {
+  /**
+   * <p>An array of structures that contain information about the groups that this canary is associated with.</p>
+   */
+  Groups?: GroupSummary[];
+
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent <code>ListAssociatedGroups</code> operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAssociatedGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssociatedGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupResourcesRequest {
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specify this parameter to limit how many canary ARNs are returned each time you use
+   *          the <code>ListGroupResources</code> operation. If you omit this parameter, the default of 20 is used.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies the group to return information for. You can specify the group name, the ARN, or the
+   *          group ID as the <code>GroupIdentifier</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+}
+
+export namespace ListGroupResourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupResourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupResourcesResponse {
+  /**
+   * <p>An array of ARNs. These ARNs are for the canaries that are associated with the group.</p>
+   */
+  Resources?: string[];
+
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent <code>ListGroupResources</code> operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupResourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupResourcesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsRequest {
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specify this parameter to limit how many groups are returned each time you use
+   *          the <code>ListGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsResponse {
+  /**
+   * <p>An array of structures that each contain information about one group.</p>
+   */
+  Groups?: GroupSummary[];
+
+  /**
+   * <p>A token that indicates that there is more data
+   *          available. You can use this token in a subsequent <code>ListGroups</code> operation to retrieve the next
+   *          set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the canary that you want to view tags for.</p>
+   * <p>The ARN of the canary or group that you want to view tags for.</p>
    *          <p>The ARN format of a canary is
    *                <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
    *             </code>.</p>
+   *          <p>The ARN format of a group is
+   *          <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i>
+   *             </code>
+   *          </p>
    */
   ResourceArn: string | undefined;
 }
@@ -1383,7 +1858,7 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The list of tag keys and values associated with the canary that you specified.</p>
+   * <p>The list of tag keys and values associated with the resource that you specified.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1395,6 +1870,48 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>The specified resource was not found.</p>
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>There were too many simultaneous requests. Try the operation again.</p>
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartCanaryRequest {
@@ -1428,7 +1945,7 @@ export namespace StartCanaryResponse {
 export interface StopCanaryRequest {
   /**
    * <p>The name of the canary that you want to stop. To find the names of your
-   *          canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+   *          canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">ListCanaries</a>.</p>
    */
   Name: string | undefined;
 }
@@ -1455,15 +1972,19 @@ export namespace StopCanaryResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the canary that you're adding tags to.</p>
+   * <p>The ARN of the canary or group that you're adding tags to.</p>
    *          <p>The ARN format of a canary is
-   *                <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
+   * <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
    *             </code>.</p>
+   *          <p>The ARN format of a group is
+   *  <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i>
+   *             </code>
+   *          </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of key-value pairs to associate with the canary.</p>
+   * <p>The list of key-value pairs to associate with the resource.</p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -1490,10 +2011,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the canary that you're removing tags from.</p>
+   * <p>The ARN of the canary or group that you're removing tags from.</p>
    *          <p>The ARN format of a canary is
    *                <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
    *             </code>.</p>
+   *          <p>The ARN format of a group is
+   *          <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i>
+   *             </code>
+   *          </p>
    */
   ResourceArn: string | undefined;
 
@@ -1524,7 +2049,8 @@ export namespace UntagResourceResponse {
 }
 
 /**
- * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary, and optionally the parts of the screenshots to ignore during the visual monitoring comparison.</p>
+ * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
+ *          optionally also specify parts of the screenshots to ignore during the visual monitoring comparison.</p>
  *
  *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
  *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
@@ -1634,6 +2160,10 @@ export interface UpdateCanaryRequest {
   /**
    * <p>A structure that contains the timeout value that is used for each individual run of the
    *          canary.</p>
+   *          <important>
+   *             <p>The environment variables keys and values are not encrypted. Do not store sensitive information
+   *          in this field.</p>
+   *          </important>
    */
   RunConfig?: CanaryRunConfigInput;
 

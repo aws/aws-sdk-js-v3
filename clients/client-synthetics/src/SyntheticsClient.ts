@@ -53,8 +53,11 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AssociateResourceCommandInput, AssociateResourceCommandOutput } from "./commands/AssociateResourceCommand";
 import { CreateCanaryCommandInput, CreateCanaryCommandOutput } from "./commands/CreateCanaryCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteCanaryCommandInput, DeleteCanaryCommandOutput } from "./commands/DeleteCanaryCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { DescribeCanariesCommandInput, DescribeCanariesCommandOutput } from "./commands/DescribeCanariesCommand";
 import {
   DescribeCanariesLastRunCommandInput,
@@ -64,8 +67,19 @@ import {
   DescribeRuntimeVersionsCommandInput,
   DescribeRuntimeVersionsCommandOutput,
 } from "./commands/DescribeRuntimeVersionsCommand";
+import {
+  DisassociateResourceCommandInput,
+  DisassociateResourceCommandOutput,
+} from "./commands/DisassociateResourceCommand";
 import { GetCanaryCommandInput, GetCanaryCommandOutput } from "./commands/GetCanaryCommand";
 import { GetCanaryRunsCommandInput, GetCanaryRunsCommandOutput } from "./commands/GetCanaryRunsCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import {
+  ListAssociatedGroupsCommandInput,
+  ListAssociatedGroupsCommandOutput,
+} from "./commands/ListAssociatedGroupsCommand";
+import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "./commands/ListGroupResourcesCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -78,13 +92,21 @@ import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "./commands/
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateResourceCommandInput
   | CreateCanaryCommandInput
+  | CreateGroupCommandInput
   | DeleteCanaryCommandInput
+  | DeleteGroupCommandInput
   | DescribeCanariesCommandInput
   | DescribeCanariesLastRunCommandInput
   | DescribeRuntimeVersionsCommandInput
+  | DisassociateResourceCommandInput
   | GetCanaryCommandInput
   | GetCanaryRunsCommandInput
+  | GetGroupCommandInput
+  | ListAssociatedGroupsCommandInput
+  | ListGroupResourcesCommandInput
+  | ListGroupsCommandInput
   | ListTagsForResourceCommandInput
   | StartCanaryCommandInput
   | StopCanaryCommandInput
@@ -93,13 +115,21 @@ export type ServiceInputTypes =
   | UpdateCanaryCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateResourceCommandOutput
   | CreateCanaryCommandOutput
+  | CreateGroupCommandOutput
   | DeleteCanaryCommandOutput
+  | DeleteGroupCommandOutput
   | DescribeCanariesCommandOutput
   | DescribeCanariesLastRunCommandOutput
   | DescribeRuntimeVersionsCommandOutput
+  | DisassociateResourceCommandOutput
   | GetCanaryCommandOutput
   | GetCanaryRunsCommandOutput
+  | GetGroupCommandOutput
+  | ListAssociatedGroupsCommandOutput
+  | ListGroupResourcesCommandOutput
+  | ListGroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartCanaryCommandOutput
   | StopCanaryCommandOutput

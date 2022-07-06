@@ -23,8 +23,7 @@ export interface StopCanaryCommandInput extends StopCanaryRequest {}
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the canary to prevent all future runs. If the canary is currently running,
- *          Synthetics stops waiting for the current run of the specified canary to complete. The
+ * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
  *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
  *          it is not recorded in Synthetics as a completed run.</p>
  *          <p>You can use <code>StartCanary</code> to start it running again
