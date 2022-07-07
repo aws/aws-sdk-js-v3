@@ -11,7 +11,28 @@ export enum MediaCapabilities {
 }
 
 /**
- * <p>The media capabilities of an attendee, including audio, video and content. </p>
+ * <p>The media capabilities of an attendee: audio, video, or content. </p>
+ *         <note>
+ *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
+ *             .</p>
+ *          </note>
+ *
+ *         <p>When using capabilities, be aware of these corner cases:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+ *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
+ *                     to receive and you set your <code>content</code> capability to not receive.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+ *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+ *             </li>
+ *          </ul>
  */
 export interface AttendeeCapabilities {
   /**
@@ -71,7 +92,28 @@ export interface Attendee {
   JoinToken?: string;
 
   /**
-   * <p>The capabilities (audio, video, or content) assigned to an attendee.</p>
+   * <p>The capabilities assigned to an attendee: audio, video, or content.</p>
+   *         <note>
+   *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
+   *             .</p>
+   *          </note>
+   *
+   *         <p>When using capabilities, be aware of these corner cases:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
+   *                     to receive and you set your <code>content</code> capability to not receive.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+   *             </li>
+   *          </ul>
    */
   Capabilities?: AttendeeCapabilities;
 }
@@ -345,7 +387,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable.</p>
+ * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
@@ -404,7 +446,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit.</p>
+ * <p>The number of customer requests exceeds the request rate limit.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -549,6 +591,28 @@ export interface CreateAttendeeRequest {
   /**
    * <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on
    *             all media channels by default.</p>
+   *
+   *         <note>
+   *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
+   *             .</p>
+   *          </note>
+   *
+   *             <p>When using capabilities, be aware of these corner cases:</p>
+   *             <ul>
+   *             <li>
+   *                     <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
+   *                     to receive and you set your <code>content</code> capability to not receive.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                    and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+   *                 </li>
+   *          </ul>
    */
   Capabilities?: AttendeeCapabilities;
 }
@@ -689,6 +753,11 @@ export interface CreateMeetingRequest {
    * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
    */
   PrimaryMeetingId?: string;
+
+  /**
+   * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
+   */
+  TenantIds?: string[];
 }
 
 export namespace CreateMeetingRequest {
@@ -804,6 +873,11 @@ export interface Meeting {
    * <p>When specified, replicates the media from the primary meeting to this meeting.</p>
    */
   PrimaryMeetingId?: string;
+
+  /**
+   * <p>Array of strings.</p>
+   */
+  TenantIds?: string[];
 }
 
 export namespace Meeting {
@@ -898,6 +972,11 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
    */
   PrimaryMeetingId?: string;
+
+  /**
+   * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
+   */
+  TenantIds?: string[];
 }
 
 export namespace CreateMeetingWithAttendeesRequest {
@@ -1161,7 +1240,7 @@ export interface EngineTranscribeMedicalSettings {
   VocabularyName?: string;
 
   /**
-   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
+   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
    */
   Region?: TranscribeMedicalRegion | string;
 
@@ -1415,19 +1494,7 @@ export namespace UpdateAttendeeCapabilitiesRequest {
 
 export interface UpdateAttendeeCapabilitiesResponse {
   /**
-   * <p>An Amazon Chime SDK meeting attendee. Includes a unique
-   *            <code>AttendeeId</code> and <code>JoinToken</code>. The
-   *            <code>JoinToken</code>
-   *            allows a client to authenticate and join as the specified attendee. The
-   *            <code>JoinToken</code>
-   *            expires when the meeting ends, or when
-   *            <a>DeleteAttendee</a>
-   *            is called. After that, the attendee is unable to join the meeting.
-   *        </p>
-   *
-   *          <p>We recommend securely transferring each <code>JoinToken</code> from your server application
-   *            to the client so that no other client has access to the token except for the one
-   *            authorized to represent the attendee.</p>
+   * <p>The updated attendee data.</p>
    */
   Attendee?: Attendee;
 }

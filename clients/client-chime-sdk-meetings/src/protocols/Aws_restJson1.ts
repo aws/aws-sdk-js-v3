@@ -227,6 +227,8 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
       }),
     ...(input.PrimaryMeetingId !== undefined &&
       input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.TenantIds !== undefined &&
+      input.TenantIds !== null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -275,6 +277,8 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
       }),
     ...(input.PrimaryMeetingId !== undefined &&
       input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.TenantIds !== undefined &&
+      input.TenantIds !== null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1780,6 +1784,17 @@ const serializeAws_restJson1NotificationsConfiguration = (
   };
 };
 
+const serializeAws_restJson1TenantIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1TranscriptionConfiguration = (
   input: TranscriptionConfiguration,
   context: __SerdeContext
@@ -1891,6 +1906,10 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
     MeetingHostId: __expectString(output.MeetingHostId),
     MeetingId: __expectString(output.MeetingId),
     PrimaryMeetingId: __expectString(output.PrimaryMeetingId),
+    TenantIds:
+      output.TenantIds !== undefined && output.TenantIds !== null
+        ? deserializeAws_restJson1TenantIdList(output.TenantIds, context)
+        : undefined,
   } as any;
 };
 
@@ -1904,6 +1923,18 @@ const deserializeAws_restJson1MeetingFeaturesConfiguration = (
         ? deserializeAws_restJson1AudioFeatures(output.Audio, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1TenantIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
