@@ -93,7 +93,6 @@ import {
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
-  ProjectSortBy,
   ProjectStatus,
   ResourceType,
   SecondaryStatus,
@@ -110,6 +109,11 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export enum ProjectSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
 
 export enum ProjectSortOrder {
   ASCENDING = "Ascending",

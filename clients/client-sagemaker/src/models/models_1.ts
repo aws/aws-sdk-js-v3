@@ -106,6 +106,42 @@ import {
   VpcConfig,
 } from "./models_0";
 
+export interface CreateImageRequest {
+  /**
+   * <p>The description of the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The display name of the image. If not provided, <code>ImageName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the image. Must be unique to your account.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the image.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateImageResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the image.</p>
@@ -11303,40 +11339,6 @@ export namespace EndpointOutputConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: EndpointOutputConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The metrics of recommendations.</p>
- */
-export interface RecommendationMetrics {
-  /**
-   * <p>Defines the cost per hour for the instance. </p>
-   */
-  CostPerHour: number | undefined;
-
-  /**
-   * <p>Defines the cost per inference for the instance .</p>
-   */
-  CostPerInference: number | undefined;
-
-  /**
-   * <p>The expected maximum number of requests per minute for the instance.</p>
-   */
-  MaxInvocations: number | undefined;
-
-  /**
-   * <p>The expected model latency at maximum invocation per minute for the instance.</p>
-   */
-  ModelLatency: number | undefined;
-}
-
-export namespace RecommendationMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationMetrics): any => ({
     ...obj,
   });
 }

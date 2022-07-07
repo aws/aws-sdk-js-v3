@@ -778,7 +778,6 @@ import {
   CreateHumanTaskUiResponse,
   CreateHyperParameterTuningJobRequest,
   CreateHyperParameterTuningJobResponse,
-  CreateImageRequest,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -809,6 +808,7 @@ import {
   ImageConfig,
   InferenceSpecification,
   InputConfig,
+  InstanceGroup,
   IntegerParameterRange,
   IntegerParameterRangeSpecification,
   JupyterServerAppSettings,
@@ -886,6 +886,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateImageRequest,
   CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
@@ -1135,7 +1136,6 @@ import {
   RecommendationJobOutputConfig,
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
-  RecommendationMetrics,
   RedshiftDatasetDefinition,
   ResolvedAttributes,
   RetentionPolicy,
@@ -1381,6 +1381,7 @@ import {
   PropertyNameQuery,
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
+  RecommendationMetrics,
   RegisterModelStepMetadata,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
@@ -19863,6 +19864,37 @@ const serializeAws_json1_1InputModes = (input: (TrainingInputMode | string)[], c
     });
 };
 
+const serializeAws_json1_1InstanceGroup = (input: InstanceGroup, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceGroupName !== undefined &&
+      input.InstanceGroupName !== null && { InstanceGroupName: input.InstanceGroupName }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+  };
+};
+
+const serializeAws_json1_1InstanceGroupNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1InstanceGroups = (input: InstanceGroup[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1InstanceGroup(entry, context);
+    });
+};
+
 const serializeAws_json1_1InstanceMetadataServiceConfiguration = (
   input: InstanceMetadataServiceConfiguration,
   context: __SerdeContext
@@ -22823,6 +22855,10 @@ const serializeAws_json1_1RepositoryAuthConfig = (input: RepositoryAuthConfig, c
 const serializeAws_json1_1ResourceConfig = (input: ResourceConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceGroups !== undefined &&
+      input.InstanceGroups !== null && {
+        InstanceGroups: serializeAws_json1_1InstanceGroups(input.InstanceGroups, context),
+      }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
@@ -22962,6 +22998,10 @@ const serializeAws_json1_1S3DataSource = (input: S3DataSource, context: __SerdeC
     ...(input.AttributeNames !== undefined &&
       input.AttributeNames !== null && {
         AttributeNames: serializeAws_json1_1AttributeNames(input.AttributeNames, context),
+      }),
+    ...(input.InstanceGroupNames !== undefined &&
+      input.InstanceGroupNames !== null && {
+        InstanceGroupNames: serializeAws_json1_1InstanceGroupNames(input.InstanceGroupNames, context),
       }),
     ...(input.S3DataDistributionType !== undefined &&
       input.S3DataDistributionType !== null && { S3DataDistributionType: input.S3DataDistributionType }),
@@ -30016,6 +30056,38 @@ const deserializeAws_json1_1InputModes = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContext): InstanceGroup => {
+  return {
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceGroupName: __expectString(output.InstanceGroupName),
+    InstanceType: __expectString(output.InstanceType),
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceGroupNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1InstanceGroups = (output: any, context: __SerdeContext): InstanceGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InstanceGroup(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1InstanceMetadataServiceConfiguration = (
   output: any,
   context: __SerdeContext
@@ -33737,6 +33809,10 @@ const deserializeAws_json1_1ResolvedAttributes = (output: any, context: __SerdeC
 const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeContext): ResourceConfig => {
   return {
     InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceGroups:
+      output.InstanceGroups !== undefined && output.InstanceGroups !== null
+        ? deserializeAws_json1_1InstanceGroups(output.InstanceGroups, context)
+        : undefined,
     InstanceType: __expectString(output.InstanceType),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
@@ -33859,6 +33935,10 @@ const deserializeAws_json1_1S3DataSource = (output: any, context: __SerdeContext
     AttributeNames:
       output.AttributeNames !== undefined && output.AttributeNames !== null
         ? deserializeAws_json1_1AttributeNames(output.AttributeNames, context)
+        : undefined,
+    InstanceGroupNames:
+      output.InstanceGroupNames !== undefined && output.InstanceGroupNames !== null
+        ? deserializeAws_json1_1InstanceGroupNames(output.InstanceGroupNames, context)
         : undefined,
     S3DataDistributionType: __expectString(output.S3DataDistributionType),
     S3DataType: __expectString(output.S3DataType),

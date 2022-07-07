@@ -128,7 +128,6 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
-  RecommendationMetrics,
   RootAccess,
   RuleEvaluationStatus,
   ServiceCatalogProvisioningDetails,
@@ -142,6 +141,40 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>The metrics of recommendations.</p>
+ */
+export interface RecommendationMetrics {
+  /**
+   * <p>Defines the cost per hour for the instance. </p>
+   */
+  CostPerHour: number | undefined;
+
+  /**
+   * <p>Defines the cost per inference for the instance .</p>
+   */
+  CostPerInference: number | undefined;
+
+  /**
+   * <p>The expected maximum number of requests per minute for the instance.</p>
+   */
+  MaxInvocations: number | undefined;
+
+  /**
+   * <p>The expected model latency at maximum invocation per minute for the instance.</p>
+   */
+  ModelLatency: number | undefined;
+}
+
+export namespace RecommendationMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationMetrics): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
@@ -10972,9 +11005,4 @@ export namespace ListProcessingJobsResponse {
   export const filterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
     ...obj,
   });
-}
-
-export enum ProjectSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
 }

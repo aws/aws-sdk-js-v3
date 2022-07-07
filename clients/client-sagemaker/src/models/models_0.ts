@@ -1029,6 +1029,12 @@ export interface S3DataSource {
    *             manifest file.</p>
    */
   AttributeNames?: string[];
+
+  /**
+   * <p>A list of names of instance groups that get data
+   *             from the S3 data source.</p>
+   */
+  InstanceGroupNames?: string[];
 }
 
 export namespace S3DataSource {
@@ -1302,6 +1308,37 @@ export enum TrainingInstanceType {
 }
 
 /**
+ * <p>Defines an instance group for heterogeneous cluster training.
+ *             When requesting a training job using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API,
+ *             you can configure up to 5 different ML training instance groups.</p>
+ */
+export interface InstanceGroup {
+  /**
+   * <p>Specifies the instance type of the instance group.</p>
+   */
+  InstanceType: TrainingInstanceType | string | undefined;
+
+  /**
+   * <p>Specifies the number of instances of the instance group.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>Specifies the name of the instance group.</p>
+   */
+  InstanceGroupName: string | undefined;
+}
+
+export namespace InstanceGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the resources, including ML compute instances and ML storage volumes, to
  *             use for model training. </p>
  */
@@ -1309,13 +1346,13 @@ export interface ResourceConfig {
   /**
    * <p>The ML compute instance type. </p>
    */
-  InstanceType: TrainingInstanceType | string | undefined;
+  InstanceType?: TrainingInstanceType | string;
 
   /**
    * <p>The number of ML compute instances to use. For distributed training, provide a
    *             value greater than 1. </p>
    */
-  InstanceCount: number | undefined;
+  InstanceCount?: number;
 
   /**
    * <p>The size of the ML storage volume that you want to provision. </p>
@@ -1369,6 +1406,11 @@ export interface ResourceConfig {
    *          </ul>
    */
   VolumeKmsKeyId?: string;
+
+  /**
+   * <p>The configuration of a heterogeneous cluster in JSON format.</p>
+   */
+  InstanceGroups?: InstanceGroup[];
 }
 
 export namespace ResourceConfig {
@@ -11997,42 +12039,6 @@ export namespace CreateHyperParameterTuningJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateHyperParameterTuningJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateImageRequest {
-  /**
-   * <p>The description of the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The display name of the image. If not provided, <code>ImageName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the image. Must be unique to your account.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A list of tags to apply to the image.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
     ...obj,
   });
 }
