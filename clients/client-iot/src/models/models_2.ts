@@ -44,6 +44,7 @@ import {
 import {
   BehaviorCriteriaType,
   CACertificateStatus,
+  CertificateMode,
   CertificateStatus,
   Configuration,
   DetectMitigationActionsTaskTarget,
@@ -1111,9 +1112,12 @@ export interface RegisterCACertificateRequest {
   caCertificate: string | undefined;
 
   /**
-   * <p>The private key verification certificate.</p>
+   * <p>The private key verification certificate. If <code>certificateMode</code> is
+   *             <code>SNI_ONLY</code>, the <code>verificationCertificate</code> field must be empty. If
+   *             <code>certificateMode</code> is <code>DEFAULT</code> or not provided, the
+   *             <code>verificationCertificate</code> field must not be empty. </p>
    */
-  verificationCertificate: string | undefined;
+  verificationCertificate?: string;
 
   /**
    * <p>A boolean value that specifies if the CA certificate is set to active.</p>
@@ -1144,6 +1148,19 @@ export interface RegisterCACertificateRequest {
    *          </note>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Describes the certificate mode in which the Certificate Authority (CA) will be
+   *          registered. If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code> to be <code>SNI_ONLY</code>.
+   *          If the <code>verificationCertificate</code> field is provided, set <code>certificateMode</code> to be <code>DEFAULT</code>.
+   *          When <code>certificateMode</code> is not provided, it defaults to <code>DEFAULT</code>.
+   *          All the device certificates that are registered using this CA will be registered in the same certificate mode as the CA.
+   *          For more information about certificate mode for device certificates, see
+   *          <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">
+   *             certificate mode</a>.
+   *       </p>
+   */
+  certificateMode?: CertificateMode | string;
 }
 
 export namespace RegisterCACertificateRequest {
@@ -1526,7 +1543,8 @@ export interface SearchIndexRequest {
   indexName?: string;
 
   /**
-   * <p>The search query string.</p>
+   * <p>The search query string. For more information about the search query syntax, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query
+   *       syntax</a>.</p>
    */
   queryString: string | undefined;
 

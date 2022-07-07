@@ -23,9 +23,9 @@ export interface RegisterCertificateCommandInput extends RegisterCertificateRequ
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a device certificate with IoT. If you have more than one CA certificate
- *          that has the same subject field, you must specify the CA certificate that was used to sign
- *          the device certificate being registered.</p>
+ * <p>Registers a device certificate with IoT in the same <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a> as the signing CA. If you have more than one CA certificate that has the same subject field, you must
+ *          specify the CA certificate that was used to sign the device certificate being
+ *          registered.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCertificate</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

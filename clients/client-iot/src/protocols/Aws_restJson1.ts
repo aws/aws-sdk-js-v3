@@ -6845,6 +6845,8 @@ export const serializeAws_restJson1RegisterCACertificateCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.caCertificate !== undefined && input.caCertificate !== null && { caCertificate: input.caCertificate }),
+    ...(input.certificateMode !== undefined &&
+      input.certificateMode !== null && { certificateMode: input.certificateMode }),
     ...(input.registrationConfig !== undefined &&
       input.registrationConfig !== null && {
         registrationConfig: serializeAws_restJson1RegistrationConfig(input.registrationConfig, context),
@@ -26546,6 +26548,7 @@ const deserializeAws_restJson1CACertificateDescription = (
     autoRegistrationStatus: __expectString(output.autoRegistrationStatus),
     certificateArn: __expectString(output.certificateArn),
     certificateId: __expectString(output.certificateId),
+    certificateMode: __expectString(output.certificateMode),
     certificatePem: __expectString(output.certificatePem),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
