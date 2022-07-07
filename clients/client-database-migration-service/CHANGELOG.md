@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.124.0...v3.125.0) (2022-07-07)
+
+
+### Features
+
+* **client-database-migration-service:** New api to migrate event subscriptions to event bridge rules ([6ed4f9b](https://github.com/aws/aws-sdk-js-v3/commit/6ed4f9bba2f1cebc27a906f0194dab5c4c1e3bc4))
+
+
+
+
+
 # [3.122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.121.0...v3.122.0) (2022-07-01)
 
 

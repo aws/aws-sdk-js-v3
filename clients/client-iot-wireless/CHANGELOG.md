@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.124.0...v3.125.0) (2022-07-07)
+
+
+### Features
+
+* **client-iot-wireless:** Adds 5 APIs: PutPositionConfiguration, GetPositionConfiguration, ListPositionConfigurations, UpdatePosition, GetPosition for the new Positioning Service feature which enables customers to configure solvers to calculate position of LoRaWAN devices, or specify position of LoRaWAN devices & gateways. ([92e8618](https://github.com/aws/aws-sdk-js-v3/commit/92e8618cf09419c36d8f56e92b8b6cc28a2a6118))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.124.0...v3.125.0) (2022-07-07)
+
+
+### Features
+
+* **client-sagemaker:** Heterogeneous clusters: the ability to launch training jobs with multiple instance types. This enables running component of the training job on the instance type that is most suitable for it. e.g. doing data processing and augmentation on CPU instances and neural network training on GPU instances ([0dd0bdd](https://github.com/aws/aws-sdk-js-v3/commit/0dd0bdd305133ee54d6ba3cd90d71efa78422ed4))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

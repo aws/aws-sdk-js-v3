@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.124.0...v3.125.0) (2022-07-07)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Adds support for AppKeys and TenantIds in Amazon Chime SDK WebRTC sessions ([5d50be7](https://github.com/aws/aws-sdk-js-v3/commit/5d50be78006631dbc365d28aa84ec4465e40cd42))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 

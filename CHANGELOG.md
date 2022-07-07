@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.124.0...v3.125.0) (2022-07-07)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Adds support for AppKeys and TenantIds in Amazon Chime SDK WebRTC sessions ([5d50be7](https://github.com/aws/aws-sdk-js-v3/commit/5d50be78006631dbc365d28aa84ec4465e40cd42))
+* **client-database-migration-service:** New api to migrate event subscriptions to event bridge rules ([6ed4f9b](https://github.com/aws/aws-sdk-js-v3/commit/6ed4f9bba2f1cebc27a906f0194dab5c4c1e3bc4))
+* **client-iot-wireless:** Adds 5 APIs: PutPositionConfiguration, GetPositionConfiguration, ListPositionConfigurations, UpdatePosition, GetPosition for the new Positioning Service feature which enables customers to configure solvers to calculate position of LoRaWAN devices, or specify position of LoRaWAN devices & gateways. ([92e8618](https://github.com/aws/aws-sdk-js-v3/commit/92e8618cf09419c36d8f56e92b8b6cc28a2a6118))
+* **client-iot:** This release adds support to register a CA certificate without having to provide a verification certificate. This also allows multiple AWS accounts to register the same CA in the same region. ([3e13ee1](https://github.com/aws/aws-sdk-js-v3/commit/3e13ee15495a6eb983b41218f8af6c6fdc9f6f81))
+* **client-sagemaker:** Heterogeneous clusters: the ability to launch training jobs with multiple instance types. This enables running component of the training job on the instance type that is most suitable for it. e.g. doing data processing and augmentation on CPU instances and neural network training on GPU instances ([0dd0bdd](https://github.com/aws/aws-sdk-js-v3/commit/0dd0bdd305133ee54d6ba3cd90d71efa78422ed4))
+
+
+
+
+
 # [3.124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.123.0...v3.124.0) (2022-07-06)
 
 
